@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+qdrant-client
+sentence-transformers
+psycopg2-binary
+sqlalchemy
+pandas
+numpy
+requests
+python-dotenv
+minio
+ollama
+torch
+transformers
