@@ -1,7 +1,15 @@
+import "./App.css";
+
 import Workspace from "./pages/Workspace";
 
-function App() {
-  return <Workspace />;
-}
+export default function App() {
 
-export default App;
+  return (
+
+    <div className="app">
+
+      <Workspace />
+
+    </div>
+  );
+}

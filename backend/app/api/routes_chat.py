@@ -1,64 +1,224 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
-import ollama
 
-from app.rag.embedder import get_embedding
-from app.rag.qdrant_client import client
-from app.core.config import settings
+from pydantic import BaseModel
+
+from app.orchestration.task_router import (
+    route_query
+)
+
+from app.rag.hybrid_search import (
+    hybrid_search
+)
+
+from app.rag.reranker import (
+    rerank
+)
+
+from app.rag.context_synthesizer import (
+    build_citation_context
+)
+
+from app.rag.source_mapper import (
+    build_source_map
+)
+
+from app.services.llm.model_gateway import (
+    gateway
+)
+
+from app.services.prompt.prompt_builder import (
+    build_prompt
+)
 
 router = APIRouter()
 
-ollama_client = ollama.Client(
-    host=settings.OLLAMA_BASE_URL
-)
+
+# =========================================
+# REQUEST MODEL
+# =========================================
 
 class ChatRequest(BaseModel):
+
     message: str
 
+
+# =========================================
+# CHAT ROUTE
+# =========================================
 
 @router.post("/chat")
 def chat(req: ChatRequest):
 
-    embedding = get_embedding(req.message)
+    # =====================================
+    # AI ORCHESTRATION
+    # =====================================
 
-    results = client.query_points(
-        collection_name="skripsi_collection",
-        query=embedding,
-        limit=3
+    routing = route_query(
+        req.message
     )
 
-    context = "\n\n".join([
-        f"""
-        Judul: {r.payload.get('judul', '')}
+    intent = routing["intent"]
 
-        Abstrak:
-        {r.payload.get('abstrak', '')}
-        """
-        for r in results.points
-    ])
+    selected_model = routing["model"]
 
-    prompt = f"""
-    Kamu adalah AI akademik.
+    selected_provider = routing["provider"]
 
-    Jawab pertanyaan berdasarkan konteks berikut.
+    # =====================================
+    # HYBRID SEARCH
+    # =====================================
 
-    KONTEKS:
-    {context}
+    results = hybrid_search(
 
-    PERTANYAAN:
-    {req.message}
-    """
+        req.message,
 
-    response = ollama_client.chat(
-        model="qwen2.5:7b",
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
+        limit=15
     )
+
+    # =====================================
+    # PREPARE DOCUMENTS
+    # =====================================
+
+    documents = []
+
+    for r in results:
+
+        payload = r.get(
+            "payload",
+            {}
+        )
+
+        text = payload.get(
+            "text",
+            ""
+        )
+
+        documents.append({
+
+            "text": text,
+
+            "payload": payload,
+
+            "score": r.get(
+                "score",
+                0
+            )
+        })
+
+    # =====================================
+    # RERANKING
+    # =====================================
+
+    ranked_docs = rerank(
+
+        req.message,
+
+        documents
+    )
+
+    top_docs = ranked_docs[:5]
+
+    # =====================================
+    # CITATION CONTEXT
+    # =====================================
+
+    context = build_citation_context(
+        top_docs
+    )
+
+    # =====================================
+    # PROMPT BUILDING
+    # =====================================
+
+    prompt = build_prompt(
+
+        query=req.message,
+
+        context=context,
+
+        intent=intent
+    )
+
+    # =====================================
+    # LLM GENERATION
+    # =====================================
+
+    response = gateway.generate_response(
+
+        prompt=prompt,
+
+        model=selected_model,
+
+        provider=selected_provider
+    )
+
+    # =====================================
+    # STRUCTURED CITATIONS
+    # =====================================
+
+    citations = build_source_map(
+        top_docs
+    )
+
+    # =====================================
+    # SOURCES
+    # =====================================
+
+    sources = []
+
+    for idx, r in enumerate(top_docs, start=1):
+
+        payload = r.get(
+            "payload",
+            {}
+        )
+
+        sources.append({
+
+            "source_id": idx,
+
+            "source_file": payload.get(
+                "source_file",
+                ""
+            ),
+
+            "page": payload.get(
+                "page",
+                ""
+            ),
+
+            "chunk_index": payload.get(
+                "chunk_index",
+                ""
+            ),
+
+            "title": payload.get(
+                "title",
+                ""
+            ),
+
+            "score": r.get(
+                "rerank_score",
+                0
+            )
+        })
+
+    # =====================================
+    # FINAL RESPONSE
+    # =====================================
 
     return {
-        "response": response["message"]["content"]
+
+        "status": "success",
+
+        "intent": intent,
+
+        "provider": selected_provider,
+
+        "model": selected_model,
+
+        "response": response,
+
+        "citations": citations,
+
+        "sources": sources
     }

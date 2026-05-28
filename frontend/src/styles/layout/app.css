@@ -1,0 +1,12 @@
+.app-container {
+
+  display: flex;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  padding: 12px;
+
+  gap: 12px;
+}

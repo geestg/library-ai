@@ -1,0 +1,306 @@
+/* ====================================
+   CHAT SHELL
+==================================== */
+
+.chat-modern-shell {
+
+  position: relative;
+
+  isolation: isolate;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 32px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(99,102,241,0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #0f172a,
+      #020617
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(24px);
+}
+
+/* ====================================
+   GLOW
+==================================== */
+
+.chat-modern-shell::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99,102,241,0.12),
+      transparent 30%
+    );
+
+  z-index: 0;
+}
+
+/* ====================================
+   SCROLL AREA
+==================================== */
+
+.modern-messages {
+
+  position: relative;
+
+  z-index: 1;
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding:
+    120px
+    40px
+    240px;
+
+  gap: 40px;
+}
+
+/* ====================================
+   FORCE WIDTH
+==================================== */
+
+.modern-messages > * {
+
+  width: 100%;
+}
+
+/* ====================================
+   HERO
+==================================== */
+
+.hero-section {
+
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding-top: 40px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* ====================================
+   HERO TITLE
+==================================== */
+
+.hero-section h1 {
+
+  margin: 0;
+
+  max-width: 980px;
+
+  font-size: clamp(64px, 6vw, 100px);
+
+  line-height: 0.92;
+
+  letter-spacing: -0.08em;
+
+  font-weight: 900;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #a5b4fc
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====================================
+   HERO TEXT
+==================================== */
+
+.hero-section p {
+
+  max-width: 760px;
+
+  margin-top: 28px;
+
+  color:
+    rgba(255,255,255,0.65);
+
+  font-size: 18px;
+
+  line-height: 1.9;
+}
+
+/* ====================================
+   HERO GRID
+==================================== */
+
+.hero-grid {
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  margin-top: 48px;
+}
+
+/* ====================================
+   HERO CARD
+==================================== */
+
+.hero-card {
+
+  min-height: 200px;
+
+  padding: 30px;
+
+  border-radius: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.03)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  transition:
+    0.2s ease;
+
+  cursor: pointer;
+}
+
+.hero-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(99,102,241,0.3);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* ====================================
+   MESSAGE GROUP
+==================================== */
+
+.message-group {
+
+  width: 100%;
+
+  max-width: 920px;
+
+  margin: 0 auto;
+}
+
+/* ====================================
+   SCROLLBAR
+==================================== */
+
+.modern-messages::-webkit-scrollbar {
+
+  width: 8px;
+}
+
+.modern-messages::-webkit-scrollbar-thumb {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border-radius: 999px;
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media (max-width: 900px) {
+
+  .hero-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .modern-messages {
+
+    padding:
+      120px
+      40px
+      240px;
+  }
+
+  .hero-section h1 {
+
+    font-size: 48px;
+  }
+
+}
