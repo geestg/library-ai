@@ -1,0 +1,313 @@
+/* ====================================
+   FLOATING INPUT WRAPPER
+==================================== */
+
+.floating-input-wrapper {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 24px;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 40px);
+
+  max-width: 1100px;
+
+  z-index: 50;
+}
+
+/* ====================================
+   FILE PILLS
+==================================== */
+
+.floating-files {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.modern-file-pill {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    10px 16px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 13px;
+
+  backdrop-filter: blur(20px);
+}
+
+/* ====================================
+   SMART ACTIONS
+==================================== */
+
+.smart-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 14px;
+}
+
+.smart-actions button {
+
+  padding:
+    10px 16px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  color:
+    rgba(255,255,255,0.72);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.smart-actions button:hover {
+
+  background:
+    rgba(99,102,241,0.16);
+
+  border-color:
+    rgba(99,102,241,0.28);
+
+  color: white;
+}
+
+/* ====================================
+   INPUT CONTAINER
+==================================== */
+
+.floating-input {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 14px;
+
+  padding:
+    16px 18px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(15,23,42,0.88);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(28px);
+}
+
+/* ====================================
+   ATTACH
+==================================== */
+
+.modern-attach {
+
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  color: #cbd5e1;
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  transition: 0.2s ease;
+}
+
+.modern-attach:hover {
+
+  background:
+    rgba(99,102,241,0.16);
+
+  color: white;
+}
+
+/* ====================================
+   TEXTAREA
+==================================== */
+
+.floating-input textarea {
+
+  flex: 1;
+
+  resize: none;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  min-height: 28px;
+
+  max-height: 180px;
+
+  overflow-y: auto;
+
+  font-family: inherit;
+}
+
+.floating-input textarea::placeholder {
+
+  color:
+    rgba(255,255,255,0.34);
+}
+
+.floating-input textarea::-webkit-scrollbar {
+
+  display: none;
+}
+
+/* ====================================
+   SEND BUTTON
+==================================== */
+
+.send-modern-btn {
+
+  width: 52px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #4f46e5
+    );
+
+  box-shadow:
+    0 12px 30px rgba(79,70,229,0.35);
+
+  transition: 0.2s ease;
+}
+
+.send-modern-btn:hover {
+
+  transform:
+    translateY(-2px);
+}
+
+.send-modern-btn:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media (max-width: 768px) {
+
+  .floating-input-wrapper {
+
+    width: calc(100% - 20px);
+
+    bottom: 14px;
+  }
+
+  .floating-input {
+
+    padding: 14px;
+  }
+
+  .smart-actions {
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 4px;
+  }
+
+  .smart-actions::-webkit-scrollbar {
+
+    display: none;
+  }
+}

@@ -1,0 +1,369 @@
+/* ====================================
+   MODERN SIDEBAR
+==================================== */
+
+.modern-sidebar {
+
+  height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 24px 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,14,24,0.96),
+      rgba(5,8,18,1)
+    );
+
+  border-right:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(20px);
+}
+
+/* ====================================
+   LOGO
+==================================== */
+
+.sidebar-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding:
+    14px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* ====================================
+   ICON
+==================================== */
+
+.logo-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #4f46e5
+    );
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(79,70,229,0.35);
+}
+
+/* ====================================
+   LOGO TEXT
+==================================== */
+
+.sidebar-logo h2 {
+
+  margin: 0;
+
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.sidebar-logo span {
+
+  color:
+    rgba(255,255,255,0.5);
+
+  font-size: 12px;
+}
+
+/* ====================================
+   NAV
+==================================== */
+
+.sidebar-nav {
+
+  margin-top: 34px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* ====================================
+   SECTION TITLE
+==================================== */
+
+.nav-section-title {
+
+  margin:
+    20px 10px 12px;
+
+  color:
+    rgba(255,255,255,0.35);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+}
+
+/* ====================================
+   ITEM
+==================================== */
+
+.sidebar-item {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  width: 100%;
+
+  padding:
+    16px 18px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: transparent;
+
+  color:
+    rgba(255,255,255,0.72);
+
+  cursor: pointer;
+
+  transition: all 0.22s ease;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+/* ====================================
+   ITEM HOVER
+==================================== */
+
+.sidebar-item:hover {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  color: white;
+
+  transform:
+    translateX(2px);
+}
+
+/* ====================================
+   ACTIVE
+==================================== */
+
+.sidebar-item.active {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99,102,241,0.22),
+      rgba(79,70,229,0.18)
+    );
+
+  border:
+    1px solid rgba(99,102,241,0.24);
+
+  color: white;
+
+  box-shadow:
+    0 10px 30px rgba(79,70,229,0.18);
+}
+
+/* ====================================
+   ACTIVE GLOW
+==================================== */
+
+.sidebar-item.active::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: -8px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 4px;
+
+  height: 36px;
+
+  border-radius: 999px;
+
+  background: #818cf8;
+}
+
+/* ====================================
+   RECENT
+==================================== */
+
+.sidebar-recent {
+
+  margin-top: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+/* ====================================
+   RECENT CARD
+==================================== */
+
+.recent-card {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding:
+    16px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  color:
+    rgba(255,255,255,0.72);
+
+  transition: 0.22s ease;
+
+  cursor: pointer;
+}
+
+.recent-card:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(99,102,241,0.16);
+
+  background:
+    rgba(99,102,241,0.06);
+}
+
+/* ====================================
+   RECENT TEXT
+==================================== */
+
+.recent-card h4 {
+
+  margin: 0;
+
+  color: white;
+
+  font-size: 14px;
+
+  margin-bottom: 4px;
+}
+
+.recent-card span {
+
+  font-size: 12px;
+
+  color:
+    rgba(255,255,255,0.5);
+
+  line-height: 1.6;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+.sidebar-footer {
+
+  margin-top: auto;
+
+  padding-top: 30px;
+}
+
+/* ====================================
+   AI STATUS
+==================================== */
+
+.ai-status {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding:
+    14px 16px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(99,102,241,0.12);
+
+  border:
+    1px solid rgba(99,102,241,0.18);
+
+  color: #a5b4fc;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
