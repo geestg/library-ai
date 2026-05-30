@@ -7,8 +7,11 @@ from qdrant_client.models import (
 
 from app.rag.qdrant_client import (
     client,
-    COLLECTION_NAME,
     ensure_collection_exists
+)
+
+from app.core.constants import (
+    USER_DOCUMENT_COLLECTION
 )
 
 from app.rag.embedder import (
@@ -29,7 +32,9 @@ from app.rag.chunker import (
 
 def ingest_dataset():
 
-    ensure_collection_exists()
+    ensure_collection_exists(
+        USER_DOCUMENT_COLLECTION
+    )
 
     dataset_path = (
         "/app/datasets/skripsi_dataset.json"
@@ -44,10 +49,6 @@ def ingest_dataset():
         data = json.load(f)
 
     points = []
-
-    # =================================
-    # PROCESS ITEMS
-    # =================================
 
     for idx, item in enumerate(data):
 
@@ -71,10 +72,6 @@ def ingest_dataset():
             ""
         )
 
-        # =============================
-        # TEXT FOR EMBEDDING
-        # =============================
-
         text = f"""
         Judul:
         {title}
@@ -83,17 +80,9 @@ def ingest_dataset():
         {abstract}
         """
 
-        # =============================
-        # GENERATE EMBEDDING
-        # =============================
-
         embedding = get_embedding(
             text
         )
-
-        # =============================
-        # PAYLOAD
-        # =============================
 
         payload = {
 
@@ -120,10 +109,6 @@ def ingest_dataset():
             "chunk_index": idx
         }
 
-        # =============================
-        # BUILD POINT
-        # =============================
-
         point = PointStruct(
 
             id=str(uuid.uuid4()),
@@ -135,19 +120,17 @@ def ingest_dataset():
 
         points.append(point)
 
-    # =================================
-    # UPSERT
-    # =================================
-
     client.upsert(
 
-        collection_name=COLLECTION_NAME,
+        collection_name=
+        USER_DOCUMENT_COLLECTION,
 
         points=points
     )
 
     print(
-        f"[INGEST] Dataset success: {len(points)} indexed."
+        f"[INGEST] Dataset success: "
+        f"{len(points)} indexed."
     )
 
 
@@ -166,60 +149,40 @@ def ingest_pdf(
     year="2025"
 ):
 
-    ensure_collection_exists()
-
-    # =================================
-    # EXTRACT PDF PAGES
-    # =================================
+    ensure_collection_exists(
+        USER_DOCUMENT_COLLECTION
+    )
 
     pages = extract_pdf_pages(
         pdf_path
     )
 
     print(
-        f"[PDF] Extracted pages: {len(pages)}"
+        f"[PDF] Extracted pages: "
+        f"{len(pages)}"
     )
-
-    # =================================
-    # CHUNKING
-    # =================================
 
     chunks = chunk_text(
         pages
     )
 
     print(
-        f"[CHUNK] Generated chunks: {len(chunks)}"
+        f"[CHUNK] Generated chunks: "
+        f"{len(chunks)}"
     )
-
-    # =================================
-    # BUILD POINTS
-    # =================================
 
     points = []
 
     for chunk in chunks:
 
-        # =============================
-        # EMBEDDING
-        # =============================
-
         embedding = get_embedding(
             chunk["text"]
         )
-
-        # =============================
-        # METADATA
-        # =============================
 
         metadata = chunk.get(
             "metadata",
             {}
         )
-
-        # =============================
-        # PAYLOAD
-        # =============================
 
         payload = {
 
@@ -235,16 +198,8 @@ def ingest_pdf(
 
             "source_file": pdf_path,
 
-            # =========================
-            # CHUNK METADATA
-            # =========================
-
             **metadata
         }
-
-        # =============================
-        # BUILD POINT
-        # =============================
 
         point = PointStruct(
 
@@ -257,25 +212,19 @@ def ingest_pdf(
 
         points.append(point)
 
-    # =================================
-    # UPSERT
-    # =================================
-
     client.upsert(
 
-        collection_name=COLLECTION_NAME,
+        collection_name=
+        USER_DOCUMENT_COLLECTION,
 
         points=points
     )
 
     print(
-        f"[INGEST] PDF success: {len(points)} chunks indexed."
+        f"[INGEST] PDF success: "
+        f"{len(points)} chunks indexed."
     )
 
-
-# =====================================
-# MAIN
-# =====================================
 
 if __name__ == "__main__":
 
