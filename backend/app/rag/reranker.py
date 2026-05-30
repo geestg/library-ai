@@ -1,26 +1,125 @@
-from sentence_transformers import CrossEncoder
+from sentence_transformers import (
+    CrossEncoder
+)
+
+# =====================================
+# LOAD MODEL
+# =====================================
 
 reranker_model = CrossEncoder(
     "cross-encoder/ms-marco-MiniLM-L-6-v2"
 )
 
+# =====================================
+# RERANK RESULTS
+# =====================================
 
-def rerank(query, documents):
+def rerank(
+    query: str,
+    documents: list,
+    top_k: int = None
+):
 
-    pairs = [
-        (query, doc["text"])
-        for doc in documents
-    ]
+    if not documents:
 
-    scores = reranker_model.predict(pairs)
+        return []
 
-    for i, score in enumerate(scores):
-        documents[i]["rerank_score"] = float(score)
+    pairs = []
 
-    ranked = sorted(
+    # =================================
+    # BUILD QUERY-DOCUMENT PAIRS
+    # =================================
+
+    for doc in documents:
+
+        payload = doc.get(
+            "payload",
+            {}
+        )
+
+        document_text = f"""
+        Title:
+        {payload.get("title", "")}
+
+        Abstract:
+        {payload.get("abstract", "")}
+
+        Chunk:
+        {payload.get("chunk", "")}
+
+        Program Studi:
+        {payload.get("prodi", "")}
+        """
+
+        pairs.append(
+            (
+                query,
+                document_text
+            )
+        )
+
+    # =================================
+    # PREDICT SCORES
+    # =================================
+
+    scores = reranker_model.predict(
+        pairs
+    )
+
+    # =================================
+    # ATTACH SCORES
+    # =================================
+
+    ranked_documents = []
+
+    for doc, score in zip(
         documents,
-        key=lambda x: x["rerank_score"],
+        scores
+    ):
+
+        doc["rerank_score"] = float(
+            score
+        )
+
+        ranked_documents.append(
+            doc
+        )
+
+    # =================================
+    # SORT DESC
+    # =================================
+
+    ranked_documents.sort(
+
+        key=lambda x:
+        x["rerank_score"],
+
         reverse=True
     )
 
-    return ranked
+    # =================================
+    # RETURN TOP K
+    # =================================
+
+    if top_k:
+
+        return ranked_documents[:top_k]
+
+    return ranked_documents
+
+
+# =====================================
+# BACKWARD COMPATIBILITY
+# =====================================
+
+def rerank_results(
+    query: str,
+    documents: list,
+    top_k: int = 10
+):
+
+    return rerank(
+        query=query,
+        documents=documents,
+        top_k=top_k
+    )

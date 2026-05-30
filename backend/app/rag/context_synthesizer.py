@@ -136,86 +136,107 @@ Potensi arah penelitian lanjutan:
 def build_citation_context(results: List[Dict]):
 
     """
-    Build structured LLM context
-    with citation-aware source mapping.
+    Build thesis-aware citation context
+    for grounded academic responses.
     """
 
     sections = []
 
-    for idx, result in enumerate(results, start=1):
+    for idx, result in enumerate(
+        results,
+        start=1
+    ):
 
-        # =================================
-        # SUPPORT MULTIPLE STRUCTURES
-        # =================================
-
-        metadata = (
-            result.get("metadata")
-            or result.get("payload", {})
+        payload = result.get(
+            "payload",
+            {}
         )
 
-        # =================================
-        # METADATA
-        # =================================
-
-        source_file = metadata.get(
-            "source_file",
-            metadata.get("file_name", "Unknown")
+        title = payload.get(
+            "title",
+            "Unknown Title"
         )
 
-        page = metadata.get(
-            "page",
-            metadata.get("page_number", "?")
+        author = payload.get(
+            "author",
+            "Unknown Author"
         )
 
-        chunk_index = metadata.get(
+        year = payload.get(
+            "year",
+            "-"
+        )
+
+        prodi = payload.get(
+            "prodi",
+            "-"
+        )
+
+        url = payload.get(
+            "url",
+            "-"
+        )
+
+        abstract = payload.get(
+            "abstract",
+            ""
+        )
+
+        chunk = payload.get(
+            "chunk",
+            ""
+        )
+
+        chunk_index = payload.get(
             "chunk_index",
             idx
         )
 
         score = result.get(
-            "score",
-            0
+            "rerank_score",
+            result.get(
+                "score",
+                0
+            )
         )
 
-        # =================================
-        # TEXT EXTRACTION
-        # =================================
+        content = chunk.strip()
 
-        text = (
-            result.get("text")
-            or metadata.get("text")
-            or metadata.get("content")
-            or metadata.get("abstract")
-            or ""
-        )
-
-        # =================================
-        # CLEAN TEXT
-        # =================================
-
-        text = text.strip()
-
-        # =================================
-        # BUILD SECTION
-        # =================================
+        if not content:
+            content = abstract.strip()
 
         section = f"""
 [SOURCE_{idx}]
 
 SOURCE_ID: {idx}
-FILE: {source_file}
-PAGE: {page}
-CHUNK_INDEX: {chunk_index}
-RELEVANCE_SCORE: {round(score, 4)}
+
+TITLE:
+{title}
+
+AUTHOR:
+{author}
+
+YEAR:
+{year}
+
+PROGRAM_STUDI:
+{prodi}
+
+CHUNK_INDEX:
+{chunk_index}
+
+RELEVANCE_SCORE:
+{round(score, 4)}
+
+URL:
+{url}
 
 CONTENT:
-{text}
+{content}
 """
 
-        sections.append(section)
-
-    # =================================
-    # FINAL CONTEXT
-    # =================================
+        sections.append(
+            section.strip()
+        )
 
     return "\n\n".join(sections)

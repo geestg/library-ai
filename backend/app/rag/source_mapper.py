@@ -1,33 +1,83 @@
 from typing import List, Dict
 
 
-def build_source_map(results: List[Dict]):
-
+def build_source_map(
+    results: List[Dict]
+):
     """
     Build structured citation mapping
-    from retrieval results.
+    from thesis retrieval results.
     """
 
     citations = []
 
-    for idx, result in enumerate(results, start=1):
+    for idx, result in enumerate(
+        results,
+        start=1
+    ):
 
-        metadata = result.get("metadata", {})
+        payload = result.get(
+            "payload",
+            {}
+        )
 
         citation = {
+
             "source_id": idx,
-            "source_file": metadata.get(
-                "source_file",
-                "Unknown"
+
+            "title":
+            payload.get(
+                "title",
+                ""
             ),
-            "page": metadata.get("page"),
-            "chunk_index": metadata.get(
+
+            "author":
+            payload.get(
+                "author",
+                ""
+            ),
+
+            "year":
+            payload.get(
+                "year",
+                ""
+            ),
+
+            "prodi":
+            payload.get(
+                "prodi",
+                ""
+            ),
+
+            "url":
+            payload.get(
+                "url",
+                ""
+            ),
+
+            "chunk_index":
+            payload.get(
                 "chunk_index"
             ),
-            "score": result.get("score"),
-            "content": result.get("text", "")
+
+            "score":
+            result.get(
+                "rerank_score",
+                result.get(
+                    "score",
+                    0
+                )
+            ),
+
+            "content":
+            payload.get(
+                "chunk",
+                ""
+            )
         }
 
-        citations.append(citation)
+        citations.append(
+            citation
+        )
 
     return citations

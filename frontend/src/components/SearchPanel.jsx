@@ -124,17 +124,20 @@ export default function SearchPanel({
 
                       {
 
-                        source.source_file ||
-                        "Unknown Document"
+                        source.title ||
+                        "Unknown Thesis"
                       }
 
                     </div>
 
                     <div className="evidence-citation-id">
 
-                      Citation
-                      {" "}
-                      [{source.source_id}]
+                      {source.year || "-"}
+
+                      {" • "}
+
+                      {source.prodi || "-"}
+
                     </div>
 
                   </div>
