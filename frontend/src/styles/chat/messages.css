@@ -1,29 +1,139 @@
+/* ====================================
+   MESSAGE WRAPPER
+==================================== */
+
 .message {
 
   width: 100%;
 
-  max-width: 900px;
-
   margin: 0 auto;
-
-  padding: 24px;
-
-  border-radius: 20px;
-
-  background: #111827;
-
-  color: white;
 }
+
+/* ====================================
+   USER MESSAGE
+==================================== */
 
 .message.user {
 
-  background: #312e81;
+  width: fit-content;
+
+  max-width: 650px;
+
+  margin-left: auto;
+
+  margin-right: 0;
+
+  padding: 20px 24px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+
+  color: white;
+
+  box-shadow:
+    0 12px 32px
+    rgba(
+      79,
+      70,
+      229,
+      0.25
+    );
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.message.user:hover {
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 16px 36px
+    rgba(
+      79,
+      70,
+      229,
+      0.35
+    );
+}
+
+/* ====================================
+   ASSISTANT MESSAGE
+==================================== */
 
 .message.assistant {
 
-  background: #111827;
+  width: 100%;
+
+  max-width: 800px;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+  padding: 40px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(
+      15,
+      23,
+      42,
+      0.78
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  backdrop-filter:
+    blur(20px);
+
+  box-shadow:
+    0 20px 50px
+    rgba(
+      0,
+      0,
+      0,
+      0.35
+    );
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
+
+.message.assistant:hover {
+
+  border-color:
+    rgba(
+      99,
+      102,
+      241,
+      0.18
+    );
+
+  transform:
+    translateY(-1px);
+}
+
+/* ====================================
+   CONTENT
+==================================== */
 
 .message-content {
 
@@ -32,4 +142,88 @@
   overflow-wrap: break-word;
 
   word-break: break-word;
+}
+
+/* ====================================
+   USER CONTENT
+==================================== */
+
+.message.user .message-content {
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  font-weight: 500;
+}
+
+/* ====================================
+   ASSISTANT CONTENT
+==================================== */
+
+.message.assistant .message-content {
+
+  font-size: 15px;
+
+  line-height: 1.95;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+}
+
+/* ====================================
+   SPACING
+==================================== */
+
+.message + .message {
+
+  margin-top: 32px;
+}
+
+/* ====================================
+   SELECTION
+==================================== */
+
+.message-content ::selection {
+
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.35
+    );
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media (max-width: 768px) {
+
+  .message.user {
+
+    max-width: 90%;
+
+    padding:
+      18px 20px;
+  }
+
+  .message.assistant {
+
+    max-width: 100%;
+
+    padding:
+      24px;
+  }
+
+  .message + .message {
+
+    margin-top: 24px;
+  }
 }
