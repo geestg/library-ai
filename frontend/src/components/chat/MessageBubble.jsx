@@ -1,67 +1,27 @@
-import React from "react";
+import ReactMarkdown from "react-markdown";
 
-const MessageBubble = ({
+export default function MessageBubble({
+
   role,
-  content,
-  setActiveCitation
-}) => {
+  content
 
-  // =====================================
-  // PARSE INLINE CITATIONS
-  // =====================================
-
-  const renderContent = (text) => {
-
-    const parts = text.split(/(\[\d+\])/g);
-
-    return parts.map((part, index) => {
-
-      const match = part.match(/\[(\d+)\]/);
-
-      // =================================
-      // CITATION
-      // =================================
-
-      if (match) {
-
-        const citationId = Number(match[1]);
-
-        return (
-          <span
-            key={index}
-            className="inline-citation"
-            onClick={() =>
-              setActiveCitation(citationId)
-            }
-          >
-            {part}
-          </span>
-        );
-      }
-
-      // =================================
-      // NORMAL TEXT
-      // =================================
-
-      return (
-        <span key={index}>
-          {part}
-        </span>
-      );
-    });
-  };
+}) {
 
   return (
+
     <div className={`message ${role}`}>
 
       <div className="message-content">
 
-        {renderContent(content)}
+        <ReactMarkdown>
+
+          {content}
+
+        </ReactMarkdown>
 
       </div>
 
     </div>
-  );
-};
 
-export default MessageBubble;
+  );
+}

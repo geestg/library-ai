@@ -8,8 +8,10 @@ from app.services.research_service import (
     research_analysis
 )
 
-router = APIRouter()
-
+router = APIRouter(
+    prefix="/api/research",
+    tags=["Research"]
+)
 
 # =====================================
 # RESEARCH ANALYSIS

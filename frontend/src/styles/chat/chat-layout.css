@@ -96,13 +96,26 @@
 }
 
 /* ====================================
+   EMPTY CHAT MODE
+==================================== */
+
+.modern-messages.empty-chat {
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding:
+    40px
+    40px
+    220px;
+}
+
+/* ====================================
    FORCE WIDTH
 ==================================== */
 
-.modern-messages > * {
 
-  width: 100%;
-}
 
 /* ====================================
    HERO
@@ -116,15 +129,15 @@
 
   margin: 0 auto;
 
-  padding-top: 40px;
+  margin-top: -100px;
 
   display: flex;
 
   flex-direction: column;
 
-  align-items: center;
-
   justify-content: center;
+
+  align-items: center;
 
   text-align: center;
 }
@@ -293,14 +306,26 @@
   .modern-messages {
 
     padding:
-      120px
+      80px
+      20px
+      220px;
+  }
+
+  .modern-messages.empty-chat {
+
+    padding:
       40px
-      240px;
+      20px
+      220px;
+  }
+
+  .hero-section {
+
+    margin-top: -40px;
   }
 
   .hero-section h1 {
 
     font-size: 48px;
   }
-
 }

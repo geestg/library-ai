@@ -4,19 +4,27 @@
 
 .floating-input-wrapper {
 
-  position: absolute;
+  position: sticky;
 
-  left: 50%;
+  bottom: 0;
 
-  bottom: 24px;
-
-  transform: translateX(-50%);
-
-  width: calc(100% - 40px);
+  width: 100%;
 
   max-width: 1100px;
 
+  margin: 0 auto;
+
+  padding: 16px 20px 20px;
+
   z-index: 50;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,6,23,0.98),
+      rgba(2,6,23,0.90),
+      transparent
+    );
 }
 
 /* ====================================
