@@ -8,10 +8,6 @@ import SearchPanel from "../components/SearchPanel";
 
 export default function Workspace() {
 
-  // =====================================
-  // STATE
-  // =====================================
-
   const [messages, setMessages] =
     useState([]);
 
@@ -21,48 +17,19 @@ export default function Workspace() {
   const [activeCitation, setActiveCitation] =
     useState(null);
 
-  // =====================================
-  // DEBUG
-  // =====================================
-
-  console.log(
-    "WORKSPACE MESSAGES:",
-    messages
-  );
-
-  console.log(
-    "WORKSPACE LENGTH:",
-    messages.length
-  );
-
-  // =====================================
-  // UI
-  // =====================================
-
   return (
 
     <div className="workspace-shell">
 
-      {/* ============================= */}
-      {/* AMBIENT GLOW */}
-      {/* ============================= */}
-
       <div className="ambient-glow ambient-left" />
-      <div className="ambient-glow ambient-right" />
 
-      {/* ============================= */}
-      {/* SIDEBAR */}
-      {/* ============================= */}
+      <div className="ambient-glow ambient-right" />
 
       <aside className="workspace-sidebar">
 
         <Sidebar />
 
       </aside>
-
-      {/* ============================= */}
-      {/* MAIN */}
-      {/* ============================= */}
 
       <main className="workspace-main">
 
@@ -83,10 +50,6 @@ export default function Workspace() {
         />
 
       </main>
-
-      {/* ============================= */}
-      {/* EVIDENCE */}
-      {/* ============================= */}
 
       <aside className="workspace-evidence">
 

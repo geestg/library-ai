@@ -1,6 +1,5 @@
 import {
   useState,
-  useRef,
   useEffect
 } from "react";
 
@@ -48,405 +47,477 @@ export default function ChatWindow({
   const [uploadingFiles, setUploadingFiles] =
     useState([]);
 
-  const messagesEndRef =
-    useRef(null);
+  // =====================================
+  // AUTO SCROLL
+  // =====================================
 
   useEffect(() => {
 
-    if (messages.length > 0) {
+    const container =
+      document.querySelector(
+        ".modern-messages"
+      );
 
-      messagesEndRef.current
-        ?.scrollIntoView({
+    if (!container) return;
 
-          behavior: "smooth"
-        });
+    container.scrollTo({
 
-    }
+      top:
+        container.scrollHeight,
 
-  }, [messages, uploadingFiles]);
+      behavior:
+        "smooth"
+    });
 
-  // =====================================
-  // DEBUG
-  // =====================================
+  }, [
 
-  console.log(
-    "CHATWINDOW MESSAGES:",
-    messages
-  );
+    messages,
 
-  console.log(
-    "CHATWINDOW LENGTH:",
-    messages.length
-  );
+    uploadingFiles,
+
+    loading
+
+  ]);
 
   // =====================================
   // FILE UPLOAD
   // =====================================
 
-  const handleFileUpload = async (e) => {
+  const handleFileUpload =
+    async (e) => {
 
-    const files = Array.from(
-      e.target.files
-    );
+      const files =
+        Array.from(
+          e.target.files
+        );
 
-    if (!files.length) return;
+      if (!files.length)
+        return;
 
-    for (const file of files) {
+      for (const file of files) {
 
-      const uploadItem = {
+        const uploadItem = {
 
-        id:
-          Date.now() + file.name,
+          id:
+            Date.now() +
+            file.name,
 
-        name:
-          file.name,
+          name:
+            file.name,
 
-        status:
-          "Analyzing document..."
-      };
+          status:
+            "Analyzing document..."
+        };
 
-      setUploadingFiles((prev) => [
+        setUploadingFiles(
+          (prev) => [
 
-        ...prev,
+            ...prev,
 
-        uploadItem
-      ]);
+            uploadItem
+          ]
+        );
+
+        try {
+
+          const formData =
+            new FormData();
+
+          formData.append(
+            "file",
+            file
+          );
+
+          const response =
+            await fetch(
+
+              `${API_BASE_URL}/upload-pdf`,
+
+              {
+
+                method:
+                  "POST",
+
+                body:
+                  formData
+              }
+            );
+
+          if (
+            !response.ok
+          ) {
+
+            throw new Error(
+              "Upload failed"
+            );
+          }
+
+          const data =
+            await response.json();
+
+          setUploadingFiles(
+            (prev) =>
+
+              prev.map(
+                (f) =>
+
+                  f.id ===
+                  uploadItem.id
+
+                    ? {
+
+                        ...f,
+
+                        status:
+                          "Indexed successfully"
+                      }
+
+                    : f
+              )
+          );
+
+          setUploadedFiles(
+            (prev) => [
+
+              ...prev,
+
+              {
+
+                name:
+                  file.name,
+
+                chunks:
+                  data.chunks || 0,
+
+                pages:
+                  data.pages || 0,
+
+                type:
+                  data.file_type ||
+                  "pdf"
+              }
+            ]
+          );
+
+          setTimeout(
+            () => {
+
+              setUploadingFiles(
+                (prev) =>
+
+                  prev.filter(
+                    (f) =>
+
+                      f.id !==
+                      uploadItem.id
+                  )
+              );
+
+            },
+
+            1200
+          );
+
+        } catch (err) {
+
+          console.error(
+            err
+          );
+
+          setUploadingFiles(
+            (prev) =>
+
+              prev.map(
+                (f) =>
+
+                  f.id ===
+                  uploadItem.id
+
+                    ? {
+
+                        ...f,
+
+                        status:
+                          "Upload failed"
+                      }
+
+                    : f
+              )
+          );
+        }
+      }
+    };
+
+  // =====================================
+  // SEND MESSAGE
+  // =====================================
+
+  const sendMessage =
+    async () => {
+
+      if (
+        !input.trim()
+      )
+        return;
+
+      const finalInput =
+        input;
+
+      setMessages(
+        (prev) => [
+
+          ...prev,
+
+          {
+
+            role:
+              "user",
+
+            content:
+              finalInput
+          },
+
+          {
+
+            role:
+              "assistant",
+
+            content:
+              ""
+          }
+        ]
+      );
+
+      setInput("");
+
+      const textarea =
+        document.querySelector(
+          ".floating-input textarea"
+        );
+
+      if (textarea) {
+
+        textarea.style.height =
+          "auto";
+      }
+
+      setLoading(true);
 
       try {
-
-        const formData =
-          new FormData();
-
-        formData.append(
-          "file",
-          file
-        );
 
         const response =
           await fetch(
 
-            `${API_BASE_URL}/upload-pdf`,
+            `${API_BASE_URL}/api/research/research-analysis`,
 
             {
 
-              method: "POST",
+              method:
+                "POST",
 
-              body: formData
+              headers: {
+
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify({
+
+                  query:
+                    finalInput,
+
+                  top_k:
+                    5,
+
+                  mode:
+                    "analysis"
+                })
             }
           );
 
-        if (!response.ok) {
+        if (
+          !response.ok
+        ) {
 
           throw new Error(
-            "Upload failed"
+
+            `Research request failed: ${response.status}`
           );
         }
 
         const data =
           await response.json();
 
-        setUploadingFiles((prev) =>
-
-          prev.map((f) =>
-
-            f.id === uploadItem.id
-
-              ? {
-
-                  ...f,
-
-                  status:
-                    "Indexed successfully"
-                }
-
-              : f
-          )
+        console.log(
+          "RESEARCH RESPONSE",
+          data
         );
 
-        setUploadedFiles((prev) => [
+        setMessages(
+          (prev) => {
 
-          ...prev,
+            const updated =
+              [...prev];
 
-          {
+            updated[
+              updated.length -
+                1
+            ] = {
 
-            name:
-              file.name,
+              role:
+                "assistant",
 
-            chunks:
-              data.chunks || 0,
+              content:
+                data.analysis ||
+                "No analysis returned.",
 
-            pages:
-              data.pages || 0,
+              citations:
+                data.citations ||
+                [],
 
-            type:
-              data.file_type || "pdf"
+              evidence:
+                data.evidence ||
+                {}
+            };
+
+            return updated;
           }
-        ]);
+        );
 
-        setTimeout(() => {
+        setSources(
 
-          setUploadingFiles((prev) =>
+          data.citations ||
+            []
+        );
 
-            prev.filter(
+      } catch (error) {
 
-              (f) =>
-                f.id !== uploadItem.id
-            )
-          );
+        console.error(
+          error
+        );
 
-        }, 1200);
+        setMessages(
+          (prev) => {
 
-      } catch (err) {
+            const updated =
+              [...prev];
 
-        console.error(err);
+            updated[
+              updated.length -
+                1
+            ] = {
 
-        setUploadingFiles((prev) =>
+              role:
+                "assistant",
 
-          prev.map((f) =>
+              content:
+                `Terjadi error saat memproses request.\n\n${error.message}`
+            };
 
-            f.id === uploadItem.id
+            return updated;
+          }
+        );
 
-              ? {
+      } finally {
 
-                  ...f,
-
-                  status:
-                    "Upload failed"
-                }
-
-              : f
-          )
+        setLoading(
+          false
         );
       }
-    }
-  };
-
-  // =====================================
-  // SEND MESSAGE
-  // =====================================
-
-  const sendMessage = async () => {
-
-    if (!input.trim()) return;
-
-    const finalInput = input;
-
-    const userMessage = {
-
-      role: "user",
-
-      content: finalInput
     };
 
-    setMessages((prev) => [
+  // =====================================
+  // ENTER
+  // =====================================
 
-      ...prev,
+  const handleKeyDown =
+    (e) => {
 
-      userMessage,
+      if (
 
-      {
+        e.key ===
+          "Enter" &&
 
-        role: "assistant",
+        !e.shiftKey
 
-        content: ""
+      ) {
+
+        e.preventDefault();
+
+        sendMessage();
       }
-    ]);
-
-    setInput("");
-
-    const textarea =
-      document.querySelector(
-        ".floating-input textarea"
-      );
-
-    if (textarea) {
-
-      textarea.style.height =
-        "auto";
-    }
-
-    setLoading(true);
-
-    try {
-
-      const response =
-        await fetch(
-
-          `${API_BASE_URL}/api/research/research-analysis`,
-
-          {
-
-            method: "POST",
-
-            headers: {
-
-              "Content-Type":
-                "application/json"
-            },
-
-            body: JSON.stringify({
-
-              query:
-                finalInput,
-
-              top_k: 5,
-
-              mode:
-                "analysis"
-            })
-          }
-        );
-
-      if (!response.ok) {
-
-        throw new Error(
-          `Research request failed: ${response.status}`
-        );
-      }
-
-      const data =
-        await response.json();
-
-      console.log(
-        "FULL RESPONSE:",
-        data
-      );
-
-      setMessages((prev) => {
-
-        const updated =
-          [...prev];
-
-        updated[
-          updated.length - 1
-        ] = {
-
-          role: "assistant",
-
-          content:
-            data.analysis ||
-            "No analysis returned.",
-
-          citations:
-            data.citations || [],
-
-          evidence:
-            data.evidence || {}
-        };
-
-        return updated;
-      });
-
-      setSources(
-        data.citations || []
-      );
-
-    } catch (error) {
-
-      console.error(error);
-
-      setMessages((prev) => {
-
-        const updated =
-          [...prev];
-
-        updated[
-          updated.length - 1
-        ] = {
-
-          role: "assistant",
-
-          content:
-            `Terjadi error saat memproses request.\n\n${error.message}`
-        };
-
-        return updated;
-      });
-
-    } finally {
-
-      setLoading(false);
-    }
-  };
+    };
 
   // =====================================
-  // ENTER KEY
+  // UI
   // =====================================
-
-  const handleKeyDown = (e) => {
-
-    if (
-
-      e.key === "Enter" &&
-
-      !e.shiftKey
-
-    ) {
-
-      e.preventDefault();
-
-      sendMessage();
-    }
-  };
-
-  // =====================================
-  // RENDER DEBUG
-  // =====================================
-
-  console.log(
-    "RENDERING CHAT",
-    messages
-  );
 
   return (
 
     <div className="chat-modern-shell">
 
       <div
+
         className={`modern-messages ${
           messages.length === 0
             ? "empty-chat"
             : ""
         }`}
+
       >
 
         {
 
-          messages.length === 0 ? (
+          messages.length ===
+          0
 
-            <ChatHero
-              setInput={setInput}
-            />
+            ? (
 
-          ) : (
+              <ChatHero
+                setInput={
+                  setInput
+                }
+              />
 
-            messages.map(
+            )
 
-              (msg, idx) => {
+            : (
 
-                console.log(
-                  "MESSAGE",
-                  idx,
-                  msg
-                );
-
-                return (
+              messages.map(
+                (
+                  msg,
+                  idx
+                ) => (
 
                   <MessageBubble
 
                     key={idx}
 
-                    role={msg.role}
+                    role={
+                      msg.role
+                    }
 
-                    content={msg.content}
+                    content={
+                      msg.content
+                    }
+
+                    citations={
+                      msg.citations
+                    }
+
+                    evidence={
+                      msg.evidence
+                    }
+
+                    setActiveCitation={
+                      setActiveCitation
+                    }
 
                   />
-
-                );
-              }
+                )
+              )
             )
-
-          )
         }
 
         <UploadStatus
@@ -462,10 +533,9 @@ export default function ChatWindow({
           loading && (
 
             <ThinkingIndicator />
+
           )
         }
-
-        <div ref={messagesEndRef} />
 
       </div>
 
@@ -473,13 +543,21 @@ export default function ChatWindow({
 
         input={input}
 
-        setInput={setInput}
+        setInput={
+          setInput
+        }
 
-        sendMessage={sendMessage}
+        sendMessage={
+          sendMessage
+        }
 
-        loading={loading}
+        loading={
+          loading
+        }
 
-        uploadedFiles={uploadedFiles}
+        uploadedFiles={
+          uploadedFiles
+        }
 
         handleFileUpload={
           handleFileUpload

@@ -1,3 +1,7 @@
+/* ====================================
+   BASE
+==================================== */
+
 @import "./styles/base/reset.css";
 @import "./styles/base/typography.css";
 @import "./styles/base/animations.css";

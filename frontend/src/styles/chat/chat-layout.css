@@ -87,16 +87,18 @@
 
   align-items: center;
 
-  padding:
-    120px
-    40px
-    240px;
+  justify-content: flex-start;
 
-  gap: 40px;
+  padding:
+    24px
+    40px
+    140px;
+
+  gap: 24px;
 }
 
 /* ====================================
-   EMPTY CHAT MODE
+   EMPTY CHAT
 ==================================== */
 
 .modern-messages.empty-chat {
@@ -112,10 +114,18 @@
 }
 
 /* ====================================
-   FORCE WIDTH
+   MESSAGE WIDTH
 ==================================== */
 
+.message,
+.message-group {
 
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
 
 /* ====================================
    HERO
@@ -128,8 +138,6 @@
   max-width: 1100px;
 
   margin: 0 auto;
-
-  margin-top: -100px;
 
   display: flex;
 
@@ -255,19 +263,6 @@
 }
 
 /* ====================================
-   MESSAGE GROUP
-==================================== */
-
-.message-group {
-
-  width: 100%;
-
-  max-width: 920px;
-
-  margin: 0 auto;
-}
-
-/* ====================================
    SCROLLBAR
 ==================================== */
 
@@ -306,9 +301,9 @@
   .modern-messages {
 
     padding:
-      80px
       20px
-      220px;
+      20px
+      140px;
   }
 
   .modern-messages.empty-chat {
@@ -317,11 +312,6 @@
       40px
       20px
       220px;
-  }
-
-  .hero-section {
-
-    margin-top: -40px;
   }
 
   .hero-section h1 {
