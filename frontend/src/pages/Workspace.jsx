@@ -6,7 +6,6 @@ import ChatWindow from "../components/chat/ChatWindow";
 
 import SearchPanel from "../components/SearchPanel";
 
-
 export default function Workspace() {
 
   // =====================================
@@ -21,6 +20,20 @@ export default function Workspace() {
 
   const [activeCitation, setActiveCitation] =
     useState(null);
+
+  // =====================================
+  // DEBUG
+  // =====================================
+
+  console.log(
+    "WORKSPACE MESSAGES:",
+    messages
+  );
+
+  console.log(
+    "WORKSPACE LENGTH:",
+    messages.length
+  );
 
   // =====================================
   // UI

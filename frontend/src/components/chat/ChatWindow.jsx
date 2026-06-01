@@ -22,7 +22,6 @@ from "./ThinkingIndicator";
 import UploadStatus
 from "./UploadStatus";
 
-
 export default function ChatWindow({
 
   messages = [],
@@ -36,10 +35,6 @@ export default function ChatWindow({
   setActiveCitation
 
 }) {
-
-  // =====================================
-  // STATE
-  // =====================================
 
   const [input, setInput] =
     useState("");
@@ -56,23 +51,33 @@ export default function ChatWindow({
   const messagesEndRef =
     useRef(null);
 
-  // =====================================
-  // AUTO SCROLL
-  // =====================================
-
   useEffect(() => {
 
-    if (messages.length > 0) {  
+    if (messages.length > 0) {
 
-    messagesEndRef.current
-      ?.scrollIntoView({
+      messagesEndRef.current
+        ?.scrollIntoView({
 
-        behavior: "smooth"
-      });
+          behavior: "smooth"
+        });
 
     }
-    
+
   }, [messages, uploadingFiles]);
+
+  // =====================================
+  // DEBUG
+  // =====================================
+
+  console.log(
+    "CHATWINDOW MESSAGES:",
+    messages
+  );
+
+  console.log(
+    "CHATWINDOW LENGTH:",
+    messages.length
+  );
 
   // =====================================
   // FILE UPLOAD
@@ -93,7 +98,8 @@ export default function ChatWindow({
         id:
           Date.now() + file.name,
 
-        name: file.name,
+        name:
+          file.name,
 
         status:
           "Analyzing document..."
@@ -139,10 +145,6 @@ export default function ChatWindow({
         const data =
           await response.json();
 
-        // ===============================
-        // UPDATE STATUS
-        // ===============================
-
         setUploadingFiles((prev) =>
 
           prev.map((f) =>
@@ -161,17 +163,14 @@ export default function ChatWindow({
           )
         );
 
-        // ===============================
-        // SAVE FILE
-        // ===============================
-
         setUploadedFiles((prev) => [
 
           ...prev,
 
           {
 
-            name: file.name,
+            name:
+              file.name,
 
             chunks:
               data.chunks || 0,
@@ -184,15 +183,12 @@ export default function ChatWindow({
           }
         ]);
 
-        // ===============================
-        // REMOVE STATUS
-        // ===============================
-
         setTimeout(() => {
 
           setUploadingFiles((prev) =>
 
             prev.filter(
+
               (f) =>
                 f.id !== uploadItem.id
             )
@@ -235,27 +231,6 @@ export default function ChatWindow({
 
     const finalInput = input;
 
-    // ===================================
-    // FILE CONTEXT
-    // ===================================
-
-    let fileContext = "";
-
-    if (uploadedFiles.length > 0) {
-
-      fileContext = `
-
-Attached academic documents:
-${uploadedFiles
-  .map((f) => `- ${f.name}`)
-  .join("\n")}
-`;
-    }
-
-    // ===================================
-    // USER MESSAGE
-    // ===================================
-
     const userMessage = {
 
       role: "user",
@@ -277,15 +252,7 @@ ${uploadedFiles
       }
     ]);
 
-    // ===================================
-    // RESET INPUT
-    // ===================================
-
     setInput("");
-
-    // ===================================
-    // RESET TEXTAREA HEIGHT
-    // ===================================
 
     const textarea =
       document.querySelector(
@@ -305,7 +272,7 @@ ${uploadedFiles
       const response =
         await fetch(
 
-          `${API_BASE_URL}/chat-stream`,
+          `${API_BASE_URL}/api/research/research-analysis`,
 
           {
 
@@ -319,143 +286,82 @@ ${uploadedFiles
 
             body: JSON.stringify({
 
-              message:
-                finalInput + fileContext
+              query:
+                finalInput,
+
+              top_k: 5,
+
+              mode:
+                "analysis"
             })
           }
         );
 
-      if (!response.body) {
+      if (!response.ok) {
 
         throw new Error(
-          "Streaming unavailable"
+          `Research request failed: ${response.status}`
         );
       }
 
-      const reader =
-        response.body.getReader();
+      const data =
+        await response.json();
 
-      const decoder =
-        new TextDecoder();
+      console.log(
+        "FULL RESPONSE:",
+        data
+      );
 
-      let streamedText = "";
+      setMessages((prev) => {
 
-      let buffer = "";
+        const updated =
+          [...prev];
 
-      while (true) {
+        updated[
+          updated.length - 1
+        ] = {
 
-        const {
+          role: "assistant",
 
-          done,
+          content:
+            data.analysis ||
+            "No analysis returned.",
 
-          value
+          citations:
+            data.citations || [],
 
-        } = await reader.read();
+          evidence:
+            data.evidence || {}
+        };
 
-        if (done) break;
+        return updated;
+      });
 
-        buffer +=
-          decoder.decode(value);
-
-        const lines =
-          buffer.split("\n");
-
-        buffer =
-          lines.pop() || "";
-
-        for (const line of lines) {
-
-          if (!line.trim())
-            continue;
-
-          try {
-
-            const parsed =
-              JSON.parse(line);
-
-            // =========================
-            // TOKEN
-            // =========================
-
-            if (
-              parsed.type === "token"
-            ) {
-
-              streamedText +=
-                parsed.content;
-
-              setMessages((prev) => {
-
-                const updated =
-                  [...prev];
-
-                updated[
-                  updated.length - 1
-                ] = {
-
-                  role: "assistant",
-
-                  content:
-                    streamedText
-                };
-
-                return updated;
-              });
-            }
-
-            // =========================
-            // SOURCES
-            // =========================
-
-            if (
-              parsed.type === "sources"
-            ) {
-
-              setSources(
-                parsed.data || []
-              );
-            }
-
-            // =========================
-            // CITATIONS
-            // =========================
-
-            if (
-              parsed.type === "citations"
-            ) {
-
-              console.log(
-                "citations",
-                parsed.data
-              );
-            }
-
-          } catch (err) {
-
-            console.error(
-              "Stream parse error:",
-              err
-            );
-          }
-        }
-      }
+      setSources(
+        data.citations || []
+      );
 
     } catch (error) {
 
       console.error(error);
 
-      setMessages((prev) => [
+      setMessages((prev) => {
 
-        ...prev,
+        const updated =
+          [...prev];
 
-        {
+        updated[
+          updated.length - 1
+        ] = {
 
           role: "assistant",
 
           content:
-            "Terjadi error saat memproses request."
-        }
-      ]);
+            `Terjadi error saat memproses request.\n\n${error.message}`
+        };
+
+        return updated;
+      });
 
     } finally {
 
@@ -484,18 +390,25 @@ ${uploadedFiles
   };
 
   // =====================================
-  // UI
+  // RENDER DEBUG
   // =====================================
+
+  console.log(
+    "RENDERING CHAT",
+    messages
+  );
 
   return (
 
     <div className="chat-modern-shell">
 
-      {/* ============================= */}
-      {/* CHAT AREA */}
-      {/* ============================= */}
-
-      <div className="modern-messages">
+      <div
+        className={`modern-messages ${
+          messages.length === 0
+            ? "empty-chat"
+            : ""
+        }`}
+      >
 
         {
 
@@ -507,39 +420,34 @@ ${uploadedFiles
 
           ) : (
 
-            <>
+            messages.map(
 
-              {
+              (msg, idx) => {
 
-                messages.map(
-                  (msg, idx) => (
+                console.log(
+                  "MESSAGE",
+                  idx,
+                  msg
+                );
 
-                    <MessageBubble
+                return (
 
-                      key={idx}
+                  <MessageBubble
 
-                      role={msg.role}
+                    key={idx}
 
-                      content={msg.content}
+                    role={msg.role}
 
-                      setActiveCitation={
-                        setActiveCitation
-                      }
+                    content={msg.content}
 
-                    />
+                  />
 
-                  )
-                )
+                );
               }
-
-            </>
+            )
 
           )
         }
-
-        {/* ========================= */}
-        {/* UPLOAD STATUS */}
-        {/* ========================= */}
 
         <UploadStatus
 
@@ -549,26 +457,17 @@ ${uploadedFiles
 
         />
 
-        {/* ========================= */}
-        {/* THINKING */}
-        {/* ========================= */}
-
         {
 
           loading && (
 
             <ThinkingIndicator />
-
           )
         }
 
         <div ref={messagesEndRef} />
 
       </div>
-
-      {/* ============================= */}
-      {/* INPUT */}
-      {/* ============================= */}
 
       <ChatInput
 
