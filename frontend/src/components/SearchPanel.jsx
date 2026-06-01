@@ -1,8 +1,7 @@
 import {
   FileText,
-  Hash,
-  Layers3,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from "lucide-react";
 
 export default function SearchPanel({
@@ -17,9 +16,9 @@ export default function SearchPanel({
 
     <div className="evidence-shell">
 
-      {/* ============================= */}
+      {/* ================================= */}
       {/* HEADER */}
-      {/* ============================= */}
+      {/* ================================= */}
 
       <div className="evidence-header">
 
@@ -34,21 +33,25 @@ export default function SearchPanel({
           </div>
 
           <h2>
+
             Academic Sources
+
           </h2>
 
           <p>
+
             Citation-aware retrieval evidence
-            from DELBot RAG pipeline.
+            from DELBot research pipeline.
+
           </p>
 
         </div>
 
       </div>
 
-      {/* ============================= */}
+      {/* ================================= */}
       {/* EMPTY */}
-      {/* ============================= */}
+      {/* ================================= */}
 
       {
 
@@ -63,24 +66,27 @@ export default function SearchPanel({
             </div>
 
             <h3>
+
               No evidence yet
+
             </h3>
 
             <p>
 
-              Upload academic documents and
-              ask research questions to see
-              retrieval evidence.
+              Ask a research question and
+              DELBot will display retrieved
+              thesis evidence here.
 
             </p>
 
           </div>
+
         )
       }
 
-      {/* ============================= */}
+      {/* ================================= */}
       {/* SOURCE LIST */}
-      {/* ============================= */}
+      {/* ================================= */}
 
       <div className="evidence-list">
 
@@ -104,6 +110,7 @@ export default function SearchPanel({
                     ? "active"
                     : ""
                 }`}
+
               >
 
                 {/* ===================== */}
@@ -125,6 +132,7 @@ export default function SearchPanel({
                       {
 
                         source.title ||
+
                         "Unknown Thesis"
                       }
 
@@ -132,11 +140,9 @@ export default function SearchPanel({
 
                     <div className="evidence-citation-id">
 
-                      {source.year || "-"}
+                      Citation #
 
-                      {" • "}
-
-                      {source.prodi || "-"}
+                      {source.source_id}
 
                     </div>
 
@@ -145,28 +151,62 @@ export default function SearchPanel({
                 </div>
 
                 {/* ===================== */}
-                {/* META */}
+                {/* AUTHOR */}
                 {/* ===================== */}
 
-                <div className="evidence-meta-grid">
+                <div
+                  style={{
+                    marginTop: "14px",
+                    color: "rgba(255,255,255,0.7)",
+                    fontSize: "13px"
+                  }}
+                >
+
+                  {
+
+                    source.author ||
+
+                    "Unknown Author"
+                  }
+
+                </div>
+
+                {/* ===================== */}
+                {/* YEAR + PRODI */}
+                {/* ===================== */}
+
+                <div
+                  style={{
+                    marginTop: "10px",
+                    display: "flex",
+                    gap: "10px",
+                    flexWrap: "wrap"
+                  }}
+                >
 
                   <div className="meta-pill">
 
-                    <Hash size={12} />
+                    Year:
 
-                    Page
                     {" "}
-                    {source.page || "-"}
+
+                    {
+
+                      source.year ||
+
+                      "-"
+                    }
 
                   </div>
 
                   <div className="meta-pill">
 
-                    <Layers3 size={12} />
+                    {
 
-                    Chunk
-                    {" "}
-                    {source.chunk_index || "-"}
+                      source.prodi ||
+
+                      "-"
+                    }
 
                   </div>
 
@@ -181,14 +221,22 @@ export default function SearchPanel({
                   <div className="score-header">
 
                     <span>
+
                       Relevance
+
                     </span>
 
                     <span>
 
-                      {Number(
-                        source.score || 0
-                      ).toFixed(2)}
+                      {
+
+                        Number(
+
+                          source.score || 0
+
+                        ).toFixed(2)
+
+                      }
 
                     </span>
 
@@ -203,17 +251,68 @@ export default function SearchPanel({
                       style={{
 
                         width: `${Math.min(
-                          (source.score || 0) * 100,
+
+                          (source.score || 0) * 10,
+
                           100
+
                         )}%`
                       }}
+
                     />
 
                   </div>
 
                 </div>
 
+                {/* ===================== */}
+                {/* URL */}
+                {/* ===================== */}
+
+                {
+
+                  source.url && (
+
+                    <a
+
+                      href={source.url}
+
+                      target="_blank"
+
+                      rel="noreferrer"
+
+                      style={{
+
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        gap: "8px",
+
+                        marginTop: "16px",
+
+                        color: "#8ea2ff",
+
+                        textDecoration: "none",
+
+                        fontSize: "13px"
+                      }}
+
+                    >
+
+                      <ExternalLink
+                        size={14}
+                      />
+
+                      Open Repository
+
+                    </a>
+
+                  )
+                }
+
               </div>
+
             );
           })
         }

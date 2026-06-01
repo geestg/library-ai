@@ -1,8 +1,13 @@
+import React from "react";
+
 import ReactMarkdown from "react-markdown";
+
+import remarkGfm from "remark-gfm";
 
 export default function MessageBubble({
 
   role,
+
   content
 
 }) {
@@ -13,15 +18,16 @@ export default function MessageBubble({
 
       <div className="message-content">
 
-        <ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+        >
 
-          {content}
+          {content || ""}
 
         </ReactMarkdown>
 
       </div>
 
     </div>
-
   );
 }
