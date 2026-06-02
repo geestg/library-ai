@@ -154,7 +154,7 @@ def research_analysis(
     theses = theses[:top_k]
 
     # =================================
-    # DEBUG THESIS
+    # TOP THESIS DEBUG
     # =================================
 
     print("\n====================================")
@@ -177,12 +177,84 @@ def research_analysis(
         )
 
     # =================================
+    # THESIS CONTENT DEBUG
+    # =================================
+
+    print("\n")
+    print("=" * 80)
+    print("THESIS DEBUG")
+    print("=" * 80)
+
+    for idx, thesis in enumerate(
+        theses,
+        start=1
+    ):
+
+        print(
+            f"\n[{idx}] "
+            f"{thesis.get('title')}"
+        )
+
+        abstract = (
+            thesis.get(
+                "abstract",
+                ""
+            ) or ""
+        )
+
+        print(
+            abstract[:500]
+        )
+
+    # =================================
     # EVIDENCE EXTRACTION
     # =================================
 
     evidence = extract_evidence(
         theses
     )
+
+    # =================================
+    # EVIDENCE DEBUG
+    # =================================
+
+    print("\n")
+    print("=" * 80)
+    print("EVIDENCE DEBUG")
+    print("=" * 80)
+
+    print(evidence)
+
+    print("\nTECHNOLOGIES")
+    print(
+
+        evidence.get(
+            "technologies",
+            []
+        )
+    )
+
+    print("\nMETHODS")
+    print(
+
+        evidence.get(
+            "methods",
+            []
+        )
+    )
+
+    print("\nDOMAINS")
+    print(
+
+        evidence.get(
+            "domains",
+            []
+        )
+    )
+
+    # =================================
+    # STRUCTURED EVIDENCE
+    # =================================
 
     print("\n====================================")
     print("STRUCTURED EVIDENCE")

@@ -3,8 +3,9 @@ import {
   useEffect
 } from "react";
 
-import { API_BASE_URL }
-from "../../services/api";
+import {
+  API_BASE_URL
+} from "../../services/api";
 
 import MessageBubble
 from "./MessageBubble";
@@ -28,6 +29,8 @@ export default function ChatWindow({
   setMessages,
 
   setSources,
+
+  setEvidence,
 
   activeCitation,
 
@@ -67,6 +70,7 @@ export default function ChatWindow({
 
       behavior:
         "smooth"
+
     });
 
   }, [
@@ -107,6 +111,7 @@ export default function ChatWindow({
 
           status:
             "Analyzing document..."
+
         };
 
         setUploadingFiles(
@@ -115,6 +120,7 @@ export default function ChatWindow({
             ...prev,
 
             uploadItem
+
           ]
         );
 
@@ -140,6 +146,7 @@ export default function ChatWindow({
 
                 body:
                   formData
+
               }
             );
 
@@ -170,6 +177,7 @@ export default function ChatWindow({
 
                         status:
                           "Indexed successfully"
+
                       }
 
                     : f
@@ -195,7 +203,9 @@ export default function ChatWindow({
                 type:
                   data.file_type ||
                   "pdf"
+
               }
+
             ]
           );
 
@@ -221,6 +231,7 @@ export default function ChatWindow({
         } catch (err) {
 
           console.error(
+            "UPLOAD ERROR:",
             err
           );
 
@@ -239,6 +250,7 @@ export default function ChatWindow({
 
                         status:
                           "Upload failed"
+
                       }
 
                     : f
@@ -257,8 +269,7 @@ export default function ChatWindow({
 
       if (
         !input.trim()
-      )
-        return;
+      ) return;
 
       const finalInput =
         input;
@@ -275,6 +286,7 @@ export default function ChatWindow({
 
             content:
               finalInput
+
           },
 
           {
@@ -284,7 +296,9 @@ export default function ChatWindow({
 
             content:
               ""
+
           }
+
         ]
       );
 
@@ -319,6 +333,7 @@ export default function ChatWindow({
 
                 "Content-Type":
                   "application/json"
+
               },
 
               body:
@@ -332,7 +347,9 @@ export default function ChatWindow({
 
                   mode:
                     "analysis"
+
                 })
+
             }
           );
 
@@ -343,15 +360,40 @@ export default function ChatWindow({
           throw new Error(
 
             `Research request failed: ${response.status}`
+
           );
         }
 
         const data =
           await response.json();
 
+        // =================================
+        // DEBUG RESPONSE
+        // =================================
+
         console.log(
-          "RESEARCH RESPONSE",
+          "RESEARCH RESPONSE:",
           data
+        );
+
+        console.log(
+          "CITATIONS:",
+          data.citations
+        );
+
+        console.log(
+          "EVIDENCE:",
+          data.evidence
+        );
+
+        console.log(
+          "EVIDENCE MATRIX:",
+          data.evidence_matrix
+        );
+
+        console.log(
+          "GAP ANALYSIS:",
+          data.gap_analysis
         );
 
         setMessages(
@@ -361,8 +403,7 @@ export default function ChatWindow({
               [...prev];
 
             updated[
-              updated.length -
-                1
+              updated.length - 1
             ] = {
 
               role:
@@ -373,27 +414,38 @@ export default function ChatWindow({
                 "No analysis returned.",
 
               citations:
-                data.citations ||
-                [],
+                data.citations || [],
 
               evidence:
-                data.evidence ||
-                {}
+                data.evidence || {}
+
             };
 
             return updated;
+
           }
         );
 
-        setSources(
+        // =================================
+        // GLOBAL SOURCE STATE
+        // =================================
 
-          data.citations ||
-            []
+        setSources(
+          data.citations || []
+        );
+
+        // =================================
+        // GLOBAL EVIDENCE STATE
+        // =================================
+
+        setEvidence(
+          data.evidence || {}
         );
 
       } catch (error) {
 
         console.error(
+          "RESEARCH ERROR:",
           error
         );
 
@@ -404,8 +456,7 @@ export default function ChatWindow({
               [...prev];
 
             updated[
-              updated.length -
-                1
+              updated.length - 1
             ] = {
 
               role:
@@ -413,9 +464,11 @@ export default function ChatWindow({
 
               content:
                 `Terjadi error saat memproses request.\n\n${error.message}`
+
             };
 
             return updated;
+
           }
         );
 
@@ -428,7 +481,7 @@ export default function ChatWindow({
     };
 
   // =====================================
-  // ENTER
+  // ENTER KEY
   // =====================================
 
   const handleKeyDown =
@@ -446,6 +499,7 @@ export default function ChatWindow({
         e.preventDefault();
 
         sendMessage();
+
       }
     };
 
@@ -469,8 +523,7 @@ export default function ChatWindow({
 
         {
 
-          messages.length ===
-          0
+          messages.length === 0
 
             ? (
 
@@ -515,6 +568,7 @@ export default function ChatWindow({
                     }
 
                   />
+
                 )
               )
             )

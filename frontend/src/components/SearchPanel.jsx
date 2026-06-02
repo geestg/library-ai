@@ -1,4 +1,8 @@
 import {
+  useEffect
+} from "react";
+
+import {
   FileText,
   Sparkles,
   ExternalLink
@@ -8,9 +12,39 @@ export default function SearchPanel({
 
   sources = [],
 
+  evidence = {},
+
   activeCitation
 
 }) {
+
+  // =================================
+  // AUTO SCROLL ACTIVE CITATION
+  // =================================
+
+  useEffect(() => {
+
+    if (!activeCitation)
+      return;
+
+    const element =
+      document.getElementById(
+        `citation-${activeCitation}`
+      );
+
+    if (element) {
+
+      element.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+      });
+
+    }
+
+  }, [activeCitation]);
 
   return (
 
@@ -50,7 +84,178 @@ export default function SearchPanel({
       </div>
 
       {/* ================================= */}
-      {/* EMPTY */}
+      {/* EVIDENCE SUMMARY */}
+      {/* ================================= */}
+
+      {
+
+        Object.keys(
+          evidence || {}
+        ).length > 0 && (
+
+          <div className="evidence-summary">
+
+            <h3>
+
+              Evidence Summary
+
+            </h3>
+
+            {
+
+              evidence.technologies?.length > 0 && (
+
+                <div className="summary-group">
+
+                  <h4>
+
+                    Technologies
+
+                  </h4>
+
+                  <div>
+
+                    {
+
+                      evidence.technologies.map(
+
+                        (
+                          item,
+                          idx
+                        ) => (
+
+                          <div
+                            key={idx}
+                            className="summary-pill"
+                          >
+
+                            {item.name}
+
+                            {" "}
+
+                            ({item.count})
+
+                          </div>
+
+                        )
+                      )
+
+                    }
+
+                  </div>
+
+                </div>
+
+              )
+
+            }
+
+            {
+
+              evidence.methods?.length > 0 && (
+
+                <div className="summary-group">
+
+                  <h4>
+
+                    Methods
+
+                  </h4>
+
+                  <div>
+
+                    {
+
+                      evidence.methods.map(
+
+                        (
+                          item,
+                          idx
+                        ) => (
+
+                          <div
+                            key={idx}
+                            className="summary-pill"
+                          >
+
+                            {item.name}
+
+                            {" "}
+
+                            ({item.count})
+
+                          </div>
+
+                        )
+                      )
+
+                    }
+
+                  </div>
+
+                </div>
+
+              )
+
+            }
+
+            {
+
+              evidence.domains?.length > 0 && (
+
+                <div className="summary-group">
+
+                  <h4>
+
+                    Domains
+
+                  </h4>
+
+                  <div>
+
+                    {
+
+                      evidence.domains.map(
+
+                        (
+                          item,
+                          idx
+                        ) => (
+
+                          <div
+                            key={idx}
+                            className="summary-pill"
+                          >
+
+                            {item.name}
+
+                            {" "}
+
+                            ({item.count})
+
+                          </div>
+
+                        )
+                      )
+
+                    }
+
+                  </div>
+
+                </div>
+
+              )
+
+            }
+
+          </div>
+
+        )
+
+      }
+
+      {/* ================================= */}
+      {/* EMPTY STATE */}
       {/* ================================= */}
 
       {
@@ -82,6 +287,7 @@ export default function SearchPanel({
           </div>
 
         )
+
       }
 
       {/* ================================= */}
@@ -102,6 +308,10 @@ export default function SearchPanel({
             return (
 
               <div
+
+                id={
+                  `citation-${source.source_id}`
+                }
 
                 key={source.source_id}
 
@@ -134,6 +344,7 @@ export default function SearchPanel({
                         source.title ||
 
                         "Unknown Thesis"
+
                       }
 
                     </div>
@@ -157,7 +368,8 @@ export default function SearchPanel({
                 <div
                   style={{
                     marginTop: "14px",
-                    color: "rgba(255,255,255,0.7)",
+                    color:
+                      "rgba(255,255,255,0.7)",
                     fontSize: "13px"
                   }}
                 >
@@ -167,6 +379,7 @@ export default function SearchPanel({
                     source.author ||
 
                     "Unknown Author"
+
                   }
 
                 </div>
@@ -195,6 +408,7 @@ export default function SearchPanel({
                       source.year ||
 
                       "-"
+
                     }
 
                   </div>
@@ -206,6 +420,7 @@ export default function SearchPanel({
                       source.prodi ||
 
                       "-"
+
                     }
 
                   </div>
@@ -257,6 +472,7 @@ export default function SearchPanel({
                           100
 
                         )}%`
+
                       }}
 
                     />
@@ -281,22 +497,7 @@ export default function SearchPanel({
 
                       rel="noreferrer"
 
-                      style={{
-
-                        display: "flex",
-
-                        alignItems: "center",
-
-                        gap: "8px",
-
-                        marginTop: "16px",
-
-                        color: "#8ea2ff",
-
-                        textDecoration: "none",
-
-                        fontSize: "13px"
-                      }}
+                      className="evidence-link"
 
                     >
 
@@ -309,16 +510,21 @@ export default function SearchPanel({
                     </a>
 
                   )
+
                 }
 
               </div>
 
             );
+
           })
+
         }
 
       </div>
 
     </div>
+
   );
+
 }

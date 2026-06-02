@@ -36,8 +36,7 @@
 
   gap: 8px;
 
-  padding:
-    8px 14px;
+  padding: 8px 14px;
 
   border-radius: 999px;
 
@@ -87,6 +86,115 @@
   line-height: 1.7;
 
   font-size: 14px;
+}
+
+/* ====================================
+   EVIDENCE SUMMARY
+==================================== */
+
+.evidence-summary {
+
+  margin-bottom: 24px;
+
+  padding: 20px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(99,102,241,0.08);
+
+  border:
+    1px solid rgba(
+      99,
+      102,
+      241,
+      0.16
+    );
+}
+
+.evidence-summary h3 {
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 16px;
+}
+
+.summary-group {
+
+  margin-bottom: 16px;
+}
+
+.summary-group:last-child {
+
+  margin-bottom: 0;
+}
+
+.summary-group h4 {
+
+  color: #a5b4fc;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.summary-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    6px 12px;
+
+  margin:
+    4px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+
+  border:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  color: white;
+
+  font-size: 12px;
+
+  transition:
+    all 0.2s ease;
+}
+
+.summary-pill:hover {
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
 }
 
 /* ====================================
@@ -181,9 +289,15 @@
     );
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
-  transition: all 0.24s ease;
+  transition:
+    all 0.25s ease;
 
   backdrop-filter: blur(20px);
 }
@@ -213,16 +327,25 @@
 }
 
 /* ====================================
-   ACTIVE
+   ACTIVE CITATION
 ==================================== */
 
 .evidence-card.active {
 
-  border-color:
-    rgba(99,102,241,0.32);
+  border:
+    1px solid #6366f1;
 
   box-shadow:
-    0 0 30px rgba(99,102,241,0.18);
+    0 0 0 1px #6366f1,
+    0 0 30px rgba(
+      99,
+      102,
+      241,
+      0.35
+    );
+
+  transform:
+    translateY(-2px);
 }
 
 .evidence-card.active::before {
@@ -240,7 +363,12 @@
     translateY(-3px);
 
   border-color:
-    rgba(99,102,241,0.22);
+    rgba(
+      99,
+      102,
+      241,
+      0.22
+    );
 }
 
 /* ====================================
@@ -275,7 +403,12 @@
   justify-content: center;
 
   background:
-    rgba(99,102,241,0.12);
+    rgba(
+      99,
+      102,
+      241,
+      0.12
+    );
 
   color: #a5b4fc;
 
@@ -300,7 +433,7 @@
 }
 
 /* ====================================
-   CITATION
+   CITATION META
 ==================================== */
 
 .evidence-citation-id {
@@ -308,7 +441,12 @@
   margin-top: 4px;
 
   color:
-    rgba(255,255,255,0.45);
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
 
   font-size: 12px;
 }
@@ -346,13 +484,28 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.04);
+    rgba(
+      255,
+      255,
+      255,
+      0.04
+    );
 
   border:
-    1px solid rgba(255,255,255,0.05);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
 
   color:
-    rgba(255,255,255,0.74);
+    rgba(
+      255,
+      255,
+      255,
+      0.74
+    );
 
   font-size: 12px;
 }
@@ -377,7 +530,12 @@
   margin-bottom: 10px;
 
   color:
-    rgba(255,255,255,0.7);
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
 
   font-size: 13px;
 }
@@ -395,12 +553,13 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.06);
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 }
-
-/* ====================================
-   SCORE FILL
-==================================== */
 
 .score-fill {
 
@@ -416,7 +575,66 @@
     );
 
   box-shadow:
-    0 0 18px rgba(99,102,241,0.3);
+    0 0 18px rgba(
+      99,
+      102,
+      241,
+      0.3
+    );
+}
+
+/* ====================================
+   INLINE CITATION
+==================================== */
+
+.inline-citation {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 0 3px;
+
+  padding: 2px 8px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.18
+    );
+
+  color: #a5b4fc;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+    all 0.2s ease;
+}
+
+.inline-citation:hover {
+
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.3
+    );
+
+  transform:
+    translateY(-1px);
 }
 
 /* ====================================
@@ -431,7 +649,12 @@
 .evidence-shell::-webkit-scrollbar-thumb {
 
   background:
-    rgba(255,255,255,0.08);
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
 
   border-radius: 999px;
 }
