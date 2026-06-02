@@ -379,6 +379,35 @@ def extract_evidence(
             ] += 1
 
     # =================================
+    # DEBUG COUNTERS
+    # =================================
+
+    print("\n")
+    print("=" * 80)
+    print("COUNTER DEBUG")
+    print("=" * 80)
+
+    print(
+        "TECH:",
+        technology_counter
+    )
+
+    print(
+        "METHOD:",
+        methodology_counter
+    )
+
+    print(
+        "DOMAIN:",
+        domain_counter
+    )
+
+    print(
+        "KEYWORD:",
+        keyword_counter
+    )
+
+    # =================================
     # RETURN STRUCTURED EVIDENCE
     # =================================
 

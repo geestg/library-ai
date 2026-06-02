@@ -8,11 +8,30 @@ import SearchPanel from "../components/SearchPanel";
 
 export default function Workspace() {
 
+  // =====================================
+  // CHAT STATE
+  // =====================================
+
   const [messages, setMessages] =
     useState([]);
 
+  // =====================================
+  // CITATION SOURCES
+  // =====================================
+
   const [sources, setSources] =
     useState([]);
+
+  // =====================================
+  // STRUCTURED EVIDENCE
+  // =====================================
+
+  const [evidence, setEvidence] =
+    useState({});
+
+  // =====================================
+  // ACTIVE CITATION
+  // =====================================
 
   const [activeCitation, setActiveCitation] =
     useState(null);
@@ -21,15 +40,27 @@ export default function Workspace() {
 
     <div className="workspace-shell">
 
+      {/* ========================= */}
+      {/* AMBIENT GLOW */}
+      {/* ========================= */}
+
       <div className="ambient-glow ambient-left" />
 
       <div className="ambient-glow ambient-right" />
+
+      {/* ========================= */}
+      {/* SIDEBAR */}
+      {/* ========================= */}
 
       <aside className="workspace-sidebar">
 
         <Sidebar />
 
       </aside>
+
+      {/* ========================= */}
+      {/* MAIN CHAT */}
+      {/* ========================= */}
 
       <main className="workspace-main">
 
@@ -41,7 +72,11 @@ export default function Workspace() {
 
           setSources={setSources}
 
-          activeCitation={activeCitation}
+          setEvidence={setEvidence}
+
+          activeCitation={
+            activeCitation
+          }
 
           setActiveCitation={
             setActiveCitation
@@ -51,14 +86,24 @@ export default function Workspace() {
 
       </main>
 
+      {/* ========================= */}
+      {/* EVIDENCE PANEL */}
+      {/* ========================= */}
+
       <aside className="workspace-evidence">
 
         <SearchPanel
 
           sources={sources}
 
+          evidence={evidence}
+
           activeCitation={
             activeCitation
+          }
+
+          setActiveCitation={
+            setActiveCitation
           }
 
         />
