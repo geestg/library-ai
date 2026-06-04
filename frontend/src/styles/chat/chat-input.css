@@ -14,7 +14,7 @@
 
   margin: 0 auto;
 
-  padding: 16px 20px 20px;
+  padding: 10px 20px 14px;
 
   z-index: 50;
 
@@ -28,44 +28,130 @@
 }
 
 /* ====================================
-   FILE PILLS
+   ACTIVE DOCUMENT BAR
 ==================================== */
 
-.floating-files {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-bottom: 14px;
-}
-
-.modern-file-pill {
+.active-document-bar {
 
   display: flex;
 
   align-items: center;
 
-  gap: 8px;
+  justify-content: space-between;
+
+  height: 48px;
 
   padding:
-    10px 16px;
+    0 14px;
 
-  border-radius: 999px;
+  margin-bottom: 12px;
+
+  border-radius: 14px;
 
   background:
-    rgba(255,255,255,0.06);
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  backdrop-filter:
+    blur(20px);
+}
+
+/* ====================================
+   DOCUMENT LEFT
+==================================== */
+
+.active-document-left {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
 
   color: white;
+}
+
+/* ====================================
+   DOCUMENT NAME
+==================================== */
+
+.active-document-name {
 
   font-size: 13px;
 
-  backdrop-filter: blur(20px);
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  max-width: 600px;
+}
+
+/* ====================================
+   REMOVE DOCUMENT
+==================================== */
+
+.document-remove-btn {
+
+  width: 28px;
+
+  height: 28px;
+
+  border: none;
+
+  background: transparent;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.document-remove-btn:hover {
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  color: white;
 }
 
 /* ====================================
@@ -82,7 +168,7 @@
 
   flex-wrap: wrap;
 
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .smart-actions button {
@@ -95,13 +181,28 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.05);
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
   color:
-    rgba(255,255,255,0.72);
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
 
   font-size: 13px;
 
@@ -115,10 +216,20 @@
 .smart-actions button:hover {
 
   background:
-    rgba(99,102,241,0.16);
+    rgba(
+      99,
+      102,
+      241,
+      0.16
+    );
 
   border-color:
-    rgba(99,102,241,0.28);
+    rgba(
+      99,
+      102,
+      241,
+      0.28
+    );
 
   color: white;
 }
@@ -131,7 +242,7 @@
 
   display: flex;
 
-  align-items: flex-end;
+  align-items: center;
 
   gap: 14px;
 
@@ -141,15 +252,32 @@
   border-radius: 28px;
 
   background:
-    rgba(15,23,42,0.88);
+    rgba(
+      15,
+      23,
+      42,
+      0.88
+    );
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
   box-shadow:
-    0 24px 60px rgba(0,0,0,0.45);
+    0 24px 60px
+    rgba(
+      0,
+      0,
+      0,
+      0.45
+    );
 
-  backdrop-filter: blur(28px);
+  backdrop-filter:
+    blur(28px);
 }
 
 /* ====================================
@@ -177,10 +305,20 @@
   color: #cbd5e1;
 
   background:
-    rgba(255,255,255,0.04);
+    rgba(
+      255,
+      255,
+      255,
+      0.04
+    );
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
   transition: 0.2s ease;
 }
@@ -188,7 +326,12 @@
 .modern-attach:hover {
 
   background:
-    rgba(99,102,241,0.16);
+    rgba(
+      99,
+      102,
+      241,
+      0.16
+    );
 
   color: white;
 }
@@ -213,21 +356,34 @@
 
   font-size: 15px;
 
-  line-height: 1.8;
+  font-family: inherit;
 
-  min-height: 28px;
+  line-height: 24px;
+
+  min-height: 52px;
 
   max-height: 180px;
 
+  padding: 14px 0;
+
+  margin: 0;
+
   overflow-y: auto;
 
-  font-family: inherit;
+  display: block;
 }
 
 .floating-input textarea::placeholder {
 
   color:
-    rgba(255,255,255,0.34);
+    rgba(
+      255,
+      255,
+      255,
+      0.34
+    );
+
+  line-height: 24px;
 }
 
 .floating-input textarea::-webkit-scrollbar {
@@ -269,7 +425,13 @@
     );
 
   box-shadow:
-    0 12px 30px rgba(79,70,229,0.35);
+    0 12px 30px
+    rgba(
+      79,
+      70,
+      229,
+      0.35
+    );
 
   transition: 0.2s ease;
 }
@@ -318,4 +480,10 @@
 
     display: none;
   }
+
+  .active-document-name {
+
+    max-width: 220px;
+  }
+
 }

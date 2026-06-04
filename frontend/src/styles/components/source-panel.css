@@ -658,3 +658,53 @@
 
   border-radius: 999px;
 }
+
+/* ====================================
+   REPOSITORY LINK
+==================================== */
+
+.evidence-link {
+
+  margin-top: 12px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 0;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.65
+  );
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+
+  opacity: 0.85;
+}
+
+.evidence-link:hover {
+
+  color: #a5b4fc;
+
+  opacity: 1;
+}
+
+.evidence-link svg {
+
+  width: 13px;
+
+  height: 13px;
+}

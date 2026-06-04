@@ -22,6 +22,8 @@
 @import "./styles/chat/chat-hero.css";
 @import "./styles/chat/chat-input.css";
 @import "./styles/chat/messages.css";
+@import "./styles/chat/document-context.css";
+
 
 /* ====================================
    COMPONENTS
@@ -29,3 +31,6 @@
 
 @import "./styles/components/markdown.css";
 @import "./styles/components/source-panel.css";
+@import "./styles/components/document-context.css";
+@import "./styles/components/document-context.css";
+@import "./styles/components/thesis-drawer.css";

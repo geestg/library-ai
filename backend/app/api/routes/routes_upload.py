@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from fastapi import UploadFile
 from fastapi import File
 
+from uuid import uuid4
+
 import os
 
 from app.document.file_classifier import (
@@ -10,6 +12,10 @@ from app.document.file_classifier import (
 
 from app.rag.ingest import (
     ingest_pdf
+)
+
+from app.services.document.session_store import (
+    ACTIVE_DOCUMENTS
 )
 
 router = APIRouter()
@@ -40,11 +46,16 @@ async def upload_pdf(
     # =================================
 
     file_path = os.path.join(
+
         UPLOAD_DIR,
+
         file.filename
     )
 
-    with open(file_path, "wb") as f:
+    with open(
+        file_path,
+        "wb"
+    ) as f:
 
         f.write(
             await file.read()
@@ -59,10 +70,10 @@ async def upload_pdf(
     )
 
     # =================================
-    # INGEST PDF
+    # INGEST DOCUMENT
     # =================================
 
-    ingest_pdf(
+    ingest_result = ingest_pdf(
 
         pdf_path=file_path,
 
@@ -74,16 +85,90 @@ async def upload_pdf(
     )
 
     # =================================
+    # CREATE SESSION DOCUMENT
+    # =================================
+
+    document_id = str(
+        uuid4()
+    )
+
+    ACTIVE_DOCUMENTS[
+        document_id
+    ] = {
+
+        "document_id":
+        document_id,
+
+        "filename":
+        file.filename,
+
+        "file_type":
+        file_type,
+
+        "content":
+        ingest_result[
+            "full_text"
+        ],
+
+        "pages":
+        ingest_result[
+            "pages"
+        ],
+
+        "chunks":
+        ingest_result[
+            "chunks"
+        ]
+    }
+
+    print(
+        f"[SESSION DOCUMENT] "
+        f"{file.filename}"
+    )
+
+    print(
+        f"Document ID: "
+        f"{document_id}"
+    )
+
+    print(
+        f"Pages: "
+        f"{ingest_result['pages']}"
+    )
+
+    print(
+        f"Chunks: "
+        f"{ingest_result['chunks']}"
+    )
+
+    # =================================
     # RESPONSE
     # =================================
 
     return {
 
-        "status": "success",
+        "status":
+        "success",
 
-        "filename": file.filename,
+        "document_id":
+        document_id,
 
-        "file_type": file_type,
+        "filename":
+        file.filename,
 
-        "message": "PDF uploaded and indexed successfully"
+        "file_type":
+        file_type,
+
+        "pages":
+        ingest_result[
+            "pages"
+        ],
+
+        "chunks":
+        ingest_result[
+            "chunks"
+        ],
+
+        "message":
+        "Document uploaded successfully"
     }

@@ -6,6 +6,9 @@ import ChatWindow from "../components/chat/ChatWindow";
 
 import SearchPanel from "../components/SearchPanel";
 
+import ThesisDrawer
+from "../components/sources/ThesisDrawer";
+
 export default function Workspace() {
 
   // =====================================
@@ -35,6 +38,22 @@ export default function Workspace() {
 
   const [activeCitation, setActiveCitation] =
     useState(null);
+
+  // =====================================
+  // SELECTED THESIS
+  // =====================================
+
+  const [selectedThesis, setSelectedThesis] =
+    useState(null);
+
+  // =====================================
+  // ACTIVE DOCUMENT
+  // =====================================
+
+  const [
+    activeDocument,
+    setActiveDocument
+  ] = useState(null);
 
   return (
 
@@ -82,6 +101,14 @@ export default function Workspace() {
             setActiveCitation
           }
 
+          activeDocument={
+            activeDocument
+          }
+
+          setActiveDocument={
+            setActiveDocument
+          }
+
         />
 
       </main>
@@ -106,9 +133,35 @@ export default function Workspace() {
             setActiveCitation
           }
 
+          selectedThesis={
+            selectedThesis
+          }
+
+          setSelectedThesis={
+            setSelectedThesis
+          }
+
         />
 
       </aside>
+
+      {/* ========================= */}
+      {/* THESIS DRAWER */}
+      {/* ========================= */}
+
+      <ThesisDrawer
+
+        thesis={
+          selectedThesis
+        }
+
+        onClose={() =>
+          setSelectedThesis(
+            null
+          )
+        }
+
+      />
 
     </div>
   );

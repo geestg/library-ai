@@ -4,10 +4,10 @@ import {
 
 import {
   Paperclip,
-  CheckCircle2,
-  ArrowUp
+  ArrowUp,
+  FileText,
+  X
 } from "lucide-react";
-
 
 export default function ChatInput({
 
@@ -19,11 +19,13 @@ export default function ChatInput({
 
   loading,
 
-  uploadedFiles,
-
   handleFileUpload,
 
-  handleKeyDown
+  handleKeyDown,
+
+  activeDocument,
+
+  clearDocument
 
 }) {
 
@@ -49,13 +51,16 @@ export default function ChatInput({
     const textarea =
       textareaRef.current;
 
-    if (!textarea) return;
+    if (!textarea) {
+      return;
+    }
 
     textarea.style.height =
       "auto";
 
     textarea.style.height =
       `${textarea.scrollHeight}px`;
+
   };
 
   // =====================================
@@ -66,53 +71,72 @@ export default function ChatInput({
 
     <div className="floating-input-wrapper">
 
-      {/* ========================= */}
-      {/* FILES */}
-      {/* ========================= */}
+      {/* ================================= */}
+      {/* ACTIVE DOCUMENT */}
+      {/* ================================= */}
 
       {
 
-        uploadedFiles.length > 0 && (
+        activeDocument && (
 
-          <div className="floating-files">
+          <div className="active-document-bar">
 
-            {
+            <div className="active-document-left">
 
-              uploadedFiles.map(
-                (file, idx) => (
+              <FileText size={15} />
 
-                  <div
-                    key={idx}
-                    className="modern-file-pill"
-                  >
+              <span
+                className="active-document-name"
+              >
 
-                    <CheckCircle2
-                      size={14}
-                    />
+                {
 
-                    {file.name}
+                  activeDocument.filename
 
-                  </div>
-                )
-              )
-            }
+                }
+
+              </span>
+
+            </div>
+
+            <button
+
+              className="document-remove-btn"
+
+              onClick={clearDocument}
+
+              type="button"
+
+            >
+
+              <X size={15} />
+
+            </button>
 
           </div>
+
         )
+
       }
 
-      {/* ========================= */}
+      {/* ================================= */}
       {/* SMART ACTIONS */}
-      {/* ========================= */}
+      {/* ================================= */}
 
       <div className="smart-actions">
 
         <button
+
           onClick={() =>
+
             setInput(
+
               "Cari research gap terbaru pada bidang NLP healthcare"
+
             )
+
           }
+
         >
 
           Research Gap
@@ -120,11 +144,17 @@ export default function ChatInput({
         </button>
 
         <button
+
           onClick={() =>
+
             setInput(
+
               "Bandingkan metode CNN dan Transformer"
+
             )
+
           }
+
         >
 
           Compare Methods
@@ -132,11 +162,17 @@ export default function ChatInput({
         </button>
 
         <button
+
           onClick={() =>
+
             setInput(
+
               "Generate ide judul skripsi AI terbaru"
+
             )
+
           }
+
         >
 
           Thesis Ideas
@@ -145,15 +181,15 @@ export default function ChatInput({
 
       </div>
 
-      {/* ========================= */}
+      {/* ================================= */}
       {/* INPUT */}
-      {/* ========================= */}
+      {/* ================================= */}
 
       <div className="floating-input">
 
-        {/* ======================= */}
+        {/* ========================= */}
         {/* ATTACH */}
-        {/* ======================= */}
+        {/* ========================= */}
 
         <label className="modern-attach">
 
@@ -174,19 +210,23 @@ export default function ChatInput({
             .ppt,
             .pptx,
             .xls,
-            .xlsx
+            .xlsx,
+            .png,
+            .jpg,
+            .jpeg
             "
 
             onChange={
               handleFileUpload
             }
+
           />
 
         </label>
 
-        {/* ======================= */}
+        {/* ========================= */}
         {/* TEXTAREA */}
-        {/* ======================= */}
+        {/* ========================= */}
 
         <textarea
 
@@ -194,9 +234,7 @@ export default function ChatInput({
 
           rows={1}
 
-          placeholder="
-          Ask anything about your research...
-          "
+          placeholder="Ask anything about your research..."
 
           value={input}
 
@@ -210,9 +248,9 @@ export default function ChatInput({
 
         />
 
-        {/* ======================= */}
+        {/* ========================= */}
         {/* SEND */}
-        {/* ======================= */}
+        {/* ========================= */}
 
         <button
 
@@ -221,6 +259,8 @@ export default function ChatInput({
           onClick={sendMessage}
 
           disabled={loading}
+
+          type="button"
 
         >
 
@@ -231,5 +271,7 @@ export default function ChatInput({
       </div>
 
     </div>
+
   );
+
 }

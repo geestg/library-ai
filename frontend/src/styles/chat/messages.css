@@ -201,6 +201,52 @@
 }
 
 /* ====================================
+   DOCUMENT ATTACHMENT
+==================================== */
+
+.message-document-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+
+  padding:
+    8px 14px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  backdrop-filter:
+    blur(12px);
+}
+
+/* ====================================
    MOBILE
 ==================================== */
 
@@ -226,4 +272,5 @@
 
     margin-top: 24px;
   }
+
 }
