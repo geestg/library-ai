@@ -32,6 +32,9 @@ from app.services.research.prompt_builder import (
     build_research_prompt
 )
 
+from app.services.document.session_store import (
+    ACTIVE_DOCUMENTS
+)
 
 # =====================================
 # RESEARCH ANALYSIS ENGINE
@@ -40,12 +43,110 @@ from app.services.research.prompt_builder import (
 def research_analysis(
     query: str,
     top_k: int = 10,
-    mode: str = "analysis"
+    mode: str = "analysis",
+    active_document_id: str | None = None
 ):
 
     print("\n====================================")
     print("RESEARCH ENGINE V3")
     print("====================================")
+
+    # =================================
+    # DOCUMENT MODE
+    # =================================
+
+    if active_document_id:
+
+        document = (
+            ACTIVE_DOCUMENTS.get(
+                active_document_id
+            )
+        )
+
+        if document:
+
+            print(
+                f"[DOCUMENT MODE] {document['filename']}"
+            )
+
+            content = (
+                document.get(
+                    "content",
+                    ""
+                )
+            )
+
+            prompt = f"""
+Anda adalah DELBot.
+
+Dokumen berikut sedang
+dibahas oleh pengguna.
+
+================================================
+
+{content[:15000]}
+
+================================================
+
+Pertanyaan:
+
+{query}
+
+================================================
+
+ATURAN:
+
+1. Jawab hanya berdasarkan isi dokumen.
+
+2. Jangan gunakan Qdrant.
+
+3. Jangan gunakan repository skripsi.
+
+4. Jangan mengarang.
+
+5. Jika informasi tidak ada
+dalam dokumen, katakan bahwa
+informasi tidak ditemukan.
+
+6. Gunakan Bahasa Indonesia.
+
+================================================
+"""
+
+            answer = (
+                gateway.generate_response(
+                    prompt=prompt
+                )
+            )
+
+            return {
+
+                "query":
+                query,
+
+                "mode":
+                "document",
+
+                "analysis":
+                answer,
+
+                "citations":
+                [],
+
+                "evidence":
+                {},
+
+                "related_theses":
+                [],
+
+                "evidence_matrix":
+                {},
+
+                "gap_analysis":
+                {}
+
+            }
+
 
     # =================================
     # HYBRID SEARCH
@@ -375,35 +476,29 @@ def research_analysis(
             idx,
 
             "title":
-            thesis.get(
-                "title"
-            ),
+            thesis.get("title"),
 
             "author":
-            thesis.get(
-                "author"
-            ),
+            thesis.get("author"),
 
             "year":
-            thesis.get(
-                "year"
-            ),
+            thesis.get("year"),
 
             "prodi":
-            thesis.get(
-                "prodi"
-            ),
+            thesis.get("prodi"),
 
             "url":
-            thesis.get(
-                "url"
-            ),
+            thesis.get("url"),
 
             "score":
-            thesis.get(
-                "score",
-                0
-            )
+            thesis.get("score", 0),
+
+            "abstract":
+            thesis.get("abstract"),
+
+            "chunk":
+            thesis.get("chunk")
+
         })
 
     # =================================

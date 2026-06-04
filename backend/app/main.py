@@ -29,6 +29,10 @@ from app.api.routes.title_generator import (
     router as title_generator_router
 )
 
+from app.api.routes.routes_document import (
+    router as document_router
+)
+
 app = FastAPI(
     title="DELBot - AI Academic Knowledge Operating System"
 )
@@ -78,6 +82,14 @@ app.include_router(
 )
 
 # =========================================
+# DOCUMENT CHAT
+# =========================================
+
+app.include_router(
+    document_router
+)
+
+# =========================================
 # ROOT ENDPOINT
 # =========================================
 
@@ -106,6 +118,10 @@ def root():
             "PDF Upload",
 
             "Document Chunking",
+
+            "Document Chat",
+
+            "Session Documents",
 
             "Streaming Chat",
 

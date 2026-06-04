@@ -14,35 +14,62 @@ export default function SearchPanel({
 
   evidence = {},
 
-  activeCitation
+  activeCitation,
+
+  setActiveCitation,
+
+  selectedThesis,
+
+  setSelectedThesis
 
 }) {
 
   // =================================
-  // AUTO SCROLL ACTIVE CITATION
+  // ACTIVE CITATION SCROLL
   // =================================
 
   useEffect(() => {
 
-    if (!activeCitation)
+    if (!activeCitation) {
       return;
+    }
+
+    const container =
+      document.querySelector(
+        ".evidence-shell"
+      );
 
     const element =
       document.getElementById(
         `citation-${activeCitation}`
       );
 
-    if (element) {
-
-      element.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "center"
-
-      });
-
+    if (
+      !container ||
+      !element
+    ) {
+      return;
     }
+
+    const containerRect =
+      container.getBoundingClientRect();
+
+    const elementRect =
+      element.getBoundingClientRect();
+
+    const targetScrollTop =
+      elementRect.top -
+      containerRect.top +
+      container.scrollTop -
+      120;
+
+    container.scrollTo({
+
+      top: targetScrollTop,
+
+      behavior: "smooth"
+
+    });
 
   }, [activeCitation]);
 
@@ -315,13 +342,23 @@ export default function SearchPanel({
 
                 key={source.source_id}
 
-                className={`evidence-card ${
-                  isActive
-                    ? "active"
-                    : ""
-                }`}
+                onClick={() =>
+                  setSelectedThesis(
+                    source
+                  )
+                }
 
-              >
+               className={`evidence-card ${
+                isActive
+                  ? "active"
+                  : ""
+              }`}
+
+              style={{
+                cursor: "pointer"
+              }}
+
+            >
 
                 {/* ===================== */}
                 {/* TOP */}
@@ -482,7 +519,7 @@ export default function SearchPanel({
                 </div>
 
                 {/* ===================== */}
-                {/* URL */}
+                {/* REPOSITORY */}
                 {/* ===================== */}
 
                 {
@@ -495,9 +532,13 @@ export default function SearchPanel({
 
                       target="_blank"
 
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
 
                       className="evidence-link"
+
+                      onClick={(e) =>
+                        e.stopPropagation()
+                      }
 
                     >
 

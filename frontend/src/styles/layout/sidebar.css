@@ -4,7 +4,7 @@
 
 .modern-sidebar {
 
-  height: 100vh;
+  height: 100%;
 
   display: flex;
 
@@ -333,7 +333,7 @@
 
   margin-top: auto;
 
-  padding-top: 30px;
+  padding-top: 12px;
 }
 
 /* ====================================
@@ -366,4 +366,15 @@
   font-size: 13px;
 
   font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.ai-status:hover {
+
+  background:
+    rgba(99,102,241,0.18);
+
+  border-color:
+    rgba(99,102,241,0.28);
 }

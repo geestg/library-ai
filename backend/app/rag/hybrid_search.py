@@ -44,6 +44,20 @@ def vector_search(
 
     for point in response.points:
 
+        print("\n===================")
+        print("VECTOR PAYLOAD")
+        print("===================")
+
+        print(
+            "TITLE:",
+            point.payload.get("title")
+        )
+
+        print(
+            "URL:",
+            point.payload.get("url")
+        )
+
         results.append({
 
             "payload":

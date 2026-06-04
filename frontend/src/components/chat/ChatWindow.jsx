@@ -19,9 +19,6 @@ from "./ChatInput";
 import ThinkingIndicator
 from "./ThinkingIndicator";
 
-import UploadStatus
-from "./UploadStatus";
-
 export default function ChatWindow({
 
   messages = [],
@@ -38,17 +35,22 @@ export default function ChatWindow({
 
 }) {
 
+  // =====================================
+  // CHAT STATE
+  // =====================================
+
   const [input, setInput] =
     useState("");
 
   const [loading, setLoading] =
     useState(false);
 
-  const [uploadedFiles, setUploadedFiles] =
-    useState([]);
+  // =====================================
+  // ACTIVE DOCUMENT
+  // =====================================
 
-  const [uploadingFiles, setUploadingFiles] =
-    useState([]);
+  const [activeDocument, setActiveDocument] =
+    useState(null);
 
   // =====================================
   // AUTO SCROLL
@@ -61,7 +63,9 @@ export default function ChatWindow({
         ".modern-messages"
       );
 
-    if (!container) return;
+    if (!container) {
+      return;
+    }
 
     container.scrollTo({
 
@@ -76,12 +80,21 @@ export default function ChatWindow({
   }, [
 
     messages,
-
-    uploadingFiles,
-
     loading
 
   ]);
+
+  // =====================================
+  // CLEAR DOCUMENT
+  // =====================================
+
+  const clearDocument = () => {
+
+    setActiveDocument(
+      null
+    );
+
+  };
 
   // =====================================
   // FILE UPLOAD
@@ -95,34 +108,21 @@ export default function ChatWindow({
           e.target.files
         );
 
-      if (!files.length)
+      if (!files.length) {
         return;
+      }
 
       for (const file of files) {
 
-        const uploadItem = {
+        setActiveDocument({
 
-          id:
-            Date.now() +
-            file.name,
-
-          name:
+          filename:
             file.name,
 
           status:
-            "Analyzing document..."
+            "processing"
 
-        };
-
-        setUploadingFiles(
-          (prev) => [
-
-            ...prev,
-
-            uploadItem
-
-          ]
-        );
+        });
 
         try {
 
@@ -148,6 +148,7 @@ export default function ChatWindow({
                   formData
 
               }
+
             );
 
           if (
@@ -157,107 +158,57 @@ export default function ChatWindow({
             throw new Error(
               "Upload failed"
             );
+
           }
 
           const data =
             await response.json();
 
-          setUploadingFiles(
-            (prev) =>
+          if (
+            data.document_id
+          ) {
 
-              prev.map(
-                (f) =>
+            setActiveDocument({
 
-                  f.id ===
-                  uploadItem.id
+              document_id:
+                data.document_id,
 
-                    ? {
+              filename:
+                data.filename,
 
-                        ...f,
+              pages:
+                data.pages || 0,
 
-                        status:
-                          "Indexed successfully"
+              chunks:
+                data.chunks || 0,
 
-                      }
+              status:
+                "ready"
 
-                    : f
-              )
-          );
+            });
 
-          setUploadedFiles(
-            (prev) => [
+          }
 
-              ...prev,
-
-              {
-
-                name:
-                  file.name,
-
-                chunks:
-                  data.chunks || 0,
-
-                pages:
-                  data.pages || 0,
-
-                type:
-                  data.file_type ||
-                  "pdf"
-
-              }
-
-            ]
-          );
-
-          setTimeout(
-            () => {
-
-              setUploadingFiles(
-                (prev) =>
-
-                  prev.filter(
-                    (f) =>
-
-                      f.id !==
-                      uploadItem.id
-                  )
-              );
-
-            },
-
-            1200
-          );
-
-        } catch (err) {
+        } catch (error) {
 
           console.error(
-            "UPLOAD ERROR:",
-            err
+            error
           );
 
-          setUploadingFiles(
-            (prev) =>
+          setActiveDocument({
 
-              prev.map(
-                (f) =>
+            filename:
+              file.name,
 
-                  f.id ===
-                  uploadItem.id
+            status:
+              "error"
 
-                    ? {
+          });
 
-                        ...f,
-
-                        status:
-                          "Upload failed"
-
-                      }
-
-                    : f
-              )
-          );
         }
+
       }
+
     };
 
   // =====================================
@@ -269,7 +220,9 @@ export default function ChatWindow({
 
       if (
         !input.trim()
-      ) return;
+      ) {
+        return;
+      }
 
       const finalInput =
         input;
@@ -285,7 +238,10 @@ export default function ChatWindow({
               "user",
 
             content:
-              finalInput
+              finalInput,
+
+            attachedDocument:
+              activeDocument
 
           },
 
@@ -313,9 +269,12 @@ export default function ChatWindow({
 
         textarea.style.height =
           "auto";
+
       }
 
-      setLoading(true);
+      setLoading(
+        true
+      );
 
       try {
 
@@ -346,11 +305,18 @@ export default function ChatWindow({
                     5,
 
                   mode:
-                    "analysis"
+                    "analysis",
+
+                  active_document_id:
+
+                    activeDocument?.document_id ||
+
+                    null
 
                 })
 
             }
+
           );
 
         if (
@@ -358,43 +324,13 @@ export default function ChatWindow({
         ) {
 
           throw new Error(
-
-            `Research request failed: ${response.status}`
-
+            `Request failed: ${response.status}`
           );
+
         }
 
         const data =
           await response.json();
-
-        // =================================
-        // DEBUG RESPONSE
-        // =================================
-
-        console.log(
-          "RESEARCH RESPONSE:",
-          data
-        );
-
-        console.log(
-          "CITATIONS:",
-          data.citations
-        );
-
-        console.log(
-          "EVIDENCE:",
-          data.evidence
-        );
-
-        console.log(
-          "EVIDENCE MATRIX:",
-          data.evidence_matrix
-        );
-
-        console.log(
-          "GAP ANALYSIS:",
-          data.gap_analysis
-        );
 
         setMessages(
           (prev) => {
@@ -410,8 +346,12 @@ export default function ChatWindow({
                 "assistant",
 
               content:
+
+                data.answer ||
+
                 data.analysis ||
-                "No analysis returned.",
+
+                "No response returned.",
 
               citations:
                 data.citations || [],
@@ -424,28 +364,41 @@ export default function ChatWindow({
             return updated;
 
           }
-        );
 
-        // =================================
-        // GLOBAL SOURCE STATE
-        // =================================
+        );
 
         setSources(
           data.citations || []
         );
 
-        // =================================
-        // GLOBAL EVIDENCE STATE
-        // =================================
-
         setEvidence(
           data.evidence || {}
         );
 
+        // =================================
+        // AUTO RELEASE DOCUMENT
+        // =================================
+
+        if (
+          activeDocument
+        ) {
+
+          setTimeout(
+            () => {
+
+              setActiveDocument(
+                null
+              );
+
+            },
+            1000
+          );
+
+        }
+
       } catch (error) {
 
         console.error(
-          "RESEARCH ERROR:",
           error
         );
 
@@ -470,6 +423,7 @@ export default function ChatWindow({
             return updated;
 
           }
+
         );
 
       } finally {
@@ -477,11 +431,13 @@ export default function ChatWindow({
         setLoading(
           false
         );
+
       }
+
     };
 
   // =====================================
-  // ENTER KEY
+  // ENTER
   // =====================================
 
   const handleKeyDown =
@@ -489,8 +445,9 @@ export default function ChatWindow({
 
       if (
 
-        e.key ===
-          "Enter" &&
+        e.key === "Enter"
+
+        &&
 
         !e.shiftKey
 
@@ -501,6 +458,7 @@ export default function ChatWindow({
         sendMessage();
 
       }
+
     };
 
   // =====================================
@@ -545,7 +503,9 @@ export default function ChatWindow({
 
                   <MessageBubble
 
-                    key={idx}
+                    key={
+                      msg.id || idx
+                    }
 
                     role={
                       msg.role
@@ -563,6 +523,10 @@ export default function ChatWindow({
                       msg.evidence
                     }
 
+                    attachedDocument={
+                      msg.attachedDocument
+                    }
+
                     setActiveCitation={
                       setActiveCitation
                     }
@@ -571,16 +535,10 @@ export default function ChatWindow({
 
                 )
               )
+
             )
+
         }
-
-        <UploadStatus
-
-          uploadingFiles={
-            uploadingFiles
-          }
-
-        />
 
         {
 
@@ -589,6 +547,7 @@ export default function ChatWindow({
             <ThinkingIndicator />
 
           )
+
         }
 
       </div>
@@ -609,10 +568,6 @@ export default function ChatWindow({
           loading
         }
 
-        uploadedFiles={
-          uploadedFiles
-        }
-
         handleFileUpload={
           handleFileUpload
         }
@@ -621,8 +576,18 @@ export default function ChatWindow({
           handleKeyDown
         }
 
+        activeDocument={
+          activeDocument
+        }
+
+        clearDocument={
+          clearDocument
+        }
+
       />
 
     </div>
+
   );
+
 }

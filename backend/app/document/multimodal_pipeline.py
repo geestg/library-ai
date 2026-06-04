@@ -28,12 +28,49 @@ from app.document.parsers.csv_parser import (
     parse_csv
 )
 
+from app.document.document_classifier import (
+    classify_document
+)
+
+
+# =====================================
+# BUILD RESULT
+# =====================================
+
+def build_result(
+    file_type,
+    pages,
+    text
+):
+
+    document_type = classify_document(
+        text
+    )
+
+    return {
+
+        "type":
+            file_type,
+
+        "document_type":
+            document_type,
+
+        "pages":
+            pages,
+
+        "text":
+            text
+
+    }
+
 
 # =====================================
 # PROCESS DOCUMENT
 # =====================================
 
-def process_document(file_path):
+def process_document(
+    file_path
+):
 
     ext = os.path.splitext(
         file_path
@@ -51,32 +88,34 @@ def process_document(file_path):
 
         text = "\n".join([
 
-            page["text"]
+            page.get(
+                "text",
+                ""
+            )
 
             for page in pages
+
         ])
 
-        return {
+        return build_result(
 
-            "type": "pdf",
+            file_type="pdf",
 
-            "pages": pages,
+            pages=pages,
 
-            "text": text
-        }
+            text=text
+
+        )
 
     # =================================
     # IMAGE
     # =================================
 
-    elif ext in [
+    if ext in [
 
         ".png",
-
         ".jpg",
-
         ".jpeg",
-
         ".webp"
 
     ]:
@@ -85,54 +124,61 @@ def process_document(file_path):
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "image",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="image",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
     # DOCX
     # =================================
 
-    elif ext == ".docx":
+    if ext == ".docx":
 
         text = parse_docx(
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "docx",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="docx",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
-    # XLSX
+    # XLSX / XLS
     # =================================
 
-    elif ext in [
+    if ext in [
 
         ".xlsx",
-
         ".xls"
 
     ]:
@@ -141,100 +187,118 @@ def process_document(file_path):
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "xlsx",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="xlsx",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
     # PPTX
     # =================================
 
-    elif ext == ".pptx":
+    if ext == ".pptx":
 
         text = parse_pptx(
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "pptx",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="pptx",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
     # TXT
     # =================================
 
-    elif ext == ".txt":
+    if ext == ".txt":
 
         text = parse_txt(
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "txt",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="txt",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
     # CSV
     # =================================
 
-    elif ext == ".csv":
+    if ext == ".csv":
 
         text = parse_csv(
             file_path
         )
 
-        return {
+        pages = [
 
-            "type": "csv",
+            {
+                "page": 1,
+                "text": text
+            }
 
-            "pages": [
+        ]
 
-                {
-                    "page": 1,
-                    "text": text
-                }
-            ],
+        return build_result(
 
-            "text": text
-        }
+            file_type="csv",
+
+            pages=pages,
+
+            text=text
+
+        )
 
     # =================================
     # UNSUPPORTED
     # =================================
 
     raise Exception(
+
         f"Unsupported file type: {ext}"
+
     )

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -10,3 +12,5 @@ class ResearchRequest(
     top_k: int = 10
 
     mode: str = "analysis"
+
+    active_document_id: Optional[str] = None

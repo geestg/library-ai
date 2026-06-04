@@ -225,7 +225,32 @@ def ingest_pdf(
         f"{len(points)} chunks indexed."
     )
 
+    # =================================
+    # BUILD FULL DOCUMENT TEXT
+    # =================================
 
-if __name__ == "__main__":
+    full_text = "\n\n".join(
 
-    ingest_dataset()
+        page["text"]
+
+        for page in pages
+
+        if page.get("text")
+    )
+
+    # =================================
+    # RETURN DOCUMENT INFO
+    # =================================
+
+    return {
+
+        "pages":
+        len(pages),
+
+        "chunks":
+        len(chunks),
+
+        "full_text":
+        full_text
+
+    }

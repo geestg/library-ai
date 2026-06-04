@@ -29,7 +29,7 @@ def build_evidence_section(
     lines = []
 
     lines.append(
-        "STRUCTURED EVIDENCE"
+        "BUKTI TERSTRUKTUR"
     )
 
     lines.append(
@@ -41,7 +41,7 @@ def build_evidence_section(
     # =================================
 
     lines.append(
-        "\nTECHNOLOGIES:"
+        "\nTEKNOLOGI:"
     )
 
     if technologies:
@@ -55,7 +55,7 @@ def build_evidence_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     # =================================
@@ -63,7 +63,7 @@ def build_evidence_section(
     # =================================
 
     lines.append(
-        "\nMETHODOLOGIES:"
+        "\nMETODOLOGI:"
     )
 
     if methodologies:
@@ -77,7 +77,7 @@ def build_evidence_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     # =================================
@@ -85,7 +85,7 @@ def build_evidence_section(
     # =================================
 
     lines.append(
-        "\nKEYWORDS:"
+        "\nKATA KUNCI:"
     )
 
     if keywords:
@@ -99,7 +99,7 @@ def build_evidence_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     # =================================
@@ -107,7 +107,7 @@ def build_evidence_section(
     # =================================
 
     lines.append(
-        "\nRESEARCH DOMAINS:"
+        "\nDOMAIN PENELITIAN:"
     )
 
     if research_domains:
@@ -121,7 +121,7 @@ def build_evidence_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     return "\n".join(
@@ -140,7 +140,7 @@ def build_matrix_section(
     lines = []
 
     lines.append(
-        "EVIDENCE MATRIX"
+        "MATRIKS BUKTI"
     )
 
     lines.append(
@@ -152,7 +152,7 @@ def build_matrix_section(
     # =================================
 
     lines.append(
-        "\nTECHNOLOGY FREQUENCY:"
+        "\nFREKUENSI TEKNOLOGI:"
     )
 
     technology_frequency = matrix.get(
@@ -171,7 +171,7 @@ def build_matrix_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     # =================================
@@ -179,7 +179,7 @@ def build_matrix_section(
     # =================================
 
     lines.append(
-        "\nMETHODOLOGY FREQUENCY:"
+        "\nFREKUENSI METODOLOGI:"
     )
 
     methodology_frequency = matrix.get(
@@ -198,7 +198,7 @@ def build_matrix_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     # =================================
@@ -206,7 +206,7 @@ def build_matrix_section(
     # =================================
 
     lines.append(
-        "\nDOMAIN FREQUENCY:"
+        "\nFREKUENSI DOMAIN:"
     )
 
     domain_frequency = matrix.get(
@@ -225,7 +225,7 @@ def build_matrix_section(
     else:
 
         lines.append(
-            "- Not found"
+            "- Tidak ditemukan"
         )
 
     return "\n".join(
@@ -249,126 +249,156 @@ def build_research_prompt(
 ):
 
     return f"""
-You are DELBot.
+Anda adalah DELBot.
 
-AI Academic Knowledge Operating System.
+Asisten Riset Akademik Institut Teknologi Del.
+
+Seluruh jawaban HARUS menggunakan Bahasa Indonesia formal akademik.
 
 ==================================================
-RESEARCH TOPIC
+TOPIK PENELITIAN
 ==================================================
 
 {query}
 
 ==================================================
-STRUCTURED EVIDENCE
+BUKTI TERSTRUKTUR
 ==================================================
 
 {evidence_text}
 
 ==================================================
-RETRIEVED SOURCES
+SUMBER YANG DITEMUKAN
 ==================================================
 
 {citation_context}
 
 ==================================================
-STRICT GROUNDING RULES
+ATURAN BAHASA
 ==================================================
 
-1. Use ONLY retrieved sources.
+1. Gunakan Bahasa Indonesia formal akademik.
 
-2. Use ONLY technologies found
-inside STRUCTURED EVIDENCE.
+2. Jangan menggunakan heading bahasa Inggris.
 
-3. Use ONLY methodologies found
-inside STRUCTURED EVIDENCE.
+3. Jangan menggunakan paragraf bahasa Inggris.
 
-4. Never invent:
-- AI models
-- frameworks
-- architectures
-- technologies
-- datasets
-- methodologies
+4. Nama teknologi tetap menggunakan nama asli:
+   - Laravel
+   - API
+   - Odoo
+   - CNN
+   - Transformer
+   - React
+   - FastAPI
+   - Qdrant
 
-5. If information is not found:
+5. Jangan menerjemahkan nama teknologi.
 
-"Insufficient evidence from retrieved theses."
-
-6. Every factual claim
-must contain citation.
-
-7. Citation format:
-
-[1]
-[2]
-[3]
-
-Never use:
-
-(Source_1)
-(Source_2)
+6. Seluruh analisis, penjelasan,
+   rekomendasi, dan kesimpulan
+   harus menggunakan Bahasa Indonesia.
 
 ==================================================
-IMPORTANT STATISTICAL RULES
+ATURAN GROUNDING
 ==================================================
 
-Technology or methodology
-with frequency = 1
+1. Gunakan HANYA sumber yang ditemukan.
 
-MUST NOT be described as:
+2. Gunakan HANYA teknologi yang
+   terdapat pada bukti terstruktur.
 
-- dominant
-- common
-- widely used
-- major trend
+3. Gunakan HANYA metodologi yang
+   terdapat pada bukti terstruktur.
 
-Technology or methodology
-with frequency >= 2
+4. Jangan mengarang:
 
-may be described as trend.
+   - model AI
+   - framework
+   - arsitektur
+   - teknologi
+   - dataset
+   - metodologi
 
-Technology or methodology
-with frequency >= 3
+5. Jika informasi tidak tersedia,
+   tulis:
 
-may be described as dominant.
+   "Bukti dari skripsi yang ditemukan tidak mencukupi."
+
+6. Setiap klaim faktual
+   wajib memiliki sitasi.
+
+7. Format sitasi:
+
+   [1]
+   [2]
+   [3]
+
+8. Jangan gunakan:
+
+   (Source_1)
+   (Source_2)
 
 ==================================================
-TASKS
+ATURAN STATISTIK
 ==================================================
 
-1. Executive Summary
-2. Research Themes
-3. Technologies
-4. Methodologies
-5. Weaknesses
-6. Research Gaps
-7. Novelty Opportunities
-8. Future Directions
-9. Thesis Titles
-10. Recommendation
+Teknologi atau metodologi
+dengan frekuensi = 1
+
+TIDAK BOLEH disebut:
+
+- dominan
+- umum digunakan
+- tren utama
+- banyak digunakan
+
+Teknologi atau metodologi
+dengan frekuensi >= 2
+
+boleh disebut tren.
+
+Teknologi atau metodologi
+dengan frekuensi >= 3
+
+boleh disebut dominan.
 
 ==================================================
-OUTPUT FORMAT
+TUGAS ANALISIS
 ==================================================
 
-# Executive Summary
+1. Ringkasan Eksekutif
+2. Tema Penelitian
+3. Teknologi yang Digunakan
+4. Metodologi yang Digunakan
+5. Kelemahan Penelitian Sebelumnya
+6. Gap Penelitian
+7. Peluang Novelty
+8. Arah Penelitian Selanjutnya
+9. Rekomendasi Judul Skripsi
+10. Rekomendasi Akhir
 
-# Common Research Themes
+==================================================
+FORMAT OUTPUT
+==================================================
 
-# Technologies Used
+# Ringkasan Eksekutif
 
-# Methodologies Used
+# Tema Penelitian
 
-# Weaknesses of Existing Studies
+# Teknologi yang Digunakan
 
-# Research Gaps
+# Metodologi yang Digunakan
 
-# Novelty Opportunities
+# Kelemahan Penelitian Sebelumnya
 
-# Future Research Directions
+# Gap Penelitian
 
-# Recommended Thesis Titles
+# Peluang Novelty
 
-# Final Recommendation
+# Arah Penelitian Selanjutnya
+
+# Rekomendasi Judul Skripsi
+
+# Rekomendasi Akhir
 """

@@ -30,5 +30,10 @@ async def research_analysis_route(
 
         top_k=request.top_k,
 
-        mode=request.mode
+        mode=request.mode,
+
+        active_document_id=
+            request.active_document_id
+
+
     )
