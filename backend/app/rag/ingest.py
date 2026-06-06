@@ -153,6 +153,10 @@ def ingest_pdf(
         USER_DOCUMENT_COLLECTION
     )
 
+    # =================================
+    # EXTRACT PAGES
+    # =================================
+
     pages = extract_pdf_pages(
         pdf_path
     )
@@ -162,6 +166,10 @@ def ingest_pdf(
         f"{len(pages)}"
     )
 
+    # =================================
+    # CHUNKING
+    # =================================
+
     chunks = chunk_text(
         pages
     )
@@ -170,6 +178,10 @@ def ingest_pdf(
         f"[CHUNK] Generated chunks: "
         f"{len(chunks)}"
     )
+
+    # =================================
+    # BUILD VECTOR POINTS
+    # =================================
 
     points = []
 
@@ -212,6 +224,10 @@ def ingest_pdf(
 
         points.append(point)
 
+    # =================================
+    # UPSERT TO QDRANT
+    # =================================
+
     client.upsert(
 
         collection_name=
@@ -251,6 +267,11 @@ def ingest_pdf(
         len(chunks),
 
         "full_text":
-        full_text
+        full_text,
+
+        # penting untuk retriever
+        # dan citation halaman
+        "pages_data":
+        pages
 
     }

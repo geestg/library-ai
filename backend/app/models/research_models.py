@@ -1,3 +1,4 @@
+from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
@@ -13,4 +14,6 @@ class ResearchRequest(
 
     mode: str = "analysis"
 
-    active_document_id: Optional[str] = None
+    active_document_ids: Optional[
+        List[str]
+    ] = []

@@ -6,7 +6,8 @@ import {
   Paperclip,
   ArrowUp,
   FileText,
-  X
+  X,
+  Loader2
 } from "lucide-react";
 
 export default function ChatInput({
@@ -23,9 +24,11 @@ export default function ChatInput({
 
   handleKeyDown,
 
-  activeDocument,
+  activeDocuments,
 
-  clearDocument
+  uploadingDocuments,
+
+  removeDocument
 
 }) {
 
@@ -72,46 +75,150 @@ export default function ChatInput({
     <div className="floating-input-wrapper">
 
       {/* ================================= */}
-      {/* ACTIVE DOCUMENT */}
+      {/* UPLOADING DOCUMENTS */}
       {/* ================================= */}
 
       {
 
-        activeDocument && (
+        uploadingDocuments?.length > 0 && (
 
           <div className="active-document-bar">
 
-            <div className="active-document-left">
+            {
 
-              <FileText size={15} />
+              uploadingDocuments.map(
 
-              <span
-                className="active-document-name"
-              >
+                (doc) => (
 
-                {
+                  <div
 
-                  activeDocument.filename
+                    className="
+                    active-document-pill
+                    uploading
+                    "
 
-                }
+                    key={
+                      doc.id
+                    }
 
-              </span>
+                  >
 
-            </div>
+                    <Loader2
+                      size={14}
+                      className="spin"
+                    />
 
-            <button
+                    <span
+                      className="
+                      active-document-name
+                      "
+                    >
 
-              className="document-remove-btn"
+                      {
+                        doc.filename
+                      }
 
-              onClick={clearDocument}
+                    </span>
 
-              type="button"
+                    <span
+                      className="
+                      upload-status
+                      "
+                    >
 
-            >
+                      Uploading...
 
-              <X size={15} />
+                    </span>
 
-            </button>
+                  </div>
+
+                )
+
+              )
+
+            }
+
+          </div>
+
+        )
+
+      }
+
+      {/* ================================= */}
+      {/* ACTIVE DOCUMENTS */}
+      {/* ================================= */}
+
+      {
+
+        activeDocuments?.length > 0 && (
+
+          <div className="active-document-bar">
+
+            {
+
+              activeDocuments.map(
+
+                (doc) => (
+
+                  <div
+
+                    className="
+                    active-document-pill
+                    "
+
+                    key={
+                      doc.document_id
+                    }
+
+                  >
+
+                    <FileText
+                      size={14}
+                    />
+
+                    <span
+                      className="
+                      active-document-name
+                      "
+                    >
+
+                      {
+                        doc.filename
+                      }
+
+                    </span>
+
+                    <button
+
+                      type="button"
+
+                      className="
+                      document-remove-btn
+                      "
+
+                      onClick={() =>
+
+                        removeDocument(
+                          doc.document_id
+                        )
+
+                      }
+
+                    >
+
+                      <X
+                        size={12}
+                      />
+
+                    </button>
+
+                  </div>
+
+                )
+
+              )
+
+            }
 
           </div>
 
@@ -126,6 +233,8 @@ export default function ChatInput({
       <div className="smart-actions">
 
         <button
+
+          type="button"
 
           onClick={() =>
 
@@ -145,6 +254,8 @@ export default function ChatInput({
 
         <button
 
+          type="button"
+
           onClick={() =>
 
             setInput(
@@ -162,6 +273,8 @@ export default function ChatInput({
         </button>
 
         <button
+
+          type="button"
 
           onClick={() =>
 
@@ -193,7 +306,9 @@ export default function ChatInput({
 
         <label className="modern-attach">
 
-          <Paperclip size={18} />
+          <Paperclip
+            size={18}
+          />
 
           <input
 
@@ -211,9 +326,12 @@ export default function ChatInput({
             .pptx,
             .xls,
             .xlsx,
+            .csv,
+            .txt,
             .png,
             .jpg,
-            .jpeg
+            .jpeg,
+            .webp
             "
 
             onChange={
@@ -256,15 +374,21 @@ export default function ChatInput({
 
           className="send-modern-btn"
 
-          onClick={sendMessage}
+          onClick={
+            sendMessage
+          }
 
-          disabled={loading}
+          disabled={
+            loading
+          }
 
           type="button"
 
         >
 
-          <ArrowUp size={18} />
+          <ArrowUp
+            size={18}
+          />
 
         </button>
 

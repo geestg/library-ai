@@ -22,7 +22,7 @@ export default function MessageBubble({
 
   evidence,
 
-  attachedDocument,
+  attachedDocuments = [],
 
   setActiveCitation
 
@@ -42,18 +42,53 @@ export default function MessageBubble({
 
           &&
 
-          attachedDocument
+          attachedDocuments.length > 0
 
           && (
 
-            <div className="message-document-pill">
-
-              <FileText size={14} />
+            <div
+              className="
+              message-document-list
+              "
+            >
 
               {
 
-                attachedDocument
-                  .filename
+                attachedDocuments.map(
+
+                  (doc) => (
+
+                    <div
+
+                      key={
+                        doc.document_id
+                          ||
+                        doc.filename
+                      }
+
+                      className="
+                      message-document-pill
+                      "
+
+                    >
+
+                      <FileText
+                        size={14}
+                      />
+
+                      <span>
+
+                        {
+                          doc.filename
+                        }
+
+                      </span>
+
+                    </div>
+
+                  )
+
+                )
 
               }
 
