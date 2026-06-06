@@ -32,8 +32,8 @@ async def research_analysis_route(
 
         mode=request.mode,
 
-        active_document_id=
-            request.active_document_id
+        active_document_ids=
+            request.active_document_ids
 
 
     )

@@ -7,17 +7,10 @@ import {
   API_BASE_URL
 } from "../../services/api";
 
-import MessageBubble
-from "./MessageBubble";
-
-import ChatHero
-from "./ChatHero";
-
-import ChatInput
-from "./ChatInput";
-
-import ThinkingIndicator
-from "./ThinkingIndicator";
+import MessageBubble from "./MessageBubble";
+import ChatHero from "./ChatHero";
+import ChatInput from "./ChatInput";
+import ThinkingIndicator from "./ThinkingIndicator";
 
 export default function ChatWindow({
 
@@ -46,11 +39,28 @@ export default function ChatWindow({
     useState(false);
 
   // =====================================
-  // ACTIVE DOCUMENT
+  // ACTIVE DOCUMENTS
   // =====================================
 
-  const [activeDocument, setActiveDocument] =
-    useState(null);
+  const [
+
+    activeDocuments,
+
+    setActiveDocuments
+
+  ] = useState([]);
+
+  // =====================================
+  // UPLOADING DOCUMENTS
+  // =====================================
+
+  const [
+
+    uploadingDocuments,
+
+    setUploadingDocuments
+
+  ] = useState([]);
 
   // =====================================
   // AUTO SCROLL
@@ -80,19 +90,43 @@ export default function ChatWindow({
   }, [
 
     messages,
+
     loading
 
   ]);
 
   // =====================================
-  // CLEAR DOCUMENT
+  // REMOVE DOCUMENT
   // =====================================
 
-  const clearDocument = () => {
+  const removeDocument = (
+    documentId
+  ) => {
 
-    setActiveDocument(
-      null
+    setActiveDocuments(
+
+      prev =>
+
+        prev.filter(
+
+          doc =>
+
+            doc.document_id !==
+            documentId
+
+        )
+
     );
+
+  };
+
+  // =====================================
+  // CLEAR DOCUMENTS
+  // =====================================
+
+  const clearDocuments = () => {
+
+    setActiveDocuments([]);
 
   };
 
@@ -105,7 +139,7 @@ export default function ChatWindow({
 
       const files =
         Array.from(
-          e.target.files
+          e.target.files || []
         );
 
       if (!files.length) {
@@ -114,15 +148,32 @@ export default function ChatWindow({
 
       for (const file of files) {
 
-        setActiveDocument({
+        const uploadId =
+          `${Date.now()}-${file.name}`;
 
-          filename:
-            file.name,
+        // ===============================
+        // SHOW UPLOADING
+        // ===============================
 
-          status:
-            "processing"
+        setUploadingDocuments(
 
-        });
+          prev => [
+
+            ...prev,
+
+            {
+
+              id:
+                uploadId,
+
+              filename:
+                file.name
+
+            }
+
+          ]
+
+        );
 
         try {
 
@@ -156,7 +207,7 @@ export default function ChatWindow({
           ) {
 
             throw new Error(
-              "Upload failed"
+              `Upload failed (${response.status})`
             );
 
           }
@@ -164,50 +215,91 @@ export default function ChatWindow({
           const data =
             await response.json();
 
+          // ===============================
+          // REMOVE UPLOADING
+          // ===============================
+
+          setUploadingDocuments(
+
+            prev =>
+
+              prev.filter(
+
+                item =>
+
+                  item.id !==
+                  uploadId
+
+              )
+
+          );
+
+          // ===============================
+          // ADD ACTIVE DOCUMENT
+          // ===============================
+
           if (
             data.document_id
           ) {
 
-            setActiveDocument({
+            setActiveDocuments(
 
-              document_id:
-                data.document_id,
+              prev => [
 
-              filename:
-                data.filename,
+                ...prev,
 
-              pages:
-                data.pages || 0,
+                {
 
-              chunks:
-                data.chunks || 0,
+                  document_id:
+                    data.document_id,
 
-              status:
-                "ready"
+                  filename:
+                    data.filename,
 
-            });
+                  pages:
+                    data.pages || 0,
+
+                  chunks:
+                    data.chunks || 0,
+
+                  file_type:
+                    data.file_type || "unknown"
+
+                }
+
+              ]
+
+            );
 
           }
 
         } catch (error) {
 
           console.error(
+            "UPLOAD ERROR:",
             error
           );
 
-          setActiveDocument({
+          setUploadingDocuments(
 
-            filename:
-              file.name,
+            prev =>
 
-            status:
-              "error"
+              prev.filter(
 
-          });
+                item =>
+
+                  item.id !==
+                  uploadId
+
+              )
+
+          );
 
         }
 
       }
+
+      e.target.value = "";
 
     };
 
@@ -228,7 +320,8 @@ export default function ChatWindow({
         input;
 
       setMessages(
-        (prev) => [
+
+        prev => [
 
           ...prev,
 
@@ -240,8 +333,8 @@ export default function ChatWindow({
             content:
               finalInput,
 
-            attachedDocument:
-              activeDocument
+            attachedDocuments:
+              activeDocuments
 
           },
 
@@ -256,6 +349,7 @@ export default function ChatWindow({
           }
 
         ]
+
       );
 
       setInput("");
@@ -307,11 +401,15 @@ export default function ChatWindow({
                   mode:
                     "analysis",
 
-                  active_document_id:
+                  active_document_ids:
 
-                    activeDocument?.document_id ||
+                    activeDocuments.map(
 
-                    null
+                      doc =>
+
+                        doc.document_id
+
+                    )
 
                 })
 
@@ -324,7 +422,9 @@ export default function ChatWindow({
         ) {
 
           throw new Error(
+
             `Request failed: ${response.status}`
+
           );
 
         }
@@ -333,7 +433,8 @@ export default function ChatWindow({
           await response.json();
 
         setMessages(
-          (prev) => {
+
+          prev => {
 
             const updated =
               [...prev];
@@ -368,33 +469,16 @@ export default function ChatWindow({
         );
 
         setSources(
+
           data.citations || []
+
         );
 
         setEvidence(
+
           data.evidence || {}
+
         );
-
-        // =================================
-        // AUTO RELEASE DOCUMENT
-        // =================================
-
-        if (
-          activeDocument
-        ) {
-
-          setTimeout(
-            () => {
-
-              setActiveDocument(
-                null
-              );
-
-            },
-            1000
-          );
-
-        }
 
       } catch (error) {
 
@@ -403,7 +487,8 @@ export default function ChatWindow({
         );
 
         setMessages(
-          (prev) => {
+
+          prev => {
 
             const updated =
               [...prev];
@@ -416,6 +501,7 @@ export default function ChatWindow({
                 "assistant",
 
               content:
+
                 `Terjadi error saat memproses request.\n\n${error.message}`
 
             };
@@ -496,6 +582,7 @@ export default function ChatWindow({
             : (
 
               messages.map(
+
                 (
                   msg,
                   idx
@@ -523,8 +610,8 @@ export default function ChatWindow({
                       msg.evidence
                     }
 
-                    attachedDocument={
-                      msg.attachedDocument
+                    attachedDocuments={
+                      msg.attachedDocuments
                     }
 
                     setActiveCitation={
@@ -534,6 +621,7 @@ export default function ChatWindow({
                   />
 
                 )
+
               )
 
             )
@@ -576,12 +664,16 @@ export default function ChatWindow({
           handleKeyDown
         }
 
-        activeDocument={
-          activeDocument
+        activeDocuments={
+          activeDocuments
         }
 
-        clearDocument={
-          clearDocument
+        uploadingDocuments={
+          uploadingDocuments
+        }
+
+        removeDocument={
+          removeDocument
         }
 
       />

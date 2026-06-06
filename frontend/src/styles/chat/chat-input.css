@@ -35,25 +35,40 @@
 
   display: flex;
 
+  flex-wrap: wrap;
+
   align-items: center;
 
-  justify-content: space-between;
-
-  height: 48px;
-
-  padding:
-    0 14px;
+  gap: 10px;
 
   margin-bottom: 12px;
+}
 
-  border-radius: 14px;
+/* ====================================
+   DOCUMENT PILL
+==================================== */
+
+.active-document-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  height: 40px;
+
+  padding:
+    0 12px;
+
+  border-radius: 999px;
 
   background:
     rgba(
       255,
       255,
       255,
-      0.05
+      0.06
     );
 
   border:
@@ -64,25 +79,56 @@
       0.08
     );
 
+  color: white;
+
   backdrop-filter:
     blur(20px);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.active-document-pill:hover {
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-color:
+    rgba(
+      99,
+      102,
+      241,
+      0.25
+    );
 }
 
 /* ====================================
-   DOCUMENT LEFT
+   UPLOADING PILL
 ==================================== */
 
-.active-document-left {
+.active-document-pill.uploading {
 
-  display: flex;
+  border-color:
+    rgba(
+      99,
+      102,
+      241,
+      0.25
+    );
 
-  align-items: center;
-
-  gap: 10px;
-
-  min-width: 0;
-
-  color: white;
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.08
+    );
 }
 
 /* ====================================
@@ -101,18 +147,35 @@
 
   text-overflow: ellipsis;
 
-  max-width: 600px;
+  max-width: 260px;
 }
 
 /* ====================================
-   REMOVE DOCUMENT
+   UPLOAD STATUS
+==================================== */
+
+.upload-status {
+
+  font-size: 12px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+}
+
+/* ====================================
+   REMOVE BUTTON
 ==================================== */
 
 .document-remove-btn {
 
-  width: 28px;
+  width: 22px;
 
-  height: 28px;
+  height: 22px;
 
   border: none;
 
@@ -134,7 +197,9 @@
 
   cursor: pointer;
 
-  border-radius: 8px;
+  border-radius: 999px;
+
+  flex-shrink: 0;
 
   transition:
     background 0.2s ease,
@@ -148,10 +213,35 @@
       255,
       255,
       255,
-      0.08
+      0.10
     );
 
   color: white;
+}
+
+/* ====================================
+   SPINNER
+==================================== */
+
+.spin {
+
+  animation:
+    spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+  from {
+
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+
+    transform:
+      rotate(360deg);
+  }
 }
 
 /* ====================================
@@ -483,7 +573,7 @@
 
   .active-document-name {
 
-    max-width: 220px;
+    max-width: 140px;
   }
 
 }

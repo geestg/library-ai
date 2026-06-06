@@ -44,74 +44,106 @@ def research_analysis(
     query: str,
     top_k: int = 10,
     mode: str = "analysis",
-    active_document_id: str | None = None
+    active_document_ids=None
 ):
 
     print("\n====================================")
     print("RESEARCH ENGINE V3")
     print("====================================")
-
+    
     # =================================
-    # DOCUMENT MODE
+    # ACTIVE DOCUMENT MODE
     # =================================
 
-    if active_document_id:
+    if active_document_ids:
 
-        document = (
-            ACTIVE_DOCUMENTS.get(
-                active_document_id
-            )
-        )
+        contexts = []
 
-        if document:
+        documents = []
 
-            print(
-                f"[DOCUMENT MODE] {document['filename']}"
+        for doc_id in active_document_ids:
+
+            doc = ACTIVE_DOCUMENTS.get(
+                doc_id
             )
 
-            content = (
-                document.get(
-                    "content",
-                    ""
-                )
+            if not doc:
+                continue
+
+            documents.append({
+
+                "document_id":
+                doc_id,
+
+                "filename":
+                doc["filename"]
+
+            })
+
+            contexts.append(
+
+                f"""
+    FILE:
+    {doc["filename"]}
+
+    CONTENT:
+    {doc["content"][:10000]}
+    """
+            )
+
+        if contexts:
+
+            document_context = "\n\n".join(
+                contexts
             )
 
             prompt = f"""
-Anda adalah DELBot.
+    Anda adalah DELBot.
 
-Dokumen berikut sedang
-dibahas oleh pengguna.
+    Anda sedang menganalisis
+    beberapa dokumen sekaligus.
 
-================================================
+    ==================================================
+    DOKUMEN
+    ==================================================
 
-{content[:15000]}
+    {document_context}
 
-================================================
+    ==================================================
+    PERTANYAAN USER
+    ==================================================
 
-Pertanyaan:
+    {query}
 
-{query}
+    ==================================================
+    ATURAN
+    ==================================================
 
-================================================
+    1. Jawab berdasarkan dokumen yang diberikan.
 
-ATURAN:
+    2. Jika informasi berasal dari dokumen tertentu,
+    sebutkan nama filenya.
 
-1. Jawab hanya berdasarkan isi dokumen.
+    3. Jika terdapat informasi yang berbeda antar dokumen,
+    jelaskan perbedaannya.
 
-2. Jangan gunakan Qdrant.
+    4. Jika user meminta perbandingan,
+    buat tabel perbandingan.
 
-3. Jangan gunakan repository skripsi.
+    5. Jika user meminta ringkasan,
+    buat ringkasan terstruktur.
 
-4. Jangan mengarang.
+    6. Jika informasi tidak ditemukan,
+    katakan informasi tidak ditemukan.
 
-5. Jika informasi tidak ada
-dalam dokumen, katakan bahwa
-informasi tidak ditemukan.
+    7. Jangan gunakan Qdrant.
 
-6. Gunakan Bahasa Indonesia.
+    8. Jangan gunakan repository skripsi.
 
-================================================
-"""
+    9. Jangan mengarang.
+
+    10. Gunakan Bahasa Indonesia.
+    """
 
             answer = (
                 gateway.generate_response(
@@ -125,7 +157,7 @@ informasi tidak ditemukan.
                 query,
 
                 "mode":
-                "document",
+                "multi_document",
 
                 "analysis":
                 answer,
@@ -136,18 +168,11 @@ informasi tidak ditemukan.
                 "evidence":
                 {},
 
-                "related_theses":
-                [],
-
-                "evidence_matrix":
-                {},
-
-                "gap_analysis":
-                {}
+                "documents":
+                documents
 
             }
-
-
+       
     # =================================
     # HYBRID SEARCH
     # =================================

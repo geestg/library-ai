@@ -37,7 +37,6 @@ os.makedirs(
 
 @router.post("/upload-pdf")
 async def upload_pdf(
-
     file: UploadFile = File(...)
 ):
 
@@ -46,9 +45,7 @@ async def upload_pdf(
     # =================================
 
     file_path = os.path.join(
-
         UPLOAD_DIR,
-
         file.filename
     )
 
@@ -74,13 +71,9 @@ async def upload_pdf(
     # =================================
 
     ingest_result = ingest_pdf(
-
         pdf_path=file_path,
-
         title=file.filename,
-
         author="Unknown",
-
         year="2026"
     )
 
@@ -106,19 +99,32 @@ async def upload_pdf(
         file_type,
 
         "content":
-        ingest_result[
-            "full_text"
-        ],
+        ingest_result.get(
+            "full_text",
+            ""
+        ),
 
         "pages":
-        ingest_result[
-            "pages"
-        ],
+        ingest_result.get(
+            "pages",
+            0
+        ),
 
         "chunks":
-        ingest_result[
-            "chunks"
-        ]
+        ingest_result.get(
+            "chunks",
+            0
+        ),
+
+        # =================================
+        # PAGE LEVEL DATA
+        # =================================
+
+        "pages_data":
+        ingest_result.get(
+            "pages_data",
+            []
+        )
     }
 
     print(
@@ -133,12 +139,17 @@ async def upload_pdf(
 
     print(
         f"Pages: "
-        f"{ingest_result['pages']}"
+        f"{ingest_result.get('pages', 0)}"
     )
 
     print(
         f"Chunks: "
-        f"{ingest_result['chunks']}"
+        f"{ingest_result.get('chunks', 0)}"
+    )
+
+    print(
+        f"Pages Data: "
+        f"{len(ingest_result.get('pages_data', []))}"
     )
 
     # =================================
@@ -160,14 +171,16 @@ async def upload_pdf(
         file_type,
 
         "pages":
-        ingest_result[
-            "pages"
-        ],
+        ingest_result.get(
+            "pages",
+            0
+        ),
 
         "chunks":
-        ingest_result[
-            "chunks"
-        ],
+        ingest_result.get(
+            "chunks",
+            0
+        ),
 
         "message":
         "Document uploaded successfully"
