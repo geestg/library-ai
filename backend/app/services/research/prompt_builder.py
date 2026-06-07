@@ -1,5 +1,5 @@
 # =====================================
-# BUILD STRUCTURED EVIDENCE
+# BUILD STRUCTURED EVIDENCE V2
 # =====================================
 
 def build_evidence_section(
@@ -23,6 +23,21 @@ def build_evidence_section(
 
     research_domains = evidence.get(
         "research_domains",
+        []
+    )
+
+    datasets = evidence.get(
+        "datasets",
+        []
+    )
+
+    evaluation_metrics = evidence.get(
+        "evaluation_metrics",
+        []
+    )
+
+    years = evidence.get(
+        "years",
         []
     )
 
@@ -81,6 +96,94 @@ def build_evidence_section(
         )
 
     # =================================
+    # DOMAINS
+    # =================================
+
+    lines.append(
+        "\nDOMAIN PENELITIAN:"
+    )
+
+    if research_domains:
+
+        for item in research_domains:
+
+            lines.append(
+                f"- {item['name']} ({item['count']})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
+    # DATASETS
+    # =================================
+
+    lines.append(
+        "\nDATASET:"
+    )
+
+    if datasets:
+
+        for item in datasets:
+
+            lines.append(
+                f"- {item['name']} ({item['count']})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
+    # EVALUATION METRICS
+    # =================================
+
+    lines.append(
+        "\nMETRIK EVALUASI:"
+    )
+
+    if evaluation_metrics:
+
+        for item in evaluation_metrics:
+
+            lines.append(
+                f"- {item['name']} ({item['count']})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
+    # YEARS
+    # =================================
+
+    lines.append(
+        "\nTAHUN PENELITIAN:"
+    )
+
+    if years:
+
+        for item in years:
+
+            lines.append(
+                f"- {item['name']} ({item['count']})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
     # KEYWORDS
     # =================================
 
@@ -102,35 +205,13 @@ def build_evidence_section(
             "- Tidak ditemukan"
         )
 
-    # =================================
-    # RESEARCH DOMAINS
-    # =================================
-
-    lines.append(
-        "\nDOMAIN PENELITIAN:"
-    )
-
-    if research_domains:
-
-        for item in research_domains:
-
-            lines.append(
-                f"- {item['name']} ({item['count']})"
-            )
-
-    else:
-
-        lines.append(
-            "- Tidak ditemukan"
-        )
-
     return "\n".join(
         lines
     )
 
 
 # =====================================
-# BUILD EVIDENCE MATRIX
+# BUILD EVIDENCE MATRIX V2
 # =====================================
 
 def build_matrix_section(
@@ -148,7 +229,7 @@ def build_matrix_section(
     )
 
     # =================================
-    # TECHNOLOGY FREQUENCY
+    # TECHNOLOGY
     # =================================
 
     lines.append(
@@ -175,7 +256,7 @@ def build_matrix_section(
         )
 
     # =================================
-    # METHODOLOGY FREQUENCY
+    # METHODOLOGY
     # =================================
 
     lines.append(
@@ -202,7 +283,7 @@ def build_matrix_section(
         )
 
     # =================================
-    # DOMAIN FREQUENCY
+    # DOMAIN
     # =================================
 
     lines.append(
@@ -228,13 +309,94 @@ def build_matrix_section(
             "- Tidak ditemukan"
         )
 
+    # =================================
+    # DATASET
+    # =================================
+
+    lines.append(
+        "\nFREKUENSI DATASET:"
+    )
+
+    dataset_frequency = matrix.get(
+        "dataset_frequency",
+        {}
+    )
+
+    if dataset_frequency:
+
+        for name, count in dataset_frequency.items():
+
+            lines.append(
+                f"- {name} ({count})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
+    # METRIC
+    # =================================
+
+    lines.append(
+        "\nFREKUENSI METRIK EVALUASI:"
+    )
+
+    metric_frequency = matrix.get(
+        "metric_frequency",
+        {}
+    )
+
+    if metric_frequency:
+
+        for name, count in metric_frequency.items():
+
+            lines.append(
+                f"- {name} ({count})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
+    # =================================
+    # YEAR
+    # =================================
+
+    lines.append(
+        "\nFREKUENSI TAHUN PENELITIAN:"
+    )
+
+    year_frequency = matrix.get(
+        "year_frequency",
+        {}
+    )
+
+    if year_frequency:
+
+        for name, count in year_frequency.items():
+
+            lines.append(
+                f"- {name} ({count})"
+            )
+
+    else:
+
+        lines.append(
+            "- Tidak ditemukan"
+        )
+
     return "\n".join(
         lines
     )
 
 
 # =====================================
-# RESEARCH ANALYSIS PROMPT
+# RESEARCH ANALYSIS PROMPT V2
 # =====================================
 
 def build_research_prompt(
@@ -262,7 +424,7 @@ TOPIK PENELITIAN
 {query}
 
 ==================================================
-BUKTI TERSTRUKTUR
+BUKTI TERSTRUKTUR DAN ANALISIS
 ==================================================
 
 {evidence_text}
@@ -283,21 +445,7 @@ ATURAN BAHASA
 
 3. Jangan menggunakan paragraf bahasa Inggris.
 
-4. Nama teknologi tetap menggunakan nama asli:
-   - Laravel
-   - API
-   - Odoo
-   - CNN
-   - Transformer
-   - React
-   - FastAPI
-   - Qdrant
-
-5. Jangan menerjemahkan nama teknologi.
-
-6. Seluruh analisis, penjelasan,
-   rekomendasi, dan kesimpulan
-   harus menggunakan Bahasa Indonesia.
+4. Jangan menerjemahkan nama teknologi.
 
 ==================================================
 ATURAN GROUNDING
@@ -305,63 +453,47 @@ ATURAN GROUNDING
 
 1. Gunakan HANYA sumber yang ditemukan.
 
-2. Gunakan HANYA teknologi yang
-   terdapat pada bukti terstruktur.
+2. Gunakan HANYA bukti yang terdapat pada bagian BUKTI TERSTRUKTUR.
 
-3. Gunakan HANYA metodologi yang
-   terdapat pada bukti terstruktur.
-
-4. Jangan mengarang:
-
-   - model AI
-   - framework
-   - arsitektur
+3. Jangan mengarang:
    - teknologi
-   - dataset
    - metodologi
+   - dataset
+   - framework
+   - model AI
+   - metrik evaluasi
 
-5. Jika informasi tidak tersedia,
+4. Jika bukti tidak tersedia,
    tulis:
 
    "Bukti dari skripsi yang ditemukan tidak mencukupi."
 
-6. Setiap klaim faktual
-   wajib memiliki sitasi.
+5. Setiap klaim faktual wajib memiliki sitasi.
 
-7. Format sitasi:
+6. Gunakan format sitasi:
 
    [1]
    [2]
    [3]
 
-8. Jangan gunakan:
-
-   (Source_1)
-   (Source_2)
-
 ==================================================
-ATURAN STATISTIK
+ATURAN ANALISIS
 ==================================================
 
-Teknologi atau metodologi
-dengan frekuensi = 1
+Gunakan informasi berikut apabila tersedia:
 
-TIDAK BOLEH disebut:
+- Teknologi dominan
+- Metodologi dominan
+- Domain dominan
+- Dataset dominan
+- Dataset yang jarang digunakan
+- Metrik evaluasi yang digunakan
+- Tahun penelitian terbaru
+- Gap penelitian
+- Peluang novelty
 
-- dominan
-- umum digunakan
-- tren utama
-- banyak digunakan
-
-Teknologi atau metodologi
-dengan frekuensi >= 2
-
-boleh disebut tren.
-
-Teknologi atau metodologi
-dengan frekuensi >= 3
-
-boleh disebut dominan.
+Jangan menyebut sesuatu sebagai tren
+atau dominan jika frekuensinya rendah.
 
 ==================================================
 TUGAS ANALISIS
@@ -371,12 +503,14 @@ TUGAS ANALISIS
 2. Tema Penelitian
 3. Teknologi yang Digunakan
 4. Metodologi yang Digunakan
-5. Kelemahan Penelitian Sebelumnya
-6. Gap Penelitian
-7. Peluang Novelty
-8. Arah Penelitian Selanjutnya
-9. Rekomendasi Judul Skripsi
-10. Rekomendasi Akhir
+5. Dataset yang Digunakan
+6. Metrik Evaluasi
+7. Kelemahan Penelitian Sebelumnya
+8. Gap Penelitian
+9. Peluang Novelty
+10. Arah Penelitian Selanjutnya
+11. Rekomendasi Judul Skripsi
+12. Rekomendasi Akhir
 
 ==================================================
 FORMAT OUTPUT
@@ -389,6 +523,10 @@ FORMAT OUTPUT
 # Teknologi yang Digunakan
 
 # Metodologi yang Digunakan
+
+# Dataset yang Digunakan
+
+# Metrik Evaluasi
 
 # Kelemahan Penelitian Sebelumnya
 

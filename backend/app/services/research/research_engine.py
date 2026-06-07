@@ -364,7 +364,7 @@ def research_analysis(
     print(
 
         evidence.get(
-            "methods",
+            "methodologies",
             []
         )
     )
@@ -373,7 +373,7 @@ def research_analysis(
     print(
 
         evidence.get(
-            "domains",
+            "research_domains",
             []
         )
     )
