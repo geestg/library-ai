@@ -1,5 +1,5 @@
 # =====================================
-# BUILD EVIDENCE MATRIX
+# BUILD EVIDENCE MATRIX V2
 # =====================================
 
 def build_evidence_matrix(
@@ -14,7 +14,13 @@ def build_evidence_matrix(
 
         "keyword_frequency": {},
 
-        "domain_frequency": {}
+        "domain_frequency": {},
+
+        "dataset_frequency": {},
+
+        "metric_frequency": {},
+
+        "year_frequency": {}
     }
 
     # =================================
@@ -76,5 +82,89 @@ def build_evidence_matrix(
         ][
             item["name"]
         ] = item["count"]
+
+    # =================================
+    # DATASET
+    # =================================
+
+    for item in evidence.get(
+        "datasets",
+        []
+    ):
+
+        matrix[
+            "dataset_frequency"
+        ][
+            item["name"]
+        ] = item["count"]
+
+    # =================================
+    # EVALUATION METRICS
+    # =================================
+
+    for item in evidence.get(
+        "evaluation_metrics",
+        []
+    ):
+
+        matrix[
+            "metric_frequency"
+        ][
+            item["name"]
+        ] = item["count"]
+
+    # =================================
+    # YEARS
+    # =================================
+
+    for item in evidence.get(
+        "years",
+        []
+    ):
+
+        matrix[
+            "year_frequency"
+        ][
+            item["name"]
+        ] = item["count"]
+
+    # =================================
+    # DEBUG
+    # =================================
+
+    print("\n")
+    print("=" * 80)
+    print("EVIDENCE MATRIX V2")
+    print("=" * 80)
+
+    print(
+        "TECHNOLOGY:",
+        matrix["technology_frequency"]
+    )
+
+    print(
+        "METHODOLOGY:",
+        matrix["methodology_frequency"]
+    )
+
+    print(
+        "DOMAIN:",
+        matrix["domain_frequency"]
+    )
+
+    print(
+        "DATASET:",
+        matrix["dataset_frequency"]
+    )
+
+    print(
+        "METRIC:",
+        matrix["metric_frequency"]
+    )
+
+    print(
+        "YEAR:",
+        matrix["year_frequency"]
+    )
 
     return matrix

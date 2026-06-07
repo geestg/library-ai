@@ -111,6 +111,54 @@ DOMAIN_PATTERNS = [
 
 
 # =====================================
+# DATASETS
+# =====================================
+
+DATASET_PATTERNS = [
+
+    "mnist",
+    "fashion-mnist",
+    "cifar",
+    "cifar10",
+    "cifar-10",
+    "imagenet",
+    "coco",
+    "pascal voc",
+    "kdd",
+    "nsl-kdd",
+    "unsw-nb15",
+    "iris",
+    "uci",
+    "kaggle"
+]
+
+
+# =====================================
+# EVALUATION METRICS
+# =====================================
+
+METRIC_PATTERNS = [
+
+    "accuracy",
+    "precision",
+    "recall",
+    "f1",
+    "f1-score",
+    "auc",
+    "roc",
+    "specificity",
+    "sensitivity",
+    "mae",
+    "mse",
+    "rmse",
+    "r2",
+    "mean absolute error",
+    "mean squared error",
+    "confusion matrix"
+]
+
+
+# =====================================
 # NORMALIZE TEXT
 # =====================================
 
@@ -130,7 +178,7 @@ def normalize_text(
         text
     )
 
-    return text
+    return text.strip()
 
 
 # =====================================
@@ -251,6 +299,12 @@ def extract_evidence(
 
     domain_counter = Counter()
 
+    dataset_counter = Counter()
+
+    metric_counter = Counter()
+
+    year_counter = Counter()
+
     # =================================
     # ITERATE THESIS
     # =================================
@@ -270,6 +324,10 @@ def extract_evidence(
         chunk = thesis.get(
             "chunk",
             ""
+        )
+
+        year = thesis.get(
+            "year"
         )
 
         text = normalize_text(
@@ -363,6 +421,46 @@ def extract_evidence(
                 ] += 1
 
         # =============================
+        # DATASETS
+        # =============================
+
+        for dataset in DATASET_PATTERNS:
+
+            if contains_term(
+                text,
+                dataset
+            ):
+
+                dataset_counter[
+                    dataset
+                ] += 1
+
+        # =============================
+        # METRICS
+        # =============================
+
+        for metric in METRIC_PATTERNS:
+
+            if contains_term(
+                text,
+                metric
+            ):
+
+                metric_counter[
+                    metric
+                ] += 1
+
+        # =============================
+        # YEARS
+        # =============================
+
+        if year:
+
+            year_counter[
+                str(year)
+            ] += 1
+
+        # =============================
         # KEYWORDS
         # =============================
 
@@ -379,7 +477,7 @@ def extract_evidence(
             ] += 1
 
     # =================================
-    # DEBUG COUNTERS
+    # DEBUG
     # =================================
 
     print("\n")
@@ -403,12 +501,27 @@ def extract_evidence(
     )
 
     print(
+        "DATASET:",
+        dataset_counter
+    )
+
+    print(
+        "METRIC:",
+        metric_counter
+    )
+
+    print(
+        "YEAR:",
+        year_counter
+    )
+
+    print(
         "KEYWORD:",
         keyword_counter
     )
 
     # =================================
-    # RETURN STRUCTURED EVIDENCE
+    # RETURN
     # =================================
 
     return {
@@ -435,5 +548,23 @@ def extract_evidence(
 
         counter_to_structured_list(
             domain_counter
+        ),
+
+        "datasets":
+
+        counter_to_structured_list(
+            dataset_counter
+        ),
+
+        "evaluation_metrics":
+
+        counter_to_structured_list(
+            metric_counter
+        ),
+
+        "years":
+
+        counter_to_structured_list(
+            year_counter
         )
     }
