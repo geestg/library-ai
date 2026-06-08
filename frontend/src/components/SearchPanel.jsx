@@ -1,11 +1,10 @@
-import {
-  useEffect
-} from "react";
+import { useEffect } from "react";
 
 import {
   FileText,
   Sparkles,
-  ExternalLink
+  ExternalLink,
+  BarChart3
 } from "lucide-react";
 
 export default function SearchPanel({
@@ -14,11 +13,13 @@ export default function SearchPanel({
 
   evidence = {},
 
+  evidenceMatrix = {},
+
+  gapAnalysis = {},
+
   activeCitation,
 
   setActiveCitation,
-
-  selectedThesis,
 
   setSelectedThesis
 
@@ -73,6 +74,211 @@ export default function SearchPanel({
 
   }, [activeCitation]);
 
+  // =================================
+  // SUMMARY GROUP
+  // =================================
+
+  const renderSummaryGroup = (
+    title,
+    items
+  ) => {
+
+    if (
+      !items ||
+      items.length === 0
+    ) {
+      return null;
+    }
+
+    return (
+
+      <div className="summary-group">
+
+        <h4>
+          {title}
+        </h4>
+
+        <div>
+
+          {
+
+            items.map(
+
+              (
+                item,
+                idx
+              ) => (
+
+                <div
+
+                  key={`${title}-${idx}`}
+
+                  className="summary-pill"
+
+                >
+
+                  {
+
+                    item.name
+                    ?? item.year
+                    ?? item
+
+                  }
+
+                  {
+
+                    item.count !== undefined && (
+                      <>
+                        {" "}
+                        ({item.count})
+                      </>
+                    )
+
+                  }
+
+                </div>
+
+              )
+
+            )
+
+          }
+
+        </div>
+
+      </div>
+
+    );
+
+  };
+
+  // =================================
+  // MATRIX GROUP
+  // =================================
+
+  const renderMatrixGroup = (
+    title,
+    matrixData
+  ) => {
+
+    if (
+      !matrixData ||
+      Object.keys(matrixData)
+        .length === 0
+    ) {
+      return null;
+    }
+
+    return (
+
+      <div className="summary-group">
+
+        <h4>
+          {title}
+        </h4>
+
+        <div>
+
+          {
+
+            Object.entries(
+              matrixData
+            ).map(
+
+              (
+                [name, count]
+              ) => (
+
+                <div
+
+                  key={name}
+
+                  className="summary-pill"
+
+                >
+
+                  {name}
+                  {" "}
+                  ({count})
+
+                </div>
+
+              )
+
+            )
+
+          }
+
+        </div>
+
+      </div>
+
+    );
+
+  };
+
+  // =================================
+  // GAP SECTION
+  // =================================
+
+  const renderGapSection = (
+    title,
+    items,
+    className = "gap-item"
+  ) => {
+
+    if (
+      !items ||
+      items.length === 0
+    ) {
+      return null;
+    }
+
+    return (
+
+      <div className="summary-group">
+
+        <h4>
+          {title}
+        </h4>
+
+        <div>
+
+          {
+
+            items.map(
+
+              (
+                item,
+                idx
+              ) => (
+
+                <div
+
+                  key={`${title}-${idx}`}
+
+                  className={className}
+
+                >
+
+                  {item}
+
+                </div>
+
+              )
+
+            )
+
+          }
+
+        </div>
+
+      </div>
+
+    );
+
+  };
+
   return (
 
     <div className="evidence-shell">
@@ -101,8 +307,9 @@ export default function SearchPanel({
 
           <p>
 
-            Citation-aware retrieval evidence
-            from DELBot research pipeline.
+            Citation-aware retrieval
+            evidence from DELBot
+            research intelligence engine.
 
           </p>
 
@@ -130,140 +337,231 @@ export default function SearchPanel({
 
             {
 
-              evidence.technologies?.length > 0 && (
-
-                <div className="summary-group">
-
-                  <h4>
-
-                    Technologies
-
-                  </h4>
-
-                  <div>
-
-                    {
-
-                      evidence.technologies.map(
-
-                        (
-                          item,
-                          idx
-                        ) => (
-
-                          <div
-                            key={idx}
-                            className="summary-pill"
-                          >
-
-                            {item.name}
-
-                            {" "}
-
-                            ({item.count})
-
-                          </div>
-
-                        )
-                      )
-
-                    }
-
-                  </div>
-
-                </div>
-
+              renderSummaryGroup(
+                "Technologies",
+                evidence.technologies
               )
 
             }
 
             {
 
-              evidence.methods?.length > 0 && (
-
-                <div className="summary-group">
-
-                  <h4>
-
-                    Methods
-
-                  </h4>
-
-                  <div>
-
-                    {
-
-                      evidence.methods.map(
-
-                        (
-                          item,
-                          idx
-                        ) => (
-
-                          <div
-                            key={idx}
-                            className="summary-pill"
-                          >
-
-                            {item.name}
-
-                            {" "}
-
-                            ({item.count})
-
-                          </div>
-
-                        )
-                      )
-
-                    }
-
-                  </div>
-
-                </div>
-
+              renderSummaryGroup(
+                "Methodologies",
+                evidence.methodologies
               )
 
             }
 
             {
 
-              evidence.domains?.length > 0 && (
+              renderSummaryGroup(
+                "Research Domains",
+                evidence.research_domains
+              )
+
+            }
+
+            {
+
+              renderSummaryGroup(
+                "Datasets",
+                evidence.datasets
+              )
+
+            }
+
+            {
+
+              renderSummaryGroup(
+                "Evaluation Metrics",
+                evidence.evaluation_metrics
+              )
+
+            }
+
+            {
+
+              renderSummaryGroup(
+                "Research Years",
+                evidence.years
+              )
+
+            }
+
+          </div>
+
+        )
+
+      }
+
+      {/* ================================= */}
+      {/* EVIDENCE MATRIX */}
+      {/* ================================= */}
+
+      {
+
+        Object.keys(
+          evidenceMatrix || {}
+        ).length > 0 && (
+
+          <div className="evidence-summary">
+
+            <h3>
+
+              <BarChart3
+                size={16}
+                style={{
+                  marginRight: 8
+                }}
+              />
+
+              Evidence Matrix
+
+            </h3>
+
+            {
+
+              renderMatrixGroup(
+                "Technology Frequency",
+                evidenceMatrix.technology_frequency
+              )
+
+            }
+
+            {
+
+              renderMatrixGroup(
+                "Methodology Frequency",
+                evidenceMatrix.methodology_frequency
+              )
+
+            }
+
+            {
+
+              renderMatrixGroup(
+                "Domain Frequency",
+                evidenceMatrix.domain_frequency
+              )
+
+            }
+
+            {
+
+              renderMatrixGroup(
+                "Dataset Frequency",
+                evidenceMatrix.dataset_frequency
+              )
+
+            }
+
+            {
+
+              renderMatrixGroup(
+                "Evaluation Frequency",
+                evidenceMatrix.evaluation_frequency
+              )
+
+            }
+
+            {
+
+              renderMatrixGroup(
+                "Year Frequency",
+                evidenceMatrix.year_frequency
+              )
+
+            }
+
+          </div>
+
+        )
+
+      }
+
+      {/* ================================= */}
+      {/* GAP ANALYSIS */}
+      {/* ================================= */}
+
+      {
+
+        Object.keys(
+          gapAnalysis || {}
+        ).length > 0 && (
+
+          <div className="gap-section">
+
+            <h3>
+
+              Research Gap Analysis
+
+            </h3>
+
+            {
+
+              renderGapSection(
+                "Method Gap",
+                gapAnalysis.method_gap
+              )
+
+            }
+
+            {
+
+              renderGapSection(
+                "Dataset Gap",
+                gapAnalysis.dataset_gap
+              )
+
+            }
+
+            {
+
+              renderGapSection(
+                "Temporal Gap",
+                gapAnalysis.temporal_gap
+              )
+
+            }
+
+            {
+
+              renderGapSection(
+                "Evaluation Gap",
+                gapAnalysis.evaluation_gap
+              )
+
+            }
+
+            {
+
+              renderGapSection(
+                "Novelty Opportunities",
+                gapAnalysis.novelty_opportunities,
+                "novelty-item"
+              )
+
+            }
+
+            {
+
+              gapAnalysis.gap_score !==
+              undefined && (
 
                 <div className="summary-group">
 
                   <h4>
 
-                    Domains
+                    Gap Score
 
                   </h4>
 
-                  <div>
+                  <div className="gap-score">
 
                     {
 
-                      evidence.domains.map(
-
-                        (
-                          item,
-                          idx
-                        ) => (
-
-                          <div
-                            key={idx}
-                            className="summary-pill"
-                          >
-
-                            {item.name}
-
-                            {" "}
-
-                            ({item.count})
-
-                          </div>
-
-                        )
-                      )
+                      gapAnalysis.gap_score
 
                     }
 
@@ -342,27 +640,29 @@ export default function SearchPanel({
 
                 key={source.source_id}
 
-                onClick={() =>
-                  setSelectedThesis(
+                onClick={() => {
+
+                  setActiveCitation?.(
+                    source.source_id
+                  );
+
+                  setSelectedThesis?.(
                     source
-                  )
-                }
+                  );
 
-               className={`evidence-card ${
-                isActive
-                  ? "active"
-                  : ""
-              }`}
+                }}
 
-              style={{
-                cursor: "pointer"
-              }}
+                className={`evidence-card ${
+                  isActive
+                    ? "active"
+                    : ""
+                }`}
 
-            >
+                style={{
+                  cursor: "pointer"
+                }}
 
-                {/* ===================== */}
-                {/* TOP */}
-                {/* ===================== */}
+              >
 
                 <div className="evidence-card-top">
 
@@ -398,10 +698,6 @@ export default function SearchPanel({
 
                 </div>
 
-                {/* ===================== */}
-                {/* AUTHOR */}
-                {/* ===================== */}
-
                 <div
                   style={{
                     marginTop: "14px",
@@ -420,10 +716,6 @@ export default function SearchPanel({
                   }
 
                 </div>
-
-                {/* ===================== */}
-                {/* YEAR + PRODI */}
-                {/* ===================== */}
 
                 <div
                   style={{
@@ -464,10 +756,6 @@ export default function SearchPanel({
 
                 </div>
 
-                {/* ===================== */}
-                {/* SCORE */}
-                {/* ===================== */}
-
                 <div className="evidence-score-wrapper">
 
                   <div className="score-header">
@@ -483,9 +771,7 @@ export default function SearchPanel({
                       {
 
                         Number(
-
                           source.score || 0
-
                         ).toFixed(2)
 
                       }
@@ -503,11 +789,8 @@ export default function SearchPanel({
                       style={{
 
                         width: `${Math.min(
-
                           (source.score || 0) * 10,
-
                           100
-
                         )}%`
 
                       }}
@@ -517,10 +800,6 @@ export default function SearchPanel({
                   </div>
 
                 </div>
-
-                {/* ===================== */}
-                {/* REPOSITORY */}
-                {/* ===================== */}
 
                 {
 

@@ -6,8 +6,7 @@ import ChatWindow from "../components/chat/ChatWindow";
 
 import SearchPanel from "../components/SearchPanel";
 
-import ThesisDrawer
-from "../components/sources/ThesisDrawer";
+import ThesisDrawer from "../components/sources/ThesisDrawer";
 
 export default function Workspace() {
 
@@ -33,26 +32,63 @@ export default function Workspace() {
     useState({});
 
   // =====================================
+  // EVIDENCE MATRIX
+  // =====================================
+
+  const [
+
+    evidenceMatrix,
+
+    setEvidenceMatrix
+
+  ] = useState({});
+
+  // =====================================
+  // GAP ANALYSIS
+  // =====================================
+
+  const [
+
+    gapAnalysis,
+
+    setGapAnalysis
+
+  ] = useState({});
+
+  // =====================================
   // ACTIVE CITATION
   // =====================================
 
-  const [activeCitation, setActiveCitation] =
-    useState(null);
+  const [
+
+    activeCitation,
+
+    setActiveCitation
+
+  ] = useState(null);
 
   // =====================================
   // SELECTED THESIS
   // =====================================
 
-  const [selectedThesis, setSelectedThesis] =
-    useState(null);
+  const [
+
+    selectedThesis,
+
+    setSelectedThesis
+
+  ] = useState(null);
 
   // =====================================
   // ACTIVE DOCUMENT
   // =====================================
 
   const [
+
     activeDocument,
+
     setActiveDocument
+
   ] = useState(null);
 
   return (
@@ -93,6 +129,14 @@ export default function Workspace() {
 
           setEvidence={setEvidence}
 
+          setEvidenceMatrix={
+            setEvidenceMatrix
+          }
+
+          setGapAnalysis={
+            setGapAnalysis
+          }
+
           activeCitation={
             activeCitation
           }
@@ -125,6 +169,14 @@ export default function Workspace() {
 
           evidence={evidence}
 
+          evidenceMatrix={
+            evidenceMatrix
+          }
+
+          gapAnalysis={
+            gapAnalysis
+          }
+
           activeCitation={
             activeCitation
           }
@@ -156,13 +208,17 @@ export default function Workspace() {
         }
 
         onClose={() =>
+
           setSelectedThesis(
             null
           )
+
         }
 
       />
 
     </div>
+
   );
+
 }

@@ -22,6 +22,10 @@ export default function ChatWindow({
 
   setEvidence,
 
+  setEvidenceMatrix,
+
+  setGapAnalysis,
+
   activeCitation,
 
   setActiveCitation
@@ -151,10 +155,6 @@ export default function ChatWindow({
         const uploadId =
           `${Date.now()}-${file.name}`;
 
-        // ===============================
-        // SHOW UPLOADING
-        // ===============================
-
         setUploadingDocuments(
 
           prev => [
@@ -215,10 +215,6 @@ export default function ChatWindow({
           const data =
             await response.json();
 
-          // ===============================
-          // REMOVE UPLOADING
-          // ===============================
-
           setUploadingDocuments(
 
             prev =>
@@ -233,10 +229,6 @@ export default function ChatWindow({
               )
 
           );
-
-          // ===============================
-          // ADD ACTIVE DOCUMENT
-          // ===============================
 
           if (
             data.document_id
@@ -317,7 +309,27 @@ export default function ChatWindow({
       }
 
       const finalInput =
-        input;
+        input.trim();
+
+      // ===============================
+      // RESET RIGHT PANEL
+      // ===============================
+
+      setActiveCitation(
+        null
+      );
+
+      setSources([]);
+
+      setEvidence({});
+
+      setEvidenceMatrix({});
+
+      setGapAnalysis({});
+
+      // ===============================
+      // ADD CHAT MESSAGE
+      // ===============================
 
       setMessages(
 
@@ -366,9 +378,7 @@ export default function ChatWindow({
 
       }
 
-      setLoading(
-        true
-      );
+      setLoading(true);
 
       try {
 
@@ -396,7 +406,7 @@ export default function ChatWindow({
                     finalInput,
 
                   top_k:
-                    5,
+                    10,
 
                   mode:
                     "analysis",
@@ -432,6 +442,16 @@ export default function ChatWindow({
         const data =
           await response.json();
 
+        const assistantContent =
+
+          data.analysis ||
+
+          data.answer ||
+
+          data.comparison ||
+
+          "No response returned.";
+
         setMessages(
 
           prev => {
@@ -447,12 +467,7 @@ export default function ChatWindow({
                 "assistant",
 
               content:
-
-                data.answer ||
-
-                data.analysis ||
-
-                "No response returned.",
+                assistantContent,
 
               citations:
                 data.citations || [],
@@ -468,11 +483,23 @@ export default function ChatWindow({
 
         );
 
+        // ============================
+        // SOURCES
+        // ============================
+
         setSources(
 
-          data.citations || []
+          data.citations ||
+
+          data.related_theses ||
+
+          []
 
         );
+
+        // ============================
+        // EVIDENCE
+        // ============================
 
         setEvidence(
 
@@ -480,9 +507,34 @@ export default function ChatWindow({
 
         );
 
+        // ============================
+        // MATRIX
+        // ============================
+
+        setEvidenceMatrix(
+
+          data.evidence_matrix || {}
+
+        );
+
+        // ============================
+        // GAP ANALYSIS
+        // ============================
+
+        setGapAnalysis(
+
+          data.gap_analysis ||
+
+          data.research_gaps ||
+
+          {}
+
+        );
+
       } catch (error) {
 
         console.error(
+          "CHAT ERROR:",
           error
         );
 
@@ -514,9 +566,7 @@ export default function ChatWindow({
 
       } finally {
 
-        setLoading(
-          false
-        );
+        setLoading(false);
 
       }
 
@@ -674,6 +724,10 @@ export default function ChatWindow({
 
         removeDocument={
           removeDocument
+        }
+
+        clearDocuments={
+          clearDocuments
         }
 
       />

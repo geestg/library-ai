@@ -54,8 +54,26 @@ def get_rare_items(
     ]
 
 
+def unique_keep_order(items):
+
+    seen = set()
+
+    result = []
+
+    for item in items:
+
+        if item in seen:
+            continue
+
+        seen.add(item)
+
+        result.append(item)
+
+    return result
+
+
 # =====================================
-# GAP DETECTOR V2
+# GAP DETECTOR V3
 # =====================================
 
 def detect_research_gaps(
@@ -90,9 +108,9 @@ def detect_research_gaps(
         )
     )
 
-    metric_frequency = (
+    evaluation_frequency = (
         evidence_matrix.get(
-            "metric_frequency",
+            "evaluation_frequency",
             {}
         )
     )
@@ -146,16 +164,16 @@ def detect_research_gaps(
             )
         )
 
-    dominant_topics = sorted(
-        list(set(dominant_topics))
+    dominant_topics = unique_keep_order(
+        dominant_topics
     )
 
-    emerging_topics = sorted(
-        list(set(emerging_topics))
+    emerging_topics = unique_keep_order(
+        emerging_topics
     )
 
-    rare_topics = sorted(
-        list(set(rare_topics))
+    rare_topics = unique_keep_order(
+        rare_topics
     )
 
     # =================================
@@ -175,29 +193,25 @@ def detect_research_gaps(
             reverse=True
         )
 
-        if len(sorted_methods) >= 2:
+        dominant_method = (
+            sorted_methods[0][0]
+        )
 
-            dominant_method = (
-                sorted_methods[0]
-            )
+        for method, count in sorted_methods[1:]:
 
-            rare_methods = [
-
-                method
-
-                for method, count
-
-                in sorted_methods[1:]
-
-                if count <= 1
-            ]
-
-            for method in rare_methods:
+            if count <= 1:
 
                 method_gap.append(
 
-                    f"Metodologi '{method}' masih jarang digunakan dibandingkan '{dominant_method[0]}'."
+                    f"Metodologi '{method}' masih jarang digunakan dibandingkan metodologi dominan '{dominant_method}'."
                 )
+
+    else:
+
+        method_gap.append(
+
+            "Informasi metodologi penelitian belum mencukupi untuk dianalisis."
+        )
 
     # =================================
     # DATASET GAP
@@ -217,7 +231,7 @@ def detect_research_gaps(
         )
 
         dominant_dataset = (
-            sorted_datasets[0]
+            sorted_datasets[0][0]
         )
 
         for dataset, count in sorted_datasets:
@@ -226,7 +240,7 @@ def detect_research_gaps(
 
                 dataset_gap.append(
 
-                    f"Dataset '{dataset}' masih sangat sedikit digunakan dibandingkan dataset dominan '{dominant_dataset[0]}'."
+                    f"Dataset '{dataset}' masih sangat sedikit digunakan dibandingkan dataset dominan '{dominant_dataset}'."
                 )
 
     else:
@@ -242,38 +256,51 @@ def detect_research_gaps(
 
     temporal_gap = []
 
-    if year_frequency:
+    years = []
 
-        years = []
+    for year in year_frequency.keys():
 
-        for year in year_frequency.keys():
+        try:
 
-            try:
-
-                years.append(
-                    int(year)
-                )
-
-            except Exception:
-                pass
-
-        if years:
-
-            latest_year = max(
-                years
+            years.append(
+                int(year)
             )
 
-            latest_count = year_frequency.get(
-                str(latest_year),
-                0
+        except Exception:
+            pass
+
+    if years:
+
+        years.sort()
+
+        latest_year = max(
+            years
+        )
+
+        oldest_year = min(
+            years
+        )
+
+        latest_count = year_frequency.get(
+            str(latest_year),
+            0
+        )
+
+        if latest_count <= 1:
+
+            temporal_gap.append(
+
+                f"Jumlah penelitian pada tahun {latest_year} masih rendah sehingga terdapat peluang penelitian terbaru pada periode tersebut."
             )
 
-            if latest_count <= 1:
+        if (
+            latest_year - oldest_year
+        ) >= 4:
 
-                temporal_gap.append(
+            temporal_gap.append(
 
-                    f"Jumlah penelitian pada tahun {latest_year} masih rendah sehingga terdapat peluang penelitian terbaru pada periode tersebut."
-                )
+                f"Terdapat rentang waktu penelitian yang cukup panjang ({oldest_year}-{latest_year}) sehingga diperlukan validasi terhadap perkembangan teknologi terbaru."
+            )
 
     else:
 
@@ -288,7 +315,7 @@ def detect_research_gaps(
 
     evaluation_gap = []
 
-    if not metric_frequency:
+    if not evaluation_frequency:
 
         evaluation_gap.append(
 
@@ -298,7 +325,7 @@ def detect_research_gaps(
     else:
 
         metric_count = len(
-            metric_frequency
+            evaluation_frequency
         )
 
         if metric_count <= 2:
@@ -308,9 +335,21 @@ def detect_research_gaps(
                 "Variasi metrik evaluasi masih terbatas sehingga peluang evaluasi yang lebih komprehensif masih terbuka."
             )
 
+        metric_names = {
+
+            metric.lower()
+
+            for metric
+
+            in evaluation_frequency.keys()
+        }
+
         if (
-            "accuracy" in metric_frequency
-            and len(metric_frequency) == 1
+
+            "accuracy" in metric_names
+
+            and len(metric_names) == 1
+
         ):
 
             evaluation_gap.append(
@@ -324,7 +363,7 @@ def detect_research_gaps(
 
     novelty_opportunities = []
 
-    for topic in rare_topics[:10]:
+    for topic in rare_topics:
 
         novelty_opportunities.append(
 
@@ -340,19 +379,34 @@ def detect_research_gaps(
                 f"Penggunaan dataset '{dataset}' dapat menjadi peluang novelty karena masih jarang ditemukan."
             )
 
+    if emerging_topics:
+
+        novelty_opportunities.append(
+
+            f"Kombinasi topik emerging seperti {', '.join(emerging_topics[:3])} berpotensi menghasilkan kontribusi penelitian yang lebih unik."
+        )
+
+    novelty_opportunities = unique_keep_order(
+        novelty_opportunities
+    )
+
     # =================================
     # GAP SCORE
     # =================================
 
-    gap_score = (
+    gap_score = min(
 
-        len(method_gap)
+        100,
 
-        + len(dataset_gap)
-
-        + len(temporal_gap)
-
-        + len(evaluation_gap)
+        (
+            len(method_gap) * 10
+            +
+            len(dataset_gap) * 10
+            +
+            len(temporal_gap) * 15
+            +
+            len(evaluation_gap) * 20
+        )
     )
 
     # =================================
@@ -361,7 +415,7 @@ def detect_research_gaps(
 
     print("\n")
     print("=" * 80)
-    print("GAP DETECTOR V2")
+    print("GAP DETECTOR V3")
     print("=" * 80)
 
     print(
@@ -397,6 +451,16 @@ def detect_research_gaps(
     print(
         "EVALUATION GAP:",
         evaluation_gap
+    )
+
+    print(
+        "NOVELTY:",
+        novelty_opportunities
+    )
+
+    print(
+        "GAP SCORE:",
+        gap_score
     )
 
     # =================================
