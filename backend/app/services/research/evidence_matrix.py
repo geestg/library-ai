@@ -18,7 +18,7 @@ def build_evidence_matrix(
 
         "dataset_frequency": {},
 
-        "metric_frequency": {},
+        "evaluation_frequency": {},
 
         "year_frequency": {}
     }
@@ -108,7 +108,7 @@ def build_evidence_matrix(
     ):
 
         matrix[
-            "metric_frequency"
+            "evaluation_frequency"
         ][
             item["name"]
         ] = item["count"]
@@ -159,7 +159,7 @@ def build_evidence_matrix(
 
     print(
         "METRIC:",
-        matrix["metric_frequency"]
+        matrix["evaluation_frequency"]
     )
 
     print(

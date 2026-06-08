@@ -6,8 +6,16 @@ from app.services.embedder.base_embedder import (
     BaseEmbedder
 )
 
+# =====================================
+# EMBEDDING LIMIT
+# =====================================
 
-class OllamaEmbedder(BaseEmbedder):
+MAX_EMBED_CHARS = 6000
+
+
+class OllamaEmbedder(
+    BaseEmbedder
+):
 
     def __init__(self):
 
@@ -15,13 +23,81 @@ class OllamaEmbedder(BaseEmbedder):
             host=settings.OLLAMA_BASE_URL
         )
 
-    def embed(self, text: str):
+    # =================================
+    # EMBED
+    # =================================
 
-        response = self.client.embeddings(
+    def embed(
+        self,
+        text: str
+    ):
 
-            model=settings.DEFAULT_EMBED_MODEL,
+        if text is None:
 
-            prompt=text
-        )
+            text = ""
 
-        return response["embedding"]
+        text = str(text)
+
+        original_length = len(text)
+
+        if original_length > MAX_EMBED_CHARS:
+
+            print(
+                f"[EMBED] truncating "
+                f"{original_length} chars "
+                f"to {MAX_EMBED_CHARS}"
+            )
+
+            text = text[
+                :MAX_EMBED_CHARS
+            ]
+
+        try:
+
+            response = (
+                self.client.embeddings(
+
+                    model=
+                    settings.DEFAULT_EMBED_MODEL,
+
+                    prompt=text
+                )
+            )
+
+            return response[
+                "embedding"
+            ]
+
+        except Exception as e:
+
+            print(
+                "\n===================================="
+            )
+
+            print(
+                "OLLAMA EMBEDDING ERROR"
+            )
+
+            print(
+                "===================================="
+            )
+
+            print(
+                f"MODEL : "
+                f"{settings.DEFAULT_EMBED_MODEL}"
+            )
+
+            print(
+                f"LENGTH: "
+                f"{len(text)}"
+            )
+
+            print(
+                f"ERROR : {e}"
+            )
+
+            print(
+                "====================================\n"
+            )
+
+            raise

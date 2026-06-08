@@ -36,6 +36,32 @@ from app.services.document.session_store import (
     ACTIVE_DOCUMENTS
 )
 
+from app.services.research.method_comparison_engine import (
+    is_comparison_query,
+    run_method_comparison
+)
+
+from app.services.research.novelty_scorer import (
+    calculate_novelty_score
+)
+
+from app.services.research.thesis_idea_generator import (
+    generate_thesis_ideas
+)
+
+from app.services.research.literature_review_generator import (
+    generate_literature_review
+)
+
+from app.services.research.intent_detector import (
+    is_literature_review_query,
+    is_thesis_idea_query
+)
+
+from app.services.research.query_normalizer import (
+    normalize_research_query
+)
+
 # =====================================
 # RESEARCH ANALYSIS ENGINE
 # =====================================
@@ -177,15 +203,22 @@ def research_analysis(
     # HYBRID SEARCH
     # =================================
 
-    hybrid_results = hybrid_search(
-        query=query,
-        limit=50
+    normalized_query = (
+        normalize_research_query(
+            query
+        )
     )
 
     print(
-        f"[HYBRID SEARCH] {len(hybrid_results)} results"
+        "[NORMALIZED QUERY]",
+        normalized_query
     )
 
+    hybrid_results = hybrid_search(
+        query=normalized_query,
+        limit=50
+    )
+    
     # =================================
     # RERANK
     # =================================
@@ -278,6 +311,81 @@ def research_analysis(
         })
 
     theses = theses[:top_k]
+
+    # =================================
+    # CITATIONS
+    # =================================
+
+    citations = []
+
+    for idx, thesis in enumerate(
+        theses,
+        start=1
+    ):
+
+        citations.append({
+
+            "source_id": idx,
+            "title": thesis.get("title"),
+            "author": thesis.get("author"),
+            "year": thesis.get("year"),
+            "prodi": thesis.get("prodi"),
+            "url": thesis.get("url"),
+            "score": thesis.get("score", 0),
+            "abstract": thesis.get("abstract"),
+            "chunk": thesis.get("chunk")
+        })
+
+    # =================================
+    # METHOD COMPARISON MODE
+    # =================================
+
+    if is_comparison_query(query):
+
+        print("\n====================================")
+        print("METHOD COMPARISON MODE")
+        print("====================================")
+
+        comparison_result = (
+            run_method_comparison(
+                query=query,
+                theses=theses
+            )
+        )
+
+
+        return {
+
+            "query":
+            query,
+
+            "mode":
+            "comparison",
+
+            "related_theses":
+            theses,
+
+            "citations":
+            citations,
+
+            "comparison_matrix":
+            comparison_result.get(
+                "comparison_matrix",
+                {}
+            ),
+
+            "comparison":
+            comparison_result.get(
+                "comparison",
+                ""
+            ),
+
+            "analysis":
+            comparison_result.get(
+                "comparison",
+                ""
+            )
+        }
 
     # =================================
     # TOP THESIS DEBUG
@@ -418,6 +526,61 @@ def research_analysis(
         )
     )
 
+    # =================================
+    # NOVELTY ANALYSIS
+    # =================================
+
+    novelty_analysis = (
+        calculate_novelty_score(
+            evidence_matrix,
+            gap_analysis
+        )
+    )
+
+    if is_thesis_idea_query(query):
+
+        idea_result = (
+            generate_thesis_ideas(
+
+                query=query,
+
+                evidence=evidence,
+
+                evidence_matrix=evidence_matrix,
+
+                gap_analysis=gap_analysis,
+
+                novelty_analysis=novelty_analysis
+            )
+        )
+
+        return {
+
+            "query":
+            query,
+
+            "mode":
+            "thesis_ideas",
+
+            "analysis":
+            idea_result["ideas"],
+
+            "citations":
+            citations,
+
+            "evidence":
+            evidence,
+
+            "evidence_matrix":
+            evidence_matrix,
+
+            "gap_analysis":
+            gap_analysis,
+
+            "novelty_analysis":
+            novelty_analysis
+        }
+
     print("\n====================================")
     print("GAP ANALYSIS")
     print("====================================")
@@ -484,48 +647,52 @@ def research_analysis(
         )
     )
 
-    # =================================
-    # CITATIONS
-    # =================================
-
-    citations = []
-
-    for idx, thesis in enumerate(
-        theses,
-        start=1
+    if is_literature_review_query(
+        query
     ):
 
-        citations.append({
+        review_result = (
+            generate_literature_review(
 
-            "source_id":
-            idx,
+                query=query,
 
-            "title":
-            thesis.get("title"),
+                evidence=evidence,
 
-            "author":
-            thesis.get("author"),
+                evidence_matrix=evidence_matrix,
 
-            "year":
-            thesis.get("year"),
+                gap_analysis=gap_analysis,
 
-            "prodi":
-            thesis.get("prodi"),
+                citation_context=citation_context
+            )
+        )
 
-            "url":
-            thesis.get("url"),
+        return {
 
-            "score":
-            thesis.get("score", 0),
+            "query":
+            query,
 
-            "abstract":
-            thesis.get("abstract"),
+            "mode":
+            "literature_review",
 
-            "chunk":
-            thesis.get("chunk")
+            "analysis":
+            review_result[
+                "literature_review"
+            ],
 
-        })
+            "citations":
+            citations,
 
+            "evidence":
+            evidence,
+
+            "evidence_matrix":
+            evidence_matrix,
+
+            "gap_analysis":
+            gap_analysis
+        }
+
+    
     # =================================
     # PROMPT
     # =================================
@@ -555,9 +722,9 @@ def research_analysis(
         prompt=prompt
     )
 
-    # =================================
+    # =====================================
     # RETURN
-    # =================================
+    # =====================================
 
     return {
 
@@ -581,6 +748,9 @@ def research_analysis(
 
         "gap_analysis":
         gap_analysis,
+
+        "novelty_analysis":
+        novelty_analysis,
 
         "analysis":
         analysis
