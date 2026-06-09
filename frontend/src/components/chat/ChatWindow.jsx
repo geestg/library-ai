@@ -18,6 +18,8 @@ export default function ChatWindow({
 
   setMessages,
 
+  sources = [],
+
   setSources,
 
   setEvidence,
@@ -28,7 +30,9 @@ export default function ChatWindow({
 
   activeCitation,
 
-  setActiveCitation
+  setActiveCitation,
+
+  setSelectedThesis
 
 }) {
 
@@ -662,6 +666,14 @@ export default function ChatWindow({
 
                     attachedDocuments={
                       msg.attachedDocuments
+                    }
+
+                    sources={
+                      sources
+                    }
+
+                    setSelectedThesis={
+                      setSelectedThesis
                     }
 
                     setActiveCitation={

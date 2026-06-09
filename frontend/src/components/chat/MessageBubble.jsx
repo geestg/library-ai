@@ -8,9 +8,7 @@ import {
   FileText
 } from "lucide-react";
 
-import {
-  renderCitationText
-} from "../../utils/citationParser.jsx";
+import MarkdownMessage from "./MarkdownMessage";
 
 export default function MessageBubble({
 
@@ -24,9 +22,40 @@ export default function MessageBubble({
 
   attachedDocuments = [],
 
-  setActiveCitation
+  setActiveCitation,
+
+  setSelectedThesis,
+
+  sources = []
 
 }) {
+
+  const handleCitationClick = (
+    citationId
+  ) => {
+
+    setActiveCitation?.(
+      citationId
+    );
+
+    const source = sources.find(
+
+      (item) =>
+
+        item.source_id ===
+        citationId
+
+    );
+
+    if (source) {
+
+      setSelectedThesis?.(
+        source
+      );
+
+    }
+
+  };
 
   return (
 
@@ -34,7 +63,7 @@ export default function MessageBubble({
       className={`message ${role}`}
     >
 
-      <div className="message-content">
+      <div className="message-content markdown-body">
 
         {
 
@@ -62,7 +91,7 @@ export default function MessageBubble({
 
                       key={
                         doc.document_id
-                          ||
+                        ||
                         doc.filename
                       }
 
@@ -98,115 +127,41 @@ export default function MessageBubble({
 
         }
 
-        <ReactMarkdown
+        {
 
-          remarkPlugins={[
-            remarkGfm
-          ]}
+          role === "assistant"
 
-          components={{
+          ? (
 
-            p({
-              children
-            }) {
+            <MarkdownMessage
 
-              return (
+              content={content}
 
-                <p>
+              onCitationClick={
+                handleCitationClick
+              }
 
-                  {
+            />
 
-                    React.Children.map(
+          )
 
-                      children,
+          : (
 
-                      (child) => {
+            <ReactMarkdown
 
-                        if (
+              remarkPlugins={[
+                remarkGfm
+              ]}
 
-                          typeof child ===
-                          "string"
+            >
 
-                        ) {
+              {content}
 
-                          return renderCitationText(
+            </ReactMarkdown>
 
-                            child,
+          )
 
-                            setActiveCitation
-
-                          );
-
-                        }
-
-                        return child;
-
-                      }
-
-                    )
-
-                  }
-
-                </p>
-
-              );
-
-            },
-
-            li({
-              children
-            }) {
-
-              return (
-
-                <li>
-
-                  {
-
-                    React.Children.map(
-
-                      children,
-
-                      (child) => {
-
-                        if (
-
-                          typeof child ===
-                          "string"
-
-                        ) {
-
-                          return renderCitationText(
-
-                            child,
-
-                            setActiveCitation
-
-                          );
-
-                        }
-
-                        return child;
-
-                      }
-
-                    )
-
-                  }
-
-                </li>
-
-              );
-
-            }
-
-          }}
-
-        >
-
-          {content}
-
-        </ReactMarkdown>
+        }
 
       </div>
 

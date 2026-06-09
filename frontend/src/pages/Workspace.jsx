@@ -125,32 +125,22 @@ export default function Workspace() {
 
           setMessages={setMessages}
 
+          sources={sources}
+
           setSources={setSources}
 
           setEvidence={setEvidence}
 
-          setEvidenceMatrix={
-            setEvidenceMatrix
-          }
+          setEvidenceMatrix={setEvidenceMatrix}
 
-          setGapAnalysis={
-            setGapAnalysis
-          }
+          setGapAnalysis={setGapAnalysis}
 
-          activeCitation={
-            activeCitation
-          }
+          activeCitation={activeCitation}
 
-          setActiveCitation={
-            setActiveCitation
-          }
+          setActiveCitation={setActiveCitation}
 
-          activeDocument={
-            activeDocument
-          }
-
-          setActiveDocument={
-            setActiveDocument
+          setSelectedThesis={
+            setSelectedThesis
           }
 
         />
@@ -167,26 +157,10 @@ export default function Workspace() {
 
           sources={sources}
 
-          evidence={evidence}
-
-          evidenceMatrix={
-            evidenceMatrix
-          }
-
-          gapAnalysis={
-            gapAnalysis
-          }
-
-          activeCitation={
-            activeCitation
-          }
+          activeCitation={activeCitation}
 
           setActiveCitation={
             setActiveCitation
-          }
-
-          selectedThesis={
-            selectedThesis
           }
 
           setSelectedThesis={
@@ -194,7 +168,7 @@ export default function Workspace() {
           }
 
         />
-
+        
       </aside>
 
       {/* ========================= */}

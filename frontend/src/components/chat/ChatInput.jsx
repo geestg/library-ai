@@ -260,7 +260,7 @@ export default function ChatInput({
 
             setInput(
 
-              "Bandingkan metode CNN dan Transformer"
+              "Bandingkan metode CNN dan YOLO"
 
             )
 
