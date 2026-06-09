@@ -3,19 +3,12 @@ import { useEffect } from "react";
 import {
   FileText,
   Sparkles,
-  ExternalLink,
-  BarChart3
+  ExternalLink
 } from "lucide-react";
 
 export default function SearchPanel({
 
   sources = [],
-
-  evidence = {},
-
-  evidenceMatrix = {},
-
-  gapAnalysis = {},
 
   activeCitation,
 
@@ -74,211 +67,6 @@ export default function SearchPanel({
 
   }, [activeCitation]);
 
-  // =================================
-  // SUMMARY GROUP
-  // =================================
-
-  const renderSummaryGroup = (
-    title,
-    items
-  ) => {
-
-    if (
-      !items ||
-      items.length === 0
-    ) {
-      return null;
-    }
-
-    return (
-
-      <div className="summary-group">
-
-        <h4>
-          {title}
-        </h4>
-
-        <div>
-
-          {
-
-            items.map(
-
-              (
-                item,
-                idx
-              ) => (
-
-                <div
-
-                  key={`${title}-${idx}`}
-
-                  className="summary-pill"
-
-                >
-
-                  {
-
-                    item.name
-                    ?? item.year
-                    ?? item
-
-                  }
-
-                  {
-
-                    item.count !== undefined && (
-                      <>
-                        {" "}
-                        ({item.count})
-                      </>
-                    )
-
-                  }
-
-                </div>
-
-              )
-
-            )
-
-          }
-
-        </div>
-
-      </div>
-
-    );
-
-  };
-
-  // =================================
-  // MATRIX GROUP
-  // =================================
-
-  const renderMatrixGroup = (
-    title,
-    matrixData
-  ) => {
-
-    if (
-      !matrixData ||
-      Object.keys(matrixData)
-        .length === 0
-    ) {
-      return null;
-    }
-
-    return (
-
-      <div className="summary-group">
-
-        <h4>
-          {title}
-        </h4>
-
-        <div>
-
-          {
-
-            Object.entries(
-              matrixData
-            ).map(
-
-              (
-                [name, count]
-              ) => (
-
-                <div
-
-                  key={name}
-
-                  className="summary-pill"
-
-                >
-
-                  {name}
-                  {" "}
-                  ({count})
-
-                </div>
-
-              )
-
-            )
-
-          }
-
-        </div>
-
-      </div>
-
-    );
-
-  };
-
-  // =================================
-  // GAP SECTION
-  // =================================
-
-  const renderGapSection = (
-    title,
-    items,
-    className = "gap-item"
-  ) => {
-
-    if (
-      !items ||
-      items.length === 0
-    ) {
-      return null;
-    }
-
-    return (
-
-      <div className="summary-group">
-
-        <h4>
-          {title}
-        </h4>
-
-        <div>
-
-          {
-
-            items.map(
-
-              (
-                item,
-                idx
-              ) => (
-
-                <div
-
-                  key={`${title}-${idx}`}
-
-                  className={className}
-
-                >
-
-                  {item}
-
-                </div>
-
-              )
-
-            )
-
-          }
-
-        </div>
-
-      </div>
-
-    );
-
-  };
-
   return (
 
     <div className="evidence-shell">
@@ -318,268 +106,6 @@ export default function SearchPanel({
       </div>
 
       {/* ================================= */}
-      {/* EVIDENCE SUMMARY */}
-      {/* ================================= */}
-
-      {
-
-        Object.keys(
-          evidence || {}
-        ).length > 0 && (
-
-          <div className="evidence-summary">
-
-            <h3>
-
-              Evidence Summary
-
-            </h3>
-
-            {
-
-              renderSummaryGroup(
-                "Technologies",
-                evidence.technologies
-              )
-
-            }
-
-            {
-
-              renderSummaryGroup(
-                "Methodologies",
-                evidence.methodologies
-              )
-
-            }
-
-            {
-
-              renderSummaryGroup(
-                "Research Domains",
-                evidence.research_domains
-              )
-
-            }
-
-            {
-
-              renderSummaryGroup(
-                "Datasets",
-                evidence.datasets
-              )
-
-            }
-
-            {
-
-              renderSummaryGroup(
-                "Evaluation Metrics",
-                evidence.evaluation_metrics
-              )
-
-            }
-
-            {
-
-              renderSummaryGroup(
-                "Research Years",
-                evidence.years
-              )
-
-            }
-
-          </div>
-
-        )
-
-      }
-
-      {/* ================================= */}
-      {/* EVIDENCE MATRIX */}
-      {/* ================================= */}
-
-      {
-
-        Object.keys(
-          evidenceMatrix || {}
-        ).length > 0 && (
-
-          <div className="evidence-summary">
-
-            <h3>
-
-              <BarChart3
-                size={16}
-                style={{
-                  marginRight: 8
-                }}
-              />
-
-              Evidence Matrix
-
-            </h3>
-
-            {
-
-              renderMatrixGroup(
-                "Technology Frequency",
-                evidenceMatrix.technology_frequency
-              )
-
-            }
-
-            {
-
-              renderMatrixGroup(
-                "Methodology Frequency",
-                evidenceMatrix.methodology_frequency
-              )
-
-            }
-
-            {
-
-              renderMatrixGroup(
-                "Domain Frequency",
-                evidenceMatrix.domain_frequency
-              )
-
-            }
-
-            {
-
-              renderMatrixGroup(
-                "Dataset Frequency",
-                evidenceMatrix.dataset_frequency
-              )
-
-            }
-
-            {
-
-              renderMatrixGroup(
-                "Evaluation Frequency",
-                evidenceMatrix.evaluation_frequency
-              )
-
-            }
-
-            {
-
-              renderMatrixGroup(
-                "Year Frequency",
-                evidenceMatrix.year_frequency
-              )
-
-            }
-
-          </div>
-
-        )
-
-      }
-
-      {/* ================================= */}
-      {/* GAP ANALYSIS */}
-      {/* ================================= */}
-
-      {
-
-        Object.keys(
-          gapAnalysis || {}
-        ).length > 0 && (
-
-          <div className="gap-section">
-
-            <h3>
-
-              Research Gap Analysis
-
-            </h3>
-
-            {
-
-              renderGapSection(
-                "Method Gap",
-                gapAnalysis.method_gap
-              )
-
-            }
-
-            {
-
-              renderGapSection(
-                "Dataset Gap",
-                gapAnalysis.dataset_gap
-              )
-
-            }
-
-            {
-
-              renderGapSection(
-                "Temporal Gap",
-                gapAnalysis.temporal_gap
-              )
-
-            }
-
-            {
-
-              renderGapSection(
-                "Evaluation Gap",
-                gapAnalysis.evaluation_gap
-              )
-
-            }
-
-            {
-
-              renderGapSection(
-                "Novelty Opportunities",
-                gapAnalysis.novelty_opportunities,
-                "novelty-item"
-              )
-
-            }
-
-            {
-
-              gapAnalysis.gap_score !==
-              undefined && (
-
-                <div className="summary-group">
-
-                  <h4>
-
-                    Gap Score
-
-                  </h4>
-
-                  <div className="gap-score">
-
-                    {
-
-                      gapAnalysis.gap_score
-
-                    }
-
-                  </div>
-
-                </div>
-
-              )
-
-            }
-
-          </div>
-
-        )
-
-      }
-
-      {/* ================================= */}
       {/* EMPTY STATE */}
       {/* ================================= */}
 
@@ -597,15 +123,16 @@ export default function SearchPanel({
 
             <h3>
 
-              No evidence yet
+              No sources yet
 
             </h3>
 
             <p>
 
-              Ask a research question and
-              DELBot will display retrieved
-              thesis evidence here.
+              Ask a research question
+              and DELBot will display
+              retrieved thesis sources
+              here.
 
             </p>
 
@@ -638,7 +165,9 @@ export default function SearchPanel({
                   `citation-${source.source_id}`
                 }
 
-                key={source.source_id}
+                key={
+                  source.source_id
+                }
 
                 onClick={() => {
 
@@ -690,7 +219,11 @@ export default function SearchPanel({
 
                       Citation #
 
-                      {source.source_id}
+                      {
+
+                        source.source_id
+
+                      }
 
                     </div>
 

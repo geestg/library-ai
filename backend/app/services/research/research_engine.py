@@ -62,6 +62,14 @@ from app.services.research.query_normalizer import (
     normalize_research_query
 )
 
+from app.services.research.thesis_evidence_extractor import (
+    extract_thesis_evidence
+)
+
+from app.services.research.diversity_filter import (
+    apply_diversity_filter
+)
+
 # =====================================
 # RESEARCH ANALYSIS ENGINE
 # =====================================
@@ -266,7 +274,7 @@ def research_analysis(
             {}
         )
 
-        theses.append({
+        thesis_data = {
 
             "score":
             item.get(
@@ -275,42 +283,64 @@ def research_analysis(
             ),
 
             "title":
-            payload.get(
-                "title"
-            ),
+            payload.get("title"),
 
             "author":
-            payload.get(
-                "author"
-            ),
+            payload.get("author"),
 
             "year":
-            payload.get(
-                "year"
-            ),
+            payload.get("year"),
 
             "prodi":
-            payload.get(
-                "prodi"
-            ),
+            payload.get("prodi"),
 
             "abstract":
-            payload.get(
-                "abstract"
-            ),
+            payload.get("abstract"),
 
             "chunk":
-            payload.get(
-                "chunk"
-            ),
+            payload.get("chunk"),
 
             "url":
-            payload.get(
-                "url"
+            payload.get("url")
+        }
+
+        thesis_data.update(
+
+            extract_thesis_evidence(
+                thesis_data
             )
-        })
+
+        )
+
+        theses.append(
+            thesis_data
+        )
+
+    # =================================
+    # DIVERSITY FILTER
+    # =================================
+
+    theses = apply_diversity_filter(
+        theses,
+        max_per_year=2,
+        max_per_title_keyword=2
+    )
 
     theses = theses[:top_k]
+
+    print("\n====================================")
+    print("AFTER DIVERSITY FILTER")
+    print("====================================")
+
+    for idx, thesis in enumerate(
+        theses,
+        start=1
+    ):
+
+        print(
+            idx,
+            thesis.get("title")
+        )
 
     # =================================
     # CITATIONS
@@ -325,16 +355,81 @@ def research_analysis(
 
         citations.append({
 
-            "source_id": idx,
-            "title": thesis.get("title"),
-            "author": thesis.get("author"),
-            "year": thesis.get("year"),
-            "prodi": thesis.get("prodi"),
-            "url": thesis.get("url"),
-            "score": thesis.get("score", 0),
-            "abstract": thesis.get("abstract"),
-            "chunk": thesis.get("chunk")
+            "source_id":
+            idx,
+
+            "title":
+            thesis.get("title"),
+
+            "author":
+            thesis.get("author"),
+
+            "year":
+            thesis.get("year"),
+
+            "prodi":
+            thesis.get("prodi"),
+
+            "url":
+            thesis.get("url"),
+
+            "score":
+            thesis.get(
+                "score",
+                0
+            ),
+
+            "abstract":
+            thesis.get(
+                "abstract"
+            ),
+
+            "chunk":
+            thesis.get(
+                "chunk"
+            ),
+
+            "technologies":
+            thesis.get(
+                "technologies",
+                []
+            ),
+
+            "methodologies":
+            thesis.get(
+                "methodologies",
+                []
+            ),
+
+            "datasets":
+            thesis.get(
+                "datasets",
+                []
+            ),
+
+            "evaluation_metrics":
+            thesis.get(
+                "evaluation_metrics",
+                []
+            )
+
         })
+
+    # =================================
+    # DEBUG
+    # =================================
+
+    print("\n")
+    print("=" * 80)
+    print("CITATION DEBUG")
+    print("=" * 80)
+
+    if citations:
+
+        print(
+            citations[0]
+        )
+
 
     # =================================
     # METHOD COMPARISON MODE
@@ -647,9 +742,50 @@ def research_analysis(
         )
     )
 
+    # =================================
+    # LITERATURE REVIEW GUARD
+    # =================================
+
+    MIN_THESIS_FOR_REVIEW = 5
+
     if is_literature_review_query(
         query
     ):
+
+        if len(theses) < MIN_THESIS_FOR_REVIEW:
+
+            return {
+
+                "query":
+                query,
+
+                "mode":
+                "literature_review",
+
+                "analysis":
+                (
+                    "Bukti penelitian tidak cukup "
+                    "untuk menghasilkan literature review "
+                    "yang valid.\n\n"
+                    f"Ditemukan hanya {len(theses)} "
+                    f"skripsi relevan, sedangkan minimal "
+                    f"{MIN_THESIS_FOR_REVIEW} sumber "
+                    "dibutuhkan untuk analisis yang "
+                    "lebih dapat dipercaya."
+                ),
+
+                "citations":
+                citations,
+
+                "evidence":
+                evidence,
+
+                "evidence_matrix":
+                evidence_matrix,
+
+                "gap_analysis":
+                gap_analysis
+            }
 
         review_result = (
             generate_literature_review(
@@ -689,10 +825,13 @@ def research_analysis(
             evidence_matrix,
 
             "gap_analysis":
-            gap_analysis
+            gap_analysis,
+
+            "novelty_analysis":
+            novelty_analysis
         }
 
-    
+
     # =================================
     # PROMPT
     # =================================

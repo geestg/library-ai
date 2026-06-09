@@ -5,7 +5,11 @@ import {
   Calendar,
   GraduationCap,
   ExternalLink,
-  BarChart3
+  BarChart3,
+  Cpu,
+  Database,
+  FlaskConical,
+  CheckCircle2
 } from "lucide-react";
 
 export default function ThesisDrawer({
@@ -19,6 +23,60 @@ export default function ThesisDrawer({
   if (!thesis) {
     return null;
   }
+
+  const renderTags = (
+    items,
+    emptyText
+  ) => {
+
+    if (
+      !items ||
+      items.length === 0
+    ) {
+
+      return (
+
+        <div className="empty-evidence">
+
+          {emptyText}
+
+        </div>
+
+      );
+    }
+
+    return (
+
+      <div className="evidence-tags">
+
+        {
+
+          items.map(
+
+            (
+              item,
+              idx
+            ) => (
+
+              <div
+                key={idx}
+                className="evidence-tag"
+              >
+
+                {item}
+
+              </div>
+
+            )
+
+          )
+
+        }
+
+      </div>
+
+    );
+  };
 
   return (
 
@@ -37,9 +95,7 @@ export default function ThesisDrawer({
 
       >
 
-        {/* ================================= */}
         {/* HEADER */}
-        {/* ================================= */}
 
         <div className="thesis-drawer-header">
 
@@ -53,8 +109,10 @@ export default function ThesisDrawer({
 
             <h2>
 
-              {thesis.title ||
-                "Unknown Thesis"}
+              {
+                thesis.title ||
+                "Unknown Thesis"
+              }
 
             </h2>
 
@@ -74,9 +132,7 @@ export default function ThesisDrawer({
 
         </div>
 
-        {/* ================================= */}
         {/* META */}
-        {/* ================================= */}
 
         <div className="thesis-meta-grid">
 
@@ -86,12 +142,16 @@ export default function ThesisDrawer({
 
             <div>
 
-              <span>Author</span>
+              <span>
+                Author
+              </span>
 
               <strong>
 
-                {thesis.author ||
-                  "-"}
+                {
+                  thesis.author ||
+                  "-"
+                }
 
               </strong>
 
@@ -105,12 +165,16 @@ export default function ThesisDrawer({
 
             <div>
 
-              <span>Year</span>
+              <span>
+                Year
+              </span>
 
               <strong>
 
-                {thesis.year ||
-                  "-"}
+                {
+                  thesis.year ||
+                  "-"
+                }
 
               </strong>
 
@@ -120,18 +184,20 @@ export default function ThesisDrawer({
 
           <div className="thesis-meta-card">
 
-            <GraduationCap
-              size={16}
-            />
+            <GraduationCap size={16} />
 
             <div>
 
-              <span>Program</span>
+              <span>
+                Program
+              </span>
 
               <strong>
 
-                {thesis.prodi ||
-                  "-"}
+                {
+                  thesis.prodi ||
+                  "-"
+                }
 
               </strong>
 
@@ -141,19 +207,21 @@ export default function ThesisDrawer({
 
           <div className="thesis-meta-card">
 
-            <BarChart3
-              size={16}
-            />
+            <BarChart3 size={16} />
 
             <div>
 
-              <span>Score</span>
+              <span>
+                Relevance
+              </span>
 
               <strong>
 
-                {Number(
-                  thesis.score || 0
-                ).toFixed(2)}
+                {
+                  Number(
+                    thesis.score || 0
+                  ).toFixed(2)
+                }
 
               </strong>
 
@@ -163,9 +231,7 @@ export default function ThesisDrawer({
 
         </div>
 
-        {/* ================================= */}
         {/* ABSTRACT */}
-        {/* ================================= */}
 
         <div className="thesis-section">
 
@@ -191,37 +257,121 @@ export default function ThesisDrawer({
 
         </div>
 
-        {/* ================================= */}
         {/* RETRIEVED EVIDENCE */}
-        {/* ================================= */}
 
         <div className="thesis-section">
 
           <div className="section-title">
 
-            <FileText size={16} />
+            <Cpu size={16} />
 
             Retrieved Evidence
 
           </div>
 
-          <div className="evidence-content">
+          <div className="evidence-grid">
 
-            {
+            <div className="evidence-box">
 
-              thesis.chunk ||
+              <div className="evidence-title">
 
-              "No retrieved evidence available."
+                <Cpu size={14} />
 
-            }
+                Technology
+
+              </div>
+
+              {
+
+                renderTags(
+
+                  thesis.technologies,
+
+                  "No technology detected"
+
+                )
+
+              }
+
+            </div>
+
+            <div className="evidence-box">
+
+              <div className="evidence-title">
+
+                <FlaskConical size={14} />
+
+                Methodology
+
+              </div>
+
+              {
+
+                renderTags(
+
+                  thesis.methodologies,
+
+                  "No methodology detected"
+
+                )
+
+              }
+
+            </div>
+
+            <div className="evidence-box">
+
+              <div className="evidence-title">
+
+                <Database size={14} />
+
+                Dataset
+
+              </div>
+
+              {
+
+                renderTags(
+
+                  thesis.datasets,
+
+                  "No dataset detected"
+
+                )
+
+              }
+
+            </div>
+
+            <div className="evidence-box">
+
+              <div className="evidence-title">
+
+                <CheckCircle2 size={14} />
+
+                Evaluation
+
+              </div>
+
+              {
+
+                renderTags(
+
+                  thesis.evaluation_metrics,
+
+                  "No evaluation metric detected"
+
+                )
+
+              }
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* ================================= */}
         {/* REPOSITORY */}
-        {/* ================================= */}
 
         {
 
@@ -231,11 +381,9 @@ export default function ThesisDrawer({
 
               <div className="section-title">
 
-                <ExternalLink
-                  size={16}
-                />
+                
 
-                Repository
+                
 
               </div>
 

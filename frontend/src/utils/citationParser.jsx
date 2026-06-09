@@ -1,57 +1,76 @@
-import React from "react";
+export function parseCitations(
 
-export function renderCitationText(
   text,
-  setActiveCitation
+
+  onCitationClick
+
 ) {
-  if (!text) return text;
 
-  const regex = /\[(\d+)\]/g;
+  const parts = text.split(
 
-  const parts = [];
+    /(\[\d+\])/g
 
-  let lastIndex = 0;
+  );
 
-  let match;
+  return parts.map(
 
-  while (
-    (match = regex.exec(text)) !== null
-  ) {
-    const citationId = Number(
-      match[1]
-    );
+    (
+      part,
+      index
+    ) => {
 
-    if (match.index > lastIndex) {
-      parts.push(
-        text.slice(
-          lastIndex,
-          match.index
-        )
+      const match = part.match(
+
+        /\[(\d+)\]/
+
       );
+
+      if (!match) {
+
+        return (
+
+          <span key={index}>
+
+            {part}
+
+          </span>
+
+        );
+
+      }
+
+      const citationId = Number(
+
+        match[1]
+
+      );
+
+      return (
+
+        <button
+
+          key={index}
+
+          className="inline-citation"
+
+          onClick={() =>
+
+            onCitationClick?.(
+              citationId
+            )
+
+          }
+
+        >
+
+          [{citationId}]
+
+        </button>
+
+      );
+
     }
 
-    parts.push(
-      <button
-        key={`citation-${citationId}-${match.index}`}
-        className="inline-citation"
-        onClick={() =>
-          setActiveCitation?.(
-            citationId
-          )
-        }
-      >
-        [{citationId}]
-      </button>
-    );
+  );
 
-    lastIndex = regex.lastIndex;
-  }
-
-  if (lastIndex < text.length) {
-    parts.push(
-      text.slice(lastIndex)
-    );
-  }
-
-  return parts;
 }

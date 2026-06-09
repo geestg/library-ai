@@ -89,116 +89,7 @@
 }
 
 /* ====================================
-   EVIDENCE SUMMARY
-==================================== */
-
-.evidence-summary {
-
-  margin-bottom: 24px;
-
-  padding: 20px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(99,102,241,0.08);
-
-  border:
-    1px solid rgba(
-      99,
-      102,
-      241,
-      0.16
-    );
-}
-
-.evidence-summary h3 {
-
-  color: white;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
-  margin-bottom: 16px;
-}
-
-.summary-group {
-
-  margin-bottom: 16px;
-}
-
-.summary-group:last-child {
-
-  margin-bottom: 0;
-}
-
-.summary-group h4 {
-
-  color: #a5b4fc;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  margin-bottom: 10px;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08em;
-}
-
-.summary-pill {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  padding:
-    6px 12px;
-
-  margin:
-    4px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.05
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  color: white;
-
-  font-size: 12px;
-
-  transition:
-    all 0.2s ease;
-}
-
-.summary-pill:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-}
-
-/* ====================================
-   EMPTY
+   EMPTY STATE
 ==================================== */
 
 .evidence-empty {
@@ -255,7 +146,7 @@
 }
 
 /* ====================================
-   LIST
+   SOURCE LIST
 ==================================== */
 
 .evidence-list {
@@ -268,7 +159,7 @@
 }
 
 /* ====================================
-   CARD
+   SOURCE CARD
 ==================================== */
 
 .evidence-card {
@@ -279,7 +170,7 @@
 
   padding: 22px;
 
-  border-radius: 26px;
+  border-radius: 24px;
 
   background:
     linear-gradient(
@@ -302,10 +193,6 @@
   backdrop-filter: blur(20px);
 }
 
-/* ====================================
-   CARD LIGHT
-==================================== */
-
 .evidence-card::before {
 
   content: "";
@@ -317,7 +204,12 @@
   background:
     radial-gradient(
       circle at top left,
-      rgba(99,102,241,0.14),
+      rgba(
+        99,
+        102,
+        241,
+        0.14
+      ),
       transparent 40%
     );
 
@@ -327,7 +219,7 @@
 }
 
 /* ====================================
-   ACTIVE CITATION
+   ACTIVE CARD
 ==================================== */
 
 .evidence-card.active {
@@ -372,7 +264,7 @@
 }
 
 /* ====================================
-   TOP
+   CARD HEADER
 ==================================== */
 
 .evidence-card-top {
@@ -381,7 +273,7 @@
 
   gap: 14px;
 
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* ====================================
@@ -416,7 +308,7 @@
 }
 
 /* ====================================
-   SOURCE NAME
+   SOURCE TITLE
 ==================================== */
 
 .evidence-source-name {
@@ -433,7 +325,7 @@
 }
 
 /* ====================================
-   CITATION META
+   CITATION ID
 ==================================== */
 
 .evidence-citation-id {
@@ -449,21 +341,6 @@
     );
 
   font-size: 12px;
-}
-
-/* ====================================
-   META GRID
-==================================== */
-
-.evidence-meta-grid {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-bottom: 20px;
 }
 
 /* ====================================
@@ -511,12 +388,12 @@
 }
 
 /* ====================================
-   SCORE
+   RELEVANCE SCORE
 ==================================== */
 
 .evidence-score-wrapper {
 
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .score-header {
@@ -539,10 +416,6 @@
 
   font-size: 13px;
 }
-
-/* ====================================
-   SCORE BAR
-==================================== */
 
 .score-bar {
 
@@ -581,6 +454,55 @@
       241,
       0.3
     );
+}
+
+/* ====================================
+   REPOSITORY LINK
+==================================== */
+
+.evidence-link {
+
+  margin-top: 14px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+
+  opacity: 0.85;
+}
+
+.evidence-link:hover {
+
+  color: #a5b4fc;
+
+  opacity: 1;
+}
+
+.evidence-link svg {
+
+  width: 13px;
+
+  height: 13px;
 }
 
 /* ====================================
@@ -657,271 +579,4 @@
     );
 
   border-radius: 999px;
-}
-
-/* ====================================
-   REPOSITORY LINK
-==================================== */
-
-.evidence-link {
-
-  margin-top: 12px;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 6px;
-
-  padding: 6px 0;
-
-  color: rgba(
-    255,
-    255,
-    255,
-    0.65
-  );
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
-
-  opacity: 0.85;
-}
-
-.evidence-link:hover {
-
-  color: #a5b4fc;
-
-  opacity: 1;
-}
-
-.evidence-link svg {
-
-  width: 13px;
-
-  height: 13px;
-}
-
-/* ====================================
-   GAP ANALYSIS
-==================================== */
-
-.gap-section {
-
-  margin-top: 24px;
-
-  padding: 20px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(
-      168,
-      85,
-      247,
-      0.08
-    );
-
-  border:
-    1px solid rgba(
-      168,
-      85,
-      247,
-      0.18
-    );
-}
-
-.gap-section h3 {
-
-  color: white;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
-  margin-bottom: 18px;
-}
-
-/* ====================================
-   GAP GROUP
-==================================== */
-
-.gap-group {
-
-  margin-bottom: 18px;
-}
-
-.gap-group:last-child {
-
-  margin-bottom: 0;
-}
-
-.gap-group h4 {
-
-  color: #c4b5fd;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08em;
-
-  margin-bottom: 10px;
-}
-
-/* ====================================
-   GAP ITEM
-==================================== */
-
-.gap-item {
-
-  display: block;
-
-  width: 100%;
-
-  margin-bottom: 8px;
-
-  padding: 12px 14px;
-
-  border-radius: 14px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.04
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.05
-    );
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.85
-    );
-
-  font-size: 13px;
-
-  line-height: 1.7;
-}
-
-.gap-item:last-child {
-
-  margin-bottom: 0;
-}
-
-/* ====================================
-   NOVELTY ITEM
-==================================== */
-
-.novelty-item {
-
-  display: block;
-
-  width: 100%;
-
-  margin-bottom: 10px;
-
-  padding: 14px 16px;
-
-  border-radius: 16px;
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.12
-    );
-
-  border:
-    1px solid rgba(
-      99,
-      102,
-      241,
-      0.22
-    );
-
-  color: white;
-
-  font-size: 13px;
-
-  line-height: 1.8;
-
-  transition:
-    all 0.2s ease;
-}
-
-.novelty-item:hover {
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.18
-    );
-
-  transform:
-    translateY(-1px);
-}
-
-/* ====================================
-   GAP SCORE
-==================================== */
-
-.gap-score {
-
-  margin-top: 16px;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding:
-    8px 14px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      34,
-      197,
-      94,
-      0.12
-    );
-
-  border:
-    1px solid rgba(
-      34,
-      197,
-      94,
-      0.25
-    );
-
-  color: #86efac;
-
-  font-size: 13px;
-
-  font-weight: 700;
 }
