@@ -1,739 +1,343 @@
-import {
-  useState,
-  useEffect
-} from "react";
-
-import {
-  API_BASE_URL
-} from "../../services/api";
-
+import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../services/api";
 import MessageBubble from "./MessageBubble";
 import ChatHero from "./ChatHero";
 import ChatInput from "./ChatInput";
 import ThinkingIndicator from "./ThinkingIndicator";
+import ImagePreviewModal from "../ImagePreviewModal";
 
 export default function ChatWindow({
-
   messages = [],
-
   setMessages,
-
   setSources,
-
   setEvidence,
-
-  setEvidenceMatrix,
-
-  setGapAnalysis,
-
   activeCitation,
-
-  setActiveCitation
-
+  setActiveCitation,
+  activeDocument,
+  setActiveDocument,
 }) {
-
-  // =====================================
-  // CHAT STATE
-  // =====================================
-
-  const [input, setInput] =
-    useState("");
-
-  const [loading, setLoading] =
-    useState(false);
-
-  // =====================================
-  // ACTIVE DOCUMENTS
-  // =====================================
-
-  const [
-
-    activeDocuments,
-
-    setActiveDocuments
-
-  ] = useState([]);
-
-  // =====================================
-  // UPLOADING DOCUMENTS
-  // =====================================
-
-  const [
-
-    uploadingDocuments,
-
-    setUploadingDocuments
-
-  ] = useState([]);
-
-  // =====================================
-  // AUTO SCROLL
-  // =====================================
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [activeDocuments, setActiveDocuments] = useState([]);
+  const [uploadingDocuments, setUploadingDocuments] = useState([]);
+  const [previewImage, setPreviewImage] = useState(null);
 
   useEffect(() => {
+    const container = document.querySelector(".modern-messages");
+    if (!container) return;
+    container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+  }, [messages, loading]);
 
-    const container =
-      document.querySelector(
-        ".modern-messages"
-      );
+  const removeDocument = (documentId) => {
+    setActiveDocuments((prev) => prev.filter((doc) => doc.document_id !== documentId));
+  };
 
-    if (!container) {
-      return;
-    }
+  const removeSelectedFile = (index) => {
+    setSelectedFiles((prev) => {
+      const file = prev[index];
+      if (file?.previewUrl?.startsWith("blob:")) {
+        URL.revokeObjectURL(file.previewUrl);
+      }
+      return prev.filter((_, i) => i !== index);
+    });
+  };
 
-    container.scrollTo({
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
 
-      top:
-        container.scrollHeight,
+    const newFiles = files.map((file) => ({
+      id: `${Date.now()}-${file.name}`,
+      name: file.name,
+      type: file.type,
+      size: file.size,
+      file,
+      previewUrl: file.type.startsWith("image/") ? URL.createObjectURL(file) : null,
+    }));
 
-      behavior:
-        "smooth"
+    setSelectedFiles((prev) => [...prev, ...newFiles]);
+    e.target.value = "";
+  };
 
+  const fileToDataUrl = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(new Error(`Failed to read image ${file.name}`));
+      reader.readAsDataURL(file.file);
     });
 
-  }, [
+  const uploadPdfFile = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file.file);
 
-    messages,
+    const uploadRes = await fetch(API_BASE_URL + "/upload-pdf", {
+      method: "POST",
+      body: formData,
+    });
 
-    loading
+    if (!uploadRes.ok) {
+      const t = await uploadRes.text().catch(() => "");
+      throw new Error(`Upload document failed: ${uploadRes.status} ${t}`);
+    }
 
-  ]);
+    const uploadData = await uploadRes.json();
 
-  // =====================================
-  // REMOVE DOCUMENT
-  // =====================================
+    if (uploadData.status !== "success") {
+      throw new Error(uploadData.message || "Document upload failed");
+    }
 
-  const removeDocument = (
-    documentId
-  ) => {
-
-    setActiveDocuments(
-
-      prev =>
-
-        prev.filter(
-
-          doc =>
-
-            doc.document_id !==
-            documentId
-
-        )
-
-    );
-
+    return uploadData;
   };
 
-  // =====================================
-  // CLEAR DOCUMENTS
-  // =====================================
+  const sendMessage = async () => {
+    if (!input.trim() && selectedFiles.length === 0) return;
 
-  const clearDocuments = () => {
+    const filesToSend = [...selectedFiles];
+    const attachments = filesToSend.map((file) => ({
+      id: file.id,
+      name: file.name,
+      type: file.type,
+      previewUrl: file.previewUrl,
+      isImage: file.type.startsWith("image/"),
+    }));
 
-    setActiveDocuments([]);
+    const userMessage = {
+      id: `${Date.now()}-user`,
+      role: "user",
+      content: input,
+      attachedDocuments: activeDocuments,
+      attachments,
+    };
 
-  };
+    setMessages((prev) => [...prev, userMessage]);
 
-  // =====================================
-  // FILE UPLOAD
-  // =====================================
+    const finalInput = input;
+    setInput("");
+    setSelectedFiles([]);
 
-  const handleFileUpload =
-    async (e) => {
+    const textarea = document.querySelector(".floating-input textarea");
+    if (textarea) textarea.style.height = "auto";
 
-      const files =
-        Array.from(
-          e.target.files || []
-        );
+    setLoading(true);
+    setUploadingDocuments([]);
 
-      if (!files.length) {
-        return;
+    try {
+      const imageFiles = filesToSend.filter((file) => file.type?.startsWith("image/"));
+      const pdfFiles = filesToSend.filter((file) => {
+        const lowerName = (file.name || "").toLowerCase();
+        return file.type === "application/pdf" || lowerName.endsWith(".pdf");
+      });
+
+      const uploadedDocuments = [];
+      const imagePayloads = [];
+
+      if (pdfFiles.length > 0) {
+        setUploadingDocuments(pdfFiles.map((file) => ({ id: file.id, filename: file.name })));
+
+        for (const file of pdfFiles) {
+          const uploadData = await uploadPdfFile(file);
+          uploadedDocuments.push({
+            document_id: uploadData.document_id,
+            filename: uploadData.filename,
+            file_type: uploadData.file_type,
+            pages: uploadData.pages,
+            chunks: uploadData.chunks,
+          });
+        }
+
+        setActiveDocuments((prev) => {
+          const next = [...prev];
+          const existingIds = new Set(prev.map((doc) => doc.document_id));
+
+          for (const document of uploadedDocuments) {
+            if (!existingIds.has(document.document_id)) {
+              next.push(document);
+            }
+          }
+
+          return next;
+        });
       }
 
-      for (const file of files) {
+      if (imageFiles.length > 0) {
+        setUploadingDocuments(imageFiles.map((file) => ({ id: file.id, filename: file.name })));
 
-        const uploadId =
-          `${Date.now()}-${file.name}`;
+        for (const file of imageFiles) {
+          imagePayloads.push({
+            id: file.id,
+            name: file.name,
+            dataUrl: await fileToDataUrl(file),
+          });
+        }
+      }
 
-        setUploadingDocuments(
+      const currentDocuments = [...activeDocuments, ...uploadedDocuments];
 
-          prev => [
+      if (imagePayloads.length > 0) {
+        const firstImage = imagePayloads[0];
 
+        const visionRes = await fetch(API_BASE_URL + "/api/vision/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            prompt: finalInput,
+            image_base64: firstImage.dataUrl,
+          }),
+        });
+
+        if (!visionRes.ok) {
+          const t = await visionRes.text().catch(() => "");
+          throw new Error(`Vision request failed: ${visionRes.status} ${t}`);
+        }
+
+        const visionData = await visionRes.json();
+        const content = visionData.response || visionData.answer || visionData.analysis || "No response returned.";
+
+        setMessages((prev) => {
+          return [
             ...prev,
-
             {
+              id: `${Date.now()}-assistant`,
+            role: "assistant",
+            content,
+            citations: visionData.citations || [],
+            sources: visionData.sources || [],
+            },
+          ];
+        });
 
-              id:
-                uploadId,
-
-              filename:
-                file.name
-
-            }
-
-          ]
-
-        );
-
-        try {
-
-          const formData =
-            new FormData();
-
-          formData.append(
-            "file",
-            file
-          );
-
-          const response =
-            await fetch(
-
-              `${API_BASE_URL}/upload-pdf`,
-
-              {
-
-                method:
-                  "POST",
-
-                body:
-                  formData
-
-              }
-
-            );
-
-          if (
-            !response.ok
-          ) {
-
-            throw new Error(
-              `Upload failed (${response.status})`
-            );
-
-          }
-
-          const data =
-            await response.json();
-
-          setUploadingDocuments(
-
-            prev =>
-
-              prev.filter(
-
-                item =>
-
-                  item.id !==
-                  uploadId
-
-              )
-
-          );
-
-          if (
-            data.document_id
-          ) {
-
-            setActiveDocuments(
-
-              prev => [
-
-                ...prev,
-
-                {
-
-                  document_id:
-                    data.document_id,
-
-                  filename:
-                    data.filename,
-
-                  pages:
-                    data.pages || 0,
-
-                  chunks:
-                    data.chunks || 0,
-
-                  file_type:
-                    data.file_type || "unknown"
-
-                }
-
-              ]
-
-            );
-
-          }
-
-        } catch (error) {
-
-          console.error(
-            "UPLOAD ERROR:",
-            error
-          );
-
-          setUploadingDocuments(
-
-            prev =>
-
-              prev.filter(
-
-                item =>
-
-                  item.id !==
-                  uploadId
-
-              )
-
-          );
-
-        }
-
-      }
-
-      e.target.value = "";
-
-    };
-
-  // =====================================
-  // SEND MESSAGE
-  // =====================================
-
-  const sendMessage =
-    async () => {
-
-      if (
-        !input.trim()
-      ) {
+        setSources(visionData.sources || visionData.citations || []);
         return;
       }
 
-      const finalInput =
-        input.trim();
+      if (currentDocuments.length > 0) {
+        const targetDocument = currentDocuments[currentDocuments.length - 1];
 
-      // ===============================
-      // RESET RIGHT PANEL
-      // ===============================
+        const documentResponse = await fetch(API_BASE_URL + "/document/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            document_id: targetDocument.document_id,
+            question: finalInput,
+          }),
+        });
 
-      setActiveCitation(
-        null
-      );
-
-      setSources([]);
-
-      setEvidence({});
-
-      setEvidenceMatrix({});
-
-      setGapAnalysis({});
-
-      // ===============================
-      // ADD CHAT MESSAGE
-      // ===============================
-
-      setMessages(
-
-        prev => [
-
-          ...prev,
-
-          {
-
-            role:
-              "user",
-
-            content:
-              finalInput,
-
-            attachedDocuments:
-              activeDocuments
-
-          },
-
-          {
-
-            role:
-              "assistant",
-
-            content:
-              ""
-
-          }
-
-        ]
-
-      );
-
-      setInput("");
-
-      const textarea =
-        document.querySelector(
-          ".floating-input textarea"
-        );
-
-      if (textarea) {
-
-        textarea.style.height =
-          "auto";
-
-      }
-
-      setLoading(true);
-
-      try {
-
-        const response =
-          await fetch(
-
-            `${API_BASE_URL}/api/research/research-analysis`,
-
-            {
-
-              method:
-                "POST",
-
-              headers: {
-
-                "Content-Type":
-                  "application/json"
-
-              },
-
-              body:
-                JSON.stringify({
-
-                  query:
-                    finalInput,
-
-                  top_k:
-                    10,
-
-                  mode:
-                    "analysis",
-
-                  active_document_ids:
-
-                    activeDocuments.map(
-
-                      doc =>
-
-                        doc.document_id
-
-                    )
-
-                })
-
-            }
-
-          );
-
-        if (
-          !response.ok
-        ) {
-
-          throw new Error(
-
-            `Request failed: ${response.status}`
-
-          );
-
+        if (!documentResponse.ok) {
+          const t = await documentResponse.text().catch(() => "");
+          throw new Error(`Document request failed: ${documentResponse.status} ${t}`);
         }
 
-        const data =
-          await response.json();
+        const data = await documentResponse.json();
+        const content = data.answer || data.response || data.analysis || "No response returned.";
 
-        const assistantContent =
+        setMessages((prev) => {
+          return [
+            ...prev,
+            {
+              id: `${Date.now()}-assistant`,
+            role: "assistant",
+            content,
+            citations: data.citations || [],
+            sources: data.sources || [],
+            },
+          ];
+        });
 
-          data.analysis ||
-
-          data.answer ||
-
-          data.comparison ||
-
-          "No response returned.";
-
-        setMessages(
-
-          prev => {
-
-            const updated =
-              [...prev];
-
-            updated[
-              updated.length - 1
-            ] = {
-
-              role:
-                "assistant",
-
-              content:
-                assistantContent,
-
-              citations:
-                data.citations || [],
-
-              evidence:
-                data.evidence || {}
-
-            };
-
-            return updated;
-
-          }
-
-        );
-
-        // ============================
-        // SOURCES
-        // ============================
-
-        setSources(
-
-          data.citations ||
-
-          data.related_theses ||
-
-          []
-
-        );
-
-        // ============================
-        // EVIDENCE
-        // ============================
-
-        setEvidence(
-
-          data.evidence || {}
-
-        );
-
-        // ============================
-        // MATRIX
-        // ============================
-
-        setEvidenceMatrix(
-
-          data.evidence_matrix || {}
-
-        );
-
-        // ============================
-        // GAP ANALYSIS
-        // ============================
-
-        setGapAnalysis(
-
-          data.gap_analysis ||
-
-          data.research_gaps ||
-
-          {}
-
-        );
-
-      } catch (error) {
-
-        console.error(
-          "CHAT ERROR:",
-          error
-        );
-
-        setMessages(
-
-          prev => {
-
-            const updated =
-              [...prev];
-
-            updated[
-              updated.length - 1
-            ] = {
-
-              role:
-                "assistant",
-
-              content:
-
-                `Terjadi error saat memproses request.\n\n${error.message}`
-
-            };
-
-            return updated;
-
-          }
-
-        );
-
-      } finally {
-
-        setLoading(false);
-
+        setSources(data.sources || data.citations || []);
+        return;
       }
 
-    };
+      const chatResponse = await fetch(API_BASE_URL + "/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: finalInput }),
+      });
 
-  // =====================================
-  // ENTER
-  // =====================================
+      if (!chatResponse.ok) throw new Error("Request failed: " + chatResponse.status);
 
-  const handleKeyDown =
-    (e) => {
+      const data = await chatResponse.json();
+      const content = data.response || data.answer || data.analysis || "No response returned.";
 
-      if (
+      setMessages((prev) => {
+        return [
+          ...prev,
+          {
+            id: `${Date.now()}-assistant`,
+          role: "assistant",
+          content,
+          citations: data.citations || [],
+          sources: data.sources || [],
+          },
+        ];
+      });
 
-        e.key === "Enter"
+      setSources(data.sources || data.citations || []);
+    } catch (error) {
+      console.error("Error:", error);
+      setMessages((prev) => {
+        return [
+          ...prev,
+          {
+            id: `${Date.now()}-assistant-error`,
+          role: "assistant",
+          content: "Error: " + error.message,
+          },
+        ];
+      });
+    } finally {
+      setUploadingDocuments([]);
+      setLoading(false);
+    }
+  };
 
-        &&
-
-        !e.shiftKey
-
-      ) {
-
-        e.preventDefault();
-
-        sendMessage();
-
-      }
-
-    };
-
-  // =====================================
-  // UI
-  // =====================================
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
 
   return (
-
     <div className="chat-modern-shell">
+      {previewImage && <ImagePreviewModal image={previewImage} onClose={() => setPreviewImage(null)} />}
 
-      <div
+      <div className={`modern-messages ${messages.length === 0 ? "empty-chat" : ""}`}>
+        {messages.length === 0 ? (
+          <ChatHero setInput={setInput} />
+        ) : (
+          messages.map((msg, idx) => (
+            <MessageBubble
+              key={msg.id || idx}
+              role={msg.role}
+              content={msg.content}
+              citations={msg.citations}
+              evidence={msg.evidence}
+              attachedDocuments={msg.attachedDocuments}
+              attachments={msg.attachments}
+              onImageClick={setPreviewImage}
+              setActiveCitation={setActiveCitation}
+            />
+          ))
+        )}
 
-        className={`modern-messages ${
-          messages.length === 0
-            ? "empty-chat"
-            : ""
-        }`}
-
-      >
-
-        {
-
-          messages.length === 0
-
-            ? (
-
-              <ChatHero
-                setInput={
-                  setInput
-                }
-              />
-
-            )
-
-            : (
-
-              messages.map(
-
-                (
-                  msg,
-                  idx
-                ) => (
-
-                  <MessageBubble
-
-                    key={
-                      msg.id || idx
-                    }
-
-                    role={
-                      msg.role
-                    }
-
-                    content={
-                      msg.content
-                    }
-
-                    citations={
-                      msg.citations
-                    }
-
-                    evidence={
-                      msg.evidence
-                    }
-
-                    attachedDocuments={
-                      msg.attachedDocuments
-                    }
-
-                    setActiveCitation={
-                      setActiveCitation
-                    }
-
-                  />
-
-                )
-
-              )
-
-            )
-
-        }
-
-        {
-
-          loading && (
-
-            <ThinkingIndicator />
-
-          )
-
-        }
-
+        {loading && <ThinkingIndicator />}
       </div>
 
       <ChatInput
-
         input={input}
-
-        setInput={
-          setInput
-        }
-
-        sendMessage={
-          sendMessage
-        }
-
-        loading={
-          loading
-        }
-
-        handleFileUpload={
-          handleFileUpload
-        }
-
-        handleKeyDown={
-          handleKeyDown
-        }
-
-        activeDocuments={
-          activeDocuments
-        }
-
-        uploadingDocuments={
-          uploadingDocuments
-        }
-
-        removeDocument={
-          removeDocument
-        }
-
-        clearDocuments={
-          clearDocuments
-        }
-
+        setInput={setInput}
+        sendMessage={sendMessage}
+        loading={loading}
+        handleFileSelect={handleFileSelect}
+        handleKeyDown={handleKeyDown}
+        activeDocuments={activeDocuments}
+        selectedFiles={selectedFiles}
+        removeSelectedFile={removeSelectedFile}
+        uploadingDocuments={uploadingDocuments}
+        removeDocument={removeDocument}
       />
-
     </div>
-
   );
-
 }

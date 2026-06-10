@@ -1,5 +1,10 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
+
 
 from app.api.routes.routes_search import (
     router as search_router
@@ -33,7 +38,12 @@ from app.api.routes.routes_document import (
     router as document_router
 )
 
+from app.api.routes.routes_vision import (
+    router as vision_router
+)
+
 app = FastAPI(
+
     title="DELBot - AI Academic Knowledge Operating System"
 )
 
@@ -88,6 +98,21 @@ app.include_router(
 app.include_router(
     document_router
 )
+
+app.include_router(
+    vision_router
+)
+
+
+# =========================================
+# UPLOAD STATIC FILES (for image preview)
+# =========================================
+
+UPLOAD_DIR = "/tmp/uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
+
 
 # =========================================
 # ROOT ENDPOINT

@@ -45,6 +45,148 @@
 }
 
 /* ====================================
+   SELECTED FILES BAR
+==================================== */
+
+.selected-files-bar {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.selected-file-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 48px;
+
+  padding: 6px 10px 6px 6px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  backdrop-filter: blur(20px);
+
+  max-width: 320px;
+}
+
+.selected-file-pill.image {
+
+  padding-left: 6px;
+}
+
+.selected-file-thumb {
+
+  width: 36px;
+
+  height: 36px;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+
+  flex-shrink: 0;
+}
+
+.selected-file-icon {
+
+  width: 36px;
+
+  height: 36px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  flex-shrink: 0;
+}
+
+.selected-file-meta {
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.selected-file-name {
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.selected-file-size {
+
+  font-size: 11px;
+
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.selected-file-remove-btn {
+
+  width: 22px;
+
+  height: 22px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.selected-file-remove-btn:hover {
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+/* ====================================
    DOCUMENT PILL
 ==================================== */
 

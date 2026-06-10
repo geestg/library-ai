@@ -9,6 +9,8 @@ from app.services.llm.base_provider import (
 
 class OpenRouterProvider(BaseLLMProvider):
 
+    DEFAULT_MAX_TOKENS = 2048
+
     def __init__(self):
 
         print("[OPENROUTER] Initializing provider...")
@@ -32,17 +34,37 @@ class OpenRouterProvider(BaseLLMProvider):
     def generate(
         self,
         model: str,
-        prompt: str
+        prompt: str,
+        image_ref: str = None,
+        max_tokens: int = None
     ):
+
+        if image_ref:
+            content = [
+                {
+                    "type": "text",
+                    "text": prompt
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": image_ref
+                    }
+                }
+            ]
+        else:
+            content = prompt
 
         response = self.client.chat.completions.create(
 
             model=model,
 
+            max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
+
             messages=[
                 {
                     "role": "user",
-                    "content": prompt
+                    "content": content
                 }
             ]
         )
@@ -56,17 +78,37 @@ class OpenRouterProvider(BaseLLMProvider):
     def stream(
         self,
         model: str,
-        prompt: str
+        prompt: str,
+        image_ref: str = None,
+        max_tokens: int = None
     ):
+
+        if image_ref:
+            content = [
+                {
+                    "type": "text",
+                    "text": prompt
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": image_ref
+                    }
+                }
+            ]
+        else:
+            content = prompt
 
         stream = self.client.chat.completions.create(
 
             model=model,
 
+            max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
+
             messages=[
                 {
                     "role": "user",
-                    "content": prompt
+                    "content": content
                 }
             ],
 

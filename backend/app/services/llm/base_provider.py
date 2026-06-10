@@ -7,7 +7,8 @@ class BaseLLMProvider(ABC):
     def generate(
         self,
         model: str,
-        prompt: str
+        prompt: str,
+        image_ref: str = None
     ):
         pass
 
@@ -15,6 +16,7 @@ class BaseLLMProvider(ABC):
     def stream(
         self,
         model: str,
-        prompt: str
+        prompt: str,
+        image_ref: str = None
     ):
         pass

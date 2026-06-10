@@ -23,7 +23,7 @@ def select_model(intent: str):
 
             "provider": "openrouter",
 
-            "model": "qwen/qwen2-vl-72b-instruct"
+            "model": "qwen/qwen2.5-vl-72b-instruct"
         }
 
     # =====================================

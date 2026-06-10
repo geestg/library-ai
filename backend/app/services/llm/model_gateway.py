@@ -32,7 +32,9 @@ class ModelGateway:
         self,
         prompt: str,
         model: str = None,
-        provider: str = None
+        provider: str = None,
+        image_ref: str = None,
+        max_tokens: int = None
     ):
 
         provider = (
@@ -61,7 +63,11 @@ class ModelGateway:
 
                 model=model,
 
-                prompt=prompt
+                prompt=prompt,
+
+                image_ref=image_ref,
+
+                max_tokens=max_tokens
             )
 
         except Exception as e:
@@ -76,7 +82,9 @@ class ModelGateway:
         self,
         prompt: str,
         model: str = None,
-        provider: str = None
+        provider: str = None,
+        image_ref: str = None,
+        max_tokens: int = None
     ):
 
         provider = (
@@ -105,7 +113,11 @@ class ModelGateway:
 
                 model=model,
 
-                prompt=prompt
+                prompt=prompt,
+
+                image_ref=image_ref,
+
+                max_tokens=max_tokens
             )
 
         except Exception as e:
