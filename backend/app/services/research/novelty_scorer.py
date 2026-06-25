@@ -1,5 +1,5 @@
 # =====================================
-# NOVELTY SCORER V1
+# NOVELTY SCORER V2
 # =====================================
 
 def calculate_novelty_score(
@@ -14,72 +14,198 @@ def calculate_novelty_score(
     reasons = []
 
     # =================================
-    # METHOD GAP
+    # TECHNOLOGY RARITY
     # =================================
 
-    method_gap = gap_analysis.get(
-        "method_gap",
-        []
+    technology_frequency = (
+
+        evidence_matrix.get(
+            "technology_frequency",
+            {}
+        )
     )
 
-    if method_gap:
+    rare_technologies = [
 
-        score += 2
+        technology
 
-        reasons.append(
-            "Terdapat peluang penggunaan metodologi yang masih jarang digunakan."
-        )
+        for technology, count
 
-    # =================================
-    # DATASET GAP
-    # =================================
+        in technology_frequency.items()
 
-    dataset_gap = gap_analysis.get(
-        "dataset_gap",
-        []
+        if count == 1
+    ]
+
+    technology_score = min(
+
+        len(rare_technologies) * 8,
+
+        25
     )
 
-    if dataset_gap:
-
-        score += 2
+    if rare_technologies:
 
         reasons.append(
-            "Masih terdapat dataset yang belum banyak dieksplorasi."
+
+            f"Terdapat {len(rare_technologies)} teknologi yang masih jarang digunakan."
         )
 
+    score += technology_score
+
     # =================================
-    # TEMPORAL GAP
+    # DATASET RARITY
     # =================================
 
-    temporal_gap = gap_analysis.get(
-        "temporal_gap",
-        []
+    dataset_frequency = (
+
+        evidence_matrix.get(
+            "dataset_frequency",
+            {}
+        )
     )
 
-    if temporal_gap:
+    rare_datasets = [
 
-        score += 2
+        dataset
 
-        reasons.append(
-            "Penelitian terbaru pada topik ini masih terbatas."
-        )
+        for dataset, count
 
-    # =================================
-    # EVALUATION GAP
-    # =================================
+        in dataset_frequency.items()
 
-    evaluation_gap = gap_analysis.get(
-        "evaluation_gap",
-        []
+        if count == 1
+    ]
+
+    dataset_score = min(
+
+        len(rare_datasets) * 7,
+
+        20
     )
 
-    if evaluation_gap:
-
-        score += 2
+    if rare_datasets:
 
         reasons.append(
-            "Evaluasi penelitian sebelumnya masih belum komprehensif."
+
+            f"Terdapat {len(rare_datasets)} dataset yang masih jarang digunakan."
         )
+
+    score += dataset_score
+
+    # =================================
+    # TEMPORAL NOVELTY
+    # =================================
+
+    temporal_score = 0
+
+    year_frequency = (
+
+        evidence_matrix.get(
+            "year_frequency",
+            {}
+        )
+    )
+
+    years = []
+
+    for year in year_frequency.keys():
+
+        try:
+
+            years.append(
+                int(year)
+            )
+
+        except Exception:
+            pass
+
+    if years:
+
+        latest_year = max(
+            years
+        )
+
+        latest_count = year_frequency.get(
+            str(latest_year),
+            0
+        )
+
+        if latest_count <= 1:
+
+            temporal_score = 15
+
+            reasons.append(
+
+                f"Penelitian pada tahun {latest_year} masih relatif terbatas."
+            )
+
+        elif latest_count <= 2:
+
+            temporal_score = 8
+
+    score += temporal_score
+
+    # =================================
+    # GAP CONTRIBUTION
+    # =================================
+
+    gap_score = 0
+
+    gap_score += min(
+
+        len(
+            gap_analysis.get(
+                "method_gap",
+                []
+            )
+        ) * 3,
+
+        10
+    )
+
+    gap_score += min(
+
+        len(
+            gap_analysis.get(
+                "dataset_gap",
+                []
+            )
+        ) * 3,
+
+        10
+    )
+
+    gap_score += min(
+
+        len(
+            gap_analysis.get(
+                "evaluation_gap",
+                []
+            )
+        ) * 2,
+
+        5
+    )
+
+    gap_score += min(
+
+        len(
+            gap_analysis.get(
+                "temporal_gap",
+                []
+            )
+        ) * 2,
+
+        5
+    )
+
+    if gap_score > 0:
+
+        reasons.append(
+
+            "Masih terdapat research gap yang dapat dieksplorasi."
+        )
+
+    score += gap_score
 
     # =================================
     # DOMAIN DENSITY
@@ -93,67 +219,41 @@ def calculate_novelty_score(
         )
     )
 
+    domain_score = 0
+
     if len(domain_frequency) <= 2:
 
-        score += 1
+        domain_score = 10
 
         reasons.append(
-            "Domain penelitian masih relatif sempit."
+
+            "Domain penelitian masih relatif sempit sehingga peluang eksplorasi masih terbuka."
         )
 
-    # =================================
-    # TECHNOLOGY DENSITY
-    # =================================
+    elif len(domain_frequency) <= 4:
 
-    technology_frequency = (
+        domain_score = 5
 
-        evidence_matrix.get(
-            "technology_frequency",
-            {}
-        )
-    )
-
-    dominant_count = len([
-
-        item
-
-        for item in technology_frequency.values()
-
-        if item >= 3
-
-    ])
-
-    if dominant_count <= 1:
-
-        score += 1
-
-        reasons.append(
-            "Belum terdapat dominasi teknologi yang kuat."
-        )
+    score += domain_score
 
     # =================================
     # NORMALIZATION
     # =================================
 
     novelty_score = min(
-
-        round(
-            score,
-            1
-        ),
-
-        10
+        score,
+        100
     )
 
     # =================================
-    # LABEL
+    # LEVEL
     # =================================
 
-    if novelty_score >= 8:
+    if novelty_score >= 75:
 
         novelty_level = "HIGH"
 
-    elif novelty_score >= 5:
+    elif novelty_score >= 45:
 
         novelty_level = "MEDIUM"
 
@@ -172,6 +272,21 @@ def calculate_novelty_score(
 
         "novelty_level":
         novelty_level,
+
+        "technology_score":
+        technology_score,
+
+        "dataset_score":
+        dataset_score,
+
+        "temporal_score":
+        temporal_score,
+
+        "gap_score":
+        gap_score,
+
+        "domain_score":
+        domain_score,
 
         "reasons":
         reasons

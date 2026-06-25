@@ -1,14 +1,25 @@
-import re
-
 from app.services.research.evidence_extractor import (
-    HIGH_CONFIDENCE_TECHNOLOGIES,
-    LOW_CONFIDENCE_TECHNOLOGIES,
-    HIGH_CONFIDENCE_METHODOLOGIES,
-    LOW_CONFIDENCE_METHODOLOGIES,
-    DATASET_PATTERNS,
-    METRIC_PATTERNS,
-    normalize_text,
-    contains_term
+    normalize_text
+)
+
+from app.services.research.extractors.technology_extractor import (
+    extract_technologies
+)
+
+from app.services.research.extractors.methodology_extractor import (
+    extract_methodologies
+)
+
+from app.services.research.extractors.domain_extractor import (
+    extract_domains
+)
+
+from app.services.research.extractors.dataset_extractor import (
+    extract_datasets
+)
+
+from app.services.research.extractors.metric_extractor import (
+    extract_metrics
 )
 
 
@@ -32,125 +43,38 @@ def extract_thesis_evidence(
     )
 
     text = normalize_text(
-        f"{title}\n{abstract}\n{chunk}"
+
+        f"""
+        {title}
+        {abstract}
+        {chunk}
+        """
     )
-
-    technologies = []
-    methodologies = []
-    datasets = []
-    metrics = []
-
-    # ==========================
-    # TECHNOLOGIES
-    # ==========================
-
-    for tech in HIGH_CONFIDENCE_TECHNOLOGIES:
-
-        if contains_term(
-            text,
-            tech
-        ):
-
-            technologies.append(
-                tech
-            )
-
-    for tech in LOW_CONFIDENCE_TECHNOLOGIES:
-
-        occurrences = len(
-
-            re.findall(
-
-                rf"\b{re.escape(tech)}\b",
-
-                text,
-
-                flags=re.IGNORECASE
-            )
-        )
-
-        if occurrences >= 2:
-
-            technologies.append(
-                tech
-            )
-
-    # ==========================
-    # METHODOLOGIES
-    # ==========================
-
-    for method in HIGH_CONFIDENCE_METHODOLOGIES:
-
-        if contains_term(
-            text,
-            method
-        ):
-
-            methodologies.append(
-                method
-            )
-
-    for method in LOW_CONFIDENCE_METHODOLOGIES:
-
-        occurrences = len(
-
-            re.findall(
-
-                rf"\b{re.escape(method)}\b",
-
-                text,
-
-                flags=re.IGNORECASE
-            )
-        )
-
-        if occurrences >= 2:
-
-            methodologies.append(
-                method
-            )
-
-    # ==========================
-    # DATASETS
-    # ==========================
-
-    for dataset in DATASET_PATTERNS:
-
-        if contains_term(
-            text,
-            dataset
-        ):
-
-            datasets.append(
-                dataset
-            )
-
-    # ==========================
-    # METRICS
-    # ==========================
-
-    for metric in METRIC_PATTERNS:
-
-        if contains_term(
-            text,
-            metric
-        ):
-
-            metrics.append(
-                metric
-            )
 
     return {
 
         "technologies":
-        technologies,
+        extract_technologies(
+            text
+        ),
 
         "methodologies":
-        methodologies,
+        extract_methodologies(
+            text
+        ),
+
+        "domains":
+        extract_domains(
+            text
+        ),
 
         "datasets":
-        datasets,
+        extract_datasets(
+            text
+        ),
 
         "evaluation_metrics":
-        metrics
+        extract_metrics(
+            text
+        )
     }
