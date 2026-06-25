@@ -1,211 +1,4 @@
-import re
-
 from collections import Counter
-
-
-# =====================================
-# HIGH CONFIDENCE TECHNOLOGIES
-# =====================================
-
-HIGH_CONFIDENCE_TECHNOLOGIES = [
-
-    "laravel",
-    "odoo",
-    "api",
-    "web service",
-    "web services",
-    "soa",
-    "dashboard",
-    "website",
-    "php",
-    "java",
-    "python",
-    "mysql",
-    "postgresql"
-]
-
-
-# =====================================
-# LOW CONFIDENCE TECHNOLOGIES
-# =====================================
-
-LOW_CONFIDENCE_TECHNOLOGIES = [
-
-    "cnn",
-    "svm",
-    "bert",
-    "transformer",
-    "lstm",
-    "gru",
-    "mobilenet",
-    "resnet",
-    "yolo",
-    "tensorflow",
-    "pytorch",
-    "random forest",
-    "xgboost",
-    "decision tree"
-]
-
-
-# =====================================
-# HIGH CONFIDENCE METHODOLOGIES
-# =====================================
-
-HIGH_CONFIDENCE_METHODOLOGIES = [
-
-    "waterfall",
-    "sdlc",
-    "black box",
-    "white box",
-    "design pattern",
-    "qualitative",
-    "quantitative",
-    "deskriptif",
-    "descriptive"
-]
-
-
-# =====================================
-# LOW CONFIDENCE METHODOLOGIES
-# =====================================
-
-LOW_CONFIDENCE_METHODOLOGIES = [
-
-    "mvc",
-    "agile",
-    "scrum",
-    "prototype",
-    "prototyping",
-    "spiral",
-    "rad",
-    "transfer learning",
-    "cross validation",
-    "k-fold"
-]
-
-
-# =====================================
-# RESEARCH DOMAINS
-# =====================================
-
-DOMAIN_PATTERNS = [
-
-    "penerimaan mahasiswa baru",
-    "pmb",
-    "spmb",
-    "dashboard",
-    "sistem informasi",
-    "machine learning",
-    "deep learning",
-    "computer vision",
-    "natural language processing",
-    "nlp",
-    "sentiment analysis",
-    "internet of things",
-    "iot",
-    "cyber security",
-    "blockchain",
-    "recommender system"
-]
-
-
-# =====================================
-# DATASETS
-# =====================================
-
-DATASET_PATTERNS = [
-
-    "mnist",
-    "fashion-mnist",
-    "cifar",
-    "cifar10",
-    "cifar-10",
-    "imagenet",
-    "coco",
-    "pascal voc",
-    "kdd",
-    "nsl-kdd",
-    "unsw-nb15",
-    "iris",
-    "uci",
-    "kaggle"
-]
-
-
-# =====================================
-# EVALUATION METRICS
-# =====================================
-
-METRIC_PATTERNS = [
-
-    "accuracy",
-    "precision",
-    "recall",
-    "f1",
-    "f1-score",
-    "auc",
-    "roc",
-    "specificity",
-    "sensitivity",
-    "mae",
-    "mse",
-    "rmse",
-    "r2",
-    "mean absolute error",
-    "mean squared error",
-    "confusion matrix"
-]
-
-
-# =====================================
-# NORMALIZE TEXT
-# =====================================
-
-def normalize_text(
-    text: str
-):
-
-    if not text:
-
-        return ""
-
-    text = text.lower()
-
-    text = re.sub(
-        r"\s+",
-        " ",
-        text
-    )
-
-    return text.strip()
-
-
-# =====================================
-# SAFE TERM MATCHING
-# =====================================
-
-def contains_term(
-
-    text: str,
-
-    term: str
-
-):
-
-    pattern = rf"\b{re.escape(term)}\b"
-
-    return bool(
-
-        re.search(
-
-            pattern,
-
-            text,
-
-            flags=re.IGNORECASE
-        )
-    )
 
 
 # =====================================
@@ -241,25 +34,18 @@ def extract_keywords_from_title(
         "pada"
     }
 
-    words = re.findall(
+    words = title.lower().split()
 
-        r"[a-zA-Z]+",
+    return [
 
-        title.lower()
-    )
-
-    words = [
-
-        word
+        word.strip(".,:;()[]{}!?")
 
         for word in words
 
-        if len(word) > 3
+        if len(word.strip(".,:;()[]{}!?")) > 3
 
-        and word not in stopwords
+        and word.strip(".,:;()[]{}!?") not in stopwords
     ]
-
-    return words
 
 
 # =====================================
@@ -295,164 +81,90 @@ def extract_evidence(
 
     methodology_counter = Counter()
 
-    keyword_counter = Counter()
-
     domain_counter = Counter()
 
     dataset_counter = Counter()
 
     metric_counter = Counter()
 
-    year_counter = Counter()
+    keyword_counter = Counter()
 
-    # =================================
-    # ITERATE THESIS
-    # =================================
+    year_counter = Counter()
 
     for thesis in theses:
 
-        title = thesis.get(
-            "title",
-            ""
-        )
+        # =============================
+        # TECHNOLOGY
+        # =============================
 
-        abstract = thesis.get(
-            "abstract",
-            ""
-        )
+        for technology in thesis.get(
+            "technologies",
+            []
+        ):
 
-        chunk = thesis.get(
-            "chunk",
-            ""
-        )
+            technology_counter[
+                technology
+            ] += 1
+
+        # =============================
+        # METHODOLOGY
+        # =============================
+
+        for methodology in thesis.get(
+            "methodologies",
+            []
+        ):
+
+            methodology_counter[
+                methodology
+            ] += 1
+
+        # =============================
+        # DOMAIN
+        # =============================
+
+        for domain in thesis.get(
+            "domains",
+            []
+        ):
+
+            domain_counter[
+                domain
+            ] += 1
+
+        # =============================
+        # DATASET
+        # =============================
+
+        for dataset in thesis.get(
+            "datasets",
+            []
+        ):
+
+            dataset_counter[
+                dataset
+            ] += 1
+
+        # =============================
+        # METRIC
+        # =============================
+
+        for metric in thesis.get(
+            "evaluation_metrics",
+            []
+        ):
+
+            metric_counter[
+                metric
+            ] += 1
+
+        # =============================
+        # YEAR
+        # =============================
 
         year = thesis.get(
             "year"
         )
-
-        text = normalize_text(
-
-            f"{title}\n{abstract}\n{chunk}"
-        )
-
-        # =============================
-        # TECHNOLOGIES
-        # =============================
-
-        for tech in HIGH_CONFIDENCE_TECHNOLOGIES:
-
-            if contains_term(
-                text,
-                tech
-            ):
-
-                technology_counter[
-                    tech
-                ] += 1
-
-        for tech in LOW_CONFIDENCE_TECHNOLOGIES:
-
-            occurrences = len(
-
-                re.findall(
-
-                    rf"\b{re.escape(tech)}\b",
-
-                    text,
-
-                    flags=re.IGNORECASE
-                )
-            )
-
-            if occurrences >= 2:
-
-                technology_counter[
-                    tech
-                ] += occurrences
-
-        # =============================
-        # METHODOLOGIES
-        # =============================
-
-        for method in HIGH_CONFIDENCE_METHODOLOGIES:
-
-            if contains_term(
-                text,
-                method
-            ):
-
-                methodology_counter[
-                    method
-                ] += 1
-
-        for method in LOW_CONFIDENCE_METHODOLOGIES:
-
-            occurrences = len(
-
-                re.findall(
-
-                    rf"\b{re.escape(method)}\b",
-
-                    text,
-
-                    flags=re.IGNORECASE
-                )
-            )
-
-            if occurrences >= 2:
-
-                methodology_counter[
-                    method
-                ] += occurrences
-
-        # =============================
-        # DOMAINS
-        # =============================
-
-        for domain in DOMAIN_PATTERNS:
-
-            if contains_term(
-                text,
-                domain
-            ):
-
-                domain_counter[
-                    domain
-                ] += 1
-
-        # =============================
-        # DATASETS
-        # =============================
-
-        for dataset in DATASET_PATTERNS:
-
-            if contains_term(
-                text,
-                dataset
-            ):
-
-                dataset_counter[
-                    dataset
-                ] += 1
-
-        # =============================
-        # METRICS
-        # =============================
-
-        for metric in METRIC_PATTERNS:
-
-            if contains_term(
-                text,
-                metric
-            ):
-
-                metric_counter[
-                    metric
-                ] += 1
-
-        # =============================
-        # YEARS
-        # =============================
 
         if year:
 
@@ -464,25 +176,22 @@ def extract_evidence(
         # KEYWORDS
         # =============================
 
-        title_keywords = (
-            extract_keywords_from_title(
-                title
-            )
+        title = thesis.get(
+            "title",
+            ""
         )
 
-        for keyword in title_keywords:
+        for keyword in extract_keywords_from_title(
+            title
+        ):
 
             keyword_counter[
                 keyword
             ] += 1
 
-    # =================================
-    # DEBUG
-    # =================================
-
     print("\n")
     print("=" * 80)
-    print("COUNTER DEBUG")
+    print("COUNTER DEBUG V4")
     print("=" * 80)
 
     print(
@@ -520,50 +229,39 @@ def extract_evidence(
         keyword_counter
     )
 
-    # =================================
-    # RETURN
-    # =================================
-
     return {
 
         "technologies":
-
         counter_to_structured_list(
             technology_counter
         ),
 
         "methodologies":
-
         counter_to_structured_list(
             methodology_counter
         ),
 
         "keywords":
-
         counter_to_structured_list(
             keyword_counter
         ),
 
         "research_domains":
-
         counter_to_structured_list(
             domain_counter
         ),
 
         "datasets":
-
         counter_to_structured_list(
             dataset_counter
         ),
 
         "evaluation_metrics":
-
         counter_to_structured_list(
             metric_counter
         ),
 
         "years":
-
         counter_to_structured_list(
             year_counter
         )

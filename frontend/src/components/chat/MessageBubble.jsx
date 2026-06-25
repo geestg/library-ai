@@ -10,6 +10,8 @@ import {
 
 import MarkdownMessage from "./MarkdownMessage";
 
+import NoveltyCard from "./NoveltyCard";
+
 export default function MessageBubble({
 
   role,
@@ -19,6 +21,8 @@ export default function MessageBubble({
   citations,
 
   evidence,
+
+  noveltyAnalysis,
 
   attachedDocuments = [],
 
@@ -63,7 +67,12 @@ export default function MessageBubble({
       className={`message ${role}`}
     >
 
-      <div className="message-content markdown-body">
+      <div
+        className="
+        message-content
+        markdown-body
+        "
+      >
 
         {
 
@@ -133,15 +142,27 @@ export default function MessageBubble({
 
           ? (
 
-            <MarkdownMessage
+            <>
 
-              content={content}
+              <MarkdownMessage
 
-              onCitationClick={
-                handleCitationClick
-              }
+                content={content}
 
-            />
+                onCitationClick={
+                  handleCitationClick
+                }
+
+              />
+
+              <NoveltyCard
+
+                noveltyAnalysis={
+                  noveltyAnalysis
+                }
+
+              />
+
+            </>
 
           )
 

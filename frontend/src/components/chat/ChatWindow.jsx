@@ -136,6 +136,10 @@ export default function ChatWindow({
 
     setActiveDocuments([]);
 
+    localStorage.removeItem(
+      "delbot_documents"
+    );
+
   };
 
   // =====================================
@@ -477,7 +481,10 @@ export default function ChatWindow({
                 data.citations || [],
 
               evidence:
-                data.evidence || {}
+                data.evidence || {},
+
+              noveltyAnalysis:
+                data.novelty_analysis || null
 
             };
 
@@ -662,6 +669,10 @@ export default function ChatWindow({
 
                     evidence={
                       msg.evidence
+                    }
+
+                    noveltyAnalysis={
+                      msg.noveltyAnalysis
                     }
 
                     attachedDocuments={

@@ -1,4 +1,7 @@
-import { useState } from "react";
+import {
+  useState,
+  useEffect
+} from "react";
 
 import Sidebar from "../components/Sidebar";
 
@@ -91,6 +94,150 @@ export default function Workspace() {
 
   ] = useState(null);
 
+  // =====================================
+  // LOAD STORAGE
+  // =====================================
+
+  useEffect(() => {
+
+    try {
+
+      const rawData =
+        localStorage.getItem(
+          "delbot_workspace"
+        );
+
+      if (!rawData) {
+        return;
+      }
+
+      const savedData =
+        JSON.parse(rawData);
+
+      if (
+        Array.isArray(
+          savedData.messages
+        )
+      ) {
+
+        setMessages(
+          savedData.messages
+        );
+
+      }
+
+      if (
+        Array.isArray(
+          savedData.sources
+        )
+      ) {
+
+        setSources(
+          savedData.sources
+        );
+
+      }
+
+      if (
+        savedData.evidence
+      ) {
+
+        setEvidence(
+          savedData.evidence
+        );
+
+      }
+
+      if (
+        savedData.evidenceMatrix
+      ) {
+
+        setEvidenceMatrix(
+          savedData.evidenceMatrix
+        );
+
+      }
+
+      if (
+        savedData.gapAnalysis
+      ) {
+
+        setGapAnalysis(
+          savedData.gapAnalysis
+        );
+
+      }
+
+      console.log(
+        "[DELBOT] Workspace restored"
+      );
+
+    } catch (err) {
+
+      console.error(
+        "[DELBOT] Failed loading workspace",
+        err
+      );
+
+      localStorage.removeItem(
+        "delbot_workspace"
+      );
+
+    }
+
+  }, []);
+
+  // =====================================
+  // SAVE STORAGE
+  // =====================================
+
+  useEffect(() => {
+
+    try {
+
+      localStorage.setItem(
+
+        "delbot_workspace",
+
+        JSON.stringify({
+
+          messages,
+
+          sources,
+
+          evidence,
+
+          evidenceMatrix,
+
+          gapAnalysis
+
+        })
+
+      );
+
+    } catch (err) {
+
+      console.error(
+        "[DELBOT] Failed saving workspace",
+        err
+      );
+
+    }
+
+  }, [
+
+    messages,
+
+    sources,
+
+    evidence,
+
+    evidenceMatrix,
+
+    gapAnalysis
+
+  ]);
+
   return (
 
     <div className="workspace-shell">
@@ -148,7 +295,7 @@ export default function Workspace() {
       </main>
 
       {/* ========================= */}
-      {/* EVIDENCE PANEL */}
+      {/* SOURCE PANEL */}
       {/* ========================= */}
 
       <aside className="workspace-evidence">
@@ -168,7 +315,7 @@ export default function Workspace() {
           }
 
         />
-        
+
       </aside>
 
       {/* ========================= */}
