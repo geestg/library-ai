@@ -42,7 +42,7 @@ class WorkspaceSession:
 
     execution: ExecutionSession
 
-    # =================================
+    # =====================================
     # SERIALIZER
     # =====================================
 
@@ -89,19 +89,7 @@ class WorkspaceSession:
 
     def clear_execution(self):
 
-        self.execution.last_query = ""
-
-        self.execution.last_mode = ""
-
-        self.execution.last_context = None
-
-        self.execution.last_response = ""
-
-        self.execution.provider = ""
-
-        self.execution.model = ""
-
-        self.execution.intent = ""
+        self.execution.clear()
 
     # =====================================
     # RESET WORKSPACE
@@ -109,15 +97,7 @@ class WorkspaceSession:
 
     def clear_workspace(self):
 
-        self.workspace.selected_citation = None
-
-        self.workspace.selected_thesis = None
-
-        self.workspace.last_search = ""
-
-        self.workspace.filters.clear()
-
-        self.workspace.ui_state.clear()
+        self.workspace.clear()
 
     # =====================================
     # RESET ALL
