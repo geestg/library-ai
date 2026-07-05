@@ -2,57 +2,73 @@ from app.services.llm.model_gateway import (
     gateway
 )
 
+from app.services.research.models.research_context import (
+    ResearchContext
+)
+
+
 # =====================================
 # THESIS IDEA GENERATOR
 # =====================================
 
 def generate_thesis_ideas(
-
-    query: str,
-
-    evidence: dict,
-
-    evidence_matrix: dict,
-
-    gap_analysis: dict,
-
-    novelty_analysis: dict
+    context: ResearchContext
 ):
+
+    profile = context.research_profile
 
     prompt = f"""
 Anda adalah DELBot.
 
-Asisten Riset Akademik.
+Academic Intelligence System Institut Teknologi Del.
 
 ==================================================
 TOPIK
 ==================================================
 
-{query}
+{context.query}
 
 ==================================================
 EVIDENCE
 ==================================================
 
-{evidence}
+{context.evidence}
 
 ==================================================
 EVIDENCE MATRIX
 ==================================================
 
-{evidence_matrix}
+{context.evidence_matrix}
+
+==================================================
+TREND ANALYSIS
+==================================================
+
+{profile.trend.to_dict()}
 
 ==================================================
 RESEARCH GAP
 ==================================================
 
-{gap_analysis}
+{profile.gap.to_dict()}
 
 ==================================================
-NOVELTY
+NOVELTY ANALYSIS
 ==================================================
 
-{novelty_analysis}
+{profile.novelty.to_dict()}
+
+==================================================
+COMPETENCY ANALYSIS
+==================================================
+
+{profile.competency.to_dict()}
+
+==================================================
+PROGRAM STUDY ANALYSIS
+==================================================
+
+{profile.prodi.to_dict()}
 
 ==================================================
 TUGAS
@@ -63,30 +79,46 @@ Buat 5 ide skripsi terbaik.
 Setiap ide wajib memiliki:
 
 1. Judul
+
 2. Research Gap
+
 3. Novelty
+
 4. Metode
+
 5. Dataset
+
 6. Kontribusi
+
 7. Tingkat Kesulitan
 
 ==================================================
 ATURAN
 ==================================================
 
-1. Gunakan hanya informasi yang tersedia.
+1.
+Gunakan hanya evidence yang tersedia.
 
-2. Prioritaskan area yang memiliki:
+2.
+Prioritaskan:
 
 - Method Gap
+
 - Dataset Gap
+
 - Evaluation Gap
 
-3. Hindari topik yang terlalu umum.
+3.
+Jangan membuat teknologi baru.
 
-4. Hindari novelty palsu.
+4.
+Jangan membuat dataset baru.
 
-5. Gunakan Bahasa Indonesia akademik.
+5.
+Jangan membuat metodologi baru.
+
+6.
+Gunakan Bahasa Indonesia akademik.
 
 ==================================================
 FORMAT
@@ -110,30 +142,24 @@ Kesulitan:
 
 # Ide 2
 
-dst
+dst.
 """
 
-    result = gateway.generate_response(
+    ideas = gateway.generate_response(
         prompt=prompt
     )
 
     return {
 
         "query":
-        query,
+        context.query,
 
         "ideas":
-        result,
+        ideas,
 
         "novelty_score":
-        novelty_analysis.get(
-            "novelty_score",
-            0
-        ),
+        profile.novelty.novelty_score,
 
         "novelty_level":
-        novelty_analysis.get(
-            "novelty_level",
-            "LOW"
-        )
+        profile.novelty.novelty_level
     }

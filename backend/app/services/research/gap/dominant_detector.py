@@ -4,28 +4,36 @@ from app.services.research.gap.common import (
 )
 
 
+# =====================================
+# DOMINANT TOPIC DETECTOR
+# =====================================
+
 def detect_dominant_topics(
+
     technology_frequency,
+
     methodology_frequency,
+
     domain_frequency
 ):
 
     dominant_topics = []
 
-    for frequency_dict in [
+    frequency_groups = [
 
         technology_frequency,
 
         methodology_frequency,
 
         domain_frequency
+    ]
 
-    ]:
+    for frequency in frequency_groups:
 
         dominant_topics.extend(
 
             get_dominant_items(
-                frequency_dict
+                frequency
             )
         )
 

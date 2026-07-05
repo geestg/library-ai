@@ -4,28 +4,36 @@ from app.services.research.gap.common import (
 )
 
 
+# =====================================
+# RARE TOPIC DETECTOR
+# =====================================
+
 def detect_rare_topics(
+
     technology_frequency,
+
     methodology_frequency,
+
     domain_frequency
 ):
 
     rare_topics = []
 
-    for frequency_dict in [
+    frequency_groups = [
 
         technology_frequency,
 
         methodology_frequency,
 
         domain_frequency
+    ]
 
-    ]:
+    for frequency in frequency_groups:
 
         rare_topics.extend(
 
             get_rare_items(
-                frequency_dict
+                frequency
             )
         )
 

@@ -1,6 +1,10 @@
 from dataclasses import dataclass
 from dataclasses import field
 
+from app.services.research.models.research_profile import (
+    ResearchProfile,
+)
+
 
 # =====================================
 # RESEARCH CONTEXT
@@ -10,10 +14,12 @@ from dataclasses import field
 class ResearchContext:
 
     # =================================
-    # INPUT
+    # REQUEST
     # =================================
 
     query: str
+
+    session_id: str = ""
 
     top_k: int = 10
 
@@ -24,7 +30,7 @@ class ResearchContext:
     )
 
     # =================================
-    # SEARCH
+    # QUERY
     # =================================
 
     normalized_query: str = ""
@@ -32,6 +38,10 @@ class ResearchContext:
     query_domain: dict = field(
         default_factory=dict
     )
+
+    # =================================
+    # RETRIEVAL
+    # =================================
 
     theses: list = field(
         default_factory=list
@@ -63,42 +73,48 @@ class ResearchContext:
         default_factory=dict
     )
 
-    gap_analysis: dict = field(
-        default_factory=dict
-    )
-
-    novelty_analysis: dict = field(
-        default_factory=dict
-    )
-
-    trend_analysis: dict = field(
-        default_factory=dict
-    )
-
-    competency_analysis: dict = field(
-        default_factory=dict
-    )
-
-    prodi_analysis: dict = field(
-        default_factory=dict
-    )
-
-    competency_analysis: dict = field(
-        default_factory=dict
-    )
-    
-    # =================================
-    # CONTEXT
-    # =================================
-
     combined_evidence: str = ""
 
     citation_context: str = ""
 
     # =================================
-    # OUTPUT
+    # RESEARCH PROFILE
+    # =================================
+
+    research_profile: ResearchProfile = field(
+        default_factory=ResearchProfile
+    )
+
+    # =================================
+    # PROMPT
     # =================================
 
     prompt: str = ""
 
+    # =================================
+    # OUTPUT
+    # =================================
+
     analysis: str = ""
+
+    response: dict | None = None
+
+    llm_stream: object = None
+
+    # =================================
+    # LLM
+    # =================================
+
+    provider: str = ""
+
+    model: str = ""
+
+    intent: str = ""
+
+    # =================================
+    # PIPELINE
+    # =================================
+
+    stage_results: dict = field(
+        default_factory=dict
+    )

@@ -7,15 +7,15 @@ from uuid import uuid4
 import os
 
 from app.document.file_classifier import (
-    classify_file
+    classify_file,
 )
 
 from app.rag.ingest import (
-    ingest_pdf
+    ingest_pdf,
 )
 
 from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS
+    ACTIVE_DOCUMENTS,
 )
 
 router = APIRouter()
@@ -27,8 +27,11 @@ router = APIRouter()
 UPLOAD_DIR = "/tmp/uploads"
 
 os.makedirs(
+
     UPLOAD_DIR,
-    exist_ok=True
+
+    exist_ok=True,
+
 )
 
 # =====================================
@@ -37,7 +40,9 @@ os.makedirs(
 
 @router.post("/upload-pdf")
 async def upload_pdf(
-    file: UploadFile = File(...)
+
+    file: UploadFile = File(...),
+
 ):
 
     # =================================
@@ -45,17 +50,25 @@ async def upload_pdf(
     # =================================
 
     file_path = os.path.join(
+
         UPLOAD_DIR,
-        file.filename
+
+        file.filename,
+
     )
 
     with open(
+
         file_path,
-        "wb"
+
+        "wb",
+
     ) as f:
 
         f.write(
+
             await file.read()
+
         )
 
     # =================================
@@ -63,7 +76,9 @@ async def upload_pdf(
     # =================================
 
     file_type = classify_file(
-        file.filename
+
+        file.filename,
+
     )
 
     # =================================
@@ -71,19 +86,30 @@ async def upload_pdf(
     # =================================
 
     ingest_result = ingest_pdf(
+
         pdf_path=file_path,
+
         title=file.filename,
+
         author="Unknown",
-        year="2026"
+
+        year="2026",
+
     )
 
     # =================================
-    # CREATE SESSION DOCUMENT
+    # DOCUMENT ID
     # =================================
 
     document_id = str(
+
         uuid4()
+
     )
+
+    # =================================
+    # STORE DOCUMENT
+    # =================================
 
     ACTIVE_DOCUMENTS[
         document_id
@@ -101,56 +127,62 @@ async def upload_pdf(
         "content":
         ingest_result.get(
             "full_text",
-            ""
+            "",
         ),
 
         "pages":
         ingest_result.get(
             "pages",
-            0
+            0,
         ),
 
         "chunks":
         ingest_result.get(
             "chunks",
-            0
+            0,
         ),
-
-        # =================================
-        # PAGE LEVEL DATA
-        # =================================
 
         "pages_data":
         ingest_result.get(
             "pages_data",
-            []
-        )
+            [],
+        ),
+
     }
 
+    # =================================
+    # DEBUG
+    # =================================
+
+    print()
+
+    print("=" * 60)
+
+    print("DOCUMENT UPLOAD")
+
+    print("=" * 60)
+
     print(
-        f"[SESSION DOCUMENT] "
-        f"{file.filename}"
+        f"Filename    : {file.filename}"
     )
 
     print(
-        f"Document ID: "
-        f"{document_id}"
+        f"Document ID : {document_id}"
     )
 
     print(
-        f"Pages: "
-        f"{ingest_result.get('pages', 0)}"
+        f"Pages       : {ingest_result.get('pages', 0)}"
     )
 
     print(
-        f"Chunks: "
-        f"{ingest_result.get('chunks', 0)}"
+        f"Chunks      : {ingest_result.get('chunks', 0)}"
     )
 
     print(
-        f"Pages Data: "
-        f"{len(ingest_result.get('pages_data', []))}"
+        f"Stored      : ACTIVE_DOCUMENTS"
     )
+
+    print("=" * 60)
 
     # =================================
     # RESPONSE
@@ -173,15 +205,16 @@ async def upload_pdf(
         "pages":
         ingest_result.get(
             "pages",
-            0
+            0,
         ),
 
         "chunks":
         ingest_result.get(
             "chunks",
-            0
+            0,
         ),
 
         "message":
-        "Document uploaded successfully"
+        "Document uploaded successfully",
+
     }

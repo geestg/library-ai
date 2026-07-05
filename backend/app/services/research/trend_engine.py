@@ -1,76 +1,45 @@
+from app.services.research.models.evidence_matrix import (
+    EvidenceMatrix
+)
+
+
 # =====================================
-# RESEARCH TREND ENGINE V1
+# RESEARCH TREND ENGINE V2
 # =====================================
 
 def build_research_trends(
-    evidence_matrix: dict
+    evidence_matrix
 ):
 
-    technology_frequency = (
-        evidence_matrix.get(
-            "technology_frequency",
-            {}
+    if isinstance(
+        evidence_matrix,
+        dict
+    ):
+
+        evidence_matrix = (
+            EvidenceMatrix.from_dict(
+                evidence_matrix
+            )
         )
+
+    # =================================
+    # TOP ITEMS
+    # =================================
+
+    top_technologies = (
+        evidence_matrix.top_technologies()
     )
 
-    methodology_frequency = (
-        evidence_matrix.get(
-            "methodology_frequency",
-            {}
-        )
+    top_methods = (
+        evidence_matrix.top_methodologies()
     )
 
-    dataset_frequency = (
-        evidence_matrix.get(
-            "dataset_frequency",
-            {}
-        )
+    top_datasets = (
+        evidence_matrix.top_datasets()
     )
 
     # =================================
-    # TOP TECHNOLOGIES
-    # =================================
-
-    top_technologies = sorted(
-
-        technology_frequency.items(),
-
-        key=lambda x: x[1],
-
-        reverse=True
-
-    )[:5]
-
-    # =================================
-    # TOP METHODS
-    # =================================
-
-    top_methods = sorted(
-
-        methodology_frequency.items(),
-
-        key=lambda x: x[1],
-
-        reverse=True
-
-    )[:5]
-
-    # =================================
-    # TOP DATASETS
-    # =================================
-
-    top_datasets = sorted(
-
-        dataset_frequency.items(),
-
-        key=lambda x: x[1],
-
-        reverse=True
-
-    )[:5]
-
-    # =================================
-    # EMERGING TOPICS
+    # EMERGING TECHNOLOGIES
     # =================================
 
     emerging_topics = [
@@ -79,14 +48,15 @@ def build_research_trends(
 
         for name, count
 
-        in technology_frequency.items()
+        in evidence_matrix
+        .technology_frequency
+        .items()
 
         if count == 2
-
     ]
 
     # =================================
-    # TREND NARRATIVE
+    # TREND SUMMARY
     # =================================
 
     trend_summary = []
@@ -95,25 +65,43 @@ def build_research_trends(
 
         trend_summary.append(
 
-            f"Teknologi yang paling sering muncul adalah {top_technologies[0][0]}."
-
+            f"Teknologi yang paling dominan adalah "
+            f"{top_technologies[0][0]} "
+            f"dengan frekuensi "
+            f"{top_technologies[0][1]}."
         )
 
     if top_methods:
 
         trend_summary.append(
 
-            f"Metodologi yang paling dominan adalah {top_methods[0][0]}."
-
+            f"Metodologi yang paling dominan adalah "
+            f"{top_methods[0][0]}."
         )
 
     if top_datasets:
 
         trend_summary.append(
 
-            f"Dataset yang paling sering digunakan adalah {top_datasets[0][0]}."
-
+            f"Dataset yang paling sering digunakan adalah "
+            f"{top_datasets[0][0]}."
         )
+
+    latest_year = (
+        evidence_matrix.latest_year()
+    )
+
+    if latest_year:
+
+        trend_summary.append(
+
+            f"Penelitian terbaru berasal dari tahun "
+            f"{latest_year}."
+        )
+
+    # =================================
+    # RETURN
+    # =================================
 
     return {
 
@@ -128,6 +116,9 @@ def build_research_trends(
 
         "emerging_topics":
         emerging_topics,
+
+        "latest_year":
+        latest_year,
 
         "research_trends":
         trend_summary

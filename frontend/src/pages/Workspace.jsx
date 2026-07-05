@@ -1,258 +1,77 @@
-import {
-  useState,
-  useEffect
-} from "react";
-
+import ResearchSession from "../components/workspace/ResearchSession";
 import Sidebar from "../components/Sidebar";
-
-import ChatWindow from "../components/chat/ChatWindow";
-
 import SearchPanel from "../components/SearchPanel";
-
 import ThesisDrawer from "../components/sources/ThesisDrawer";
+
+import useWorkspace from "../hooks/useWorkspace";
 
 export default function Workspace() {
 
-  // =====================================
-  // CHAT STATE
-  // =====================================
+  const {
 
-  const [messages, setMessages] =
-    useState([]);
+    // =====================================
+    // SESSION
+    // =====================================
 
-  // =====================================
-  // CITATION SOURCES
-  // =====================================
+    sessionId,
 
-  const [sources, setSources] =
-    useState([]);
-
-  // =====================================
-  // STRUCTURED EVIDENCE
-  // =====================================
-
-  const [evidence, setEvidence] =
-    useState({});
-
-  // =====================================
-  // EVIDENCE MATRIX
-  // =====================================
-
-  const [
-
-    evidenceMatrix,
-
-    setEvidenceMatrix
-
-  ] = useState({});
-
-  // =====================================
-  // GAP ANALYSIS
-  // =====================================
-
-  const [
-
-    gapAnalysis,
-
-    setGapAnalysis
-
-  ] = useState({});
-
-  // =====================================
-  // ACTIVE CITATION
-  // =====================================
-
-  const [
-
-    activeCitation,
-
-    setActiveCitation
-
-  ] = useState(null);
-
-  // =====================================
-  // SELECTED THESIS
-  // =====================================
-
-  const [
-
-    selectedThesis,
-
-    setSelectedThesis
-
-  ] = useState(null);
-
-  // =====================================
-  // ACTIVE DOCUMENT
-  // =====================================
-
-  const [
-
-    activeDocument,
-
-    setActiveDocument
-
-  ] = useState(null);
-
-  // =====================================
-  // LOAD STORAGE
-  // =====================================
-
-  useEffect(() => {
-
-    try {
-
-      const rawData =
-        localStorage.getItem(
-          "delbot_workspace"
-        );
-
-      if (!rawData) {
-        return;
-      }
-
-      const savedData =
-        JSON.parse(rawData);
-
-      if (
-        Array.isArray(
-          savedData.messages
-        )
-      ) {
-
-        setMessages(
-          savedData.messages
-        );
-
-      }
-
-      if (
-        Array.isArray(
-          savedData.sources
-        )
-      ) {
-
-        setSources(
-          savedData.sources
-        );
-
-      }
-
-      if (
-        savedData.evidence
-      ) {
-
-        setEvidence(
-          savedData.evidence
-        );
-
-      }
-
-      if (
-        savedData.evidenceMatrix
-      ) {
-
-        setEvidenceMatrix(
-          savedData.evidenceMatrix
-        );
-
-      }
-
-      if (
-        savedData.gapAnalysis
-      ) {
-
-        setGapAnalysis(
-          savedData.gapAnalysis
-        );
-
-      }
-
-      console.log(
-        "[DELBOT] Workspace restored"
-      );
-
-    } catch (err) {
-
-      console.error(
-        "[DELBOT] Failed loading workspace",
-        err
-      );
-
-      localStorage.removeItem(
-        "delbot_workspace"
-      );
-
-    }
-
-  }, []);
-
-  // =====================================
-  // SAVE STORAGE
-  // =====================================
-
-  useEffect(() => {
-
-    try {
-
-      localStorage.setItem(
-
-        "delbot_workspace",
-
-        JSON.stringify({
-
-          messages,
-
-          sources,
-
-          evidence,
-
-          evidenceMatrix,
-
-          gapAnalysis
-
-        })
-
-      );
-
-    } catch (err) {
-
-      console.error(
-        "[DELBOT] Failed saving workspace",
-        err
-      );
-
-    }
-
-  }, [
+    // =====================================
+    // CONVERSATION
+    // =====================================
 
     messages,
+    setMessages,
+
+    // =====================================
+    // SOURCES
+    // =====================================
 
     sources,
+    setSources,
+
+    // =====================================
+    // RESEARCH PROFILE
+    // =====================================
+
+    researchProfile,
+    setResearchProfile,
+
+    // =====================================
+    // LEGACY
+    // =====================================
 
     evidence,
+    setEvidence,
 
     evidenceMatrix,
+    setEvidenceMatrix,
 
-    gapAnalysis
+    gapAnalysis,
+    setGapAnalysis,
 
-  ]);
+    // =====================================
+    // UI
+    // =====================================
+
+    activeCitation,
+    setActiveCitation,
+
+    selectedThesis,
+    setSelectedThesis,
+
+  } = useWorkspace();
 
   return (
 
     <div className="workspace-shell">
 
-      {/* ========================= */}
-      {/* AMBIENT GLOW */}
-      {/* ========================= */}
-
       <div className="ambient-glow ambient-left" />
 
       <div className="ambient-glow ambient-right" />
 
-      {/* ========================= */}
+      {/* ============================= */}
       {/* SIDEBAR */}
-      {/* ========================= */}
+      {/* ============================= */}
 
       <aside className="workspace-sidebar">
 
@@ -260,43 +79,70 @@ export default function Workspace() {
 
       </aside>
 
-      {/* ========================= */}
-      {/* MAIN CHAT */}
-      {/* ========================= */}
+      {/* ============================= */}
+      {/* RESEARCH SESSION */}
+      {/* ============================= */}
 
       <main className="workspace-main">
 
-        <ChatWindow
+        <ResearchSession
+
+          // =================================
+          // SESSION
+          // =================================
+
+          sessionId={sessionId}
+
+          // =================================
+          // CONVERSATION
+          // =================================
 
           messages={messages}
-
           setMessages={setMessages}
 
-          sources={sources}
+          // =================================
+          // SOURCES
+          // =================================
 
+          sources={sources}
           setSources={setSources}
 
+          // =================================
+          // EVIDENCE
+          // =================================
+
+          evidence={evidence}
           setEvidence={setEvidence}
 
+          evidenceMatrix={evidenceMatrix}
           setEvidenceMatrix={setEvidenceMatrix}
 
+          gapAnalysis={gapAnalysis}
           setGapAnalysis={setGapAnalysis}
 
-          activeCitation={activeCitation}
+          // =================================
+          // RESEARCH PROFILE
+          // =================================
 
+          researchProfile={researchProfile}
+          setResearchProfile={setResearchProfile}
+
+          // =================================
+          // UI
+          // =================================
+
+          activeCitation={activeCitation}
           setActiveCitation={setActiveCitation}
 
-          setSelectedThesis={
-            setSelectedThesis
-          }
+          setSelectedThesis={setSelectedThesis}
 
         />
 
       </main>
 
-      {/* ========================= */}
-      {/* SOURCE PANEL */}
-      {/* ========================= */}
+      {/* ============================= */}
+      {/* RESEARCH PANEL */}
+      {/* ============================= */}
 
       <aside className="workspace-evidence">
 
@@ -304,35 +150,29 @@ export default function Workspace() {
 
           sources={sources}
 
+          researchProfile={researchProfile}
+
           activeCitation={activeCitation}
 
-          setActiveCitation={
-            setActiveCitation
-          }
+          setActiveCitation={setActiveCitation}
 
-          setSelectedThesis={
-            setSelectedThesis
-          }
+          setSelectedThesis={setSelectedThesis}
 
         />
 
       </aside>
 
-      {/* ========================= */}
+      {/* ============================= */}
       {/* THESIS DRAWER */}
-      {/* ========================= */}
+      {/* ============================= */}
 
       <ThesisDrawer
 
-        thesis={
-          selectedThesis
-        }
+        thesis={selectedThesis}
 
         onClose={() =>
 
-          setSelectedThesis(
-            null
-          )
+          setSelectedThesis(null)
 
         }
 

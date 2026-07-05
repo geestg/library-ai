@@ -1,4 +1,29 @@
+import re
+
 from collections import Counter
+
+
+# =====================================
+# NORMALIZE TEXT
+# =====================================
+
+def normalize_text(
+    text: str
+):
+
+    if not text:
+
+        return ""
+
+    text = text.lower()
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
+
+    return text.strip()
 
 
 # =====================================

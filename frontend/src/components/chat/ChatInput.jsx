@@ -1,14 +1,29 @@
 import {
-  useRef
+  useRef,
+  useEffect,
 } from "react";
 
 import {
+
   Paperclip,
+
   ArrowUp,
+
   FileText,
+
   X,
-  Loader2
+
+  Loader2,
+
+  Square,
+
 } from "lucide-react";
+
+import {
+
+  ConversationState,
+
+} from "../../hooks/useConversationState";
 
 export default function ChatInput({
 
@@ -18,7 +33,9 @@ export default function ChatInput({
 
   sendMessage,
 
-  loading,
+  stopGeneration,
+
+  conversationState,
 
   handleFileUpload,
 
@@ -28,34 +45,48 @@ export default function ChatInput({
 
   uploadingDocuments,
 
-  removeDocument
+  removeDocument,
 
 }) {
 
   // =====================================
-  // TEXTAREA REF
+  // CONVERSATION STATE
+  // =====================================
+
+  const isThinking =
+
+    conversationState ===
+
+    ConversationState.THINKING;
+
+  const isStreaming =
+
+    conversationState ===
+
+    ConversationState.STREAMING;
+
+  const isGenerating =
+
+    isThinking ||
+
+    isStreaming;
+
+  // =====================================
+  // TEXTAREA
   // =====================================
 
   const textareaRef =
     useRef(null);
 
-  // =====================================
-  // AUTO RESIZE
-  // =====================================
-
-  const handleTextareaChange = (
-    e
-  ) => {
-
-    setInput(
-      e.target.value
-    );
+  useEffect(() => {
 
     const textarea =
       textareaRef.current;
 
     if (!textarea) {
+
       return;
+
     }
 
     textarea.style.height =
@@ -64,7 +95,41 @@ export default function ChatInput({
     textarea.style.height =
       `${textarea.scrollHeight}px`;
 
-  };
+  }, [
+
+    input,
+
+  ]);
+
+  // =====================================
+  // AUTO RESIZE
+  // =====================================
+
+  const handleTextareaChange =
+    (event) => {
+
+      setInput(
+
+        event.target.value
+
+      );
+
+      const textarea =
+        textareaRef.current;
+
+      if (!textarea) {
+
+        return;
+
+      }
+
+      textarea.style.height =
+        "auto";
+
+      textarea.style.height =
+        `${textarea.scrollHeight}px`;
+
+    };
 
   // =====================================
   // UI
@@ -92,39 +157,27 @@ export default function ChatInput({
 
                   <div
 
-                    className="
-                    active-document-pill
-                    uploading
-                    "
+                    key={doc.id}
 
-                    key={
-                      doc.id
-                    }
+                    className="active-document-pill uploading"
 
                   >
 
                     <Loader2
+
                       size={14}
+
                       className="spin"
+
                     />
 
-                    <span
-                      className="
-                      active-document-name
-                      "
-                    >
+                    <span className="active-document-name">
 
-                      {
-                        doc.filename
-                      }
+                      {doc.filename}
 
                     </span>
 
-                    <span
-                      className="
-                      upload-status
-                      "
-                    >
+                    <span className="upload-status">
 
                       Uploading...
 
@@ -162,29 +215,21 @@ export default function ChatInput({
 
                   <div
 
-                    className="
-                    active-document-pill
-                    "
+                    key={doc.document_id}
 
-                    key={
-                      doc.document_id
-                    }
+                    className="active-document-pill"
 
                   >
 
                     <FileText
+
                       size={14}
+
                     />
 
-                    <span
-                      className="
-                      active-document-name
-                      "
-                    >
+                    <span className="active-document-name">
 
-                      {
-                        doc.filename
-                      }
+                      {doc.filename}
 
                     </span>
 
@@ -192,14 +237,14 @@ export default function ChatInput({
 
                       type="button"
 
-                      className="
-                      document-remove-btn
-                      "
+                      className="document-remove-btn"
 
                       onClick={() =>
 
                         removeDocument(
+
                           doc.document_id
+
                         )
 
                       }
@@ -207,7 +252,9 @@ export default function ChatInput({
                     >
 
                       <X
+
                         size={12}
+
                       />
 
                     </button>
@@ -227,74 +274,6 @@ export default function ChatInput({
       }
 
       {/* ================================= */}
-      {/* SMART ACTIONS */}
-      {/* ================================= */}
-
-      <div className="smart-actions">
-
-        <button
-
-          type="button"
-
-          onClick={() =>
-
-            setInput(
-
-              "Cari research gap terbaru pada bidang NLP healthcare"
-
-            )
-
-          }
-
-        >
-
-          Research Gap
-
-        </button>
-
-        <button
-
-          type="button"
-
-          onClick={() =>
-
-            setInput(
-
-              "Bandingkan metode CNN dan YOLO"
-
-            )
-
-          }
-
-        >
-
-          Compare Methods
-
-        </button>
-
-        <button
-
-          type="button"
-
-          onClick={() =>
-
-            setInput(
-
-              "Generate ide judul skripsi AI terbaru"
-
-            )
-
-          }
-
-        >
-
-          Thesis Ideas
-
-        </button>
-
-      </div>
-
-      {/* ================================= */}
       {/* INPUT */}
       {/* ================================= */}
 
@@ -306,9 +285,7 @@ export default function ChatInput({
 
         <label className="modern-attach">
 
-          <Paperclip
-            size={18}
-          />
+          <Paperclip size={18} />
 
           <input
 
@@ -317,6 +294,8 @@ export default function ChatInput({
             hidden
 
             multiple
+
+            disabled={isGenerating}
 
             accept="
             .pdf,
@@ -335,7 +314,9 @@ export default function ChatInput({
             "
 
             onChange={
+
               handleFileUpload
+
             }
 
           />
@@ -352,45 +333,94 @@ export default function ChatInput({
 
           rows={1}
 
-          placeholder="Ask anything about your research..."
+          placeholder="What would you like to research today?"
 
           value={input}
 
           onChange={
+
             handleTextareaChange
+
           }
 
           onKeyDown={
+
             handleKeyDown
-          }
 
-        />
-
-        {/* ========================= */}
-        {/* SEND */}
-        {/* ========================= */}
-
-        <button
-
-          className="send-modern-btn"
-
-          onClick={
-            sendMessage
           }
 
           disabled={
-            loading
+
+            isGenerating
+
           }
 
-          type="button"
+        />
+                {/* ========================= */}
+        {/* ACTION BUTTON */}
+        {/* ========================= */}
 
-        >
+        {
 
-          <ArrowUp
-            size={18}
-          />
+          isGenerating ? (
 
-        </button>
+            <button
+
+              type="button"
+
+              className="send-modern-btn"
+
+              onClick={
+
+                stopGeneration
+
+              }
+
+            >
+
+              <Square
+
+                size={16}
+
+                fill="currentColor"
+
+              />
+
+            </button>
+
+          ) : (
+
+            <button
+
+              type="button"
+
+              className="send-modern-btn"
+
+              onClick={
+
+                sendMessage
+
+              }
+
+              disabled={
+
+                !input.trim()
+
+              }
+
+            >
+
+              <ArrowUp
+
+                size={18}
+
+              />
+
+            </button>
+
+          )
+
+        }
 
       </div>
 

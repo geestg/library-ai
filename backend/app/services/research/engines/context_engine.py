@@ -47,16 +47,34 @@ def build_combined_evidence(
     context: ResearchContext
 ):
 
-    evidence_text = (
-        build_evidence_section(
-            context.evidence
-        )
+    profile = context.research_profile
+
+    evidence_text = build_evidence_section(
+        context.evidence
     )
 
-    matrix_text = (
-        build_matrix_section(
-            context.evidence_matrix
-        )
+    matrix_text = build_matrix_section(
+        context.evidence_matrix
+    )
+
+    trend_text = str(
+        profile.trend.to_dict()
+    )
+
+    gap_text = str(
+        profile.gap.to_dict()
+    )
+
+    novelty_text = str(
+        profile.novelty.to_dict()
+    )
+
+    competency_text = str(
+        profile.competency.to_dict()
+    )
+
+    prodi_text = str(
+        profile.prodi.to_dict()
     )
 
     return (
@@ -69,15 +87,53 @@ def build_combined_evidence(
 
         + "\n\n"
 
+        + "TREND ANALYSIS\n"
+
+        + "=" * 50
+
+        + "\n"
+
+        + trend_text
+
+        + "\n\n"
+
         + "GAP ANALYSIS\n"
 
         + "=" * 50
 
         + "\n"
 
-        + str(
-            context.gap_analysis
-        )
+        + gap_text
+
+        + "\n\n"
+
+        + "NOVELTY ANALYSIS\n"
+
+        + "=" * 50
+
+        + "\n"
+
+        + novelty_text
+
+        + "\n\n"
+
+        + "COMPETENCY ANALYSIS\n"
+
+        + "=" * 50
+
+        + "\n"
+
+        + competency_text
+
+        + "\n\n"
+
+        + "PROGRAM STUDY ANALYSIS\n"
+
+        + "=" * 50
+
+        + "\n"
+
+        + prodi_text
     )
 
 
