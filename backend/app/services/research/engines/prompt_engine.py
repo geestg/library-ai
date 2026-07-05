@@ -17,21 +17,7 @@ def run_prompt_pipeline(
 
     context.prompt = (
         build_research_prompt(
-
-            query=
-            context.query,
-
-            evidence_text=
-            context.combined_evidence,
-
-            citation_context=
-            context.citation_context,
-
-            domain_instruction=
-            context.domain_instruction,
-
-            mode=
-            context.mode
+            context
         )
     )
 

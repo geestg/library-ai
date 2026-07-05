@@ -1,60 +1,123 @@
+# =====================================
+# TEMPORAL GAP DETECTOR
+# =====================================
+
+RECENT_YEAR_THRESHOLD = 1
+
+LONG_SPAN_THRESHOLD = 5
+
+
 def detect_temporal_gap(
     year_frequency: dict
 ):
 
-    gaps = []
+    if not year_frequency:
 
-    years = []
+        return [
+            "Informasi tahun penelitian belum mencukupi untuk analisis tren temporal."
+        ]
 
-    for year in year_frequency.keys():
+    years = sorted(
 
-        try:
+        int(year)
 
-            years.append(
-                int(year)
-            )
+        for year in year_frequency.keys()
 
-        except Exception:
-            pass
+        if str(year).isdigit()
+    )
 
     if not years:
 
         return [
-
             "Informasi tahun penelitian belum mencukupi untuk analisis tren temporal."
         ]
 
-    years.sort()
+    gaps = []
 
-    latest_year = max(
-        years
-    )
+    oldest_year = years[0]
 
-    oldest_year = min(
-        years
-    )
+    latest_year = years[-1]
 
     latest_count = year_frequency.get(
         str(latest_year),
         0
     )
 
-    if latest_count <= 1:
+    # =================================
+    # RECENT RESEARCH
+    # =================================
+
+    if latest_count <= RECENT_YEAR_THRESHOLD:
 
         gaps.append(
 
-            f"Jumlah penelitian pada tahun {latest_year} masih rendah sehingga terdapat peluang penelitian terbaru pada periode tersebut."
+            f"Jumlah penelitian pada tahun {latest_year} masih rendah sehingga peluang penelitian terbaru masih terbuka."
         )
+
+    # =================================
+    # MISSING YEARS
+    # =================================
+
+    for year in range(
+
+        oldest_year,
+
+        latest_year + 1
+
+    ):
+
+        if str(year) not in year_frequency:
+
+            gaps.append(
+
+                f"Tidak ditemukan penelitian pada tahun {year}, sehingga perkembangan pada periode tersebut belum terdokumentasi."
+            )
+
+    # =================================
+    # LONG TIME SPAN
+    # =================================
 
     if (
 
         latest_year - oldest_year
 
-    ) >= 4:
+        >= LONG_SPAN_THRESHOLD
+
+    ):
 
         gaps.append(
 
-            f"Terdapat rentang waktu penelitian yang cukup panjang ({oldest_year}-{latest_year}) sehingga diperlukan validasi terhadap perkembangan teknologi terbaru."
+            f"Rentang penelitian ({oldest_year}-{latest_year}) cukup panjang sehingga diperlukan validasi terhadap perkembangan teknologi terbaru."
         )
+
+    # =================================
+    # TREND DECLINE
+    # =================================
+
+    if len(years) >= 2:
+
+        previous_year = years[-2]
+
+        previous_count = year_frequency.get(
+
+            str(previous_year),
+
+            0
+        )
+
+        if (
+
+            previous_count > latest_count
+
+            and
+
+            latest_count <= RECENT_YEAR_THRESHOLD
+
+        ):
+
+            gaps.append(
+
+                "Jumlah penelitian menunjukkan penurunan pada periode terbaru sehingga diperlukan eksplorasi lanjutan."
+            )
 
     return gaps

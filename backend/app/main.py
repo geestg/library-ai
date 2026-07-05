@@ -2,35 +2,35 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes.routes_search import (
-    router as search_router
+    router as search_router,
 )
 
 from app.api.routes.routes_chat import (
-    router as chat_router
+    router as chat_router,
 )
 
 from app.api.routes.routes_chat_stream import (
-    router as stream_router
+    router as stream_router,
 )
 
 from app.api.routes.routes_upload import (
-    router as upload_router
+    router as upload_router,
 )
 
 from app.api.routes.routes_debug import (
-    router as debug_router
+    router as debug_router,
 )
 
 from app.api.routes.research import (
-    router as research_router
+    router as research_router,
 )
 
 from app.api.routes.title_generator import (
-    router as title_generator_router
+    router as title_generator_router,
 )
 
 from app.api.routes.routes_document import (
-    router as document_router
+    router as document_router,
 )
 
 app = FastAPI(
@@ -81,10 +81,6 @@ app.include_router(
     title_generator_router
 )
 
-# =========================================
-# DOCUMENT CHAT
-# =========================================
-
 app.include_router(
     document_router
 )
@@ -121,8 +117,6 @@ def root():
 
             "Document Chat",
 
-            "Session Documents",
-
             "Streaming Chat",
 
             "Reranking",
@@ -135,6 +129,8 @@ def root():
 
             "Research Gap Analysis",
 
-            "Thesis Title Generator"
-        ]
+            "Thesis Title Generator",
+
+        ],
+
     }

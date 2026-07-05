@@ -1,3 +1,7 @@
+from app.services.research.models.evidence_matrix import (
+    EvidenceMatrix
+)
+
 from app.services.research.gap.dominant_detector import (
     detect_dominant_topics
 )
@@ -36,57 +40,50 @@ from app.services.research.gap.gap_scoring import (
 
 
 # =====================================
-# GAP DETECTOR V4
+# GAP DETECTOR V5
 # =====================================
 
 def detect_research_gaps(
-    evidence_matrix: dict
+    evidence_matrix
 ):
 
-    technology_frequency = (
-        evidence_matrix.get(
-            "technology_frequency",
-            {}
+    if isinstance(
+        evidence_matrix,
+        dict
+    ):
+
+        evidence_matrix = (
+            EvidenceMatrix.from_dict(
+                evidence_matrix
+            )
         )
+
+    technology_frequency = (
+        evidence_matrix.technology_frequency
     )
 
     methodology_frequency = (
-        evidence_matrix.get(
-            "methodology_frequency",
-            {}
-        )
+        evidence_matrix.methodology_frequency
     )
 
     domain_frequency = (
-        evidence_matrix.get(
-            "domain_frequency",
-            {}
-        )
+        evidence_matrix.domain_frequency
     )
 
     dataset_frequency = (
-        evidence_matrix.get(
-            "dataset_frequency",
-            {}
-        )
+        evidence_matrix.dataset_frequency
     )
 
     evaluation_frequency = (
-        evidence_matrix.get(
-            "evaluation_frequency",
-            {}
-        )
+        evidence_matrix.evaluation_frequency
     )
 
     year_frequency = (
-        evidence_matrix.get(
-            "year_frequency",
-            {}
-        )
+        evidence_matrix.year_frequency
     )
 
     # =================================
-    # DOMINANT TOPICS
+    # DOMINANT
     # =================================
 
     dominant_topics = (
@@ -101,7 +98,7 @@ def detect_research_gaps(
     )
 
     # =================================
-    # EMERGING TOPICS
+    # EMERGING
     # =================================
 
     emerging_topics = (
@@ -116,7 +113,7 @@ def detect_research_gaps(
     )
 
     # =================================
-    # RARE TOPICS
+    # RARE
     # =================================
 
     rare_topics = (
@@ -171,7 +168,7 @@ def detect_research_gaps(
     )
 
     # =================================
-    # NOVELTY
+    # NOVELTY OPPORTUNITY
     # =================================
 
     novelty_opportunities = (
@@ -186,7 +183,7 @@ def detect_research_gaps(
     )
 
     # =================================
-    # SCORE
+    # GAP SCORE
     # =================================
 
     gap_score = (
@@ -208,7 +205,7 @@ def detect_research_gaps(
 
     print("\n")
     print("=" * 80)
-    print("GAP DETECTOR V4")
+    print("GAP DETECTOR V5")
     print("=" * 80)
 
     print(
@@ -255,10 +252,6 @@ def detect_research_gaps(
         "GAP SCORE:",
         gap_score
     )
-
-    # =================================
-    # RETURN
-    # =================================
 
     return {
 

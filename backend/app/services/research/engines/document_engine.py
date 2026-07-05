@@ -1,9 +1,9 @@
 from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS
+    ACTIVE_DOCUMENTS,
 )
 
 from app.services.llm.model_gateway import (
-    gateway
+    gateway,
 )
 
 
@@ -12,40 +12,42 @@ from app.services.llm.model_gateway import (
 # =====================================
 
 def build_document_context(
-    active_document_ids: list
+    active_document_ids: list,
 ):
 
     contexts = []
 
     documents = []
 
-    for doc_id in active_document_ids:
+    for document_id in active_document_ids:
 
-        doc = ACTIVE_DOCUMENTS.get(
-            doc_id
+        document = ACTIVE_DOCUMENTS.get(
+            document_id
         )
 
-        if not doc:
+        if not document:
             continue
 
         documents.append({
 
             "document_id":
-            doc_id,
+            document_id,
 
             "filename":
-            doc["filename"]
+            document["filename"],
+
         })
 
         contexts.append(
 
             f"""
 FILE:
-{doc["filename"]}
+{document["filename"]}
 
 CONTENT:
-{doc["content"][:10000]}
+{document["content"][:10000]}
 """
+
         )
 
     return {
@@ -56,7 +58,8 @@ CONTENT:
         "context":
         "\n\n".join(
             contexts
-        )
+        ),
+
     }
 
 
@@ -65,8 +68,11 @@ CONTENT:
 # =====================================
 
 def build_document_prompt(
+
     query: str,
-    document_context: str
+
+    document_context: str,
+
 ):
 
     return f"""
@@ -116,33 +122,40 @@ katakan informasi tidak ditemukan.
 
 10. Gunakan Bahasa Indonesia.
 """
-    
+
 
 # =====================================
 # DOCUMENT ANALYSIS
 # =====================================
 
 def run_document_analysis(
+
     query: str,
-    active_document_ids: list
+
+    active_document_ids: list,
+
 ):
 
     document_result = (
+
         build_document_context(
-            active_document_ids
+
+            active_document_ids,
+
         )
+
     )
 
     document_context = (
-        document_result[
-            "context"
-        ]
+
+        document_result["context"]
+
     )
 
     documents = (
-        document_result[
-            "documents"
-        ]
+
+        document_result["documents"]
+
     )
 
     if not document_context:
@@ -153,14 +166,18 @@ def run_document_analysis(
 
         query=query,
 
-        document_context=
-        document_context
+        document_context=document_context,
+
     )
 
     answer = (
+
         gateway.generate_response(
+
             prompt=prompt
+
         )
+
     )
 
     return {
@@ -177,9 +194,16 @@ def run_document_analysis(
         "citations":
         [],
 
+        "sources":
+        [],
+
         "evidence":
         {},
 
+        "evidence_matrix":
+        {},
+
         "documents":
-        documents
+        documents,
+
     }

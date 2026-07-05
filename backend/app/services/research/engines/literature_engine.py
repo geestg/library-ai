@@ -1,13 +1,13 @@
 from app.services.research.intent_detector import (
-    is_literature_review_query
+    is_literature_review_query,
 )
 
 from app.services.research.literature_review_generator import (
-    generate_literature_review
+    generate_literature_review,
 )
 
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
 )
 
 
@@ -19,11 +19,115 @@ MIN_THESIS_FOR_REVIEW = 5
 
 
 # =====================================
+# BUILD RESPONSE
+# =====================================
+
+def build_response(
+    context: ResearchContext,
+    analysis: str,
+):
+
+    profile = (
+        context.research_profile
+    )
+
+    profile_dict = (
+        profile.to_dict()
+    )
+
+    response = {
+
+        # =================================
+        # REQUEST
+        # =================================
+
+        "query":
+        context.query,
+
+        "mode":
+        "literature_review",
+
+        # =================================
+        # LLM
+        # =================================
+
+        "provider":
+        context.provider,
+
+        "model":
+        context.model,
+
+        "intent":
+        context.intent,
+
+        # =================================
+        # RESPONSE
+        # =================================
+
+        "analysis":
+        analysis,
+
+        # =================================
+        # DOMAIN MODEL
+        # =================================
+
+        "research_profile":
+        profile_dict,
+
+        # =================================
+        # RETRIEVAL
+        # =================================
+
+        "citations":
+        context.citations,
+
+        "related_theses":
+        context.theses,
+
+        # =================================
+        # EVIDENCE
+        # =================================
+
+        "evidence":
+        context.evidence,
+
+        "evidence_matrix":
+        context.evidence_matrix,
+
+    }
+
+    # =====================================
+    # LEGACY COMPATIBILITY
+    # =====================================
+
+    response.update({
+
+        "trend_analysis":
+        profile_dict["trend"],
+
+        "gap_analysis":
+        profile_dict["gap"],
+
+        "novelty_analysis":
+        profile_dict["novelty"],
+
+        "competency_analysis":
+        profile_dict["competency"],
+
+        "prodi_analysis":
+        profile_dict["prodi"],
+
+    })
+
+    return response
+
+
+# =====================================
 # LITERATURE REVIEW PIPELINE
 # =====================================
 
 def run_literature_review_pipeline(
-    context: ResearchContext
+    context: ResearchContext,
 ):
 
     if not is_literature_review_query(
@@ -37,15 +141,10 @@ def run_literature_review_pipeline(
 
     if len(context.theses) < MIN_THESIS_FOR_REVIEW:
 
-        return {
+        return build_response(
 
-            "query":
-            context.query,
+            context,
 
-            "mode":
-            "literature_review",
-
-            "analysis":
             (
                 "Bukti penelitian tidak cukup "
                 "untuk menghasilkan literature review "
@@ -57,77 +156,24 @@ def run_literature_review_pipeline(
                 "lebih dapat dipercaya."
             ),
 
-            "citations":
-            context.citations,
-
-            "evidence":
-            context.evidence,
-
-            "evidence_matrix":
-            context.evidence_matrix,
-
-            "gap_analysis":
-            context.gap_analysis,
-
-            "novelty_analysis":
-            context.novelty_analysis,
-
-            "trend_analysis":
-            context.trend_analysis
-        }
+        )
 
     # =================================
     # GENERATE REVIEW
     # =================================
 
-    review_result = (
+    review = (
         generate_literature_review(
-
-            query=
-            context.query,
-
-            evidence=
-            context.evidence,
-
-            evidence_matrix=
-            context.evidence_matrix,
-
-            gap_analysis=
-            context.gap_analysis,
-
-            citation_context=
-            context.citation_context
+            context
         )
     )
 
-    return {
+    return build_response(
 
-        "query":
-        context.query,
+        context,
 
-        "mode":
-        "literature_review",
-
-        "analysis":
-        review_result[
+        review[
             "literature_review"
         ],
 
-        "citations":
-        context.citations,
-
-        "evidence":
-        context.evidence,
-
-        "evidence_matrix":
-        context.evidence_matrix,
-
-        "gap_analysis":
-        context.gap_analysis,
-
-        "novelty_analysis":
-        context.novelty_analysis,
-
-        "trend_analysis":
-        context.trend_analysis
-    }
+    )

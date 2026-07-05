@@ -1,37 +1,46 @@
 from app.services.research.evidence_extractor import (
-    extract_evidence
+    extract_evidence,
 )
 
 from app.services.research.evidence_matrix import (
-    build_evidence_matrix
+    build_evidence_matrix,
 )
 
 from app.services.research.gap_detector import (
-    detect_research_gaps
+    detect_research_gaps,
 )
 
 from app.services.research.novelty_scorer import (
-    calculate_novelty_score
+    calculate_novelty_score,
 )
 
 from app.services.research.trend_engine import (
-    build_research_trends
+    build_research_trends,
 )
 
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
 )
 
-from app.services.research.competency.competency_engine import (
-    build_competencies
+from app.services.research.models.trend_analysis import (
+    TrendAnalysis,
 )
+
+from app.services.research.models.gap_analysis import (
+    GapAnalysis,
+)
+
+from app.services.research.models.novelty_analysis import (
+    NoveltyAnalysis,
+)
+
 
 # =====================================
 # EVIDENCE PIPELINE
 # =====================================
 
 def run_evidence_pipeline(
-    context: ResearchContext
+    context: ResearchContext,
 ):
 
     print("\n====================================")
@@ -59,45 +68,44 @@ def run_evidence_pipeline(
     )
 
     # =================================
-    # TREND ANALYSIS
+    # TREND
     # =================================
 
-    context.trend_analysis = (
-        build_research_trends(
-            context.evidence_matrix
+    context.research_profile.trend = (
+        TrendAnalysis.from_dict(
+            build_research_trends(
+                context.evidence_matrix
+            )
         )
     )
 
     # =================================
-    # GAP ANALYSIS
+    # GAP
     # =================================
 
-    context.gap_analysis = (
-        detect_research_gaps(
-            context.evidence_matrix
+    context.research_profile.gap = (
+        GapAnalysis.from_dict(
+            detect_research_gaps(
+                context.evidence_matrix
+            )
         )
     )
 
     # =================================
-    # NOVELTY ANALYSIS
+    # NOVELTY
     # =================================
 
-    context.novelty_analysis = (
-        calculate_novelty_score(
+    context.research_profile.novelty = (
+        NoveltyAnalysis.from_dict(
+            calculate_novelty_score(
 
-            context.evidence_matrix,
+                context.evidence_matrix,
 
-            context.gap_analysis
+                context.research_profile.gap.to_dict(),
+
+            )
         )
     )
 
-    context.competency_analysis = {
-
-        "competencies":
-
-        build_competencies(
-            context.evidence
-        )
-    }
 
     return context

@@ -1,51 +1,76 @@
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
+)
+
+from app.services.research.serializers import (
+    serialize_research_context,
 )
 
 
 # =====================================
-# BUILD RESEARCH RESPONSE
+# RESEARCH RESPONSE ENGINE
 # =====================================
 
 def build_research_response(
-    context: ResearchContext
-):
+    context: ResearchContext,
+) -> dict:
+    """
+    Build standardized research response.
 
-    return {
+    Seluruh consumer menggunakan payload
+    yang dihasilkan oleh serializer sebagai
+    Single Source of Truth.
+    """
 
-        "query":
-        context.query,
+    # =====================================
+    # SERIALIZE CONTEXT
+    # =====================================
 
-        "mode":
-        context.mode,
+    response = serialize_research_context(
+        context
+    )
 
-        "related_theses":
-        context.theses,
+    # =====================================
+    # LEGACY COMPATIBILITY
+    # =====================================
 
-        "citations":
-        context.citations,
+    profile = response.get(
+        "research_profile",
+        {},
+    )
 
-        "evidence":
-        context.evidence,
-
-        "evidence_matrix":
-        context.evidence_matrix,
-
-        "gap_analysis":
-        context.gap_analysis,
-
-        "novelty_analysis":
-        context.novelty_analysis,
+    response.update({
 
         "trend_analysis":
-        context.trend_analysis,
+        profile.get(
+            "trend",
+            {},
+        ),
+
+        "gap_analysis":
+        profile.get(
+            "gap",
+            {},
+        ),
+
+        "novelty_analysis":
+        profile.get(
+            "novelty",
+            {},
+        ),
 
         "competency_analysis":
-        context.competency_analysis,
+        profile.get(
+            "competency",
+            {},
+        ),
 
         "prodi_analysis":
-        context.prodi_analysis,
+        profile.get(
+            "prodi",
+            {},
+        ),
 
-        "analysis":
-        context.analysis
-    }
+    })
+
+    return response

@@ -3,6 +3,10 @@ from app.services.research.gap.common import (
 )
 
 
+# =====================================
+# NOVELTY OPPORTUNITY DETECTOR
+# =====================================
+
 def detect_novelty_opportunities(
 
     rare_topics,
@@ -15,12 +19,20 @@ def detect_novelty_opportunities(
 
     novelty = []
 
+    # =================================
+    # RARE TOPICS
+    # =================================
+
     for topic in rare_topics:
 
         novelty.append(
 
-            f"Eksplorasi lebih lanjut pada topik '{topic}' berpotensi menghasilkan kontribusi penelitian yang lebih baru dibandingkan area yang sudah dominan."
+            f"Topik '{topic}' masih sangat jarang diteliti sehingga berpotensi menjadi kontribusi penelitian yang lebih baru."
         )
+
+    # =================================
+    # RARE DATASETS
+    # =================================
 
     for dataset, count in dataset_frequency.items():
 
@@ -28,14 +40,33 @@ def detect_novelty_opportunities(
 
             novelty.append(
 
-                f"Penggunaan dataset '{dataset}' dapat menjadi peluang novelty karena masih jarang ditemukan."
+                f"Pemanfaatan dataset '{dataset}' masih sangat terbatas sehingga layak dieksplorasi lebih lanjut."
             )
+
+    # =================================
+    # EMERGING TOPICS
+    # =================================
 
     if emerging_topics:
 
         novelty.append(
 
-            f"Kombinasi topik emerging seperti {', '.join(emerging_topics[:3])} berpotensi menghasilkan kontribusi penelitian yang lebih unik."
+            "Kombinasi topik emerging "
+
+            + ", ".join(emerging_topics[:5])
+
+            + " memiliki potensi menghasilkan penelitian yang lebih inovatif."
+        )
+
+    # =================================
+    # NO NOVELTY FOUND
+    # =================================
+
+    if not novelty:
+
+        novelty.append(
+
+            "Belum ditemukan peluang novelty yang kuat berdasarkan evidence penelitian yang tersedia."
         )
 
     return unique_keep_order(

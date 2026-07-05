@@ -1,41 +1,43 @@
 from fastapi import APIRouter
-
 from pydantic import BaseModel
 
 from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS
+    ACTIVE_DOCUMENTS,
 )
 
 from app.services.llm.model_gateway import (
-    gateway
+    gateway,
 )
 
 from app.services.document.document_chunk_retriever import (
-    retrieve_relevant_chunks
+    retrieve_relevant_chunks,
 )
 
 from app.services.document.document_intent import (
-    detect_document_intent
-)
-
-from app.services.document.document_chat_memory import (
-    get_document_history,
-    append_document_history
+    detect_document_intent,
 )
 
 router = APIRouter()
 
 
+# =====================================
+# REQUEST MODEL
+# =====================================
+
 class DocumentChatRequest(
     BaseModel
 ):
+
     document_id: str
+
     question: str
 
 
-@router.post(
-    "/document/chat"
-)
+# =====================================
+# DOCUMENT CHAT
+# =====================================
+
+@router.post("/document/chat")
 async def document_chat(
     request: DocumentChatRequest
 ):
@@ -44,46 +46,37 @@ async def document_chat(
     # LOAD DOCUMENT
     # =====================================
 
-    document = (
-        ACTIVE_DOCUMENTS.get(
-            request.document_id
-        )
+    document = ACTIVE_DOCUMENTS.get(
+        request.document_id
     )
 
-    if not document:
+    if document is None:
 
         return {
 
             "answer":
             "Dokumen tidak ditemukan."
+
         }
 
     # =====================================
     # DOCUMENT CONTENT
     # =====================================
 
-    content = document["content"]
+    content = document.get(
+        "content",
+        ""
+    )
 
     pages = document.get(
         "pages_data",
         []
     )
 
-    # =====================================
-    # DOCUMENT MEMORY
-    # =====================================
-
-    history = get_document_history(
-        request.document_id
+    filename = document.get(
+        "filename",
+        "Unknown"
     )
-
-    history_text = "\n".join([
-
-        f"{item['role']}: {item['content']}"
-
-        for item in history
-
-    ])
 
     # =====================================
     # DETECT INTENT
@@ -94,7 +87,7 @@ async def document_chat(
     )
 
     # =====================================
-    # RETRIEVE RELEVANT CHUNKS
+    # RETRIEVE CHUNKS
     # =====================================
 
     chunks = retrieve_relevant_chunks(
@@ -103,20 +96,27 @@ async def document_chat(
 
         query=request.question,
 
-        top_k=8
+        top_k=8,
 
     )
 
-    context = "\n\n".join([
+    context = "\n\n".join(
 
-        f"[PAGE {chunk['page']}]\n"
-        f"{chunk['text']}"
+        [
 
-        for chunk in chunks
+            f"[PAGE {chunk['page']}]\n"
+            f"{chunk['text']}"
 
-    ])
+            for chunk in chunks
 
-    # fallback jika pages_data kosong
+        ]
+
+    )
+
+    # =====================================
+    # FALLBACK
+    # =====================================
+
     if not context.strip():
 
         context = content[:15000]
@@ -175,9 +175,13 @@ Fokus pada hal-hal yang perlu dipersiapkan.
     elif intent == "deliverables":
 
         instruction = """
-Ekstrak seluruh file, dokumen,
-proposal, presentasi, video,
-atau submission yang wajib dikumpulkan.
+Ekstrak seluruh file,
+dokumen,
+proposal,
+presentasi,
+video,
+atau submission
+yang wajib dikumpulkan.
 
 Kelompokkan berdasarkan tahap kompetisi.
 """
@@ -189,22 +193,8 @@ Jawab pertanyaan pengguna
 berdasarkan isi dokumen.
 
 Gunakan informasi yang tersedia
-pada dokumen dan konteks percakapan.
+pada dokumen.
 """
-
-    # =====================================
-    # SAVE USER MESSAGE
-    # =====================================
-
-    append_document_history(
-
-        request.document_id,
-
-        "user",
-
-        request.question
-
-    )
 
     # =====================================
     # PROMPT
@@ -213,18 +203,11 @@ pada dokumen dan konteks percakapan.
     prompt = f"""
 Anda adalah DELBot.
 
-Dokumen berikut sedang dibahas
-oleh pengguna.
+Dokumen berikut sedang dibahas.
 
 ================================================
 
-RIWAYAT PERCAKAPAN
-
-{history_text}
-
-================================================
-
-KONTEN DOKUMEN RELEVAN
+KONTEN DOKUMEN
 
 {context}
 
@@ -238,85 +221,48 @@ Pertanyaan:
 
 ================================================
 
-Instruksi:
+Instruksi
 
 {instruction}
 
 ================================================
 
-ATURAN:
+ATURAN
 
 1. Jawab hanya berdasarkan isi dokumen.
 
-2. Gunakan konteks percakapan sebelumnya
-jika relevan.
+2. Jangan menggunakan Qdrant.
 
-3. Jangan gunakan Qdrant.
+3. Jangan menggunakan repository skripsi.
 
-4. Jangan gunakan repository skripsi.
+4. Jangan mengarang informasi.
 
-5. Jangan mengarang informasi.
+5. Bila informasi tidak ditemukan,
+katakan bahwa informasi tersebut
+tidak ada di dokumen.
 
-6. Jika informasi tidak ditemukan,
-katakan bahwa informasi tidak ditemukan
-dalam dokumen.
+6. Gunakan Bahasa Indonesia.
 
-7. Gunakan Bahasa Indonesia.
+7. Gunakan format yang rapi.
 
-8. Gunakan format yang rapi,
-terstruktur,
-dan mudah dibaca.
-
-9. Jika pengguna meminta timeline,
+8. Jika diminta timeline,
 gunakan tabel markdown.
 
-10. Jika pengguna meminta checklist,
+9. Jika diminta checklist,
 gunakan checklist markdown.
 
-11. Jika informasi ditemukan
-dalam dokumen,
-cantumkan sumber halaman
-dalam format:
-
-(Halaman X)
-
-12. Jika informasi berasal dari
-beberapa halaman,
-cantumkan semuanya.
-
-Contoh:
-
-(Halaman 3)
-
-atau
-
-(Halaman 3, 5, 8)
+10. Jika informasi ditemukan,
+cantumkan halaman.
 
 ================================================
 """
 
     # =====================================
-    # GENERATE ANSWER
+    # GENERATE
     # =====================================
 
-    answer = (
-        gateway.generate_response(
-            prompt=prompt
-        )
-    )
-
-    # =====================================
-    # SAVE ASSISTANT MESSAGE
-    # =====================================
-
-    append_document_history(
-
-        request.document_id,
-
-        "assistant",
-
-        answer
-
+    answer = gateway.generate_response(
+        prompt=prompt
     )
 
     # =====================================
@@ -329,7 +275,7 @@ atau
         answer,
 
         "filename":
-        document["filename"],
+        filename,
 
         "intent":
         intent,
@@ -337,10 +283,4 @@ atau
         "retrieved_chunks":
         len(chunks),
 
-        "memory_messages":
-        len(
-            get_document_history(
-                request.document_id
-            )
-        )
     }

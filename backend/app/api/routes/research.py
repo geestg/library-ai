@@ -26,14 +26,27 @@ async def research_analysis_route(
 
     return research_analysis(
 
+        # =============================
+        # SESSION
+        # =============================
+
+        session_id=request.session_id,
+
+        # =============================
+        # QUERY
+        # =============================
+
         query=request.query,
 
         top_k=request.top_k,
 
         mode=request.mode,
 
-        active_document_ids=
-            request.active_document_ids
+        # =============================
+        # DOCUMENTS
+        # =============================
 
+        active_document_ids=
+        request.active_document_ids,
 
     )
