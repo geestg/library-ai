@@ -1,6 +1,8 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
+from dataclasses import field
 
 from datetime import datetime
+from datetime import timezone
 
 from typing import Any
 
@@ -40,7 +42,10 @@ class ExecutionSession:
     # SNAPSHOT
     # =================================
 
-    serialized_context: dict[str, Any] = field(
+    serialized_context: dict[
+        str,
+        Any,
+    ] = field(
         default_factory=dict
     )
 
@@ -55,30 +60,44 @@ class ExecutionSession:
     # =================================
 
     def update(
-
         self,
-
         context,
-
         serialized_context: dict,
-
     ):
 
-        self.last_query = context.query
+        self.last_query = (
+            context.query
+        )
 
-        self.mode = context.mode
+        self.mode = (
+            context.mode
+        )
 
-        self.provider = context.provider
+        self.provider = (
+            context.provider
+        )
 
-        self.model = context.model
+        self.model = (
+            context.model
+        )
 
-        self.intent = context.intent
+        self.intent = (
+            context.intent
+        )
 
-        self.response = context.analysis
+        self.response = (
+            context.analysis
+        )
 
-        self.serialized_context = serialized_context
+        self.serialized_context = (
+            serialized_context
+        )
 
-        self.updated_at = datetime.now()
+        self.updated_at = (
+            datetime.now(
+                timezone.utc
+            )
+        )
 
     # =================================
     # CLEAR
@@ -111,31 +130,31 @@ class ExecutionSession:
         return {
 
             "last_query":
-            self.last_query,
+                self.last_query,
 
             "mode":
-            self.mode,
+                self.mode,
 
             "provider":
-            self.provider,
+                self.provider,
 
             "model":
-            self.model,
+                self.model,
 
             "intent":
-            self.intent,
+                self.intent,
 
             "response":
-            self.response,
+                self.response,
 
             "updated_at":
-            (
-                self.updated_at.isoformat()
-                if self.updated_at
-                else None
-            ),
+                (
+                    self.updated_at.isoformat()
+                    if self.updated_at
+                    else None
+                ),
 
             "serialized_context":
-            self.serialized_context,
+                self.serialized_context,
 
         }
