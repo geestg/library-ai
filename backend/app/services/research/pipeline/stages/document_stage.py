@@ -36,6 +36,8 @@ class DocumentStage(
 
             query=context.query,
 
+            session_id=context.session_id,
+
             active_document_ids=(
                 context.active_document_ids
             ),
@@ -64,7 +66,10 @@ class DocumentStage(
 
                 "documents":
                     len(
-                        context.active_document_ids
+                        result.get(
+                            "documents",
+                            [],
+                        )
                     ),
 
             },

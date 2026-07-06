@@ -1,10 +1,27 @@
-from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS,
-)
-
 from app.services.llm.model_gateway import (
     gateway,
 )
+
+from app.services.research.session import (
+    session_manager,
+)
+
+
+# =====================================
+# BUILD EMPTY DOCUMENT CONTEXT
+# =====================================
+
+def build_empty_document_context():
+
+    return {
+
+        "documents":
+            [],
+
+        "context":
+            "",
+
+    }
 
 
 # =====================================
@@ -12,8 +29,30 @@ from app.services.llm.model_gateway import (
 # =====================================
 
 def build_document_context(
+
+    session_id: str,
+
     active_document_ids: list,
+
 ):
+
+    # =================================
+    # RESOLVE SESSION
+    # =================================
+
+    session = session_manager.get(
+        session_id
+    )
+
+    if session is None:
+
+        return (
+            build_empty_document_context()
+        )
+
+    # =================================
+    # BUILD CONTEXT
+    # =================================
 
     contexts = []
 
@@ -21,20 +60,25 @@ def build_document_context(
 
     for document_id in active_document_ids:
 
-        document = ACTIVE_DOCUMENTS.get(
-            document_id
+        document = (
+
+            session.documents.get_document(
+                document_id
+            )
+
         )
 
-        if not document:
+        if document is None:
+
             continue
 
         documents.append({
 
             "document_id":
-            document_id,
+                document.document_id,
 
             "filename":
-            document["filename"],
+                document.filename,
 
         })
 
@@ -42,10 +86,10 @@ def build_document_context(
 
             f"""
 FILE:
-{document["filename"]}
+{document.filename}
 
 CONTENT:
-{document["content"][:10000]}
+{document.content[:10000]}
 """
 
         )
@@ -53,12 +97,12 @@ CONTENT:
     return {
 
         "documents":
-        documents,
+            documents,
 
         "context":
-        "\n\n".join(
-            contexts
-        ),
+            "\n\n".join(
+                contexts
+            ),
 
     }
 
@@ -132,6 +176,8 @@ def run_document_analysis(
 
     query: str,
 
+    session_id: str,
+
     active_document_ids: list,
 
 ):
@@ -140,7 +186,11 @@ def run_document_analysis(
 
         build_document_context(
 
-            active_document_ids,
+            session_id=session_id,
+
+            active_document_ids=(
+                active_document_ids
+            ),
 
         )
 
@@ -183,27 +233,27 @@ def run_document_analysis(
     return {
 
         "query":
-        query,
+            query,
 
         "mode":
-        "multi_document",
+            "multi_document",
 
         "analysis":
-        answer,
+            answer,
 
         "citations":
-        [],
+            [],
 
         "sources":
-        [],
+            [],
 
         "evidence":
-        {},
+            {},
 
         "evidence_matrix":
-        {},
+            {},
 
         "documents":
-        documents,
+            documents,
 
     }

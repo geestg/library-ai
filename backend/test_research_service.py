@@ -37,6 +37,10 @@ from app.services.research.pipeline.stages.document_stage import (
     DocumentStage,
 )
 
+from app.services.research.engines.document_engine import (
+    build_document_context,
+)
+
 from app.services.research.pipeline.stages.literature_stage import (
     LiteratureStage,
 )
@@ -58,6 +62,7 @@ from app.services.research.session import (
 )
 
 from app.services.research.session.models import (
+    DocumentItem,
     ExecutionSession,
     WorkspaceState,
 )
@@ -1888,6 +1893,533 @@ class SpecializedStageTests(
             context.stage_results,
         )
 
+# =====================================
+# DOCUMENT CHAT OWNERSHIP TESTS
+# =====================================
+
+class DocumentChatOwnershipTests(
+    unittest.TestCase
+):
+
+    @classmethod
+    def setUpClass(
+        cls,
+    ):
+
+        cls.client = TestClient(
+            app
+        )
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+        self.owner_session = (
+            session_manager.create(
+                "document-chat-owner"
+            )
+        )
+
+        self.other_session = (
+            session_manager.create(
+                "document-chat-other"
+            )
+        )
+
+        self.owner_document = DocumentItem(
+
+            document_id="owner-document",
+
+            filename="owner.pdf",
+
+            file_type="pdf",
+
+            pages=2,
+
+            chunks=4,
+
+            content=(
+                "Owner document content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Owner document content",
+
+                }
+
+            ],
+
+        )
+
+        self.other_document = DocumentItem(
+
+            document_id="other-document",
+
+            filename="other.pdf",
+
+            file_type="pdf",
+
+            pages=3,
+
+            chunks=6,
+
+            content=(
+                "Other session document content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Other session document content",
+
+                }
+
+            ],
+
+        )
+
+        self.owner_session.documents.add_document(
+            self.owner_document
+        )
+
+        self.other_session.documents.add_document(
+            self.other_document
+        )
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    @patch(
+        "app.api.routes.routes_document."
+        "gateway.generate_response"
+    )
+    @patch(
+        "app.api.routes.routes_document."
+        "retrieve_relevant_chunks"
+    )
+    def test_document_chat_reads_document_from_owning_session(
+        self,
+        mock_retrieve_chunks,
+        mock_generate_response,
+    ):
+
+        mock_retrieve_chunks.return_value = [
+
+            {
+
+                "page":
+                    1,
+
+                "text":
+                    "Owner document content",
+
+            }
+
+        ]
+
+        mock_generate_response.return_value = (
+            "Owner document answer"
+        )
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    self.owner_session.session_id,
+
+                "document_id":
+                    self.owner_document.document_id,
+
+                "question":
+                    "Apa isi dokumen?",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+
+            data["answer"],
+
+            "Owner document answer",
+
+        )
+
+        self.assertEqual(
+
+            data["filename"],
+
+            "owner.pdf",
+
+        )
+
+        mock_generate_response.assert_called_once()
+
+    @patch(
+        "app.api.routes.routes_document."
+        "gateway.generate_response"
+    )
+    def test_document_chat_rejects_document_from_other_session(
+        self,
+        mock_generate_response,
+    ):
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    self.owner_session.session_id,
+
+                "document_id":
+                    self.other_document.document_id,
+
+                "question":
+                    "Apa isi dokumen?",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        mock_generate_response.assert_not_called()
+
+    @patch(
+        "app.api.routes.routes_document."
+        "gateway.generate_response"
+    )
+    def test_document_chat_rejects_unknown_session(
+        self,
+        mock_generate_response,
+    ):
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    "missing-session",
+
+                "document_id":
+                    self.owner_document.document_id,
+
+                "question":
+                    "Apa isi dokumen?",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        mock_generate_response.assert_not_called()
+
+    def test_document_chat_requires_session_id(
+        self,
+    ):
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "document_id":
+                    self.owner_document.document_id,
+
+                "question":
+                    "Apa isi dokumen?",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            422,
+        )
+
+# =====================================
+# DOCUMENT ENGINE OWNERSHIP TESTS
+# =====================================
+
+class DocumentEngineOwnershipTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+        self.owner_session = (
+            session_manager.create(
+                "document-engine-owner"
+            )
+        )
+
+        self.other_session = (
+            session_manager.create(
+                "document-engine-other"
+            )
+        )
+
+        self.owner_document = DocumentItem(
+
+            document_id="owner-document",
+
+            filename="owner.pdf",
+
+            file_type="pdf",
+
+            pages=2,
+
+            chunks=4,
+
+            content=(
+                "Owner session document content"
+            ),
+
+        )
+
+        self.other_document = DocumentItem(
+
+            document_id="other-document",
+
+            filename="other.pdf",
+
+            file_type="pdf",
+
+            pages=3,
+
+            chunks=6,
+
+            content=(
+                "Other session document content"
+            ),
+
+        )
+
+        self.owner_session.documents.add_document(
+            self.owner_document
+        )
+
+        self.other_session.documents.add_document(
+            self.other_document
+        )
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def test_build_document_context_includes_owned_document(
+        self,
+    ):
+
+        result = build_document_context(
+
+            session_id=(
+                self.owner_session.session_id
+            ),
+
+            active_document_ids=[
+                self.owner_document.document_id,
+            ],
+
+        )
+
+        self.assertEqual(
+
+            result["documents"],
+
+            [
+
+                {
+
+                    "document_id":
+                        "owner-document",
+
+                    "filename":
+                        "owner.pdf",
+
+                }
+
+            ],
+
+        )
+
+        self.assertIn(
+
+            "Owner session document content",
+
+            result["context"],
+
+        )
+
+    def test_build_document_context_excludes_document_from_other_session(
+        self,
+    ):
+
+        result = build_document_context(
+
+            session_id=(
+                self.owner_session.session_id
+            ),
+
+            active_document_ids=[
+                self.other_document.document_id,
+            ],
+
+        )
+
+        self.assertEqual(
+
+            result["documents"],
+
+            [],
+
+        )
+
+        self.assertEqual(
+
+            result["context"],
+
+            "",
+
+        )
+
+        self.assertNotIn(
+
+            "Other session document content",
+
+            result["context"],
+
+        )
+
+    def test_build_document_context_includes_only_owned_documents_from_mixed_ids(
+        self,
+    ):
+
+        result = build_document_context(
+
+            session_id=(
+                self.owner_session.session_id
+            ),
+
+            active_document_ids=[
+
+                self.owner_document.document_id,
+
+                self.other_document.document_id,
+
+            ],
+
+        )
+
+        document_ids = [
+
+            document["document_id"]
+
+            for document in result["documents"]
+
+        ]
+
+        self.assertEqual(
+
+            document_ids,
+
+            [
+                "owner-document",
+            ],
+
+        )
+
+        self.assertIn(
+
+            "Owner session document content",
+
+            result["context"],
+
+        )
+
+        self.assertNotIn(
+
+            "Other session document content",
+
+            result["context"],
+
+        )
+
+    def test_build_document_context_returns_empty_for_missing_session(
+        self,
+    ):
+
+        result = build_document_context(
+
+            session_id="missing-session",
+
+            active_document_ids=[
+                self.owner_document.document_id,
+            ],
+
+        )
+
+        self.assertEqual(
+
+            result,
+
+            {
+
+                "documents":
+                    [],
+
+                "context":
+                    "",
+
+            },
+
+        )
 
 # =====================================
 # DOCUMENT STAGE TESTS
@@ -1940,6 +2472,10 @@ class DocumentStageTests(
 
         )
 
+        context.session_id = (
+            "document-stage-session"
+        )
+
         executor = (
 
             PipelineExecutor(context)
@@ -1955,6 +2491,10 @@ class DocumentStageTests(
         mock_analysis.assert_called_once_with(
 
             query="ringkas dokumen",
+
+            session_id=(
+                "document-stage-session"
+            ),
 
             active_document_ids=[
                 "document-1",
