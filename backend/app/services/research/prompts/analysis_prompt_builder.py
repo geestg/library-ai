@@ -4,6 +4,27 @@ from app.services.research.models.research_context import (
 
 
 # =====================================
+# BUILD CONVERSATION SECTION
+# =====================================
+
+def build_conversation_section(
+    context: ResearchContext,
+) -> str:
+
+    history = (
+        context.conversation_history.strip()
+    )
+
+    if not history:
+
+        return (
+            "Belum ada percakapan sebelumnya."
+        )
+
+    return history
+
+
+# =====================================
 # BUILD RESEARCH PROMPT
 # =====================================
 
@@ -23,6 +44,12 @@ def build_research_prompt(
 
     prodi = profile.prodi.to_dict()
 
+    conversation_history = (
+        build_conversation_section(
+            context
+        )
+    )
+
     return f"""
 Anda adalah DELBot.
 
@@ -31,10 +58,46 @@ Academic Intelligence System Institut Teknologi Del.
 Seluruh jawaban HARUS menggunakan Bahasa Indonesia formal akademik.
 
 ==================================================
-TOPIK PENELITIAN
+RIWAYAT PERCAKAPAN
+==================================================
+
+{conversation_history}
+
+==================================================
+PERTANYAAN SAAT INI
 ==================================================
 
 {context.query}
+
+==================================================
+ATURAN KONTEKS PERCAKAPAN
+==================================================
+
+1.
+Gunakan riwayat percakapan hanya untuk memahami
+konteks, referensi, dan kesinambungan pertanyaan.
+
+2.
+Pertanyaan saat ini adalah tugas utama
+yang harus dijawab.
+
+3.
+Jangan memperlakukan riwayat percakapan
+sebagai sumber akademik atau evidence penelitian.
+
+4.
+Jangan membuat sitasi berdasarkan
+riwayat percakapan.
+
+5.
+Jika pertanyaan saat ini merujuk pada
+topik atau jawaban sebelumnya,
+gunakan riwayat percakapan untuk memahami referensi tersebut.
+
+6.
+Jika riwayat percakapan bertentangan
+dengan evidence yang tersedia,
+prioritaskan evidence.
 
 ==================================================
 BUKTI TERSTRUKTUR

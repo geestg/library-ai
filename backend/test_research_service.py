@@ -48,9 +48,18 @@ from app.services.research.session.session_manager import (
     SessionManager,
 )
 
+from app.services.research.session import (
+    session_manager,
+)
+
 from app.services.research.session.models import (
     ExecutionSession,
     WorkspaceState,
+)
+
+from app.services.research.research_engine import (
+    extract_assistant_content,
+    persist_assistant_response,
 )
 
 # =====================================
@@ -137,6 +146,227 @@ class FailingStage(
             "Synthetic pipeline failure"
         )
 
+
+# =====================================
+# ASSISTANT PERSISTENCE TESTS
+# =====================================
+
+class AssistantPersistenceTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        self.manager = (
+            SessionManager()
+        )
+
+        self.session = (
+            self.manager.create(
+                "assistant-persistence-session"
+            )
+        )
+
+    def test_extract_assistant_content_uses_analysis_first(
+        self,
+    ):
+
+        response = {
+
+            "analysis":
+                "Analysis response",
+
+            "answer":
+                "Answer response",
+
+            "comparison":
+                "Comparison response",
+
+        }
+
+        content = (
+            extract_assistant_content(
+                response
+            )
+        )
+
+        self.assertEqual(
+
+            content,
+
+            "Analysis response",
+
+        )
+
+    def test_extract_assistant_content_falls_back_to_answer(
+        self,
+    ):
+
+        response = {
+
+            "analysis":
+                "",
+
+            "answer":
+                "Answer response",
+
+        }
+
+        content = (
+            extract_assistant_content(
+                response
+            )
+        )
+
+        self.assertEqual(
+
+            content,
+
+            "Answer response",
+
+        )
+
+    def test_extract_assistant_content_falls_back_to_comparison(
+        self,
+    ):
+
+        response = {
+
+            "comparison":
+                "Comparison response",
+
+        }
+
+        content = (
+            extract_assistant_content(
+                response
+            )
+        )
+
+        self.assertEqual(
+
+            content,
+
+            "Comparison response",
+
+        )
+
+    def test_persist_assistant_response_appends_message(
+        self,
+    ):
+
+        persisted_content = (
+            persist_assistant_response(
+
+                session=self.session,
+
+                response={
+
+                    "analysis":
+                        "Persisted assistant response",
+
+                },
+
+            )
+        )
+
+        last_message = (
+            self.session.conversation.last_message()
+        )
+
+        self.assertEqual(
+
+            persisted_content,
+
+            "Persisted assistant response",
+
+        )
+
+        self.assertIsNotNone(
+            last_message
+        )
+
+        self.assertEqual(
+            last_message.role,
+            "assistant",
+        )
+
+        self.assertEqual(
+
+            last_message.content,
+
+            "Persisted assistant response",
+
+        )
+
+        self.assertEqual(
+
+            self.session.conversation.total_messages(),
+
+            1,
+
+        )
+
+    def test_persist_assistant_response_skips_empty_content(
+        self,
+    ):
+
+        persisted_content = (
+            persist_assistant_response(
+
+                session=self.session,
+
+                response={
+
+                    "analysis":
+                        "   ",
+
+                },
+
+            )
+        )
+
+        self.assertEqual(
+            persisted_content,
+            "",
+        )
+
+        self.assertEqual(
+
+            self.session.conversation.total_messages(),
+
+            0,
+
+        )
+
+    def test_persist_assistant_response_skips_invalid_response(
+        self,
+    ):
+
+        persisted_content = (
+            persist_assistant_response(
+
+                session=self.session,
+
+                response=None,
+
+            )
+        )
+
+        self.assertEqual(
+            persisted_content,
+            "",
+        )
+
+        self.assertEqual(
+
+            self.session.conversation.total_messages(),
+
+            0,
+
+        )
 
 # =====================================
 # RESPONSE PIPELINE TESTS
@@ -751,6 +981,209 @@ class StreamingRouteTests(
         self.assertNotIn(
             "error",
             event_types,
+        )
+
+    @patch(
+        "app.api.routes.routes_chat_stream."
+        "research_analysis"
+    )
+    def test_specialized_response_persists_assistant_message(
+        self,
+        mock_research_analysis,
+    ):
+
+        session = session_manager.create(
+            "specialized-stream-session"
+        )
+
+        context = build_context(
+            "buat literature review AI"
+        )
+
+        context.session_id = (
+            session.session_id
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "literature_review"
+        )
+
+        context.response = {
+
+            "mode":
+                "literature_review",
+
+            "analysis":
+                "Persisted specialized response",
+
+        }
+
+        mock_research_analysis.return_value = (
+
+            context,
+
+            None,
+
+        )
+
+        response = self.client.post(
+
+            "/chat-stream",
+
+            json={
+
+                "session_id":
+                    session.session_id,
+
+                "message":
+                    context.query,
+
+                "active_document_ids":
+                    [],
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        last_message = (
+            session.conversation.last_message()
+        )
+
+        self.assertIsNotNone(
+            last_message
+        )
+
+        self.assertEqual(
+            last_message.role,
+            "assistant",
+        )
+
+        self.assertEqual(
+
+            last_message.content,
+
+            "Persisted specialized response",
+
+        )
+
+        session_manager.delete(
+            session.session_id
+        )
+
+    @patch(
+        "app.api.routes.routes_chat_stream."
+        "research_analysis"
+    )
+    def test_normal_stream_persists_complete_assistant_message(
+        self,
+        mock_research_analysis,
+    ):
+
+        session = session_manager.create(
+            "normal-stream-session"
+        )
+
+        context = build_context(
+            "analisis artificial intelligence"
+        )
+
+        context.session_id = (
+            session.session_id
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "research"
+        )
+
+        context.response = None
+
+        llm_stream = iter([
+
+            "Bagian pertama. ",
+
+            "Bagian kedua.",
+
+        ])
+
+        mock_research_analysis.return_value = (
+
+            context,
+
+            llm_stream,
+
+        )
+
+        response = self.client.post(
+
+            "/chat-stream",
+
+            json={
+
+                "session_id":
+                    session.session_id,
+
+                "message":
+                    context.query,
+
+                "active_document_ids":
+                    [],
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        last_message = (
+            session.conversation.last_message()
+        )
+
+        self.assertIsNotNone(
+            last_message
+        )
+
+        self.assertEqual(
+            last_message.role,
+            "assistant",
+        )
+
+        self.assertEqual(
+
+            last_message.content,
+
+            (
+                "Bagian pertama. "
+                "Bagian kedua."
+            ),
+
+        )
+
+        session_manager.delete(
+            session.session_id
         )
 
     @patch(
