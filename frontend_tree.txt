@@ -1,0 +1,100 @@
+﻿Folder PATH listing
+Volume serial number is 0000018B 7289:3ED1
+D:\LIBRARY-AI\FRONTEND\SRC
+|   App.css
+|   App.jsx
+|   index.css
+|   main.jsx
+|   
++---assets
+|       hero.png
+|       react.svg
+|       vite.svg
+|       
++---components
+|   |   Header.jsx
+|   |   SearchPanel.jsx
+|   |   Sidebar.jsx
+|   |   UploadBox.jsx
+|   |   
+|   +---chat
+|   |       ActiveDocumentBadge.jsx
+|   |       ChatHero.jsx
+|   |       ChatInput.jsx
+|   |       DocumentMessage.jsx
+|   |       DocumentStatusBar.jsx
+|   |       MarkdownMessage.jsx
+|   |       MessageBubble.jsx
+|   |       NoveltyCard.jsx
+|   |       ThinkingIndicator.jsx
+|   |       
+|   +---research
+|   |       CompetencyWidget.jsx
+|   |       GapWidget.jsx
+|   |       NoveltyWidget.jsx
+|   |       ProdiWidget.jsx
+|   |       RelatedThesisWidget.jsx
+|   |       ResearchPanel.jsx
+|   |       ResearchSummaryCard.jsx
+|   |       TrendWidget.jsx
+|   |       
+|   +---sources
+|   |       ThesisDrawer.jsx
+|   |       
+|   \---workspace
+|           ResearchSession.jsx
+|           SessionConversation.jsx
+|           
++---hooks
+|       useAssistantMessage.js
+|       useConversationState.js
+|       useDocumentUpload.js
+|       useResearchSession.js
+|       useSession.js
+|       useStreamingChat.js
+|       useWorkspace.js
+|       useWorkspaceUpdater.js
+|       
++---models
+|       researchSession.js
+|       
++---pages
+|       Workspace.jsx
+|       
++---services
+|       api.js
+|       documentApi.js
+|       researchApi.js
+|       sessionApi.js
+|       
++---styles
+|   +---base
+|   |       animations.css
+|   |       reset.css
+|   |       typography.css
+|   |       
+|   +---chat
+|   |       chat-hero.css
+|   |       chat-input.css
+|   |       chat-layout.css
+|   |       chat-messages.css
+|   |       chat-responsive.css
+|   |       chat-upload.css
+|   |       document-context.css
+|   |       document-status-bar.css
+|   |       messages.css
+|   |       
+|   +---components
+|   |       document-context.css
+|   |       markdown.css
+|   |       source-panel.css
+|   |       thesis-drawer.css
+|   |       
+|   \---layout
+|           app.css
+|           sidebar.css
+|           workspace.css
+|           
+\---utils
+        citationParser.jsx
+        

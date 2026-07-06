@@ -1,74 +1,125 @@
-from app.rag.thesis_hybrid_search import (
-    hybrid_search
+from app.services.research.models.research_context import (
+    ResearchContext,
 )
 
-from app.rag.reranker import (
-    rerank
+from app.services.research.pipeline import (
+    ResearchPipelineBuilder,
 )
 
-from app.rag.context_synthesizer import (
-    build_citation_context
+from app.services.research.serializers import (
+    serialize_research_context,
 )
 
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.research.session import (
+    session_manager,
 )
 
-from app.services.research.evidence_extractor import (
-    extract_evidence
-)
 
-from app.services.research.evidence_matrix import (
-    build_evidence_matrix
-)
+# =====================================
+# EXTRACT ASSISTANT CONTENT
+# =====================================
 
-from app.services.research.gap_detector import (
-    detect_research_gaps
-)
+def extract_assistant_content(
+    response,
+) -> str:
 
-from app.services.research.prompt_builder import (
-    build_evidence_section,
-    build_matrix_section,
-    build_research_prompt
-)
+    if not isinstance(
+        response,
+        dict,
+    ):
 
-from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS
-)
+        return ""
 
-from app.services.research.method_comparison_engine import (
-    is_comparison_query,
-    run_method_comparison
-)
+    candidates = [
 
-from app.services.research.novelty_scorer import (
-    calculate_novelty_score
-)
+        response.get(
+            "analysis"
+        ),
 
-from app.services.research.thesis_idea_generator import (
-    generate_thesis_ideas
-)
+        response.get(
+            "answer"
+        ),
 
-from app.services.research.literature_review_generator import (
-    generate_literature_review
-)
+        response.get(
+            "comparison"
+        ),
 
-from app.services.research.intent_detector import (
-    is_literature_review_query,
-    is_thesis_idea_query
-)
+    ]
 
-from app.services.research.query_normalizer import (
-    normalize_research_query
-)
+    for content in candidates:
 
-from app.services.research.thesis_evidence_extractor import (
-    extract_thesis_evidence
-)
+        if (
+            isinstance(content, str)
+            and content.strip()
+        ):
 
-from app.services.research.diversity_filter import (
-    apply_diversity_filter
-)
+            return content.strip()
+
+    return ""
+
+
+# =====================================
+# PERSIST ASSISTANT RESPONSE
+# =====================================
+
+def persist_assistant_response(
+    session,
+    response,
+) -> str:
+
+    assistant_content = (
+        extract_assistant_content(
+            response
+        )
+    )
+
+    if not assistant_content:
+
+        return ""
+
+    session.conversation.append(
+
+        role="assistant",
+
+        content=assistant_content,
+
+    )
+
+    return assistant_content
+
+
+# =====================================
+# PERSIST EXECUTION SNAPSHOT
+# =====================================
+
+def persist_execution_snapshot(
+    session,
+    context: ResearchContext,
+    response_content: str = "",
+) -> dict:
+
+    serialized_context = (
+        serialize_research_context(
+            context
+        )
+    )
+
+    session.execution.update(
+
+        context=context,
+
+        serialized_context=(
+            serialized_context
+        ),
+
+        response_content=(
+            response_content
+        ),
+
+    )
+
+    return serialized_context
+
 
 # =====================================
 # RESEARCH ANALYSIS ENGINE
@@ -76,821 +127,158 @@ from app.services.research.diversity_filter import (
 
 def research_analysis(
     query: str,
+    session_id: str = "",
     top_k: int = 10,
     mode: str = "analysis",
-    active_document_ids=None
+    active_document_ids=None,
+    stream: bool = False,
 ):
 
     print("\n====================================")
-    print("RESEARCH ENGINE V3")
+    print("RESEARCH ENGINE V6")
     print("====================================")
-    
-    # =================================
-    # ACTIVE DOCUMENT MODE
-    # =================================
 
-    if active_document_ids:
+    # =====================================
+    # RESOLVE SESSION
+    # =====================================
 
-        contexts = []
-
-        documents = []
-
-        for doc_id in active_document_ids:
-
-            doc = ACTIVE_DOCUMENTS.get(
-                doc_id
-            )
-
-            if not doc:
-                continue
-
-            documents.append({
-
-                "document_id":
-                doc_id,
-
-                "filename":
-                doc["filename"]
-
-            })
-
-            contexts.append(
-
-                f"""
-    FILE:
-    {doc["filename"]}
-
-    CONTENT:
-    {doc["content"][:10000]}
-    """
-            )
-
-        if contexts:
-
-            document_context = "\n\n".join(
-                contexts
-            )
-
-            prompt = f"""
-    Anda adalah DELBot.
-
-    Anda sedang menganalisis
-    beberapa dokumen sekaligus.
-
-    ==================================================
-    DOKUMEN
-    ==================================================
-
-    {document_context}
-
-    ==================================================
-    PERTANYAAN USER
-    ==================================================
-
-    {query}
-
-    ==================================================
-    ATURAN
-    ==================================================
-
-    1. Jawab berdasarkan dokumen yang diberikan.
-
-    2. Jika informasi berasal dari dokumen tertentu,
-    sebutkan nama filenya.
-
-    3. Jika terdapat informasi yang berbeda antar dokumen,
-    jelaskan perbedaannya.
-
-    4. Jika user meminta perbandingan,
-    buat tabel perbandingan.
-
-    5. Jika user meminta ringkasan,
-    buat ringkasan terstruktur.
-
-    6. Jika informasi tidak ditemukan,
-    katakan informasi tidak ditemukan.
-
-    7. Jangan gunakan Qdrant.
-
-    8. Jangan gunakan repository skripsi.
-
-    9. Jangan mengarang.
-
-    10. Gunakan Bahasa Indonesia.
-    """
-
-            answer = (
-                gateway.generate_response(
-                    prompt=prompt
-                )
-            )
-
-            return {
-
-                "query":
-                query,
-
-                "mode":
-                "multi_document",
-
-                "analysis":
-                answer,
-
-                "citations":
-                [],
-
-                "evidence":
-                {},
-
-                "documents":
-                documents
-
-            }
-       
-    # =================================
-    # HYBRID SEARCH
-    # =================================
-
-    normalized_query = (
-        normalize_research_query(
-            query
-        )
+    session = session_manager.get_or_create(
+        session_id
     )
 
-    print(
-        "[NORMALIZED QUERY]",
-        normalized_query
+    # =====================================
+    # SNAPSHOT PREVIOUS CONVERSATION
+    # =====================================
+
+    conversation_history = (
+        session.conversation.build_history()
     )
 
-    hybrid_results = hybrid_search(
-        query=normalized_query,
-        limit=50
-    )
-    
-    # =================================
-    # RERANK
-    # =================================
+    # =====================================
+    # RECORD CURRENT USER MESSAGE
+    # =====================================
 
-    reranked_results = rerank(
+    session.conversation.append(
+
+        role="user",
+
+        content=query,
+
+    )
+
+    # =====================================
+    # BUILD CONTEXT
+    # =====================================
+
+    context = ResearchContext(
+
         query=query,
-        documents=hybrid_results,
-        top_k=20
+
+        session_id=session.session_id,
+
+        top_k=top_k,
+
+        mode=mode,
+
+        active_document_ids=(
+            active_document_ids or []
+        ),
+
+        conversation_history=(
+            conversation_history
+        ),
+
     )
 
-    print(
-        f"[RERANK] {len(reranked_results)} results"
+    # =====================================
+    # ROUTING
+    # =====================================
+
+    from app.orchestration.task_router import (
+        route_query,
     )
 
-    # =================================
-    # FILTER POSITIVE SCORES
-    # =================================
-
-    filtered_results = [
-
-        item
-
-        for item in reranked_results
-
-        if item.get(
-            "rerank_score",
-            0
-        ) > 0
-    ]
-
-    print(
-        f"[FILTERED] {len(filtered_results)} results"
-    )
-
-    # =================================
-    # NORMALIZE THESIS
-    # =================================
-
-    theses = []
-
-    for item in filtered_results:
-
-        payload = item.get(
-            "payload",
-            {}
-        )
-
-        thesis_data = {
-
-            "score":
-            item.get(
-                "rerank_score",
-                0
-            ),
-
-            "title":
-            payload.get("title"),
-
-            "author":
-            payload.get("author"),
-
-            "year":
-            payload.get("year"),
-
-            "prodi":
-            payload.get("prodi"),
-
-            "abstract":
-            payload.get("abstract"),
-
-            "chunk":
-            payload.get("chunk"),
-
-            "url":
-            payload.get("url")
-        }
-
-        thesis_data.update(
-
-            extract_thesis_evidence(
-                thesis_data
-            )
-
-        )
-
-        theses.append(
-            thesis_data
-        )
-
-    # =================================
-    # DIVERSITY FILTER
-    # =================================
-
-    theses = apply_diversity_filter(
-        theses,
-        max_per_year=2,
-        max_per_title_keyword=2
-    )
-
-    theses = theses[:top_k]
-
-    print("\n====================================")
-    print("AFTER DIVERSITY FILTER")
-    print("====================================")
-
-    for idx, thesis in enumerate(
-        theses,
-        start=1
-    ):
-
-        print(
-            idx,
-            thesis.get("title")
-        )
-
-    # =================================
-    # CITATIONS
-    # =================================
-
-    citations = []
-
-    for idx, thesis in enumerate(
-        theses,
-        start=1
-    ):
-
-        citations.append({
-
-            "source_id":
-            idx,
-
-            "title":
-            thesis.get("title"),
-
-            "author":
-            thesis.get("author"),
-
-            "year":
-            thesis.get("year"),
-
-            "prodi":
-            thesis.get("prodi"),
-
-            "url":
-            thesis.get("url"),
-
-            "score":
-            thesis.get(
-                "score",
-                0
-            ),
-
-            "abstract":
-            thesis.get(
-                "abstract"
-            ),
-
-            "chunk":
-            thesis.get(
-                "chunk"
-            ),
-
-            "technologies":
-            thesis.get(
-                "technologies",
-                []
-            ),
-
-            "methodologies":
-            thesis.get(
-                "methodologies",
-                []
-            ),
-
-            "datasets":
-            thesis.get(
-                "datasets",
-                []
-            ),
-
-            "evaluation_metrics":
-            thesis.get(
-                "evaluation_metrics",
-                []
-            )
-
-        })
-
-    # =================================
-    # DEBUG
-    # =================================
-
-    print("\n")
-    print("=" * 80)
-    print("CITATION DEBUG")
-    print("=" * 80)
-
-    if citations:
-
-        print(
-            citations[0]
-        )
-
-
-    # =================================
-    # METHOD COMPARISON MODE
-    # =================================
-
-    if is_comparison_query(query):
-
-        print("\n====================================")
-        print("METHOD COMPARISON MODE")
-        print("====================================")
-
-        comparison_result = (
-            run_method_comparison(
-                query=query,
-                theses=theses
-            )
-        )
-
-
-        return {
-
-            "query":
-            query,
-
-            "mode":
-            "comparison",
-
-            "related_theses":
-            theses,
-
-            "citations":
-            citations,
-
-            "comparison_matrix":
-            comparison_result.get(
-                "comparison_matrix",
-                {}
-            ),
-
-            "comparison":
-            comparison_result.get(
-                "comparison",
-                ""
-            ),
-
-            "analysis":
-            comparison_result.get(
-                "comparison",
-                ""
-            )
-        }
-
-    # =================================
-    # TOP THESIS DEBUG
-    # =================================
-
-    print("\n====================================")
-    print("TOP THESIS")
-    print("====================================")
-
-    for idx, thesis in enumerate(
-        theses,
-        start=1
-    ):
-
-        print(
-            f"{idx}. "
-            f"{thesis.get('title', '-')}"
-        )
-
-        print(
-            f"Score: "
-            f"{thesis.get('score', 0):.4f}"
-        )
-
-    # =================================
-    # THESIS CONTENT DEBUG
-    # =================================
-
-    print("\n")
-    print("=" * 80)
-    print("THESIS DEBUG")
-    print("=" * 80)
-
-    for idx, thesis in enumerate(
-        theses,
-        start=1
-    ):
-
-        print(
-            f"\n[{idx}] "
-            f"{thesis.get('title')}"
-        )
-
-        abstract = (
-            thesis.get(
-                "abstract",
-                ""
-            ) or ""
-        )
-
-        print(
-            abstract[:500]
-        )
-
-    # =================================
-    # EVIDENCE EXTRACTION
-    # =================================
-
-    evidence = extract_evidence(
-        theses
-    )
-
-    # =================================
-    # EVIDENCE DEBUG
-    # =================================
-
-    print("\n")
-    print("=" * 80)
-    print("EVIDENCE DEBUG")
-    print("=" * 80)
-
-    print(evidence)
-
-    print("\nTECHNOLOGIES")
-    print(
-
-        evidence.get(
-            "technologies",
-            []
-        )
-    )
-
-    print("\nMETHODS")
-    print(
-
-        evidence.get(
-            "methodologies",
-            []
-        )
-    )
-
-    print("\nDOMAINS")
-    print(
-
-        evidence.get(
-            "research_domains",
-            []
-        )
-    )
-
-    # =================================
-    # STRUCTURED EVIDENCE
-    # =================================
-
-    print("\n====================================")
-    print("STRUCTURED EVIDENCE")
-    print("====================================")
-
-    print(
-        evidence
-    )
-
-    # =================================
-    # EVIDENCE MATRIX
-    # =================================
-
-    evidence_matrix = (
-        build_evidence_matrix(
-            evidence
-        )
-    )
-
-    print("\n====================================")
-    print("EVIDENCE MATRIX")
-    print("====================================")
-
-    print(
-        evidence_matrix
-    )
-
-    # =================================
-    # GAP ANALYSIS
-    # =================================
-
-    gap_analysis = (
-        detect_research_gaps(
-            evidence_matrix
-        )
-    )
-
-    # =================================
-    # NOVELTY ANALYSIS
-    # =================================
-
-    novelty_analysis = (
-        calculate_novelty_score(
-            evidence_matrix,
-            gap_analysis
-        )
-    )
-
-    if is_thesis_idea_query(query):
-
-        idea_result = (
-            generate_thesis_ideas(
-
-                query=query,
-
-                evidence=evidence,
-
-                evidence_matrix=evidence_matrix,
-
-                gap_analysis=gap_analysis,
-
-                novelty_analysis=novelty_analysis
-            )
-        )
-
-        return {
-
-            "query":
-            query,
-
-            "mode":
-            "thesis_ideas",
-
-            "analysis":
-            idea_result["ideas"],
-
-            "citations":
-            citations,
-
-            "evidence":
-            evidence,
-
-            "evidence_matrix":
-            evidence_matrix,
-
-            "gap_analysis":
-            gap_analysis,
-
-            "novelty_analysis":
-            novelty_analysis
-        }
-
-    print("\n====================================")
-    print("GAP ANALYSIS")
-    print("====================================")
-
-    print(
-        gap_analysis
-    )
-
-    # =================================
-    # EVIDENCE TEXT
-    # =================================
-
-    evidence_text = (
-        build_evidence_section(
-            evidence
-        )
-    )
-
-    matrix_text = (
-        build_matrix_section(
-            evidence_matrix
-        )
-    )
-
-    combined_evidence = (
-
-        evidence_text
-
-        + "\n\n"
-
-        + matrix_text
-
-        + "\n\n"
-
-        + "GAP ANALYSIS\n"
-        + "=" * 50
-        + "\n"
-        + str(gap_analysis)
-    )
-
-    # =================================
-    # CITATION CONTEXT
-    # =================================
-
-    citation_results = []
-
-    for thesis in theses:
-
-        citation_results.append({
-
-            "payload":
-            thesis,
-
-            "score":
-            thesis.get(
-                "score",
-                0
-            )
-        })
-
-    citation_context = (
-        build_citation_context(
-            citation_results
-        )
-    )
-
-    # =================================
-    # LITERATURE REVIEW GUARD
-    # =================================
-
-    MIN_THESIS_FOR_REVIEW = 5
-
-    if is_literature_review_query(
+    routing = route_query(
         query
-    ):
+    )
 
-        if len(theses) < MIN_THESIS_FOR_REVIEW:
+    context.intent = routing.get(
+        "intent",
+        "",
+    )
 
-            return {
+    context.provider = routing.get(
+        "provider",
+        "",
+    )
 
-                "query":
-                query,
+    context.model = routing.get(
+        "model",
+        "",
+    )
 
-                "mode":
-                "literature_review",
+    # =====================================
+    # BUILD & RUN PIPELINE
+    # =====================================
 
-                "analysis":
-                (
-                    "Bukti penelitian tidak cukup "
-                    "untuk menghasilkan literature review "
-                    "yang valid.\n\n"
-                    f"Ditemukan hanya {len(theses)} "
-                    f"skripsi relevan, sedangkan minimal "
-                    f"{MIN_THESIS_FOR_REVIEW} sumber "
-                    "dibutuhkan untuk analisis yang "
-                    "lebih dapat dipercaya."
-                ),
+    executor = (
+        ResearchPipelineBuilder.build(
 
-                "citations":
-                citations,
+            context,
 
-                "evidence":
-                evidence,
+            stream=stream,
 
-                "evidence_matrix":
-                evidence_matrix,
+        )
+    )
 
-                "gap_analysis":
-                gap_analysis
-            }
+    executor.run()
 
-        review_result = (
-            generate_literature_review(
+    # =====================================
+    # STREAM RESPONSE
+    # =====================================
 
-                query=query,
+    if stream:
 
-                evidence=evidence,
+        return (
 
-                evidence_matrix=evidence_matrix,
+            context,
 
-                gap_analysis=gap_analysis,
+            context.llm_stream,
 
-                citation_context=citation_context
-            )
         )
 
-        return {
+    # =====================================
+    # PERSIST ASSISTANT RESPONSE
+    # =====================================
 
-            "query":
-            query,
+    assistant_content = (
+        persist_assistant_response(
 
-            "mode":
-            "literature_review",
+            session=session,
 
-            "analysis":
-            review_result[
-                "literature_review"
-            ],
+            response=context.response,
 
-            "citations":
-            citations,
-
-            "evidence":
-            evidence,
-
-            "evidence_matrix":
-            evidence_matrix,
-
-            "gap_analysis":
-            gap_analysis,
-
-            "novelty_analysis":
-            novelty_analysis
-        }
-
-
-    # =================================
-    # PROMPT
-    # =================================
-
-    prompt = build_research_prompt(
-
-        query=query,
-
-        evidence_text=
-        combined_evidence,
-
-        citation_context=
-        citation_context,
-
-        mode=mode
-    )
-
-    print("\n====================================")
-    print("PROMPT GENERATED")
-    print("====================================")
-
-    # =================================
-    # LLM
-    # =================================
-
-    analysis = gateway.generate_response(
-        prompt=prompt
+        )
     )
 
     # =====================================
-    # RETURN
+    # PERSIST EXECUTION SNAPSHOT
     # =====================================
 
-    return {
+    persist_execution_snapshot(
 
-        "query":
-        query,
+        session=session,
 
-        "mode":
-        mode,
+        context=context,
 
-        "related_theses":
-        theses,
+        response_content=(
+            assistant_content
+        ),
 
-        "citations":
-        citations,
+    )
 
-        "evidence":
-        evidence,
+    # =====================================
+    # RESPONSE
+    # =====================================
 
-        "evidence_matrix":
-        evidence_matrix,
-
-        "gap_analysis":
-        gap_analysis,
-
-        "novelty_analysis":
-        novelty_analysis,
-
-        "analysis":
-        analysis
-    }
+    return context.response

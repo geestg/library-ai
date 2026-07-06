@@ -1,172 +1,62 @@
 import {
-  Sparkles,
-  BrainCircuit,
-  FlaskConical,
-  FileText
+  BrainCircuit
 } from "lucide-react";
 
-export default function ChatHero({
-
-  setInput
-
-}) {
+export default function ChatHero() {
 
   return (
 
     <div className="hero-section">
 
       {/* ========================= */}
-      {/* HERO BADGE */}
+      {/* BRAND */}
       {/* ========================= */}
 
       <div className="hero-badge">
 
-        <Sparkles size={14} />
+        <BrainCircuit size={14} />
 
-        DELBot Academic Intelligence
+        DELBot
 
       </div>
 
       {/* ========================= */}
-      {/* HERO TITLE */}
+      {/* TITLE */}
       {/* ========================= */}
 
       <h1>
 
-        Research smarter,
-        not harder.
+        Academic Research Intelligence
 
       </h1>
 
       {/* ========================= */}
-      {/* HERO SUBTITLE */}
+      {/* DESCRIPTION */}
       {/* ========================= */}
 
       <p>
 
-        AI-native academic workspace
-        for literature review,
-        semantic retrieval,
-        citation-aware answering,
-        and research synthesis.
+        Research starts with a question.
 
       </p>
 
       {/* ========================= */}
-      {/* MINI STATS */}
+      {/* CAPABILITIES */}
       {/* ========================= */}
 
-      <div className="hero-mini-stats">
+      <div className="hero-description">
 
-        <div className="hero-stat">
-
-          <strong>
-            Hybrid RAG
-          </strong>
-
-          <span>
-            BM25 + Vector Search
-          </span>
-
-        </div>
-
-        <div className="hero-stat">
-
-          <strong>
-            Evidence Aware
-          </strong>
-
-          <span>
-            Citation Grounded Answers
-          </span>
-
-        </div>
-
-        <div className="hero-stat">
-
-          <strong>
-            Academic AI
-          </strong>
-
-          <span>
-            Research Intelligence System
-          </span>
-
-        </div>
-
-      </div>
-
-      {/* ========================= */}
-      {/* HERO GRID */}
-      {/* ========================= */}
-
-      <div className="hero-grid">
-
-        <div
-          className="hero-card"
-          onClick={() =>
-            setInput(
-              "Cari research gap NLP healthcare"
-            )
-          }
-        >
-
-          <BrainCircuit size={22} />
-
-          <h3>
-            Research Gap
-          </h3>
-
-          <span>
-            Identifikasi peluang novelty penelitian
-          </span>
-
-        </div>
-
-        <div
-          className="hero-card"
-          onClick={() =>
-            setInput(
-              "Generate ide judul skripsi AI"
-            )
-          }
-        >
-
-          <FlaskConical size={22} />
-
-          <h3>
-            Thesis Ideas
-          </h3>
-
-          <span>
-            Generate topik skripsi modern
-          </span>
-
-        </div>
-
-        <div
-          className="hero-card"
-          onClick={() =>
-            setInput(
-              "Ringkas paper transformer terbaru"
-            )
-          }
-        >
-
-          <FileText size={22} />
-
-          <h3>
-            Paper Summary
-          </h3>
-
-          <span>
-            Summarize dan ekstrak insight
-          </span>
-
-        </div>
+        DELBot automatically understands your research intent,
+        retrieves relevant academic evidence, analyzes research
+        trends, identifies research gaps, compares methodologies,
+        understands uploaded documents, and generates grounded
+        research recommendations without requiring you to choose
+        specific tools.
 
       </div>
 
     </div>
+
   );
+
 }

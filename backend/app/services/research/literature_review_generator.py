@@ -2,57 +2,79 @@ from app.services.llm.model_gateway import (
     gateway
 )
 
+from app.services.research.models.research_context import (
+    ResearchContext
+)
+
+
 # =====================================
 # LITERATURE REVIEW GENERATOR
 # =====================================
 
 def generate_literature_review(
-
-    query: str,
-
-    evidence: dict,
-
-    evidence_matrix: dict,
-
-    gap_analysis: dict,
-
-    citation_context: str
+    context: ResearchContext
 ):
+
+    profile = context.research_profile
 
     prompt = f"""
 Anda adalah DELBot.
 
-Asisten Akademik Institut Teknologi Del.
+Academic Intelligence System Institut Teknologi Del.
 
 ==================================================
 TOPIK
 ==================================================
 
-{query}
+{context.query}
 
 ==================================================
 EVIDENCE
 ==================================================
 
-{evidence}
+{context.evidence}
 
 ==================================================
 EVIDENCE MATRIX
 ==================================================
 
-{evidence_matrix}
+{context.evidence_matrix}
+
+==================================================
+TREND ANALYSIS
+==================================================
+
+{profile.trend.to_dict()}
 
 ==================================================
 RESEARCH GAP
 ==================================================
 
-{gap_analysis}
+{profile.gap.to_dict()}
+
+==================================================
+NOVELTY
+==================================================
+
+{profile.novelty.to_dict()}
+
+==================================================
+COMPETENCY
+==================================================
+
+{profile.competency.to_dict()}
+
+==================================================
+PROGRAM STUDY
+==================================================
+
+{profile.prodi.to_dict()}
 
 ==================================================
 SUMBER
 ==================================================
 
-{citation_context}
+{context.citation_context}
 
 ==================================================
 TUGAS
@@ -70,11 +92,11 @@ FORMAT
 
 # Penelitian Terdahulu
 
-# Analisis Perbandingan Penelitian
+# Analisis Perbandingan
 
 # Research Gap
 
-# Posisi Penelitian Yang Diusulkan
+# Posisi Penelitian
 
 # Kesimpulan
 
@@ -82,21 +104,30 @@ FORMAT
 ATURAN
 ==================================================
 
-1. Semua klaim wajib memiliki sitasi.
+1.
+Semua klaim wajib memiliki sitasi.
 
-2. Format sitasi:
+2.
+Format sitasi:
 
 [1]
 [2]
 [3]
 
-3. Jangan membuat sumber baru.
+3.
+Jangan membuat sumber baru.
 
-4. Jangan mengarang teknologi.
+4.
+Jangan mengarang teknologi.
 
-5. Jangan mengarang metodologi.
+5.
+Jangan mengarang metodologi.
 
-6. Bahasa Indonesia akademik.
+6.
+Gunakan hanya evidence yang tersedia.
+
+7.
+Gunakan Bahasa Indonesia akademik.
 """
 
     review = gateway.generate_response(
@@ -106,7 +137,7 @@ ATURAN
     return {
 
         "query":
-        query,
+        context.query,
 
         "literature_review":
         review

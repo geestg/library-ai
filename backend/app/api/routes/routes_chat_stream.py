@@ -1,40 +1,111 @@
 from fastapi import APIRouter
-
 from fastapi.responses import StreamingResponse
-
 from pydantic import BaseModel
 
 import json
 
-from app.orchestration.task_router import (
-    route_query
+from app.services.research.research_engine import (
+    persist_assistant_response,
+    persist_execution_snapshot,
+    research_analysis,
 )
 
-from app.rag.hybrid_search import (
-    hybrid_search
+from app.services.research.serializers import (
+    serialize_research_context,
 )
 
-from app.rag.reranker import (
-    rerank
+from app.services.research.session import (
+    session_manager,
 )
 
-from app.rag.context_synthesizer import (
-    build_citation_context
-)
-
-from app.rag.source_mapper import (
-    build_source_map
-)
-
-from app.services.llm.model_gateway import (
-    gateway
-)
-
-from app.services.prompt.prompt_builder import (
-    build_prompt
-)
 
 router = APIRouter()
+
+
+# =========================================
+# STREAM EVENT
+# =========================================
+
+def stream_event(
+    event_type: str,
+    data,
+):
+
+    return (
+
+        json.dumps(
+
+            {
+
+                "type": event_type,
+
+                "data": data,
+
+            },
+
+            ensure_ascii=False,
+
+        )
+
+        + "\n"
+
+    )
+
+
+# =========================================
+# PERSIST STREAM ASSISTANT
+# =========================================
+
+def persist_stream_assistant(
+    context,
+    response,
+) -> str:
+
+    session = session_manager.get(
+        context.session_id
+    )
+
+    if session is None:
+
+        return ""
+
+    return persist_assistant_response(
+
+        session=session,
+
+        response=response,
+
+    )
+
+
+# =========================================
+# PERSIST STREAM EXECUTION
+# =========================================
+
+def persist_stream_execution(
+    context,
+    response_content: str = "",
+) -> dict:
+
+    session = session_manager.get(
+        context.session_id
+    )
+
+    if session is None:
+
+        return {}
+
+    return persist_execution_snapshot(
+
+        session=session,
+
+        context=context,
+
+        response_content=(
+            response_content
+        ),
+
+    )
 
 
 # =========================================
@@ -43,230 +114,328 @@ router = APIRouter()
 
 class StreamRequest(BaseModel):
 
+    session_id: str | None = None
+
     message: str
+
+    active_document_ids: list = []
 
 
 # =========================================
-# STREAM CHAT ROUTE
+# STREAM CHAT
 # =========================================
 
 @router.post("/chat-stream")
-def chat_stream(req: StreamRequest):
-
-    # =====================================
-    # AI ORCHESTRATION
-    # =====================================
-
-    routing = route_query(
-        req.message
-    )
-
-    intent = routing["intent"]
-
-    selected_model = routing["model"]
-
-    selected_provider = routing["provider"]
-
-    # =====================================
-    # HYBRID SEARCH
-    # =====================================
-
-    results = hybrid_search(
-
-        req.message,
-
-        limit=15
-    )
-
-    # =====================================
-    # PREPARE DOCUMENTS
-    # =====================================
-
-    documents = []
-
-    for r in results:
-
-        payload = r.get(
-            "payload",
-            {}
-        )
-
-        text = payload.get(
-            "text",
-            ""
-        )
-
-        documents.append({
-
-            "text": text,
-
-            "payload": payload,
-
-            "score": r.get(
-                "score",
-                0
-            )
-        })
-
-    # =====================================
-    # RERANKING
-    # =====================================
-
-    ranked_docs = rerank(
-
-        req.message,
-
-        documents
-    )
-
-    top_docs = ranked_docs[:5]
-
-    # =====================================
-    # CITATION CONTEXT
-    # =====================================
-
-    context = build_citation_context(
-        top_docs
-    )
-
-    # =====================================
-    # PROMPT BUILDING
-    # =====================================
-
-    prompt = build_prompt(
-
-        query=req.message,
-
-        context=context,
-
-        intent=intent
-    )
-
-    # =====================================
-    # STRUCTURED CITATIONS
-    # =====================================
-
-    citations = build_source_map(
-        top_docs
-    )
-
-    # =====================================
-    # SOURCES
-    # =====================================
-
-    sources = []
-
-    for idx, r in enumerate(top_docs, start=1):
-
-        payload = r.get(
-            "payload",
-            {}
-        )
-
-        sources.append({
-
-            "source_id": idx,
-
-            "title":
-            payload.get(
-                "title",
-                ""
-            ),
-
-            "author":
-            payload.get(
-                "author",
-                ""
-            ),
-
-            "year":
-            payload.get(
-                "year",
-                ""
-            ),
-
-            "prodi":
-            payload.get(
-                "prodi",
-                ""
-            ),
-
-            "url":
-            payload.get(
-                "url",
-                ""
-            ),
-
-            "chunk_index":
-            payload.get(
-                "chunk_index",
-                ""
-            ),
-
-            "score":
-            r.get(
-                "rerank_score",
-                0
-            )
-        })
-
-    # =====================================
-    # STREAM GENERATOR
-    # =====================================
+def chat_stream(
+    req: StreamRequest,
+):
 
     def generate():
 
-        stream = gateway.stream_response(
+        try:
 
-            prompt=prompt,
+            # =====================================
+            # START
+            # =====================================
 
-            model=selected_model,
+            yield stream_event(
 
-            provider=selected_provider
-        )
+                "start",
 
-        # =================================
-        # TOKEN STREAM
-        # =================================
+                {
 
-        for chunk in stream:
+                    "status":
+                        "thinking",
 
-            yield (
-                json.dumps({
-                    "type": "token",
-                    "content": chunk
-                }) + "\n"
+                },
+
             )
 
-        # =================================
-        # CITATIONS EVENT
-        # =================================
+            # =====================================
+            # RESEARCH PIPELINE
+            # =====================================
 
-        yield (
-            json.dumps({
-                "type": "citations",
-                "data": citations
-            }) + "\n"
-        )
+            context, llm_stream = (
+                research_analysis(
 
-        # =================================
-        # SOURCES EVENT
-        # =================================
+                    session_id=(
+                        req.session_id or ""
+                    ),
 
-        yield (
-            json.dumps({
-                "type": "sources",
-                "data": sources
-            }) + "\n"
-        )
+                    query=req.message,
 
-    # =====================================
-    # STREAM RESPONSE
-    # =====================================
+                    active_document_ids=(
+                        req.active_document_ids
+                    ),
+
+                    stream=True,
+
+                )
+            )
+
+            # =====================================
+            # METADATA
+            # =====================================
+
+            yield stream_event(
+
+                "metadata",
+
+                {
+
+                    "provider":
+                        context.provider,
+
+                    "model":
+                        context.model,
+
+                    "intent":
+                        context.intent,
+
+                },
+
+            )
+
+            # =====================================
+            # SPECIALIZED RESPONSE
+            # =====================================
+
+            if context.response is not None:
+
+                specialized_response = (
+                    context.response
+                )
+
+                yield stream_event(
+
+                    "context",
+
+                    specialized_response,
+
+                )
+
+                analysis = (
+                    specialized_response.get(
+                        "analysis",
+                        "",
+                    )
+                )
+
+                if analysis:
+
+                    yield stream_event(
+
+                        "token",
+
+                        analysis,
+
+                    )
+
+                # =================================
+                # PERSIST SPECIALIZED ASSISTANT
+                # =================================
+
+                assistant_content = (
+                    persist_stream_assistant(
+
+                        context=context,
+
+                        response=(
+                            specialized_response
+                        ),
+
+                    )
+                )
+
+                # =================================
+                # PERSIST SPECIALIZED EXECUTION
+                # =================================
+
+                persist_stream_execution(
+
+                    context=context,
+
+                    response_content=(
+                        assistant_content
+                    ),
+
+                )
+
+                yield stream_event(
+
+                    "context_final",
+
+                    specialized_response,
+
+                )
+
+                yield stream_event(
+
+                    "end",
+
+                    {
+
+                        "status":
+                            "completed",
+
+                    },
+
+                )
+
+                return
+
+            # =====================================
+            # INITIAL CONTEXT
+            # =====================================
+
+            initial_context = (
+                serialize_research_context(
+                    context
+                )
+            )
+
+            yield stream_event(
+
+                "context",
+
+                initial_context,
+
+            )
+
+            # =====================================
+            # STREAM VALIDATION
+            # =====================================
+
+            if llm_stream is None:
+
+                raise RuntimeError(
+
+                    "Research pipeline completed "
+                    "without a response or LLM stream."
+
+                )
+
+            # =====================================
+            # TOKEN STREAM
+            # =====================================
+
+            analysis_chunks = []
+
+            for token in llm_stream:
+
+                analysis_chunks.append(
+                    token
+                )
+
+                yield stream_event(
+
+                    "token",
+
+                    token,
+
+                )
+
+            # =====================================
+            # FINAL ANALYSIS
+            # =====================================
+
+            context.analysis = "".join(
+                analysis_chunks
+            )
+
+            # =====================================
+            # PERSIST STREAMED ASSISTANT
+            # =====================================
+
+            assistant_content = (
+                persist_stream_assistant(
+
+                    context=context,
+
+                    response={
+
+                        "analysis":
+                            context.analysis,
+
+                    },
+
+                )
+            )
+
+            # =====================================
+            # PERSIST STREAMED EXECUTION
+            # =====================================
+
+            persist_stream_execution(
+
+                context=context,
+
+                response_content=(
+                    assistant_content
+                ),
+
+            )
+
+            # =====================================
+            # FINAL CONTEXT
+            # =====================================
+
+            final_context = (
+                serialize_research_context(
+                    context
+                )
+            )
+
+            yield stream_event(
+
+                "context_final",
+
+                final_context,
+
+            )
+
+            # =====================================
+            # END
+            # =====================================
+
+            yield stream_event(
+
+                "end",
+
+                {
+
+                    "status":
+                        "completed",
+
+                },
+
+            )
+
+        except Exception as exc:
+
+            yield stream_event(
+
+                "error",
+
+                {
+
+                    "status":
+                        "failed",
+
+                    "message":
+                        str(exc),
+
+                    "exception_type":
+                        type(exc).__name__,
+
+                },
+
+            )
 
     return StreamingResponse(
 
         generate(),
 
-        media_type="text/plain"
+        media_type="application/x-ndjson",
+
     )

@@ -1,0 +1,516 @@
+﻿Folder PATH listing
+Volume serial number is 000001EA 7289:3ED1
+D:\LIBRARY-AI\BACKEND
+|   .env
+|   Dockerfile
+|   requirements.txt
+|   test_qdrant_methods.py
+|   test_research_service.py
+|   test_thesis_search.py
+|   
++---app
+|   |   main.py
+|   |   
+|   +---api
+|   |   +---routes
+|   |   |   |   research.py
+|   |   |   |   routes_chat.py
+|   |   |   |   routes_chat_stream.py
+|   |   |   |   routes_debug.py
+|   |   |   |   routes_document.py
+|   |   |   |   routes_search.py
+|   |   |   |   routes_session.py
+|   |   |   |   routes_upload.py
+|   |   |   |   title_generator.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           research.cpython-310.pyc
+|   |   |           routes_chat.cpython-310.pyc
+|   |   |           routes_chat_stream.cpython-310.pyc
+|   |   |           routes_debug.cpython-310.pyc
+|   |   |           routes_document.cpython-310.pyc
+|   |   |           routes_search.cpython-310.pyc
+|   |   |           routes_session.cpython-310.pyc
+|   |   |           routes_upload.cpython-310.pyc
+|   |   |           title_generator.cpython-310.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           routes_chat.cpython-311.pyc
+|   |           routes_chat_stream.cpython-311.pyc
+|   |           routes_search.cpython-311.pyc
+|   |           routes_upload.cpython-311.pyc
+|   |           
+|   +---core
+|   |   |   config.py
+|   |   |   constants.py
+|   |   |   
+|   |   \---__pycache__
+|   |           config.cpython-310.pyc
+|   |           config.cpython-311.pyc
+|   |           constants.cpython-310.pyc
+|   |           
+|   +---dataset
+|   |   |   dataset_ingest.py
+|   |   |   metadata_extractor.py
+|   |   |   skripsi_dataset.json
+|   |   |   thesis_cleaner.py
+|   |   |   thesis_parser.py
+|   |   |   
+|   |   \---__pycache__
+|   |           dataset_ingest.cpython-310.pyc
+|   |           metadata_extractor.cpython-310.pyc
+|   |           thesis_cleaner.cpython-310.pyc
+|   |           thesis_parser.cpython-310.pyc
+|   |           
+|   +---db
+|   +---document
+|   |   |   document_classifier.py
+|   |   |   file_classifier.py
+|   |   |   image_processor.py
+|   |   |   multimodal_pipeline.py
+|   |   |   ocr_engine.py
+|   |   |   
+|   |   +---parsers
+|   |   |   |   csv_parser.py
+|   |   |   |   docx_parser.py
+|   |   |   |   pdf_parser.py
+|   |   |   |   pptx_parser.py
+|   |   |   |   txt_parser.py
+|   |   |   |   xlsx_parser.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           pdf_parser.cpython-310.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           file_classifier.cpython-310.pyc
+|   |           file_classifier.cpython-311.pyc
+|   |           multimodal_pipeline.cpython-311.pyc
+|   |           ocr_engine.cpython-311.pyc
+|   |           pdf_parser.cpython-311.pyc
+|   |           
+|   +---models
+|   |   |   research_models.py
+|   |   |   
+|   |   \---__pycache__
+|   |           research_models.cpython-310.pyc
+|   |           
+|   +---orchestration
+|   |   |   intent_classifier.py
+|   |   |   model_selector.py
+|   |   |   task_router.py
+|   |   |   
+|   |   \---__pycache__
+|   |           intent_classifier.cpython-310.pyc
+|   |           intent_classifier.cpython-311.pyc
+|   |           model_selector.cpython-310.pyc
+|   |           model_selector.cpython-311.pyc
+|   |           task_router.cpython-310.pyc
+|   |           task_router.cpython-311.pyc
+|   |           
+|   +---rag
+|   |   |   bm25_engine.py
+|   |   |   chunker.py
+|   |   |   context_synthesizer.py
+|   |   |   embedder.py
+|   |   |   hybrid_search.py
+|   |   |   ingest.py
+|   |   |   qdrant_client.py
+|   |   |   reranker.py
+|   |   |   source_mapper.py
+|   |   |   thesis_hybrid_search.py
+|   |   |   thesis_reranker.py
+|   |   |   thesis_retriever.py
+|   |   |   
+|   |   \---__pycache__
+|   |           bm25_engine.cpython-310.pyc
+|   |           chunker.cpython-310.pyc
+|   |           chunker.cpython-311.pyc
+|   |           context_synthesizer.cpython-310.pyc
+|   |           embedder.cpython-310.pyc
+|   |           embedder.cpython-311.pyc
+|   |           hybrid_search.cpython-310.pyc
+|   |           hybrid_search.cpython-311.pyc
+|   |           ingest.cpython-310.pyc
+|   |           ingest.cpython-311.pyc
+|   |           qdrant_client.cpython-310.pyc
+|   |           qdrant_client.cpython-311.pyc
+|   |           reranker.cpython-310.pyc
+|   |           reranker.cpython-311.pyc
+|   |           source_mapper.cpython-310.pyc
+|   |           thesis_hybrid_search.cpython-310.pyc
+|   |           thesis_retriever.cpython-310.pyc
+|   |           
+|   +---schemas
+|   |       chat_response.py
+|   |       citation.py
+|   |       
+|   +---services
+|   |   |   research_service.py
+|   |   |   title_generator_service.py
+|   |   |   
+|   |   +---document
+|   |   |   |   document_chat_memory.py
+|   |   |   |   document_chunk_retriever.py
+|   |   |   |   document_intent.py
+|   |   |   |   document_service.py
+|   |   |   |   session_store.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           document_chat_memory.cpython-310.pyc
+|   |   |           document_chunk_retriever.cpython-310.pyc
+|   |   |           document_intent.cpython-310.pyc
+|   |   |           session_store.cpython-310.pyc
+|   |   |           
+|   |   +---embedder
+|   |   |   |   base_embedder.py
+|   |   |   |   embedding_gateway.py
+|   |   |   |   ollama_embedder.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           base_embedder.cpython-310.pyc
+|   |   |           base_embedder.cpython-311.pyc
+|   |   |           embedding_gateway.cpython-310.pyc
+|   |   |           embedding_gateway.cpython-311.pyc
+|   |   |           ollama_embedder.cpython-310.pyc
+|   |   |           ollama_embedder.cpython-311.pyc
+|   |   |           __init__.cpython-310.pyc
+|   |   |           __init__.cpython-311.pyc
+|   |   |           
+|   |   +---llm
+|   |   |   |   base_provider.py
+|   |   |   |   model_gateway.py
+|   |   |   |   ollama_provider.py
+|   |   |   |   openrouter_provider.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           base_provider.cpython-310.pyc
+|   |   |           base_provider.cpython-311.pyc
+|   |   |           model_gateway.cpython-310.pyc
+|   |   |           model_gateway.cpython-311.pyc
+|   |   |           ollama_provider.cpython-310.pyc
+|   |   |           ollama_provider.cpython-311.pyc
+|   |   |           openrouter_provider.cpython-310.pyc
+|   |   |           openrouter_provider.cpython-311.pyc
+|   |   |           __init__.cpython-310.pyc
+|   |   |           __init__.cpython-311.pyc
+|   |   |           
+|   |   +---prompt
+|   |   |   |   prompt_builder.py
+|   |   |   |   response_modes.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           prompt_builder.cpython-310.pyc
+|   |   |           response_modes.cpython-310.pyc
+|   |   |           
+|   |   +---research
+|   |   |   |   compare_methods.py
+|   |   |   |   comparison_builder.py
+|   |   |   |   diversity_filter.py
+|   |   |   |   domain_classifier.py
+|   |   |   |   domain_prompts.py
+|   |   |   |   domain_resolver.py
+|   |   |   |   evidence_extractor.py
+|   |   |   |   evidence_matrix.py
+|   |   |   |   evidence_patterns.py
+|   |   |   |   extraction_aliases.py
+|   |   |   |   extraction_utils.py
+|   |   |   |   gap_detector.py
+|   |   |   |   intent_detector.py
+|   |   |   |   literature_review_generator.py
+|   |   |   |   method_comparison_engine.py
+|   |   |   |   novelty_scorer.py
+|   |   |   |   prompt_builder.py
+|   |   |   |   query_normalizer.py
+|   |   |   |   research_engine.py
+|   |   |   |   thesis_evidence_extractor.py
+|   |   |   |   thesis_idea_generator.py
+|   |   |   |   trend_engine.py
+|   |   |   |   trend_intent.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   +---comparison
+|   |   |   |   |   comparison_detector.py
+|   |   |   |   |   comparison_engine.py
+|   |   |   |   |   comparison_llm.py
+|   |   |   |   |   comparison_matrix_builder.py
+|   |   |   |   |   comparison_prompt_builder.py
+|   |   |   |   |   method_extractor.py
+|   |   |   |   |   statistics_builder.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           comparison_detector.cpython-310.pyc
+|   |   |   |           comparison_engine.cpython-310.pyc
+|   |   |   |           comparison_llm.cpython-310.pyc
+|   |   |   |           comparison_matrix_builder.cpython-310.pyc
+|   |   |   |           comparison_prompt_builder.cpython-310.pyc
+|   |   |   |           method_extractor.cpython-310.pyc
+|   |   |   |           statistics_builder.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---competency
+|   |   |   |   |   competency_engine.py
+|   |   |   |   |   competency_mapping.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           competency_engine.cpython-310.pyc
+|   |   |   |           competency_mapping.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---engines
+|   |   |   |   |   comparison_engine.py
+|   |   |   |   |   competency_engine.py
+|   |   |   |   |   context_engine.py
+|   |   |   |   |   document_engine.py
+|   |   |   |   |   domain_engine.py
+|   |   |   |   |   evidence_engine.py
+|   |   |   |   |   evidence_formatter.py
+|   |   |   |   |   literature_engine.py
+|   |   |   |   |   llm_engine.py
+|   |   |   |   |   prodi_engine.py
+|   |   |   |   |   prompt_engine.py
+|   |   |   |   |   response_engine.py
+|   |   |   |   |   search_engine.py
+|   |   |   |   |   thesis_idea_engine.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           comparison_engine.cpython-310.pyc
+|   |   |   |           competency_engine.cpython-310.pyc
+|   |   |   |           context_engine.cpython-310.pyc
+|   |   |   |           document_engine.cpython-310.pyc
+|   |   |   |           domain_engine.cpython-310.pyc
+|   |   |   |           evidence_engine.cpython-310.pyc
+|   |   |   |           literature_engine.cpython-310.pyc
+|   |   |   |           llm_engine.cpython-310.pyc
+|   |   |   |           prodi_engine.cpython-310.pyc
+|   |   |   |           prompt_engine.cpython-310.pyc
+|   |   |   |           response_engine.cpython-310.pyc
+|   |   |   |           search_engine.cpython-310.pyc
+|   |   |   |           thesis_idea_engine.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---extractors
+|   |   |   |   |   dataset_extractor.py
+|   |   |   |   |   domain_extractor.py
+|   |   |   |   |   methodology_extractor.py
+|   |   |   |   |   metric_extractor.py
+|   |   |   |   |   technology_extractor.py
+|   |   |   |   |   
+|   |   |   |   +---extractors
+|   |   |   |   |       init.py
+|   |   |   |   |       
+|   |   |   |   \---__pycache__
+|   |   |   |           dataset_extractor.cpython-310.pyc
+|   |   |   |           domain_extractor.cpython-310.pyc
+|   |   |   |           methodology_extractor.cpython-310.pyc
+|   |   |   |           metric_extractor.cpython-310.pyc
+|   |   |   |           technology_extractor.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---gap
+|   |   |   |   |   common.py
+|   |   |   |   |   dataset_gap_detector.py
+|   |   |   |   |   dominant_detector.py
+|   |   |   |   |   emerging_detector.py
+|   |   |   |   |   evaluation_gap_detector.py
+|   |   |   |   |   gap_detector.py
+|   |   |   |   |   gap_scoring.py
+|   |   |   |   |   method_gap_detector.py
+|   |   |   |   |   novelty_detector.py
+|   |   |   |   |   rarity_detector.py
+|   |   |   |   |   temporal_gap_detector.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           common.cpython-310.pyc
+|   |   |   |           dataset_gap_detector.cpython-310.pyc
+|   |   |   |           dominant_detector.cpython-310.pyc
+|   |   |   |           emerging_detector.cpython-310.pyc
+|   |   |   |           evaluation_gap_detector.cpython-310.pyc
+|   |   |   |           gap_detector.cpython-310.pyc
+|   |   |   |           gap_scoring.cpython-310.pyc
+|   |   |   |           method_gap_detector.cpython-310.pyc
+|   |   |   |           novelty_detector.cpython-310.pyc
+|   |   |   |           rarity_detector.cpython-310.pyc
+|   |   |   |           temporal_gap_detector.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---methods
+|   |   |   |       method_comparison_builder.py
+|   |   |   |       method_frequency_extractor.py
+|   |   |   |       method_knowledge.py
+|   |   |   |       method_summary_builder.py
+|   |   |   |       method_table_builder.py
+|   |   |   |       __init__.py
+|   |   |   |       
+|   |   |   +---models
+|   |   |   |   |   competency_analysis.py
+|   |   |   |   |   evidence_analysis.py
+|   |   |   |   |   evidence_matrix.py
+|   |   |   |   |   gap_analysis.py
+|   |   |   |   |   novelty_analysis.py
+|   |   |   |   |   prodi_analysis.py
+|   |   |   |   |   research_context.py
+|   |   |   |   |   research_profile.py
+|   |   |   |   |   trend_analysis.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           competency_analysis.cpython-310.pyc
+|   |   |   |           evidence_analysis.cpython-310.pyc
+|   |   |   |           evidence_matrix.cpython-310.pyc
+|   |   |   |           gap_analysis.cpython-310.pyc
+|   |   |   |           novelty_analysis.cpython-310.pyc
+|   |   |   |           prodi_analysis.cpython-310.pyc
+|   |   |   |           research_context.cpython-310.pyc
+|   |   |   |           research_profile.cpython-310.pyc
+|   |   |   |           trend_analysis.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---pipeline
+|   |   |   |   |   base_hook.py
+|   |   |   |   |   base_stage.py
+|   |   |   |   |   builder.py
+|   |   |   |   |   executor.py
+|   |   |   |   |   hooks.py
+|   |   |   |   |   hooks_logger.py
+|   |   |   |   |   logging_hook.py
+|   |   |   |   |   pipeline.py
+|   |   |   |   |   registry.py
+|   |   |   |   |   stage_result.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   +---stages
+|   |   |   |   |   |   comparison_stage.py
+|   |   |   |   |   |   competency_stage.py
+|   |   |   |   |   |   context_stage.py
+|   |   |   |   |   |   document_stage.py
+|   |   |   |   |   |   domain_stage.py
+|   |   |   |   |   |   evidence_stage.py
+|   |   |   |   |   |   literature_stage.py
+|   |   |   |   |   |   llm_stage.py
+|   |   |   |   |   |   prodi_stage.py
+|   |   |   |   |   |   prompt_stage.py
+|   |   |   |   |   |   response_stage.py
+|   |   |   |   |   |   search_stage.py
+|   |   |   |   |   |   thesis_idea_stage.py
+|   |   |   |   |   |   __init__.py
+|   |   |   |   |   |   
+|   |   |   |   |   \---__pycache__
+|   |   |   |   |           comparison_stage.cpython-310.pyc
+|   |   |   |   |           competency_stage.cpython-310.pyc
+|   |   |   |   |           context_stage.cpython-310.pyc
+|   |   |   |   |           document_stage.cpython-310.pyc
+|   |   |   |   |           domain_stage.cpython-310.pyc
+|   |   |   |   |           evidence_stage.cpython-310.pyc
+|   |   |   |   |           literature_stage.cpython-310.pyc
+|   |   |   |   |           llm_stage.cpython-310.pyc
+|   |   |   |   |           prodi_stage.cpython-310.pyc
+|   |   |   |   |           prompt_stage.cpython-310.pyc
+|   |   |   |   |           response_stage.cpython-310.pyc
+|   |   |   |   |           search_stage.cpython-310.pyc
+|   |   |   |   |           thesis_idea_stage.cpython-310.pyc
+|   |   |   |   |           __init__.cpython-310.pyc
+|   |   |   |   |           
+|   |   |   |   \---__pycache__
+|   |   |   |           base_stage.cpython-310.pyc
+|   |   |   |           builder.cpython-310.pyc
+|   |   |   |           executor.cpython-310.pyc
+|   |   |   |           hooks.cpython-310.pyc
+|   |   |   |           pipeline.cpython-310.pyc
+|   |   |   |           registry.cpython-310.pyc
+|   |   |   |           stage_result.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---prodi
+|   |   |   |   |   prodi_engine.py
+|   |   |   |   |   prodi_profiles.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           prodi_engine.cpython-310.pyc
+|   |   |   |           prodi_profiles.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---prompts
+|   |   |   |   |   analysis_prompt_builder.py
+|   |   |   |   |   evidence_prompt_builder.py
+|   |   |   |   |   matrix_prompt_builder.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           analysis_prompt_builder.cpython-310.pyc
+|   |   |   |           evidence_prompt_builder.cpython-310.pyc
+|   |   |   |           matrix_prompt_builder.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---serializers
+|   |   |   |   |   research_context_serializer.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   \---__pycache__
+|   |   |   |           research_context_serializer.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   +---session
+|   |   |   |   |   session_manager.py
+|   |   |   |   |   __init__.py
+|   |   |   |   |   
+|   |   |   |   +---models
+|   |   |   |   |   |   conversation_session.py
+|   |   |   |   |   |   document_session.py
+|   |   |   |   |   |   execution_session.py
+|   |   |   |   |   |   workspace_session.py
+|   |   |   |   |   |   workspace_state.py
+|   |   |   |   |   |   __init__.py
+|   |   |   |   |   |   
+|   |   |   |   |   \---__pycache__
+|   |   |   |   |           conversation_session.cpython-310.pyc
+|   |   |   |   |           document_session.cpython-310.pyc
+|   |   |   |   |           execution_session.cpython-310.pyc
+|   |   |   |   |           workspace_session.cpython-310.pyc
+|   |   |   |   |           workspace_state.cpython-310.pyc
+|   |   |   |   |           __init__.cpython-310.pyc
+|   |   |   |   |           
+|   |   |   |   \---__pycache__
+|   |   |   |           session_manager.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
+|   |   |   |           
+|   |   |   \---__pycache__
+|   |   |           diversity_filter.cpython-310.pyc
+|   |   |           domain_classifier.cpython-310.pyc
+|   |   |           domain_prompts.cpython-310.pyc
+|   |   |           domain_resolver.cpython-310.pyc
+|   |   |           evidence_extractor.cpython-310.pyc
+|   |   |           evidence_matrix.cpython-310.pyc
+|   |   |           extraction_aliases.cpython-310.pyc
+|   |   |           extraction_utils.cpython-310.pyc
+|   |   |           gap_detector.cpython-310.pyc
+|   |   |           intent_detector.cpython-310.pyc
+|   |   |           literature_review_generator.cpython-310.pyc
+|   |   |           method_comparison_engine.cpython-310.pyc
+|   |   |           novelty_scorer.cpython-310.pyc
+|   |   |           prompt_builder.cpython-310.pyc
+|   |   |           query_normalizer.cpython-310.pyc
+|   |   |           research_engine.cpython-310.pyc
+|   |   |           thesis_evidence_extractor.cpython-310.pyc
+|   |   |           thesis_idea_generator.cpython-310.pyc
+|   |   |           trend_engine.cpython-310.pyc
+|   |   |           __init__.cpython-310.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           research_service.cpython-310.pyc
+|   |           title_generator_service.cpython-310.pyc
+|   |           
+|   +---utils
+|   |   |   error_handler.py
+|   |   |   
+|   |   \---__pycache__
+|   |           error_handler.cpython-310.pyc
+|   |           error_handler.cpython-311.pyc
+|   |           
+|   \---__pycache__
+|           main.cpython-310.pyc
+|           main.cpython-311.pyc
+|           
++---datasets
++---scripts
++---uploads
+\---__pycache__
+        test_research_service.cpython-310.pyc
+        

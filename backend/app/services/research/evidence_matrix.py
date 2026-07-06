@@ -1,132 +1,102 @@
+from app.services.research.models.evidence_analysis import (
+    EvidenceAnalysis
+)
+
+from app.services.research.models.evidence_matrix import (
+    EvidenceMatrix
+)
+
+
 # =====================================
-# BUILD EVIDENCE MATRIX V2
+# BUILD EVIDENCE MATRIX V3
 # =====================================
 
 def build_evidence_matrix(
-    evidence: dict
+    evidence
 ):
 
-    matrix = {
+    if isinstance(
+        evidence,
+        dict
+    ):
 
-        "technology_frequency": {},
+        evidence = (
+            EvidenceAnalysis.from_dict(
+                evidence
+            )
+        )
 
-        "methodology_frequency": {},
-
-        "keyword_frequency": {},
-
-        "domain_frequency": {},
-
-        "dataset_frequency": {},
-
-        "evaluation_frequency": {},
-
-        "year_frequency": {}
-    }
+    matrix = EvidenceMatrix()
 
     # =================================
     # TECHNOLOGY
     # =================================
 
-    for item in evidence.get(
-        "technologies",
-        []
-    ):
+    for item in evidence.technologies:
 
-        matrix[
-            "technology_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.technology_frequency[
+            item.name
+        ] = item.count
 
     # =================================
     # METHODOLOGY
     # =================================
 
-    for item in evidence.get(
-        "methodologies",
-        []
-    ):
+    for item in evidence.methodologies:
 
-        matrix[
-            "methodology_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.methodology_frequency[
+            item.name
+        ] = item.count
 
     # =================================
     # KEYWORD
     # =================================
 
-    for item in evidence.get(
-        "keywords",
-        []
-    ):
+    for item in evidence.keywords:
 
-        matrix[
-            "keyword_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.keyword_frequency[
+            item.name
+        ] = item.count
 
     # =================================
     # DOMAIN
     # =================================
 
-    for item in evidence.get(
-        "research_domains",
-        []
-    ):
+    for item in evidence.research_domains:
 
-        matrix[
-            "domain_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.domain_frequency[
+            item.name
+        ] = item.count
 
     # =================================
     # DATASET
     # =================================
 
-    for item in evidence.get(
-        "datasets",
-        []
-    ):
+    for item in evidence.datasets:
 
-        matrix[
-            "dataset_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.dataset_frequency[
+            item.name
+        ] = item.count
 
     # =================================
-    # EVALUATION METRICS
+    # METRIC
     # =================================
 
-    for item in evidence.get(
-        "evaluation_metrics",
-        []
-    ):
+    for item in evidence.evaluation_metrics:
 
-        matrix[
-            "evaluation_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.evaluation_frequency[
+            item.name
+        ] = item.count
 
     # =================================
-    # YEARS
+    # YEAR
     # =================================
 
-    for item in evidence.get(
-        "years",
-        []
-    ):
+    for item in evidence.years:
 
-        matrix[
-            "year_frequency"
-        ][
-            item["name"]
-        ] = item["count"]
+        matrix.year_frequency[
+            item.name
+        ] = item.count
 
     # =================================
     # DEBUG
@@ -134,37 +104,37 @@ def build_evidence_matrix(
 
     print("\n")
     print("=" * 80)
-    print("EVIDENCE MATRIX V2")
+    print("EVIDENCE MATRIX V3")
     print("=" * 80)
 
     print(
         "TECHNOLOGY:",
-        matrix["technology_frequency"]
+        matrix.technology_frequency
     )
 
     print(
         "METHODOLOGY:",
-        matrix["methodology_frequency"]
+        matrix.methodology_frequency
     )
 
     print(
         "DOMAIN:",
-        matrix["domain_frequency"]
+        matrix.domain_frequency
     )
 
     print(
         "DATASET:",
-        matrix["dataset_frequency"]
+        matrix.dataset_frequency
     )
 
     print(
         "METRIC:",
-        matrix["evaluation_frequency"]
+        matrix.evaluation_frequency
     )
 
     print(
         "YEAR:",
-        matrix["year_frequency"]
+        matrix.year_frequency
     )
 
     return matrix
