@@ -1,10 +1,12 @@
-from fastapi import APIRouter
-from fastapi import UploadFile
-from fastapi import File
-
 from uuid import uuid4
 
 import os
+
+from fastapi import APIRouter
+from fastapi import File
+from fastapi import Form
+from fastapi import HTTPException
+from fastapi import UploadFile
 
 from app.document.file_classifier import (
     classify_file,
@@ -14,11 +16,17 @@ from app.rag.ingest import (
     ingest_pdf,
 )
 
-from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS,
+from app.services.research.session import (
+    session_manager,
 )
 
+from app.services.research.session.models.document_session import (
+    DocumentItem,
+)
+
+
 router = APIRouter()
+
 
 # =====================================
 # CONFIG
@@ -27,12 +35,10 @@ router = APIRouter()
 UPLOAD_DIR = "/tmp/uploads"
 
 os.makedirs(
-
     UPLOAD_DIR,
-
     exist_ok=True,
-
 )
+
 
 # =====================================
 # UPLOAD DOCUMENT
@@ -43,7 +49,27 @@ async def upload_pdf(
 
     file: UploadFile = File(...),
 
+    session_id: str = Form(...),
+
 ):
+
+    # =================================
+    # RESOLVE SESSION
+    # =================================
+
+    session = session_manager.get(
+        session_id
+    )
+
+    if session is None:
+
+        raise HTTPException(
+
+            status_code=404,
+
+            detail="Session not found",
+
+        )
 
     # =================================
     # SAVE FILE
@@ -102,8 +128,40 @@ async def upload_pdf(
     # =================================
 
     document_id = str(
-
         uuid4()
+    )
+
+    # =================================
+    # BUILD DOCUMENT
+    # =================================
+
+    document = DocumentItem(
+
+        document_id=document_id,
+
+        filename=file.filename,
+
+        file_type=file_type,
+
+        content=ingest_result.get(
+            "full_text",
+            "",
+        ),
+
+        pages=ingest_result.get(
+            "pages",
+            0,
+        ),
+
+        chunks=ingest_result.get(
+            "chunks",
+            0,
+        ),
+
+        pages_data=ingest_result.get(
+            "pages_data",
+            [],
+        ),
 
     )
 
@@ -111,44 +169,9 @@ async def upload_pdf(
     # STORE DOCUMENT
     # =================================
 
-    ACTIVE_DOCUMENTS[
-        document_id
-    ] = {
-
-        "document_id":
-        document_id,
-
-        "filename":
-        file.filename,
-
-        "file_type":
-        file_type,
-
-        "content":
-        ingest_result.get(
-            "full_text",
-            "",
-        ),
-
-        "pages":
-        ingest_result.get(
-            "pages",
-            0,
-        ),
-
-        "chunks":
-        ingest_result.get(
-            "chunks",
-            0,
-        ),
-
-        "pages_data":
-        ingest_result.get(
-            "pages_data",
-            [],
-        ),
-
-    }
+    session.documents.add_document(
+        document
+    )
 
     # =================================
     # DEBUG
@@ -171,15 +194,19 @@ async def upload_pdf(
     )
 
     print(
-        f"Pages       : {ingest_result.get('pages', 0)}"
+        f"Session ID  : {session.session_id}"
     )
 
     print(
-        f"Chunks      : {ingest_result.get('chunks', 0)}"
+        f"Pages       : {document.pages}"
     )
 
     print(
-        f"Stored      : ACTIVE_DOCUMENTS"
+        f"Chunks      : {document.chunks}"
+    )
+
+    print(
+        "Stored      : WorkspaceSession.documents"
     )
 
     print("=" * 60)
@@ -191,30 +218,27 @@ async def upload_pdf(
     return {
 
         "status":
-        "success",
+            "success",
 
         "document_id":
-        document_id,
+            document.document_id,
 
         "filename":
-        file.filename,
+            document.filename,
 
         "file_type":
-        file_type,
+            document.file_type,
 
         "pages":
-        ingest_result.get(
-            "pages",
-            0,
-        ),
+            document.pages,
 
         "chunks":
-        ingest_result.get(
-            "chunks",
-            0,
-        ),
+            document.chunks,
+
+        "session_id":
+            session.session_id,
 
         "message":
-        "Document uploaded successfully",
+            "Document uploaded successfully",
 
     }
