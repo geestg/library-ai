@@ -1337,6 +1337,191 @@ class SessionModelTests(
             {},
         )
 
+
+    def test_execution_session_update_uses_context_analysis_fallback(
+        self,
+    ):
+
+        context = build_context(
+            "analisis artificial intelligence"
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "research"
+        )
+
+        context.analysis = (
+            "Generated research analysis"
+        )
+
+        serialized_context = {
+
+            "query":
+                context.query,
+
+            "analysis":
+                context.analysis,
+
+        }
+
+        execution = ExecutionSession()
+
+        execution.update(
+
+            context=context,
+
+            serialized_context=(
+                serialized_context
+            ),
+
+        )
+
+        self.assertEqual(
+
+            execution.last_query,
+
+            context.query,
+
+        )
+
+        self.assertEqual(
+
+            execution.mode,
+
+            context.mode,
+
+        )
+
+        self.assertEqual(
+
+            execution.provider,
+
+            "test-provider",
+
+        )
+
+        self.assertEqual(
+
+            execution.model,
+
+            "test-model",
+
+        )
+
+        self.assertEqual(
+
+            execution.intent,
+
+            "research",
+
+        )
+
+        self.assertEqual(
+
+            execution.response,
+
+            "Generated research analysis",
+
+        )
+
+        self.assertIs(
+
+            execution.serialized_context,
+
+            serialized_context,
+
+        )
+
+        self.assertIsNotNone(
+            execution.updated_at
+        )
+
+    def test_execution_session_update_prioritizes_explicit_response(
+        self,
+    ):
+
+        context = build_context(
+            "buat literature review AI"
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "literature_review"
+        )
+
+        context.analysis = (
+            "Fallback context analysis"
+        )
+
+        serialized_context = {
+
+            "query":
+                context.query,
+
+            "analysis":
+                "Specialized analysis",
+
+        }
+
+        execution = ExecutionSession()
+
+        execution.update(
+
+            context=context,
+
+            serialized_context=(
+                serialized_context
+            ),
+
+            response_content=(
+                "Specialized analysis"
+            ),
+
+        )
+
+        self.assertEqual(
+
+            execution.response,
+
+            "Specialized analysis",
+
+        )
+
+        self.assertNotEqual(
+
+            execution.response,
+
+            context.analysis,
+
+        )
+
+        self.assertIs(
+
+            execution.serialized_context,
+
+            serialized_context,
+
+        )
+
+        self.assertIsNotNone(
+            execution.updated_at
+        )
+
     def test_execution_session_clear_resets_contract(
         self,
     ):

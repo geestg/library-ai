@@ -63,6 +63,7 @@ class ExecutionSession:
         self,
         context,
         serialized_context: dict,
+        response_content: str = "",
     ):
 
         self.last_query = (
@@ -85,13 +86,55 @@ class ExecutionSession:
             context.intent
         )
 
-        self.response = (
-            context.analysis
+        # =================================
+        # RESOLVE RESPONSE CONTENT
+        # =================================
+
+        explicit_response = (
+
+            response_content.strip()
+
+            if isinstance(
+                response_content,
+                str,
+            )
+
+            else ""
+
         )
+
+        context_analysis = (
+
+            context.analysis.strip()
+
+            if isinstance(
+                context.analysis,
+                str,
+            )
+
+            else ""
+
+        )
+
+        self.response = (
+
+            explicit_response
+
+            or context_analysis
+
+        )
+
+        # =================================
+        # STORE SERIALIZED SNAPSHOT
+        # =================================
 
         self.serialized_context = (
             serialized_context
         )
+
+        # =================================
+        # UPDATE TIMESTAMP
+        # =================================
 
         self.updated_at = (
             datetime.now(
