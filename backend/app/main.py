@@ -33,6 +33,10 @@ from app.api.routes.routes_document import (
     router as document_router,
 )
 
+from app.api.routes.routes_session import (
+    router as session_router,
+)
+
 app = FastAPI(
     title="DELBot - AI Academic Knowledge Operating System"
 )
@@ -63,6 +67,10 @@ app.include_router(
 
 app.include_router(
     stream_router
+)
+
+app.include_router(
+    session_router
 )
 
 app.include_router(

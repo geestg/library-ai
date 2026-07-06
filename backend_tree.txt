@@ -1,5 +1,5 @@
 ﻿Folder PATH listing
-Volume serial number is 00000239 7289:3ED1
+Volume serial number is 000001EA 7289:3ED1
 D:\LIBRARY-AI\BACKEND
 |   .env
 |   Dockerfile
@@ -377,20 +377,47 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   |   stage_result.py
 |   |   |   |   |   __init__.py
 |   |   |   |   |   
-|   |   |   |   \---stages
-|   |   |   |           comparison_stage.py
-|   |   |   |           competency_stage.py
-|   |   |   |           context_stage.py
-|   |   |   |           document_stage.py
-|   |   |   |           domain_stage.py
-|   |   |   |           evidence_stage.py
-|   |   |   |           literature_stage.py
-|   |   |   |           llm_stage.py
-|   |   |   |           prodi_stage.py
-|   |   |   |           prompt_stage.py
-|   |   |   |           search_stage.py
-|   |   |   |           thesis_idea_stage.py
-|   |   |   |           __init__.py
+|   |   |   |   +---stages
+|   |   |   |   |   |   comparison_stage.py
+|   |   |   |   |   |   competency_stage.py
+|   |   |   |   |   |   context_stage.py
+|   |   |   |   |   |   document_stage.py
+|   |   |   |   |   |   domain_stage.py
+|   |   |   |   |   |   evidence_stage.py
+|   |   |   |   |   |   literature_stage.py
+|   |   |   |   |   |   llm_stage.py
+|   |   |   |   |   |   prodi_stage.py
+|   |   |   |   |   |   prompt_stage.py
+|   |   |   |   |   |   response_stage.py
+|   |   |   |   |   |   search_stage.py
+|   |   |   |   |   |   thesis_idea_stage.py
+|   |   |   |   |   |   __init__.py
+|   |   |   |   |   |   
+|   |   |   |   |   \---__pycache__
+|   |   |   |   |           comparison_stage.cpython-310.pyc
+|   |   |   |   |           competency_stage.cpython-310.pyc
+|   |   |   |   |           context_stage.cpython-310.pyc
+|   |   |   |   |           document_stage.cpython-310.pyc
+|   |   |   |   |           domain_stage.cpython-310.pyc
+|   |   |   |   |           evidence_stage.cpython-310.pyc
+|   |   |   |   |           literature_stage.cpython-310.pyc
+|   |   |   |   |           llm_stage.cpython-310.pyc
+|   |   |   |   |           prodi_stage.cpython-310.pyc
+|   |   |   |   |           prompt_stage.cpython-310.pyc
+|   |   |   |   |           response_stage.cpython-310.pyc
+|   |   |   |   |           search_stage.cpython-310.pyc
+|   |   |   |   |           thesis_idea_stage.cpython-310.pyc
+|   |   |   |   |           __init__.cpython-310.pyc
+|   |   |   |   |           
+|   |   |   |   \---__pycache__
+|   |   |   |           base_stage.cpython-310.pyc
+|   |   |   |           builder.cpython-310.pyc
+|   |   |   |           executor.cpython-310.pyc
+|   |   |   |           hooks.cpython-310.pyc
+|   |   |   |           pipeline.cpython-310.pyc
+|   |   |   |           registry.cpython-310.pyc
+|   |   |   |           stage_result.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
 |   |   |   |           
 |   |   |   +---prodi
 |   |   |   |   |   prodi_engine.py
@@ -403,13 +430,14 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   +---prompts
 |   |   |   |   |   analysis_prompt_builder.py
 |   |   |   |   |   evidence_prompt_builder.py
-|   |   |   |   |   init.py
 |   |   |   |   |   matrix_prompt_builder.py
+|   |   |   |   |   __init__.py
 |   |   |   |   |   
 |   |   |   |   \---__pycache__
 |   |   |   |           analysis_prompt_builder.cpython-310.pyc
 |   |   |   |           evidence_prompt_builder.cpython-310.pyc
 |   |   |   |           matrix_prompt_builder.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
 |   |   |   |           
 |   |   |   +---serializers
 |   |   |   |   |   research_context_serializer.py
@@ -424,19 +452,24 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   |   __init__.py
 |   |   |   |   |   
 |   |   |   |   +---models
-|   |   |   |   |       conversation_session.py
-|   |   |   |   |       document_session.py
-|   |   |   |   |       execution_session.py
-|   |   |   |   |       workspace_session.py
-|   |   |   |   |       workspace_state.py
-|   |   |   |   |       __init__.py
-|   |   |   |   |       
-|   |   |   |   \---serializers
-|   |   |   |           conversation_serializer.py
-|   |   |   |           document_serializer.py
-|   |   |   |           execution_serializer.py
-|   |   |   |           workspace_session_serializer.py
-|   |   |   |           __init__.py
+|   |   |   |   |   |   conversation_session.py
+|   |   |   |   |   |   document_session.py
+|   |   |   |   |   |   execution_session.py
+|   |   |   |   |   |   workspace_session.py
+|   |   |   |   |   |   workspace_state.py
+|   |   |   |   |   |   __init__.py
+|   |   |   |   |   |   
+|   |   |   |   |   \---__pycache__
+|   |   |   |   |           conversation_session.cpython-310.pyc
+|   |   |   |   |           document_session.cpython-310.pyc
+|   |   |   |   |           execution_session.cpython-310.pyc
+|   |   |   |   |           workspace_session.cpython-310.pyc
+|   |   |   |   |           workspace_state.cpython-310.pyc
+|   |   |   |   |           __init__.cpython-310.pyc
+|   |   |   |   |           
+|   |   |   |   \---__pycache__
+|   |   |   |           session_manager.cpython-310.pyc
+|   |   |   |           __init__.cpython-310.pyc
 |   |   |   |           
 |   |   |   \---__pycache__
 |   |   |           diversity_filter.cpython-310.pyc
@@ -460,17 +493,6 @@ D:\LIBRARY-AI\BACKEND
 |   |   |           trend_engine.cpython-310.pyc
 |   |   |           __init__.cpython-310.pyc
 |   |   |           
-|   |   +---session
-|   |   |   |   session_factory.py
-|   |   |   |   session_registry.py
-|   |   |   |   workspace_session_manager.py
-|   |   |   |   __init__.py
-|   |   |   |   
-|   |   |   \---__pycache__
-|   |   |           session_factory.cpython-310.pyc
-|   |   |           workspace_session_manager.cpython-310.pyc
-|   |   |           __init__.cpython-310.pyc
-|   |   |           
 |   |   \---__pycache__
 |   |           research_service.cpython-310.pyc
 |   |           title_generator_service.cpython-310.pyc
@@ -488,4 +510,7 @@ D:\LIBRARY-AI\BACKEND
 |           
 +---datasets
 +---scripts
-\---uploads
++---uploads
+\---__pycache__
+        test_research_service.cpython-310.pyc
+        

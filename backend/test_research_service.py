@@ -62,6 +62,11 @@ from app.services.research.session.models import (
     WorkspaceState,
 )
 
+from app.services.research.session.models.conversation_session import (
+    ConversationSession,
+    MAX_HISTORY,
+)
+
 from app.services.research.research_engine import (
     extract_assistant_content,
     persist_assistant_response,
@@ -327,6 +332,584 @@ class ConversationPromptTests(
 
         )
 
+
+# =====================================
+# CONVERSATION RETENTION TESTS
+# =====================================
+
+class ConversationRetentionTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        self.conversation = (
+            ConversationSession()
+        )
+
+    def test_conversation_retains_only_max_history_messages(
+        self,
+    ):
+
+        total_messages = (
+            MAX_HISTORY + 3
+        )
+
+        for index in range(
+            total_messages
+        ):
+
+            self.conversation.append(
+
+                role="user",
+
+                content=(
+                    f"message-{index}"
+                ),
+
+            )
+
+        self.assertEqual(
+
+            self.conversation.total_messages(),
+
+            MAX_HISTORY,
+
+        )
+
+    def test_conversation_discards_oldest_messages_when_limit_is_exceeded(
+        self,
+    ):
+
+        total_messages = (
+            MAX_HISTORY + 3
+        )
+
+        for index in range(
+            total_messages
+        ):
+
+            self.conversation.append(
+
+                role="user",
+
+                content=(
+                    f"message-{index}"
+                ),
+
+            )
+
+        retained_contents = [
+
+            message.content
+
+            for message in
+            self.conversation.messages
+
+        ]
+
+        expected_contents = [
+
+            f"message-{index}"
+
+            for index in range(
+                3,
+                total_messages,
+            )
+
+        ]
+
+        self.assertEqual(
+
+            retained_contents,
+
+            expected_contents,
+
+        )
+
+        self.assertNotIn(
+
+            "message-0",
+
+            retained_contents,
+
+        )
+
+        self.assertNotIn(
+
+            "message-1",
+
+            retained_contents,
+
+        )
+
+        self.assertNotIn(
+
+            "message-2",
+
+            retained_contents,
+
+        )
+
+    def test_conversation_preserves_message_order_after_retention(
+        self,
+    ):
+
+        total_messages = (
+            MAX_HISTORY + 2
+        )
+
+        for index in range(
+            total_messages
+        ):
+
+            role = (
+
+                "user"
+
+                if index % 2 == 0
+
+                else "assistant"
+
+            )
+
+            self.conversation.append(
+
+                role=role,
+
+                content=(
+                    f"message-{index}"
+                ),
+
+            )
+
+        retained_messages = [
+
+            (
+                message.role,
+                message.content,
+            )
+
+            for message in
+            self.conversation.messages
+
+        ]
+
+        expected_messages = [
+
+            (
+
+                (
+                    "user"
+
+                    if index % 2 == 0
+
+                    else "assistant"
+                ),
+
+                f"message-{index}",
+
+            )
+
+            for index in range(
+                2,
+                total_messages,
+            )
+
+        ]
+
+        self.assertEqual(
+
+            retained_messages,
+
+            expected_messages,
+
+        )
+
+    def test_build_history_uses_only_retained_messages(
+        self,
+    ):
+
+        total_messages = (
+            MAX_HISTORY + 2
+        )
+
+        for index in range(
+            total_messages
+        ):
+
+            role = (
+
+                "user"
+
+                if index % 2 == 0
+
+                else "assistant"
+
+            )
+
+            self.conversation.append(
+
+                role=role,
+
+                content=(
+                    f"message-{index}"
+                ),
+
+            )
+
+        history = (
+            self.conversation.build_history()
+        )
+
+        history_lines = (
+            history.splitlines()
+        )
+
+        expected_history = "\n".join(
+
+            [
+
+                (
+                    f"{message.role}: "
+                    f"{message.content}"
+                )
+
+                for message in
+                self.conversation.messages
+
+            ]
+
+        )
+
+        self.assertEqual(
+
+            history,
+
+            expected_history,
+
+        )
+
+        self.assertEqual(
+
+            len(history_lines),
+
+            MAX_HISTORY,
+
+        )
+
+        self.assertNotIn(
+
+            "user: message-0",
+
+            history_lines,
+
+        )
+
+        self.assertNotIn(
+
+            "assistant: message-1",
+
+            history_lines,
+
+        )
+
+        self.assertIn(
+
+            "user: message-2",
+
+            history_lines,
+
+        )
+
+        self.assertIn(
+
+            (
+                "assistant: "
+                f"message-{total_messages - 1}"
+            ),
+
+            history_lines,
+
+        )
+
+# =====================================
+# CONVERSATION INTEGRITY TESTS
+# =====================================
+
+class ConversationIntegrityTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        self.conversation = (
+            ConversationSession()
+        )
+
+    def test_conversation_preserves_user_assistant_order(
+        self,
+    ):
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan kedua",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban kedua",
+
+        )
+
+        message_pairs = [
+
+            (
+                message.role,
+                message.content,
+            )
+
+            for message in
+            self.conversation.messages
+
+        ]
+
+        self.assertEqual(
+
+            message_pairs,
+
+            [
+
+                (
+                    "user",
+                    "Pertanyaan pertama",
+                ),
+
+                (
+                    "assistant",
+                    "Jawaban pertama",
+                ),
+
+                (
+                    "user",
+                    "Pertanyaan kedua",
+                ),
+
+                (
+                    "assistant",
+                    "Jawaban kedua",
+                ),
+
+            ],
+
+        )
+
+    def test_last_user_message_returns_latest_user_message(
+        self,
+    ):
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan terbaru",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban terbaru",
+
+        )
+
+        message = (
+            self.conversation.last_user_message()
+        )
+
+        self.assertIsNotNone(
+            message
+        )
+
+        self.assertEqual(
+
+            message.role,
+
+            "user",
+
+        )
+
+        self.assertEqual(
+
+            message.content,
+
+            "Pertanyaan terbaru",
+
+        )
+
+    def test_last_assistant_message_returns_latest_assistant_message(
+        self,
+    ):
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban pertama",
+
+        )
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Pertanyaan terbaru",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Jawaban terbaru",
+
+        )
+
+        message = (
+            self.conversation.last_assistant_message()
+        )
+
+        self.assertIsNotNone(
+            message
+        )
+
+        self.assertEqual(
+
+            message.role,
+
+            "assistant",
+
+        )
+
+        self.assertEqual(
+
+            message.content,
+
+            "Jawaban terbaru",
+
+        )
+
+    def test_conversation_serialization_preserves_message_contract(
+        self,
+    ):
+
+        self.conversation.append(
+
+            role="user",
+
+            content="Analisis artificial intelligence",
+
+        )
+
+        self.conversation.append(
+
+            role="assistant",
+
+            content="Hasil analisis akademik",
+
+        )
+
+        serialized = (
+            self.conversation.to_dict()
+        )
+
+        self.assertEqual(
+
+            serialized["messages"],
+
+            [
+
+                {
+
+                    "role":
+                        "user",
+
+                    "content":
+                        "Analisis artificial intelligence",
+
+                },
+
+                {
+
+                    "role":
+                        "assistant",
+
+                    "content":
+                        "Hasil analisis akademik",
+
+                },
+
+            ],
+
+        )
+
+        self.assertEqual(
+
+            serialized["total_messages"],
+
+            2,
+
+        )
 
 # =====================================
 # RESEARCH ENGINE CONVERSATION TESTS
@@ -2671,6 +3254,524 @@ class SessionManagerTests(
 
         self.assertEqual(
             self.manager.count(),
+            0,
+        )
+
+# =====================================
+# SESSION ROUTE TESTS
+# =====================================
+
+class SessionRouteTests(
+    unittest.TestCase
+):
+
+    @classmethod
+    def setUpClass(
+        cls,
+    ):
+
+        cls.client = TestClient(
+            app
+        )
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def test_create_session_returns_complete_workspace_session(
+        self,
+    ):
+
+        response = self.client.post(
+            "/session/create"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertTrue(
+            data["session_id"]
+        )
+
+        self.assertIn(
+            "conversation",
+            data,
+        )
+
+        self.assertIn(
+            "documents",
+            data,
+        )
+
+        self.assertIn(
+            "workspace",
+            data,
+        )
+
+        self.assertIn(
+            "execution",
+            data,
+        )
+
+        self.assertEqual(
+
+            data["conversation"][
+                "total_messages"
+            ],
+
+            0,
+
+        )
+
+        self.assertEqual(
+
+            data["documents"][
+                "documents"
+            ],
+
+            [],
+
+        )
+
+        self.assertTrue(
+
+            session_manager.exists(
+                data["session_id"]
+            )
+
+        )
+
+    def test_get_session_returns_existing_workspace_session(
+        self,
+    ):
+
+        session = session_manager.create(
+            "route-session"
+        )
+
+        session.conversation.append(
+
+            role="user",
+
+            content="jelaskan AI",
+
+        )
+
+        response = self.client.get(
+            "/session/route-session"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+
+            data["session_id"],
+
+            "route-session",
+
+        )
+
+        self.assertEqual(
+
+            data["conversation"][
+                "total_messages"
+            ],
+
+            1,
+
+        )
+
+        self.assertEqual(
+
+            data["conversation"][
+                "messages"
+            ][0],
+
+            {
+
+                "role":
+                    "user",
+
+                "content":
+                    "jelaskan AI",
+
+            },
+
+        )
+
+    def test_get_missing_session_returns_404(
+        self,
+    ):
+
+        response = self.client.get(
+            "/session/missing-session"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+    def test_delete_session_removes_existing_session(
+        self,
+    ):
+
+        session_manager.create(
+            "delete-session"
+        )
+
+        response = self.client.delete(
+            "/session/delete-session"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        self.assertFalse(
+
+            session_manager.exists(
+                "delete-session"
+            )
+
+        )
+
+    def test_delete_missing_session_returns_404(
+        self,
+    ):
+
+        response = self.client.delete(
+            "/session/missing-session"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+# =====================================
+# DOCUMENT OWNERSHIP CONTRACT TESTS
+# =====================================
+
+class DocumentOwnershipContractTests(
+    unittest.TestCase
+):
+
+    @classmethod
+    def setUpClass(
+        cls,
+    ):
+
+        cls.client = TestClient(
+            app
+        )
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def upload_document(
+        self,
+        session_id=None,
+    ):
+
+        data = {}
+
+        if session_id is not None:
+
+            data["session_id"] = (
+                session_id
+            )
+
+        with patch(
+            "app.api.routes.routes_upload."
+            "classify_file",
+            return_value="pdf",
+        ), patch(
+            "app.api.routes.routes_upload."
+            "ingest_pdf",
+            return_value={
+
+                "full_text":
+                    "Synthetic document content",
+
+                "pages":
+                    2,
+
+                "chunks":
+                    4,
+
+                "pages_data": [
+
+                    {
+
+                        "page":
+                            1,
+
+                        "text":
+                            "Synthetic page content",
+
+                    }
+
+                ],
+
+            },
+        ):
+
+            return self.client.post(
+
+                "/upload-pdf",
+
+                data=data,
+
+                files={
+
+                    "file": (
+
+                        "proposal.pdf",
+
+                        b"%PDF-1.4 synthetic content",
+
+                        "application/pdf",
+
+                    )
+
+                },
+
+            )
+
+    def test_upload_stores_document_in_owning_session(
+        self,
+    ):
+
+        session = session_manager.create(
+            "document-owner-session"
+        )
+
+        response = self.upload_document(
+            session_id=session.session_id
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        document_id = (
+            data["document_id"]
+        )
+
+        stored_document = (
+            session.documents.get_document(
+                document_id
+            )
+        )
+
+        self.assertIsNotNone(
+            stored_document
+        )
+
+        self.assertEqual(
+
+            stored_document.document_id,
+
+            document_id,
+
+        )
+
+        self.assertEqual(
+
+            stored_document.filename,
+
+            "proposal.pdf",
+
+        )
+
+        self.assertEqual(
+
+            stored_document.file_type,
+
+            "pdf",
+
+        )
+
+        self.assertEqual(
+
+            stored_document.pages,
+
+            2,
+
+        )
+
+        self.assertEqual(
+
+            stored_document.chunks,
+
+            4,
+
+        )
+
+        self.assertEqual(
+
+            stored_document.content,
+
+            "Synthetic document content",
+
+        )
+
+        self.assertEqual(
+
+            stored_document.pages_data,
+
+            [
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Synthetic page content",
+
+                }
+
+            ],
+
+        )
+
+        self.assertEqual(
+
+            data["session_id"],
+
+            session.session_id,
+
+        )
+
+    def test_upload_without_session_id_returns_422(
+        self,
+    ):
+
+        response = self.upload_document()
+
+        self.assertEqual(
+            response.status_code,
+            422,
+        )
+
+        self.assertEqual(
+            session_manager.count(),
+            0,
+        )
+
+    def test_upload_with_unknown_session_returns_404(
+        self,
+    ):
+
+        response = self.upload_document(
+            session_id="missing-document-session"
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        self.assertFalse(
+
+            session_manager.exists(
+                "missing-document-session"
+            )
+
+        )
+
+    def test_document_is_isolated_from_other_sessions(
+        self,
+    ):
+
+        owner_session = (
+            session_manager.create(
+                "document-owner-session"
+            )
+        )
+
+        other_session = (
+            session_manager.create(
+                "other-document-session"
+            )
+        )
+
+        response = self.upload_document(
+            session_id=(
+                owner_session.session_id
+            )
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        document_id = (
+            response.json()[
+                "document_id"
+            ]
+        )
+
+        owner_document = (
+            owner_session.documents.get_document(
+                document_id
+            )
+        )
+
+        other_document = (
+            other_session.documents.get_document(
+                document_id
+            )
+        )
+
+        self.assertIsNotNone(
+            owner_document
+        )
+
+        self.assertIsNone(
+            other_document
+        )
+
+        self.assertEqual(
+            owner_session.documents.count(),
+            1,
+        )
+
+        self.assertEqual(
+            other_session.documents.count(),
             0,
         )
 
