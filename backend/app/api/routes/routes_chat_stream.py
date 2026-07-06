@@ -5,11 +5,16 @@ from pydantic import BaseModel
 import json
 
 from app.services.research.research_engine import (
+    persist_assistant_response,
     research_analysis,
 )
 
 from app.services.research.serializers import (
     serialize_research_context,
+)
+
+from app.services.research.session import (
+    session_manager,
 )
 
 
@@ -42,6 +47,32 @@ def stream_event(
         )
 
         + "\n"
+
+    )
+
+
+# =========================================
+# PERSIST STREAM ASSISTANT
+# =========================================
+
+def persist_stream_assistant(
+    context,
+    response,
+) -> str:
+
+    session = session_manager.get(
+        context.session_id
+    )
+
+    if session is None:
+
+        return ""
+
+    return persist_assistant_response(
+
+        session=session,
+
+        response=response,
 
     )
 
@@ -169,6 +200,20 @@ def chat_stream(
 
                     )
 
+                # =================================
+                # PERSIST SPECIALIZED ASSISTANT
+                # =================================
+
+                persist_stream_assistant(
+
+                    context=context,
+
+                    response=(
+                        specialized_response
+                    ),
+
+                )
+
                 yield stream_event(
 
                     "context_final",
@@ -249,6 +294,23 @@ def chat_stream(
 
             context.analysis = "".join(
                 analysis_chunks
+            )
+
+            # =====================================
+            # PERSIST STREAMED ASSISTANT
+            # =====================================
+
+            persist_stream_assistant(
+
+                context=context,
+
+                response={
+
+                    "analysis":
+                        context.analysis,
+
+                },
+
             )
 
             # =====================================

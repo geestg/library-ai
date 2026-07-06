@@ -6,6 +6,83 @@ from app.services.research.pipeline import (
     ResearchPipelineBuilder,
 )
 
+from app.services.research.session import (
+    session_manager,
+)
+
+
+# =====================================
+# EXTRACT ASSISTANT CONTENT
+# =====================================
+
+def extract_assistant_content(
+    response,
+) -> str:
+
+    if not isinstance(
+        response,
+        dict,
+    ):
+
+        return ""
+
+    candidates = [
+
+        response.get(
+            "analysis"
+        ),
+
+        response.get(
+            "answer"
+        ),
+
+        response.get(
+            "comparison"
+        ),
+
+    ]
+
+    for content in candidates:
+
+        if (
+            isinstance(content, str)
+            and content.strip()
+        ):
+
+            return content.strip()
+
+    return ""
+
+
+# =====================================
+# PERSIST ASSISTANT RESPONSE
+# =====================================
+
+def persist_assistant_response(
+    session,
+    response,
+) -> str:
+
+    assistant_content = (
+        extract_assistant_content(
+            response
+        )
+    )
+
+    if not assistant_content:
+
+        return ""
+
+    session.conversation.append(
+
+        role="assistant",
+
+        content=assistant_content,
+
+    )
+
+    return assistant_content
+
 
 # =====================================
 # RESEARCH ANALYSIS ENGINE
@@ -25,6 +102,34 @@ def research_analysis(
     print("====================================")
 
     # =====================================
+    # RESOLVE SESSION
+    # =====================================
+
+    session = session_manager.get_or_create(
+        session_id
+    )
+
+    # =====================================
+    # SNAPSHOT PREVIOUS CONVERSATION
+    # =====================================
+
+    conversation_history = (
+        session.conversation.build_history()
+    )
+
+    # =====================================
+    # RECORD CURRENT USER MESSAGE
+    # =====================================
+
+    session.conversation.append(
+
+        role="user",
+
+        content=query,
+
+    )
+
+    # =====================================
     # BUILD CONTEXT
     # =====================================
 
@@ -32,7 +137,7 @@ def research_analysis(
 
         query=query,
 
-        session_id=session_id,
+        session_id=session.session_id,
 
         top_k=top_k,
 
@@ -40,6 +145,10 @@ def research_analysis(
 
         active_document_ids=(
             active_document_ids or []
+        ),
+
+        conversation_history=(
+            conversation_history
         ),
 
     )
@@ -52,7 +161,9 @@ def research_analysis(
         route_query,
     )
 
-    routing = route_query(query)
+    routing = route_query(
+        query
+    )
 
     context.intent = routing.get(
         "intent",
@@ -75,8 +186,11 @@ def research_analysis(
 
     executor = (
         ResearchPipelineBuilder.build(
+
             context,
+
             stream=stream,
+
         )
     )
 
@@ -95,6 +209,18 @@ def research_analysis(
             context.llm_stream,
 
         )
+
+    # =====================================
+    # PERSIST ASSISTANT RESPONSE
+    # =====================================
+
+    persist_assistant_response(
+
+        session=session,
+
+        response=context.response,
+
+    )
 
     # =====================================
     # RESPONSE
