@@ -6,6 +6,10 @@ from app.services.research.pipeline import (
     ResearchPipelineBuilder,
 )
 
+from app.services.research.serializers import (
+    serialize_research_context,
+)
+
 from app.services.research.session import (
     session_manager,
 )
@@ -82,6 +86,39 @@ def persist_assistant_response(
     )
 
     return assistant_content
+
+
+# =====================================
+# PERSIST EXECUTION SNAPSHOT
+# =====================================
+
+def persist_execution_snapshot(
+    session,
+    context: ResearchContext,
+    response_content: str = "",
+) -> dict:
+
+    serialized_context = (
+        serialize_research_context(
+            context
+        )
+    )
+
+    session.execution.update(
+
+        context=context,
+
+        serialized_context=(
+            serialized_context
+        ),
+
+        response_content=(
+            response_content
+        ),
+
+    )
+
+    return serialized_context
 
 
 # =====================================
@@ -214,11 +251,29 @@ def research_analysis(
     # PERSIST ASSISTANT RESPONSE
     # =====================================
 
-    persist_assistant_response(
+    assistant_content = (
+        persist_assistant_response(
+
+            session=session,
+
+            response=context.response,
+
+        )
+    )
+
+    # =====================================
+    # PERSIST EXECUTION SNAPSHOT
+    # =====================================
+
+    persist_execution_snapshot(
 
         session=session,
 
-        response=context.response,
+        context=context,
+
+        response_content=(
+            assistant_content
+        ),
 
     )
 
