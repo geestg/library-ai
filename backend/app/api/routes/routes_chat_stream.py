@@ -6,6 +6,7 @@ import json
 
 from app.services.research.research_engine import (
     persist_assistant_response,
+    persist_execution_snapshot,
     research_analysis,
 )
 
@@ -73,6 +74,36 @@ def persist_stream_assistant(
         session=session,
 
         response=response,
+
+    )
+
+
+# =========================================
+# PERSIST STREAM EXECUTION
+# =========================================
+
+def persist_stream_execution(
+    context,
+    response_content: str = "",
+) -> dict:
+
+    session = session_manager.get(
+        context.session_id
+    )
+
+    if session is None:
+
+        return {}
+
+    return persist_execution_snapshot(
+
+        session=session,
+
+        context=context,
+
+        response_content=(
+            response_content
+        ),
 
     )
 
@@ -204,12 +235,28 @@ def chat_stream(
                 # PERSIST SPECIALIZED ASSISTANT
                 # =================================
 
-                persist_stream_assistant(
+                assistant_content = (
+                    persist_stream_assistant(
+
+                        context=context,
+
+                        response=(
+                            specialized_response
+                        ),
+
+                    )
+                )
+
+                # =================================
+                # PERSIST SPECIALIZED EXECUTION
+                # =================================
+
+                persist_stream_execution(
 
                     context=context,
 
-                    response=(
-                        specialized_response
+                    response_content=(
+                        assistant_content
                     ),
 
                 )
@@ -300,16 +347,32 @@ def chat_stream(
             # PERSIST STREAMED ASSISTANT
             # =====================================
 
-            persist_stream_assistant(
+            assistant_content = (
+                persist_stream_assistant(
+
+                    context=context,
+
+                    response={
+
+                        "analysis":
+                            context.analysis,
+
+                    },
+
+                )
+            )
+
+            # =====================================
+            # PERSIST STREAMED EXECUTION
+            # =====================================
+
+            persist_stream_execution(
 
                 context=context,
 
-                response={
-
-                    "analysis":
-                        context.analysis,
-
-                },
+                response_content=(
+                    assistant_content
+                ),
 
             )
 

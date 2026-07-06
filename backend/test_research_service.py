@@ -60,6 +60,7 @@ from app.services.research.session.models import (
 from app.services.research.research_engine import (
     extract_assistant_content,
     persist_assistant_response,
+    persist_execution_snapshot,
 )
 
 # =====================================
@@ -367,6 +368,185 @@ class AssistantPersistenceTests(
             0,
 
         )
+
+# =====================================
+# EXECUTION SNAPSHOT PERSISTENCE TESTS
+# =====================================
+
+class ExecutionSnapshotPersistenceTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        self.manager = (
+            SessionManager()
+        )
+
+        self.session = (
+            self.manager.create(
+                "execution-snapshot-session"
+            )
+        )
+
+    def test_persist_execution_snapshot_updates_session_execution(
+        self,
+    ):
+
+        context = build_context(
+            "analisis artificial intelligence"
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "research"
+        )
+
+        context.analysis = (
+            "Generated research analysis"
+        )
+
+        serialized_context = (
+            persist_execution_snapshot(
+
+                session=self.session,
+
+                context=context,
+
+                response_content=(
+                    "Persisted response"
+                ),
+
+            )
+        )
+
+        execution = (
+            self.session.execution
+        )
+
+        self.assertEqual(
+
+            execution.last_query,
+
+            context.query,
+
+        )
+
+        self.assertEqual(
+
+            execution.mode,
+
+            context.mode,
+
+        )
+
+        self.assertEqual(
+
+            execution.provider,
+
+            "test-provider",
+
+        )
+
+        self.assertEqual(
+
+            execution.model,
+
+            "test-model",
+
+        )
+
+        self.assertEqual(
+
+            execution.intent,
+
+            "research",
+
+        )
+
+        self.assertEqual(
+
+            execution.response,
+
+            "Persisted response",
+
+        )
+
+        self.assertIs(
+
+            execution.serialized_context,
+
+            serialized_context,
+
+        )
+
+        self.assertEqual(
+
+            serialized_context["query"],
+
+            context.query,
+
+        )
+
+        self.assertEqual(
+
+            serialized_context["analysis"],
+
+            context.analysis,
+
+        )
+
+        self.assertIsNotNone(
+            execution.updated_at
+        )
+
+    def test_persist_execution_snapshot_uses_analysis_fallback(
+        self,
+    ):
+
+        context = build_context(
+            "analisis machine learning"
+        )
+
+        context.analysis = (
+            "Fallback analysis"
+        )
+
+        serialized_context = (
+            persist_execution_snapshot(
+
+                session=self.session,
+
+                context=context,
+
+            )
+        )
+
+        self.assertEqual(
+
+            self.session.execution.response,
+
+            "Fallback analysis",
+
+        )
+
+        self.assertIs(
+
+            self.session.execution.serialized_context,
+
+            serialized_context,
+
+        )
+
 
 # =====================================
 # RESPONSE PIPELINE TESTS
@@ -1087,6 +1267,274 @@ class StreamingRouteTests(
         "app.api.routes.routes_chat_stream."
         "research_analysis"
     )
+
+    def test_specialized_stream_updates_execution_snapshot(
+        self,
+        mock_research_analysis,
+    ):
+
+        session = session_manager.create(
+            "specialized-execution-session"
+        )
+
+        context = build_context(
+            "buat literature review AI"
+        )
+
+        context.session_id = (
+            session.session_id
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "literature_review"
+        )
+
+        context.response = {
+
+            "mode":
+                "literature_review",
+
+            "analysis":
+                "Specialized execution response",
+
+        }
+
+        mock_research_analysis.return_value = (
+
+            context,
+
+            None,
+
+        )
+
+        response = self.client.post(
+
+            "/chat-stream",
+
+            json={
+
+                "session_id":
+                    session.session_id,
+
+                "message":
+                    context.query,
+
+                "active_document_ids":
+                    [],
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        execution = (
+            session.execution
+        )
+
+        self.assertEqual(
+
+            execution.last_query,
+
+            context.query,
+
+        )
+
+        self.assertEqual(
+
+            execution.provider,
+
+            "test-provider",
+
+        )
+
+        self.assertEqual(
+
+            execution.model,
+
+            "test-model",
+
+        )
+
+        self.assertEqual(
+
+            execution.intent,
+
+            "literature_review",
+
+        )
+
+        self.assertEqual(
+
+            execution.response,
+
+            "Specialized execution response",
+
+        )
+
+        self.assertEqual(
+
+            execution.serialized_context[
+                "query"
+            ],
+
+            context.query,
+
+        )
+
+        self.assertIsNotNone(
+            execution.updated_at
+        )
+
+        session_manager.delete(
+            session.session_id
+        )
+
+    @patch(
+        "app.api.routes.routes_chat_stream."
+        "research_analysis"
+    )
+    def test_normal_stream_updates_execution_snapshot(
+        self,
+        mock_research_analysis,
+    ):
+
+        session = session_manager.create(
+            "normal-execution-session"
+        )
+
+        context = build_context(
+            "analisis artificial intelligence"
+        )
+
+        context.session_id = (
+            session.session_id
+        )
+
+        context.provider = (
+            "test-provider"
+        )
+
+        context.model = (
+            "test-model"
+        )
+
+        context.intent = (
+            "research"
+        )
+
+        context.response = None
+
+        llm_stream = iter([
+
+            "Bagian pertama. ",
+
+            "Bagian kedua.",
+
+        ])
+
+        mock_research_analysis.return_value = (
+
+            context,
+
+            llm_stream,
+
+        )
+
+        response = self.client.post(
+
+            "/chat-stream",
+
+            json={
+
+                "session_id":
+                    session.session_id,
+
+                "message":
+                    context.query,
+
+                "active_document_ids":
+                    [],
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        execution = (
+            session.execution
+        )
+
+        self.assertEqual(
+
+            execution.last_query,
+
+            context.query,
+
+        )
+
+        self.assertEqual(
+
+            execution.response,
+
+            (
+                "Bagian pertama. "
+                "Bagian kedua."
+            ),
+
+        )
+
+        self.assertEqual(
+
+            execution.serialized_context[
+                "analysis"
+            ],
+
+            (
+                "Bagian pertama. "
+                "Bagian kedua."
+            ),
+
+        )
+
+        self.assertEqual(
+
+            execution.serialized_context[
+                "intent"
+            ],
+
+            "research",
+
+        )
+
+        self.assertIsNotNone(
+            execution.updated_at
+        )
+
+        session_manager.delete(
+            session.session_id
+        )
+
+    @patch(
+        "app.api.routes.routes_chat_stream."
+        "research_analysis"
+    )
+
     def test_normal_stream_persists_complete_assistant_message(
         self,
         mock_research_analysis,
