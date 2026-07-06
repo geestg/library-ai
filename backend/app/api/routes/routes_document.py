@@ -39,6 +39,83 @@ class DocumentChatRequest(
 
 
 # =====================================
+# LIST SESSION DOCUMENTS
+# =====================================
+
+@router.get(
+    "/session/{session_id}/documents"
+)
+async def list_session_documents(
+    session_id: str,
+):
+
+    # =====================================
+    # LOAD SESSION
+    # =====================================
+
+    session = session_manager.get(
+        session_id
+    )
+
+    if session is None:
+
+        raise HTTPException(
+
+            status_code=404,
+
+            detail="Session not found",
+
+        )
+
+    # =====================================
+    # LOAD OWNED DOCUMENTS
+    # =====================================
+
+    documents = (
+        session.documents.list_documents()
+    )
+
+    # =====================================
+    # RESPONSE
+    # =====================================
+
+    return {
+
+        "session_id":
+            session.session_id,
+
+        "documents": [
+
+            {
+
+                "document_id":
+                    document.document_id,
+
+                "filename":
+                    document.filename,
+
+                "file_type":
+                    document.file_type,
+
+                "pages":
+                    document.pages,
+
+                "chunks":
+                    document.chunks,
+
+            }
+
+            for document in documents
+
+        ],
+
+        "total_documents":
+            len(documents),
+
+    }
+
+
+# =====================================
 # DOCUMENT CHAT
 # =====================================
 

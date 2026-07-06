@@ -4008,6 +4008,357 @@ class SessionRouteTests(
         )
 
 # =====================================
+# DOCUMENT LIST OWNERSHIP TESTS
+# =====================================
+
+class DocumentListOwnershipTests(
+    unittest.TestCase
+):
+
+    @classmethod
+    def setUpClass(
+        cls,
+    ):
+
+        cls.client = TestClient(
+            app
+        )
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+        self.owner_session = (
+            session_manager.create(
+                "document-list-owner"
+            )
+        )
+
+        self.other_session = (
+            session_manager.create(
+                "document-list-other"
+            )
+        )
+
+        self.owner_document = DocumentItem(
+
+            document_id="owner-document",
+
+            filename="owner.pdf",
+
+            file_type="pdf",
+
+            pages=2,
+
+            chunks=4,
+
+            content=(
+                "Owner private document content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Owner private page content",
+
+                }
+
+            ],
+
+        )
+
+        self.other_document = DocumentItem(
+
+            document_id="other-document",
+
+            filename="other.pdf",
+
+            file_type="pdf",
+
+            pages=3,
+
+            chunks=6,
+
+            content=(
+                "Other session private content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Other session private page content",
+
+                }
+
+            ],
+
+        )
+
+        self.owner_session.documents.add_document(
+            self.owner_document
+        )
+
+        self.other_session.documents.add_document(
+            self.other_document
+        )
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def test_document_list_returns_only_documents_owned_by_session(
+        self,
+    ):
+
+        response = self.client.get(
+
+            (
+                "/session/"
+                f"{self.owner_session.session_id}"
+                "/documents"
+            )
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+
+            data["session_id"],
+
+            self.owner_session.session_id,
+
+        )
+
+        self.assertEqual(
+
+            data["total_documents"],
+
+            1,
+
+        )
+
+        self.assertEqual(
+
+            len(
+                data["documents"]
+            ),
+
+            1,
+
+        )
+
+        document = (
+            data["documents"][0]
+        )
+
+        self.assertEqual(
+
+            document["document_id"],
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+
+            document["filename"],
+
+            self.owner_document.filename,
+
+        )
+
+        self.assertEqual(
+
+            document["file_type"],
+
+            self.owner_document.file_type,
+
+        )
+
+        self.assertEqual(
+
+            document["pages"],
+
+            self.owner_document.pages,
+
+        )
+
+        self.assertEqual(
+
+            document["chunks"],
+
+            self.owner_document.chunks,
+
+        )
+
+        returned_document_ids = [
+
+            item["document_id"]
+
+            for item in data["documents"]
+
+        ]
+
+        self.assertNotIn(
+
+            self.other_document.document_id,
+
+            returned_document_ids,
+
+        )
+
+    def test_document_list_returns_empty_list_for_session_without_documents(
+        self,
+    ):
+
+        empty_session = (
+            session_manager.create(
+                "document-list-empty"
+            )
+        )
+
+        response = self.client.get(
+
+            (
+                "/session/"
+                f"{empty_session.session_id}"
+                "/documents"
+            )
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+
+            data["session_id"],
+
+            empty_session.session_id,
+
+        )
+
+        self.assertEqual(
+
+            data["total_documents"],
+
+            0,
+
+        )
+
+        self.assertEqual(
+
+            data["documents"],
+
+            [],
+
+        )
+
+    def test_document_list_rejects_unknown_session(
+        self,
+    ):
+
+        response = self.client.get(
+
+            "/session/missing-session/documents"
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+    def test_document_list_does_not_expose_document_content(
+        self,
+    ):
+
+        response = self.client.get(
+
+            (
+                "/session/"
+                f"{self.owner_session.session_id}"
+                "/documents"
+            )
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+
+            len(
+                data["documents"]
+            ),
+
+            1,
+
+        )
+
+        document = (
+            data["documents"][0]
+        )
+
+        self.assertNotIn(
+            "content",
+            document,
+        )
+
+        self.assertNotIn(
+            "pages_data",
+            document,
+        )
+
+        serialized_response = (
+            response.text
+        )
+
+        self.assertNotIn(
+
+            "Owner private document content",
+
+            serialized_response,
+
+        )
+
+        self.assertNotIn(
+
+            "Owner private page content",
+
+            serialized_response,
+
+        )
+
+# =====================================
 # DOCUMENT OWNERSHIP CONTRACT TESTS
 # =====================================
 
