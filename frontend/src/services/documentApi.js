@@ -31,14 +31,10 @@ export async function uploadDocument({
     file
   );
 
-  if (sessionId) {
-
-    formData.append(
-      "session_id",
-      sessionId
-    );
-
-  }
+  formData.append(
+    "session_id",
+    sessionId
+  );
 
   const {
 
@@ -99,6 +95,64 @@ export async function uploadDocuments({
   }
 
   return uploaded;
+
+}
+
+/* =====================================
+   LIST SESSION DOCUMENTS
+===================================== */
+
+export async function listSessionDocuments({
+
+  sessionId,
+
+}) {
+
+  const {
+
+    data
+
+  } = await axios.get(
+
+    (
+      `${DOCUMENT_API_URL}`
+      + `/session/${sessionId}`
+      + "/documents"
+    )
+
+  );
+
+  return data;
+
+}
+
+/* =====================================
+   DELETE SESSION DOCUMENT
+===================================== */
+
+export async function deleteSessionDocument({
+
+  sessionId,
+
+  documentId,
+
+}) {
+
+  const {
+
+    data
+
+  } = await axios.delete(
+
+    (
+      `${DOCUMENT_API_URL}`
+      + `/session/${sessionId}`
+      + `/documents/${documentId}`
+    )
+
+  );
+
+  return data;
 
 }
 

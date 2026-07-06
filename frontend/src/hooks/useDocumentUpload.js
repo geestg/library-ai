@@ -1,5 +1,7 @@
 import {
   useState,
+  useEffect,
+  useRef,
   useCallback,
 } from "react";
 
@@ -7,7 +9,13 @@ import {
 
   uploadDocument,
 
+  listSessionDocuments,
+
+  deleteSessionDocument,
+
   buildDocument,
+
+  buildDocuments,
 
 } from "../services/documentApi";
 
@@ -20,6 +28,22 @@ export default function useDocumentUpload({
   sessionId,
 
 } = {}) {
+
+  // =====================================
+  // REQUEST GENERATION
+  // =====================================
+
+  const requestGenerationRef =
+    useRef(0);
+
+  // =====================================
+  // DELETE LOCKS
+  // =====================================
+
+  const deletingDocumentIdsRef =
+    useRef(
+      new Set()
+    );
 
   // =====================================
   // ACTIVE DOCUMENTS
@@ -46,32 +70,336 @@ export default function useDocumentUpload({
   ] = useState([]);
 
   // =====================================
+  // DELETING DOCUMENTS
+  // =====================================
+
+  const [
+
+    deletingDocumentIds,
+
+    setDeletingDocumentIds,
+
+  ] = useState(
+    () => new Set()
+  );
+
+  // =====================================
+  // CHECK DELETE STATE
+  // =====================================
+
+  const isDocumentDeleting =
+    useCallback(
+
+      (documentId) => {
+
+        return deletingDocumentIds.has(
+          documentId
+        );
+
+      },
+
+      [
+
+        deletingDocumentIds,
+
+      ]
+
+    );
+
+  // =====================================
+  // LOAD SESSION DOCUMENTS
+  // =====================================
+
+  const loadDocuments =
+    useCallback(
+
+      async () => {
+
+        const requestGeneration =
+          requestGenerationRef.current;
+
+        if (!sessionId) {
+
+          setActiveDocuments([]);
+
+          return;
+
+        }
+
+        try {
+
+          const response =
+            await listSessionDocuments({
+
+              sessionId,
+
+            });
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            return;
+
+          }
+
+          setActiveDocuments(
+
+            buildDocuments(
+
+              response.documents || []
+
+            )
+
+          );
+
+        }
+
+        catch (error) {
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            return;
+
+          }
+
+          console.error(
+
+            "[DOCUMENT LIST]",
+
+            error
+
+          );
+
+          setActiveDocuments([]);
+
+        }
+
+      },
+
+      [
+
+        sessionId,
+
+      ]
+
+    );
+
+  // =====================================
+  // SESSION DOCUMENT HYDRATION
+  // =====================================
+
+  useEffect(() => {
+
+    requestGenerationRef.current += 1;
+
+    deletingDocumentIdsRef.current =
+      new Set();
+
+    setActiveDocuments([]);
+
+    setUploadingDocuments([]);
+
+    setDeletingDocumentIds(
+      new Set()
+    );
+
+    loadDocuments();
+
+    return () => {
+
+      requestGenerationRef.current += 1;
+
+      deletingDocumentIdsRef.current =
+        new Set();
+
+    };
+
+  }, [
+
+    loadDocuments,
+
+  ]);
+
+  // =====================================
   // REMOVE DOCUMENT
   // =====================================
 
   const removeDocument =
     useCallback(
 
-      (documentId) => {
+      async (documentId) => {
 
-        setActiveDocuments(
+        if (
 
-          previous =>
+          !sessionId ||
 
-            previous.filter(
+          !documentId
 
-              document =>
+        ) {
 
-                document.document_id !==
-                documentId
+          return;
 
-            )
+        }
+
+        // ===============================
+        // DUPLICATE DELETE GUARD
+        // ===============================
+
+        if (
+
+          deletingDocumentIdsRef.current.has(
+            documentId
+          )
+
+        ) {
+
+          return;
+
+        }
+
+        const requestGeneration =
+          requestGenerationRef.current;
+
+        // ===============================
+        // LOCK DOCUMENT
+        // ===============================
+
+        deletingDocumentIdsRef.current.add(
+          documentId
+        );
+
+        setDeletingDocumentIds(
+
+          previous => {
+
+            const next =
+              new Set(previous);
+
+            next.add(
+              documentId
+            );
+
+            return next;
+
+          }
 
         );
 
+        try {
+
+          await deleteSessionDocument({
+
+            sessionId,
+
+            documentId,
+
+          });
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            return;
+
+          }
+
+          setActiveDocuments(
+
+            previous =>
+
+              previous.filter(
+
+                document =>
+
+                  document.document_id !==
+                  documentId
+
+              )
+
+          );
+
+        }
+
+        catch (error) {
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            return;
+
+          }
+
+          console.error(
+
+            "[DOCUMENT DELETE]",
+
+            error
+
+          );
+
+        }
+
+        finally {
+
+          if (
+
+            requestGeneration ===
+            requestGenerationRef.current
+
+          ) {
+
+            // ===============================
+            // UNLOCK DOCUMENT
+            // ===============================
+
+            deletingDocumentIdsRef.current.delete(
+              documentId
+            );
+
+            setDeletingDocumentIds(
+
+              previous => {
+
+                const next =
+                  new Set(previous);
+
+                next.delete(
+                  documentId
+                );
+
+                return next;
+
+              }
+
+            );
+
+          }
+
+        }
+
       },
 
-      []
+      [
+
+        sessionId,
+
+      ]
 
     );
 
@@ -82,7 +410,18 @@ export default function useDocumentUpload({
   const clearDocuments =
     useCallback(() => {
 
+      requestGenerationRef.current += 1;
+
+      deletingDocumentIdsRef.current =
+        new Set();
+
       setActiveDocuments([]);
+
+      setUploadingDocuments([]);
+
+      setDeletingDocumentIds(
+        new Set()
+      );
 
     }, []);
 
@@ -101,11 +440,22 @@ export default function useDocumentUpload({
 
         );
 
-        if (files.length === 0) {
+        if (
+
+          files.length === 0 ||
+
+          !sessionId
+
+        ) {
+
+          event.target.value = "";
 
           return;
 
         }
+
+        const requestGeneration =
+          requestGenerationRef.current;
 
         for (const file of files) {
 
@@ -149,24 +499,21 @@ export default function useDocumentUpload({
 
               });
 
-            // ===============================
-            // REMOVE LOADING
-            // ===============================
+            if (
 
-            setUploadingDocuments(
+              requestGeneration !==
+              requestGenerationRef.current
 
-              previous =>
+            ) {
 
-                previous.filter(
+              continue;
 
-                  item =>
+            }
 
-                    item.id !==
-                    uploadId
-
-                )
-
-            );
+            const document =
+              buildDocument(
+                response
+              );
 
             // ===============================
             // STORE ACTIVE DOCUMENT
@@ -174,15 +521,33 @@ export default function useDocumentUpload({
 
             setActiveDocuments(
 
-              previous => [
+              previous => {
 
-                ...previous,
+                const exists =
+                  previous.some(
 
-                buildDocument(
-                  response
-                ),
+                    item =>
 
-              ]
+                      item.document_id ===
+                      document.document_id
+
+                  );
+
+                if (exists) {
+
+                  return previous;
+
+                }
+
+                return [
+
+                  ...previous,
+
+                  document,
+
+                ];
+
+              }
 
             );
 
@@ -190,40 +555,56 @@ export default function useDocumentUpload({
 
           catch (error) {
 
+            if (
+
+              requestGeneration !==
+              requestGenerationRef.current
+
+            ) {
+
+              continue;
+
+            }
+
             console.error(
 
-              "[DOCUMENT]",
+              "[DOCUMENT UPLOAD]",
 
               error
 
             );
 
-            // ===============================
-            // REMOVE FAILED UPLOAD
-            // ===============================
+          }
 
-            setUploadingDocuments(
+          finally {
 
-              previous =>
+            if (
 
-                previous.filter(
+              requestGeneration ===
+              requestGenerationRef.current
 
-                  item =>
+            ) {
 
-                    item.id !==
-                    uploadId
+              setUploadingDocuments(
 
-                )
+                previous =>
 
-            );
+                  previous.filter(
+
+                    item =>
+
+                      item.id !==
+                      uploadId
+
+                  )
+
+              );
+
+            }
 
           }
 
         }
-
-        // =================================
-        // RESET INPUT
-        // =================================
 
         event.target.value = "";
 
@@ -251,6 +632,8 @@ export default function useDocumentUpload({
 
     uploadingDocuments,
 
+    deletingDocumentIds,
+
     // ===============================
     // ACTIONS
     // ===============================
@@ -260,6 +643,14 @@ export default function useDocumentUpload({
     removeDocument,
 
     clearDocuments,
+
+    loadDocuments,
+
+    // ===============================
+    // HELPERS
+    // ===============================
+
+    isDocumentDeleting,
 
     // ===============================
     // INTERNAL
