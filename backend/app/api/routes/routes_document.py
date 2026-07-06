@@ -1,8 +1,10 @@
 from fastapi import APIRouter
+from fastapi import HTTPException
+
 from pydantic import BaseModel
 
-from app.services.document.session_store import (
-    ACTIVE_DOCUMENTS,
+from app.services.research.session import (
+    session_manager,
 )
 
 from app.services.llm.model_gateway import (
@@ -17,6 +19,7 @@ from app.services.document.document_intent import (
     detect_document_intent,
 )
 
+
 router = APIRouter()
 
 
@@ -27,6 +30,8 @@ router = APIRouter()
 class DocumentChatRequest(
     BaseModel
 ):
+
+    session_id: str
 
     document_id: str
 
@@ -43,39 +48,59 @@ async def document_chat(
 ):
 
     # =====================================
-    # LOAD DOCUMENT
+    # LOAD SESSION
     # =====================================
 
-    document = ACTIVE_DOCUMENTS.get(
-        request.document_id
+    session = session_manager.get(
+        request.session_id
+    )
+
+    if session is None:
+
+        raise HTTPException(
+
+            status_code=404,
+
+            detail="Session not found",
+
+        )
+
+    # =====================================
+    # LOAD OWNED DOCUMENT
+    # =====================================
+
+    document = (
+
+        session.documents.get_document(
+            request.document_id
+        )
+
     )
 
     if document is None:
 
-        return {
+        raise HTTPException(
 
-            "answer":
-            "Dokumen tidak ditemukan."
+            status_code=404,
 
-        }
+            detail="Document not found",
+
+        )
 
     # =====================================
     # DOCUMENT CONTENT
     # =====================================
 
-    content = document.get(
-        "content",
-        ""
+    content = (
+        document.content
     )
 
-    pages = document.get(
-        "pages_data",
-        []
+    pages = (
+        document.pages_data
     )
 
-    filename = document.get(
-        "filename",
-        "Unknown"
+    filename = (
+        document.filename
     )
 
     # =====================================
@@ -272,15 +297,15 @@ cantumkan halaman.
     return {
 
         "answer":
-        answer,
+            answer,
 
         "filename":
-        filename,
+            filename,
 
         "intent":
-        intent,
+            intent,
 
         "retrieved_chunks":
-        len(chunks),
+            len(chunks),
 
     }
