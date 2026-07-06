@@ -12,6 +12,11 @@ from app.services.research.models.research_context import (
     ResearchContext,
 )
 
+from app.services.research.prompts.analysis_prompt_builder import (
+    build_conversation_section,
+    build_research_prompt,
+)
+
 from app.services.research.pipeline.base_stage import (
     BaseStage,
 )
@@ -61,6 +66,7 @@ from app.services.research.research_engine import (
     extract_assistant_content,
     persist_assistant_response,
     persist_execution_snapshot,
+    research_analysis,
 )
 
 # =====================================
@@ -147,6 +153,454 @@ class FailingStage(
             "Synthetic pipeline failure"
         )
 
+# =====================================
+# CONVERSATION PROMPT TESTS
+# =====================================
+
+class ConversationPromptTests(
+    unittest.TestCase
+):
+
+    def test_empty_conversation_history_uses_explicit_fallback(
+        self,
+    ):
+
+        context = build_context()
+
+        section = (
+            build_conversation_section(
+                context
+            )
+        )
+
+        self.assertEqual(
+
+            section,
+
+            "Belum ada percakapan sebelumnya.",
+
+        )
+
+    def test_existing_conversation_history_is_included_in_prompt(
+        self,
+    ):
+
+        context = build_context(
+            "lanjutkan analisis tersebut"
+        )
+
+        context.conversation_history = (
+
+            "user: jelaskan artificial intelligence\n"
+            "assistant: Artificial intelligence adalah "
+            "bidang ilmu komputer."
+
+        )
+
+        prompt = (
+            build_research_prompt(
+                context
+            )
+        )
+
+        self.assertIn(
+
+            context.conversation_history,
+
+            prompt,
+
+        )
+
+    def test_current_query_is_included_in_prompt(
+        self,
+    ):
+
+        context = build_context(
+            "apa research gap dari topik tersebut?"
+        )
+
+        context.conversation_history = (
+
+            "user: analisis artificial intelligence\n"
+            "assistant: Topik tersebut memiliki "
+            "beberapa tren penelitian."
+
+        )
+
+        prompt = (
+            build_research_prompt(
+                context
+            )
+        )
+
+        self.assertIn(
+
+            context.query,
+
+            prompt,
+
+        )
+
+    def test_previous_history_and_current_query_remain_separate(
+        self,
+    ):
+
+        previous_query = (
+            "jelaskan tren artificial intelligence"
+        )
+
+        current_query = (
+            "apa research gap dari topik tersebut?"
+        )
+
+        context = build_context(
+            current_query
+        )
+
+        context.conversation_history = (
+
+            f"user: {previous_query}\n"
+            "assistant: Tren penelitian berkembang "
+            "pada beberapa pendekatan."
+
+        )
+
+        prompt = (
+            build_research_prompt(
+                context
+            )
+        )
+
+        history_heading = (
+            "RIWAYAT PERCAKAPAN"
+        )
+
+        current_query_heading = (
+            "PERTANYAAN SAAT INI"
+        )
+
+        history_heading_index = (
+            prompt.index(
+                history_heading
+            )
+        )
+
+        previous_query_index = (
+            prompt.index(
+                previous_query
+            )
+        )
+
+        current_query_heading_index = (
+            prompt.index(
+                current_query_heading
+            )
+        )
+
+        current_query_index = (
+            prompt.index(
+                current_query
+            )
+        )
+
+        self.assertLess(
+
+            history_heading_index,
+
+            previous_query_index,
+
+        )
+
+        self.assertLess(
+
+            previous_query_index,
+
+            current_query_heading_index,
+
+        )
+
+        self.assertLess(
+
+            current_query_heading_index,
+
+            current_query_index,
+
+        )
+
+
+# =====================================
+# RESEARCH ENGINE CONVERSATION TESTS
+# =====================================
+
+class ResearchEngineConversationTests(
+    unittest.TestCase
+):
+
+    def setUp(
+        self,
+    ):
+
+        self.session_id = (
+            "research-engine-conversation-session"
+        )
+
+        session_manager.delete(
+            self.session_id
+        )
+
+        self.session = (
+            session_manager.create(
+                self.session_id
+            )
+        )
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.delete(
+            self.session_id
+        )
+
+    @patch(
+        "app.services.research.research_engine."
+        "ResearchPipelineBuilder.build"
+    )
+    @patch(
+        "app.orchestration.task_router."
+        "route_query"
+    )
+    def test_research_analysis_snapshots_history_before_current_user_message(
+        self,
+        mock_route_query,
+        mock_pipeline_build,
+    ):
+
+        # =================================
+        # PREVIOUS CONVERSATION
+        # =================================
+
+        self.session.conversation.append(
+
+            role="user",
+
+            content=(
+                "jelaskan artificial intelligence"
+            ),
+
+        )
+
+        self.session.conversation.append(
+
+            role="assistant",
+
+            content=(
+                "Artificial intelligence adalah "
+                "bidang ilmu komputer."
+            ),
+
+        )
+
+        expected_history = (
+            self.session.conversation.build_history()
+        )
+
+        # =================================
+        # ROUTING
+        # =================================
+
+        mock_route_query.return_value = {
+
+            "intent":
+                "research",
+
+            "provider":
+                "test-provider",
+
+            "model":
+                "test-model",
+
+        }
+
+        # =================================
+        # PIPELINE
+        # =================================
+
+        def build_pipeline(
+            context,
+            stream=False,
+        ):
+
+            executor = Mock()
+
+            def run():
+
+                context.analysis = (
+                    "Generated follow-up analysis"
+                )
+
+                context.response = {
+
+                    "analysis":
+                        context.analysis,
+
+                }
+
+                return context
+
+            executor.run.side_effect = run
+
+            return executor
+
+        mock_pipeline_build.side_effect = (
+            build_pipeline
+        )
+
+        # =================================
+        # CURRENT QUERY
+        # =================================
+
+        current_query = (
+            "apa research gap dari topik tersebut?"
+        )
+
+        response = research_analysis(
+
+            query=current_query,
+
+            session_id=self.session_id,
+
+        )
+
+        # =================================
+        # CAPTURE PIPELINE CONTEXT
+        # =================================
+
+        mock_pipeline_build.assert_called_once()
+
+        context = (
+            mock_pipeline_build.call_args.args[0]
+        )
+
+        # =================================
+        # ASSERT PREVIOUS HISTORY SNAPSHOT
+        # =================================
+
+        self.assertEqual(
+
+            context.conversation_history,
+
+            expected_history,
+
+        )
+
+        self.assertIn(
+
+            "user: jelaskan artificial intelligence",
+
+            context.conversation_history,
+
+        )
+
+        self.assertIn(
+
+            (
+                "assistant: Artificial intelligence "
+                "adalah bidang ilmu komputer."
+            ),
+
+            context.conversation_history,
+
+        )
+
+        # =================================
+        # CURRENT QUERY MUST STAY SEPARATE
+        # =================================
+
+        self.assertEqual(
+
+            context.query,
+
+            current_query,
+
+        )
+
+        self.assertNotIn(
+
+            current_query,
+
+            context.conversation_history,
+
+        )
+
+        # =================================
+        # CURRENT USER MESSAGE IS RECORDED
+        # =================================
+
+        messages = (
+            self.session.conversation.messages
+        )
+
+        current_user_messages = [
+
+            message
+
+            for message in messages
+
+            if (
+                message.role == "user"
+                and message.content == current_query
+            )
+
+        ]
+
+        self.assertEqual(
+
+            len(current_user_messages),
+
+            1,
+
+        )
+
+        # =================================
+        # ASSISTANT RESPONSE IS PERSISTED
+        # =================================
+
+        last_message = (
+            self.session.conversation.last_message()
+        )
+
+        self.assertIsNotNone(
+            last_message
+        )
+
+        self.assertEqual(
+
+            last_message.role,
+
+            "assistant",
+
+        )
+
+        self.assertEqual(
+
+            last_message.content,
+
+            "Generated follow-up analysis",
+
+        )
+
+        # =================================
+        # RESPONSE
+        # =================================
+
+        self.assertEqual(
+
+            response["analysis"],
+
+            "Generated follow-up analysis",
+
+        )
 
 # =====================================
 # ASSISTANT PERSISTENCE TESTS
