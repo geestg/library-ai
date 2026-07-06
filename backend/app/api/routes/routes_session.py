@@ -59,6 +59,94 @@ def get_session(
 
 
 # =========================================
+# DELETE DOCUMENT
+# =========================================
+
+@router.delete(
+    "/{session_id}/documents/{document_id}"
+)
+def delete_document(
+
+    session_id: str,
+
+    document_id: str,
+
+):
+
+    # =====================================
+    # RESOLVE SESSION
+    # =====================================
+
+    session = (
+        session_manager.get(
+            session_id
+        )
+    )
+
+    if session is None:
+
+        raise HTTPException(
+
+            status_code=404,
+
+            detail=(
+                "Session not found."
+            ),
+
+        )
+
+    # =====================================
+    # RESOLVE OWNED DOCUMENT
+    # =====================================
+
+    document = (
+        session.documents.get_document(
+            document_id
+        )
+    )
+
+    if document is None:
+
+        raise HTTPException(
+
+            status_code=404,
+
+            detail=(
+                "Document not found."
+            ),
+
+        )
+
+    # =====================================
+    # REMOVE DOCUMENT
+    # =====================================
+
+    session.documents.remove_document(
+        document_id
+    )
+
+    # =====================================
+    # RESPONSE
+    # =====================================
+
+    return {
+
+        "status":
+            "success",
+
+        "session_id":
+            session_id,
+
+        "document_id":
+            document_id,
+
+        "message":
+            "Document deleted successfully.",
+
+    }
+
+
+# =========================================
 # DELETE SESSION
 # =========================================
 

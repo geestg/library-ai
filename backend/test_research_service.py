@@ -4675,3 +4675,436 @@ if __name__ == "__main__":
     unittest.main(
         verbosity=2
     )
+
+    # =========================================
+# DOCUMENT DELETE OWNERSHIP TESTS
+# =========================================
+
+class DocumentDeleteOwnershipTests(
+    unittest.TestCase
+):
+
+    @classmethod
+    def setUpClass(
+        cls,
+    ):
+
+        cls.client = TestClient(
+            app
+        )
+
+    def setUp(
+        self,
+    ):
+
+        session_manager.clear()
+
+        self.owner_session = (
+            session_manager.create(
+                "document-delete-owner"
+            )
+        )
+
+        self.other_session = (
+            session_manager.create(
+                "document-delete-other"
+            )
+        )
+
+        self.owner_document = DocumentItem(
+
+            document_id="delete-owner-document",
+
+            filename="owner.pdf",
+
+            file_type="pdf",
+
+            pages=2,
+
+            chunks=4,
+
+            content=(
+                "Owner document content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Owner document page content",
+
+                }
+
+            ],
+
+        )
+
+        self.retained_document = DocumentItem(
+
+            document_id="retained-owner-document",
+
+            filename="retained.pdf",
+
+            file_type="pdf",
+
+            pages=3,
+
+            chunks=6,
+
+            content=(
+                "Retained document content"
+            ),
+
+            pages_data=[
+
+                {
+
+                    "page":
+                        1,
+
+                    "text":
+                        "Retained document page content",
+
+                }
+
+            ],
+
+        )
+
+        self.owner_session.documents.add_document(
+            self.owner_document
+        )
+
+        self.owner_session.documents.add_document(
+            self.retained_document
+        )
+
+    def tearDown(
+        self,
+    ):
+
+        session_manager.clear()
+
+    def delete_document(
+        self,
+
+        session_id,
+
+        document_id,
+
+    ):
+
+        return self.client.delete(
+
+            (
+                "/session/"
+                f"{session_id}"
+                "/documents/"
+                f"{document_id}"
+            )
+
+        )
+
+    def test_owner_session_can_delete_owned_document(
+        self,
+    ):
+
+        response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        self.assertIsNone(
+
+            self.owner_session.documents.get_document(
+                self.owner_document.document_id
+            )
+
+        )
+
+    def test_other_session_cannot_delete_owner_document(
+        self,
+    ):
+
+        response = self.delete_document(
+
+            self.other_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        self.assertIsNotNone(
+
+            self.owner_session.documents.get_document(
+                self.owner_document.document_id
+            )
+
+        )
+
+    def test_delete_rejects_unknown_session(
+        self,
+    ):
+
+        response = self.delete_document(
+
+            "unknown-session",
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        self.assertIsNotNone(
+
+            self.owner_session.documents.get_document(
+                self.owner_document.document_id
+            )
+
+        )
+
+    def test_delete_rejects_unknown_document(
+        self,
+    ):
+
+        response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            "unknown-document",
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
+        )
+
+        self.assertIsNotNone(
+
+            self.owner_session.documents.get_document(
+                self.owner_document.document_id
+            )
+
+        )
+
+    def test_delete_preserves_other_documents_in_same_session(
+        self,
+    ):
+
+        response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        self.assertIsNone(
+
+            self.owner_session.documents.get_document(
+                self.owner_document.document_id
+            )
+
+        )
+
+        self.assertIsNotNone(
+
+            self.owner_session.documents.get_document(
+                self.retained_document.document_id
+            )
+
+        )
+
+        self.assertEqual(
+
+            self.owner_session.documents.count(),
+
+            1,
+
+        )
+
+    def test_deleted_document_disappears_from_document_list(
+        self,
+    ):
+
+        delete_response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            delete_response.status_code,
+            200,
+        )
+
+        list_response = self.client.get(
+
+            (
+                "/session/"
+                f"{self.owner_session.session_id}"
+                "/documents"
+            )
+
+        )
+
+        self.assertEqual(
+            list_response.status_code,
+            200,
+        )
+
+        data = list_response.json()
+
+        document_ids = [
+
+            document["document_id"]
+
+            for document in data["documents"]
+
+        ]
+
+        self.assertNotIn(
+
+            self.owner_document.document_id,
+
+            document_ids,
+
+        )
+
+        self.assertIn(
+
+            self.retained_document.document_id,
+
+            document_ids,
+
+        )
+
+    @patch(
+        "app.api.routes.routes_document.gateway.generate_response"
+    )
+    def test_deleted_document_cannot_be_used_by_document_chat(
+
+        self,
+
+        mock_generate_response,
+
+    ):
+
+        mock_generate_response.return_value = (
+            "This answer must not be generated"
+        )
+
+        delete_response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            delete_response.status_code,
+            200,
+        )
+
+        chat_response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    self.owner_session.session_id,
+
+                "document_id":
+                    self.owner_document.document_id,
+
+                "question":
+                    "Apa isi dokumen ini?",
+
+            },
+
+        )
+
+        self.assertEqual(
+            chat_response.status_code,
+            404,
+        )
+
+        mock_generate_response.assert_not_called()
+
+    def test_deleted_document_cannot_be_used_by_document_engine(
+        self,
+    ):
+
+        delete_response = self.delete_document(
+
+            self.owner_session.session_id,
+
+            self.owner_document.document_id,
+
+        )
+
+        self.assertEqual(
+            delete_response.status_code,
+            200,
+        )
+
+        result = build_document_context(
+
+            session_id=(
+                self.owner_session.session_id
+            ),
+
+            active_document_ids=[
+
+                self.owner_document.document_id
+
+            ],
+
+        )
+
+        self.assertEqual(
+
+            result["documents"],
+
+            [],
+
+        )
+
+        self.assertEqual(
+
+            result["context"],
+
+            "",
+
+        )
