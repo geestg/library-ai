@@ -84,6 +84,29 @@ export default function useDocumentUpload({
   );
 
   // =====================================
+  // DOCUMENT ERROR
+  // =====================================
+
+  const [
+
+    documentError,
+
+    setDocumentError,
+
+  ] = useState(null);
+
+  // =====================================
+  // CLEAR DOCUMENT ERROR
+  // =====================================
+
+  const clearDocumentError =
+    useCallback(() => {
+
+      setDocumentError(null);
+
+    }, []);
+
+  // =====================================
   // CHECK DELETE STATE
   // =====================================
 
@@ -156,6 +179,8 @@ export default function useDocumentUpload({
 
           );
 
+          setDocumentError(null);
+
         }
 
         catch (error) {
@@ -180,6 +205,16 @@ export default function useDocumentUpload({
           );
 
           setActiveDocuments([]);
+
+          setDocumentError({
+
+            type:
+              "list",
+
+            message:
+              "Failed to load session documents.",
+
+          });
 
         }
 
@@ -211,6 +246,8 @@ export default function useDocumentUpload({
     setDeletingDocumentIds(
       new Set()
     );
+
+    setDocumentError(null);
 
     loadDocuments();
 
@@ -269,6 +306,16 @@ export default function useDocumentUpload({
         const requestGeneration =
           requestGenerationRef.current;
 
+        const document =
+          activeDocuments.find(
+
+            item =>
+
+              item.document_id ===
+              documentId
+
+          );
+
         // ===============================
         // LOCK DOCUMENT
         // ===============================
@@ -321,14 +368,16 @@ export default function useDocumentUpload({
 
               previous.filter(
 
-                document =>
+                item =>
 
-                  document.document_id !==
+                  item.document_id !==
                   documentId
 
               )
 
           );
+
+          setDocumentError(null);
 
         }
 
@@ -352,6 +401,22 @@ export default function useDocumentUpload({
             error
 
           );
+
+          setDocumentError({
+
+            type:
+              "delete",
+
+            message:
+              "Failed to delete document.",
+
+            filename:
+              document?.filename ??
+              null,
+
+            documentId,
+
+          });
 
         }
 
@@ -399,6 +464,8 @@ export default function useDocumentUpload({
 
         sessionId,
 
+        activeDocuments,
+
       ]
 
     );
@@ -422,6 +489,8 @@ export default function useDocumentUpload({
       setDeletingDocumentIds(
         new Set()
       );
+
+      setDocumentError(null);
 
     }, []);
 
@@ -551,6 +620,8 @@ export default function useDocumentUpload({
 
             );
 
+            setDocumentError(null);
+
           }
 
           catch (error) {
@@ -573,6 +644,19 @@ export default function useDocumentUpload({
               error
 
             );
+
+            setDocumentError({
+
+              type:
+                "upload",
+
+              message:
+                "Failed to upload document.",
+
+              filename:
+                file.name,
+
+            });
 
           }
 
@@ -634,6 +718,8 @@ export default function useDocumentUpload({
 
     deletingDocumentIds,
 
+    documentError,
+
     // ===============================
     // ACTIONS
     // ===============================
@@ -645,6 +731,8 @@ export default function useDocumentUpload({
     clearDocuments,
 
     loadDocuments,
+
+    clearDocumentError,
 
     // ===============================
     // HELPERS
