@@ -71,9 +71,15 @@ export default function ResearchSession({
 
     uploadingDocuments,
 
+    documentError,
+
     handleFileUpload,
 
     removeDocument,
+
+    clearDocumentError,
+
+    isDocumentDeleting,
 
   } = useDocumentUpload({
 
@@ -215,8 +221,20 @@ export default function ResearchSession({
           uploadingDocuments
         }
 
+        documentError={
+          documentError
+        }
+
         removeDocument={
           removeDocument
+        }
+
+        clearDocumentError={
+          clearDocumentError
+        }
+
+        isDocumentDeleting={
+          isDocumentDeleting
         }
 
       />

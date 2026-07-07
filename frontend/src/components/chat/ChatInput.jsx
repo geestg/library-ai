@@ -17,6 +17,8 @@ import {
 
   Square,
 
+  CircleAlert,
+
 } from "lucide-react";
 
 import {
@@ -45,7 +47,13 @@ export default function ChatInput({
 
   uploadingDocuments,
 
+  documentError,
+
   removeDocument,
+
+  clearDocumentError,
+
+  isDocumentDeleting,
 
 }) {
 
@@ -132,12 +140,84 @@ export default function ChatInput({
     };
 
   // =====================================
+  // DOCUMENT ERROR LABEL
+  // =====================================
+
+  const documentErrorLabel =
+
+    documentError?.filename
+
+      ? `${documentError.message} ${documentError.filename}`
+
+      : documentError?.message;
+
+  // =====================================
   // UI
   // =====================================
 
   return (
 
     <div className="floating-input-wrapper">
+
+      {/* ================================= */}
+      {/* DOCUMENT ERROR */}
+      {/* ================================= */}
+
+      {
+
+        documentError && (
+
+          <div
+
+            className="document-error-feedback"
+
+            role="alert"
+
+          >
+
+            <CircleAlert
+
+              size={15}
+
+              className="document-error-icon"
+
+            />
+
+            <span className="document-error-message">
+
+              {documentErrorLabel}
+
+            </span>
+
+            <button
+
+              type="button"
+
+              className="document-error-dismiss"
+
+              aria-label="Dismiss document error"
+
+              onClick={
+
+                clearDocumentError
+
+              }
+
+            >
+
+              <X
+
+                size={13}
+
+              />
+
+            </button>
+
+          </div>
+
+        )
+
+      }
 
       {/* ================================= */}
       {/* UPLOADING DOCUMENTS */}
@@ -211,57 +291,109 @@ export default function ChatInput({
 
               activeDocuments.map(
 
-                (doc) => (
+                (doc) => {
 
-                  <div
+                  const isDeleting =
 
-                    key={doc.document_id}
+                    isDocumentDeleting?.(
 
-                    className="active-document-pill"
+                      doc.document_id
 
-                  >
+                    ) ?? false;
 
-                    <FileText
+                  return (
 
-                      size={14}
+                    <div
 
-                    />
+                      key={doc.document_id}
 
-                    <span className="active-document-name">
+                      className={
 
-                      {doc.filename}
-
-                    </span>
-
-                    <button
-
-                      type="button"
-
-                      className="document-remove-btn"
-
-                      onClick={() =>
-
-                        removeDocument(
-
-                          doc.document_id
-
-                        )
+                        `active-document-pill${
+                          isDeleting
+                            ? " deleting"
+                            : ""
+                        }`
 
                       }
 
                     >
 
-                      <X
+                      <FileText
 
-                        size={12}
+                        size={14}
 
                       />
 
-                    </button>
+                      <span className="active-document-name">
 
-                  </div>
+                        {doc.filename}
 
-                )
+                      </span>
+
+                      <button
+
+                        type="button"
+
+                        className="document-remove-btn"
+
+                        disabled={
+                          isDeleting
+                        }
+
+                        aria-label={
+
+                          isDeleting
+
+                            ? `Deleting ${doc.filename}`
+
+                            : `Remove ${doc.filename}`
+
+                        }
+
+                        onClick={() =>
+
+                          removeDocument(
+
+                            doc.document_id
+
+                          )
+
+                        }
+
+                      >
+
+                        {
+
+                          isDeleting ? (
+
+                            <Loader2
+
+                              size={12}
+
+                              className="spin"
+
+                            />
+
+                          ) : (
+
+                            <X
+
+                              size={12}
+
+                            />
+
+                          )
+
+                        }
+
+                      </button>
+
+                    </div>
+
+                  );
+
+                }
 
               )
 
@@ -356,7 +488,8 @@ export default function ChatInput({
           }
 
         />
-                {/* ========================= */}
+
+        {/* ========================= */}
         {/* ACTION BUTTON */}
         {/* ========================= */}
 
