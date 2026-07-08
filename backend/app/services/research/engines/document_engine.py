@@ -165,6 +165,17 @@ katakan informasi tidak ditemukan.
 9. Jangan mengarang.
 
 10. Gunakan Bahasa Indonesia.
+
+11. Gunakan Markdown murni untuk format jawaban.
+
+12. Jangan gunakan tag HTML seperti
+<br>, <ul>, <li>, <table>, atau tag HTML lainnya.
+
+13. Untuk tabel, gunakan sintaks tabel Markdown.
+
+14. Untuk daftar, gunakan tanda "- " atau penomoran Markdown.
+
+15. Pastikan setiap isi tabel ringkas dan mudah dibaca.
 """
 
 

@@ -171,6 +171,45 @@ export default function useResearchSession({
 
       setInput("");
 
+      // =================================
+      // BUILD ACTIVE DOCUMENT IDS
+      // =================================
+
+      const activeDocumentIds =
+
+        activeDocuments.map(
+
+          (document) =>
+
+            document.document_id
+
+        );
+
+      // =================================
+      // SEND MESSAGE DEBUG
+      // =================================
+
+      console.log(
+
+        "[SEND MESSAGE DEBUG]",
+
+        {
+
+          sessionId,
+
+          finalInput,
+
+          totalActiveDocuments:
+            activeDocuments.length,
+
+          activeDocuments,
+
+          activeDocumentIds,
+
+        }
+
+      );
+
       try {
 
         await startStream({
@@ -192,15 +231,7 @@ export default function useResearchSession({
           // DOCUMENTS
           // =============================
 
-          activeDocumentIds:
-
-            activeDocuments.map(
-
-              (document) =>
-
-                document.document_id
-
-            ),
+          activeDocumentIds,
 
           // =============================
           // STREAM START
