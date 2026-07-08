@@ -6,7 +6,7 @@
 
   width: 100%;
 
-  max-width: 1100px;
+  max-width: 760px;
 
   margin: 0 auto;
 
@@ -19,41 +19,26 @@
   justify-content: center;
 
   text-align: center;
+
 }
 
+
 /* ====================================
-   BADGE
+   HERO INTRO
 ==================================== */
 
-.hero-badge {
+.hero-intro {
 
-  display: inline-flex;
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
 
   align-items: center;
 
-  gap: 8px;
-
-  padding:
-    10px 18px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(99,102,241,0.12);
-
-  border:
-    1px solid rgba(99,102,241,0.22);
-
-  color: #c7d2fe;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  margin-bottom: 28px;
-
-  backdrop-filter: blur(20px);
 }
+
 
 /* ====================================
    TITLE
@@ -63,205 +48,306 @@
 
   margin: 0;
 
-  max-width: 980px;
+  display: flex;
 
-  font-size: clamp(58px, 6vw, 96px);
+  flex-direction: column;
 
-  line-height: 0.9;
+  align-items: center;
 
-  letter-spacing: -0.08em;
+  color:
+    #f8fafc;
 
-  font-weight: 900;
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      68px
+    );
+
+  font-weight: 760;
+
+  line-height: 0.98;
+
+  letter-spacing:
+    -0.055em;
 
   text-wrap: balance;
 
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #a5b4fc
-    );
-
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
 }
 
+
 /* ====================================
-   SUBTITLE
+   TITLE SECOND LINE
+==================================== */
+
+.hero-section h1 span:last-child {
+
+  color:
+    rgba(
+      199,
+      210,
+      254,
+      0.9
+    );
+
+}
+
+
+/* ====================================
+   DESCRIPTION
 ==================================== */
 
 .hero-section p {
 
-  max-width: 640px;
+  max-width: 570px;
 
-  margin-top: 28px;
+  margin:
+    24px 0 0;
 
   color:
-    rgba(255,255,255,0.62);
+    rgba(
+      148,
+      163,
+      184,
+      0.82
+    );
 
-  font-size: 16px;
+  font-size: 15px;
 
-  line-height: 1.9;
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  text-wrap: balance;
+
 }
 
+
 /* ====================================
-   MINI STATS
+   STARTER PROMPTS
 ==================================== */
 
-.hero-mini-stats {
+.hero-starter-prompts {
 
   display: flex;
 
   flex-wrap: wrap;
 
+  align-items: center;
+
   justify-content: center;
 
-  gap: 16px;
+  gap: 8px;
 
-  margin-top: 40px;
+  max-width: 680px;
+
+  margin-top: 30px;
+
 }
 
-.hero-stat {
 
-  min-width: 220px;
+/* ====================================
+   STARTER BUTTON
+==================================== */
+
+.hero-starter-button {
+
+  min-height: 38px;
 
   padding:
-    18px 20px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(255,255,255,0.04);
+    0 14px;
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid
+    rgba(
+      148,
+      163,
+      184,
+      0.12
+    );
 
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.03);
+  border-radius: 999px;
 
-  backdrop-filter: blur(18px);
-
-  text-align: left;
-}
-
-.hero-stat strong {
-
-  display: block;
-
-  color: white;
-
-  font-size: 14px;
-
-  margin-bottom: 6px;
-}
-
-.hero-stat span {
+  background:
+    rgba(
+      15,
+      23,
+      42,
+      0.46
+    );
 
   color:
-    rgba(255,255,255,0.5);
+    rgba(
+      203,
+      213,
+      225,
+      0.82
+    );
 
-  font-size: 13px;
+  font-family: inherit;
 
-  line-height: 1.7;
-}
+  font-size: 12px;
 
-/* ====================================
-   GRID
-==================================== */
+  font-weight: 550;
 
-.hero-grid {
-
-  width: 100%;
-
-  max-width: 980px;
-
-  margin-top: 44px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 22px;
-}
-
-/* ====================================
-   CARD
-==================================== */
-
-.hero-card {
-
-  position: relative;
-
-  overflow: hidden;
-
-  min-height: 190px;
-
-  padding: 30px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: flex-end;
-
-  border-radius: 30px;
+  line-height: 1;
 
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    color 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.05),
-      rgba(255,255,255,0.03)
-    );
-
-  border:
-    1px solid rgba(255,255,255,0.06);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.03);
 }
 
-.hero-card:hover {
 
-  transform:
-    translateY(-4px);
+/* ====================================
+   STARTER BUTTON HOVER
+==================================== */
 
-  border-color:
-    rgba(99,102,241,0.24);
-}
-
-.hero-card svg {
-
-  color: #8ea2ff;
-
-  margin-bottom: 18px;
-}
-
-.hero-card h3 {
-
-  color: white;
-
-  font-size: 28px;
-
-  margin-bottom: 10px;
-
-  font-weight: 800;
-}
-
-.hero-card span {
+.hero-starter-button:hover {
 
   color:
-    rgba(255,255,255,0.58);
+    #f8fafc;
 
-  font-size: 14px;
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.08
+    );
 
-  line-height: 1.8;
+  border-color:
+    rgba(
+      129,
+      140,
+      248,
+      0.24
+    );
+
+  transform:
+    translateY(-1px);
+
+}
+
+
+/* ====================================
+   STARTER BUTTON FOCUS
+==================================== */
+
+.hero-starter-button:focus-visible {
+
+  outline:
+    2px solid
+    rgba(
+      165,
+      180,
+      252,
+      0.76
+    );
+
+  outline-offset: 3px;
+
+}
+
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media (max-width: 768px) {
+
+  .hero-section {
+
+    max-width: 100%;
+
+    padding:
+      0 18px;
+
+  }
+
+  .hero-section h1 {
+
+    font-size:
+      clamp(
+        38px,
+        11vw,
+        54px
+      );
+
+    line-height: 1;
+
+  }
+
+  .hero-section p {
+
+    max-width: 480px;
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+  }
+
+  .hero-starter-prompts {
+
+    margin-top: 24px;
+
+  }
+
+}
+
+
+/* ====================================
+   SMALL MOBILE
+==================================== */
+
+@media (max-width: 480px) {
+
+  .hero-section {
+
+    align-items:
+      flex-start;
+
+    text-align: left;
+
+  }
+
+  .hero-intro {
+
+    align-items:
+      flex-start;
+
+  }
+
+  .hero-section h1 {
+
+    align-items:
+      flex-start;
+
+    font-size:
+      clamp(
+        36px,
+        12vw,
+        46px
+      );
+
+  }
+
+  .hero-section p {
+
+    text-wrap: pretty;
+
+  }
+
+  .hero-starter-prompts {
+
+    justify-content:
+      flex-start;
+
+  }
+
 }
