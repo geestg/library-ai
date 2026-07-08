@@ -1,101 +1,192 @@
-import React from "react";
-
 import ReactMarkdown from "react-markdown";
-
 import remarkGfm from "remark-gfm";
 
-import {
-  parseCitations
-} from "../../utils/citationParser.jsx";
+/* =====================================
+   NORMALIZE MODEL OUTPUT
+===================================== */
 
-function CitationText({
+function normalizeMarkdown(content) {
 
-  children,
+  if (typeof content !== "string") {
 
-  onCitationClick
+    return "";
 
-}) {
+  }
 
-  return (
+  return content
 
-    <>
+    // =================================
+    // LINE BREAK
+    // =================================
 
-      {
+    .replace(
+      /<br\s*\/?>/gi,
+      "\n"
+    )
 
-        React.Children.map(
+    // =================================
+    // UNORDERED LIST
+    // =================================
 
-          children,
+    .replace(
+      /<ul[^>]*>/gi,
+      "\n"
+    )
 
-          (child) => {
+    .replace(
+      /<\/ul>/gi,
+      "\n"
+    )
 
-            if (
+    .replace(
+      /<li[^>]*>/gi,
+      "\n- "
+    )
 
-              typeof child ===
-              "string"
+    .replace(
+      /<\/li>/gi,
+      ""
+    )
 
-            ) {
+    // =================================
+    // ORDERED LIST
+    // =================================
 
-              return parseCitations(
+    .replace(
+      /<ol[^>]*>/gi,
+      "\n"
+    )
 
-                child,
+    .replace(
+      /<\/ol>/gi,
+      "\n"
+    )
 
-                onCitationClick
+    // =================================
+    // PARAGRAPH
+    // =================================
 
-              );
+    .replace(
+      /<p[^>]*>/gi,
+      "\n"
+    )
 
-            }
+    .replace(
+      /<\/p>/gi,
+      "\n"
+    )
 
-            return child;
+    // =================================
+    // BOLD
+    // =================================
 
-          }
+    .replace(
+      /<strong[^>]*>/gi,
+      "**"
+    )
 
-        )
+    .replace(
+      /<\/strong>/gi,
+      "**"
+    )
 
-      }
+    .replace(
+      /<b[^>]*>/gi,
+      "**"
+    )
 
-    </>
+    .replace(
+      /<\/b>/gi,
+      "**"
+    )
 
-  );
+    // =================================
+    // ITALIC
+    // =================================
+
+    .replace(
+      /<em[^>]*>/gi,
+      "*"
+    )
+
+    .replace(
+      /<\/em>/gi,
+      "*"
+    )
+
+    .replace(
+      /<i[^>]*>/gi,
+      "*"
+    )
+
+    .replace(
+      /<\/i>/gi,
+      "*"
+    )
+
+    // =================================
+    // REMOVE REMAINING HTML TAGS
+    // =================================
+
+    .replace(
+      /<[^>]+>/g,
+      ""
+    )
+
+    // =================================
+    // CLEAN EXCESSIVE NEWLINES
+    // =================================
+
+    .replace(
+      /\n{3,}/g,
+      "\n\n"
+    )
+
+    .trim();
 
 }
 
+
+/* =====================================
+   MARKDOWN MESSAGE
+===================================== */
+
 export default function MarkdownMessage({
 
-  content,
-
-  onCitationClick
+  content = "",
 
 }) {
+
+  const normalizedContent =
+    normalizeMarkdown(
+      content
+    );
 
   return (
 
     <ReactMarkdown
 
       remarkPlugins={[
-        remarkGfm
+        remarkGfm,
       ]}
 
       components={{
 
-        p(props) {
+        // =============================
+        // PARAGRAPH
+        // =============================
+
+        p({
+
+          children,
+
+        }) {
 
           return (
 
             <p>
 
-              <CitationText
-
-                onCitationClick={
-                  onCitationClick
-                }
-
-              >
-
-                {
-                  props.children
-                }
-
-              </CitationText>
+              {children}
 
             </p>
 
@@ -103,77 +194,116 @@ export default function MarkdownMessage({
 
         },
 
-        li(props) {
+        // =============================
+        // TABLE WRAPPER
+        // =============================
+
+        table({
+
+          children,
+
+        }) {
 
           return (
 
-            <li>
+            <div
+              className=
+                "markdown-table-wrapper"
+            >
 
-              <CitationText
+              <table>
 
-                onCitationClick={
-                  onCitationClick
-                }
+                {children}
 
-              >
+              </table>
 
-                {
-                  props.children
-                }
-
-              </CitationText>
-
-            </li>
+            </div>
 
           );
 
         },
 
-        td(props) {
+        // =============================
+        // TABLE HEAD
+        // =============================
+
+        thead({
+
+          children,
+
+        }) {
 
           return (
 
-            <td>
+            <thead>
 
-              <CitationText
+              {children}
 
-                onCitationClick={
-                  onCitationClick
-                }
-
-              >
-
-                {
-                  props.children
-                }
-
-              </CitationText>
-
-            </td>
+            </thead>
 
           );
 
         },
 
-        th(props) {
+        // =============================
+        // TABLE BODY
+        // =============================
+
+        tbody({
+
+          children,
+
+        }) {
+
+          return (
+
+            <tbody>
+
+              {children}
+
+            </tbody>
+
+          );
+
+        },
+
+        // =============================
+        // TABLE ROW
+        // =============================
+
+        tr({
+
+          children,
+
+        }) {
+
+          return (
+
+            <tr>
+
+              {children}
+
+            </tr>
+
+          );
+
+        },
+
+        // =============================
+        // TABLE HEADER
+        // =============================
+
+        th({
+
+          children,
+
+        }) {
 
           return (
 
             <th>
 
-              <CitationText
-
-                onCitationClick={
-                  onCitationClick
-                }
-
-              >
-
-                {
-                  props.children
-                }
-
-              </CitationText>
+              {children}
 
             </th>
 
@@ -181,37 +311,153 @@ export default function MarkdownMessage({
 
         },
 
-        strong(props) {
+        // =============================
+        // TABLE CELL
+        // =============================
+
+        td({
+
+          children,
+
+        }) {
 
           return (
 
-            <strong>
+            <td>
 
-              <CitationText
+              {children}
 
-                onCitationClick={
-                  onCitationClick
-                }
-
-              >
-
-                {
-                  props.children
-                }
-
-              </CitationText>
-
-            </strong>
+            </td>
 
           );
 
-        }
+        },
+
+        // =============================
+        // UNORDERED LIST
+        // =============================
+
+        ul({
+
+          children,
+
+        }) {
+
+          return (
+
+            <ul>
+
+              {children}
+
+            </ul>
+
+          );
+
+        },
+
+        // =============================
+        // ORDERED LIST
+        // =============================
+
+        ol({
+
+          children,
+
+        }) {
+
+          return (
+
+            <ol>
+
+              {children}
+
+            </ol>
+
+          );
+
+        },
+
+        // =============================
+        // LIST ITEM
+        // =============================
+
+        li({
+
+          children,
+
+        }) {
+
+          return (
+
+            <li>
+
+              {children}
+
+            </li>
+
+          );
+
+        },
+
+        // =============================
+        // CODE BLOCK
+        // =============================
+
+        code({
+
+          className,
+
+          children,
+
+          ...props
+
+        }) {
+
+          const isBlock =
+            Boolean(className);
+
+          if (isBlock) {
+
+            return (
+
+              <pre>
+
+                <code
+                  className={
+                    className
+                  }
+                  {...props}
+                >
+
+                  {children}
+
+                </code>
+
+              </pre>
+
+            );
+
+          }
+
+          return (
+
+            <code
+              {...props}
+            >
+
+              {children}
+
+            </code>
+
+          );
+
+        },
 
       }}
 
     >
 
-      {content}
+      {normalizedContent}
 
     </ReactMarkdown>
 

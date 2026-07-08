@@ -1,3 +1,7 @@
+import {
+  forwardRef,
+} from "react";
+
 import ChatHero from "../chat/ChatHero";
 import MessageBubble from "../chat/MessageBubble";
 import ThinkingIndicator from "../chat/ThinkingIndicator";
@@ -6,142 +10,170 @@ import {
   ConversationState,
 } from "../../hooks/useConversationState";
 
-export default function SessionConversation({
+const SessionConversation =
+  forwardRef(function SessionConversation({
 
-  messages = [],
+    messages = [],
 
-  conversationState,
+    conversationState,
 
-  sources = [],
+    sources = [],
 
-  setInput,
+    setInput,
 
-  setSelectedThesis,
+    setSelectedThesis,
 
-  setActiveCitation,
+    setActiveCitation,
 
-}) {
+    onScroll,
 
-  // =====================================
-  // STATE
-  // =====================================
+  }, ref) {
 
-  const isThinking =
+    // =====================================
+    // STATE
+    // =====================================
 
-    conversationState ===
+    const isThinking =
 
-    ConversationState.THINKING;
+      conversationState ===
 
-  // =====================================
-  // UI
-  // =====================================
+      ConversationState.THINKING;
 
-  return (
+    const hasMessages =
 
-    <div
+      messages.length > 0;
 
-      className={`modern-messages ${
+    // =====================================
+    // UI
+    // =====================================
 
-        messages.length === 0
+    return (
 
-          ? "empty-chat"
+      <div
 
-          : ""
+        ref={ref}
 
-      }`}
+        className={`modern-messages ${
 
-    >
+          !hasMessages
+
+            ? "empty-chat"
+
+            : "has-messages"
+
+        }`}
+
+        onScroll={onScroll}
+
+      >
+
+        <div className="conversation-content">
+
           {
 
-        messages.length === 0
+            !hasMessages
 
-          ? (
+              ? (
 
-              <ChatHero
+                  <ChatHero
 
-                setInput={
-                  setInput
-                }
-
-              />
-
-            )
-
-          : (
-
-              messages.map(
-
-                (
-
-                  msg,
-
-                  idx
-
-                ) => (
-
-                  <MessageBubble
-
-                    key={
-                      msg.id || idx
-                    }
-
-                    role={
-                      msg.role
-                    }
-
-                    content={
-                      msg.content
-                    }
-
-                    citations={
-                      msg.citations
-                    }
-
-                    evidence={
-                      msg.evidence
-                    }
-
-                    noveltyAnalysis={
-                      msg.noveltyAnalysis
-                    }
-
-                    attachedDocuments={
-                      msg.attachedDocuments
-                    }
-
-                    sources={
-                      sources
-                    }
-
-                    setSelectedThesis={
-                      setSelectedThesis
-                    }
-
-                    setActiveCitation={
-                      setActiveCitation
+                    setInput={
+                      setInput
                     }
 
                   />
 
                 )
 
-              )
+              : (
+
+                  messages.map(
+
+                    (
+
+                      msg,
+
+                      idx
+
+                    ) => (
+
+                      <MessageBubble
+
+                        key={
+                          msg.id ||
+                          `${msg.role}-${idx}`
+                        }
+
+                        role={
+                          msg.role
+                        }
+
+                        content={
+                          msg.content
+                        }
+
+                        citations={
+                          msg.citations
+                        }
+
+                        evidence={
+                          msg.evidence
+                        }
+
+                        noveltyAnalysis={
+                          msg.noveltyAnalysis
+                        }
+
+                        attachedDocuments={
+                          msg.attachedDocuments
+                        }
+
+                        sources={
+                          sources
+                        }
+
+                        setSelectedThesis={
+                          setSelectedThesis
+                        }
+
+                        setActiveCitation={
+                          setActiveCitation
+                        }
+
+                      />
+
+                    )
+
+                  )
+
+                )
+
+          }
+
+          {
+
+            isThinking && (
+
+              <ThinkingIndicator />
 
             )
 
-      }
-            {
+          }
 
-        isThinking && (
+          <div
 
-          <ThinkingIndicator />
+            className="conversation-bottom-anchor"
 
-        )
+            aria-hidden="true"
 
-      }
+          />
 
-    </div>
+        </div>
 
-  );
+      </div>
 
-}
+    );
+
+  });
+
+export default SessionConversation;
