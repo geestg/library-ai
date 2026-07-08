@@ -1017,6 +1017,7 @@ class ResearchEngineConversationTests(
         def build_pipeline(
             context,
             stream=False,
+            progress_callback=None,
         ):
 
             executor = Mock()

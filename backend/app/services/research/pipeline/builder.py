@@ -49,11 +49,21 @@ class ResearchPipelineBuilder:
 
         stream: bool = False,
 
+        progress_callback=None,
+
     ):
 
         return (
 
-            PipelineExecutor(context)
+            PipelineExecutor(
+
+                context,
+
+                progress_callback=(
+                    progress_callback
+                ),
+
+            )
 
             # =====================================
             # DOCUMENT
