@@ -242,46 +242,16 @@
 
 
 /* ====================================
-   MESSAGE WIDTH
+   MESSAGE FLOW
 ==================================== */
 
 .message,
 .message-group {
 
-  width: 100%;
-
-  max-width: 1000px;
-
-  margin-left: auto;
-  margin-right: auto;
+  min-width: 0;
 
   flex-shrink: 0;
 
-}
-
-
-/* ====================================
-   USER MESSAGE ALIGNMENT
-==================================== */
-
-.message.user {
-
-  display: flex;
-
-  justify-content: flex-end;
-
-}
-
-
-/* ====================================
-   ASSISTANT MESSAGE ALIGNMENT
-==================================== */
-
-.message.assistant {
-
-  display: flex;
-
-  justify-content: flex-start;
 
 }
 
@@ -304,7 +274,7 @@
 
 
 /* ====================================
-   ASSISTANT CONTENT
+   MESSAGE CONTENT WIDTH
 ==================================== */
 
 .message.assistant
@@ -315,19 +285,14 @@
 }
 
 
-/* ====================================
-   USER CONTENT
-==================================== */
+
 
 .message.user
 .message-content {
 
   width: auto;
 
-  max-width: min(
-    78%,
-    760px
-  );
+  max-width: 100%;
 
 }
 
