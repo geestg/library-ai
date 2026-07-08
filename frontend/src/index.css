@@ -6,6 +6,7 @@
 @import "./styles/base/typography.css";
 @import "./styles/base/animations.css";
 
+
 /* ====================================
    LAYOUT
 ==================================== */
@@ -14,6 +15,7 @@
 @import "./styles/layout/sidebar.css";
 @import "./styles/layout/workspace.css";
 
+
 /* ====================================
    CHAT
 ==================================== */
@@ -21,6 +23,7 @@
 @import "./styles/chat/chat-layout.css";
 @import "./styles/chat/chat-hero.css";
 @import "./styles/chat/chat-input.css";
+@import "./styles/chat/chat-upload.css";
 @import "./styles/chat/messages.css";
 @import "./styles/chat/document-context.css";
 
@@ -31,6 +34,5 @@
 
 @import "./styles/components/markdown.css";
 @import "./styles/components/source-panel.css";
-@import "./styles/components/document-context.css";
 @import "./styles/components/document-context.css";
 @import "./styles/components/thesis-drawer.css";

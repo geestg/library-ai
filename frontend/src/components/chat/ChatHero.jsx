@@ -8,17 +8,7 @@ export default function ChatHero() {
 
     <div className="hero-section">
 
-      {/* ========================= */}
-      {/* BRAND */}
-      {/* ========================= */}
 
-      <div className="hero-badge">
-
-        <BrainCircuit size={14} />
-
-        DELBot
-
-      </div>
 
       {/* ========================= */}
       {/* TITLE */}
