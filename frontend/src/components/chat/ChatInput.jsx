@@ -293,7 +293,7 @@ export default function ChatInput({
 
                         <span className="composer-document-status">
 
-                          Uploading
+                          Mengunggah
 
                         </span>
 
@@ -360,9 +360,9 @@ export default function ChatInput({
                             {
                               isDeleting
 
-                                ? "Removing"
+                                ? "Menghapus"
 
-                                : "Ready"
+                                : "Siap"
                             }
 
                           </span>
@@ -463,7 +463,7 @@ export default function ChatInput({
 
             rows={1}
 
-            placeholder="Ask about research, theses, methods, or findings..."
+            placeholder="Tanyakan tentang penelitian, metode, atau dokumen..."
 
             value={input}
 
@@ -503,7 +503,7 @@ export default function ChatInput({
                   isGenerating
                 }
 
-                aria-label="Attach documents"
+                aria-label="Lampirkan dokumen"
 
               >
 
@@ -511,7 +511,7 @@ export default function ChatInput({
 
                 <span>
 
-                  Attach
+                  Lampirkan
 
                 </span>
 
@@ -563,11 +563,7 @@ export default function ChatInput({
                       activeDocuments.length
                     }
 
-                    {
-                      activeDocuments.length === 1
-                        ? " document"
-                        : " documents"
-                    }
+                    {" dokumen"}
 
                   </span>
 
@@ -598,7 +594,7 @@ export default function ChatInput({
                     stopGeneration
                   }
 
-                  aria-label="Stop generation"
+                  aria-label="Hentikan jawaban"
 
                 >
 
@@ -628,7 +624,7 @@ export default function ChatInput({
                     !canSend
                   }
 
-                  aria-label="Send message"
+                  aria-label="Kirim pesan"
 
                 >
 

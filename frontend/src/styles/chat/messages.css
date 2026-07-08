@@ -165,6 +165,166 @@
 }
 
 /* ====================================
+   ASSISTANT ACTIONS
+==================================== */
+
+.assistant-message-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 34px;
+
+  margin-top: 18px;
+
+  padding-top: 10px;
+
+  border-top:
+    1px solid
+    rgba(
+      148,
+      163,
+      184,
+      0.07
+    );
+}
+
+/* ====================================
+   ASSISTANT ACTION BUTTON
+==================================== */
+
+.assistant-action-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 32px;
+
+  padding:
+    0 10px;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 9px;
+
+  background:
+    transparent;
+
+  color:
+    rgba(
+      148,
+      163,
+      184,
+      0.78
+    );
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+/* ====================================
+   ACTION ICON
+==================================== */
+
+.assistant-action-button svg {
+
+  flex: 0 0 auto;
+}
+
+/* ====================================
+   ACTION HOVER
+==================================== */
+
+.assistant-action-button:hover {
+
+  border-color:
+    rgba(
+      148,
+      163,
+      184,
+      0.10
+    );
+
+  background:
+    rgba(
+      148,
+      163,
+      184,
+      0.06
+    );
+
+  color:
+    rgba(
+      226,
+      232,
+      240,
+      0.96
+    );
+}
+
+/* ====================================
+   ACTION ACTIVE
+==================================== */
+
+.assistant-action-button:active {
+
+  background:
+    rgba(
+      148,
+      163,
+      184,
+      0.09
+    );
+}
+
+/* ====================================
+   ACTION FOCUS
+==================================== */
+
+.assistant-action-button:focus-visible {
+
+  outline:
+    2px solid
+    rgba(
+      129,
+      140,
+      248,
+      0.72
+    );
+
+  outline-offset: 2px;
+}
+
+/* ====================================
+   COPY SUCCESS
+==================================== */
+
+.assistant-action-button.copied {
+
+  color:
+    #86efac;
+}
+
+/* ====================================
    DOCUMENT ATTACHMENTS
 ==================================== */
 
@@ -381,6 +541,21 @@
     height: 34px;
   }
 
+  .assistant-message-actions {
+
+  margin-top: 16px;
+
+  padding-top: 8px;
+}
+
+  .assistant-action-button {
+
+    min-height: 34px;
+
+    padding:
+      0 9px;
+  }
+
   .message-document-list {
     flex-wrap: nowrap;
     max-width: 100%;
@@ -412,4 +587,154 @@
   .assistant-message-label {
     font-size: 10px;
   }
+}
+
+/* ====================================
+   THINKING STATE
+==================================== */
+
+.modern-thinking {
+  width: 100%;
+  max-width: 860px;
+
+  margin:
+    28px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  color:
+    rgba(
+      148,
+      163,
+      184,
+      0.82
+    );
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+/* ====================================
+   THINKING LOADER
+==================================== */
+
+.thinking-loader {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  flex: 0 0 auto;
+}
+
+/* ====================================
+   THINKING DOT
+==================================== */
+
+.thinking-dot {
+  width: 5px;
+
+  height: 5px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      165,
+      180,
+      252,
+      0.78
+    );
+
+  animation:
+    thinking-dot-pulse
+    1.4s
+    ease-in-out
+    infinite;
+}
+
+.thinking-dot:nth-child(2) {
+  animation-delay:
+    0.16s;
+}
+
+.thinking-dot:nth-child(3) {
+  animation-delay:
+    0.32s;
+}
+
+/* ====================================
+   THINKING LABEL
+==================================== */
+
+.thinking-label {
+  min-width: 0;
+
+  overflow-wrap:
+    anywhere;
+}
+
+/* ====================================
+   THINKING ANIMATION
+==================================== */
+
+@keyframes thinking-dot-pulse {
+
+  0%,
+  60%,
+  100% {
+    opacity: 0.32;
+
+    transform:
+      translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+
+    transform:
+      translateY(-2px);
+  }
+
+}
+
+/* ====================================
+   REDUCED MOTION
+==================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .thinking-dot {
+    animation: none;
+
+    opacity: 0.72;
+  }
+
+}
+
+/* ====================================
+   THINKING RESPONSIVE
+==================================== */
+
+@media (max-width: 768px) {
+
+  .modern-thinking {
+    max-width: 100%;
+
+    margin-top: 24px;
+
+    font-size: 12px;
+  }
+
 }

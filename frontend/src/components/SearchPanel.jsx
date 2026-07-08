@@ -78,15 +78,7 @@ export default function SearchPanel({
       <div className="evidence-header">
 
         <div>
-
-          <div className="evidence-badge">
-
-            <Sparkles size={13} />
-
-            Evidence Engine
-
-          </div>
-
+    
           <h2>
 
             Academic Sources

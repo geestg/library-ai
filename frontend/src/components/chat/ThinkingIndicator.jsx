@@ -2,18 +2,42 @@ export default function ThinkingIndicator() {
 
   return (
 
-    <div className="modern-thinking">
+    <div
 
-      <div className="thinking-loader">
+      className="modern-thinking"
 
-        <div className="thinking-dot" />
-        <div className="thinking-dot" />
-        <div className="thinking-dot" />
+      role="status"
+
+      aria-live="polite"
+
+      aria-label="Sedang menganalisis"
+
+    >
+
+      <div
+
+        className="thinking-loader"
+
+        aria-hidden="true"
+
+      >
+
+        <span className="thinking-dot" />
+
+        <span className="thinking-dot" />
+
+        <span className="thinking-dot" />
 
       </div>
 
-      DELBot sedang menganalisis konteks penelitian...
+      <span className="thinking-label">
+
+        Menganalisis konteks penelitian
+
+      </span>
 
     </div>
+
   );
+
 }
