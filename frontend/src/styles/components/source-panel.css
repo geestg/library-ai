@@ -4,16 +4,26 @@
 
 .evidence-shell {
 
-  height: 100%;
-
   display: flex;
 
   flex-direction: column;
 
-  padding: 28px 22px;
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 0;
+
+  padding:
+    28px 22px;
 
   overflow-y: auto;
+
+  overscroll-behavior:
+    contain;
+
 }
+
 
 /* ====================================
    HEADER
@@ -21,39 +31,38 @@
 
 .evidence-header {
 
-  margin-bottom: 30px;
+  flex-shrink: 0;
+
+  padding:
+    0 2px
+    22px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      148,
+      163,
+      184,
+      0.08
+    );
+
 }
 
+
 /* ====================================
-   BADGE
+   HEADING ROW
 ==================================== */
 
-.evidence-badge {
+.evidence-heading-row {
 
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
 
-  gap: 8px;
+  gap: 9px;
 
-  padding: 8px 14px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(99,102,241,0.12);
-
-  border:
-    1px solid rgba(99,102,241,0.22);
-
-  color: #a5b4fc;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  margin-bottom: 18px;
 }
+
 
 /* ====================================
    TITLE
@@ -63,30 +72,109 @@
 
   margin: 0;
 
-  font-size: 28px;
+  color:
+    rgba(
+      248,
+      250,
+      252,
+      0.96
+    );
 
-  font-weight: 800;
+  font-size: 20px;
 
-  letter-spacing: -0.04em;
+  font-weight: 750;
 
-  color: white;
+  line-height: 1.25;
+
+  letter-spacing:
+    -0.035em;
+
 }
 
+
 /* ====================================
-   TEXT
+   SOURCE COUNT
+==================================== */
+
+.evidence-count {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 24px;
+
+  height: 24px;
+
+  padding:
+    0 7px;
+
+  border:
+    1px solid
+    rgba(
+      129,
+      140,
+      248,
+      0.16
+    );
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.08
+    );
+
+  color:
+    rgba(
+      165,
+      180,
+      252,
+      0.88
+    );
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+}
+
+
+/* ====================================
+   HEADER DESCRIPTION
 ==================================== */
 
 .evidence-header p {
 
-  margin-top: 12px;
+  max-width: 260px;
+
+  margin:
+    7px 0 0;
 
   color:
-    rgba(255,255,255,0.55);
+    rgba(
+      148,
+      163,
+      184,
+      0.68
+    );
 
-  line-height: 1.7;
+  font-size: 12px;
 
-  font-size: 14px;
+  font-weight: 450;
+
+  line-height: 1.55;
+
 }
+
 
 /* ====================================
    EMPTY STATE
@@ -94,56 +182,141 @@
 
 .evidence-empty {
 
-  margin-top: 80px;
-
-  text-align: center;
-
-  padding: 0 12px;
-}
-
-.empty-icon {
-
-  width: 80px;
-
-  height: 80px;
-
-  margin: 0 auto 24px;
-
-  border-radius: 28px;
-
   display: flex;
 
-  align-items: center;
+  flex: 1;
+
+  flex-direction: column;
+
+  align-items: flex-start;
 
   justify-content: center;
 
-  background:
-    rgba(255,255,255,0.04);
+  min-height: 260px;
 
-  border:
-    1px solid rgba(255,255,255,0.06);
+  padding:
+    24px 4px
+    48px;
 
-  color: #94a3b8;
+  text-align: left;
+
 }
+
+
+/* ====================================
+   EMPTY MARK
+==================================== */
+
+.evidence-empty-mark {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  height: 24px;
+
+  margin-bottom: 20px;
+
+}
+
+
+/* ====================================
+   EMPTY MARK LINES
+==================================== */
+
+.evidence-empty-mark span {
+
+  display: block;
+
+  width: 4px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(
+      129,
+      140,
+      248,
+      0.48
+    );
+
+}
+
+.evidence-empty-mark span:nth-child(1) {
+
+  height: 10px;
+
+}
+
+.evidence-empty-mark span:nth-child(2) {
+
+  height: 18px;
+
+}
+
+.evidence-empty-mark span:nth-child(3) {
+
+  height: 14px;
+
+}
+
+
+/* ====================================
+   EMPTY TITLE
+==================================== */
 
 .evidence-empty h3 {
 
-  color: white;
+  margin: 0;
 
-  margin-bottom: 12px;
+  color:
+    rgba(
+      241,
+      245,
+      249,
+      0.92
+    );
 
-  font-size: 20px;
+  font-size: 14px;
+
+  font-weight: 650;
+
+  line-height: 1.4;
+
+  letter-spacing:
+    -0.01em;
+
 }
+
+
+/* ====================================
+   EMPTY DESCRIPTION
+==================================== */
 
 .evidence-empty p {
 
+  max-width: 230px;
+
+  margin:
+    8px 0 0;
+
   color:
-    rgba(255,255,255,0.5);
+    rgba(
+      148,
+      163,
+      184,
+      0.58
+    );
 
-  line-height: 1.8;
+  font-size: 12px;
 
-  font-size: 14px;
+  line-height: 1.65;
+
 }
+
 
 /* ====================================
    SOURCE LIST
@@ -155,8 +328,12 @@
 
   flex-direction: column;
 
-  gap: 18px;
+  gap: 0;
+
+  padding-top: 8px;
+
 }
+
 
 /* ====================================
    SOURCE CARD
@@ -166,146 +343,179 @@
 
   position: relative;
 
-  overflow: hidden;
+  display: grid;
 
-  padding: 22px;
+  grid-template-columns:
+    26px minmax(0, 1fr);
 
-  border-radius: 24px;
+  gap: 10px;
+
+  width: 100%;
+
+  padding:
+    17px 4px;
+
+  border: 0;
+
+  border-bottom:
+    1px solid
+    rgba(
+      148,
+      163,
+      184,
+      0.075
+    );
+
+  border-radius: 0;
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.05),
-      rgba(255,255,255,0.03)
-    );
+    transparent;
 
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
+  cursor: pointer;
+
+  outline: none;
 
   transition:
-    all 0.25s ease;
+    background-color 0.18s ease,
+    padding-left 0.18s ease;
 
-  backdrop-filter: blur(20px);
 }
 
-.evidence-card::before {
+
+/* ====================================
+   SOURCE HOVER
+==================================== */
+
+.evidence-card:hover {
+
+  padding-left: 8px;
+
+  background:
+    rgba(
+      148,
+      163,
+      184,
+      0.025
+    );
+
+}
+
+
+/* ====================================
+   SOURCE ACTIVE
+==================================== */
+
+.evidence-card.active {
+
+  padding-left: 8px;
+
+  background:
+    rgba(
+      99,
+      102,
+      241,
+      0.055
+    );
+
+}
+
+
+/* ====================================
+   ACTIVE INDICATOR
+==================================== */
+
+.evidence-card.active::before {
 
   content: "";
 
   position: absolute;
 
-  inset: 0;
+  top: 16px;
+
+  bottom: 16px;
+
+  left: 0;
+
+  width: 2px;
+
+  border-radius:
+    999px;
 
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(
-        99,
-        102,
-        241,
-        0.14
-      ),
-      transparent 40%
-    );
-
-  opacity: 0;
-
-  transition: 0.24s ease;
-}
-
-/* ====================================
-   ACTIVE CARD
-==================================== */
-
-.evidence-card.active {
-
-  border:
-    1px solid #6366f1;
-
-  box-shadow:
-    0 0 0 1px #6366f1,
-    0 0 30px rgba(
-      99,
-      102,
-      241,
-      0.35
-    );
-
-  transform:
-    translateY(-2px);
-}
-
-.evidence-card.active::before {
-
-  opacity: 1;
-}
-
-/* ====================================
-   HOVER
-==================================== */
-
-.evidence-card:hover {
-
-  transform:
-    translateY(-3px);
-
-  border-color:
     rgba(
-      99,
-      102,
-      241,
-      0.22
+      129,
+      140,
+      248,
+      0.86
     );
+
 }
 
+
 /* ====================================
-   CARD HEADER
+   KEYBOARD FOCUS
 ==================================== */
 
-.evidence-card-top {
+.evidence-card:focus-visible {
+
+  border-radius: 8px;
+
+  outline:
+    2px solid
+    rgba(
+      129,
+      140,
+      248,
+      0.58
+    );
+
+  outline-offset:
+    -2px;
+
+}
+
+
+/* ====================================
+   SOURCE INDEX
+==================================== */
+
+.evidence-source-index {
 
   display: flex;
 
-  gap: 14px;
-
-  margin-bottom: 18px;
-}
-
-/* ====================================
-   ICON
-==================================== */
-
-.evidence-source-icon {
-
-  width: 46px;
-
-  height: 46px;
-
-  border-radius: 16px;
-
-  display: flex;
-
-  align-items: center;
+  align-items: flex-start;
 
   justify-content: center;
 
-  background:
+  padding-top: 2px;
+
+  color:
     rgba(
-      99,
-      102,
-      241,
-      0.12
+      129,
+      140,
+      248,
+      0.78
     );
 
-  color: #a5b4fc;
+  font-size: 11px;
 
-  flex-shrink: 0;
+  font-weight: 750;
+
+  line-height: 1.5;
+
 }
+
+
+/* ====================================
+   CARD CONTENT
+==================================== */
+
+.evidence-card-content {
+
+  min-width: 0;
+
+}
+
 
 /* ====================================
    SOURCE TITLE
@@ -313,88 +523,123 @@
 
 .evidence-source-name {
 
-  color: white;
+  display:
+    -webkit-box;
 
-  font-size: 15px;
+  margin: 0;
 
-  font-weight: 700;
-
-  line-height: 1.6;
-
-  word-break: break-word;
-}
-
-/* ====================================
-   CITATION ID
-==================================== */
-
-.evidence-citation-id {
-
-  margin-top: 4px;
+  overflow: hidden;
 
   color:
     rgba(
-      255,
-      255,
-      255,
-      0.45
+      241,
+      245,
+      249,
+      0.9
     );
 
-  font-size: 12px;
+  font-size: 13px;
+
+  font-weight: 650;
+
+  line-height: 1.55;
+
+  letter-spacing:
+    -0.01em;
+
+  -webkit-box-orient:
+    vertical;
+
+  -webkit-line-clamp:
+    3;
+
 }
 
+
 /* ====================================
-   META PILL
+   ACTIVE SOURCE TITLE
 ==================================== */
 
-.meta-pill {
+.evidence-card.active
+.evidence-source-name {
 
-  display: inline-flex;
+  color:
+    #f8fafc;
+
+}
+
+
+/* ====================================
+   SOURCE META
+==================================== */
+
+.evidence-source-meta {
+
+  display: flex;
+
+  flex-wrap: wrap;
 
   align-items: center;
 
   gap: 6px;
 
-  padding:
-    8px 12px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.04
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.05
-    );
+  margin-top: 8px;
 
   color:
     rgba(
-      255,
-      255,
-      255,
-      0.74
+      148,
+      163,
+      184,
+      0.62
     );
 
-  font-size: 12px;
+  font-size: 11px;
+
+  line-height: 1.5;
+
 }
 
+
 /* ====================================
-   RELEVANCE SCORE
+   META SEPARATOR
+==================================== */
+
+.evidence-meta-separator {
+
+  width: 3px;
+
+  height: 3px;
+
+  flex-shrink: 0;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(
+      148,
+      163,
+      184,
+      0.34
+    );
+
+}
+
+
+/* ====================================
+   RELEVANCE
 ==================================== */
 
 .evidence-score-wrapper {
 
-  margin-top: 14px;
+  margin-top: 13px;
+
 }
+
+
+/* ====================================
+   SCORE HEADER
+==================================== */
 
 .score-header {
 
@@ -404,57 +649,77 @@
 
   justify-content: space-between;
 
-  margin-bottom: 10px;
+  gap: 12px;
+
+  margin-bottom: 7px;
 
   color:
     rgba(
-      255,
-      255,
-      255,
-      0.7
+      148,
+      163,
+      184,
+      0.62
     );
 
-  font-size: 13px;
+  font-size: 10px;
+
+  font-weight: 550;
+
+  line-height: 1.4;
+
 }
+
+
+/* ====================================
+   SCORE BAR
+==================================== */
 
 .score-bar {
 
-  height: 10px;
+  width: 100%;
+
+  height: 3px;
 
   overflow: hidden;
 
-  border-radius: 999px;
+  border-radius:
+    999px;
 
   background:
     rgba(
-      255,
-      255,
-      255,
-      0.06
+      148,
+      163,
+      184,
+      0.1
     );
+
 }
+
+
+/* ====================================
+   SCORE FILL
+==================================== */
 
 .score-fill {
 
   height: 100%;
 
-  border-radius: 999px;
+  border-radius:
+    inherit;
 
   background:
-    linear-gradient(
-      90deg,
-      #6366f1,
-      #8b5cf6
+    rgba(
+      129,
+      140,
+      248,
+      0.72
     );
 
-  box-shadow:
-    0 0 18px rgba(
-      99,
-      102,
-      241,
-      0.3
-    );
+  transition:
+    width 0.35s ease;
+
 }
+
 
 /* ====================================
    REPOSITORY LINK
@@ -462,121 +727,155 @@
 
 .evidence-link {
 
-  margin-top: 14px;
-
   display: inline-flex;
 
   align-items: center;
 
   gap: 6px;
 
+  margin-top: 12px;
+
   color:
     rgba(
-      255,
-      255,
-      255,
-      0.65
+      165,
+      180,
+      252,
+      0.68
     );
 
-  font-size: 12px;
+  font-size: 11px;
 
   font-weight: 600;
+
+  line-height: 1.4;
 
   text-decoration: none;
 
   transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
+    color 0.18s ease;
 
-  opacity: 0.85;
 }
+
+
+/* ====================================
+   REPOSITORY HOVER
+==================================== */
 
 .evidence-link:hover {
 
-  color: #a5b4fc;
+  color:
+    rgba(
+      199,
+      210,
+      254,
+      0.96
+    );
 
-  opacity: 1;
 }
 
-.evidence-link svg {
-
-  width: 13px;
-
-  height: 13px;
-}
 
 /* ====================================
-   INLINE CITATION
+   REPOSITORY FOCUS
 ==================================== */
 
-.inline-citation {
+.evidence-link:focus-visible {
 
-  display: inline-flex;
+  border-radius: 4px;
 
-  align-items: center;
-
-  justify-content: center;
-
-  margin: 0 3px;
-
-  padding: 2px 8px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  cursor: pointer;
-
-  background:
+  outline:
+    2px solid
     rgba(
-      99,
-      102,
-      241,
-      0.18
+      129,
+      140,
+      248,
+      0.7
     );
 
-  color: #a5b4fc;
+  outline-offset: 3px;
 
-  font-size: 12px;
-
-  font-weight: 700;
-
-  transition:
-    all 0.2s ease;
 }
 
-.inline-citation:hover {
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.3
-    );
-
-  transform:
-    translateY(-1px);
-}
 
 /* ====================================
    SCROLLBAR
 ==================================== */
 
+.evidence-shell {
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    rgba(
+      148,
+      163,
+      184,
+      0.14
+    )
+    transparent;
+
+}
+
 .evidence-shell::-webkit-scrollbar {
 
-  width: 8px;
+  width: 5px;
+
+}
+
+.evidence-shell::-webkit-scrollbar-track {
+
+  background:
+    transparent;
+
 }
 
 .evidence-shell::-webkit-scrollbar-thumb {
 
+  border-radius:
+    999px;
+
   background:
     rgba(
-      255,
-      255,
-      255,
-      0.08
+      148,
+      163,
+      184,
+      0.14
     );
 
-  border-radius: 999px;
+}
+
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media (max-width: 1100px) {
+
+  .evidence-shell {
+
+    padding:
+      24px 18px;
+
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .evidence-shell {
+
+    padding:
+      20px 16px;
+
+  }
+
+  .evidence-empty {
+
+    min-height: 220px;
+
+    padding-bottom: 28px;
+
+  }
+
 }

@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import {
+  useEffect,
+} from "react";
 
 import {
-  FileText,
-  Sparkles,
-  ExternalLink
+  ExternalLink,
 } from "lucide-react";
 
 export default function SearchPanel({
@@ -14,18 +14,27 @@ export default function SearchPanel({
 
   setActiveCitation,
 
-  setSelectedThesis
+  setSelectedThesis,
 
 }) {
 
-  // =================================
+  // =====================================
+  // SOURCE STATE
+  // =====================================
+
+  const hasSources =
+    sources.length > 0;
+
+  // =====================================
   // ACTIVE CITATION SCROLL
-  // =================================
+  // =====================================
 
   useEffect(() => {
 
     if (!activeCitation) {
+
       return;
+
     }
 
     const container =
@@ -39,10 +48,15 @@ export default function SearchPanel({
       );
 
     if (
+
       !container ||
+
       !element
+
     ) {
+
       return;
+
     }
 
     const containerRect =
@@ -52,50 +66,180 @@ export default function SearchPanel({
       element.getBoundingClientRect();
 
     const targetScrollTop =
+
       elementRect.top -
+
       containerRect.top +
+
       container.scrollTop -
-      120;
+
+      92;
 
     container.scrollTo({
 
-      top: targetScrollTop,
+      top:
+        targetScrollTop,
 
-      behavior: "smooth"
+      behavior:
+        "smooth",
 
     });
 
-  }, [activeCitation]);
+  }, [
+
+    activeCitation,
+
+  ]);
+
+  // =====================================
+  // SELECT SOURCE
+  // =====================================
+
+  const selectSource =
+    (source) => {
+
+      setActiveCitation?.(
+        source.source_id
+      );
+
+      setSelectedThesis?.(
+        source
+      );
+
+    };
+
+  // =====================================
+  // KEYBOARD INTERACTION
+  // =====================================
+
+  const handleSourceKeyDown =
+    (
+
+      event,
+
+      source
+
+    ) => {
+
+      if (
+
+        event.key !== "Enter" &&
+
+        event.key !== " "
+
+      ) {
+
+        return;
+
+      }
+
+      event.preventDefault();
+
+      selectSource(
+        source
+      );
+
+    };
+
+  // =====================================
+  // SCORE
+  // =====================================
+
+  const getScoreData =
+    (score) => {
+
+      const numericScore =
+        Number(score || 0);
+
+      const percentage =
+
+        numericScore <= 1
+
+          ? numericScore * 100
+
+          : numericScore <= 10
+
+            ? numericScore * 10
+
+            : numericScore;
+
+      const safePercentage =
+        Math.max(
+
+          0,
+
+          Math.min(
+            percentage,
+            100
+          )
+
+        );
+
+      return {
+
+        percentage:
+          safePercentage,
+
+        label:
+          `${Math.round(
+            safePercentage
+          )}%`,
+
+      };
+
+    };
+
+  // =====================================
+  // UI
+  // =====================================
 
   return (
 
-    <div className="evidence-shell">
+    <aside
+
+      className="evidence-shell"
+
+      aria-label="Sumber akademik"
+
+    >
 
       {/* ================================= */}
       {/* HEADER */}
       {/* ================================= */}
 
-      <div className="evidence-header">
+      <header className="evidence-header">
 
-        <div>
-    
+        <div className="evidence-heading-row">
+
           <h2>
 
-            Academic Sources
+            Sumber
 
           </h2>
 
-          <p>
+          {
 
-            Citation-aware retrieval
-            evidence from DELBot
-            research intelligence engine.
+            hasSources && (
 
-          </p>
+              <span className="evidence-count">
+
+                {sources.length}
+
+              </span>
+
+            )
+
+          }
 
         </div>
 
-      </div>
+        <p>
+
+          Bukti akademik yang mendukung jawaban.
+
+        </p>
+
+      </header>
 
       {/* ================================= */}
       {/* EMPTY STATE */}
@@ -103,30 +247,333 @@ export default function SearchPanel({
 
       {
 
-        sources.length === 0 && (
+        !hasSources ? (
 
           <div className="evidence-empty">
 
-            <div className="empty-icon">
+            <div
 
-              <FileText size={34} />
+              className="evidence-empty-mark"
+
+              aria-hidden="true"
+
+            >
+
+              <span />
+
+              <span />
+
+              <span />
 
             </div>
 
             <h3>
 
-              No sources yet
+              Belum ada sumber
 
             </h3>
 
             <p>
 
-              Ask a research question
-              and DELBot will display
-              retrieved thesis sources
-              here.
+              Sumber yang relevan akan muncul
+              di sini setelah pencarian akademik.
 
             </p>
+
+          </div>
+
+        ) : (
+
+          /* ================================= */
+          /* SOURCE LIST */
+          /* ================================= */
+
+          <div className="evidence-list">
+
+            {
+
+              sources.map(
+
+                (
+
+                  source,
+
+                  index
+
+                ) => {
+
+                  const isActive =
+
+                    activeCitation ===
+                    source.source_id;
+
+                  const score =
+                    getScoreData(
+                      source.score
+                    );
+
+                  return (
+
+                    <article
+
+                      id={
+                        `citation-${source.source_id}`
+                      }
+
+                      key={
+                        source.source_id
+                      }
+
+                      className={
+
+                        `evidence-card${
+                          isActive
+                            ? " active"
+                            : ""
+                        }`
+
+                      }
+
+                      role="button"
+
+                      tabIndex={0}
+
+                      aria-pressed={
+                        isActive
+                      }
+
+                      onClick={() =>
+
+                        selectSource(
+                          source
+                        )
+
+                      }
+
+                      onKeyDown={
+
+                        (event) =>
+
+                          handleSourceKeyDown(
+
+                            event,
+
+                            source
+
+                          )
+
+                      }
+
+                    >
+
+                      {/* ===================== */}
+                      {/* SOURCE NUMBER */}
+                      {/* ===================== */}
+
+                      <div className="evidence-source-index">
+
+                        {
+
+                          index + 1
+
+                        }
+
+                      </div>
+
+                      {/* ===================== */}
+                      {/* SOURCE CONTENT */}
+                      {/* ===================== */}
+
+                      <div className="evidence-card-content">
+
+                        <h3 className="evidence-source-name">
+
+                          {
+
+                            source.title ||
+
+                            "Judul tidak tersedia"
+
+                          }
+
+                        </h3>
+
+                        <div className="evidence-source-meta">
+
+                          <span>
+
+                            {
+
+                              source.author ||
+
+                              "Penulis tidak tersedia"
+
+                            }
+
+                          </span>
+
+                          {
+
+                            source.year && (
+
+                              <>
+
+                                <span
+
+                                  className="evidence-meta-separator"
+
+                                  aria-hidden="true"
+
+                                />
+
+                                <span>
+
+                                  {source.year}
+
+                                </span>
+
+                              </>
+
+                            )
+
+                          }
+
+                          {
+
+                            source.prodi && (
+
+                              <>
+
+                                <span
+
+                                  className="evidence-meta-separator"
+
+                                  aria-hidden="true"
+
+                                />
+
+                                <span>
+
+                                  {source.prodi}
+
+                                </span>
+
+                              </>
+
+                            )
+
+                          }
+
+                        </div>
+
+                        {/* =================== */}
+                        {/* RELEVANCE */}
+                        {/* =================== */}
+
+                        <div className="evidence-score-wrapper">
+
+                          <div className="score-header">
+
+                            <span>
+
+                              Relevansi
+
+                            </span>
+
+                            <span>
+
+                              {score.label}
+
+                            </span>
+
+                          </div>
+
+                          <div
+
+                            className="score-bar"
+
+                            aria-hidden="true"
+
+                          >
+
+                            <div
+
+                              className="score-fill"
+
+                              style={{
+
+                                width:
+                                  `${score.percentage}%`,
+
+                              }}
+
+                            />
+
+                          </div>
+
+                        </div>
+
+                        {/* =================== */}
+                        {/* REPOSITORY */}
+                        {/* =================== */}
+
+                        {
+
+                          source.url && (
+
+                            <a
+
+                              href={
+                                source.url
+                              }
+
+                              target="_blank"
+
+                              rel="noopener noreferrer"
+
+                              className="evidence-link"
+
+                              onClick={
+
+                                (event) =>
+
+                                  event.stopPropagation()
+
+                              }
+
+                            >
+
+                              <span>
+
+                                Buka repositori
+
+                              </span>
+
+                              <ExternalLink
+
+                                size={13}
+
+                                strokeWidth={2}
+
+                              />
+
+                            </a>
+
+                          )
+
+                        }
+
+                      </div>
+
+                    </article>
+
+                  );
+
+                }
+
+              )
+
+            }
 
           </div>
 
@@ -134,241 +581,7 @@ export default function SearchPanel({
 
       }
 
-      {/* ================================= */}
-      {/* SOURCE LIST */}
-      {/* ================================= */}
-
-      <div className="evidence-list">
-
-        {
-
-          sources.map((source) => {
-
-            const isActive =
-
-              activeCitation ===
-              source.source_id;
-
-            return (
-
-              <div
-
-                id={
-                  `citation-${source.source_id}`
-                }
-
-                key={
-                  source.source_id
-                }
-
-                onClick={() => {
-
-                  setActiveCitation?.(
-                    source.source_id
-                  );
-
-                  setSelectedThesis?.(
-                    source
-                  );
-
-                }}
-
-                className={`evidence-card ${
-                  isActive
-                    ? "active"
-                    : ""
-                }`}
-
-                style={{
-                  cursor: "pointer"
-                }}
-
-              >
-
-                <div className="evidence-card-top">
-
-                  <div className="evidence-source-icon">
-
-                    <FileText size={18} />
-
-                  </div>
-
-                  <div className="evidence-top-content">
-
-                    <div className="evidence-source-name">
-
-                      {
-
-                        source.title ||
-
-                        "Unknown Thesis"
-
-                      }
-
-                    </div>
-
-                    <div className="evidence-citation-id">
-
-                      Citation #
-
-                      {
-
-                        source.source_id
-
-                      }
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div
-                  style={{
-                    marginTop: "14px",
-                    color:
-                      "rgba(255,255,255,0.7)",
-                    fontSize: "13px"
-                  }}
-                >
-
-                  {
-
-                    source.author ||
-
-                    "Unknown Author"
-
-                  }
-
-                </div>
-
-                <div
-                  style={{
-                    marginTop: "10px",
-                    display: "flex",
-                    gap: "10px",
-                    flexWrap: "wrap"
-                  }}
-                >
-
-                  <div className="meta-pill">
-
-                    Year:
-
-                    {" "}
-
-                    {
-
-                      source.year ||
-
-                      "-"
-
-                    }
-
-                  </div>
-
-                  <div className="meta-pill">
-
-                    {
-
-                      source.prodi ||
-
-                      "-"
-
-                    }
-
-                  </div>
-
-                </div>
-
-                <div className="evidence-score-wrapper">
-
-                  <div className="score-header">
-
-                    <span>
-
-                      Relevance
-
-                    </span>
-
-                    <span>
-
-                      {
-
-                        Number(
-                          source.score || 0
-                        ).toFixed(2)
-
-                      }
-
-                    </span>
-
-                  </div>
-
-                  <div className="score-bar">
-
-                    <div
-
-                      className="score-fill"
-
-                      style={{
-
-                        width: `${Math.min(
-                          (source.score || 0) * 10,
-                          100
-                        )}%`
-
-                      }}
-
-                    />
-
-                  </div>
-
-                </div>
-
-                {
-
-                  source.url && (
-
-                    <a
-
-                      href={source.url}
-
-                      target="_blank"
-
-                      rel="noopener noreferrer"
-
-                      className="evidence-link"
-
-                      onClick={(e) =>
-                        e.stopPropagation()
-                      }
-
-                    >
-
-                      <ExternalLink
-                        size={14}
-                      />
-
-                      Open Repository
-
-                    </a>
-
-                  )
-
-                }
-
-              </div>
-
-            );
-
-          })
-
-        }
-
-      </div>
-
-    </div>
+    </aside>
 
   );
 
