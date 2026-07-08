@@ -10,12 +10,6 @@ import {
 
 } from "react";
 
-import {
-
-  ArrowDown,
-
-} from "lucide-react";
-
 import SessionConversation from "./SessionConversation";
 
 import ChatInput from "../chat/ChatInput";
@@ -88,15 +82,18 @@ export default function ResearchSession({
   const shouldAutoScrollRef =
     useRef(true);
 
+  const previousMessageCountRef =
+    useRef(messages.length);
+
   // =====================================
   // UI STATE
   // =====================================
 
   const [
 
-    showScrollButton,
+    showScrollToLatest,
 
-    setShowScrollButton,
+    setShowScrollToLatest,
 
   ] = useState(false);
 
@@ -167,10 +164,10 @@ export default function ResearchSession({
   });
 
   // =====================================
-  // SCROLL TO BOTTOM
+  // SCROLL TO LATEST
   // =====================================
 
-  const scrollToBottom =
+  const scrollToLatest =
     useCallback((
 
       behavior = "smooth"
@@ -198,7 +195,7 @@ export default function ResearchSession({
       shouldAutoScrollRef.current =
         true;
 
-      setShowScrollButton(
+      setShowScrollToLatest(
         false
       );
 
@@ -234,13 +231,13 @@ export default function ResearchSession({
 
       const isNearBottom =
 
-        distanceFromBottom < 120;
+        distanceFromBottom <= 120;
 
       shouldAutoScrollRef.current =
 
         isNearBottom;
 
-      setShowScrollButton(
+      setShowScrollToLatest(
 
         !isNearBottom
 
@@ -249,7 +246,61 @@ export default function ResearchSession({
     }, []);
 
   // =====================================
-  // AUTO SCROLL
+  // DETECT NEW CONVERSATION TURN
+  // =====================================
+
+  useEffect(() => {
+
+    const currentMessageCount =
+      messages.length;
+
+    const previousMessageCount =
+      previousMessageCountRef.current;
+
+    if (
+
+      currentMessageCount >
+
+      previousMessageCount
+
+    ) {
+
+      const latestMessage =
+
+        messages[
+          currentMessageCount - 1
+        ];
+
+      if (
+
+        latestMessage?.role ===
+        "user"
+
+      ) {
+
+        shouldAutoScrollRef.current =
+          true;
+
+        setShowScrollToLatest(
+          false
+        );
+
+      }
+
+    }
+
+    previousMessageCountRef.current =
+
+      currentMessageCount;
+
+  }, [
+
+    messages,
+
+  ]);
+
+  // =====================================
+  // AUTO SCROLL DURING STREAM
   // =====================================
 
   useEffect(() => {
@@ -268,9 +319,24 @@ export default function ResearchSession({
 
       requestAnimationFrame(() => {
 
-        scrollToBottom(
-          "smooth"
-        );
+        const container =
+          messagesRef.current;
+
+        if (!container) {
+
+          return;
+
+        }
+
+        container.scrollTo({
+
+          top:
+            container.scrollHeight,
+
+          behavior:
+            "auto",
+
+        });
 
       });
 
@@ -288,12 +354,10 @@ export default function ResearchSession({
 
     conversationState,
 
-    scrollToBottom,
-
   ]);
 
   // =====================================
-  // NEW USER MESSAGE
+  // SESSION CHANGE
   // =====================================
 
   useEffect(() => {
@@ -301,9 +365,42 @@ export default function ResearchSession({
     shouldAutoScrollRef.current =
       true;
 
+    previousMessageCountRef.current =
+      messages.length;
+
+    setShowScrollToLatest(
+      false
+    );
+
+    const frame =
+
+      requestAnimationFrame(() => {
+
+        const container =
+          messagesRef.current;
+
+        if (!container) {
+
+          return;
+
+        }
+
+        container.scrollTop =
+          container.scrollHeight;
+
+      });
+
+    return () => {
+
+      cancelAnimationFrame(
+        frame
+      );
+
+    };
+
   }, [
 
-    messages.length,
+    sessionId,
 
   ]);
 
@@ -315,77 +412,53 @@ export default function ResearchSession({
 
     <div className="research-session">
 
-      <div className="conversation-shell">
+      {/* ================================= */}
+      {/* CONVERSATION */}
+      {/* ================================= */}
 
-        <SessionConversation
+      <SessionConversation
 
-          ref={messagesRef}
+        ref={messagesRef}
 
-          messages={messages}
+        messages={messages}
 
-          conversationState={
-            conversationState
-          }
+        conversationState={
+          conversationState
+        }
 
-          sources={sources}
+        sources={sources}
 
-          setInput={setInput}
+        setInput={setInput}
 
-          setSelectedThesis={
-            setSelectedThesis
-          }
+        setSelectedThesis={
+          setSelectedThesis
+        }
 
-          setActiveCitation={
-            setActiveCitation
-          }
+        setActiveCitation={
+          setActiveCitation
+        }
 
-          onScroll={
-            handleConversationScroll
-          }
+        onScroll={
+          handleConversationScroll
+        }
 
-        />
+        showScrollToLatest={
+          showScrollToLatest
+        }
 
-        {
+        onScrollToLatest={() =>
 
-          showScrollButton && (
-
-            <button
-
-              type="button"
-
-              className="scroll-to-latest"
-
-              onClick={() =>
-
-                scrollToBottom(
-                  "smooth"
-                )
-
-              }
-
-              aria-label="Scroll to latest message"
-
-            >
-
-              <ArrowDown
-
-                size={17}
-
-              />
-
-              <span>
-
-                Latest
-
-              </span>
-
-            </button>
-
+          scrollToLatest(
+            "smooth"
           )
 
         }
 
-      </div>
+      />
+
+      {/* ================================= */}
+      {/* CHAT INPUT */}
+      {/* ================================= */}
 
       <ChatInput
 

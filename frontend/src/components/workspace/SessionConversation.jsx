@@ -27,6 +27,10 @@ const SessionConversation =
 
     onScroll,
 
+    showScrollToLatest = false,
+
+    onScrollToLatest,
+
   }, ref) {
 
     // =====================================
@@ -49,131 +53,188 @@ const SessionConversation =
 
     return (
 
-      <div
+      <div className="conversation-shell">
 
-        ref={ref}
+        {/* ================================= */}
+        {/* SCROLL AREA */}
+        {/* ================================= */}
 
-        className={`modern-messages ${
+        <div
 
-          !hasMessages
+          ref={ref}
 
-            ? "empty-chat"
-
-            : "has-messages"
-
-        }`}
-
-        onScroll={onScroll}
-
-      >
-
-        <div className="conversation-content">
-
-          {
+          className={`modern-messages ${
 
             !hasMessages
 
-              ? (
+              ? "empty-chat"
 
-                  <ChatHero
+              : "has-messages"
 
-                    setInput={
-                      setInput
-                    }
+          }`}
 
-                  />
+          onScroll={onScroll}
 
-                )
+        >
 
-              : (
+          <div className="conversation-content">
 
-                  messages.map(
+            {/* ============================= */}
+            {/* EMPTY STATE */}
+            {/* ============================= */}
 
-                    (
+            {
 
-                      msg,
+              !hasMessages
 
-                      idx
+                ? (
 
-                    ) => (
+                    <ChatHero
 
-                      <MessageBubble
+                      setInput={
+                        setInput
+                      }
 
-                        key={
-                          msg.id ||
-                          `${msg.role}-${idx}`
-                        }
+                    />
 
-                        role={
-                          msg.role
-                        }
+                  )
 
-                        content={
-                          msg.content
-                        }
+                : (
 
-                        citations={
-                          msg.citations
-                        }
+                    messages.map(
 
-                        evidence={
-                          msg.evidence
-                        }
+                      (
 
-                        noveltyAnalysis={
-                          msg.noveltyAnalysis
-                        }
+                        msg,
 
-                        attachedDocuments={
-                          msg.attachedDocuments
-                        }
+                        idx
 
-                        sources={
-                          sources
-                        }
+                      ) => (
 
-                        setSelectedThesis={
-                          setSelectedThesis
-                        }
+                        <MessageBubble
 
-                        setActiveCitation={
-                          setActiveCitation
-                        }
+                          key={
+                            msg.id ||
+                            `${msg.role}-${idx}`
+                          }
 
-                      />
+                          role={
+                            msg.role
+                          }
+
+                          content={
+                            msg.content
+                          }
+
+                          citations={
+                            msg.citations
+                          }
+
+                          evidence={
+                            msg.evidence
+                          }
+
+                          noveltyAnalysis={
+                            msg.noveltyAnalysis
+                          }
+
+                          attachedDocuments={
+                            msg.attachedDocuments
+                          }
+
+                          sources={
+                            sources
+                          }
+
+                          setSelectedThesis={
+                            setSelectedThesis
+                          }
+
+                          setActiveCitation={
+                            setActiveCitation
+                          }
+
+                        />
+
+                      )
 
                     )
 
                   )
 
-                )
+            }
 
-          }
+            {/* ============================= */}
+            {/* THINKING */}
+            {/* ============================= */}
 
-          {
+            {
 
-            isThinking && (
+              isThinking && (
 
-              <ThinkingIndicator />
+                <ThinkingIndicator />
 
-            )
+              )
 
-          }
+            }
 
-          <div
+            {/* ============================= */}
+            {/* BOTTOM ANCHOR */}
+            {/* ============================= */}
 
-            className="conversation-bottom-anchor"
+            <div
 
-            aria-hidden="true"
+              className="conversation-bottom-anchor"
 
-          />
+              aria-hidden="true"
+
+            />
+
+          </div>
 
         </div>
+
+        {/* ================================= */}
+        {/* SCROLL TO LATEST */}
+        {/* ================================= */}
+
+        {
+
+          showScrollToLatest && (
+
+            <button
+
+              type="button"
+
+              className="scroll-to-latest"
+
+              onClick={
+                onScrollToLatest
+              }
+
+              aria-label="Scroll to latest message"
+
+            >
+
+              <span>
+
+                Pesan terbaru
+
+              </span>
+
+              ↓
+
+            </button>
+
+          )
+
+        }
 
       </div>
 
     );
 
   });
+
 
 export default SessionConversation;
