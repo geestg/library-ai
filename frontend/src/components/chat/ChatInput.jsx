@@ -4,27 +4,17 @@ import {
 } from "react";
 
 import {
-
   Paperclip,
-
   ArrowUp,
-
   FileText,
-
   X,
-
   Loader2,
-
   Square,
-
   CircleAlert,
-
 } from "lucide-react";
 
 import {
-
   ConversationState,
-
 } from "../../hooks/useConversationState";
 
 export default function ChatInput({
@@ -43,9 +33,9 @@ export default function ChatInput({
 
   handleKeyDown,
 
-  activeDocuments,
+  activeDocuments = [],
 
-  uploadingDocuments,
+  uploadingDocuments = [],
 
   documentError,
 
@@ -58,33 +48,54 @@ export default function ChatInput({
 }) {
 
   // =====================================
+  // REFS
+  // =====================================
+
+  const textareaRef =
+    useRef(null);
+
+  const fileInputRef =
+    useRef(null);
+
+  // =====================================
   // CONVERSATION STATE
   // =====================================
 
   const isThinking =
 
     conversationState ===
-
     ConversationState.THINKING;
 
   const isStreaming =
 
     conversationState ===
-
     ConversationState.STREAMING;
 
   const isGenerating =
 
     isThinking ||
-
     isStreaming;
 
   // =====================================
-  // TEXTAREA
+  // DOCUMENT STATE
   // =====================================
 
-  const textareaRef =
-    useRef(null);
+  const hasActiveDocuments =
+
+    activeDocuments.length > 0;
+
+  const hasUploadingDocuments =
+
+    uploadingDocuments.length > 0;
+
+  const hasDocumentActivity =
+
+    hasActiveDocuments ||
+    hasUploadingDocuments;
+
+  // =====================================
+  // TEXTAREA AUTO RESIZE
+  // =====================================
 
   useEffect(() => {
 
@@ -101,7 +112,10 @@ export default function ChatInput({
       "auto";
 
     textarea.style.height =
-      `${textarea.scrollHeight}px`;
+      `${Math.min(
+        textarea.scrollHeight,
+        180
+      )}px`;
 
   }, [
 
@@ -110,34 +124,33 @@ export default function ChatInput({
   ]);
 
   // =====================================
-  // AUTO RESIZE
+  // TEXTAREA CHANGE
   // =====================================
 
   const handleTextareaChange =
     (event) => {
 
       setInput(
-
         event.target.value
-
       );
 
-      const textarea =
-        textareaRef.current;
-
-      if (!textarea) {
-
-        return;
-
-      }
-
-      textarea.style.height =
-        "auto";
-
-      textarea.style.height =
-        `${textarea.scrollHeight}px`;
-
     };
+
+  // =====================================
+  // OPEN FILE PICKER
+  // =====================================
+
+  const openFilePicker = () => {
+
+    if (isGenerating) {
+
+      return;
+
+    }
+
+    fileInputRef.current?.click();
+
+  };
 
   // =====================================
   // DOCUMENT ERROR LABEL
@@ -152,6 +165,18 @@ export default function ChatInput({
       : documentError?.message;
 
   // =====================================
+  // SEND STATE
+  // =====================================
+
+  const canSend =
+
+    Boolean(
+      input.trim()
+    ) &&
+
+    !isGenerating;
+
+  // =====================================
   // UI
   // =====================================
 
@@ -159,241 +184,457 @@ export default function ChatInput({
 
     <div className="floating-input-wrapper">
 
-      {/* ================================= */}
-      {/* DOCUMENT ERROR */}
-      {/* ================================= */}
+      <div className="composer-shell">
 
-      {
+        {/* ================================= */}
+        {/* DOCUMENT ERROR */}
+        {/* ================================= */}
 
-        documentError && (
+        {
 
-          <div
+          documentError && (
 
-            className="document-error-feedback"
+            <div
 
-            role="alert"
+              className="document-error-feedback"
 
-          >
-
-            <CircleAlert
-
-              size={15}
-
-              className="document-error-icon"
-
-            />
-
-            <span className="document-error-message">
-
-              {documentErrorLabel}
-
-            </span>
-
-            <button
-
-              type="button"
-
-              className="document-error-dismiss"
-
-              aria-label="Dismiss document error"
-
-              onClick={
-
-                clearDocumentError
-
-              }
+              role="alert"
 
             >
 
-              <X
+              <CircleAlert
 
-                size={13}
+                size={16}
+
+                className="document-error-icon"
 
               />
 
-            </button>
+              <span className="document-error-message">
 
-          </div>
+                {documentErrorLabel}
 
-        )
+              </span>
 
-      }
+              <button
 
-      {/* ================================= */}
-      {/* UPLOADING DOCUMENTS */}
-      {/* ================================= */}
+                type="button"
 
-      {
+                className="document-error-dismiss"
 
-        uploadingDocuments?.length > 0 && (
+                aria-label="Dismiss document error"
 
-          <div className="active-document-bar">
+                onClick={
+                  clearDocumentError
+                }
 
-            {
+              >
 
-              uploadingDocuments.map(
+                <X size={14} />
 
-                (doc) => (
+              </button>
 
-                  <div
+            </div>
 
-                    key={doc.id}
+          )
 
-                    className="active-document-pill uploading"
+        }
 
-                  >
+        {/* ================================= */}
+        {/* DOCUMENT TRAY */}
+        {/* ================================= */}
 
-                    <Loader2
+        {
 
-                      size={14}
+          hasDocumentActivity && (
 
-                      className="spin"
+            <div className="composer-document-tray">
 
-                    />
+              {/* ============================= */}
+              {/* UPLOADING DOCUMENTS */}
+              {/* ============================= */}
 
-                    <span className="active-document-name">
+              {
 
-                      {doc.filename}
+                uploadingDocuments.map(
 
-                    </span>
-
-                    <span className="upload-status">
-
-                      Uploading...
-
-                    </span>
-
-                  </div>
-
-                )
-
-              )
-
-            }
-
-          </div>
-
-        )
-
-      }
-
-      {/* ================================= */}
-      {/* ACTIVE DOCUMENTS */}
-      {/* ================================= */}
-
-      {
-
-        activeDocuments?.length > 0 && (
-
-          <div className="active-document-bar">
-
-            {
-
-              activeDocuments.map(
-
-                (doc) => {
-
-                  const isDeleting =
-
-                    isDocumentDeleting?.(
-
-                      doc.document_id
-
-                    ) ?? false;
-
-                  return (
+                  (doc) => (
 
                     <div
 
-                      key={doc.document_id}
+                      key={doc.id}
 
-                      className={
-
-                        `active-document-pill${
-                          isDeleting
-                            ? " deleting"
-                            : ""
-                        }`
-
-                      }
+                      className="
+                        composer-document-pill
+                        uploading
+                      "
 
                     >
 
-                      <FileText
+                      <span className="composer-document-icon">
 
-                        size={14}
+                        <Loader2
 
-                      />
+                          size={15}
 
-                      <span className="active-document-name">
+                          className="spin"
 
-                        {doc.filename}
+                        />
 
                       </span>
 
-                      <button
+                      <span className="composer-document-content">
 
-                        type="button"
+                        <span className="composer-document-name">
 
-                        className="document-remove-btn"
+                          {doc.filename}
 
-                        disabled={
-                          isDeleting
-                        }
+                        </span>
 
-                        aria-label={
+                        <span className="composer-document-status">
 
-                          isDeleting
+                          Uploading
 
-                            ? `Deleting ${doc.filename}`
+                        </span>
 
-                            : `Remove ${doc.filename}`
+                      </span>
 
-                        }
+                    </div>
 
-                        onClick={() =>
+                  )
 
-                          removeDocument(
+                )
 
-                            doc.document_id
+              }
 
-                          )
+              {/* ============================= */}
+              {/* ACTIVE DOCUMENTS */}
+              {/* ============================= */}
+
+              {
+
+                activeDocuments.map(
+
+                  (doc) => {
+
+                    const isDeleting =
+
+                      isDocumentDeleting?.(
+                        doc.document_id
+                      ) ?? false;
+
+                    return (
+
+                      <div
+
+                        key={doc.document_id}
+
+                        className={
+
+                          `composer-document-pill${
+                            isDeleting
+                              ? " deleting"
+                              : ""
+                          }`
 
                         }
 
                       >
 
-                        {
+                        <span className="composer-document-icon">
 
-                          isDeleting ? (
+                          <FileText size={15} />
 
-                            <Loader2
+                        </span>
 
-                              size={12}
+                        <span className="composer-document-content">
 
-                              className="spin"
+                          <span className="composer-document-name">
 
-                            />
+                            {doc.filename}
 
-                          ) : (
+                          </span>
 
-                            <X
+                          <span className="composer-document-status">
 
-                              size={12}
+                            {
+                              isDeleting
 
-                            />
+                                ? "Removing"
 
-                          )
+                                : "Ready"
+                            }
 
-                        }
+                          </span>
 
-                      </button>
+                        </span>
 
-                    </div>
+                        <button
 
-                  );
+                          type="button"
 
+                          className="composer-document-remove"
+
+                          disabled={isDeleting}
+
+                          aria-label={
+
+                            isDeleting
+
+                              ? `Removing ${doc.filename}`
+
+                              : `Remove ${doc.filename}`
+
+                          }
+
+                          onClick={() =>
+
+                            removeDocument(
+                              doc.document_id
+                            )
+
+                          }
+
+                        >
+
+                          {
+
+                            isDeleting ? (
+
+                              <Loader2
+
+                                size={13}
+
+                                className="spin"
+
+                              />
+
+                            ) : (
+
+                              <X size={13} />
+
+                            )
+
+                          }
+
+                        </button>
+
+                      </div>
+
+                    );
+
+                  }
+
+                )
+
+              }
+
+            </div>
+
+          )
+
+        }
+
+        {/* ================================= */}
+        {/* COMPOSER */}
+        {/* ================================= */}
+
+        <div
+
+          className={
+
+            `floating-input${
+              isGenerating
+                ? " generating"
+                : ""
+            }`
+
+          }
+
+        >
+
+          {/* ============================= */}
+          {/* TEXTAREA */}
+          {/* ============================= */}
+
+          <textarea
+
+            ref={textareaRef}
+
+            rows={1}
+
+            placeholder="Ask about research, theses, methods, or findings..."
+
+            value={input}
+
+            onChange={
+              handleTextareaChange
+            }
+
+            onKeyDown={
+              handleKeyDown
+            }
+
+            disabled={
+              isGenerating
+            }
+
+          />
+
+          {/* ============================= */}
+          {/* COMPOSER TOOLBAR */}
+          {/* ============================= */}
+
+          <div className="composer-toolbar">
+
+            <div className="composer-toolbar-left">
+
+              <button
+
+                type="button"
+
+                className="composer-tool-button"
+
+                onClick={
+                  openFilePicker
                 }
+
+                disabled={
+                  isGenerating
+                }
+
+                aria-label="Attach documents"
+
+              >
+
+                <Paperclip size={18} />
+
+                <span>
+
+                  Attach
+
+                </span>
+
+              </button>
+
+              <input
+
+                ref={fileInputRef}
+
+                type="file"
+
+                hidden
+
+                multiple
+
+                disabled={
+                  isGenerating
+                }
+
+                accept="
+                  .pdf,
+                  .doc,
+                  .docx,
+                  .ppt,
+                  .pptx,
+                  .xls,
+                  .xlsx,
+                  .csv,
+                  .txt,
+                  .png,
+                  .jpg,
+                  .jpeg,
+                  .webp
+                "
+
+                onChange={
+                  handleFileUpload
+                }
+
+              />
+
+              {
+
+                hasActiveDocuments && (
+
+                  <span className="composer-context-label">
+
+                    {
+                      activeDocuments.length
+                    }
+
+                    {
+                      activeDocuments.length === 1
+                        ? " document"
+                        : " documents"
+                    }
+
+                  </span>
+
+                )
+
+              }
+
+            </div>
+
+            {/* ============================= */}
+            {/* ACTION BUTTON */}
+            {/* ============================= */}
+
+            {
+
+              isGenerating ? (
+
+                <button
+
+                  type="button"
+
+                  className="
+                    send-modern-btn
+                    stop
+                  "
+
+                  onClick={
+                    stopGeneration
+                  }
+
+                  aria-label="Stop generation"
+
+                >
+
+                  <Square
+
+                    size={15}
+
+                    fill="currentColor"
+
+                  />
+
+                </button>
+
+              ) : (
+
+                <button
+
+                  type="button"
+
+                  className="send-modern-btn"
+
+                  onClick={
+                    sendMessage
+                  }
+
+                  disabled={
+                    !canSend
+                  }
+
+                  aria-label="Send message"
+
+                >
+
+                  <ArrowUp size={19} />
+
+                </button>
 
               )
 
@@ -401,159 +642,7 @@ export default function ChatInput({
 
           </div>
 
-        )
-
-      }
-
-      {/* ================================= */}
-      {/* INPUT */}
-      {/* ================================= */}
-
-      <div className="floating-input">
-
-        {/* ========================= */}
-        {/* ATTACH */}
-        {/* ========================= */}
-
-        <label className="modern-attach">
-
-          <Paperclip size={18} />
-
-          <input
-
-            type="file"
-
-            hidden
-
-            multiple
-
-            disabled={isGenerating}
-
-            accept="
-            .pdf,
-            .doc,
-            .docx,
-            .ppt,
-            .pptx,
-            .xls,
-            .xlsx,
-            .csv,
-            .txt,
-            .png,
-            .jpg,
-            .jpeg,
-            .webp
-            "
-
-            onChange={
-
-              handleFileUpload
-
-            }
-
-          />
-
-        </label>
-
-        {/* ========================= */}
-        {/* TEXTAREA */}
-        {/* ========================= */}
-
-        <textarea
-
-          ref={textareaRef}
-
-          rows={1}
-
-          placeholder="What would you like to research today?"
-
-          value={input}
-
-          onChange={
-
-            handleTextareaChange
-
-          }
-
-          onKeyDown={
-
-            handleKeyDown
-
-          }
-
-          disabled={
-
-            isGenerating
-
-          }
-
-        />
-
-        {/* ========================= */}
-        {/* ACTION BUTTON */}
-        {/* ========================= */}
-
-        {
-
-          isGenerating ? (
-
-            <button
-
-              type="button"
-
-              className="send-modern-btn"
-
-              onClick={
-
-                stopGeneration
-
-              }
-
-            >
-
-              <Square
-
-                size={16}
-
-                fill="currentColor"
-
-              />
-
-            </button>
-
-          ) : (
-
-            <button
-
-              type="button"
-
-              className="send-modern-btn"
-
-              onClick={
-
-                sendMessage
-
-              }
-
-              disabled={
-
-                !input.trim()
-
-              }
-
-            >
-
-              <ArrowUp
-
-                size={18}
-
-              />
-
-            </button>
-
-          )
-
-        }
+        </div>
 
       </div>
 
