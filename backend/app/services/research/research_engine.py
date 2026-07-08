@@ -132,6 +132,7 @@ def research_analysis(
     mode: str = "analysis",
     active_document_ids=None,
     stream: bool = False,
+    progress_callback=None,
 ):
 
     print("\n====================================")
@@ -227,6 +228,10 @@ def research_analysis(
             context,
 
             stream=stream,
+
+            progress_callback=(
+                progress_callback
+            ),
 
         )
     )
