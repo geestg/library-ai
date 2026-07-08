@@ -7,15 +7,12 @@
   position: relative;
 
   width: 100%;
-
   height: 100vh;
-
-  overflow: hidden;
 
   display: grid;
 
   grid-template-columns:
-    260px
+    240px
     minmax(0, 1fr)
     320px;
 
@@ -23,13 +20,17 @@
 
   padding: 20px;
 
+  overflow: hidden;
+
   background:
     linear-gradient(
       180deg,
       #030712,
       #020617
     );
+
 }
+
 
 /* ====================================
    AMBIENT
@@ -40,35 +41,37 @@
   position: absolute;
 
   width: 700px;
-
   height: 700px;
 
   border-radius: 999px;
 
-  filter: blur(120px);
+  filter:
+    blur(120px);
 
   opacity: 0.12;
 
   pointer-events: none;
+
 }
 
 .ambient-left {
 
   top: -220px;
-
   left: -220px;
 
   background: #4f46e5;
+
 }
 
 .ambient-right {
 
+  right: -220px;
   bottom: -240px;
 
-  right: -220px;
-
   background: #7c3aed;
+
 }
+
 
 /* ====================================
    SIDEBAR
@@ -80,20 +83,57 @@
 
   z-index: 2;
 
-  height: calc(100vh - 40px);
+  min-width: 0;
+
+  height:
+    calc(
+      100vh - 40px
+    );
 
   overflow: hidden;
 
-  border-radius: 32px;
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
+
+  border-radius: 28px;
 
   background:
-    rgba(255,255,255,0.03);
+    linear-gradient(
+      180deg,
+      rgba(
+        12,
+        16,
+        29,
+        0.76
+      ),
+      rgba(
+        7,
+        10,
+        20,
+        0.64
+      )
+    );
 
-  border:
-    1px solid rgba(255,255,255,0.05);
+  box-shadow:
+    inset 0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.025
+    );
 
-  backdrop-filter: blur(24px);
+  backdrop-filter:
+    blur(20px);
+
 }
+
 
 /* ====================================
    MAIN
@@ -105,18 +145,22 @@
 
   z-index: 2;
 
-  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
 
   min-width: 0;
+
+  height:
+    calc(
+      100vh - 40px
+    );
 
   overflow: hidden;
 
   border-radius: 32px;
 
-  display: flex;
-
-  flex-direction: column;
 }
+
 
 /* ====================================
    EVIDENCE
@@ -128,20 +172,39 @@
 
   z-index: 2;
 
-  height: calc(100vh - 40px);
+  min-width: 0;
+
+  height:
+    calc(
+      100vh - 40px
+    );
 
   overflow: hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
 
   border-radius: 32px;
 
   background:
-    rgba(255,255,255,0.03);
+    rgba(
+      255,
+      255,
+      255,
+      0.03
+    );
 
-  border:
-    1px solid rgba(255,255,255,0.05);
+  backdrop-filter:
+    blur(24px);
 
-  backdrop-filter: blur(24px);
 }
+
 
 /* ====================================
    RESPONSIVE
@@ -152,43 +215,77 @@
   .workspace-shell {
 
     grid-template-columns:
-      220px
+      210px
       minmax(0, 1fr)
       300px;
+
+    gap: 16px;
+
+    padding: 16px;
+
   }
+
+  .workspace-sidebar,
+  .workspace-main,
+  .workspace-evidence {
+
+    height:
+      calc(
+        100vh - 32px
+      );
+
+  }
+
 }
+
 
 @media (max-width: 1200px) {
 
   .workspace-shell {
 
     grid-template-columns:
-      90px
+      82px
       minmax(0, 1fr);
+
   }
 
   .workspace-evidence {
 
     display: none;
+
   }
+
 }
+
 
 @media (max-width: 900px) {
 
   .workspace-shell {
 
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    gap: 0;
 
     padding: 12px;
+
   }
 
   .workspace-sidebar {
 
     display: none;
+
   }
 
   .workspace-main {
 
-    height: calc(100vh - 24px);
+    height:
+      calc(
+        100vh - 24px
+      );
+
+    border-radius: 24px;
+
   }
+
 }
