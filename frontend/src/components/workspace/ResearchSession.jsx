@@ -113,6 +113,8 @@ export default function ResearchSession({
 
     removeDocument,
 
+    consumeActiveDocuments,
+
     clearDocumentError,
 
     isDocumentDeleting,
@@ -143,13 +145,40 @@ export default function ResearchSession({
 
   } = useResearchSession({
 
+    // =================================
+    // SESSION
+    // =================================
+
     sessionId,
+
+    // =================================
+    // ACTIVE DOCUMENTS
+    // =================================
 
     activeDocuments,
 
+    // =================================
+    // DOCUMENT CONSUMPTION
+    // =================================
+
+    onDocumentsConsumed:
+      consumeActiveDocuments,
+
+    // =================================
+    // CONVERSATION
+    // =================================
+
     setMessages,
 
+    // =================================
+    // SOURCES
+    // =================================
+
     setSources,
+
+    // =================================
+    // EVIDENCE
+    // =================================
 
     setEvidence,
 
@@ -157,7 +186,15 @@ export default function ResearchSession({
 
     setGapAnalysis,
 
+    // =================================
+    // RESEARCH PROFILE
+    // =================================
+
     setResearchProfile,
+
+    // =================================
+    // UI
+    // =================================
 
     setActiveCitation,
 
