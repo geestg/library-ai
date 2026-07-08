@@ -1,4 +1,6 @@
-import { BrainCircuit } from "lucide-react";
+import {
+  BrainCircuit,
+} from "lucide-react";
 
 export default function Sidebar() {
 
@@ -6,32 +8,29 @@ export default function Sidebar() {
 
     <aside className="modern-sidebar">
 
-      {/* ============================= */}
-      {/* BRAND */}
-      {/* ============================= */}
-
       <div className="sidebar-top">
 
         <div className="sidebar-logo">
 
           <div className="logo-icon">
 
-            <BrainCircuit size={22} />
+            <BrainCircuit
+              size={22}
+              strokeWidth={2}
+            />
 
           </div>
 
-          <div>
+          <div className="sidebar-brand-copy">
 
             <h2>
-
               DELBot
-
             </h2>
 
             <span>
-
-              Academic Research Intelligence
-
+              Academic Research
+              <br />
+              Intelligence
             </span>
 
           </div>
