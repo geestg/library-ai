@@ -1,5 +1,14 @@
+from queue import Empty
+from queue import Queue
+
+from threading import Thread
+
 from fastapi import APIRouter
-from fastapi.responses import StreamingResponse
+
+from fastapi.responses import (
+    StreamingResponse,
+)
+
 from pydantic import BaseModel
 
 import json
@@ -37,9 +46,11 @@ def stream_event(
 
             {
 
-                "type": event_type,
+                "type":
+                    event_type,
 
-                "data": data,
+                "data":
+                    data,
 
             },
 
@@ -122,6 +133,121 @@ class StreamRequest(BaseModel):
 
 
 # =========================================
+# PIPELINE WORKER
+# =========================================
+
+def run_research_pipeline(
+    req: StreamRequest,
+    event_queue: Queue,
+):
+
+    # =====================================
+    # PROGRESS CALLBACK
+    # =====================================
+
+    def progress_callback(
+        progress,
+    ):
+
+        event_queue.put(
+
+            {
+
+                "type":
+                    "progress",
+
+                "data":
+                    progress,
+
+            }
+
+        )
+
+    try:
+
+        # =================================
+        # EXECUTE RESEARCH PIPELINE
+        # =================================
+
+        context, llm_stream = (
+            research_analysis(
+
+                session_id=(
+                    req.session_id or ""
+                ),
+
+                query=req.message,
+
+                active_document_ids=(
+                    req.active_document_ids
+                ),
+
+                stream=True,
+
+                progress_callback=(
+                    progress_callback
+                ),
+
+            )
+        )
+
+        # =================================
+        # PIPELINE RESULT
+        # =================================
+
+        event_queue.put(
+
+            {
+
+                "type":
+                    "pipeline_result",
+
+                "data": {
+
+                    "context":
+                        context,
+
+                    "llm_stream":
+                        llm_stream,
+
+                },
+
+            }
+
+        )
+
+    except Exception as exc:
+
+        # =================================
+        # PIPELINE ERROR
+        # =================================
+
+        event_queue.put(
+
+            {
+
+                "type":
+                    "pipeline_error",
+
+                "data": {
+
+                    "status":
+                        "failed",
+
+                    "message":
+                        str(exc),
+
+                    "exception_type":
+                        type(exc).__name__,
+
+                },
+
+            }
+
+        )
+
+
+# =========================================
 # STREAM CHAT
 # =========================================
 
@@ -132,50 +258,206 @@ def chat_stream(
 
     def generate():
 
-        try:
+        # =================================
+        # START
+        # =================================
 
-            # =====================================
-            # START
-            # =====================================
+        yield stream_event(
+
+            "start",
+
+            {
+
+                "status":
+                    "thinking",
+
+            },
+
+        )
+
+        # =================================
+        # PIPELINE EVENT QUEUE
+        # =================================
+
+        event_queue = Queue()
+
+        # =================================
+        # START PIPELINE WORKER
+        # =================================
+
+        worker = Thread(
+
+            target=(
+                run_research_pipeline
+            ),
+
+            args=(
+
+                req,
+
+                event_queue,
+
+            ),
+
+            daemon=True,
+
+        )
+
+        worker.start()
+
+        context = None
+
+        llm_stream = None
+
+        # =================================
+        # CONSUME PIPELINE EVENTS
+        # =================================
+
+        while True:
+
+            try:
+
+                event = event_queue.get(
+
+                    timeout=0.1
+
+                )
+
+            except Empty:
+
+                # =========================
+                # WORKER TERMINATED WITHOUT
+                # RESULT OR ERROR
+                # =========================
+
+                if not worker.is_alive():
+
+                    yield stream_event(
+
+                        "error",
+
+                        {
+
+                            "status":
+                                "failed",
+
+                            "message": (
+                                "Research pipeline "
+                                "terminated without "
+                                "returning a result."
+                            ),
+
+                            "exception_type":
+                                "PipelineWorkerError",
+
+                        },
+
+                    )
+
+                    return
+
+                continue
+
+            event_type = event.get(
+                "type"
+            )
+
+            event_data = event.get(
+                "data"
+            )
+
+            # =============================
+            # PROGRESS
+            # =============================
+
+            if event_type == "progress":
+
+                yield stream_event(
+
+                    "progress",
+
+                    event_data,
+
+                )
+
+                continue
+
+            # =============================
+            # PIPELINE ERROR
+            # =============================
+
+            if (
+                event_type ==
+                "pipeline_error"
+            ):
+
+                yield stream_event(
+
+                    "error",
+
+                    event_data,
+
+                )
+
+                return
+
+            # =============================
+            # PIPELINE RESULT
+            # =============================
+
+            if (
+                event_type ==
+                "pipeline_result"
+            ):
+
+                context = (
+                    event_data.get(
+                        "context"
+                    )
+                )
+
+                llm_stream = (
+                    event_data.get(
+                        "llm_stream"
+                    )
+                )
+
+                break
+
+        # =================================
+        # RESULT VALIDATION
+        # =================================
+
+        if context is None:
 
             yield stream_event(
 
-                "start",
+                "error",
 
                 {
 
                     "status":
-                        "thinking",
+                        "failed",
+
+                    "message": (
+                        "Research pipeline "
+                        "returned no context."
+                    ),
+
+                    "exception_type":
+                        "PipelineContextError",
 
                 },
 
             )
 
-            # =====================================
-            # RESEARCH PIPELINE
-            # =====================================
+            return
 
-            context, llm_stream = (
-                research_analysis(
+        try:
 
-                    session_id=(
-                        req.session_id or ""
-                    ),
-
-                    query=req.message,
-
-                    active_document_ids=(
-                        req.active_document_ids
-                    ),
-
-                    stream=True,
-
-                )
-            )
-
-            # =====================================
+            # =================================
             # METADATA
-            # =====================================
+            # =================================
 
             yield stream_event(
 
@@ -196,9 +478,9 @@ def chat_stream(
 
             )
 
-            # =====================================
+            # =================================
             # SPECIALIZED RESPONSE
-            # =====================================
+            # =================================
 
             if context.response is not None:
 
@@ -231,9 +513,9 @@ def chat_stream(
 
                     )
 
-                # =================================
+                # =============================
                 # PERSIST SPECIALIZED ASSISTANT
-                # =================================
+                # =============================
 
                 assistant_content = (
                     persist_stream_assistant(
@@ -247,9 +529,9 @@ def chat_stream(
                     )
                 )
 
-                # =================================
+                # =============================
                 # PERSIST SPECIALIZED EXECUTION
-                # =================================
+                # =============================
 
                 persist_stream_execution(
 
@@ -284,9 +566,9 @@ def chat_stream(
 
                 return
 
-            # =====================================
+            # =================================
             # INITIAL CONTEXT
-            # =====================================
+            # =================================
 
             initial_context = (
                 serialize_research_context(
@@ -302,9 +584,9 @@ def chat_stream(
 
             )
 
-            # =====================================
+            # =================================
             # STREAM VALIDATION
-            # =====================================
+            # =================================
 
             if llm_stream is None:
 
@@ -315,9 +597,9 @@ def chat_stream(
 
                 )
 
-            # =====================================
+            # =================================
             # TOKEN STREAM
-            # =====================================
+            # =================================
 
             analysis_chunks = []
 
@@ -335,17 +617,17 @@ def chat_stream(
 
                 )
 
-            # =====================================
+            # =================================
             # FINAL ANALYSIS
-            # =====================================
+            # =================================
 
             context.analysis = "".join(
                 analysis_chunks
             )
 
-            # =====================================
+            # =================================
             # PERSIST STREAMED ASSISTANT
-            # =====================================
+            # =================================
 
             assistant_content = (
                 persist_stream_assistant(
@@ -362,9 +644,9 @@ def chat_stream(
                 )
             )
 
-            # =====================================
+            # =================================
             # PERSIST STREAMED EXECUTION
-            # =====================================
+            # =================================
 
             persist_stream_execution(
 
@@ -376,9 +658,9 @@ def chat_stream(
 
             )
 
-            # =====================================
+            # =================================
             # FINAL CONTEXT
-            # =====================================
+            # =================================
 
             final_context = (
                 serialize_research_context(
@@ -394,9 +676,9 @@ def chat_stream(
 
             )
 
-            # =====================================
+            # =================================
             # END
-            # =====================================
+            # =================================
 
             yield stream_event(
 
@@ -436,6 +718,18 @@ def chat_stream(
 
         generate(),
 
-        media_type="application/x-ndjson",
+        media_type=(
+            "application/x-ndjson"
+        ),
+
+        headers={
+
+            "Cache-Control":
+                "no-cache",
+
+            "X-Accel-Buffering":
+                "no",
+
+        },
 
     )
