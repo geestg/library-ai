@@ -494,305 +494,327 @@ export default function useDocumentUpload({
 
     }, []);
 
-// =====================================
-// HANDLE FILE UPLOAD
-// =====================================
+  // =====================================
+  // CONSUME ACTIVE DOCUMENTS
+  // =====================================
 
-const handleFileUpload =
-  useCallback(
-
-    async (event) => {
+  const consumeActiveDocuments =
+    useCallback(() => {
 
       // =================================
-      // COPY FILES IMMEDIATELY
+      // CLEAR COMPOSER ATTACHMENTS ONLY
       // =================================
 
-      const files = Array.from(
-        event.target.files || []
-      );
+      setActiveDocuments([]);
 
-      // Reset input immediately.
-      // Do not keep depending on the
-      // synthetic event during async work.
+      setDocumentError(null);
 
-      event.target.value = "";
+    }, []);
 
-      if (
-        files.length === 0 ||
-        !sessionId
-      ) {
+  // =====================================
+  // HANDLE FILE UPLOAD
+  // =====================================
 
-        return;
+  const handleFileUpload =
+    useCallback(
 
-      }
+      async (event) => {
 
-      const requestGeneration =
-        requestGenerationRef.current;
+        // =================================
+        // COPY FILES IMMEDIATELY
+        // =================================
 
-      console.log(
-        "[DOCUMENT UPLOAD BATCH START]",
-        {
-          sessionId,
-          totalFiles: files.length,
-          files: files.map(
-            file => file.name
-          ),
+        const files = Array.from(
+          event.target.files || []
+        );
+
+        // Reset input immediately.
+        // Do not keep depending on the
+        // synthetic event during async work.
+
+        event.target.value = "";
+
+        if (
+          files.length === 0 ||
+          !sessionId
+        ) {
+
+          return;
+
         }
-      );
 
-      // =================================
-      // UPLOAD FILES SEQUENTIALLY
-      // =================================
-
-      for (
-        let index = 0;
-        index < files.length;
-        index += 1
-      ) {
-
-        const file =
-          files[index];
-
-        const uploadId =
-          crypto.randomUUID();
+        const requestGeneration =
+          requestGenerationRef.current;
 
         console.log(
-          "[DOCUMENT UPLOAD START]",
+          "[DOCUMENT UPLOAD BATCH START]",
           {
-            index:
-              index + 1,
+            sessionId,
 
-            total:
+            totalFiles:
               files.length,
 
-            filename:
-              file.name,
-
-            uploadId,
+            files:
+              files.map(
+                file => file.name
+              ),
           }
         );
 
-        // ===============================
-        // SHOW UPLOADING STATE
-        // ===============================
+        // =================================
+        // UPLOAD FILES SEQUENTIALLY
+        // =================================
 
-        setUploadingDocuments(
+        for (
+          let index = 0;
+          index < files.length;
+          index += 1
+        ) {
 
-          previous => [
+          const file =
+            files[index];
 
-            ...previous,
-
-            {
-
-              id:
-                uploadId,
-
-              filename:
-                file.name,
-
-            },
-
-          ]
-
-        );
-
-        try {
-
-          // ===============================
-          // UPLOAD
-          // ===============================
-
-          const response =
-            await uploadDocument({
-
-              file,
-
-              sessionId,
-
-            });
+          const uploadId =
+            crypto.randomUUID();
 
           console.log(
-            "[DOCUMENT UPLOAD SUCCESS]",
+            "[DOCUMENT UPLOAD START]",
             {
+              index:
+                index + 1,
+
+              total:
+                files.length,
+
               filename:
                 file.name,
 
-              documentId:
-                response.document_id,
-
-              sessionId:
-                response.session_id,
+              uploadId,
             }
           );
 
           // ===============================
-          // STALE REQUEST GUARD
+          // SHOW UPLOADING STATE
           // ===============================
-
-          if (
-
-            requestGeneration !==
-            requestGenerationRef.current
-
-          ) {
-
-            console.warn(
-              "[DOCUMENT UPLOAD STALE]",
-              file.name
-            );
-
-            continue;
-
-          }
-
-          const document =
-            buildDocument(
-              response
-            );
-
-          // ===============================
-          // STORE ACTIVE DOCUMENT
-          // ===============================
-
-          setActiveDocuments(
-
-            previous => {
-
-              const exists =
-                previous.some(
-
-                  item =>
-
-                    item.document_id ===
-                    document.document_id
-
-                );
-
-              if (exists) {
-
-                return previous;
-
-              }
-
-              return [
-
-                ...previous,
-
-                document,
-
-              ];
-
-            }
-
-          );
-
-          setDocumentError(null);
-
-        }
-
-        catch (error) {
-
-          console.error(
-            "[DOCUMENT UPLOAD FAILED]",
-            {
-              filename:
-                file.name,
-
-              status:
-                error?.response?.status,
-
-              data:
-                error?.response?.data,
-
-              message:
-                error?.message,
-
-              error,
-            }
-          );
-
-          if (
-
-            requestGeneration !==
-            requestGenerationRef.current
-
-          ) {
-
-            continue;
-
-          }
-
-          setDocumentError({
-
-            type:
-              "upload",
-
-            message:
-              "Failed to upload document.",
-
-            filename:
-              file.name,
-
-          });
-
-        }
-
-        finally {
 
           setUploadingDocuments(
 
-            previous =>
+            previous => [
 
-              previous.filter(
+              ...previous,
 
-                item =>
+              {
 
-                  item.id !==
-                  uploadId
+                id:
+                  uploadId,
 
-              )
+                filename:
+                  file.name,
+
+              },
+
+            ]
 
           );
 
+          try {
+
+            // ===============================
+            // UPLOAD
+            // ===============================
+
+            const response =
+              await uploadDocument({
+
+                file,
+
+                sessionId,
+
+              });
+
+            console.log(
+              "[DOCUMENT UPLOAD SUCCESS]",
+              {
+                filename:
+                  file.name,
+
+                documentId:
+                  response.document_id,
+
+                sessionId:
+                  response.session_id,
+              }
+            );
+
+            // ===============================
+            // STALE REQUEST GUARD
+            // ===============================
+
+            if (
+
+              requestGeneration !==
+              requestGenerationRef.current
+
+            ) {
+
+              console.warn(
+                "[DOCUMENT UPLOAD STALE]",
+                file.name
+              );
+
+              continue;
+
+            }
+
+            const document =
+              buildDocument(
+                response
+              );
+
+            // ===============================
+            // STORE ACTIVE DOCUMENT
+            // ===============================
+
+            setActiveDocuments(
+
+              previous => {
+
+                const exists =
+                  previous.some(
+
+                    item =>
+
+                      item.document_id ===
+                      document.document_id
+
+                  );
+
+                if (exists) {
+
+                  return previous;
+
+                }
+
+                return [
+
+                  ...previous,
+
+                  document,
+
+                ];
+
+              }
+
+            );
+
+            setDocumentError(null);
+
+          }
+
+          catch (error) {
+
+            console.error(
+              "[DOCUMENT UPLOAD FAILED]",
+              {
+                filename:
+                  file.name,
+
+                status:
+                  error?.response?.status,
+
+                data:
+                  error?.response?.data,
+
+                message:
+                  error?.message,
+
+                error,
+              }
+            );
+
+            if (
+
+              requestGeneration !==
+              requestGenerationRef.current
+
+            ) {
+
+              continue;
+
+            }
+
+            setDocumentError({
+
+              type:
+                "upload",
+
+              message:
+                "Failed to upload document.",
+
+              filename:
+                file.name,
+
+            });
+
+          }
+
+          finally {
+
+            setUploadingDocuments(
+
+              previous =>
+
+                previous.filter(
+
+                  item =>
+
+                    item.id !==
+                    uploadId
+
+                )
+
+            );
+
+          }
+
         }
 
-      }
+        // =================================
+        // FINAL BACKEND SYNCHRONIZATION
+        // =================================
 
-      // =================================
-      // FINAL BACKEND SYNCHRONIZATION
-      // =================================
+        if (
 
-      if (
+          requestGeneration ===
+          requestGenerationRef.current
 
-        requestGeneration ===
-        requestGenerationRef.current
+        ) {
 
-      ) {
+          console.log(
+            "[DOCUMENT UPLOAD BATCH COMPLETE]",
+            {
+              sessionId,
 
-        console.log(
-          "[DOCUMENT UPLOAD BATCH COMPLETE]",
-          {
-            sessionId,
-            totalFiles:
-              files.length,
-          }
-        );
+              totalFiles:
+                files.length,
+            }
+          );
 
-        await loadDocuments();
+          await loadDocuments();
 
-      }
+        }
 
-    },
+      },
 
-    [
+      [
 
-      sessionId,
+        sessionId,
 
-      loadDocuments,
+        loadDocuments,
 
-    ]
+      ]
 
-  );
+    );
 
   // =====================================
   // EXPORT
@@ -821,6 +843,8 @@ const handleFileUpload =
     removeDocument,
 
     clearDocuments,
+
+    consumeActiveDocuments,
 
     loadDocuments,
 
