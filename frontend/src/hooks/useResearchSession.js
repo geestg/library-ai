@@ -14,13 +14,39 @@ import useStreamingChat from "./useStreamingChat";
 
 export default function useResearchSession({
 
+  // =====================================
+  // SESSION
+  // =====================================
+
   sessionId,
+
+  // =====================================
+  // ACTIVE DOCUMENTS
+  // =====================================
 
   activeDocuments = [],
 
+  // =====================================
+  // DOCUMENT CONSUMPTION
+  // =====================================
+
+  onDocumentsConsumed,
+
+  // =====================================
+  // CONVERSATION
+  // =====================================
+
   setMessages,
 
+  // =====================================
+  // SOURCES
+  // =====================================
+
   setSources,
+
+  // =====================================
+  // EVIDENCE
+  // =====================================
 
   setEvidence,
 
@@ -28,7 +54,15 @@ export default function useResearchSession({
 
   setGapAnalysis,
 
+  // =====================================
+  // RESEARCH PROFILE
+  // =====================================
+
   setResearchProfile,
+
+  // =====================================
+  // UI
+  // =====================================
 
   setActiveCitation,
 
@@ -138,6 +172,10 @@ export default function useResearchSession({
   const sendMessage =
     useCallback(async () => {
 
+      // =================================
+      // PREPARE INPUT
+      // =================================
+
       const finalInput =
         input.trim();
 
@@ -147,29 +185,31 @@ export default function useResearchSession({
 
       }
 
+      // =================================
+      // DUPLICATE SEND GUARD
+      // =================================
+
       if (sendingRef.current) {
 
         return;
 
       }
 
-      sendingRef.current = true;
+      // =================================
+      // SNAPSHOT ACTIVE DOCUMENTS
+      // =================================
 
-      reset();
+      const documentsForMessage =
 
-      setThinking();
+        activeDocuments.map(
 
-      clearSelection();
+          document => ({
 
-      appendConversation(
+            ...document,
 
-        finalInput,
+          })
 
-        activeDocuments
-
-      );
-
-      setInput("");
+        );
 
       // =================================
       // BUILD ACTIVE DOCUMENT IDS
@@ -177,13 +217,52 @@ export default function useResearchSession({
 
       const activeDocumentIds =
 
-        activeDocuments.map(
+        documentsForMessage
 
-          (document) =>
+          .map(
 
-            document.document_id
+            document =>
 
-        );
+              document.document_id
+
+          )
+
+          .filter(Boolean);
+
+      // =================================
+      // LOCK SEND
+      // =================================
+
+      sendingRef.current =
+        true;
+
+      // =================================
+      // RESET CONVERSATION STATE
+      // =================================
+
+      reset();
+
+      setThinking();
+
+      clearSelection();
+
+      // =================================
+      // APPEND USER + ASSISTANT MESSAGE
+      // =================================
+
+      appendConversation(
+
+        finalInput,
+
+        documentsForMessage
+
+      );
+
+      // =================================
+      // CLEAR TEXT INPUT
+      // =================================
+
+      setInput("");
 
       // =================================
       // SEND MESSAGE DEBUG
@@ -200,9 +279,9 @@ export default function useResearchSession({
           finalInput,
 
           totalActiveDocuments:
-            activeDocuments.length,
+            documentsForMessage.length,
 
-          activeDocuments,
+          documentsForMessage,
 
           activeDocumentIds,
 
@@ -305,9 +384,32 @@ export default function useResearchSession({
 
           onEnd() {
 
-            sendingRef.current = false;
+            // ===========================
+            // UNLOCK SEND
+            // ===========================
+
+            sendingRef.current =
+              false;
+
+            // ===========================
+            // COMPLETE CONVERSATION
+            // ===========================
 
             setCompleted();
+
+            // ===========================
+            // CONSUME USED DOCUMENTS
+            // ===========================
+
+            if (
+
+              documentsForMessage.length > 0
+
+            ) {
+
+              onDocumentsConsumed?.();
+
+            }
 
           },
 
@@ -333,7 +435,12 @@ export default function useResearchSession({
 
             });
 
-            sendingRef.current = false;
+            // ===========================
+            // KEEP DOCUMENTS FOR RETRY
+            // ===========================
+
+            sendingRef.current =
+              false;
 
             setError();
 
@@ -345,9 +452,9 @@ export default function useResearchSession({
 
       catch (error) {
 
-        // =============================
+        // =================================
         // STOP GENERATION
-        // =============================
+        // =================================
 
         if (
 
@@ -357,13 +464,22 @@ export default function useResearchSession({
 
         ) {
 
-          sendingRef.current = false;
+          // ===============================
+          // KEEP DOCUMENTS FOR RETRY
+          // ===============================
+
+          sendingRef.current =
+            false;
 
           setCancelled();
 
           return;
 
         }
+
+        // =================================
+        // GENERAL ERROR
+        // =================================
 
         console.error(
 
@@ -381,7 +497,12 @@ export default function useResearchSession({
 
         });
 
-        sendingRef.current = false;
+        // =================================
+        // KEEP DOCUMENTS FOR RETRY
+        // =================================
+
+        sendingRef.current =
+          false;
 
         setError();
 
@@ -396,6 +517,8 @@ export default function useResearchSession({
       conversationState,
 
       activeDocuments,
+
+      onDocumentsConsumed,
 
       reset,
 
@@ -442,7 +565,8 @@ export default function useResearchSession({
 
       stopStream();
 
-      sendingRef.current = false;
+      sendingRef.current =
+        false;
 
       setCancelled();
 
