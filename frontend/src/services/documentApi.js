@@ -36,26 +36,56 @@ export async function uploadDocument({
     sessionId
   );
 
+  const uploadUrl =
+    `${DOCUMENT_API_URL}/upload-pdf`;
+
+  // =====================================
+  // DEBUG
+  // =====================================
+
+  console.log(
+
+    "[UPLOAD DEBUG]",
+
+    {
+
+      uploadUrl,
+
+      apiBaseUrl:
+        API_BASE_URL,
+
+      documentApiUrl:
+        DOCUMENT_API_URL,
+
+      sessionId,
+
+      filename:
+        file?.name,
+
+      fileSize:
+        file?.size,
+
+      fileType:
+        file?.type,
+
+      currentStoredSession:
+        localStorage.getItem(
+          "workspace_session_id"
+        ),
+
+    }
+
+  );
+
   const {
 
     data
 
   } = await axios.post(
 
-    `${DOCUMENT_API_URL}/upload-pdf`,
+    uploadUrl,
 
-    formData,
-
-    {
-
-      headers: {
-
-        "Content-Type":
-          "multipart/form-data"
-
-      }
-
-    }
+    formData
 
   );
 
@@ -108,17 +138,40 @@ export async function listSessionDocuments({
 
 }) {
 
+  const listUrl =
+
+    (
+      `${DOCUMENT_API_URL}`
+      + `/session/${sessionId}`
+      + "/documents"
+    );
+
+  console.log(
+
+    "[DOCUMENT LIST DEBUG]",
+
+    {
+
+      listUrl,
+
+      sessionId,
+
+      currentStoredSession:
+        localStorage.getItem(
+          "workspace_session_id"
+        ),
+
+    }
+
+  );
+
   const {
 
     data
 
   } = await axios.get(
 
-    (
-      `${DOCUMENT_API_URL}`
-      + `/session/${sessionId}`
-      + "/documents"
-    )
+    listUrl
 
   );
 

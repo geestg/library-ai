@@ -494,213 +494,305 @@ export default function useDocumentUpload({
 
     }, []);
 
-  // =====================================
-  // HANDLE FILE UPLOAD
-  // =====================================
+// =====================================
+// HANDLE FILE UPLOAD
+// =====================================
 
-  const handleFileUpload =
-    useCallback(
+const handleFileUpload =
+  useCallback(
 
-      async (event) => {
+    async (event) => {
 
-        const files = Array.from(
+      // =================================
+      // COPY FILES IMMEDIATELY
+      // =================================
 
-          event.target.files || []
+      const files = Array.from(
+        event.target.files || []
+      );
 
+      // Reset input immediately.
+      // Do not keep depending on the
+      // synthetic event during async work.
+
+      event.target.value = "";
+
+      if (
+        files.length === 0 ||
+        !sessionId
+      ) {
+
+        return;
+
+      }
+
+      const requestGeneration =
+        requestGenerationRef.current;
+
+      console.log(
+        "[DOCUMENT UPLOAD BATCH START]",
+        {
+          sessionId,
+          totalFiles: files.length,
+          files: files.map(
+            file => file.name
+          ),
+        }
+      );
+
+      // =================================
+      // UPLOAD FILES SEQUENTIALLY
+      // =================================
+
+      for (
+        let index = 0;
+        index < files.length;
+        index += 1
+      ) {
+
+        const file =
+          files[index];
+
+        const uploadId =
+          crypto.randomUUID();
+
+        console.log(
+          "[DOCUMENT UPLOAD START]",
+          {
+            index:
+              index + 1,
+
+            total:
+              files.length,
+
+            filename:
+              file.name,
+
+            uploadId,
+          }
         );
 
-        if (
+        // ===============================
+        // SHOW UPLOADING STATE
+        // ===============================
 
-          files.length === 0 ||
+        setUploadingDocuments(
 
-          !sessionId
+          previous => [
 
-        ) {
+            ...previous,
 
-          event.target.value = "";
+            {
 
-          return;
-
-        }
-
-        const requestGeneration =
-          requestGenerationRef.current;
-
-        for (const file of files) {
-
-          const uploadId =
-            `${Date.now()}-${file.name}`;
-
-          // ===============================
-          // SHOW UPLOADING STATE
-          // ===============================
-
-          setUploadingDocuments(
-
-            previous => [
-
-              ...previous,
-
-              {
-
-                id: uploadId,
-
-                filename: file.name,
-
-              },
-
-            ]
-
-          );
-
-          try {
-
-            // ===============================
-            // UPLOAD
-            // ===============================
-
-            const response =
-              await uploadDocument({
-
-                file,
-
-                sessionId,
-
-              });
-
-            if (
-
-              requestGeneration !==
-              requestGenerationRef.current
-
-            ) {
-
-              continue;
-
-            }
-
-            const document =
-              buildDocument(
-                response
-              );
-
-            // ===============================
-            // STORE ACTIVE DOCUMENT
-            // ===============================
-
-            setActiveDocuments(
-
-              previous => {
-
-                const exists =
-                  previous.some(
-
-                    item =>
-
-                      item.document_id ===
-                      document.document_id
-
-                  );
-
-                if (exists) {
-
-                  return previous;
-
-                }
-
-                return [
-
-                  ...previous,
-
-                  document,
-
-                ];
-
-              }
-
-            );
-
-            setDocumentError(null);
-
-          }
-
-          catch (error) {
-
-            if (
-
-              requestGeneration !==
-              requestGenerationRef.current
-
-            ) {
-
-              continue;
-
-            }
-
-            console.error(
-
-              "[DOCUMENT UPLOAD]",
-
-              error
-
-            );
-
-            setDocumentError({
-
-              type:
-                "upload",
-
-              message:
-                "Failed to upload document.",
+              id:
+                uploadId,
 
               filename:
                 file.name,
 
+            },
+
+          ]
+
+        );
+
+        try {
+
+          // ===============================
+          // UPLOAD
+          // ===============================
+
+          const response =
+            await uploadDocument({
+
+              file,
+
+              sessionId,
+
             });
+
+          console.log(
+            "[DOCUMENT UPLOAD SUCCESS]",
+            {
+              filename:
+                file.name,
+
+              documentId:
+                response.document_id,
+
+              sessionId:
+                response.session_id,
+            }
+          );
+
+          // ===============================
+          // STALE REQUEST GUARD
+          // ===============================
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            console.warn(
+              "[DOCUMENT UPLOAD STALE]",
+              file.name
+            );
+
+            continue;
 
           }
 
-          finally {
+          const document =
+            buildDocument(
+              response
+            );
 
-            if (
+          // ===============================
+          // STORE ACTIVE DOCUMENT
+          // ===============================
 
-              requestGeneration ===
-              requestGenerationRef.current
+          setActiveDocuments(
 
-            ) {
+            previous => {
 
-              setUploadingDocuments(
+              const exists =
+                previous.some(
 
-                previous =>
+                  item =>
 
-                  previous.filter(
+                    item.document_id ===
+                    document.document_id
 
-                    item =>
+                );
 
-                      item.id !==
-                      uploadId
+              if (exists) {
 
-                  )
+                return previous;
 
-              );
+              }
+
+              return [
+
+                ...previous,
+
+                document,
+
+              ];
 
             }
 
-          }
+          );
+
+          setDocumentError(null);
 
         }
 
-        event.target.value = "";
+        catch (error) {
 
-      },
+          console.error(
+            "[DOCUMENT UPLOAD FAILED]",
+            {
+              filename:
+                file.name,
 
-      [
+              status:
+                error?.response?.status,
 
-        sessionId,
+              data:
+                error?.response?.data,
 
-      ]
+              message:
+                error?.message,
 
-    );
+              error,
+            }
+          );
+
+          if (
+
+            requestGeneration !==
+            requestGenerationRef.current
+
+          ) {
+
+            continue;
+
+          }
+
+          setDocumentError({
+
+            type:
+              "upload",
+
+            message:
+              "Failed to upload document.",
+
+            filename:
+              file.name,
+
+          });
+
+        }
+
+        finally {
+
+          setUploadingDocuments(
+
+            previous =>
+
+              previous.filter(
+
+                item =>
+
+                  item.id !==
+                  uploadId
+
+              )
+
+          );
+
+        }
+
+      }
+
+      // =================================
+      // FINAL BACKEND SYNCHRONIZATION
+      // =================================
+
+      if (
+
+        requestGeneration ===
+        requestGenerationRef.current
+
+      ) {
+
+        console.log(
+          "[DOCUMENT UPLOAD BATCH COMPLETE]",
+          {
+            sessionId,
+            totalFiles:
+              files.length,
+          }
+        );
+
+        await loadDocuments();
+
+      }
+
+    },
+
+    [
+
+      sessionId,
+
+      loadDocuments,
+
+    ]
+
+  );
 
   // =====================================
   // EXPORT
