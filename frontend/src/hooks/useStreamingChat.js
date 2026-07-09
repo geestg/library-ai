@@ -88,7 +88,21 @@ export default function useStreamingChat() {
         // CANCEL PREVIOUS STREAM
         // ===============================
 
-        abortControllerRef.current?.abort();
+        if (
+
+          abortControllerRef.current
+
+        ) {
+
+          console.info(
+
+            "[STREAM LIFECYCLE] Aborting previous stream."
+
+          );
+
+          abortControllerRef.current.abort();
+
+        }
 
         // ===============================
         // CREATE CONTROLLER
@@ -102,6 +116,20 @@ export default function useStreamingChat() {
 
         streamingRef.current =
           true;
+
+        console.info(
+
+          "[STREAM LIFECYCLE] Stream started.",
+
+          {
+
+            sessionId,
+
+            activeDocumentIds,
+
+          }
+
+        );
 
         try {
 
@@ -158,6 +186,12 @@ export default function useStreamingChat() {
 
           });
 
+          console.info(
+
+            "[STREAM LIFECYCLE] Stream completed normally."
+
+          );
+
         }
 
         catch (error) {
@@ -167,13 +201,29 @@ export default function useStreamingChat() {
           // ===============================
 
           if (
+
             error?.name ===
             "AbortError"
+
           ) {
+
+            console.info(
+
+              "[STREAM LIFECYCLE] Abort received."
+
+            );
 
             return;
 
           }
+
+          console.error(
+
+            "[STREAM LIFECYCLE] Stream failed.",
+
+            error
+
+          );
 
           throw error;
 
@@ -198,6 +248,12 @@ export default function useStreamingChat() {
             abortControllerRef.current =
               null;
 
+            console.info(
+
+              "[STREAM LIFECYCLE] Stream cleaned up."
+
+            );
+
           }
 
         }
@@ -215,7 +271,28 @@ export default function useStreamingChat() {
   const stopStream =
     useCallback(() => {
 
-      abortControllerRef.current?.abort();
+      const controller =
+        abortControllerRef.current;
+
+      if (!controller) {
+
+        console.info(
+
+          "[STREAM LIFECYCLE] Stop ignored. No active stream."
+
+        );
+
+        return;
+
+      }
+
+      console.info(
+
+        "[STREAM LIFECYCLE] Stop requested."
+
+      );
+
+      controller.abort();
 
     }, []);
 
