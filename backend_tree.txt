@@ -1,5 +1,5 @@
 ﻿Folder PATH listing
-Volume serial number is 00000155 7289:3ED1
+Volume serial number is 0000018D 7289:3ED1
 D:\LIBRARY-AI\BACKEND
 |   .env
 |   Dockerfile
@@ -8,6 +8,16 @@ D:\LIBRARY-AI\BACKEND
 |   test_research_service.py
 |   test_thesis_search.py
 |   
++---.pytest_cache
+|   |   .gitignore
+|   |   CACHEDIR.TAG
+|   |   README.md
+|   |   
+|   \---v
+|       \---cache
+|               lastfailed
+|               nodeids
+|               
 +---app
 |   |   main.py
 |   |   
@@ -373,6 +383,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   |   pipeline.py
 |   |   |   |   |   registry.py
 |   |   |   |   |   stage_result.py
+|   |   |   |   |   stream_progress_hook.py
 |   |   |   |   |   __init__.py
 |   |   |   |   |   
 |   |   |   |   +---stages
@@ -476,6 +487,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |           domain_resolver.cpython-310.pyc
 |   |   |           evidence_extractor.cpython-310.pyc
 |   |   |           evidence_matrix.cpython-310.pyc
+|   |   |           evidence_patterns.cpython-310.pyc
 |   |   |           extraction_aliases.cpython-310.pyc
 |   |   |           extraction_utils.cpython-310.pyc
 |   |   |           gap_detector.cpython-310.pyc

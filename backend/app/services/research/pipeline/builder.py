@@ -2,6 +2,10 @@ from app.services.research.pipeline import (
     PipelineExecutor,
 )
 
+from app.services.research.pipeline.stream_progress_hook import (
+    StreamProgressHook,
+)
+
 from app.services.research.pipeline.stages import (
 
     DocumentStage,
@@ -53,150 +57,160 @@ class ResearchPipelineBuilder:
 
     ):
 
-        return (
+        executor = PipelineExecutor(
+            context
+        )
 
-            PipelineExecutor(
+        # =====================================
+        # STREAM PROGRESS HOOK
+        # =====================================
 
-                context,
+        if progress_callback is not None:
 
-                progress_callback=(
-                    progress_callback
-                ),
+            executor.add_hook(
 
-            )
+                StreamProgressHook(
 
-            # =====================================
-            # DOCUMENT
-            # =====================================
-
-            .add(
-
-                DocumentStage()
-
-            )
-
-            # =====================================
-            # SEARCH
-            # =====================================
-
-            .add(
-
-                SearchStage()
-
-            )
-
-            # =====================================
-            # DOMAIN
-            # =====================================
-
-            .add(
-
-                DomainStage()
-
-            )
-
-            # =====================================
-            # COMPARISON
-            # =====================================
-
-            .add(
-
-                ComparisonStage()
-
-            )
-
-            # =====================================
-            # EVIDENCE
-            # =====================================
-
-            .add(
-
-                EvidenceStage()
-
-            )
-
-            # =====================================
-            # COMPETENCY
-            # =====================================
-
-            .add(
-
-                CompetencyStage()
-
-            )
-
-            # =====================================
-            # PRODI
-            # =====================================
-
-            .add(
-
-                ProdiStage()
-
-            )
-
-            # =====================================
-            # THESIS IDEA
-            # =====================================
-
-            .add(
-
-                ThesisIdeaStage()
-
-            )
-
-            # =====================================
-            # CONTEXT
-            # =====================================
-
-            .add(
-
-                ContextStage()
-
-            )
-
-            # =====================================
-            # LITERATURE REVIEW
-            # =====================================
-
-            .add(
-
-                LiteratureStage()
-
-            )
-
-            # =====================================
-            # PROMPT
-            # =====================================
-
-            .add(
-
-                PromptStage()
-
-            )
-
-            # =====================================
-            # LLM
-            # =====================================
-
-            .add(
-
-                LLMStage(
-
-                    stream=stream,
+                    callback=(
+                        progress_callback
+                    ),
 
                 )
 
             )
 
-            # =====================================
-            # RESPONSE
-            # =====================================
+        # =====================================
+        # DOCUMENT
+        # =====================================
 
-            .add(
+        executor.add(
 
-                ResponseStage()
+            DocumentStage()
+
+        )
+
+        # =====================================
+        # SEARCH
+        # =====================================
+
+        executor.add(
+
+            SearchStage()
+
+        )
+
+        # =====================================
+        # DOMAIN
+        # =====================================
+
+        executor.add(
+
+            DomainStage()
+
+        )
+
+        # =====================================
+        # COMPARISON
+        # =====================================
+
+        executor.add(
+
+            ComparisonStage()
+
+        )
+
+        # =====================================
+        # EVIDENCE
+        # =====================================
+
+        executor.add(
+
+            EvidenceStage()
+
+        )
+
+        # =====================================
+        # COMPETENCY
+        # =====================================
+
+        executor.add(
+
+            CompetencyStage()
+
+        )
+
+        # =====================================
+        # PRODI
+        # =====================================
+
+        executor.add(
+
+            ProdiStage()
+
+        )
+
+        # =====================================
+        # THESIS IDEA
+        # =====================================
+
+        executor.add(
+
+            ThesisIdeaStage()
+
+        )
+
+        # =====================================
+        # CONTEXT
+        # =====================================
+
+        executor.add(
+
+            ContextStage()
+
+        )
+
+        # =====================================
+        # LITERATURE REVIEW
+        # =====================================
+
+        executor.add(
+
+            LiteratureStage()
+
+        )
+
+        # =====================================
+        # PROMPT
+        # =====================================
+
+        executor.add(
+
+            PromptStage()
+
+        )
+
+        # =====================================
+        # LLM
+        # =====================================
+
+        executor.add(
+
+            LLMStage(
+
+                stream=stream,
 
             )
 
         )
+
+        # =====================================
+        # RESPONSE
+        # =====================================
+
+        executor.add(
+
+            ResponseStage()
+
+        )
+
+        return executor
