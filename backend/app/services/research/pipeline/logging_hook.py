@@ -2,6 +2,10 @@ from app.services.research.pipeline.base_hook import (
     BasePipelineHook,
 )
 
+from app.services.research.pipeline.hooks import (
+    PipelineAction,
+)
+
 
 class LoggingHook(
     BasePipelineHook
@@ -16,6 +20,8 @@ class LoggingHook(
         print("PIPELINE START")
         print("=" * 60)
 
+        return PipelineAction.CONTINUE
+
     def before_stage(
         self,
         stage,
@@ -25,6 +31,8 @@ class LoggingHook(
         print(
             f">>> {stage.name}"
         )
+
+        return PipelineAction.CONTINUE
 
     def after_stage(
         self,
@@ -41,6 +49,8 @@ class LoggingHook(
 
         )
 
+        return PipelineAction.CONTINUE
+
     def after_pipeline(
         self,
         context,
@@ -49,3 +59,5 @@ class LoggingHook(
         print("=" * 60)
         print("PIPELINE END")
         print("=" * 60)
+
+        return PipelineAction.CONTINUE

@@ -7,12 +7,18 @@ import {
 
   createSession,
 
+  getSession,
+
 } from "../services/sessionApi";
 
 const STORAGE_KEY =
   "workspace_session_id";
 
 export default function useSession() {
+
+  // =====================================
+  // SESSION
+  // =====================================
 
   const [
 
@@ -22,11 +28,17 @@ export default function useSession() {
 
   ] = useState(null);
 
+  // =====================================
+  // SESSION INITIALIZATION
+  // =====================================
+
   useEffect(() => {
+
+    let cancelled = false;
 
     async function initialize() {
 
-      const stored =
+      const storedSessionId =
 
         localStorage.getItem(
 
@@ -34,41 +46,162 @@ export default function useSession() {
 
         );
 
-      if (stored) {
+      // =================================
+      // VALIDATE STORED SESSION
+      // =================================
 
-        setSessionId(
+      if (storedSessionId) {
 
-          stored
+        try {
 
-        );
+          const session =
 
-        return;
+            await getSession({
+
+              sessionId:
+                storedSessionId,
+
+            });
+
+          if (cancelled) {
+
+            return;
+
+          }
+
+          localStorage.setItem(
+
+            STORAGE_KEY,
+
+            session.session_id
+
+          );
+
+          setSessionId(
+
+            session.session_id
+
+          );
+
+          console.info(
+
+            "[SESSION RESTORED]",
+
+            session.session_id
+
+          );
+
+          return;
+
+        }
+
+        catch (error) {
+
+          if (cancelled) {
+
+            return;
+
+          }
+
+          console.warn(
+
+            "[SESSION RESTORE FAILED]",
+
+            {
+
+              sessionId:
+                storedSessionId,
+
+              status:
+                error?.response?.status,
+
+            }
+
+          );
+
+          localStorage.removeItem(
+
+            STORAGE_KEY
+
+          );
+
+        }
 
       }
 
-      const session =
+      // =================================
+      // CREATE REPLACEMENT SESSION
+      // =================================
 
-        await createSession();
+      try {
 
-      localStorage.setItem(
+        const session =
 
-        STORAGE_KEY,
+          await createSession();
 
-        session.session_id
+        if (cancelled) {
 
-      );
+          return;
 
-      setSessionId(
+        }
 
-        session.session_id
+        localStorage.setItem(
 
-      );
+          STORAGE_KEY,
+
+          session.session_id
+
+        );
+
+        setSessionId(
+
+          session.session_id
+
+        );
+
+        console.info(
+
+          "[SESSION CREATED]",
+
+          session.session_id
+
+        );
+
+      }
+
+      catch (error) {
+
+        if (cancelled) {
+
+          return;
+
+        }
+
+        console.error(
+
+          "[SESSION INITIALIZATION FAILED]",
+
+          error
+
+        );
+
+      }
 
     }
 
     initialize();
 
+    return () => {
+
+      cancelled = true;
+
+    };
+
   }, []);
+
+  // =====================================
+  // EXPORT
+  // =====================================
 
   return {
 
