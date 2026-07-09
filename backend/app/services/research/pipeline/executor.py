@@ -187,14 +187,6 @@ class PipelineExecutor:
             ] = result
 
             # =============================
-            # STOP PIPELINE
-            # =============================
-
-            if result.stop_pipeline:
-
-                return context
-
-            # =============================
             # AFTER STAGE
             # =============================
 
@@ -213,6 +205,14 @@ class PipelineExecutor:
                 if action == PipelineAction.STOP:
 
                     return context
+
+            # =============================
+            # STOP PIPELINE GRACEFULLY
+            # =============================
+
+            if result.stop_pipeline:
+
+                break
 
             # =============================
             # SKIP REMAINING STAGES
