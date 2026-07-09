@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import useSession from "./useSession";
 
@@ -6,7 +10,64 @@ import {
   createEmptyResearchProfile,
 } from "../services/researchApi";
 
-const STORAGE_KEY = "delbot_workspace";
+// =====================================
+// STORAGE
+// =====================================
+
+const STORAGE_KEY_PREFIX =
+  "delbot_workspace";
+
+// =====================================
+// EMPTY WORKSPACE FACTORY
+// =====================================
+
+function createEmptyWorkspace() {
+
+  return {
+
+    messages:
+      [],
+
+    sources:
+      [],
+
+    evidence:
+      {},
+
+    evidenceMatrix:
+      {},
+
+    gapAnalysis:
+      {},
+
+    researchProfile:
+      createEmptyResearchProfile(),
+
+  };
+
+}
+
+// =====================================
+// SESSION STORAGE KEY
+// =====================================
+
+function getWorkspaceStorageKey(
+
+  sessionId
+
+) {
+
+  return (
+
+    `${STORAGE_KEY_PREFIX}:${sessionId}`
+
+  );
+
+}
+
+// =====================================
+// WORKSPACE HOOK
+// =====================================
 
 export default function useWorkspace() {
 
@@ -19,6 +80,21 @@ export default function useWorkspace() {
     sessionId,
 
   } = useSession();
+
+  // =====================================
+  // HYDRATION
+  // =====================================
+
+  const [
+
+    isWorkspaceHydrated,
+
+    setIsWorkspaceHydrated,
+
+  ] = useState(false);
+
+  const hydratedSessionRef =
+    useRef(null);
 
   // =====================================
   // CONVERSATION
@@ -109,68 +185,207 @@ export default function useWorkspace() {
   ] = useState(null);
 
   // =====================================
-  // RESTORE WORKSPACE
+  // RESTORE SESSION WORKSPACE
   // =====================================
 
   useEffect(() => {
 
+    // =================================
+    // WAIT FOR SESSION
+    // =================================
+
+    if (!sessionId) {
+
+      return;
+
+    }
+
+    // =================================
+    // PREVENT DUPLICATE HYDRATION
+    // =================================
+
+    if (
+
+      hydratedSessionRef.current ===
+      sessionId
+
+    ) {
+
+      return;
+
+    }
+
+    // =================================
+    // BEGIN HYDRATION
+    // =================================
+
+    setIsWorkspaceHydrated(
+      false
+    );
+
+    const storageKey =
+
+      getWorkspaceStorageKey(
+
+        sessionId
+
+      );
+
     try {
 
-      const raw = localStorage.getItem(
-        STORAGE_KEY
-      );
+      // =================================
+      // RESET SESSION-BOUND STATE
+      // =================================
 
-      if (!raw) {
-
-        return;
-
-      }
-
-      const workspace = JSON.parse(
-        raw
-      );
+      const emptyWorkspace =
+        createEmptyWorkspace();
 
       setMessages(
 
-        workspace.messages ?? []
+        emptyWorkspace.messages
 
       );
 
       setSources(
 
-        workspace.sources ?? []
+        emptyWorkspace.sources
 
       );
 
       setEvidence(
 
-        workspace.evidence ?? {}
+        emptyWorkspace.evidence
 
       );
 
       setEvidenceMatrix(
 
-        workspace.evidenceMatrix ?? {}
+        emptyWorkspace.evidenceMatrix
 
       );
 
       setGapAnalysis(
 
-        workspace.gapAnalysis ?? {}
+        emptyWorkspace.gapAnalysis
 
       );
 
       setResearchProfile(
 
-        workspace.researchProfile ??
-
-        createEmptyResearchProfile()
+        emptyWorkspace.researchProfile
 
       );
 
-      console.info(
-        "[Workspace] restored"
+      // =================================
+      // RESET TRANSIENT UI STATE
+      // =================================
+
+      setActiveCitation(
+        null
       );
+
+      setSelectedThesis(
+        null
+      );
+
+      // =================================
+      // READ SESSION WORKSPACE
+      // =================================
+
+      const raw =
+
+        localStorage.getItem(
+
+          storageKey
+
+        );
+
+      if (raw) {
+
+        const workspace =
+
+          JSON.parse(
+
+            raw
+
+          );
+
+        setMessages(
+
+          workspace.messages ??
+          []
+
+        );
+
+        setSources(
+
+          workspace.sources ??
+          []
+
+        );
+
+        setEvidence(
+
+          workspace.evidence ??
+          {}
+
+        );
+
+        setEvidenceMatrix(
+
+          workspace.evidenceMatrix ??
+          {}
+
+        );
+
+        setGapAnalysis(
+
+          workspace.gapAnalysis ??
+          {}
+
+        );
+
+        setResearchProfile(
+
+          workspace.researchProfile ??
+
+          createEmptyResearchProfile()
+
+        );
+
+        console.info(
+
+          "[Workspace] restored",
+
+          {
+
+            sessionId,
+
+            storageKey,
+
+          }
+
+        );
+
+      }
+
+      else {
+
+        console.info(
+
+          "[Workspace] initialized",
+
+          {
+
+            sessionId,
+
+            storageKey,
+
+          }
+
+        );
+
+      }
 
     }
 
@@ -180,47 +395,202 @@ export default function useWorkspace() {
 
         "[Workspace Restore]",
 
-        error
+        {
+
+          sessionId,
+
+          storageKey,
+
+          error,
+
+        }
 
       );
 
+      // =================================
+      // REMOVE ONLY CORRUPTED SESSION
+      // =================================
+
       localStorage.removeItem(
-        STORAGE_KEY
+
+        storageKey
+
+      );
+
+      // =================================
+      // FALL BACK TO EMPTY WORKSPACE
+      // =================================
+
+      const emptyWorkspace =
+        createEmptyWorkspace();
+
+      setMessages(
+
+        emptyWorkspace.messages
+
+      );
+
+      setSources(
+
+        emptyWorkspace.sources
+
+      );
+
+      setEvidence(
+
+        emptyWorkspace.evidence
+
+      );
+
+      setEvidenceMatrix(
+
+        emptyWorkspace.evidenceMatrix
+
+      );
+
+      setGapAnalysis(
+
+        emptyWorkspace.gapAnalysis
+
+      );
+
+      setResearchProfile(
+
+        emptyWorkspace.researchProfile
+
+      );
+
+      setActiveCitation(
+        null
+      );
+
+      setSelectedThesis(
+        null
       );
 
     }
 
-  }, []);
+    finally {
+
+      // =================================
+      // MARK SESSION AS HYDRATED
+      // =================================
+
+      hydratedSessionRef.current =
+        sessionId;
+
+      setIsWorkspaceHydrated(
+        true
+      );
+
+    }
+
+  }, [
+
+    sessionId,
+
+  ]);
 
   // =====================================
-  // PERSIST
+  // PERSIST SESSION WORKSPACE
   // =====================================
 
   useEffect(() => {
 
-    localStorage.setItem(
+    // =================================
+    // REQUIRE SESSION
+    // =================================
 
-      STORAGE_KEY,
+    if (!sessionId) {
 
-      JSON.stringify({
+      return;
 
-        messages,
+    }
 
-        sources,
+    // =================================
+    // REQUIRE COMPLETED HYDRATION
+    // =================================
 
-        evidence,
+    if (!isWorkspaceHydrated) {
 
-        evidenceMatrix,
+      return;
 
-        gapAnalysis,
+    }
 
-        researchProfile,
+    // =================================
+    // REQUIRE MATCHING SESSION
+    // =================================
 
-      })
+    if (
 
-    );
+      hydratedSessionRef.current !==
+      sessionId
+
+    ) {
+
+      return;
+
+    }
+
+    const storageKey =
+
+      getWorkspaceStorageKey(
+
+        sessionId
+
+      );
+
+    try {
+
+      localStorage.setItem(
+
+        storageKey,
+
+        JSON.stringify({
+
+          messages,
+
+          sources,
+
+          evidence,
+
+          evidenceMatrix,
+
+          gapAnalysis,
+
+          researchProfile,
+
+        })
+
+      );
+
+    }
+
+    catch (error) {
+
+      console.error(
+
+        "[Workspace Persist]",
+
+        {
+
+          sessionId,
+
+          storageKey,
+
+          error,
+
+        }
+
+      );
+
+    }
 
   }, [
+
+    sessionId,
+
+    isWorkspaceHydrated,
 
     messages,
 
@@ -247,6 +617,12 @@ export default function useWorkspace() {
     // ==============================
 
     sessionId,
+
+    // ==============================
+    // HYDRATION
+    // ==============================
+
+    isWorkspaceHydrated,
 
     // ==============================
     // CONVERSATION
