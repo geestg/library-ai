@@ -1,4 +1,7 @@
-import { useCallback, useRef } from "react";
+import {
+  useCallback,
+  useRef,
+} from "react";
 
 import {
   streamResearchAnalysis,
@@ -10,8 +13,16 @@ import {
 
 export default function useStreamingChat() {
 
+  // =====================================
+  // ABORT CONTROLLER
+  // =====================================
+
   const abortControllerRef =
     useRef(null);
+
+  // =====================================
+  // STREAM STATUS
+  // =====================================
 
   const streamingRef =
     useRef(false);
@@ -25,27 +36,37 @@ export default function useStreamingChat() {
 
       async ({
 
+        // ===============================
+        // REQUEST
+        // ===============================
+
         sessionId,
 
         query,
 
         activeDocumentIds = [],
 
+        // ===============================
+        // CORE STREAM EVENTS
+        // ===============================
+
         onStart,
 
         onMetadata,
 
+        onProgress,
+
         onToken,
 
-        // =============================
-        // NEW
-        // =============================
+        // ===============================
+        // CONTEXT
+        // ===============================
 
         onContext,
 
-        // =============================
-        // LEGACY
-        // =============================
+        // ===============================
+        // LEGACY / COMPATIBILITY
+        // ===============================
 
         onResearchProfile,
 
@@ -53,14 +74,31 @@ export default function useStreamingChat() {
 
         onCitations,
 
+        // ===============================
+        // LIFECYCLE
+        // ===============================
+
         onEnd,
 
         onError,
 
       }) => {
 
-        abortControllerRef.current =
+        // ===============================
+        // CANCEL PREVIOUS STREAM
+        // ===============================
+
+        abortControllerRef.current?.abort();
+
+        // ===============================
+        // CREATE CONTROLLER
+        // ===============================
+
+        const controller =
           new AbortController();
+
+        abortControllerRef.current =
+          controller;
 
         streamingRef.current =
           true;
@@ -69,6 +107,10 @@ export default function useStreamingChat() {
 
           await streamResearchAnalysis({
 
+            // ===========================
+            // REQUEST
+            // ===========================
+
             sessionId,
 
             query,
@@ -76,29 +118,39 @@ export default function useStreamingChat() {
             activeDocumentIds,
 
             signal:
-              abortControllerRef.current.signal,
+              controller.signal,
+
+            // ===========================
+            // CORE STREAM EVENTS
+            // ===========================
 
             onStart,
 
             onMetadata,
 
+            onProgress,
+
             onToken,
 
-            // =========================
-            // NEW
-            // =========================
+            // ===========================
+            // CONTEXT
+            // ===========================
 
             onContext,
 
-            // =========================
-            // LEGACY
-            // =========================
+            // ===========================
+            // LEGACY / COMPATIBILITY
+            // ===========================
 
             onResearchProfile,
 
             onSources,
 
             onCitations,
+
+            // ===========================
+            // LIFECYCLE
+            // ===========================
 
             onEnd,
 
@@ -110,8 +162,12 @@ export default function useStreamingChat() {
 
         catch (error) {
 
+          // ===============================
+          // ABORT IS NOT AN APPLICATION ERROR
+          // ===============================
+
           if (
-            error.name ===
+            error?.name ===
             "AbortError"
           ) {
 
@@ -125,11 +181,24 @@ export default function useStreamingChat() {
 
         finally {
 
-          streamingRef.current =
-            false;
+          // ===============================
+          // ONLY CLEAR CURRENT CONTROLLER
+          // ===============================
 
-          abortControllerRef.current =
-            null;
+          if (
+
+            abortControllerRef.current ===
+            controller
+
+          ) {
+
+            streamingRef.current =
+              false;
+
+            abortControllerRef.current =
+              null;
+
+          }
 
         }
 
@@ -151,7 +220,7 @@ export default function useStreamingChat() {
     }, []);
 
   // =====================================
-  // STREAM STATUS
+  // CHECK STREAM STATUS
   // =====================================
 
   const isStreaming =

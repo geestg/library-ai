@@ -4,12 +4,12 @@ import {
   useRef,
 } from "react";
 
-import useConversationState, {
-  ConversationState,
-} from "./useConversationState";
+import useConversationState from "./useConversationState";
 
 import useAssistantMessage from "./useAssistantMessage";
+
 import useWorkspaceUpdater from "./useWorkspaceUpdater";
+
 import useStreamingChat from "./useStreamingChat";
 
 export default function useResearchSession({
@@ -81,14 +81,26 @@ export default function useResearchSession({
   ] = useState("");
 
   // =====================================
-  // INTERNAL
+  // STREAM PROGRESS
+  // =====================================
+
+  const [
+
+    streamProgress,
+
+    setStreamProgress,
+
+  ] = useState(null);
+
+  // =====================================
+  // INTERNAL SEND LOCK
   // =====================================
 
   const sendingRef =
     useRef(false);
 
   // =====================================
-  // CONVERSATION
+  // CONVERSATION STATE
   // =====================================
 
   const {
@@ -110,7 +122,7 @@ export default function useResearchSession({
   } = useConversationState();
 
   // =====================================
-  // ASSISTANT
+  // ASSISTANT MESSAGE
   // =====================================
 
   const {
@@ -186,6 +198,22 @@ export default function useResearchSession({
       }
 
       // =================================
+      // REQUIRE SESSION
+      // =================================
+
+      if (!sessionId) {
+
+        console.warn(
+
+          "[ResearchSession] Session is not ready."
+
+        );
+
+        return;
+
+      }
+
+      // =================================
       // DUPLICATE SEND GUARD
       // =================================
 
@@ -243,6 +271,16 @@ export default function useResearchSession({
       reset();
 
       setThinking();
+
+      // =================================
+      // RESET STREAM PROGRESS
+      // =================================
+
+      setStreamProgress(null);
+
+      // =================================
+      // CLEAR UI SELECTION
+      // =================================
 
       clearSelection();
 
@@ -316,9 +354,15 @@ export default function useResearchSession({
           // STREAM START
           // =============================
 
-          onStart() {
+          onStart(data) {
 
             setThinking();
+
+            setStreamProgress(
+
+              data ?? null
+
+            );
 
           },
 
@@ -330,9 +374,31 @@ export default function useResearchSession({
 
             console.info(
 
-              "[STREAM]",
+              "[STREAM METADATA]",
 
               metadata
+
+            );
+
+          },
+
+          // =============================
+          // PROGRESS
+          // =============================
+
+          onProgress(progress) {
+
+            console.info(
+
+              "[STREAM PROGRESS]",
+
+              progress
+
+            );
+
+            setStreamProgress(
+
+              progress ?? null
 
             );
 
@@ -344,17 +410,10 @@ export default function useResearchSession({
 
           onToken(token) {
 
-            if (
+            // First token means the
+            // assistant is now streaming.
 
-              conversationState !==
-
-              ConversationState.STREAMING
-
-            ) {
-
-              setStreaming();
-
-            }
+            setStreaming();
 
             appendToken(
 
@@ -382,7 +441,7 @@ export default function useResearchSession({
           // STREAM END
           // =============================
 
-          onEnd() {
+          onEnd(data) {
 
             // ===========================
             // UNLOCK SEND
@@ -390,6 +449,16 @@ export default function useResearchSession({
 
             sendingRef.current =
               false;
+
+            // ===========================
+            // FINAL PROGRESS
+            // ===========================
+
+            setStreamProgress(
+
+              data ?? null
+
+            );
 
             // ===========================
             // COMPLETE CONVERSATION
@@ -421,7 +490,7 @@ export default function useResearchSession({
 
             console.error(
 
-              "[STREAM]",
+              "[STREAM ERROR]",
 
               error
 
@@ -442,6 +511,8 @@ export default function useResearchSession({
             sendingRef.current =
               false;
 
+            setStreamProgress(null);
+
             setError();
 
           },
@@ -453,13 +524,12 @@ export default function useResearchSession({
       catch (error) {
 
         // =================================
-        // STOP GENERATION
+        // ABORT
         // =================================
 
         if (
 
           error?.name ===
-
           "AbortError"
 
         ) {
@@ -470,6 +540,8 @@ export default function useResearchSession({
 
           sendingRef.current =
             false;
+
+          setStreamProgress(null);
 
           setCancelled();
 
@@ -493,7 +565,14 @@ export default function useResearchSession({
 
           content:
 
-            `Terjadi error saat memproses request.\n\n${error.message}`,
+            (
+              "Terjadi error saat "
+              + "memproses request.\n\n"
+              + (
+                error?.message ??
+                "Unknown error"
+              )
+            ),
 
         });
 
@@ -504,6 +583,8 @@ export default function useResearchSession({
         sendingRef.current =
           false;
 
+        setStreamProgress(null);
+
         setError();
 
       }
@@ -513,8 +594,6 @@ export default function useResearchSession({
       sessionId,
 
       input,
-
-      conversationState,
 
       activeDocuments,
 
@@ -563,10 +642,28 @@ export default function useResearchSession({
 
       }
 
+      // =================================
+      // ABORT ACTIVE REQUEST
+      // =================================
+
       stopStream();
+
+      // =================================
+      // UNLOCK SEND
+      // =================================
 
       sendingRef.current =
         false;
+
+      // =================================
+      // CLEAR PROGRESS
+      // =================================
+
+      setStreamProgress(null);
+
+      // =================================
+      // CANCEL CONVERSATION
+      // =================================
 
       setCancelled();
 
@@ -585,7 +682,7 @@ export default function useResearchSession({
   const handleKeyDown =
     useCallback(
 
-      (event) => {
+      event => {
 
         if (
 
@@ -650,6 +747,12 @@ export default function useResearchSession({
     // ==============================
 
     conversationState,
+
+    // ==============================
+    // STREAM PROGRESS
+    // ==============================
+
+    streamProgress,
 
     // ==============================
     // ACTIONS
