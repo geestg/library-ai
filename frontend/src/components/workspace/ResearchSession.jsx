@@ -137,6 +137,8 @@ export default function ResearchSession({
 
     conversationState,
 
+    streamProgress,
+
     sendMessage,
 
     stopGeneration,
@@ -391,6 +393,8 @@ export default function ResearchSession({
 
     conversationState,
 
+    streamProgress,
+
   ]);
 
   // =====================================
@@ -461,6 +465,10 @@ export default function ResearchSession({
 
         conversationState={
           conversationState
+        }
+
+        streamProgress={
+          streamProgress
         }
 
         sources={sources}

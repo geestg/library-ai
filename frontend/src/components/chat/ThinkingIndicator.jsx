@@ -1,4 +1,44 @@
-export default function ThinkingIndicator() {
+export default function ThinkingIndicator({
+
+  progress = null,
+
+}) {
+
+  // =====================================
+  // PROGRESS DATA
+  // =====================================
+
+  const phase =
+
+    progress?.phase ??
+
+    null;
+
+  const stage =
+
+    progress?.stage ??
+
+    null;
+
+  const label =
+
+    progress?.label ??
+
+    "Menganalisis konteks penelitian";
+
+  // =====================================
+  // ACCESSIBILITY LABEL
+  // =====================================
+
+  const accessibilityLabel =
+
+    label ||
+
+    "Sedang menganalisis";
+
+  // =====================================
+  // UI
+  // =====================================
 
   return (
 
@@ -10,9 +50,23 @@ export default function ThinkingIndicator() {
 
       aria-live="polite"
 
-      aria-label="Sedang menganalisis"
+      aria-label={
+        accessibilityLabel
+      }
+
+      data-phase={
+        phase ?? undefined
+      }
+
+      data-stage={
+        stage ?? undefined
+      }
 
     >
+
+      {/* ================================= */}
+      {/* LOADER */}
+      {/* ================================= */}
 
       <div
 
@@ -30,9 +84,13 @@ export default function ThinkingIndicator() {
 
       </div>
 
+      {/* ================================= */}
+      {/* PROGRESS LABEL */}
+      {/* ================================= */}
+
       <span className="thinking-label">
 
-        Menganalisis konteks penelitian
+        {label}
 
       </span>
 
