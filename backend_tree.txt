@@ -1,5 +1,5 @@
 ﻿Folder PATH listing
-Volume serial number is 0000018D 7289:3ED1
+Volume serial number is 0000029D 7289:3ED1
 D:\LIBRARY-AI\BACKEND
 |   .env
 |   Dockerfile
@@ -378,7 +378,6 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   |   builder.py
 |   |   |   |   |   executor.py
 |   |   |   |   |   hooks.py
-|   |   |   |   |   hooks_logger.py
 |   |   |   |   |   logging_hook.py
 |   |   |   |   |   pipeline.py
 |   |   |   |   |   registry.py
@@ -419,6 +418,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   |           __init__.cpython-310.pyc
 |   |   |   |   |           
 |   |   |   |   \---__pycache__
+|   |   |   |           base_hook.cpython-310.pyc
 |   |   |   |           base_stage.cpython-310.pyc
 |   |   |   |           builder.cpython-310.pyc
 |   |   |   |           executor.cpython-310.pyc
@@ -426,6 +426,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |           pipeline.cpython-310.pyc
 |   |   |   |           registry.cpython-310.pyc
 |   |   |   |           stage_result.cpython-310.pyc
+|   |   |   |           stream_progress_hook.cpython-310.pyc
 |   |   |   |           __init__.cpython-310.pyc
 |   |   |   |           
 |   |   |   +---prodi
