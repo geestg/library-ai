@@ -1894,6 +1894,141 @@ class SpecializedStageTests(
             context.stage_results,
         )
 
+
+    @patch(
+        "app.services.research.pipeline.stages."
+        "comparison_stage.run_comparison_pipeline"
+    )
+    def test_stop_pipeline_completes_hook_lifecycle(
+        self,
+        mock_pipeline,
+    ):
+
+        expected_response = {
+
+            "mode":
+                "comparison",
+
+            "analysis":
+                "Comparison result",
+
+        }
+
+        mock_pipeline.return_value = (
+            expected_response
+        )
+
+        context = build_context(
+            "bandingkan metode A dan B"
+        )
+
+        events = []
+
+        class RecordingHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "before_pipeline"
+                )
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                RecordingHook()
+            )
+
+            .add(
+                ComparisonStage()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+        )
+
+        result_context = executor.run()
+
+        self.assertIs(
+            result_context,
+            context,
+        )
+
+        self.assertEqual(
+
+            context.response,
+
+            expected_response,
+
+        )
+
+        self.assertTrue(
+
+            context.stage_results[
+                "comparison"
+            ].stop_pipeline
+
+        )
+
+        self.assertNotIn(
+            "successful",
+            context.stage_results,
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_pipeline",
+
+                "before_stage:comparison",
+
+                "after_stage:comparison",
+
+                "after_pipeline",
+
+            ],
+
+        )
+
 # =====================================
 # DOCUMENT CHAT OWNERSHIP TESTS
 # =====================================
