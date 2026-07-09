@@ -3,7 +3,9 @@ import {
 } from "react";
 
 import ChatHero from "../chat/ChatHero";
+
 import MessageBubble from "../chat/MessageBubble";
+
 import ThinkingIndicator from "../chat/ThinkingIndicator";
 
 import {
@@ -13,17 +15,35 @@ import {
 const SessionConversation =
   forwardRef(function SessionConversation({
 
+    // =====================================
+    // CONVERSATION
+    // =====================================
+
     messages = [],
 
     conversationState,
 
+    streamProgress,
+
+    // =====================================
+    // SOURCES
+    // =====================================
+
     sources = [],
+
+    // =====================================
+    // ACTIONS
+    // =====================================
 
     setInput,
 
     setSelectedThesis,
 
     setActiveCitation,
+
+    // =====================================
+    // SCROLL
+    // =====================================
 
     onScroll,
 
@@ -165,14 +185,20 @@ const SessionConversation =
             }
 
             {/* ============================= */}
-            {/* THINKING */}
+            {/* THINKING PROGRESS */}
             {/* ============================= */}
 
             {
 
               isThinking && (
 
-                <ThinkingIndicator />
+                <ThinkingIndicator
+
+                  progress={
+                    streamProgress
+                  }
+
+                />
 
               )
 
