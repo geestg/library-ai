@@ -479,7 +479,7 @@ def chat_stream(
             )
 
             # =================================
-            # SPECIALIZED RESPONSE
+            # SPECIALIZED STATIC RESPONSE
             # =================================
 
             if context.response is not None:
@@ -605,15 +605,27 @@ def chat_stream(
 
             for token in llm_stream:
 
-                analysis_chunks.append(
+                if token is None:
+
+                    continue
+
+                token_text = str(
                     token
+                )
+
+                if not token_text:
+
+                    continue
+
+                analysis_chunks.append(
+                    token_text
                 )
 
                 yield stream_event(
 
                     "token",
 
-                    token,
+                    token_text,
 
                 )
 
@@ -626,6 +638,17 @@ def chat_stream(
             )
 
             # =================================
+            # BUILD FINAL RESPONSE
+            # =================================
+
+            final_response = {
+
+                "analysis":
+                    context.analysis,
+
+            }
+
+            # =================================
             # PERSIST STREAMED ASSISTANT
             # =================================
 
@@ -634,12 +657,9 @@ def chat_stream(
 
                     context=context,
 
-                    response={
-
-                        "analysis":
-                            context.analysis,
-
-                    },
+                    response=(
+                        final_response
+                    ),
 
                 )
             )

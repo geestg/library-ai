@@ -58,7 +58,13 @@ class ResearchPipelineBuilder:
     ):
 
         # =====================================
-        # ATTACH RUNTIME STREAM CALLBACK
+        # ATTACH RUNTIME STREAM MODE
+        # =====================================
+
+        context.stream = stream
+
+        # =====================================
+        # ATTACH RUNTIME PROGRESS CALLBACK
         # =====================================
 
         context.progress_callback = (
@@ -97,7 +103,11 @@ class ResearchPipelineBuilder:
 
         executor.add(
 
-            DocumentStage()
+            DocumentStage(
+
+                stream=stream,
+
+            )
 
         )
 

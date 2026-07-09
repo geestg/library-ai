@@ -225,6 +225,12 @@ def run_document_analysis(
 
     active_document_ids: list,
 
+    model: str | None = None,
+
+    provider: str | None = None,
+
+    stream: bool = False,
+
     progress_callback=None,
 
 ):
@@ -308,7 +314,7 @@ def run_document_analysis(
     )
 
     # =====================================
-    # GENERATE DOCUMENT ANALYSIS
+    # ANALYSIS READY
     # =====================================
 
     emit_progress(
@@ -325,18 +331,65 @@ def run_document_analysis(
 
     )
 
+    # =====================================
+    # STREAM MODE
+    # =====================================
+
+    if stream:
+
+        llm_stream = (
+
+            gateway.stream_response(
+
+                prompt=prompt,
+
+                model=model,
+
+                provider=provider,
+
+            )
+
+        )
+
+        return {
+
+            "query":
+                query,
+
+            "mode":
+                "multi_document",
+
+            "prompt":
+                prompt,
+
+            "llm_stream":
+                llm_stream,
+
+            "documents":
+                documents,
+
+        }
+
+    # =====================================
+    # NORMAL MODE
+    # =====================================
+
     answer = (
 
         gateway.generate_response(
 
-            prompt=prompt
+            prompt=prompt,
+
+            model=model,
+
+            provider=provider,
 
         )
 
     )
 
     # =====================================
-    # FINALIZE DOCUMENT RESPONSE
+    # FINALIZE NORMAL RESPONSE
     # =====================================
 
     emit_progress(
