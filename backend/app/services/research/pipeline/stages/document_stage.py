@@ -17,6 +17,13 @@ class DocumentStage(
 
     name = "document"
 
+    def __init__(
+        self,
+        stream: bool = False,
+    ):
+
+        self.stream = stream
+
     def execute(
         self,
         context,
@@ -66,6 +73,16 @@ class DocumentStage(
                 context.active_document_ids
             ),
 
+            model=(
+                context.model or None
+            ),
+
+            provider=(
+                context.provider or None
+            ),
+
+            stream=self.stream,
+
             progress_callback=(
                 progress_callback
             ),
@@ -89,14 +106,75 @@ class DocumentStage(
             )
 
         # =====================================
-        # STORE SPECIALIZED RESPONSE
+        # STREAM MODE
+        # =====================================
+
+        if self.stream:
+
+            llm_stream = result.get(
+                "llm_stream"
+            )
+
+            if llm_stream is None:
+
+                raise RuntimeError(
+
+                    "Document analysis did not "
+                    "return an LLM stream."
+
+                )
+
+            # =================================
+            # STORE STREAM
+            # =================================
+
+            context.llm_stream = (
+                llm_stream
+            )
+
+            # =================================
+            # KEEP RESPONSE EMPTY
+            # =================================
+
+            context.response = None
+
+            return StageResult(
+
+                success=True,
+
+                message=(
+                    "Document stream prepared"
+                ),
+
+                metadata={
+
+                    "documents":
+                        len(
+
+                            result.get(
+
+                                "documents",
+
+                                [],
+
+                            )
+
+                        ),
+
+                    "stream":
+                        True,
+
+                },
+
+                stop_pipeline=True,
+
+            )
+
+        # =====================================
+        # NORMAL MODE
         # =====================================
 
         context.response = result
-
-        # =====================================
-        # STOP GENERAL PIPELINE
-        # =====================================
 
         return StageResult(
 
@@ -120,6 +198,9 @@ class DocumentStage(
                         )
 
                     ),
+
+                "stream":
+                    False,
 
             },
 
