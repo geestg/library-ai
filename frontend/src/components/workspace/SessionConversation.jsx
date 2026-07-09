@@ -15,35 +15,19 @@ import {
 const SessionConversation =
   forwardRef(function SessionConversation({
 
-    // =====================================
-    // CONVERSATION
-    // =====================================
-
     messages = [],
 
     conversationState,
 
-    streamProgress,
-
-    // =====================================
-    // SOURCES
-    // =====================================
+    streamProgress = null,
 
     sources = [],
-
-    // =====================================
-    // ACTIONS
-    // =====================================
 
     setInput,
 
     setSelectedThesis,
 
     setActiveCitation,
-
-    // =====================================
-    // SCROLL
-    // =====================================
 
     onScroll,
 
@@ -185,7 +169,7 @@ const SessionConversation =
             }
 
             {/* ============================= */}
-            {/* THINKING PROGRESS */}
+            {/* THINKING */}
             {/* ============================= */}
 
             {
