@@ -74,6 +74,14 @@ class PipelineExecutor:
             context.stage_results = {}
 
         # =================================
+        # EXECUTION STATE
+        # =================================
+
+        stop_pipeline = False
+
+        pending_exception = None
+
+        # =================================
         # BEFORE PIPELINE
         # =================================
 
@@ -85,88 +93,136 @@ class PipelineExecutor:
 
             if action == PipelineAction.STOP:
 
-                return context
+                stop_pipeline = True
+
+                break
 
         # =================================
         # STAGES
         # =================================
 
-        for stage in self.pipeline.stages:
+        if not stop_pipeline:
 
-            skip_stage = False
+            for stage in self.pipeline.stages:
 
-            # =============================
-            # BEFORE STAGE
-            # =============================
+                skip_stage = False
 
-            for hook in self.hooks:
+                # =========================
+                # BEFORE STAGE
+                # =========================
 
-                action = hook.before_stage(
+                for hook in self.hooks:
 
-                    stage,
+                    action = hook.before_stage(
 
-                    context,
+                        stage,
 
-                )
+                        context,
 
-                if action == PipelineAction.SKIP:
+                    )
 
-                    skip_stage = True
+                    if action == PipelineAction.SKIP:
+
+                        skip_stage = True
+
+                        break
+
+                    if action == PipelineAction.STOP:
+
+                        stop_pipeline = True
+
+                        break
+
+                # =========================
+                # STOP BEFORE EXECUTION
+                # =========================
+
+                if stop_pipeline:
 
                     break
 
-                if action == PipelineAction.STOP:
+                # =========================
+                # SKIP CURRENT STAGE
+                # =========================
 
-                    return context
+                if skip_stage:
 
-            if skip_stage:
+                    continue
 
-                continue
+                # =========================
+                # EXECUTE STAGE
+                # =========================
 
-            # =============================
-            # EXECUTE STAGE
-            # =============================
+                try:
 
-            try:
+                    result = stage.run(
+                        context
+                    )
 
-                result = stage.run(
-                    context
-                )
+                    if result is None:
 
-                if result is None:
+                        result = StageResult()
 
-                    result = StageResult()
+                except Exception as exc:
 
-            except Exception as exc:
+                    result = StageResult(
 
-                result = StageResult(
+                        success=False,
 
-                    success=False,
+                        stop_pipeline=True,
 
-                    stop_pipeline=True,
+                        message=str(exc),
 
-                    message=str(exc),
+                        metadata={
 
-                    metadata={
+                            "exception_type":
+                                type(exc).__name__,
 
-                        "exception_type":
-                            type(exc).__name__,
+                        },
 
-                    },
+                    )
 
-                )
+                    context.stage_results[
+                        stage.name
+                    ] = result
+
+                    # =====================
+                    # AFTER FAILED STAGE
+                    # =====================
+
+                    for hook in self.hooks:
+
+                        hook.after_stage(
+
+                            stage,
+
+                            context,
+
+                            result,
+
+                        )
+
+                    pending_exception = exc
+
+                    stop_pipeline = True
+
+                    break
+
+                # =========================
+                # SAVE RESULT
+                # =========================
 
                 context.stage_results[
                     stage.name
                 ] = result
 
                 # =========================
-                # AFTER FAILED STAGE
+                # AFTER STAGE
                 # =========================
 
                 for hook in self.hooks:
 
-                    hook.after_stage(
+                    action = hook.after_stage(
 
                         stage,
 
@@ -176,51 +232,35 @@ class PipelineExecutor:
 
                     )
 
-                raise
+                    if action == PipelineAction.STOP:
 
-            # =============================
-            # SAVE RESULT
-            # =============================
+                        stop_pipeline = True
 
-            context.stage_results[
-                stage.name
-            ] = result
+                        break
 
-            # =============================
-            # AFTER STAGE
-            # =============================
+                # =========================
+                # STOP AFTER STAGE HOOK
+                # =========================
 
-            for hook in self.hooks:
+                if stop_pipeline:
 
-                action = hook.after_stage(
+                    break
 
-                    stage,
+                # =========================
+                # STOP PIPELINE GRACEFULLY
+                # =========================
 
-                    context,
+                if result.stop_pipeline:
 
-                    result,
+                    break
 
-                )
+                # =========================
+                # SKIP REMAINING STAGES
+                # =========================
 
-                if action == PipelineAction.STOP:
+                if result.skip_remaining:
 
-                    return context
-
-            # =============================
-            # STOP PIPELINE GRACEFULLY
-            # =============================
-
-            if result.stop_pipeline:
-
-                break
-
-            # =============================
-            # SKIP REMAINING STAGES
-            # =============================
-
-            if result.skip_remaining:
-
-                break
+                    break
 
         # =================================
         # AFTER PIPELINE
@@ -234,7 +274,15 @@ class PipelineExecutor:
 
             if action == PipelineAction.STOP:
 
-                return context
+                break
+
+        # =================================
+        # RERAISE STAGE EXCEPTION
+        # =================================
+
+        if pending_exception is not None:
+
+            raise pending_exception
 
         # =================================
         # DONE

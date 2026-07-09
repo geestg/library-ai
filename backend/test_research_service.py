@@ -61,6 +61,10 @@ from app.services.research.session import (
     session_manager,
 )
 
+from app.services.research.pipeline.hooks import (
+    PipelineAction,
+)
+
 from app.services.research.session.models import (
     DocumentItem,
     ExecutionSession,
@@ -1688,6 +1692,622 @@ class ResponsePipelineTests(
             context.response,
 
             existing_response,
+
+        )
+
+    def test_pipeline_is_passive_stage_container(
+        self,
+    ):
+
+        context = build_context()
+
+        executor = PipelineExecutor(
+            context
+        )
+
+        self.assertIs(
+            executor.pipeline.context,
+            context,
+        )
+
+        self.assertEqual(
+            executor.pipeline.stages,
+            [],
+        )
+
+        self.assertFalse(
+            hasattr(
+                executor.pipeline,
+                "execute",
+            )
+        )
+
+        stage = SuccessfulStage()
+
+        returned_executor = executor.add(
+            stage
+        )
+
+        self.assertIs(
+            returned_executor,
+            executor,
+        )
+
+        self.assertEqual(
+            executor.pipeline.stages,
+            [
+                stage,
+            ],
+        )
+
+        self.assertNotIn(
+            "successful",
+            context.stage_results,
+        )
+
+        executor.run()
+
+        self.assertIn(
+            "successful",
+            context.stage_results,
+        )
+
+    def test_before_stage_skip_skips_only_target_stage(
+        self,
+    ):
+
+        context = build_context()
+
+        events = []
+
+        class SkippedStage(
+            SuccessfulStage
+        ):
+
+            name = "skipped"
+
+        class SkipHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                return PipelineAction.CONTINUE
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+                if stage.name == "skipped":
+
+                    return PipelineAction.SKIP
+
+                return PipelineAction.CONTINUE
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                SkipHook()
+            )
+
+            .add(
+                SkippedStage()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+        )
+
+        result_context = executor.run()
+
+        self.assertIs(
+            result_context,
+            context,
+        )
+
+        self.assertNotIn(
+            "skipped",
+            context.stage_results,
+        )
+
+        self.assertIn(
+            "successful",
+            context.stage_results,
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_stage:skipped",
+
+                "before_stage:successful",
+
+                "after_stage:successful",
+
+                "after_pipeline",
+
+            ],
+
+        )
+
+
+    def test_before_stage_stop_still_runs_after_pipeline(
+        self,
+    ):
+
+        context = build_context()
+
+        events = []
+
+        class StopHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "before_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+                return PipelineAction.STOP
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                StopHook()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+        )
+
+        result_context = executor.run()
+
+        self.assertIs(
+            result_context,
+            context,
+        )
+
+        self.assertNotIn(
+            "successful",
+            context.stage_results,
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_pipeline",
+
+                "before_stage:successful",
+
+                "after_pipeline",
+
+            ],
+
+        )
+
+    def test_after_stage_stop_still_runs_after_pipeline(
+        self,
+    ):
+
+        context = build_context()
+
+        events = []
+
+        class StopHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "before_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+                return PipelineAction.STOP
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                StopHook()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+        )
+
+        result_context = executor.run()
+
+        self.assertIs(
+            result_context,
+            context,
+        )
+
+        self.assertIn(
+            "successful",
+            context.stage_results,
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_pipeline",
+
+                "before_stage:successful",
+
+                "after_stage:successful",
+
+                "after_pipeline",
+
+            ],
+
+        )
+
+    def test_before_pipeline_stop_still_runs_after_pipeline(
+        self,
+    ):
+
+        context = build_context()
+
+        events = []
+
+        class StopHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "before_pipeline"
+                )
+
+                return PipelineAction.STOP
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                StopHook()
+            )
+
+            .add(
+                SuccessfulStage()
+            )
+
+        )
+
+        result_context = executor.run()
+
+        self.assertIs(
+            result_context,
+            context,
+        )
+
+        self.assertNotIn(
+            "successful",
+            context.stage_results,
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_pipeline",
+
+                "after_pipeline",
+
+            ],
+
+        )
+
+    def test_stage_exception_still_runs_after_pipeline(
+        self,
+    ):
+
+        context = build_context()
+
+        events = []
+
+        class ExceptionStage:
+
+            name = "exception"
+
+            def run(
+                self,
+                context,
+            ):
+
+                raise RuntimeError(
+                    "Stage failed"
+                )
+
+        class TrackingHook:
+
+            def before_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "before_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def before_stage(
+                self,
+                stage,
+                context,
+            ):
+
+                events.append(
+                    f"before_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_stage(
+                self,
+                stage,
+                context,
+                result,
+            ):
+
+                events.append(
+                    f"after_stage:{stage.name}"
+                )
+
+                return PipelineAction.CONTINUE
+
+            def after_pipeline(
+                self,
+                context,
+            ):
+
+                events.append(
+                    "after_pipeline"
+                )
+
+                return PipelineAction.CONTINUE
+
+        executor = (
+
+            PipelineExecutor(context)
+
+            .add_hook(
+                TrackingHook()
+            )
+
+            .add(
+                ExceptionStage()
+            )
+
+        )
+
+        with self.assertRaisesRegex(
+
+            RuntimeError,
+
+            "Stage failed",
+
+        ):
+
+            executor.run()
+
+        self.assertIn(
+            "exception",
+            context.stage_results,
+        )
+
+        failure = (
+            context.stage_results[
+                "exception"
+            ]
+        )
+
+        self.assertFalse(
+            failure.success
+        )
+
+        self.assertTrue(
+            failure.stop_pipeline
+        )
+
+        self.assertEqual(
+
+            failure.metadata[
+                "exception_type"
+            ],
+
+            "RuntimeError",
+
+        )
+
+        self.assertEqual(
+
+            events,
+
+            [
+
+                "before_pipeline",
+
+                "before_stage:exception",
+
+                "after_stage:exception",
+
+                "after_pipeline",
+
+            ],
 
         )
 

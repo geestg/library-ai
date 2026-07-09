@@ -1,25 +1,29 @@
 import axios from "axios";
 
 import {
-  API_BASE_URL
+  API_BASE_URL,
 } from "./api";
 
-const SESSION_API =
-  `${API_BASE_URL}/session`;
+/* =====================================
+   SESSION API
+===================================== */
 
-// =====================================
-// CREATE
-// =====================================
+const SESSION_API_URL =
+  API_BASE_URL;
+
+/* =====================================
+   CREATE SESSION
+===================================== */
 
 export async function createSession() {
 
   const {
 
-    data
+    data,
 
   } = await axios.post(
 
-    `${SESSION_API}/create`
+    `${SESSION_API_URL}/session/create`
 
   );
 
@@ -27,23 +31,26 @@ export async function createSession() {
 
 }
 
-// =====================================
-// GET
-// =====================================
+/* =====================================
+   GET SESSION
+===================================== */
 
-export async function getSession(
+export async function getSession({
 
-  sessionId
+  sessionId,
 
-) {
+}) {
 
   const {
 
-    data
+    data,
 
   } = await axios.get(
 
-    `${SESSION_API}/${sessionId}`
+    (
+      `${SESSION_API_URL}`
+      + `/session/${sessionId}`
+    )
 
   );
 
@@ -51,23 +58,26 @@ export async function getSession(
 
 }
 
-// =====================================
-// DELETE
-// =====================================
+/* =====================================
+   DELETE SESSION
+===================================== */
 
-export async function deleteSession(
+export async function deleteSession({
 
-  sessionId
+  sessionId,
 
-) {
+}) {
 
   const {
 
-    data
+    data,
 
   } = await axios.delete(
 
-    `${SESSION_API}/${sessionId}`
+    (
+      `${SESSION_API_URL}`
+      + `/session/${sessionId}`
+    )
 
   );
 
