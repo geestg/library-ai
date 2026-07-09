@@ -22,15 +22,39 @@ class DocumentStage(
         context,
     ):
 
+        # =====================================
+        # SKIP WITHOUT ACTIVE DOCUMENTS
+        # =====================================
+
         if not context.active_document_ids:
 
             return StageResult(
 
                 success=True,
 
-                message="Document stage skipped",
+                message=(
+                    "Document stage skipped"
+                ),
 
             )
+
+        # =====================================
+        # RESOLVE PROGRESS CALLBACK
+        # =====================================
+
+        progress_callback = getattr(
+
+            context,
+
+            "progress_callback",
+
+            None,
+
+        )
+
+        # =====================================
+        # DOCUMENT ANALYSIS
+        # =====================================
 
         result = run_document_analysis(
 
@@ -42,7 +66,15 @@ class DocumentStage(
                 context.active_document_ids
             ),
 
+            progress_callback=(
+                progress_callback
+            ),
+
         )
+
+        # =====================================
+        # NO DOCUMENT CONTEXT
+        # =====================================
 
         if result is None:
 
@@ -50,26 +82,43 @@ class DocumentStage(
 
                 success=True,
 
-                message="No active document",
+                message=(
+                    "No active document"
+                ),
 
             )
 
+        # =====================================
+        # STORE SPECIALIZED RESPONSE
+        # =====================================
+
         context.response = result
+
+        # =====================================
+        # STOP GENERAL PIPELINE
+        # =====================================
 
         return StageResult(
 
             success=True,
 
-            message="Document analysis completed",
+            message=(
+                "Document analysis completed"
+            ),
 
             metadata={
 
                 "documents":
                     len(
+
                         result.get(
+
                             "documents",
+
                             [],
+
                         )
+
                     ),
 
             },

@@ -8,6 +8,40 @@ from app.services.research.session import (
 
 
 # =====================================
+# EMIT PROGRESS
+# =====================================
+
+def emit_progress(
+
+    progress_callback,
+
+    phase: str,
+
+    label: str,
+
+    stage: str = "document",
+
+):
+
+    if progress_callback is None:
+
+        return
+
+    progress_callback({
+
+        "phase":
+            phase,
+
+        "label":
+            label,
+
+        "stage":
+            stage,
+
+    })
+
+
+# =====================================
 # BUILD EMPTY DOCUMENT CONTEXT
 # =====================================
 
@@ -191,7 +225,27 @@ def run_document_analysis(
 
     active_document_ids: list,
 
+    progress_callback=None,
+
 ):
+
+    # =====================================
+    # PREPARE DOCUMENT CONTEXT
+    # =====================================
+
+    emit_progress(
+
+        progress_callback,
+
+        phase=(
+            "preparing_document_context"
+        ),
+
+        label=(
+            "Menyiapkan konteks dokumen"
+        ),
+
+    )
 
     document_result = (
 
@@ -219,15 +273,55 @@ def run_document_analysis(
 
     )
 
+    # =====================================
+    # VALIDATE DOCUMENT CONTEXT
+    # =====================================
+
     if not document_context:
 
         return None
+
+    # =====================================
+    # BUILD ANALYSIS INSTRUCTIONS
+    # =====================================
+
+    emit_progress(
+
+        progress_callback,
+
+        phase=(
+            "preparing_document_analysis"
+        ),
+
+        label=(
+            "Menyiapkan analisis dokumen"
+        ),
+
+    )
 
     prompt = build_document_prompt(
 
         query=query,
 
         document_context=document_context,
+
+    )
+
+    # =====================================
+    # GENERATE DOCUMENT ANALYSIS
+    # =====================================
+
+    emit_progress(
+
+        progress_callback,
+
+        phase=(
+            "analyzing_documents"
+        ),
+
+        label=(
+            "Menganalisis isi dokumen"
+        ),
 
     )
 
@@ -238,6 +332,24 @@ def run_document_analysis(
             prompt=prompt
 
         )
+
+    )
+
+    # =====================================
+    # FINALIZE DOCUMENT RESPONSE
+    # =====================================
+
+    emit_progress(
+
+        progress_callback,
+
+        phase=(
+            "finalizing_document_response"
+        ),
+
+        label=(
+            "Menyelesaikan jawaban"
+        ),
 
     )
 
