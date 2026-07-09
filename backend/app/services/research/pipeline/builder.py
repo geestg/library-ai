@@ -57,6 +57,18 @@ class ResearchPipelineBuilder:
 
     ):
 
+        # =====================================
+        # ATTACH RUNTIME STREAM CALLBACK
+        # =====================================
+
+        context.progress_callback = (
+            progress_callback
+        )
+
+        # =====================================
+        # EXECUTOR
+        # =====================================
+
         executor = PipelineExecutor(
             context
         )
