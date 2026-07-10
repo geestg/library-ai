@@ -1,5 +1,5 @@
 ﻿Folder PATH listing
-Volume serial number is 0000029D 7289:3ED1
+Volume serial number is 000001BD 7289:3ED1
 D:\LIBRARY-AI\BACKEND
 |   .env
 |   Dockerfile
@@ -31,6 +31,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   routes_search.py
 |   |   |   |   routes_session.py
 |   |   |   |   routes_upload.py
+|   |   |   |   routes_upload.py.before-ownership-fix.bak
 |   |   |   |   title_generator.py
 |   |   |   |   
 |   |   |   \---__pycache__
@@ -53,12 +54,18 @@ D:\LIBRARY-AI\BACKEND
 |   +---core
 |   |   |   config.py
 |   |   |   constants.py
+|   |   |   constants.py.before-qdrant-recovery.bak
 |   |   |   
 |   |   \---__pycache__
 |   |           config.cpython-310.pyc
 |   |           config.cpython-311.pyc
 |   |           constants.cpython-310.pyc
 |   |           
+|   +---database
+|   |       base.py
+|   |       connection.py
+|   |       __init__.py
+|   |       
 |   +---dataset
 |   |   |   dataset_ingest.py
 |   |   |   metadata_extractor.py
@@ -117,6 +124,14 @@ D:\LIBRARY-AI\BACKEND
 |   |           task_router.cpython-310.pyc
 |   |           task_router.cpython-311.pyc
 |   |           
+|   +---persistence
+|   |   |   __init__.py
+|   |   |   
+|   |   \---session
+|   |           models.py
+|   |           repository.py
+|   |           __init__.py
+|   |           
 |   +---rag
 |   |   |   bm25_engine.py
 |   |   |   chunker.py
@@ -124,6 +139,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   embedder.py
 |   |   |   hybrid_search.py
 |   |   |   ingest.py
+|   |   |   ingest.py.before-ownership-fix.bak
 |   |   |   qdrant_client.py
 |   |   |   reranker.py
 |   |   |   source_mapper.py

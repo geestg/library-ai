@@ -1,4 +1,4 @@
-import json
+﻿import json
 import uuid
 
 from qdrant_client.models import (
@@ -86,7 +86,7 @@ def ingest_dataset():
 
         payload = {
 
-            "title": title,
+"title": title,
 
             "author": author,
 
@@ -141,6 +141,10 @@ def ingest_dataset():
 def ingest_pdf(
 
     pdf_path,
+
+    session_id: str,
+
+    document_id: str,
 
     title="Untitled PDF",
 
@@ -197,6 +201,20 @@ def ingest_pdf(
         )
 
         payload = {
+
+            # =================================
+            # OWNERSHIP
+            # =================================
+
+            "session_id": session_id,
+
+            "document_id": document_id,
+
+            "source_type": "user_document",
+
+            # =================================
+            # DOCUMENT METADATA
+            # =================================
 
             "title": title,
 
@@ -275,3 +293,5 @@ def ingest_pdf(
         pages
 
     }
+
+

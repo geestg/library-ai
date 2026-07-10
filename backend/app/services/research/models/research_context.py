@@ -57,6 +57,10 @@ class ResearchContext:
         default_factory=list
     )
 
+    document_chunks: list = field(
+        default_factory=list
+    )
+
     # =================================
     # DOMAIN
     # =================================

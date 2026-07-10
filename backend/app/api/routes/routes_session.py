@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+﻿from fastapi import APIRouter
 from fastapi import HTTPException
 
 from app.services.research.session import (
@@ -126,6 +126,27 @@ def delete_document(
     )
 
     # =====================================
+    # PERSIST SESSION
+    # =====================================
+
+    persisted = session_manager.save(
+        session_id
+    )
+
+    if not persisted:
+
+        raise HTTPException(
+
+            status_code=500,
+
+            detail=(
+                "Document was removed "
+                "but session persistence failed."
+            ),
+
+        )
+
+    # =====================================
     # RESPONSE
     # =====================================
 
@@ -185,3 +206,4 @@ def delete_session(
             "Session deleted successfully.",
 
     }
+

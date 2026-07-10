@@ -100,10 +100,33 @@ class DocumentStage(
                 success=True,
 
                 message=(
-                    "No active document"
+                    "No relevant document context"
                 ),
 
             )
+
+        # =====================================
+        # STORE DOCUMENT EVIDENCE
+        # =====================================
+
+        retrieved_chunks = result.get(
+
+            "retrieved_chunks",
+
+            [],
+
+        )
+
+        context.citations = (
+            retrieved_chunks
+        )
+
+        context.evidence = {
+
+            "retrieved_chunks":
+                retrieved_chunks,
+
+        }
 
         # =====================================
         # STREAM MODE
@@ -161,6 +184,11 @@ class DocumentStage(
 
                         ),
 
+                    "retrieved_chunks":
+                        len(
+                            retrieved_chunks
+                        ),
+
                     "stream":
                         True,
 
@@ -197,6 +225,11 @@ class DocumentStage(
 
                         )
 
+                    ),
+
+                "retrieved_chunks":
+                    len(
+                        retrieved_chunks
                     ),
 
                 "stream":
