@@ -1,5 +1,16 @@
+from contextlib import (
+    asynccontextmanager,
+)
+
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+
+from fastapi.middleware.cors import (
+    CORSMiddleware,
+)
+
+from app.database import (
+    initialize_database,
+)
 
 from app.api.routes.routes_search import (
     router as search_router,
@@ -37,21 +48,76 @@ from app.api.routes.routes_session import (
     router as session_router,
 )
 
+
+# =========================================
+# APPLICATION LIFESPAN
+# =========================================
+
+@asynccontextmanager
+async def lifespan(
+    app: FastAPI,
+):
+
+    # =====================================
+    # STARTUP
+    # =====================================
+
+    initialize_database()
+
+    print(
+
+        "[DATABASE] PostgreSQL "
+        "initialized successfully."
+
+    )
+
+    yield
+
+    # =====================================
+    # SHUTDOWN
+    # =====================================
+
+
+# =========================================
+# APPLICATION
+# =========================================
+
 app = FastAPI(
-    title="DELBot - AI Academic Knowledge Operating System"
+
+    title=(
+        "DELBot - AI Academic "
+        "Knowledge Operating System"
+    ),
+
+    lifespan=lifespan,
+
 )
+
 
 # =========================================
 # CORS
 # =========================================
 
 app.add_middleware(
+
     CORSMiddleware,
-    allow_origins=["*"],
+
+    allow_origins=[
+        "*",
+    ],
+
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+
+    allow_methods=[
+        "*",
+    ],
+
+    allow_headers=[
+        "*",
+    ],
+
 )
+
 
 # =========================================
 # ROUTERS
@@ -93,6 +159,7 @@ app.include_router(
     document_router
 )
 
+
 # =========================================
 # ROOT ENDPOINT
 # =========================================
@@ -102,12 +169,17 @@ def root():
 
     return {
 
-        "status": "running",
+        "status":
+            "running",
 
-        "system": "DELBot",
+        "system":
+            "DELBot",
 
         "description":
-        "AI Academic Knowledge Operating System",
+            (
+                "AI Academic Knowledge "
+                "Operating System"
+            ),
 
         "features": [
 
@@ -138,6 +210,8 @@ def root():
             "Research Gap Analysis",
 
             "Thesis Title Generator",
+
+            "Persistent Workspace Sessions",
 
         ],
 
