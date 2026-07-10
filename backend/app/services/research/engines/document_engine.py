@@ -40,7 +40,7 @@ def emit_progress(
 
         return
 
-    progress_callback({
+    payload = {
 
         "phase":
             phase,
@@ -51,8 +51,49 @@ def emit_progress(
         "stage":
             stage,
 
-    })
+    }
 
+    print(
+        "[DOCUMENT PROGRESS] Emitting",
+        payload,
+        flush=True,
+    )
+
+    try:
+
+        progress_callback(
+            payload
+        )
+
+    except Exception as exc:
+
+        import traceback
+
+        print(
+            "[DOCUMENT PROGRESS ERROR]",
+            {
+                "phase": phase,
+                "error_type": (
+                    type(exc).__name__
+                ),
+                "error": str(exc),
+            },
+            flush=True,
+        )
+
+        traceback.print_exc()
+
+        # Progress reporting must never
+        # terminate document analysis.
+        return
+
+    print(
+        "[DOCUMENT PROGRESS] Emitted",
+        {
+            "phase": phase,
+        },
+        flush=True,
+    )
 
 # =====================================
 # BUILD EMPTY DOCUMENT CONTEXT
@@ -280,9 +321,25 @@ def build_document_context(
 
 ):
 
+    print(
+        "[DOCUMENT CONTEXT] Starting",
+        {
+            "query": query,
+            "session_id": session_id,
+            "active_document_ids": active_document_ids,
+            "top_k": top_k,
+        },
+        flush=True,
+    )
+
     # =================================
     # RESOLVE SESSION-OWNED DOCUMENTS
     # =================================
+
+    print(
+        "[DOCUMENT CONTEXT] Resolving active documents",
+        flush=True,
+    )
 
     documents = resolve_active_documents(
 
@@ -294,7 +351,24 @@ def build_document_context(
 
     )
 
+    print(
+        "[DOCUMENT CONTEXT] Documents resolved",
+        {
+            "count": len(documents),
+            "document_ids": [
+                document["document_id"]
+                for document in documents
+            ],
+        },
+        flush=True,
+    )
+
     if not documents:
+
+        print(
+            "[DOCUMENT CONTEXT] No active documents",
+            flush=True,
+        )
 
         return (
             build_empty_document_context()
@@ -316,6 +390,16 @@ def build_document_context(
     # RETRIEVE RELEVANT CHUNKS
     # =================================
 
+    print(
+        "[DOCUMENT RETRIEVAL] Starting",
+        {
+            "query": query,
+            "document_ids": verified_document_ids,
+            "top_k": top_k,
+        },
+        flush=True,
+    )
+
     chunks = retrieve_document_chunks(
 
         query=query,
@@ -328,6 +412,16 @@ def build_document_context(
 
         top_k=top_k,
 
+    )
+
+    print(
+        "[DOCUMENT RETRIEVAL] Completed",
+        {
+            "chunk_count": len(chunks)
+            if chunks
+            else 0,
+        },
+        flush=True,
     )
 
     if not chunks:
@@ -349,6 +443,11 @@ def build_document_context(
     # BUILD GROUNDED CONTEXT
     # =================================
 
+    print(
+        "[DOCUMENT CONTEXT] Building context",
+        flush=True,
+    )
+
     document_context = (
 
         build_context_from_chunks(
@@ -359,6 +458,15 @@ def build_document_context(
 
         )
 
+    )
+
+    print(
+        "[DOCUMENT CONTEXT] Ready",
+        {
+            "chunk_count": len(chunks),
+            "context_length": len(document_context),
+        },
+        flush=True,
     )
 
     return {
@@ -373,7 +481,6 @@ def build_document_context(
             document_context,
 
     }
-
 
 # =====================================
 # BUILD SINGLE CHUNK VERIFIER PROMPT
@@ -391,8 +498,9 @@ def build_chunk_answerability_prompt(
 Anda adalah verifier evidence dokumen.
 
 Tugas Anda hanya menentukan apakah SATU evidence
-di bawah ini mengandung informasi yang dapat
-digunakan untuk menjawab pertanyaan user.
+di bawah ini benar-benar mengandung informasi
+substantif yang dapat digunakan untuk menjawab
+pertanyaan user.
 
 ==================================================
 EVIDENCE
@@ -407,33 +515,107 @@ PERTANYAAN USER
 {query}
 
 ==================================================
+PRINSIP UTAMA
+==================================================
+
+ANSWERABLE berarti evidence benar-benar memberikan
+informasi yang diminta.
+
+Kemunculan topik, istilah, kata kunci, nama bagian,
+atau pernyataan bahwa informasi akan dijelaskan
+TIDAK berarti evidence mengandung jawabannya.
+
+Bedakan dengan ketat antara:
+
+1. evidence yang MEMBERIKAN jawaban,
+
+dan
+
+2. evidence yang hanya MENYEBUT topik pertanyaan.
+
+Hanya kondisi pertama yang boleh menghasilkan
+ANSWERABLE.
+
+==================================================
 ATURAN VERIFIKASI
 ==================================================
 
-1. Pilih ANSWERABLE jika evidence secara eksplisit
-mengandung jawaban, nilai, fakta, syarat, nama,
-langkah, atau informasi yang diminta user.
+1. Pilih ANSWERABLE hanya jika evidence mengandung
+fakta, nilai, nama, syarat, langkah, hasil,
+penjelasan, atau hubungan struktural yang secara
+substantif dapat digunakan untuk menjawab
+pertanyaan user.
 
-2. Jawaban tidak harus menggunakan susunan kata
+2. Evidence tidak harus menjawab seluruh pertanyaan
+jika evidence memberikan bagian jawaban yang
+substantif dan benar-benar relevan.
+
+3. Jawaban tidak harus menggunakan susunan kata
 yang sama persis dengan pertanyaan.
 
-3. Perbedaan format karakter, simbol, tanda baca,
+4. Perbedaan format karakter, simbol, tanda baca,
 atau encoding tidak membatalkan evidence jika
 makna informasinya tetap jelas.
 
-4. Jika user meminta angka atau nilai dan angka
-tersebut terdapat dalam evidence bersama konteks
-yang sesuai, pilih ANSWERABLE.
+5. Jika user meminta angka atau nilai, pilih
+ANSWERABLE hanya jika angka atau nilai tersebut
+terdapat bersama konteks yang menunjukkan bahwa
+angka tersebut memang menjawab hal yang ditanyakan.
 
-5. Kesamaan topik saja tidak cukup.
+6. Jika user meminta tujuan, hasil, metode, dataset,
+kesimpulan, alasan, atau informasi substantif lain,
+evidence harus benar-benar memberikan isi informasi
+tersebut.
 
-6. Jangan menggunakan pengetahuan eksternal.
+7. Kesamaan topik saja tidak cukup.
 
-7. Jangan membuat asumsi.
+8. Kemunculan kata yang sama dengan pertanyaan
+tidak cukup.
 
-8. Pilih NOT_FOUND hanya jika evidence benar-benar
-tidak mengandung informasi yang dapat menjawab
-pertanyaan user.
+9. Nama bab, nama subbab, judul bagian, atau daftar
+isi saja tidak cukup kecuali struktur tersebut
+sendiri merupakan informasi yang diminta user.
+
+10. Pernyataan bahwa suatu informasi akan dibahas,
+dijelaskan, dipaparkan, diuraikan, disajikan,
+ditampilkan, atau dijelaskan pada bagian lain
+bukan jawaban terhadap informasi tersebut.
+
+11. Jangan menggunakan informasi dari chunk lain.
+
+12. Jangan melengkapi kalimat yang terpotong dengan
+asumsi tentang isi sebelum atau sesudah evidence.
+
+13. Jangan menggunakan pengetahuan eksternal.
+
+14. Jangan membuat asumsi.
+
+15. Pilih NOT_FOUND jika evidence hanya relevan
+secara topik tetapi tidak memberikan informasi
+substantif yang diminta.
+
+16. Pilih NOT_FOUND jika evidence hanya menunjukkan
+bahwa jawaban mungkin terdapat di bagian lain
+dokumen.
+
+==================================================
+UJI WAJIB SEBELUM MEMILIH ANSWERABLE
+==================================================
+
+Tanyakan:
+
+"Jika hanya evidence ini yang tersedia, apakah saya
+dapat mengambil setidaknya satu klaim substantif
+yang secara langsung membantu menjawab pertanyaan?"
+
+Jika YA:
+ANSWERABLE
+
+Jika TIDAK:
+NOT_FOUND
+
+Jangan memilih ANSWERABLE hanya karena evidence
+terlihat berkaitan dengan pertanyaan.
 
 ==================================================
 CONTOH KEPUTUSAN
@@ -448,6 +630,8 @@ Evidence:
 Output:
 ANSWERABLE
 
+--------------------------------------------------
+
 Pertanyaan:
 "Berapa kapasitas baterai minimum?"
 
@@ -456,6 +640,99 @@ Evidence:
 
 Output:
 NOT_FOUND
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa tujuan penelitian ini?"
+
+Evidence:
+"Tujuan dari tugas akhir akan dipaparkan pada
+bagian berikutnya."
+
+Output:
+NOT_FOUND
+
+Alasan internal:
+Evidence hanya menyebut bahwa tujuan akan
+dipaparkan, tetapi tidak memberikan isi tujuan.
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa tujuan penelitian ini?"
+
+Evidence:
+"Penelitian ini bertujuan mengembangkan sistem
+untuk mendeteksi jumlah ikan dan mengestimasi
+panjang ikan secara otomatis."
+
+Output:
+ANSWERABLE
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa hasil pengujian sistem?"
+
+Evidence:
+"Hasil pengujian sistem akan dibahas pada Bab IV."
+
+Output:
+NOT_FOUND
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa metode yang digunakan?"
+
+Evidence:
+"Bab ini menjelaskan metode yang digunakan dalam
+penelitian."
+
+Output:
+NOT_FOUND
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa dataset yang digunakan?"
+
+Evidence:
+"Dari proses akuisisi diperoleh sebanyak 1.600
+citra yang digunakan sebagai dataset awal
+penelitian."
+
+Output:
+ANSWERABLE
+
+--------------------------------------------------
+
+Pertanyaan:
+"Apa dataset yang digunakan?"
+
+Evidence:
+"Dataset selanjutnya melalui tahap pelabelan dan
+augmentasi sebelum digunakan untuk pelatihan."
+
+Output:
+NOT_FOUND
+
+Alasan internal:
+Evidence menjelaskan pemrosesan dataset tetapi
+tidak mengidentifikasi dataset yang digunakan.
+
+--------------------------------------------------
+
+Pertanyaan:
+"Bagaimana dataset diproses?"
+
+Evidence:
+"Dataset melalui tahap pelabelan, preprocessing,
+dan augmentasi sebelum digunakan untuk pelatihan."
+
+Output:
+ANSWERABLE
 
 ==================================================
 OUTPUT
@@ -470,8 +747,7 @@ atau
 NOT_FOUND
 
 Jangan menambahkan teks lain.
-"""
-
+""".strip()
 
 # =====================================
 # BUILD COLLECTIVE VERIFIER PROMPT
@@ -644,30 +920,70 @@ def verify_single_chunk(
 
     )
 
-    verification_result = (
+    print(
+        "[ANSWERABILITY CHUNK] Calling model",
+        {
+            "query": query,
+            "context_length": len(chunk_context),
+            "prompt_length": len(prompt),
+            "model": model,
+            "provider": provider,
+        },
+        flush=True,
+    )
 
-        gateway.generate_response(
+    try:
 
-            prompt=prompt,
+        verification_result = (
 
-            model=model,
+            gateway.generate_response(
 
-            provider=provider,
+                prompt=prompt,
+
+                model=model,
+
+                provider=provider,
+
+            )
 
         )
 
-    )
+    except Exception as exc:
+
+        import traceback
+
+        print(
+            "[ANSWERABILITY CHUNK ERROR]",
+            {
+                "error_type": (
+                    type(exc).__name__
+                ),
+                "error": str(exc),
+            },
+            flush=True,
+        )
+
+        traceback.print_exc()
+
+        raise
 
     print(
         "[ANSWERABILITY RAW]",
         repr(verification_result),
+        flush=True,
     )
 
-
-    return normalize_answerability(
+    normalized = normalize_answerability(
         verification_result
     )
 
+    print(
+        "[ANSWERABILITY NORMALIZED]",
+        normalized,
+        flush=True,
+    )
+
+    return normalized
 
 # =====================================
 # VERIFY COLLECTIVE CONTEXT
@@ -1388,6 +1704,17 @@ def run_document_analysis(
 
 ):
 
+    print(
+        "[DOCUMENT ANALYSIS] Starting",
+        {
+            "query": query,
+            "session_id": session_id,
+            "active_document_ids": active_document_ids,
+            "stream": stream,
+        },
+        flush=True,
+    )
+
     # =====================================
     # RETRIEVE DOCUMENT EVIDENCE
     # =====================================
@@ -1406,21 +1733,58 @@ def run_document_analysis(
 
     )
 
-    document_result = (
+    try:
 
-        build_document_context(
+        document_result = (
 
-            query=query,
+            build_document_context(
 
-            session_id=session_id,
+                query=query,
 
-            active_document_ids=(
-                active_document_ids
-            ),
+                session_id=session_id,
+
+                active_document_ids=(
+                    active_document_ids
+                ),
+
+            )
 
         )
 
-    )
+        print(
+            "[DOCUMENT ANALYSIS] Context returned",
+            flush=True,
+        )
+
+    except Exception as exc:
+
+        import traceback
+
+        print(
+            "\n"
+            "====================================\n"
+            "DOCUMENT ENGINE ERROR\n"
+            "====================================",
+            flush=True,
+        )
+
+        print(
+            f"[ERROR TYPE] {type(exc).__name__}",
+            flush=True,
+        )
+
+        print(
+            f"[ERROR MESSAGE] {exc}",
+            flush=True,
+        )
+
+        traceback.print_exc()
+
+        raise
+
+    # =====================================
+    # EXTRACT DOCUMENT RESULT
+    # =====================================
 
     documents = (
         document_result["documents"]
@@ -1430,11 +1794,25 @@ def run_document_analysis(
         document_result["chunks"]
     )
 
+    print(
+        "[DOCUMENT ANALYSIS] Result extracted",
+        {
+            "document_count": len(documents),
+            "chunk_count": len(chunks),
+        },
+        flush=True,
+    )
+
     # =====================================
     # VALIDATE DOCUMENT CONTEXT
     # =====================================
 
     if not chunks:
+
+        print(
+            "[DOCUMENT ANALYSIS] No chunks found",
+            flush=True,
+        )
 
         return None
 
@@ -1456,43 +1834,89 @@ def run_document_analysis(
 
     )
 
-    verification = verify_answerability(
+    print(
+        "[ANSWERABILITY] Starting verification",
+        {
+            "query": query,
+            "chunk_count": len(chunks),
+            "document_count": len(documents),
+            "model": model,
+            "provider": provider,
+        },
+        flush=True,
+    )
 
-        query=query,
+    try:
 
-        chunks=chunks,
+        verification = verify_answerability(
 
-        documents=documents,
+            query=query,
 
-        model=model,
+            chunks=chunks,
 
-        provider=provider,
+            documents=documents,
 
+            model=model,
+
+            provider=provider,
+
+        )
+
+    except Exception as exc:
+
+        import traceback
+
+        print(
+            "\n"
+            "====================================\n"
+            "ANSWERABILITY VERIFICATION ERROR\n"
+            "====================================",
+            flush=True,
+        )
+
+        print(
+            f"[ERROR TYPE] {type(exc).__name__}",
+            flush=True,
+        )
+
+        print(
+            f"[ERROR MESSAGE] {exc}",
+            flush=True,
+        )
+
+        traceback.print_exc()
+
+        raise
+
+    print(
+        "[ANSWERABILITY] Verification completed",
+        verification,
+        flush=True,
     )
 
     answerability = verification.get(
 
-        "status",
+            "status",
 
-        NOT_FOUND,
+            NOT_FOUND,
 
-    )
+        )
 
     citation_chunks = verification.get(
 
-        "answerable_chunks",
+            "answerable_chunks",
 
-        [],
+            [],
 
-    )
+        )
 
     verification_mode = verification.get(
 
-        "verification_mode",
+            "verification_mode",
 
-        "none",
+            "none",
 
-    )
+        )
 
     # =====================================
     # NOT FOUND
