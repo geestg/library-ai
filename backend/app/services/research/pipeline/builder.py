@@ -8,6 +8,8 @@ from app.services.research.pipeline.stream_progress_hook import (
 
 from app.services.research.pipeline.stages import (
 
+    QueryResolutionStage,
+
     DocumentStage,
 
     SearchStage,
@@ -96,6 +98,16 @@ class ResearchPipelineBuilder:
                 )
 
             )
+
+        # =====================================
+        # QUERY RESOLUTION
+        # =====================================
+
+        executor.add(
+
+            QueryResolutionStage()
+
+        )
 
         # =====================================
         # DOCUMENT
