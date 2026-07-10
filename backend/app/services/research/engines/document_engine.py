@@ -1,3 +1,7 @@
+from app.services.document.document_vector_retriever import (
+    retrieve_document_chunks,
+)
+
 from app.services.llm.model_gateway import (
     gateway,
 )
@@ -52,6 +56,9 @@ def build_empty_document_context():
         "documents":
             [],
 
+        "chunks":
+            [],
+
         "context":
             "",
 
@@ -59,10 +66,10 @@ def build_empty_document_context():
 
 
 # =====================================
-# BUILD DOCUMENT CONTEXT
+# RESOLVE ACTIVE DOCUMENTS
 # =====================================
 
-def build_document_context(
+def resolve_active_documents(
 
     session_id: str,
 
@@ -80,15 +87,11 @@ def build_document_context(
 
     if session is None:
 
-        return (
-            build_empty_document_context()
-        )
+        return []
 
     # =================================
-    # BUILD CONTEXT
+    # VERIFY DOCUMENT OWNERSHIP
     # =================================
-
-    contexts = []
 
     documents = []
 
@@ -114,17 +117,182 @@ def build_document_context(
             "filename":
                 document.filename,
 
+            "file_type":
+                document.file_type,
+
+            "pages":
+                document.pages,
+
+            "chunks":
+                document.chunks,
+
         })
+
+    return documents
+
+
+# =====================================
+# BUILD DOCUMENT CONTEXT
+# =====================================
+
+def build_document_context(
+
+    query: str,
+
+    session_id: str,
+
+    active_document_ids: list,
+
+    top_k: int = 12,
+
+):
+
+    # =================================
+    # RESOLVE SESSION-OWNED DOCUMENTS
+    # =================================
+
+    documents = resolve_active_documents(
+
+        session_id=session_id,
+
+        active_document_ids=(
+            active_document_ids
+        ),
+
+    )
+
+    if not documents:
+
+        return (
+            build_empty_document_context()
+        )
+
+    # =================================
+    # VERIFIED DOCUMENT IDS
+    # =================================
+
+    verified_document_ids = [
+
+        document["document_id"]
+
+        for document in documents
+
+    ]
+
+    # =================================
+    # RETRIEVE RELEVANT CHUNKS
+    # =================================
+
+    chunks = retrieve_document_chunks(
+
+        query=query,
+
+        session_id=session_id,
+
+        active_document_ids=(
+            verified_document_ids
+        ),
+
+        top_k=top_k,
+
+    )
+
+    if not chunks:
+
+        return {
+
+            "documents":
+                documents,
+
+            "chunks":
+                [],
+
+            "context":
+                "",
+
+        }
+
+    # =================================
+    # DOCUMENT NAME MAP
+    # =================================
+
+    document_name_map = {
+
+        document["document_id"]:
+            document["filename"]
+
+        for document in documents
+
+    }
+
+    # =================================
+    # BUILD GROUNDED CONTEXT
+    # =================================
+
+    contexts = []
+
+    for index, chunk in enumerate(
+        chunks,
+        start=1,
+    ):
+
+        document_id = chunk.get(
+            "document_id"
+        )
+
+        filename = document_name_map.get(
+
+            document_id,
+
+            chunk.get(
+                "title"
+            )
+
+            or "Unknown Document",
+
+        )
+
+        page = chunk.get(
+            "page"
+        )
+
+        chunk_index = chunk.get(
+            "chunk_index"
+        )
+
+        score = chunk.get(
+            "score",
+            0,
+        )
+
+        text = chunk.get(
+            "text",
+            "",
+        )
 
         contexts.append(
 
             f"""
+[EVIDENCE {index}]
+
 FILE:
-{document.filename}
+{filename}
+
+DOCUMENT_ID:
+{document_id}
+
+PAGE:
+{page}
+
+CHUNK_INDEX:
+{chunk_index}
+
+SIMILARITY_SCORE:
+{score:.6f}
 
 CONTENT:
-{document.content[:10000]}
-"""
+{text}
+""".strip()
 
         )
 
@@ -132,6 +300,9 @@ CONTENT:
 
         "documents":
             documents,
+
+        "chunks":
+            chunks,
 
         "context":
             "\n\n".join(
@@ -156,11 +327,11 @@ def build_document_prompt(
     return f"""
 Anda adalah DELBot.
 
-Anda sedang menganalisis
-beberapa dokumen sekaligus.
+Anda sedang menjawab pertanyaan berdasarkan
+evidence yang diambil dari dokumen aktif user.
 
 ==================================================
-DOKUMEN
+RETRIEVED DOCUMENT EVIDENCE
 ==================================================
 
 {document_context}
@@ -175,41 +346,46 @@ PERTANYAAN USER
 ATURAN
 ==================================================
 
-1. Jawab berdasarkan dokumen yang diberikan.
+1. Jawab hanya berdasarkan evidence dokumen
+yang diberikan.
 
-2. Jika informasi berasal dari dokumen tertentu,
-sebutkan nama filenya.
+2. Jangan menggunakan pengetahuan eksternal
+untuk mengisi informasi yang tidak ditemukan.
 
-3. Jika terdapat informasi yang berbeda antar dokumen,
-jelaskan perbedaannya.
+3. Jika informasi berasal dari dokumen tertentu,
+sebutkan nama file tersebut.
 
-4. Jika user meminta perbandingan,
+4. Jika nomor halaman tersedia,
+sebutkan halaman yang relevan.
+
+5. Jika terdapat informasi yang berbeda
+antar dokumen, jelaskan perbedaannya.
+
+6. Jika user meminta perbandingan,
 buat tabel perbandingan.
 
-5. Jika user meminta ringkasan,
+7. Jika user meminta ringkasan,
 buat ringkasan terstruktur.
 
-6. Jika informasi tidak ditemukan,
-katakan informasi tidak ditemukan.
-
-7. Jangan gunakan Qdrant.
-
-8. Jangan gunakan repository skripsi.
+8. Jika evidence tidak cukup untuk menjawab,
+katakan bahwa informasi tidak ditemukan
+dalam bagian dokumen yang relevan.
 
 9. Jangan mengarang.
 
 10. Gunakan Bahasa Indonesia.
 
-11. Gunakan Markdown murni untuk format jawaban.
+11. Gunakan Markdown murni.
 
-12. Jangan gunakan tag HTML seperti
-<br>, <ul>, <li>, <table>, atau tag HTML lainnya.
+12. Jangan gunakan tag HTML.
 
 13. Untuk tabel, gunakan sintaks tabel Markdown.
 
-14. Untuk daftar, gunakan tanda "- " atau penomoran Markdown.
+14. Untuk daftar, gunakan tanda "- "
+atau penomoran Markdown.
 
-15. Pastikan setiap isi tabel ringkas dan mudah dibaca.
+15. Pastikan jawaban dapat ditelusuri kembali
+ke evidence yang diberikan.
 """
 
 
@@ -236,7 +412,7 @@ def run_document_analysis(
 ):
 
     # =====================================
-    # PREPARE DOCUMENT CONTEXT
+    # RETRIEVE DOCUMENT EVIDENCE
     # =====================================
 
     emit_progress(
@@ -244,11 +420,11 @@ def run_document_analysis(
         progress_callback,
 
         phase=(
-            "preparing_document_context"
+            "retrieving_document_evidence"
         ),
 
         label=(
-            "Menyiapkan konteks dokumen"
+            "Mencari bagian dokumen yang relevan"
         ),
 
     )
@@ -256,6 +432,8 @@ def run_document_analysis(
     document_result = (
 
         build_document_context(
+
+            query=query,
 
             session_id=session_id,
 
@@ -268,15 +446,15 @@ def run_document_analysis(
     )
 
     document_context = (
-
         document_result["context"]
-
     )
 
     documents = (
-
         document_result["documents"]
+    )
 
+    chunks = (
+        document_result["chunks"]
     )
 
     # =====================================
@@ -288,7 +466,7 @@ def run_document_analysis(
         return None
 
     # =====================================
-    # BUILD ANALYSIS INSTRUCTIONS
+    # PREPARE ANALYSIS
     # =====================================
 
     emit_progress(
@@ -300,7 +478,7 @@ def run_document_analysis(
         ),
 
         label=(
-            "Menyiapkan analisis dokumen"
+            "Menyiapkan evidence dokumen"
         ),
 
     )
@@ -326,7 +504,7 @@ def run_document_analysis(
         ),
 
         label=(
-            "Menganalisis isi dokumen"
+            "Menganalisis evidence dokumen"
         ),
 
     )
@@ -357,7 +535,7 @@ def run_document_analysis(
                 query,
 
             "mode":
-                "multi_document",
+                "document_retrieval",
 
             "prompt":
                 prompt,
@@ -367,6 +545,9 @@ def run_document_analysis(
 
             "documents":
                 documents,
+
+            "retrieved_chunks":
+                chunks,
 
         }
 
@@ -389,7 +570,7 @@ def run_document_analysis(
     )
 
     # =====================================
-    # FINALIZE NORMAL RESPONSE
+    # FINALIZE RESPONSE
     # =====================================
 
     emit_progress(
@@ -412,24 +593,31 @@ def run_document_analysis(
             query,
 
         "mode":
-            "multi_document",
+            "document_retrieval",
 
         "analysis":
             answer,
 
         "citations":
-            [],
+            chunks,
 
         "sources":
-            [],
+            chunks,
 
-        "evidence":
-            {},
+        "evidence": {
+
+            "retrieved_chunks":
+                chunks,
+
+        },
 
         "evidence_matrix":
             {},
 
         "documents":
             documents,
+
+        "retrieved_chunks":
+            chunks,
 
     }

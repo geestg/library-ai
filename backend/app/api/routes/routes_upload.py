@@ -1,4 +1,4 @@
-from uuid import uuid4
+﻿from uuid import uuid4
 
 import os
 
@@ -108,6 +108,14 @@ async def upload_pdf(
     )
 
     # =================================
+    # DOCUMENT ID
+    # =================================
+
+    document_id = str(
+        uuid4()
+    )
+
+    # =================================
     # INGEST DOCUMENT
     # =================================
 
@@ -115,20 +123,16 @@ async def upload_pdf(
 
         pdf_path=file_path,
 
+        session_id=session.session_id,
+
+        document_id=document_id,
+
         title=file.filename,
 
         author="Unknown",
 
         year="2026",
 
-    )
-
-    # =================================
-    # DOCUMENT ID
-    # =================================
-
-    document_id = str(
-        uuid4()
     )
 
     # =================================
@@ -172,6 +176,27 @@ async def upload_pdf(
     session.documents.add_document(
         document
     )
+
+    # =================================
+    # PERSIST SESSION
+    # =================================
+
+    persisted = session_manager.save(
+        session.session_id
+    )
+
+    if not persisted:
+
+        raise HTTPException(
+
+            status_code=500,
+
+            detail=(
+                "Document was ingested "
+                "but session persistence failed"
+            ),
+
+        )
 
     # =================================
     # DEBUG
@@ -242,3 +267,4 @@ async def upload_pdf(
             "Document uploaded successfully",
 
     }
+
