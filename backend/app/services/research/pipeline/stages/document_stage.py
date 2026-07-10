@@ -117,8 +117,16 @@ class DocumentStage(
 
         )
 
+        citation_chunks = result.get(
+
+            "citation_chunks",
+
+            retrieved_chunks,
+
+        )
+
         context.citations = (
-            retrieved_chunks
+            citation_chunks
         )
 
         context.evidence = {
@@ -127,6 +135,74 @@ class DocumentStage(
                 retrieved_chunks,
 
         }
+
+        # =====================================
+        # RESOLVE RESPONSE TYPE
+        # =====================================
+
+        response_type = result.get(
+            "response_type"
+        )
+
+        # =====================================
+        # STATIC RESPONSE
+        # =====================================
+
+        if response_type == "static":
+
+            context.response = result
+
+            context.llm_stream = None
+
+            return StageResult(
+
+                success=True,
+
+                message=(
+                    "Document static response prepared"
+                ),
+
+                metadata={
+
+                    "documents":
+                        len(
+
+                            result.get(
+
+                                "documents",
+
+                                [],
+
+                            )
+
+                        ),
+
+                    "retrieved_chunks":
+                        len(
+                            retrieved_chunks
+                        ),
+
+                    "citations":
+                        len(
+                            citation_chunks
+                        ),
+
+                    "stream":
+                        False,
+
+                    "answerability":
+                        result.get(
+                            "answerability"
+                        ),
+
+                    "response_type":
+                        "static",
+
+                },
+
+                stop_pipeline=True,
+
+            )
 
         # =====================================
         # STREAM MODE
@@ -189,8 +265,21 @@ class DocumentStage(
                             retrieved_chunks
                         ),
 
+                    "citations":
+                        len(
+                            citation_chunks
+                        ),
+
                     "stream":
                         True,
+
+                    "answerability":
+                        result.get(
+                            "answerability"
+                        ),
+
+                    "response_type":
+                        "stream",
 
                 },
 
@@ -232,8 +321,21 @@ class DocumentStage(
                         retrieved_chunks
                     ),
 
+                "citations":
+                    len(
+                        citation_chunks
+                    ),
+
                 "stream":
                     False,
+
+                "answerability":
+                    result.get(
+                        "answerability"
+                    ),
+
+                "response_type":
+                    response_type,
 
             },
 
