@@ -658,6 +658,12 @@ def verify_single_chunk(
 
     )
 
+    print(
+        "[ANSWERABILITY RAW]",
+        repr(verification_result),
+    )
+
+
     return normalize_answerability(
         verification_result
     )

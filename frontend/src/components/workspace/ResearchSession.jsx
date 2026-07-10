@@ -1,13 +1,8 @@
 import {
-
   useCallback,
-
   useEffect,
-
   useRef,
-
   useState,
-
 } from "react";
 
 import SessionConversation from "./SessionConversation";
@@ -113,8 +108,6 @@ export default function ResearchSession({
 
     removeDocument,
 
-    consumeActiveDocuments,
-
     clearDocumentError,
 
     isDocumentDeleting,
@@ -158,13 +151,6 @@ export default function ResearchSession({
     // =================================
 
     activeDocuments,
-
-    // =================================
-    // DOCUMENT CONSUMPTION
-    // =================================
-
-    onDocumentsConsumed:
-      consumeActiveDocuments,
 
     // =================================
     // CONVERSATION

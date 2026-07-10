@@ -141,6 +141,19 @@ def run_research_pipeline(
     event_queue: Queue,
 ):
 
+    print(
+        "[CHAT STREAM REQUEST]",
+        {
+            "session_id": req.session_id,
+            "message": req.message,
+            "active_document_ids": (
+                req.active_document_ids
+            ),
+        },
+        flush=True,
+    )
+
+
     # =====================================
     # PROGRESS CALLBACK
     # =====================================

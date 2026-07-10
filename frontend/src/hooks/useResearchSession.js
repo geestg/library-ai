@@ -27,12 +27,6 @@ export default function useResearchSession({
   activeDocuments = [],
 
   // =====================================
-  // DOCUMENT CONSUMPTION
-  // =====================================
-
-  onDocumentsConsumed,
-
-  // =====================================
   // CONVERSATION
   // =====================================
 
@@ -466,20 +460,6 @@ export default function useResearchSession({
 
             setCompleted();
 
-            // ===========================
-            // CONSUME USED DOCUMENTS
-            // ===========================
-
-            if (
-
-              documentsForMessage.length > 0
-
-            ) {
-
-              onDocumentsConsumed?.();
-
-            }
-
           },
 
           // =============================
@@ -596,8 +576,6 @@ export default function useResearchSession({
       input,
 
       activeDocuments,
-
-      onDocumentsConsumed,
 
       reset,
 

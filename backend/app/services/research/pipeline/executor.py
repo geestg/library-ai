@@ -163,6 +163,31 @@ class PipelineExecutor:
 
                         result = StageResult()
 
+                    # =====================
+                    # RUNTIME STAGE TRACE
+                    # =====================
+
+                    print(
+                        "[PIPELINE STAGE RESULT]",
+                        {
+                            "stage":
+                                stage.name,
+
+                            "success":
+                                result.success,
+
+                            "stop_pipeline":
+                                result.stop_pipeline,
+
+                            "skip_remaining":
+                                result.skip_remaining,
+
+                            "message":
+                                result.message,
+                        },
+                        flush=True,
+                    )
+
                 except Exception as exc:
 
                     result = StageResult(

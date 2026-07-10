@@ -1,5 +1,5 @@
 ﻿Folder PATH listing
-Volume serial number is 000001BD 7289:3ED1
+Volume serial number is 0000021E 7289:3ED1
 D:\LIBRARY-AI\BACKEND
 |   .env
 |   Dockerfile
@@ -178,6 +178,7 @@ D:\LIBRARY-AI\BACKEND
 |   |   |   |   document_chat_memory.py
 |   |   |   |   document_chunk_retriever.py
 |   |   |   |   document_intent.py
+|   |   |   |   document_vector_retriever.py
 |   |   |   |   
 |   |   |   \---__pycache__
 |   |   |           document_chat_memory.cpython-310.pyc
