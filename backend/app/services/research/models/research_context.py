@@ -36,6 +36,14 @@ class ResearchContext:
     conversation_history: str = ""
 
     # =================================
+    # QUERY RESOLUTION
+    # =================================
+
+    resolved_query: str = ""
+
+    query_was_resolved: bool = False
+
+    # =================================
     # QUERY
     # =================================
 

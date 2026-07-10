@@ -46,6 +46,45 @@ class DocumentStage(
             )
 
         # =====================================
+        # RESOLVE EFFECTIVE QUERY
+        # =====================================
+
+        effective_query = (
+
+            context.resolved_query
+
+            or
+
+            context.query
+
+        )
+
+        # =====================================
+        # RUNTIME QUERY TRACE
+        # =====================================
+
+        print(
+
+            "[DOCUMENT QUERY]",
+
+            {
+
+                "original_query":
+                    context.query,
+
+                "effective_query":
+                    effective_query,
+
+                "query_was_resolved":
+                    context.query_was_resolved,
+
+            },
+
+            flush=True,
+
+        )
+
+        # =====================================
         # RESOLVE PROGRESS CALLBACK
         # =====================================
 
@@ -65,7 +104,7 @@ class DocumentStage(
 
         result = run_document_analysis(
 
-            query=context.query,
+            query=effective_query,
 
             session_id=context.session_id,
 
@@ -198,6 +237,9 @@ class DocumentStage(
                     "response_type":
                         "static",
 
+                    "query_was_resolved":
+                        context.query_was_resolved,
+
                 },
 
                 stop_pipeline=True,
@@ -281,6 +323,9 @@ class DocumentStage(
                     "response_type":
                         "stream",
 
+                    "query_was_resolved":
+                        context.query_was_resolved,
+
                 },
 
                 stop_pipeline=True,
@@ -336,6 +381,9 @@ class DocumentStage(
 
                 "response_type":
                     response_type,
+
+                "query_was_resolved":
+                    context.query_was_resolved,
 
             },
 

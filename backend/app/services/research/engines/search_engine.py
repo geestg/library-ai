@@ -164,10 +164,33 @@ def run_search_pipeline(
     context: ResearchContext
 ):
 
+    # =================================
+    # RESOLVE EFFECTIVE QUERY
+    # =================================
+
+    effective_query = (
+
+        context.resolved_query
+
+        or
+
+        context.query
+
+    )
+
+    # =================================
+    # NORMALIZE QUERY
+    # =================================
+
     context.normalized_query = (
         normalize_research_query(
-            context.query
+            effective_query
         )
+    )
+
+    print(
+        "[SEARCH QUERY]",
+        effective_query
     )
 
     print(
@@ -189,7 +212,7 @@ def run_search_pipeline(
     # =================================
 
     reranked_results = rerank(
-        query=context.query,
+        query=effective_query,
         documents=hybrid_results,
         top_k=20
     )

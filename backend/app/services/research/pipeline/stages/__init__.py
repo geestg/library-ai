@@ -2,6 +2,10 @@ from app.services.research.pipeline.registry import (
     registry,
 )
 
+from .query_resolution_stage import (
+    QueryResolutionStage,
+)
+
 from .document_stage import (
     DocumentStage,
 )
@@ -58,6 +62,10 @@ from .response_stage import (
 # =====================================
 # REGISTER STAGES
 # =====================================
+
+registry.register(
+    QueryResolutionStage()
+)
 
 registry.register(
     DocumentStage()
@@ -117,6 +125,8 @@ registry.register(
 # =====================================
 
 __all__ = [
+
+    "QueryResolutionStage",
 
     "DocumentStage",
 
