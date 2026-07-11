@@ -4,6 +4,9 @@ from app.services.llm.model_gateway import (
     gateway,
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 # =====================================
 # CONTEXT REFERENCE PATTERNS
@@ -344,6 +347,8 @@ def resolve_query(
         model=model,
 
         provider=provider,
+        
+        **GenerationProfiles.QUERY_RESOLUTION
 
     )
 

@@ -364,7 +364,11 @@ cantumkan halaman.
     # =====================================
 
     answer = gateway.generate_response(
-        prompt=prompt
+        
+        prompt=prompt,
+
+        **GenerationProfiles.ANSWER,
+
     )
 
     # =====================================

@@ -64,4 +64,4 @@ def compare_methods(
 
         "methods":
         comparison
-    }
+    }   

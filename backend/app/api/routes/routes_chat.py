@@ -148,7 +148,9 @@ def chat(req: ChatRequest):
 
         model=selected_model,
 
-        provider=selected_provider
+        provider=selected_provider,
+
+        **GenerationProfiles.ANSWER,
     )
 
     # =====================================

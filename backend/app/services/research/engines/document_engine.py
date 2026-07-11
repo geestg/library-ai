@@ -10,6 +10,9 @@ from app.services.research.session import (
     session_manager,
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 # =====================================
 # ANSWERABILITY STATUS
@@ -934,9 +937,7 @@ def verify_single_chunk(
 
     try:
 
-        verification_result = (
-
-            gateway.generate_response(
+        verification_result = gateway.generate_response(
 
                 prompt=prompt,
 
@@ -944,9 +945,11 @@ def verify_single_chunk(
 
                 provider=provider,
 
+                **GenerationProfiles.VERIFIER,
+
             )
 
-        )
+        
 
     except Exception as exc:
 
@@ -1015,17 +1018,15 @@ def verify_collective_context(
 
     )
 
-    verification_result = (
+    verification_result = gateway.generate_response(
 
-        gateway.generate_response(
+        prompt=prompt,
 
-            prompt=prompt,
+        model=model,
 
-            model=model,
+        provider=provider,
 
-            provider=provider,
-
-        )
+        **GenerationProfiles.VERIFIER,
 
     )
 
@@ -2027,6 +2028,8 @@ def run_document_analysis(
 
                 provider=provider,
 
+                **GenerationProfiles.ANSWER,
+
             )
 
         )
@@ -2078,6 +2081,8 @@ def run_document_analysis(
             model=model,
 
             provider=provider,
+
+             **GenerationProfiles.ANSWER,
 
         )
 

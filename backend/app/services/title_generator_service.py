@@ -6,6 +6,9 @@ from app.services.llm.model_gateway import (
     gateway
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 def build_context(theses):
 
@@ -80,7 +83,11 @@ FORMAT:
 """
 
     response = gateway.generate_response(
-        prompt=prompt
+
+        prompt=prompt,
+
+        **GenerationProfiles.TITLE,
+
     )
 
     return {

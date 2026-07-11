@@ -6,6 +6,9 @@ from app.services.research.models.research_context import (
     ResearchContext
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 # =====================================
 # LLM PIPELINE
@@ -62,9 +65,12 @@ def run_llm_pipeline(
 
         prompt=context.prompt,
 
-        model=context.model or None,
+        model=context.model,
 
-        provider=context.provider or None,
+        provider=context.provider,
+
+        **GenerationProfiles.ANSWER,
+
     )
 
     return context
