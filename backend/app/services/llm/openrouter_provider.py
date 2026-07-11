@@ -86,8 +86,7 @@ class OpenRouterProvider(
     def __init__(self):
 
         print(
-            "[OPENROUTER] "
-            "Initializing provider..."
+            "[OPENROUTER] Initializing provider..."
         )
 
         print(
@@ -97,13 +96,9 @@ class OpenRouterProvider(
 
         self.client = OpenAI(
 
-            api_key=(
-                settings.OPENROUTER_API_KEY
-            ),
+            api_key=settings.OPENROUTER_API_KEY,
 
-            base_url=(
-                settings.OPENROUTER_BASE_URL
-            ),
+            base_url=settings.OPENROUTER_BASE_URL,
 
         )
 
@@ -119,31 +114,75 @@ class OpenRouterProvider(
         return [
 
             {
-                "role":
-                    "system",
+                "role": "system",
 
-                "content":
-                    SYSTEM_INSTRUCTION,
+                "content": SYSTEM_INSTRUCTION,
             },
 
             {
-                "role":
-                    "user",
+                "role": "user",
 
-                "content":
-                    prompt,
+                "content": prompt,
             },
 
         ]
+
+    # =====================================
+    # BUILD REQUEST
+    # =====================================
+
+    def build_request(
+
+        self,
+
+        model: str,
+
+        prompt: str,
+
+        temperature: float,
+
+        max_tokens: int | None,
+
+        stream: bool,
+
+    ):
+
+        request = {
+
+            "model": model,
+
+            "messages": self.build_messages(
+                prompt
+            ),
+
+            "temperature": temperature,
+
+            "stream": stream,
+
+        }
+
+        if max_tokens is not None:
+
+            request["max_tokens"] = max_tokens
+
+        return request
 
     # =====================================
     # GENERATE
     # =====================================
 
     def generate(
+
         self,
+
         model: str,
+
         prompt: str,
+
+        temperature: float = 0,
+
+        max_tokens: int | None = None,
+
     ):
 
         response = (
@@ -153,15 +192,19 @@ class OpenRouterProvider(
             .completions
             .create(
 
-                model=model,
+                **self.build_request(
 
-                messages=(
-                    self.build_messages(
-                        prompt
-                    )
-                ),
+                    model=model,
 
-                temperature=0,
+                    prompt=prompt,
+
+                    temperature=temperature,
+
+                    max_tokens=max_tokens,
+
+                    stream=False,
+
+                )
 
             )
 
@@ -185,9 +228,17 @@ class OpenRouterProvider(
     # =====================================
 
     def stream(
+
         self,
+
         model: str,
+
         prompt: str,
+
+        temperature: float = 0,
+
+        max_tokens: int | None = None,
+
     ):
 
         stream = (
@@ -197,17 +248,19 @@ class OpenRouterProvider(
             .completions
             .create(
 
-                model=model,
+                **self.build_request(
 
-                messages=(
-                    self.build_messages(
-                        prompt
-                    )
-                ),
+                    model=model,
 
-                temperature=0,
+                    prompt=prompt,
 
-                stream=True,
+                    temperature=temperature,
+
+                    max_tokens=max_tokens,
+
+                    stream=True,
+
+                )
 
             )
 
@@ -221,11 +274,7 @@ class OpenRouterProvider(
 
                     continue
 
-                delta = (
-                    chunk
-                    .choices[0]
-                    .delta
-                )
+                delta = chunk.choices[0].delta
 
                 if delta is None:
 
@@ -250,25 +299,13 @@ class OpenRouterProvider(
 
                     continue
 
-                # =================================
-                # IMPORTANT:
-                # DO NOT RE-ENCODE STREAM TOKENS
-                # =================================
-                #
-                # Streaming boundaries may split
-                # multibyte characters across model
-                # chunks. Encoding repair belongs
-                # before ingestion or after complete
-                # text assembly, never per token.
-                # =================================
-
                 yield content
 
             except Exception as error:
 
                 print(
-                    "[OPENROUTER STREAM ERROR] "
-                    f"{error}"
+                    "[OPENROUTER STREAM ERROR]",
+                    error,
                 )
 
                 continue

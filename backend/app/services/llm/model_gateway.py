@@ -1,15 +1,15 @@
 from app.core.config import settings
 
 from app.services.llm.openrouter_provider import (
-    OpenRouterProvider
+    OpenRouterProvider,
 )
 
 from app.services.llm.ollama_provider import (
-    OllamaProvider
+    OllamaProvider,
 )
 
 from app.utils.error_handler import (
-    handle_llm_error
+    handle_llm_error,
 )
 
 
@@ -21,7 +21,8 @@ class ModelGateway:
 
             "openrouter": OpenRouterProvider(),
 
-            "ollama": OllamaProvider()
+            "ollama": OllamaProvider(),
+
         }
 
     # =====================================
@@ -31,8 +32,10 @@ class ModelGateway:
     def generate_response(
         self,
         prompt: str,
-        model: str = None,
-        provider: str = None
+        model: str | None = None,
+        provider: str | None = None,
+        temperature: float = 0,
+        max_tokens: int | None = None,
     ):
 
         provider = (
@@ -61,7 +64,12 @@ class ModelGateway:
 
                 model=model,
 
-                prompt=prompt
+                prompt=prompt,
+
+                temperature=temperature,
+
+                max_tokens=max_tokens,
+
             )
 
         except Exception as e:
@@ -75,8 +83,10 @@ class ModelGateway:
     def stream_response(
         self,
         prompt: str,
-        model: str = None,
-        provider: str = None
+        model: str | None = None,
+        provider: str | None = None,
+        temperature: float = 0,
+        max_tokens: int | None = None,
     ):
 
         provider = (
@@ -105,7 +115,12 @@ class ModelGateway:
 
                 model=model,
 
-                prompt=prompt
+                prompt=prompt,
+
+                temperature=temperature,
+
+                max_tokens=max_tokens,
+
             )
 
         except Exception as e:

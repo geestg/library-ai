@@ -6,6 +6,9 @@ from app.services.research.models.research_context import (
     ResearchContext
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 # =====================================
 # LITERATURE REVIEW GENERATOR
@@ -131,7 +134,15 @@ Gunakan Bahasa Indonesia akademik.
 """
 
     review = gateway.generate_response(
-        prompt=prompt
+
+        prompt=prompt,
+
+        model=context.model,
+
+        provider=context.provider,
+        
+        **GenerationProfiles.RESEARCH,
+
     )
 
     return {

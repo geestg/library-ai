@@ -6,6 +6,9 @@ from app.services.research.models.research_context import (
     ResearchContext
 )
 
+from app.services.llm.generation_profiles import (
+    GenerationProfiles,
+)
 
 # =====================================
 # THESIS IDEA GENERATOR
@@ -146,7 +149,15 @@ dst.
 """
 
     ideas = gateway.generate_response(
-        prompt=prompt
+
+        prompt=prompt,
+
+        model=context.model,
+
+        provider=context.provider,
+
+        **GenerationProfiles.CREATIVE,
+
     )
 
     return {
