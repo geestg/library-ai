@@ -2,6 +2,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 from app.services.research.models.research_context import (
     ResearchContext,
 )
@@ -130,7 +134,7 @@ Gunakan hanya evidence yang tersedia.
 Gunakan Bahasa Indonesia akademik.
 """
 
-    review = LLMTask.research(
+    request = PromptRequest(
 
         prompt=prompt,
 
@@ -138,6 +142,10 @@ Gunakan Bahasa Indonesia akademik.
 
         provider=context.provider,
 
+    )
+
+    review = LLMTask.research(
+        request
     )
 
     return {

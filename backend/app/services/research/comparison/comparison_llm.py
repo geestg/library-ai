@@ -2,6 +2,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 
 # =====================================
 # COMPARISON ANALYSIS
@@ -13,7 +17,7 @@ def generate_comparison_analysis(
     provider: str | None = None,
 ):
 
-    return LLMTask.answer(
+    request = PromptRequest(
 
         prompt=prompt,
 
@@ -21,4 +25,8 @@ def generate_comparison_analysis(
 
         provider=provider,
 
+    )
+
+    return LLMTask.answer(
+        request
     )

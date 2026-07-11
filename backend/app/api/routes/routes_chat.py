@@ -26,6 +26,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 from app.services.prompt.prompt_builder import (
     build_prompt,
 )
@@ -144,10 +148,10 @@ def chat(req: ChatRequest):
     )
 
     # =====================================
-    # LLM GENERATION
+    # BUILD REQUEST
     # =====================================
 
-    response = LLMTask.answer(
+    request = PromptRequest(
 
         prompt=prompt,
 
@@ -155,6 +159,14 @@ def chat(req: ChatRequest):
 
         provider=selected_provider,
 
+    )
+
+    # =====================================
+    # LLM GENERATION
+    # =====================================
+
+    response = LLMTask.answer(
+        request
     )
 
     # =====================================

@@ -2,7 +2,9 @@ from app.services.document.document_vector_retriever import (
     retrieve_document_chunks,
 )
 
-
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
 
 from app.services.research.session import (
     session_manager,
@@ -935,16 +937,19 @@ def verify_single_chunk(
 
     try:
 
+        request = PromptRequest(
+
+            prompt=prompt,
+
+            model=model,
+
+            provider=provider,
+
+        )
+
         verification_result = LLMTask.verifier(
-
-                prompt=prompt,
-
-                model=model,
-
-                provider=provider,
-
-            )
-
+            request
+        )
         
 
     except Exception as exc:
@@ -1014,13 +1019,18 @@ def verify_collective_context(
 
     )
 
-    verification_result = LLMTask.verifier(
+    request = PromptRequest(
+
         prompt=prompt,
 
         model=model,
 
         provider=provider,
 
+    )
+
+    verification_result = LLMTask.verifier(
+        request
     )
 
     return normalize_answerability(
@@ -2011,10 +2021,18 @@ def run_document_analysis(
 
     if stream:
 
-        llm_stream = LLMTask.stream_answer(
+        request = PromptRequest(
+
             prompt=prompt,
+
             model=model,
+
             provider=provider,
+
+        )
+
+        llm_stream = LLMTask.stream_answer(
+            request
         )
 
         return {
@@ -2055,20 +2073,18 @@ def run_document_analysis(
     # NORMAL MODE
     # =====================================
 
-    answer = (
+    request = PromptRequest(
 
-        LLMTask.answer(
+        prompt=prompt,
 
-            prompt=prompt,
+        model=model,
 
-            model=model,
+        provider=provider,
 
-            provider=provider,
+    )
 
-
-
-        )
-
+    answer = LLMTask.answer(
+        request
     )
 
     # =====================================

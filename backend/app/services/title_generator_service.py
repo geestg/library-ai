@@ -6,8 +6,18 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
 
-def build_context(theses):
+
+# =====================================
+# BUILD CONTEXT
+# =====================================
+
+def build_context(
+    theses,
+):
 
     context = ""
 
@@ -29,9 +39,16 @@ ABSTRACT:
     return context
 
 
+# =====================================
+# GENERATE THESIS TITLES
+# =====================================
+
 def generate_thesis_titles(
+
     topic: str,
+
     top_k: int = 10,
+
 ):
 
     theses = search_thesis_dataset(
@@ -84,10 +101,18 @@ FORMAT:
 # Thesis Title Ideas
 """
 
-    response = LLMTask.answer(
+    request = PromptRequest(
 
         prompt=prompt,
 
+        model=None,
+
+        provider=None,
+
+    )
+
+    response = LLMTask.answer(
+        request
     )
 
     return {
