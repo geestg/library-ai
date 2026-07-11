@@ -2,7 +2,7 @@ from app.services.document.document_vector_retriever import (
     retrieve_document_chunks,
 )
 
-from app.services.llm.prompts.models.prompt_request import (
+from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 

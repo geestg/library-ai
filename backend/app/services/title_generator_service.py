@@ -6,7 +6,7 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.llm.prompts.models.prompt_request import (
+from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 

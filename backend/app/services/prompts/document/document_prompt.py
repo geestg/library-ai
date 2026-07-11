@@ -1,4 +1,4 @@
-from app.services.llm.prompts.base_prompt import (
+from app.services.prompts.base_prompt import (
     BasePrompt,
 )
 
