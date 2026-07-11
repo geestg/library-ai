@@ -2,6 +2,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 # =====================================
 # CONTEXT REFERENCE PATTERNS
 # =====================================
@@ -331,19 +335,25 @@ def resolve_query(
     )
 
     # =================================
-    # RESOLVE WITH MODEL
+    # BUILD REQUEST
     # =================================
 
-    result = LLMTask.query_resolution(
+    request = PromptRequest(
 
         prompt=prompt,
 
         model=model,
 
         provider=provider,
-        
 
+    )
 
+    # =================================
+    # RESOLVE WITH MODEL
+    # =================================
+
+    result = LLMTask.query_resolution(
+        request
     )
 
     resolved_query = clean_resolved_query(

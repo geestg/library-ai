@@ -2,6 +2,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.llm.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 from app.services.research.models.research_context import (
     ResearchContext,
 )
@@ -40,26 +44,10 @@ def run_llm_pipeline(
     """
 
     # =================================
-    # STREAM MODE
+    # BUILD REQUEST
     # =================================
 
-    if stream:
-
-        return LLMTask.stream_answer(
-
-            prompt=context.prompt,
-
-            model=context.model,
-
-            provider=context.provider,
-
-        )
-
-    # =================================
-    # NORMAL MODE
-    # =================================
-
-    context.analysis = LLMTask.answer(
+    request = PromptRequest(
 
         prompt=context.prompt,
 
@@ -67,6 +55,24 @@ def run_llm_pipeline(
 
         provider=context.provider,
 
+    )
+
+    # =================================
+    # STREAM MODE
+    # =================================
+
+    if stream:
+
+        return LLMTask.stream_answer(
+            request
+        )
+
+    # =================================
+    # NORMAL MODE
+    # =================================
+
+    context.analysis = LLMTask.answer(
+        request
     )
 
     return context
