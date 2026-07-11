@@ -1,11 +1,5 @@
-import re
-
-from app.services.llm.model_gateway import (
-    gateway,
-)
-
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 # =====================================
@@ -340,7 +334,7 @@ def resolve_query(
     # RESOLVE WITH MODEL
     # =================================
 
-    result = gateway.generate_response(
+    result = LLMTask.query_resolution(
 
         prompt=prompt,
 
@@ -348,7 +342,7 @@ def resolve_query(
 
         provider=provider,
         
-        **GenerationProfiles.QUERY_RESOLUTION
+
 
     )
 

@@ -1,19 +1,24 @@
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
+
+# =====================================
+# COMPARISON ANALYSIS
+# =====================================
 
 def generate_comparison_analysis(
-    prompt: str
+    prompt: str,
+    model: str | None = None,
+    provider: str | None = None,
 ):
 
-    return gateway.generate_response(
+    return LLMTask.answer(
 
         prompt=prompt,
 
-        **GenerationProfiles.ANSWER,
+        model=model,
+
+        provider=provider,
 
     )

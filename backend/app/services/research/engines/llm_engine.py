@@ -1,14 +1,11 @@
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
 
 # =====================================
 # LLM PIPELINE
@@ -16,7 +13,7 @@ from app.services.llm.generation_profiles import (
 
 def run_llm_pipeline(
     context: ResearchContext,
-    stream: bool = False
+    stream: bool = False,
 ):
     """
     Execute the LLM stage.
@@ -48,28 +45,27 @@ def run_llm_pipeline(
 
     if stream:
 
-        return gateway.stream_response(
+        return LLMTask.stream_answer(
 
             prompt=context.prompt,
 
-            model=context.model or None,
+            model=context.model,
 
-            provider=context.provider or None,
+            provider=context.provider,
+
         )
 
     # =================================
     # NORMAL MODE
     # =================================
 
-    context.analysis = gateway.generate_response(
+    context.analysis = LLMTask.answer(
 
         prompt=context.prompt,
 
         model=context.model,
 
         provider=context.provider,
-
-        **GenerationProfiles.ANSWER,
 
     )
 

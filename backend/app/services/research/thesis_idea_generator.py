@@ -1,21 +1,18 @@
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
 
 # =====================================
 # THESIS IDEA GENERATOR
 # =====================================
 
 def generate_thesis_ideas(
-    context: ResearchContext
+    context: ResearchContext,
 ):
 
     profile = context.research_profile
@@ -148,7 +145,7 @@ Kesulitan:
 dst.
 """
 
-    ideas = gateway.generate_response(
+    ideas = LLMTask.creative(
 
         prompt=prompt,
 
@@ -156,21 +153,20 @@ dst.
 
         provider=context.provider,
 
-        **GenerationProfiles.CREATIVE,
-
     )
 
     return {
 
         "query":
-        context.query,
+            context.query,
 
         "ideas":
-        ideas,
+            ideas,
 
         "novelty_score":
-        profile.novelty.novelty_score,
+            profile.novelty.novelty_score,
 
         "novelty_level":
-        profile.novelty.novelty_level
+            profile.novelty.novelty_level,
+
     }
