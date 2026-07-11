@@ -30,28 +30,41 @@ class ModelGateway:
     # =====================================
 
     def generate_response(
+
         self,
+
         prompt: str,
+
         model: str | None = None,
+
         provider: str | None = None,
-        temperature: float = 0,
-        max_tokens: int | None = None,
+
+        **generation_kwargs,
+
     ):
 
         provider = (
+
             provider
+
             or settings.DEFAULT_PROVIDER
+
         )
 
         model = (
+
             model
+
             or settings.DEFAULT_LLM
+
         )
 
         if provider not in self.providers:
 
             raise ValueError(
+
                 f"Provider '{provider}' not found"
+
             )
 
         selected_provider = self.providers[
@@ -66,9 +79,7 @@ class ModelGateway:
 
                 prompt=prompt,
 
-                temperature=temperature,
-
-                max_tokens=max_tokens,
+                **generation_kwargs,
 
             )
 
@@ -81,28 +92,41 @@ class ModelGateway:
     # =====================================
 
     def stream_response(
+
         self,
+
         prompt: str,
+
         model: str | None = None,
+
         provider: str | None = None,
-        temperature: float = 0,
-        max_tokens: int | None = None,
+
+        **generation_kwargs,
+
     ):
 
         provider = (
+
             provider
+
             or settings.DEFAULT_PROVIDER
+
         )
 
         model = (
+
             model
+
             or settings.DEFAULT_LLM
+
         )
 
         if provider not in self.providers:
 
             raise ValueError(
+
                 f"Provider '{provider}' not found"
+
             )
 
         selected_provider = self.providers[
@@ -117,9 +141,7 @@ class ModelGateway:
 
                 prompt=prompt,
 
-                temperature=temperature,
-
-                max_tokens=max_tokens,
+                **generation_kwargs,
 
             )
 

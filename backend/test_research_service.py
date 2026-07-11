@@ -2764,7 +2764,7 @@ class DocumentChatOwnershipTests(
 
     @patch(
         "app.api.routes.routes_document."
-        "gateway.generate_response"
+        "LLMTask.answer"
     )
     @patch(
         "app.api.routes.routes_document."
@@ -2840,7 +2840,7 @@ class DocumentChatOwnershipTests(
 
     @patch(
         "app.api.routes.routes_document."
-        "gateway.generate_response"
+        "LLMTask.answer"
     )
     def test_document_chat_rejects_document_from_other_session(
         self,
@@ -2875,7 +2875,7 @@ class DocumentChatOwnershipTests(
 
     @patch(
         "app.api.routes.routes_document."
-        "gateway.generate_response"
+        "LLMTask.answer"
     )
     def test_document_chat_rejects_unknown_session(
         self,
@@ -5765,7 +5765,7 @@ class DocumentDeleteOwnershipTests(
         )
 
     @patch(
-        "app.api.routes.routes_document.gateway.generate_response"
+        "app.api.routes.routes_document.LLMTask.answer"
     )
     def test_deleted_document_cannot_be_used_by_document_chat(
 

@@ -7,16 +7,16 @@ from app.services.research.session import (
     session_manager,
 )
 
-from app.services.llm.model_gateway import (
-    gateway,
-)
-
 from app.services.document.document_chunk_retriever import (
     retrieve_relevant_chunks,
 )
 
 from app.services.document.document_intent import (
     detect_document_intent,
+)
+
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 
@@ -49,10 +49,6 @@ async def list_session_documents(
     session_id: str,
 ):
 
-    # =====================================
-    # LOAD SESSION
-    # =====================================
-
     session = session_manager.get(
         session_id
     )
@@ -67,17 +63,9 @@ async def list_session_documents(
 
         )
 
-    # =====================================
-    # LOAD OWNED DOCUMENTS
-    # =====================================
-
     documents = (
         session.documents.list_documents()
     )
-
-    # =====================================
-    # RESPONSE
-    # =====================================
 
     return {
 
@@ -124,10 +112,6 @@ async def document_chat(
     request: DocumentChatRequest
 ):
 
-    # =====================================
-    # LOAD SESSION
-    # =====================================
-
     session = session_manager.get(
         request.session_id
     )
@@ -141,10 +125,6 @@ async def document_chat(
             detail="Session not found",
 
         )
-
-    # =====================================
-    # LOAD OWNED DOCUMENT
-    # =====================================
 
     document = (
 
@@ -164,33 +144,15 @@ async def document_chat(
 
         )
 
-    # =====================================
-    # DOCUMENT CONTENT
-    # =====================================
+    content = document.content
 
-    content = (
-        document.content
-    )
+    pages = document.pages_data
 
-    pages = (
-        document.pages_data
-    )
-
-    filename = (
-        document.filename
-    )
-
-    # =====================================
-    # DETECT INTENT
-    # =====================================
+    filename = document.filename
 
     intent = detect_document_intent(
         request.question
     )
-
-    # =====================================
-    # RETRIEVE CHUNKS
-    # =====================================
 
     chunks = retrieve_relevant_chunks(
 
@@ -215,17 +177,9 @@ async def document_chat(
 
     )
 
-    # =====================================
-    # FALLBACK
-    # =====================================
-
     if not context.strip():
 
         context = content[:15000]
-
-    # =====================================
-    # INTENT INSTRUCTION
-    # =====================================
 
     if intent == "summary":
 
@@ -298,10 +252,6 @@ Gunakan informasi yang tersedia
 pada dokumen.
 """
 
-    # =====================================
-    # PROMPT
-    # =====================================
-
     prompt = f"""
 Anda adalah DELBot.
 
@@ -359,21 +309,11 @@ cantumkan halaman.
 ================================================
 """
 
-    # =====================================
-    # GENERATE
-    # =====================================
+    answer = LLMTask.answer(
 
-    answer = gateway.generate_response(
-        
         prompt=prompt,
 
-        **GenerationProfiles.ANSWER,
-
     )
-
-    # =====================================
-    # RESPONSE
-    # =====================================
 
     return {
 

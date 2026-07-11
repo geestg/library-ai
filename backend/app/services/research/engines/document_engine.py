@@ -2,16 +2,14 @@ from app.services.document.document_vector_retriever import (
     retrieve_document_chunks,
 )
 
-from app.services.llm.model_gateway import (
-    gateway,
-)
+
 
 from app.services.research.session import (
     session_manager,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 # =====================================
@@ -937,15 +935,13 @@ def verify_single_chunk(
 
     try:
 
-        verification_result = gateway.generate_response(
+        verification_result = LLMTask.verifier(
 
                 prompt=prompt,
 
                 model=model,
 
                 provider=provider,
-
-                **GenerationProfiles.VERIFIER,
 
             )
 
@@ -1018,15 +1014,12 @@ def verify_collective_context(
 
     )
 
-    verification_result = gateway.generate_response(
-
+    verification_result = LLMTask.verifier(
         prompt=prompt,
 
         model=model,
 
         provider=provider,
-
-        **GenerationProfiles.VERIFIER,
 
     )
 
@@ -2018,20 +2011,10 @@ def run_document_analysis(
 
     if stream:
 
-        llm_stream = (
-
-            gateway.stream_response(
-
-                prompt=prompt,
-
-                model=model,
-
-                provider=provider,
-
-                **GenerationProfiles.ANSWER,
-
-            )
-
+        llm_stream = LLMTask.stream_answer(
+            prompt=prompt,
+            model=model,
+            provider=provider,
         )
 
         return {
@@ -2074,7 +2057,7 @@ def run_document_analysis(
 
     answer = (
 
-        gateway.generate_response(
+        LLMTask.answer(
 
             prompt=prompt,
 
@@ -2082,7 +2065,7 @@ def run_document_analysis(
 
             provider=provider,
 
-             **GenerationProfiles.ANSWER,
+
 
         )
 

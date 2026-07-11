@@ -1,21 +1,18 @@
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 from app.services.research.models.research_context import (
-    ResearchContext
+    ResearchContext,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
 
 # =====================================
 # LITERATURE REVIEW GENERATOR
 # =====================================
 
 def generate_literature_review(
-    context: ResearchContext
+    context: ResearchContext,
 ):
 
     profile = context.research_profile
@@ -133,23 +130,22 @@ Gunakan hanya evidence yang tersedia.
 Gunakan Bahasa Indonesia akademik.
 """
 
-    review = gateway.generate_response(
+    review = LLMTask.research(
 
         prompt=prompt,
 
         model=context.model,
 
         provider=context.provider,
-        
-        **GenerationProfiles.RESEARCH,
 
     )
 
     return {
 
         "query":
-        context.query,
+            context.query,
 
         "literature_review":
-        review
+            review,
+
     }

@@ -1,14 +1,11 @@
 from app.rag.thesis_retriever import (
-    search_thesis_dataset
+    search_thesis_dataset,
 )
 
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
 
 def build_context(theses):
 
@@ -34,15 +31,20 @@ ABSTRACT:
 
 def generate_thesis_titles(
     topic: str,
-    top_k: int = 10
+    top_k: int = 10,
 ):
 
     theses = search_thesis_dataset(
+
         query=topic,
-        top_k=top_k
+
+        top_k=top_k,
+
     )
 
-    context = build_context(theses)
+    context = build_context(
+        theses
+    )
 
     prompt = f"""
 You are a senior thesis advisor.
@@ -82,16 +84,21 @@ FORMAT:
 # Thesis Title Ideas
 """
 
-    response = gateway.generate_response(
+    response = LLMTask.answer(
 
         prompt=prompt,
-
-        **GenerationProfiles.TITLE,
 
     )
 
     return {
-        "topic": topic,
-        "related_theses": theses,
-        "result": response
+
+        "topic":
+            topic,
+
+        "related_theses":
+            theses,
+
+        "result":
+            response,
+
     }

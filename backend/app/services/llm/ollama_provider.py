@@ -25,24 +25,22 @@ class OllamaProvider(
 
         self,
 
-        temperature: float,
-
-        max_tokens: int | None,
+        **generation_kwargs,
 
     ):
 
-        options = {
+        options = dict(
+            generation_kwargs
+        )
 
-            "temperature":
-                temperature,
+        # =================================
+        # OPENAI -> OLLAMA COMPATIBILITY
+        # =================================
 
-        }
-
-        # Ollama menggunakan num_predict
-        if max_tokens is not None:
+        if "max_tokens" in options:
 
             options["num_predict"] = (
-                max_tokens
+                options.pop("max_tokens")
             )
 
         return options
@@ -59,9 +57,7 @@ class OllamaProvider(
 
         prompt: str,
 
-        temperature: float = 0,
-
-        max_tokens: int | None = None,
+        **generation_kwargs,
 
     ):
 
@@ -85,9 +81,7 @@ class OllamaProvider(
 
             options=self.build_options(
 
-                temperature=temperature,
-
-                max_tokens=max_tokens,
+                **generation_kwargs,
 
             ),
 
@@ -111,9 +105,7 @@ class OllamaProvider(
 
         prompt: str,
 
-        temperature: float = 0,
-
-        max_tokens: int | None = None,
+        **generation_kwargs,
 
     ):
 
@@ -137,9 +129,7 @@ class OllamaProvider(
 
             options=self.build_options(
 
-                temperature=temperature,
-
-                max_tokens=max_tokens,
+                **generation_kwargs,
 
             ),
 

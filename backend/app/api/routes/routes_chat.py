@@ -3,31 +3,31 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from app.orchestration.task_router import (
-    route_query
+    route_query,
 )
 
 from app.rag.hybrid_search import (
-    hybrid_search
+    hybrid_search,
 )
 
 from app.rag.reranker import (
-    rerank
+    rerank,
 )
 
 from app.rag.context_synthesizer import (
-    build_citation_context
+    build_citation_context,
 )
 
 from app.rag.source_mapper import (
-    build_source_map
+    build_source_map,
 )
 
-from app.services.llm.model_gateway import (
-    gateway
+from app.services.llm.tasks.llm_task import (
+    LLMTask,
 )
 
 from app.services.prompt.prompt_builder import (
-    build_prompt
+    build_prompt,
 )
 
 router = APIRouter()
@@ -71,7 +71,8 @@ def chat(req: ChatRequest):
 
         req.message,
 
-        limit=15
+        limit=15,
+
     )
 
     # =====================================
@@ -84,24 +85,26 @@ def chat(req: ChatRequest):
 
         payload = r.get(
             "payload",
-            {}
-        )
-
-        text = payload.get(
-            "text",
-            ""
+            {},
         )
 
         documents.append({
 
-            "text": text,
+            "text":
+                payload.get(
+                    "text",
+                    "",
+                ),
 
-            "payload": payload,
+            "payload":
+                payload,
 
-            "score": r.get(
-                "score",
-                0
-            )
+            "score":
+                r.get(
+                    "score",
+                    0,
+                ),
+
         })
 
     # =====================================
@@ -112,7 +115,8 @@ def chat(req: ChatRequest):
 
         req.message,
 
-        documents
+        documents,
+
     )
 
     top_docs = ranked_docs[:5]
@@ -135,14 +139,15 @@ def chat(req: ChatRequest):
 
         context=context,
 
-        intent=intent
+        intent=intent,
+
     )
 
     # =====================================
     # LLM GENERATION
     # =====================================
 
-    response = gateway.generate_response(
+    response = LLMTask.answer(
 
         prompt=prompt,
 
@@ -150,7 +155,6 @@ def chat(req: ChatRequest):
 
         provider=selected_provider,
 
-        **GenerationProfiles.ANSWER,
     )
 
     # =====================================
@@ -167,41 +171,51 @@ def chat(req: ChatRequest):
 
     sources = []
 
-    for idx, r in enumerate(top_docs, start=1):
+    for idx, r in enumerate(
+        top_docs,
+        start=1,
+    ):
 
         payload = r.get(
             "payload",
-            {}
+            {},
         )
 
         sources.append({
 
-            "source_id": idx,
+            "source_id":
+                idx,
 
-            "source_file": payload.get(
-                "source_file",
-                ""
-            ),
+            "source_file":
+                payload.get(
+                    "source_file",
+                    "",
+                ),
 
-            "page": payload.get(
-                "page",
-                ""
-            ),
+            "page":
+                payload.get(
+                    "page",
+                    "",
+                ),
 
-            "chunk_index": payload.get(
-                "chunk_index",
-                ""
-            ),
+            "chunk_index":
+                payload.get(
+                    "chunk_index",
+                    "",
+                ),
 
-            "title": payload.get(
-                "title",
-                ""
-            ),
+            "title":
+                payload.get(
+                    "title",
+                    "",
+                ),
 
-            "score": r.get(
-                "rerank_score",
-                0
-            )
+            "score":
+                r.get(
+                    "rerank_score",
+                    0,
+                ),
+
         })
 
     # =====================================
@@ -210,17 +224,25 @@ def chat(req: ChatRequest):
 
     return {
 
-        "status": "success",
+        "status":
+            "success",
 
-        "intent": intent,
+        "intent":
+            intent,
 
-        "provider": selected_provider,
+        "provider":
+            selected_provider,
 
-        "model": selected_model,
+        "model":
+            selected_model,
 
-        "response": response,
+        "response":
+            response,
 
-        "citations": citations,
+        "citations":
+            citations,
 
-        "sources": sources
+        "sources":
+            sources,
+
     }
