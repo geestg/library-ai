@@ -1,4 +1,4 @@
-﻿from uuid import uuid4
+from uuid import uuid4
 
 import os
 
@@ -267,4 +267,5 @@ async def upload_pdf(
             "Document uploaded successfully",
 
     }
+
 

@@ -19,6 +19,10 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
+from app.services.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 
 router = APIRouter()
 
@@ -309,10 +313,18 @@ cantumkan halaman.
 ================================================
 """
 
-    answer = LLMTask.answer(
+    llm_request = PromptRequest(
 
         prompt=prompt,
 
+        model=None,
+
+        provider=None,
+
+    )
+
+    answer = LLMTask.answer(
+        llm_request
     )
 
     return {

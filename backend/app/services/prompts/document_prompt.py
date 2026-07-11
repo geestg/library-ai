@@ -1,8 +1,8 @@
-from app.services.llm.prompts.base_prompt import (
+from app.services.prompts.base_prompt import (
     BasePrompt,
 )
 
-from app.services.llm.prompts.sections import (
+from app.services.prompts.sections import (
     LANGUAGE_RULES,
     GROUNDING_RULES,
     NO_INTERNAL_REASONING,

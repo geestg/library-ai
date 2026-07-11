@@ -1,4 +1,4 @@
-﻿from fastapi import APIRouter
+from fastapi import APIRouter
 from fastapi import HTTPException
 
 from app.services.research.session import (
@@ -206,4 +206,5 @@ def delete_session(
             "Session deleted successfully.",
 
     }
+
 

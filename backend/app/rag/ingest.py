@@ -1,4 +1,4 @@
-﻿import json
+import json
 import uuid
 
 from qdrant_client.models import (
@@ -293,5 +293,6 @@ def ingest_pdf(
         pages
 
     }
+
 
 
