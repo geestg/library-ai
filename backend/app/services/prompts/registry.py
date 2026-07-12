@@ -1,5 +1,9 @@
 from collections.abc import Callable
 
+from app.services.prompts.models.prompt_request import (
+    PromptRequest,
+)
+
 from app.services.prompts.models.prompt_type import (
     PromptType,
 )
@@ -37,7 +41,7 @@ class PromptRegistry:
         ] = builder
 
     # =====================================
-    # BUILD
+    # BUILD PROMPT
     # =====================================
 
     @classmethod
@@ -64,6 +68,76 @@ class PromptRegistry:
 
         return builder.build(
             **kwargs
+        )
+
+    # =====================================
+    # BUILD REQUEST
+    # =====================================
+
+    @classmethod
+    def build_request(
+        cls,
+        prompt_type: PromptType,
+        **kwargs,
+    ) -> PromptRequest:
+
+        prompt = cls.build(
+
+            prompt_type,
+
+            **kwargs,
+
+        )
+
+        match prompt_type:
+
+            case PromptType.ANSWER:
+
+                return PromptRequest.answer(
+                    prompt
+                )
+
+            case PromptType.DOCUMENT:
+
+                return PromptRequest.document(
+                    prompt
+                )
+
+            case PromptType.VERIFIER:
+
+                return PromptRequest.verifier(
+                    prompt
+                )
+
+            case PromptType.QUERY_RESOLUTION:
+
+                return PromptRequest.query_resolution(
+                    prompt
+                )
+
+            case PromptType.RESEARCH:
+
+                return PromptRequest.research(
+                    prompt
+                )
+
+            case PromptType.CREATIVE:
+
+                return PromptRequest.creative(
+                    prompt
+                )
+
+            case PromptType.TITLE:
+
+                return PromptRequest.title(
+                    prompt
+                )
+
+        raise ValueError(
+
+            f"Unsupported prompt type: "
+            f"{prompt_type.value}"
+
         )
 
     # =====================================
@@ -102,9 +176,13 @@ class PromptRegistry:
     ) -> bool:
 
         return (
+
             prompt_type
+
             in
+
             cls._builders
+
         )
 
     # =====================================

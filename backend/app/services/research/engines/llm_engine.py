@@ -1,17 +1,18 @@
-from typer import prompt
-
 from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.prompts.models.prompt_request import (
-    PromptRequest,
+from app.services.prompts.models.prompt_type import (
+    PromptType,
+)
+
+from app.services.prompts.registry import (
+    PromptRegistry,
 )
 
 from app.services.research.models.research_context import (
     ResearchContext,
 )
-from app.services.prompts.models.prompt_type import PromptType
 
 
 # =====================================
@@ -50,20 +51,25 @@ def run_llm_pipeline(
     # BUILD REQUEST
     # =================================
 
-    PromptRequest.answer(
-        prompt,
-        model=model,
-        provider=provider,
-        prompt_type=PromptType.ANSWER,
+    request = PromptRegistry.build_request(
+
+        PromptType.ANSWER,
+
+        prompt=context.prompt,
+
     )
-    
+
+    request.model = context.model
+
+    request.provider = context.provider
+
     # =================================
     # STREAM MODE
     # =================================
 
     if stream:
 
-        return LLMTask.execute(
+        return LLMTask.stream(
             request
         )
 
@@ -76,5 +82,3 @@ def run_llm_pipeline(
     )
 
     return context
-
-

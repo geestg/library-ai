@@ -19,12 +19,12 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.prompts.models.prompt_request import (
-    PromptRequest,
-)
-
 from app.services.prompts.models.prompt_type import (
     PromptType,
+)
+
+from app.services.prompts.registry import (
+    PromptRegistry,
 )
 
 
@@ -317,8 +317,12 @@ cantumkan halaman.
 ================================================
 """
 
-    llm_request = PromptRequest.answer(
-        prompt,
+    llm_request = PromptRegistry.build_request(
+
+        PromptType.ANSWER,
+
+        prompt=prompt,
+
     )
 
     answer = LLMTask.execute(
@@ -340,6 +344,3 @@ cantumkan halaman.
             len(chunks),
 
     }
-
-
-
