@@ -40,3 +40,4 @@ def detect_rare_topics(
     return unique_keep_order(
         rare_topics
     )
+

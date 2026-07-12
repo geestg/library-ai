@@ -23,3 +23,4 @@ class StageResult:
     metadata: dict = field(default_factory=dict)
 
     duration_ms: float = 0.0
+

@@ -35,3 +35,4 @@ class BasePipelineHook:
         result,
     ):
         return PipelineAction.CONTINUE
+

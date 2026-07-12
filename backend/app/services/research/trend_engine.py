@@ -123,3 +123,4 @@ def build_research_trends(
         "research_trends":
         trend_summary
     }
+

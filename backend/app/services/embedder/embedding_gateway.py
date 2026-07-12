@@ -15,3 +15,4 @@ class EmbeddingGateway:
 
 
 embedding_gateway = EmbeddingGateway()
+

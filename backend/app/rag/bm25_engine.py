@@ -246,3 +246,4 @@ if __name__ == "__main__":
             f"SCORE: "
             f"{result['score']:.4f}"
         )
+

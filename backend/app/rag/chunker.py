@@ -153,3 +153,4 @@ def chunk_text(data, metadata=None):
     raise ValueError(
         "Unsupported chunk input type"
     )
+

@@ -74,3 +74,4 @@ def build_research_response(
     })
 
     return response
+

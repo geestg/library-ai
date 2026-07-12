@@ -262,3 +262,4 @@ class StreamProgressHook(
         })
 
         return PipelineAction.CONTINUE
+

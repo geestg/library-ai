@@ -153,3 +153,4 @@ PRODI_PROFILES = {
         "expected_competencies": []
     }
 }
+

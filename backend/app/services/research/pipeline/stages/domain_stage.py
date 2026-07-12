@@ -45,3 +45,4 @@ class DomainStage(BaseStage):
             message="Domain completed",
 
         )
+

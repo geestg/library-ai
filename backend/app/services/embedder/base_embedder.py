@@ -6,3 +6,4 @@ class BaseEmbedder(ABC):
     @abstractmethod
     def embed(self, text: str):
         pass
+

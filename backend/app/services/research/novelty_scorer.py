@@ -291,3 +291,4 @@ def calculate_novelty_score(
         "reasons":
         reasons
     }
+

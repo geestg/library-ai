@@ -65,3 +65,4 @@ def extract_metadata(data: Dict):
             ""
         ),
     }
+

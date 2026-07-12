@@ -40,3 +40,4 @@ def build_comparison_table(
     return "\n".join(
         lines
     )
+

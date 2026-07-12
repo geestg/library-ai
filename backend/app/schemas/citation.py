@@ -15,3 +15,4 @@ class Citation(BaseModel):
     score: Optional[float] = None
 
     content: Optional[str] = None
+

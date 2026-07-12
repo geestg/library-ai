@@ -80,3 +80,4 @@ TECHNOLOGY_ALIASES = {
         "gated recurrent unit"
     ]
 }
+

@@ -6,3 +6,4 @@ from app.services.embedder.embedding_gateway import (
 def get_embedding(text: str):
 
     return embedding_gateway.embed(text)
+

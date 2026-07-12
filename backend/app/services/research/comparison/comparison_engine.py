@@ -75,3 +75,4 @@ def run_method_comparison(
         "comparison":
         analysis
     }
+

@@ -10,3 +10,4 @@ def extract_text_from_image(image_path):
     text = pytesseract.image_to_string(image)
 
     return text
+

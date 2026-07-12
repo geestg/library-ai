@@ -38,3 +38,4 @@ def update_technology_counter(
         counter[
             technology
         ] += 1
+

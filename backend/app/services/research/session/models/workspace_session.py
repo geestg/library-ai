@@ -112,3 +112,4 @@ class WorkspaceSession:
         self.clear_execution()
 
         self.clear_workspace()
+

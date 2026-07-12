@@ -49,3 +49,4 @@ def ensure_collection_exists(
             f"[QDRANT] Collection already exists: "
             f"{collection_name}"
         )
+

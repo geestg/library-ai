@@ -44,3 +44,4 @@ class ComparisonStage(
             stop_pipeline=True,
 
         )
+

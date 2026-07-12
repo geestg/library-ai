@@ -47,3 +47,4 @@ class CompetencyStage(BaseStage):
             message="Competency completed",
 
         )
+

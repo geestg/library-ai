@@ -245,3 +245,4 @@ def initialize_database():
         bind=database_engine
 
     )
+

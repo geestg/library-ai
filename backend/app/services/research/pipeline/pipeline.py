@@ -24,3 +24,4 @@ class ResearchPipeline:
         )
 
         return self
+

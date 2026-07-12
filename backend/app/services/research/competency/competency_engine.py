@@ -45,3 +45,4 @@ def build_competencies(
 
         in counter.most_common()
     ]
+

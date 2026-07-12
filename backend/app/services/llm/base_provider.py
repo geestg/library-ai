@@ -33,3 +33,4 @@ class BaseLLMProvider:
     ):
 
         raise NotImplementedError
+

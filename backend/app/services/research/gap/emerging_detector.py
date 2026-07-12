@@ -40,3 +40,4 @@ def detect_emerging_topics(
     return unique_keep_order(
         emerging_topics
     )
+

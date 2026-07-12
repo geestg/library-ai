@@ -405,3 +405,4 @@ def resolve_query(
             "context_reference_resolved",
 
     }
+

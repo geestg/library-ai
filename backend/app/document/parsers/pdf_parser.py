@@ -308,3 +308,4 @@ def extract_pdf_pages(
         doc.close()
 
     return pages
+

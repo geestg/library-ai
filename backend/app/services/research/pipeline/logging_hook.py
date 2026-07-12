@@ -61,3 +61,4 @@ class LoggingHook(
         print("=" * 60)
 
         return PipelineAction.CONTINUE
+

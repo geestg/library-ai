@@ -15,3 +15,4 @@ def classify_file(filename):
         return "image"
 
     return "unknown"
+

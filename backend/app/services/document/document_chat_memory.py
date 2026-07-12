@@ -46,3 +46,4 @@ def append_document_history(
     ] = DOCUMENT_CHAT_MEMORY[
         document_id
     ][-10:]
+

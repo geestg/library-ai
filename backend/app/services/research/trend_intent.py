@@ -43,3 +43,4 @@ def is_trend_query(
         for keyword in TREND_KEYWORDS
 
     )
+

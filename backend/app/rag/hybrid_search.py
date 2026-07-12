@@ -168,3 +168,4 @@ def hybrid_search(
     )
 
     return results[:limit]
+

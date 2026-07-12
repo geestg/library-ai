@@ -20,3 +20,4 @@ def parse_xlsx(file_path):
         )
 
     return "\n".join(text)
+

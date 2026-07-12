@@ -144,3 +144,4 @@ def build_method_statistics(
             in metric_counter.most_common(5)
         ]
     }
+

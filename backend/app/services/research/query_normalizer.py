@@ -31,3 +31,4 @@ def normalize_research_query(
         )
 
     return q.strip()
+
