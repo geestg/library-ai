@@ -72,3 +72,4 @@ def detect_novelty_opportunities(
     return unique_keep_order(
         novelty
     )
+

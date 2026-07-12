@@ -36,3 +36,4 @@ def select_model(intent: str):
 
         "model": "qwen/qwen-2.5-7b-instruct"
     }
+

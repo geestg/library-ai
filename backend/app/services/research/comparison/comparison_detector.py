@@ -40,3 +40,4 @@ def is_comparison_query(
 
         in COMPARE_KEYWORDS
     )
+

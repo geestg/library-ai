@@ -12,3 +12,4 @@ class BasePrompt:
             if part
 
         )
+

@@ -74,3 +74,4 @@ def detect_method_gap(
         )
 
     return gaps
+

@@ -47,3 +47,4 @@ class ThesisIdeaStage(
             stop_pipeline=True,
 
         )
+

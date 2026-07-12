@@ -38,3 +38,4 @@ def update_metric_counter(
         counter[
             metric
         ] += 1
+

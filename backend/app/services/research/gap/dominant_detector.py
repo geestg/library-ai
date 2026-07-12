@@ -40,3 +40,4 @@ def detect_dominant_topics(
     return unique_keep_order(
         dominant_topics
     )
+

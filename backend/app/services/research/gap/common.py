@@ -186,3 +186,4 @@ def get_total_occurrences(
     return sum(
         frequency.values()
     )
+

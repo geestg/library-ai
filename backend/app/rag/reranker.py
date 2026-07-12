@@ -123,3 +123,4 @@ def rerank_results(
         documents=documents,
         top_k=top_k
     )
+

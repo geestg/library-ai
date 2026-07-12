@@ -248,3 +248,4 @@ class ResearchPipelineBuilder:
         )
 
         return executor
+

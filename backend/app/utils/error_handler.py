@@ -9,3 +9,4 @@ def handle_llm_error(error):
 
         detail=f"LLM Error: {str(error)}"
     )
+

@@ -38,3 +38,4 @@ def update_domain_counter(
         counter[
             domain
         ] += 1
+

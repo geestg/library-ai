@@ -32,3 +32,4 @@ class GenerationProfiles:
     CREATIVE = {
         "temperature": 0.7,
     }
+

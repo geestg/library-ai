@@ -12,3 +12,4 @@ def parse_docx(file_path):
         text.append(para.text)
 
     return "\n".join(text)
+

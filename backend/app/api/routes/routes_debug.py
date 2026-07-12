@@ -70,3 +70,4 @@ async def debug_collection():
             "status": "error",
             "message": str(e)
         }
+

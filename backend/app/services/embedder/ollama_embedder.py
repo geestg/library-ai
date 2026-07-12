@@ -101,3 +101,4 @@ class OllamaEmbedder(
             )
 
             raise
+

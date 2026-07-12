@@ -16,3 +16,4 @@ def parse_pptx(file_path):
                 text.append(shape.text)
 
     return "\n".join(text)
+

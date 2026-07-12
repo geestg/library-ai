@@ -38,3 +38,4 @@ def update_methodology_counter(
         counter[
             methodology
         ] += 1
+

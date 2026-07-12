@@ -31,3 +31,4 @@ def calculate_gap_score(
             len(evaluation_gap) * 20
         )
     )
+

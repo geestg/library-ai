@@ -51,3 +51,4 @@ def build_method_entry(
         "recommended_scenarios":
         metadata["recommended_scenarios"]
     }
+

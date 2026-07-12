@@ -147,3 +147,4 @@ COMPETENCY_MAPPING = {
         "embedded_system"
     ]
 }
+

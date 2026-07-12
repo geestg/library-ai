@@ -17,3 +17,4 @@ Klaim yang membutuhkan asumsi.
 
 Jangan menghasilkan klaim yang tidak didukung.
 """.strip()
+

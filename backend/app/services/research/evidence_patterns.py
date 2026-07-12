@@ -475,3 +475,4 @@ METRIC_PATTERNS = {
         "normalized mutual information"
     ]
 }
+

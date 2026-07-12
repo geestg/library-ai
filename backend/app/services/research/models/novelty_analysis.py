@@ -130,3 +130,4 @@ class NoveltyAnalysis:
                 0.0
             )
         )
+

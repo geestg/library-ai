@@ -17,3 +17,4 @@ class ResearchRequest(
     active_document_ids: Optional[
         List[str]
     ] = []
+

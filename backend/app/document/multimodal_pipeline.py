@@ -302,3 +302,4 @@ def process_document(
         f"Unsupported file type: {ext}"
 
     )
+

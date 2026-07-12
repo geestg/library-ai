@@ -282,3 +282,4 @@ def detect_research_gaps(
         "gap_score":
         gap_score
     }
+

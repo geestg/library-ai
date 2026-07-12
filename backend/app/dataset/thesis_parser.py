@@ -7,3 +7,4 @@ def load_dataset(path: str):
         data = json.load(f)
 
     return data
+

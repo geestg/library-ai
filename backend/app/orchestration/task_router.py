@@ -33,3 +33,4 @@ def route_query(query: str):
 
         "model": selected["model"]
     }
+

@@ -12,3 +12,4 @@ def parse_txt(file_path):
     ) as f:
 
         return f.read()
+

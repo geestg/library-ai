@@ -23,3 +23,4 @@ def thesis_title_generator(
     return generate_thesis_titles(
         topic=topic
     )
+

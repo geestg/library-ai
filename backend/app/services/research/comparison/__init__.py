@@ -5,3 +5,4 @@ from app.services.research.comparison.comparison_engine import (
 __all__ = [
     "run_method_comparison"
 ]
+

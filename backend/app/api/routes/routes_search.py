@@ -24,3 +24,4 @@ def semantic_search(query: str):
         }
         for point in results.points
     ]
+

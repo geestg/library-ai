@@ -32,3 +32,4 @@ class PromptFactory:
         return sorted(
             cls._registry.keys()
         )
+

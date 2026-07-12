@@ -9,3 +9,4 @@ class ChatResponse(BaseModel):
     answer: str
 
     citations: List[Citation] = []
+

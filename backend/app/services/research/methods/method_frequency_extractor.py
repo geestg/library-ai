@@ -6,3 +6,4 @@ def extract_method_frequency(
         "technology_frequency",
         {}
     )
+

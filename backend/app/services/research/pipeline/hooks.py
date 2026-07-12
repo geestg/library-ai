@@ -8,3 +8,4 @@ class PipelineAction(str, Enum):
     STOP = "stop"
 
     SKIP = "skip"
+
