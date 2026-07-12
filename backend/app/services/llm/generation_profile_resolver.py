@@ -2,6 +2,10 @@ from app.services.llm.generation_profiles import (
     GenerationProfiles,
 )
 
+from app.services.llm.models.execution_config import (
+    ExecutionConfig,
+)
+
 from app.services.prompts.models.prompt_type import (
     PromptType,
 )
@@ -38,7 +42,7 @@ class GenerationProfileResolver:
     def resolve(
         cls,
         prompt_type: PromptType,
-    ) -> dict:
+    ) -> ExecutionConfig:
 
         try:
 
