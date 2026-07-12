@@ -104,7 +104,7 @@ FORMAT:
     request = PromptRequest(
 
         prompt=prompt,
-
+        prompt_type=PromptType.TITLE,
         model=None,
 
         provider=None,
@@ -127,4 +127,5 @@ FORMAT:
             response,
 
     }
+
 

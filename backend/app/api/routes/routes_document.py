@@ -23,6 +23,10 @@ from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 
+from app.services.prompts.models.prompt_type import (
+    PromptType,
+)
+
 
 router = APIRouter()
 
@@ -317,7 +321,8 @@ cantumkan halaman.
 
         prompt=prompt,
 
-        model=None,
+        prompt_type=PromptType.ANSWER,
+model=None,
 
         provider=None,
 
@@ -342,4 +347,6 @@ cantumkan halaman.
             len(chunks),
 
     }
+
+
 

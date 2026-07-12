@@ -30,8 +30,12 @@ from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 
-from app.services.prompt.prompt_builder import (
-    build_prompt,
+from app.services.prompts.models.prompt_type import (
+    PromptType,
+)
+
+from app.services.prompts.registry import (
+    PromptRegistry,
 )
 
 router = APIRouter()
@@ -137,7 +141,9 @@ def chat(req: ChatRequest):
     # PROMPT BUILDING
     # =====================================
 
-    prompt = build_prompt(
+    prompt = PromptRegistry.build(
+
+        PromptType.ANSWER,
 
         query=req.message,
 
@@ -155,7 +161,8 @@ def chat(req: ChatRequest):
 
         prompt=prompt,
 
-        model=selected_model,
+        prompt_type=PromptType.ANSWER,
+model=selected_model,
 
         provider=selected_provider,
 
@@ -258,4 +265,6 @@ def chat(req: ChatRequest):
             sources,
 
     }
+
+
 

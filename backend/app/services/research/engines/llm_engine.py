@@ -50,7 +50,7 @@ def run_llm_pipeline(
     request = PromptRequest(
 
         prompt=context.prompt,
-
+        prompt_type=PromptType.ANSWER,
         model=context.model,
 
         provider=context.provider,
@@ -76,4 +76,5 @@ def run_llm_pipeline(
     )
 
     return context
+
 

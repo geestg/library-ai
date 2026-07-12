@@ -20,7 +20,7 @@ def generate_comparison_analysis(
     request = PromptRequest(
 
         prompt=prompt,
-
+        prompt_type=PromptType.ANSWER,
         model=model,
 
         provider=provider,
@@ -30,4 +30,6 @@ def generate_comparison_analysis(
     return LLMTask.answer(
         request
     )
+
+
 

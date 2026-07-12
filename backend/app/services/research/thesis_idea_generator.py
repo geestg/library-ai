@@ -152,7 +152,7 @@ dst.
     request = PromptRequest(
 
         prompt=prompt,
-
+        prompt_type=PromptType.CREATIVE,
         model=context.model,
 
         provider=context.provider,
@@ -178,4 +178,5 @@ dst.
             profile.novelty.novelty_level,
 
     }
+
 

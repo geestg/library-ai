@@ -1,4 +1,4 @@
-class ResearchPrompt:
+class CreativePrompt:
 
     @staticmethod
     def build(
