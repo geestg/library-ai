@@ -1,0 +1,46 @@
+﻿
+backend\app\api\routes\routes_chat.py:146:        PromptType.ANSWER,
+backend\app\api\routes\routes_chat.py:164:        prompt_type=PromptType.ANSWER,
+backend\app\api\routes\routes_chat.py:175:    response = LLMTask.answer(
+backend\app\api\routes\routes_document.py:324:        prompt_type=PromptType.ANSWER,
+backend\app\api\routes\routes_document.py:331:    answer = LLMTask.answer(
+backend\app\services\llm\generation_profiles.py:1:class GenerationProfiles:
+backend\app\services\llm\tasks\llm_task.py:6:    GenerationProfiles,
+backend\app\services\llm\tasks\llm_task.py:33:            **GenerationProfiles.ANSWER,
+backend\app\services\llm\tasks\llm_task.py:54:            **GenerationProfiles.ANSWER,
+backend\app\services\llm\tasks\llm_task.py:75:            **GenerationProfiles.VERIFIER,
+backend\app\services\llm\tasks\llm_task.py:96:            **GenerationProfiles.QUERY_RESOLUTION,
+backend\app\services\llm\tasks\llm_task.py:117:            **GenerationProfiles.TITLE,
+backend\app\services\llm\tasks\llm_task.py:138:            **GenerationProfiles.RESEARCH,
+backend\app\services\llm\tasks\llm_task.py:159:            **GenerationProfiles.CREATIVE,
+backend\app\services\prompts\models\prompt_request.py:12:        default=PromptType.ANSWER
+backend\app\services\prompts\register_prompts.py:41:        PromptType.ANSWER,
+backend\app\services\prompts\register_prompts.py:46:        PromptType.DOCUMENT,
+backend\app\services\prompts\register_prompts.py:51:        PromptType.VERIFIER,
+backend\app\services\prompts\register_prompts.py:56:        PromptType.QUERY_RESOLUTION,
+backend\app\services\prompts\register_prompts.py:61:        PromptType.RESEARCH,
+backend\app\services\prompts\register_prompts.py:66:        PromptType.CREATIVE,
+backend\app\services\prompts\register_prompts.py:71:        PromptType.TITLE,
+backend\app\services\research\comparison\comparison_llm.py:23:        prompt_type=PromptType.ANSWER,
+backend\app\services\research\comparison\comparison_llm.py:30:    return LLMTask.answer(
+backend\app\services\research\engines\document_engine.py:946:            prompt_type=PromptType.VERIFIER,
+backend\app\services\research\engines\document_engine.py:953:        verification_result = LLMTask.verifier(
+backend\app\services\research\engines\document_engine.py:1027:            prompt_type=PromptType.VERIFIER,
+backend\app\services\research\engines\document_engine.py:1034:    verification_result = LLMTask.verifier(
+backend\app\services\research\engines\document_engine.py:2028:            prompt_type=PromptType.VERIFIER,
+backend\app\services\research\engines\document_engine.py:2035:        llm_stream = LLMTask.stream_answer(
+backend\app\services\research\engines\document_engine.py:2079:            prompt_type=PromptType.VERIFIER,
+backend\app\services\research\engines\document_engine.py:2086:    answer = LLMTask.answer(
+backend\app\services\research\engines\llm_engine.py:53:        prompt_type=PromptType.ANSWER,
+backend\app\services\research\engines\llm_engine.py:66:        return LLMTask.stream_answer(
+backend\app\services\research\engines\llm_engine.py:74:    context.analysis = LLMTask.answer(
+backend\app\services\research\engines\query_resolution_engine.py:344:        prompt_type=PromptType.QUERY_RESOLUTION,
+backend\app\services\research\engines\query_resolution_engine.py:355:    result = LLMTask.query_resolution(
+backend\app\services\research\literature_review_generator.py:140:        prompt_type=PromptType.RESEARCH,
+backend\app\services\research\literature_review_generator.py:147:    review = LLMTask.research(
+backend\app\services\research\thesis_idea_generator.py:155:        prompt_type=PromptType.CREATIVE,
+backend\app\services\research\thesis_idea_generator.py:162:    ideas = LLMTask.creative(
+backend\app\services\title_generator_service.py:107:        prompt_type=PromptType.TITLE,
+backend\app\services\title_generator_service.py:114:    response = LLMTask.answer(
+
+
