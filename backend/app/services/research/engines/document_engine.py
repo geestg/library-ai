@@ -6,6 +6,10 @@ from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 
+from app.services.prompts.models.prompt_type import (
+    PromptType,
+)
+
 from app.services.research.session import (
     session_manager,
 )
@@ -938,9 +942,8 @@ def verify_single_chunk(
     try:
 
         request = PromptRequest(
-
             prompt=prompt,
-
+            prompt_type=PromptType.VERIFIER,
             model=model,
 
             provider=provider,
@@ -1020,10 +1023,9 @@ def verify_collective_context(
     )
 
     request = PromptRequest(
-
-        prompt=prompt,
-
-        model=model,
+            prompt=prompt,
+            prompt_type=PromptType.VERIFIER,
+            model=model,
 
         provider=provider,
 
@@ -2022,9 +2024,8 @@ def run_document_analysis(
     if stream:
 
         request = PromptRequest(
-
             prompt=prompt,
-
+            prompt_type=PromptType.VERIFIER,
             model=model,
 
             provider=provider,
@@ -2074,10 +2075,9 @@ def run_document_analysis(
     # =====================================
 
     request = PromptRequest(
-
-        prompt=prompt,
-
-        model=model,
+            prompt=prompt,
+            prompt_type=PromptType.VERIFIER,
+            model=model,
 
         provider=provider,
 
@@ -2154,4 +2154,5 @@ def run_document_analysis(
             citation_chunks,
 
     }
+
 

@@ -341,7 +341,7 @@ def resolve_query(
     request = PromptRequest(
 
         prompt=prompt,
-
+        prompt_type=PromptType.QUERY_RESOLUTION,
         model=model,
 
         provider=provider,
@@ -405,4 +405,5 @@ def resolve_query(
             "context_reference_resolved",
 
     }
+
 

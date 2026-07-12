@@ -137,7 +137,7 @@ Gunakan Bahasa Indonesia akademik.
     request = PromptRequest(
 
         prompt=prompt,
-
+        prompt_type=PromptType.RESEARCH,
         model=context.model,
 
         provider=context.provider,
@@ -157,4 +157,5 @@ Gunakan Bahasa Indonesia akademik.
             review,
 
     }
+
 
