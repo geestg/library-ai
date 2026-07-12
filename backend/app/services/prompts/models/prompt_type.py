@@ -1,7 +1,10 @@
 from enum import Enum
 
 
-class PromptType(str, Enum):
+class PromptType(
+    str,
+    Enum,
+):
 
     ANSWER = "answer"
 
@@ -16,4 +19,3 @@ class PromptType(str, Enum):
     CREATIVE = "creative"
 
     TITLE = "title"
-    

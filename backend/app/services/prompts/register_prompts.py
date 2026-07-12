@@ -6,12 +6,12 @@ from app.services.prompts.models.prompt_type import (
     PromptType,
 )
 
-from app.services.prompts.document.document_prompt import (
-    DocumentPrompt,
-)
-
 from app.services.prompts.answer.answer_prompt import (
     AnswerPrompt,
+)
+
+from app.services.prompts.document.document_prompt import (
+    DocumentPrompt,
 )
 
 from app.services.prompts.verifier.verifier_prompt import (
@@ -43,13 +43,13 @@ def register_prompts():
     )
 
     PromptRegistry.register(
-        PromptType.VERIFIER,
-        VerifierPrompt,
+        PromptType.DOCUMENT,
+        DocumentPrompt,
     )
 
     PromptRegistry.register(
-        PromptType.DOCUMENT,
-        DocumentPrompt,
+        PromptType.VERIFIER,
+        VerifierPrompt,
     )
 
     PromptRegistry.register(

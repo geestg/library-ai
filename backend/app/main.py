@@ -12,6 +12,10 @@ from app.database import (
     initialize_database,
 )
 
+from app.services.prompts.register_prompts import (
+    register_prompts,
+)
+
 from app.api.routes.routes_search import (
     router as search_router,
 )
@@ -67,6 +71,15 @@ async def lifespan(
     print(
 
         "[DATABASE] PostgreSQL "
+        "initialized successfully."
+
+    )
+
+    register_prompts()
+
+    print(
+
+        "[PROMPTS] Prompt registry "
         "initialized successfully."
 
     )
@@ -177,8 +190,8 @@ def root():
 
         "description":
             (
-                "AI Academic Knowledge "
-                "Operating System"
+                "AI Academic "
+                "Knowledge Operating System"
             ),
 
         "features": [
