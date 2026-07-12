@@ -1,10 +1,6 @@
 from dataclasses import dataclass
 from dataclasses import field
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
-)
-
 from app.services.llm.models.execution_config import (
     ExecutionConfig,
 )
@@ -42,7 +38,7 @@ class PromptRequest:
         execution: ExecutionConfig,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls(
 
@@ -69,7 +65,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -77,7 +73,9 @@ class PromptRequest:
 
             prompt_type=PromptType.ANSWER,
 
-            execution=GenerationProfiles.ANSWER,
+            execution=ExecutionConfig(
+                temperature=0,
+            ),
 
             model=model,
 
@@ -96,7 +94,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -104,7 +102,9 @@ class PromptRequest:
 
             prompt_type=PromptType.DOCUMENT,
 
-            execution=GenerationProfiles.ANSWER,
+            execution=ExecutionConfig(
+                temperature=0,
+            ),
 
             model=model,
 
@@ -123,7 +123,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -131,7 +131,10 @@ class PromptRequest:
 
             prompt_type=PromptType.VERIFIER,
 
-            execution=GenerationProfiles.VERIFIER,
+            execution=ExecutionConfig(
+                temperature=0,
+                max_tokens=8,
+            ),
 
             model=model,
 
@@ -150,7 +153,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -158,7 +161,10 @@ class PromptRequest:
 
             prompt_type=PromptType.QUERY_RESOLUTION,
 
-            execution=GenerationProfiles.QUERY_RESOLUTION,
+            execution=ExecutionConfig(
+                temperature=0,
+                max_tokens=32,
+            ),
 
             model=model,
 
@@ -177,7 +183,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -185,7 +191,9 @@ class PromptRequest:
 
             prompt_type=PromptType.RESEARCH,
 
-            execution=GenerationProfiles.RESEARCH,
+            execution=ExecutionConfig(
+                temperature=0.2,
+            ),
 
             model=model,
 
@@ -204,7 +212,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -212,7 +220,9 @@ class PromptRequest:
 
             prompt_type=PromptType.CREATIVE,
 
-            execution=GenerationProfiles.CREATIVE,
+            execution=ExecutionConfig(
+                temperature=0.7,
+            ),
 
             model=model,
 
@@ -231,7 +241,7 @@ class PromptRequest:
         *,
         model: str | None = None,
         provider: str | None = None,
-    ):
+    ) -> "PromptRequest":
 
         return cls._create(
 
@@ -239,7 +249,10 @@ class PromptRequest:
 
             prompt_type=PromptType.TITLE,
 
-            execution=GenerationProfiles.TITLE,
+            execution=ExecutionConfig(
+                temperature=0.3,
+                max_tokens=32,
+            ),
 
             model=model,
 

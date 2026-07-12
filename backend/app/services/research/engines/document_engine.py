@@ -941,13 +941,10 @@ def verify_single_chunk(
 
     try:
 
-        request = PromptRequest(
-            prompt=prompt,
-            prompt_type=PromptType.VERIFIER,
+        request = PromptRequest.verifier(
+            prompt,
             model=model,
-
             provider=provider,
-
         )
 
         verification_result = LLMTask.execute(
@@ -1022,13 +1019,10 @@ def verify_collective_context(
 
     )
 
-    request = PromptRequest(
-            prompt=prompt,
-            prompt_type=PromptType.VERIFIER,
-            model=model,
-
+    request = PromptRequest.verifier(
+        prompt,
+        model=model,
         provider=provider,
-
     )
 
     verification_result = LLMTask.execute(
@@ -2023,13 +2017,10 @@ def run_document_analysis(
 
     if stream:
 
-        request = PromptRequest(
-            prompt=prompt,
-            prompt_type=PromptType.VERIFIER,
+        request = PromptRequest.verifier(
+            prompt,
             model=model,
-
             provider=provider,
-
         )
 
         llm_stream = LLMTask.stream(
@@ -2074,13 +2065,10 @@ def run_document_analysis(
     # NORMAL MODE
     # =====================================
 
-    request = PromptRequest(
-            prompt=prompt,
-            prompt_type=PromptType.VERIFIER,
-            model=model,
-
+    request = PromptRequest.verifier(
+        prompt,
+        model=model,
         provider=provider,
-
     )
 
     answer = LLMTask.execute(
