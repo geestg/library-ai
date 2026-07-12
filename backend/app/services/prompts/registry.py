@@ -12,6 +12,10 @@ class PromptRegistry:
         Callable,
     ] = {}
 
+    # =====================================
+    # REGISTER
+    # =====================================
+
     @classmethod
     def register(
         cls,
@@ -19,7 +23,22 @@ class PromptRegistry:
         builder: Callable,
     ) -> None:
 
-        cls._builders[prompt_type] = builder
+        if prompt_type in cls._builders:
+
+            raise ValueError(
+
+                f"Prompt '{prompt_type.value}' "
+                "is already registered."
+
+            )
+
+        cls._builders[
+            prompt_type
+        ] = builder
+
+    # =====================================
+    # BUILD
+    # =====================================
 
     @classmethod
     def build(
@@ -28,11 +47,28 @@ class PromptRegistry:
         **kwargs,
     ) -> str:
 
-        builder = cls._builders[prompt_type]
+        if not cls.has(
+            prompt_type
+        ):
+
+            raise ValueError(
+
+                f"No prompt builder registered "
+                f"for '{prompt_type.value}'."
+
+            )
+
+        builder = cls._builders[
+            prompt_type
+        ]
 
         return builder.build(
             **kwargs
         )
+
+    # =====================================
+    # GET BUILDER
+    # =====================================
 
     @classmethod
     def get(
@@ -40,4 +76,57 @@ class PromptRegistry:
         prompt_type: PromptType,
     ):
 
-        return cls._builders[prompt_type]
+        if not cls.has(
+            prompt_type
+        ):
+
+            raise ValueError(
+
+                f"No prompt builder registered "
+                f"for '{prompt_type.value}'."
+
+            )
+
+        return cls._builders[
+            prompt_type
+        ]
+
+    # =====================================
+    # HAS
+    # =====================================
+
+    @classmethod
+    def has(
+        cls,
+        prompt_type: PromptType,
+    ) -> bool:
+
+        return (
+            prompt_type
+            in
+            cls._builders
+        )
+
+    # =====================================
+    # LIST REGISTERED TYPES
+    # =====================================
+
+    @classmethod
+    def registered_types(
+        cls,
+    ) -> list[PromptType]:
+
+        return list(
+            cls._builders.keys()
+        )
+
+    # =====================================
+    # CLEAR
+    # =====================================
+
+    @classmethod
+    def clear(
+        cls,
+    ) -> None:
+
+        cls._builders.clear()
