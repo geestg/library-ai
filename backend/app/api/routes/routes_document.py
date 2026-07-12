@@ -317,15 +317,8 @@ cantumkan halaman.
 ================================================
 """
 
-    llm_request = PromptRequest(
-
-        prompt=prompt,
-
-        prompt_type=PromptType.ANSWER,
-model=None,
-
-        provider=None,
-
+    llm_request = PromptRequest.answer(
+        prompt,
     )
 
     answer = LLMTask.execute(

@@ -271,14 +271,10 @@ def resolve_query(
     # BUILD REQUEST
     # =================================
 
-    request = PromptRequest(
-
-        prompt=prompt,
-        prompt_type=PromptType.QUERY_RESOLUTION,
+    request = PromptRequest.query_resolution(
+        prompt,
         model=model,
-
         provider=provider,
-
     )
 
     # =================================

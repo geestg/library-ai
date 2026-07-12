@@ -17,14 +17,10 @@ def generate_comparison_analysis(
     provider: str | None = None,
 ):
 
-    request = PromptRequest(
-
-        prompt=prompt,
-        prompt_type=PromptType.ANSWER,
+    PromptRequest.answer(
+        prompt,
         model=model,
-
         provider=provider,
-
     )
 
     return LLMTask.execute(

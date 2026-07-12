@@ -47,14 +47,8 @@ def run_llm_pipeline(
     # BUILD REQUEST
     # =================================
 
-    request = PromptRequest(
-
-        prompt=context.prompt,
-        prompt_type=PromptType.ANSWER,
-        model=context.model,
-
-        provider=context.provider,
-
+    PromptRequest.answer(
+        prompt,
     )
 
     # =================================
