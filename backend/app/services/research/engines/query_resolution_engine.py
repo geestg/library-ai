@@ -6,6 +6,14 @@ from app.services.prompts.models.prompt_request import (
     PromptRequest,
 )
 
+from app.services.prompts.registry import (
+    PromptRegistry,
+)
+
+from app.services.prompts.models.prompt_type import (
+    PromptType,
+)
+
 # =====================================
 # CONTEXT REFERENCE PATTERNS
 # =====================================
@@ -105,79 +113,6 @@ def is_context_dependent_query(
             return True
 
     return False
-
-
-# =====================================
-# BUILD QUERY RESOLUTION PROMPT
-# =====================================
-
-def build_query_resolution_prompt(
-
-    query: str,
-
-    conversation_history: str,
-
-) -> str:
-
-    return f"""
-Anda adalah query resolver untuk sistem research
-dan document retrieval.
-
-Tugas Anda adalah mengubah pertanyaan terbaru user
-menjadi pertanyaan mandiri yang dapat dipahami tanpa
-harus membaca percakapan sebelumnya.
-
-==================================================
-RIWAYAT PERCAKAPAN SEBELUM PERTANYAAN TERBARU
-==================================================
-
-{conversation_history}
-
-==================================================
-PERTANYAAN TERBARU USER
-==================================================
-
-{query}
-
-==================================================
-ATURAN
-==================================================
-
-1. Gunakan riwayat percakapan hanya untuk
-menyelesaikan referensi yang ambigu.
-
-2. Referensi ambigu dapat berupa:
-"keduanya", "ketiganya", "ini", "itu",
-"tersebut", "yang pertama", "yang kedua",
-"yang tadi", "bagaimana dengan yang lain",
-atau referensi kontekstual serupa.
-
-3. Pertahankan maksud asli pertanyaan user.
-
-4. Jangan menjawab pertanyaan.
-
-5. Jangan menambahkan fakta baru.
-
-6. Jangan menggunakan pengetahuan eksternal.
-
-7. Jangan membuat asumsi yang tidak didukung
-oleh riwayat percakapan.
-
-8. Jika pertanyaan terbaru sudah mandiri,
-kembalikan pertanyaan tersebut tanpa perubahan.
-
-9. Output hanya satu pertanyaan hasil resolusi.
-
-10. Jangan menambahkan penjelasan, label,
-Markdown, tanda kutip, atau teks lain.
-
-==================================================
-OUTPUT
-==================================================
-
-Kembalikan hanya pertanyaan mandiri.
-""".strip()
-
 
 # =====================================
 # CLEAN RESOLVED QUERY
@@ -326,12 +261,10 @@ def resolve_query(
     # BUILD RESOLUTION PROMPT
     # =================================
 
-    prompt = build_query_resolution_prompt(
-
+    prompt = PromptRegistry.build(
+        PromptType.QUERY_RESOLUTION,
         query=original_query,
-
         conversation_history=history,
-
     )
 
     # =================================
@@ -352,7 +285,7 @@ def resolve_query(
     # RESOLVE WITH MODEL
     # =================================
 
-    result = LLMTask.query_resolution(
+    result = LLMTask.execute(
         request
     )
 

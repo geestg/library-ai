@@ -172,7 +172,7 @@ model=selected_model,
     # LLM GENERATION
     # =====================================
 
-    response = LLMTask.answer(
+    response = LLMTask.execute(
         request
     )
 

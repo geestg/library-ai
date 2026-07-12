@@ -159,7 +159,7 @@ dst.
 
     )
 
-    ideas = LLMTask.creative(
+    ideas = LLMTask.execute(
         request
     )
 

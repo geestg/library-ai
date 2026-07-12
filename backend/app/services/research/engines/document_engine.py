@@ -950,7 +950,7 @@ def verify_single_chunk(
 
         )
 
-        verification_result = LLMTask.verifier(
+        verification_result = LLMTask.execute(
             request
         )
         
@@ -1031,7 +1031,7 @@ def verify_collective_context(
 
     )
 
-    verification_result = LLMTask.verifier(
+    verification_result = LLMTask.execute(
         request
     )
 
@@ -2032,7 +2032,7 @@ def run_document_analysis(
 
         )
 
-        llm_stream = LLMTask.stream_answer(
+        llm_stream = LLMTask.stream(
             request
         )
 
@@ -2083,7 +2083,7 @@ def run_document_analysis(
 
     )
 
-    answer = LLMTask.answer(
+    answer = LLMTask.execute(
         request
     )
 

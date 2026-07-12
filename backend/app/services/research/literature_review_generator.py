@@ -144,7 +144,7 @@ Gunakan Bahasa Indonesia akademik.
 
     )
 
-    review = LLMTask.research(
+    review = LLMTask.execute(
         request
     )
 

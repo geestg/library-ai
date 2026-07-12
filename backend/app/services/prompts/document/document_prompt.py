@@ -35,7 +35,7 @@ PERTANYAAN
 {query}
 """
 
-        return BasePrompt.join(
+        return PromptComposer.compose(
 
             intro,
 
