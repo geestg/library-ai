@@ -26,10 +26,6 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.prompts.models.prompt_request import (
-    PromptRequest,
-)
-
 from app.services.prompts.models.prompt_type import (
     PromptType,
 )
@@ -138,10 +134,10 @@ def chat(req: ChatRequest):
     )
 
     # =====================================
-    # PROMPT BUILDING
+    # BUILD REQUEST
     # =====================================
 
-    prompt = PromptRegistry.build(
+    request = PromptRegistry.build_request(
 
         PromptType.ANSWER,
 
@@ -153,22 +149,19 @@ def chat(req: ChatRequest):
 
     )
 
-    # =====================================
-    # BUILD REQUEST
-    # =====================================
-
-    request = PromptRequest.answer(
-        prompt,
-        model=selected_model,
-        provider=selected_provider,
+    request.model = (
+        selected_model
     )
-    
+
+    request.provider = (
+        selected_provider
+    )
+
     # =====================================
     # LLM GENERATION
     # =====================================
 
-    response = LLMTask.execute
-    (
+    response = LLMTask.execute(
         request
     )
 
@@ -187,8 +180,11 @@ def chat(req: ChatRequest):
     sources = []
 
     for idx, r in enumerate(
+
         top_docs,
+
         start=1,
+
     ):
 
         payload = r.get(
@@ -261,6 +257,3 @@ def chat(req: ChatRequest):
             sources,
 
     }
-
-
-

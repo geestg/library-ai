@@ -2,10 +2,6 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.prompts.models.prompt_request import (
-    PromptRequest,
-)
-
 from app.services.prompts.registry import (
     PromptRegistry,
 )
@@ -258,24 +254,22 @@ def resolve_query(
         }
 
     # =================================
-    # BUILD RESOLUTION PROMPT
-    # =================================
-
-    prompt = PromptRegistry.build(
-        PromptType.QUERY_RESOLUTION,
-        query=original_query,
-        conversation_history=history,
-    )
-
-    # =================================
     # BUILD REQUEST
     # =================================
 
-    request = PromptRequest.query_resolution(
-        prompt,
-        model=model,
-        provider=provider,
+    request = PromptRegistry.build_request(
+
+        PromptType.QUERY_RESOLUTION,
+
+        query=original_query,
+
+        conversation_history=history,
+
     )
+
+    request.model = model
+
+    request.provider = provider
 
     # =================================
     # RESOLVE WITH MODEL
@@ -334,5 +328,3 @@ def resolve_query(
             "context_reference_resolved",
 
     }
-
-
