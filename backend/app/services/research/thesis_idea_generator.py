@@ -149,14 +149,8 @@ Kesulitan:
 dst.
 """
 
-    request = PromptRequest(
-
-        prompt=prompt,
-        prompt_type=PromptType.CREATIVE,
-        model=context.model,
-
-        provider=context.provider,
-
+    PromptRequest.creative(
+        prompt,
     )
 
     ideas = LLMTask.execute(

@@ -157,22 +157,18 @@ def chat(req: ChatRequest):
     # BUILD REQUEST
     # =====================================
 
-    request = PromptRequest(
-
-        prompt=prompt,
-
-        prompt_type=PromptType.ANSWER,
-model=selected_model,
-
+    request = PromptRequest.answer(
+        prompt,
+        model=selected_model,
         provider=selected_provider,
-
     )
-
+    
     # =====================================
     # LLM GENERATION
     # =====================================
 
-    response = LLMTask.execute(
+    response = LLMTask.execute
+    (
         request
     )
 

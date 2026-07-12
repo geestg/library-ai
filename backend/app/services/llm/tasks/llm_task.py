@@ -22,11 +22,15 @@ class LLMTask:
         request: PromptRequest,
     ):
 
-        config = (
-            GenerationProfileResolver.resolve(
-                request.prompt_type
+        config = request.execution
+
+        if config == config.__class__():
+
+            config = (
+                GenerationProfileResolver.resolve(
+                    request.prompt_type
+                )
             )
-        )
 
         return gateway.generate_response(
 
@@ -49,11 +53,15 @@ class LLMTask:
         request: PromptRequest,
     ):
 
-        config = (
-            GenerationProfileResolver.resolve(
-                request.prompt_type
+        config = request.execution
+
+        if config == config.__class__():
+
+            config = (
+                GenerationProfileResolver.resolve(
+                    request.prompt_type
+                )
             )
-        )
 
         return gateway.stream_response(
 

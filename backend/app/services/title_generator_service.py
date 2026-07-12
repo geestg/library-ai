@@ -101,14 +101,10 @@ FORMAT:
 # Thesis Title Ideas
 """
 
-    request = PromptRequest(
-
-        prompt=prompt,
-        prompt_type=PromptType.TITLE,
-        model=None,
-
-        provider=None,
-
+    request = PromptRequest.title(
+        prompt,
+        model=model,
+        provider=provider,
     )
 
     response = LLMTask.execute(
