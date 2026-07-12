@@ -2,6 +2,10 @@ from app.services.prompts.base_prompt import (
     BasePrompt,
 )
 
+from app.services.prompts.composer import (
+    PromptComposer,
+)
+
 from .intro import (
     INTRO_TEMPLATE,
 )
@@ -57,7 +61,7 @@ class AnswerPrompt:
 
         )
 
-        return BasePrompt.join(
+        return PromptComposer.compose(
 
             intro,
 

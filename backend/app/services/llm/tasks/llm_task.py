@@ -2,8 +2,8 @@ from app.services.llm.model_gateway import (
     gateway,
 )
 
-from app.services.llm.generation_profiles import (
-    GenerationProfiles,
+from app.services.llm.generation_profile_resolver import (
+    GenerationProfileResolver,
 )
 
 from app.services.prompts.models.prompt_request import (
@@ -14,13 +14,19 @@ from app.services.prompts.models.prompt_request import (
 class LLMTask:
 
     # =====================================
-    # ANSWER
+    # EXECUTE
     # =====================================
 
     @staticmethod
-    def answer(
+    def execute(
         request: PromptRequest,
     ):
+
+        profile = (
+            GenerationProfileResolver.resolve(
+                request.prompt_type
+            )
+        )
 
         return gateway.generate_response(
 
@@ -30,18 +36,24 @@ class LLMTask:
 
             provider=request.provider,
 
-            **GenerationProfiles.ANSWER,
+            **profile,
 
         )
 
     # =====================================
-    # STREAM ANSWER
+    # STREAM
     # =====================================
 
     @staticmethod
-    def stream_answer(
+    def stream(
         request: PromptRequest,
     ):
+
+        profile = (
+            GenerationProfileResolver.resolve(
+                request.prompt_type
+            )
+        )
 
         return gateway.stream_response(
 
@@ -51,112 +63,6 @@ class LLMTask:
 
             provider=request.provider,
 
-            **GenerationProfiles.ANSWER,
+            **profile,
 
         )
-
-    # =====================================
-    # VERIFIER
-    # =====================================
-
-    @staticmethod
-    def verifier(
-        request: PromptRequest,
-    ):
-
-        return gateway.generate_response(
-
-            prompt=request.prompt,
-
-            model=request.model,
-
-            provider=request.provider,
-
-            **GenerationProfiles.VERIFIER,
-
-        )
-
-    # =====================================
-    # QUERY RESOLUTION
-    # =====================================
-
-    @staticmethod
-    def query_resolution(
-        request: PromptRequest,
-    ):
-
-        return gateway.generate_response(
-
-            prompt=request.prompt,
-
-            model=request.model,
-
-            provider=request.provider,
-
-            **GenerationProfiles.QUERY_RESOLUTION,
-
-        )
-
-    # =====================================
-    # TITLE
-    # =====================================
-
-    @staticmethod
-    def title(
-        request: PromptRequest,
-    ):
-
-        return gateway.generate_response(
-
-            prompt=request.prompt,
-
-            model=request.model,
-
-            provider=request.provider,
-
-            **GenerationProfiles.TITLE,
-
-        )
-
-    # =====================================
-    # RESEARCH
-    # =====================================
-
-    @staticmethod
-    def research(
-        request: PromptRequest,
-    ):
-
-        return gateway.generate_response(
-
-            prompt=request.prompt,
-
-            model=request.model,
-
-            provider=request.provider,
-
-            **GenerationProfiles.RESEARCH,
-
-        )
-
-    # =====================================
-    # CREATIVE
-    # =====================================
-
-    @staticmethod
-    def creative(
-        request: PromptRequest,
-    ):
-
-        return gateway.generate_response(
-
-            prompt=request.prompt,
-
-            model=request.model,
-
-            provider=request.provider,
-
-            **GenerationProfiles.CREATIVE,
-
-        )
-

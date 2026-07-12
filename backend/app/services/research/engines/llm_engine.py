@@ -63,7 +63,7 @@ def run_llm_pipeline(
 
     if stream:
 
-        return LLMTask.stream_answer(
+        return LLMTask.execute(
             request
         )
 
@@ -71,7 +71,7 @@ def run_llm_pipeline(
     # NORMAL MODE
     # =================================
 
-    context.analysis = LLMTask.answer(
+    context.analysis = LLMTask.execute(
         request
     )
 
