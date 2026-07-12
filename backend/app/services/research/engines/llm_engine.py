@@ -1,3 +1,5 @@
+from typer import prompt
+
 from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
@@ -9,6 +11,7 @@ from app.services.prompts.models.prompt_request import (
 from app.services.research.models.research_context import (
     ResearchContext,
 )
+from app.services.prompts.models.prompt_type import PromptType
 
 
 # =====================================
@@ -49,8 +52,11 @@ def run_llm_pipeline(
 
     PromptRequest.answer(
         prompt,
+        model=model,
+        provider=provider,
+        prompt_type=PromptType.ANSWER,
     )
-
+    
     # =================================
     # STREAM MODE
     # =================================

@@ -150,7 +150,13 @@ dst.
 """
 
     PromptRequest.creative(
-        prompt,
+
+        prompt=prompt,
+        prompt_type=PromptType.CREATIVE,
+        model=context.model,
+
+        provider=context.provider,
+
     )
 
     ideas = LLMTask.execute(
