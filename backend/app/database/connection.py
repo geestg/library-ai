@@ -2,17 +2,13 @@ import os
 
 from urllib.parse import quote_plus
 
-from sqlalchemy import (
-    create_engine,
-)
-
+from sqlalchemy import create_engine
 from sqlalchemy.orm import (
+    Session,
     sessionmaker,
 )
 
-from app.database.base import (
-    Base,
-)
+from app.database.base import Base
 
 
 # =====================================
@@ -102,7 +98,6 @@ def build_database_url() -> str:
         for (
 
             variable_name,
-
             variable_value,
 
         ) in [
@@ -133,8 +128,7 @@ def build_database_url() -> str:
         raise RuntimeError(
 
             (
-                "Missing PostgreSQL "
-                "configuration: "
+                "Missing PostgreSQL configuration: "
                 + ", ".join(
                     missing_variables
                 )
@@ -180,42 +174,77 @@ def build_database_url() -> str:
 
 
 # =====================================
-# DATABASE URL
+# LAZY DATABASE OBJECTS
 # =====================================
 
-DATABASE_URL = (
-    build_database_url()
-)
+_database_url: str | None = None
+
+_database_engine = None
+
+_session_factory = None
 
 
 # =====================================
 # DATABASE ENGINE
 # =====================================
 
-database_engine = create_engine(
+def get_database_engine():
 
-    DATABASE_URL,
+    global _database_url
+    global _database_engine
+    global _session_factory
 
-    pool_pre_ping=True,
+    if _database_engine is None:
 
-    future=True,
+        _database_url = build_database_url()
 
-)
+        _database_engine = create_engine(
+
+            _database_url,
+
+            pool_pre_ping=True,
+
+            future=True,
+
+        )
+
+        _session_factory = sessionmaker(
+
+            bind=_database_engine,
+
+            autoflush=False,
+
+            expire_on_commit=False,
+
+            class_=Session,
+
+        )
+
+    return _database_engine
 
 
 # =====================================
-# DATABASE SESSION FACTORY
+# SESSION FACTORY
 # =====================================
 
-database_session_factory = sessionmaker(
+def get_session_factory():
 
-    bind=database_engine,
+    if _session_factory is None:
 
-    autoflush=False,
+        get_database_engine()
 
-    expire_on_commit=False,
+    return _session_factory
 
-)
+
+# =====================================
+# CREATE DATABASE SESSION
+# =====================================
+
+def get_session() -> Session:
+
+    session_factory = get_session_factory()
+
+    return session_factory()
 
 
 # =====================================
@@ -228,10 +257,6 @@ def initialize_database():
     # IMPORT ORM MODELS
     # =================================
 
-    # Import is intentionally local.
-    # It registers ORM tables in
-    # Base.metadata before create_all().
-
     from app.persistence.session import (  # noqa: F401
         WorkspaceSessionRecord,
     )
@@ -242,7 +267,6 @@ def initialize_database():
 
     Base.metadata.create_all(
 
-        bind=database_engine
+        bind=get_database_engine()
 
     )
-
