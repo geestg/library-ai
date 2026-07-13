@@ -1,5 +1,4 @@
 from threading import RLock
-
 from uuid import uuid4
 
 from app.persistence.session.repository import (
@@ -21,18 +20,30 @@ from app.services.research.session.models import (
 
 class SessionManager:
 
-    def __init__(self):
+    def __init__(
+        self,
+        repository=None,
+    ):
+
+        self._repository = (
+            repository
+            or session_repository
+        )
+
+        # =================================
+        # IN-MEMORY CACHE
+        # =================================
 
         self._sessions: dict[
             str,
             WorkspaceSession,
         ] = {}
 
-        self._lock = RLock()
+        # =================================
+        # THREAD SAFETY
+        # =================================
 
-        self._repository = (
-            session_repository
-        )
+        self._lock = RLock()
 
     # =====================================
     # CREATE SESSION
@@ -44,22 +55,13 @@ class SessionManager:
     ) -> WorkspaceSession:
 
         resolved_session_id = (
-
             session_id.strip()
-
             if session_id
-
-            else str(
-                uuid4()
-            )
-
+            else str(uuid4())
         )
 
         if not resolved_session_id:
-
-            resolved_session_id = str(
-                uuid4()
-            )
+            resolved_session_id = str(uuid4())
 
         # =================================
         # CHECK MEMORY
@@ -67,24 +69,19 @@ class SessionManager:
 
         with self._lock:
 
-            existing_session = (
-                self._sessions.get(
-                    resolved_session_id
-                )
+            existing_session = self._sessions.get(
+                resolved_session_id
             )
 
             if existing_session is not None:
-
                 return existing_session
 
         # =================================
         # CHECK DATABASE
         # =================================
 
-        persisted_session = (
-            self._repository.get(
-                resolved_session_id
-            )
+        persisted_session = self._repository.get(
+            resolved_session_id
         )
 
         if persisted_session is not None:
@@ -103,35 +100,23 @@ class SessionManager:
 
         session = WorkspaceSession(
 
-            session_id=(
-                resolved_session_id
-            ),
+            session_id=resolved_session_id,
 
-            conversation=(
-                ConversationSession()
-            ),
+            conversation=ConversationSession(),
 
-            documents=(
-                DocumentSession()
-            ),
+            documents=DocumentSession(),
 
-            workspace=(
-                WorkspaceState()
-            ),
+            workspace=WorkspaceState(),
 
-            execution=(
-                ExecutionSession()
-            ),
+            execution=ExecutionSession(),
 
         )
 
         # =================================
-        # PERSIST
+        # SAVE
         # =================================
 
-        self._repository.save(
-            session
-        )
+        self._repository.save(session)
 
         # =================================
         # CACHE
@@ -155,42 +140,23 @@ class SessionManager:
     ) -> WorkspaceSession | None:
 
         if not session_id:
-
             return None
-
-        # =================================
-        # MEMORY CACHE
-        # =================================
 
         with self._lock:
 
-            session = (
-                self._sessions.get(
-                    session_id
-                )
+            session = self._sessions.get(
+                session_id
             )
 
             if session is not None:
-
                 return session
 
-        # =================================
-        # DATABASE FALLBACK
-        # =================================
-
-        session = (
-            self._repository.get(
-                session_id
-            )
+        session = self._repository.get(
+            session_id
         )
 
         if session is None:
-
             return None
-
-        # =================================
-        # HYDRATE MEMORY CACHE
-        # =================================
 
         with self._lock:
 
@@ -201,7 +167,7 @@ class SessionManager:
         return session
 
     # =====================================
-    # GET OR CREATE SESSION
+    # GET OR CREATE
     # =====================================
 
     def get_or_create(
@@ -211,30 +177,25 @@ class SessionManager:
 
         if session_id:
 
-            normalized_session_id = (
-                session_id.strip()
-            )
+            normalized = session_id.strip()
 
-            if normalized_session_id:
+            if normalized:
 
-                existing_session = (
-                    self.get(
-                        normalized_session_id
-                    )
+                session = self.get(
+                    normalized
                 )
 
-                if existing_session is not None:
-
-                    return existing_session
+                if session is not None:
+                    return session
 
                 return self.create(
-                    normalized_session_id
+                    normalized
                 )
 
         return self.create()
 
     # =====================================
-    # SAVE SESSION
+    # SAVE
     # =====================================
 
     def save(
@@ -243,19 +204,15 @@ class SessionManager:
     ) -> bool:
 
         if not session_id:
-
             return False
 
         with self._lock:
 
-            session = (
-                self._sessions.get(
-                    session_id
-                )
+            session = self._sessions.get(
+                session_id
             )
 
         if session is None:
-
             return False
 
         self._repository.save(
@@ -274,16 +231,11 @@ class SessionManager:
     ) -> bool:
 
         if not session_id:
-
             return False
 
         with self._lock:
 
-            if (
-                session_id
-                in self._sessions
-            ):
-
+            if session_id in self._sessions:
                 return True
 
         return self._repository.exists(
@@ -291,7 +243,7 @@ class SessionManager:
         )
 
     # =====================================
-    # DELETE SESSION
+    # DELETE
     # =====================================
 
     def delete(
@@ -300,29 +252,17 @@ class SessionManager:
     ) -> bool:
 
         if not session_id:
-
             return False
-
-        # =================================
-        # REMOVE MEMORY CACHE
-        # =================================
 
         with self._lock:
 
             removed_from_memory = (
-
                 self._sessions.pop(
                     session_id,
                     None,
                 )
-
                 is not None
-
             )
-
-        # =================================
-        # REMOVE DATABASE
-        # =================================
 
         removed_from_database = (
             self._repository.delete(
@@ -331,17 +271,12 @@ class SessionManager:
         )
 
         return (
-
             removed_from_memory
-
-            or
-
-            removed_from_database
-
+            or removed_from_database
         )
 
     # =====================================
-    # RESET SESSION
+    # RESET
     # =====================================
 
     def reset(
@@ -354,7 +289,6 @@ class SessionManager:
         )
 
         if session is None:
-
             return False
 
         session.reset()
@@ -366,7 +300,7 @@ class SessionManager:
         return True
 
     # =====================================
-    # LIST CACHED SESSION IDS
+    # LIST SESSION IDS
     # =====================================
 
     def list_session_ids(
@@ -380,7 +314,7 @@ class SessionManager:
             )
 
     # =====================================
-    # COUNT CACHED SESSIONS
+    # COUNT
     # =====================================
 
     def count(
@@ -394,7 +328,7 @@ class SessionManager:
             )
 
     # =====================================
-    # CLEAR MEMORY CACHE
+    # CLEAR CACHE
     # =====================================
 
     def clear(
@@ -407,8 +341,7 @@ class SessionManager:
 
 
 # =====================================
-# SHARED SESSION MANAGER
+# SHARED INSTANCE
 # =====================================
 
 session_manager = SessionManager()
-

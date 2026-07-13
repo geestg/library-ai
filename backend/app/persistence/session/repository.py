@@ -6,7 +6,7 @@ from sqlalchemy import (
 )
 
 from app.database.connection import (
-    database_session_factory,
+    get_session,
 )
 
 from app.persistence.session.models import (
@@ -32,14 +32,14 @@ class SessionRepository:
 
     # =================================
     # SAVE
-    # =================================
+    # =====================================
 
     def save(
         self,
         session: WorkspaceSession,
     ) -> None:
 
-        with database_session_factory() as database:
+        with get_session() as database:
 
             record = database.get(
                 WorkspaceSessionRecord,
@@ -114,14 +114,14 @@ class SessionRepository:
 
     # =================================
     # GET
-    # =================================
+    # =====================================
 
     def get(
         self,
         session_id: str,
     ) -> WorkspaceSession | None:
 
-        with database_session_factory() as database:
+        with get_session() as database:
 
             record = database.get(
                 WorkspaceSessionRecord,
@@ -138,14 +138,14 @@ class SessionRepository:
 
     # =================================
     # EXISTS
-    # =================================
+    # =====================================
 
     def exists(
         self,
         session_id: str,
     ) -> bool:
 
-        with database_session_factory() as database:
+        with get_session() as database:
 
             statement = (
 
@@ -176,14 +176,14 @@ class SessionRepository:
 
     # =================================
     # DELETE
-    # =================================
+    # =====================================
 
     def delete(
         self,
         session_id: str,
     ) -> bool:
 
-        with database_session_factory() as database:
+        with get_session() as database:
 
             statement = (
 
@@ -212,7 +212,7 @@ class SessionRepository:
 
     # =================================
     # HYDRATE DOMAIN SESSION
-    # =================================
+    # =====================================
 
     def _to_domain(
         self,
@@ -253,7 +253,7 @@ class SessionRepository:
 
     # =================================
     # BUILD CONVERSATION
-    # =================================
+    # =====================================
 
     def _build_conversation(
         self,
@@ -311,7 +311,7 @@ class SessionRepository:
 
     # =================================
     # BUILD DOCUMENTS
-    # =================================
+    # =====================================
 
     def _build_documents(
         self,
@@ -354,50 +354,36 @@ class SessionRepository:
 
             document = DocumentItem(
 
-                document_id=(
-                    document_id
+                document_id=document_id,
+
+                filename=item.get(
+                    "filename",
+                    "",
                 ),
 
-                filename=(
-                    item.get(
-                        "filename",
-                        "",
-                    )
+                file_type=item.get(
+                    "file_type",
+                    "",
                 ),
 
-                file_type=(
-                    item.get(
-                        "file_type",
-                        "",
-                    )
+                pages=item.get(
+                    "pages",
+                    0,
                 ),
 
-                pages=(
-                    item.get(
-                        "pages",
-                        0,
-                    )
+                chunks=item.get(
+                    "chunks",
+                    0,
                 ),
 
-                chunks=(
-                    item.get(
-                        "chunks",
-                        0,
-                    )
+                content=item.get(
+                    "content",
+                    "",
                 ),
 
-                content=(
-                    item.get(
-                        "content",
-                        "",
-                    )
-                ),
-
-                pages_data=(
-                    item.get(
-                        "pages_data",
-                        [],
-                    )
+                pages_data=item.get(
+                    "pages_data",
+                    [],
                 ),
 
             )
@@ -410,7 +396,7 @@ class SessionRepository:
 
     # =================================
     # BUILD WORKSPACE
-    # =================================
+    # =====================================
 
     def _build_workspace(
         self,
@@ -465,7 +451,7 @@ class SessionRepository:
 
     # =================================
     # BUILD EXECUTION
-    # =================================
+    # =====================================
 
     def _build_execution(
         self,
