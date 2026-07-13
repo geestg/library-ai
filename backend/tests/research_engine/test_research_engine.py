@@ -1,63 +1,43 @@
 import unittest
+
 from unittest.mock import MagicMock
 from unittest.mock import patch
 
-from app.services.research.models.research_context import ResearchContext
-from app.services.research.research_engine import research_analysis
+from app.services.research.models.research_context import (
+    ResearchContext,
+)
+
+from app.services.research.research_engine import (
+    research_analysis,
+)
+
+from app.services.research.session.session_manager import (
+    SessionManager,
+)
 
 
-class FakeConversation:
+class ResearchAnalysisTests(
+    unittest.TestCase,
+):
 
-    def __init__(self):
-        self.messages = []
-
-    def append(self, role, content):
-        self.messages.append(
-            {
-                "role": role,
-                "content": content,
-            }
-        )
-
-    def build_history(self):
-        return "\n".join(
-            f"{m['role']}: {m['content']}"
-            for m in self.messages
-        )
-
-
-class FakeExecution:
-
-    def __init__(self):
-        self.updated = False
-        self.context = None
-        self.serialized_context = None
-        self.response_content = None
-
-    def update(
+    def setUp(
         self,
-        context,
-        serialized_context,
-        response_content,
     ):
-        self.updated = True
-        self.context = context
-        self.serialized_context = serialized_context
-        self.response_content = response_content
 
+        repository = MagicMock()
 
-class FakeSession:
+        repository.get.return_value = None
 
-    def __init__(self):
-        self.session_id = "test-session"
-        self.conversation = FakeConversation()
-        self.execution = FakeExecution()
+        repository.save.return_value = None
 
-
-class ResearchEngineConversationTests(unittest.TestCase):
+        self.manager = (
+            SessionManager(
+                repository=repository,
+            )
+        )
 
     @patch(
-        "app.orchestration.task_router.route_query"
+        "app.services.research.research_engine.session_manager"
     )
     @patch(
         "app.services.research.research_engine.serialize_research_context"
@@ -66,53 +46,62 @@ class ResearchEngineConversationTests(unittest.TestCase):
         "app.services.research.research_engine.ResearchPipelineBuilder.build"
     )
     @patch(
-        "app.services.research.research_engine.session_manager"
+        "app.orchestration.task_router.route_query"
     )
-    def test_research_analysis_snapshots_history_before_current_user_message(
+    def test_research_analysis_updates_session_and_returns_response(
         self,
-        mock_session_manager,
+        mock_route,
         mock_build,
         mock_serializer,
-        mock_route,
+        mock_session_manager,
     ):
 
-        fake_session = FakeSession()
-
-        fake_session.conversation.append(
-            "user",
-            "Old Question",
+        session = self.manager.create(
+            "research-session"
         )
 
-        fake_session.conversation.append(
-            "assistant",
-            "Old Answer",
+        mock_session_manager.get_or_create.return_value = (
+            session
         )
-
-        mock_session_manager.get_or_create.return_value = fake_session
 
         mock_route.return_value = {
+
             "intent": "analysis",
-            "provider": "mock",
-            "model": "mock",
+
+            "provider": "openai",
+
+            "model": "gpt",
+
         }
 
         mock_serializer.return_value = {
-            "conversation": "serialized",
+
+            "serialized": True,
+
         }
 
-        captured_context = {}
+        captured = {}
 
         executor = MagicMock()
 
         def fake_run():
 
-            context = captured_context["context"]
+            context = captured["context"]
+
+            context.analysis = (
+                "Analysis Result"
+            )
 
             context.response = {
-                "analysis": "Assistant Reply",
+
+                "analysis":
+                    "Analysis Result",
+
             }
 
-        executor.run.side_effect = fake_run
+        executor.run.side_effect = (
+            fake_run
+        )
 
         def fake_build(
             context,
@@ -120,63 +109,284 @@ class ResearchEngineConversationTests(unittest.TestCase):
             progress_callback=None,
         ):
 
-            captured_context["context"] = context
+            captured["context"] = context
 
             return executor
 
-        mock_build.side_effect = fake_build
-
-        response = research_analysis(
-            query="Current Question",
-            session_id="test-session",
+        mock_build.side_effect = (
+            fake_build
         )
 
-        context = captured_context["context"]
+        result = research_analysis(
 
-        self.assertEqual(
-            response["analysis"],
-            "Assistant Reply",
-        )
+            query="Explain AI",
 
-        self.assertEqual(
-            context.conversation_history,
-            "user: Old Question\nassistant: Old Answer",
+            session_id="research-session",
+
         )
 
         self.assertEqual(
-            fake_session.conversation.messages[0]["content"],
-            "Old Question",
+
+            result["analysis"],
+
+            "Analysis Result",
+
+        )
+
+        context = captured["context"]
+
+        self.assertEqual(
+
+            context.query,
+
+            "Explain AI",
+
         )
 
         self.assertEqual(
-            fake_session.conversation.messages[1]["content"],
-            "Old Answer",
+
+            context.intent,
+
+            "analysis",
+
         )
 
         self.assertEqual(
-            fake_session.conversation.messages[2]["content"],
-            "Current Question",
+
+            context.provider,
+
+            "openai",
+
         )
 
         self.assertEqual(
-            fake_session.conversation.messages[3]["content"],
-            "Assistant Reply",
+
+            context.model,
+
+            "gpt",
+
         )
 
-        self.assertTrue(
-            fake_session.execution.updated
+        self.assertEqual(
+
+            session.conversation.total_messages(),
+
+            2,
+
+        )
+
+        self.assertEqual(
+
+            session.execution.response,
+
+            "Analysis Result",
+
         )
 
         self.assertIsInstance(
-            fake_session.execution.context,
+
+            session.execution.serialized_context,
+
+            dict,
+
+        )
+
+    @patch(
+        "app.services.research.research_engine.session_manager"
+    )
+    @patch(
+        "app.services.research.research_engine.ResearchPipelineBuilder.build"
+    )
+    @patch(
+        "app.orchestration.task_router.route_query"
+    )
+    def test_streaming_returns_context_and_stream(
+        self,
+        mock_route,
+        mock_build,
+        mock_session_manager,
+    ):
+
+        session = self.manager.create(
+            "stream-session"
+        )
+
+        mock_session_manager.get_or_create.return_value = (
+            session
+        )
+
+        mock_route.return_value = {
+
+            "intent": "analysis",
+
+            "provider": "mock",
+
+            "model": "mock",
+
+        }
+
+        executor = MagicMock()
+
+        def fake_run():
+
+            context = executor.context
+
+            context.llm_stream = iter(
+
+                [
+
+                    "a",
+
+                    "b",
+
+                ]
+
+            )
+
+        executor.run.side_effect = (
+            fake_run
+        )
+
+        def fake_build(
+            context,
+            stream=False,
+            progress_callback=None,
+        ):
+
+            executor.context = context
+
+            return executor
+
+        mock_build.side_effect = (
+            fake_build
+        )
+
+        context, stream = (
+
+            research_analysis(
+
+                query="Streaming",
+
+                session_id="stream-session",
+
+                stream=True,
+
+            )
+
+        )
+
+        self.assertIsInstance(
+
+            context,
+
             ResearchContext,
+
+        )
+
+        self.assertIsNotNone(
+
+            stream,
+
+        )
+
+    @patch(
+        "app.services.research.research_engine.session_manager"
+    )
+    @patch(
+        "app.services.research.research_engine.serialize_research_context"
+    )
+    @patch(
+        "app.services.research.research_engine.ResearchPipelineBuilder.build"
+    )
+    @patch(
+        "app.orchestration.task_router.route_query"
+    )
+    def test_active_document_ids_are_preserved(
+        self,
+        mock_route,
+        mock_build,
+        mock_serializer,
+        mock_session_manager,
+    ):
+
+        session = self.manager.create(
+            "document-session"
+        )
+
+        mock_session_manager.get_or_create.return_value = (
+            session
+        )
+
+        mock_route.return_value = {}
+
+        mock_serializer.return_value = {}
+
+        executor = MagicMock()
+
+        captured = {}
+
+        def fake_run():
+
+            context = captured["context"]
+
+            context.response = {
+
+                "analysis":
+                    "OK",
+
+            }
+
+        executor.run.side_effect = (
+            fake_run
+        )
+
+        def fake_build(
+            context,
+            stream=False,
+            progress_callback=None,
+        ):
+
+            captured["context"] = context
+
+            return executor
+
+        mock_build.side_effect = (
+            fake_build
+        )
+
+        research_analysis(
+
+            query="Documents",
+
+            session_id="document-session",
+
+            active_document_ids=[
+
+                "doc-1",
+
+                "doc-2",
+
+            ],
+
         )
 
         self.assertEqual(
-            fake_session.execution.response_content,
-            "Assistant Reply",
+
+            captured[
+                "context"
+            ].active_document_ids,
+
+            [
+
+                "doc-1",
+
+                "doc-2",
+
+            ],
+
         )
 
 
 if __name__ == "__main__":
+
     unittest.main()

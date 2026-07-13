@@ -1,5 +1,7 @@
 import unittest
 
+from unittest.mock import MagicMock
+
 from app.services.research.research_engine import (
     extract_assistant_content,
     persist_assistant_response,
@@ -18,8 +20,20 @@ class AssistantResponseTests(
         self,
     ):
 
+        repository = MagicMock()
+
+        repository.get.return_value = None
+
+        repository.save.return_value = None
+
+        repository.exists.return_value = False
+
+        repository.delete.return_value = True
+
         self.manager = (
-            SessionManager()
+            SessionManager(
+                repository=repository,
+            )
         )
 
         self.session = (
@@ -190,6 +204,10 @@ class AssistantResponseTests(
 
         message = (
             self.session.conversation.last_message()
+        )
+
+        self.assertIsNotNone(
+            message
         )
 
         self.assertEqual(
