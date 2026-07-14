@@ -19,12 +19,8 @@ from app.services.llm.tasks.llm_task import (
     LLMTask,
 )
 
-from app.services.prompts.models.prompt_type import (
-    PromptType,
-)
-
-from app.services.prompts.registry import (
-    PromptRegistry,
+from app.services.prompts.models.prompt_request import (
+    PromptRequest,
 )
 
 
@@ -317,13 +313,17 @@ cantumkan halaman.
 ================================================
 """
 
-    llm_request = PromptRegistry.build_request(
+    # =====================================
+    # BUILD LLM REQUEST
+    # =====================================
 
-        PromptType.ANSWER,
-
-        prompt=prompt,
-
+    llm_request = PromptRequest.answer(
+        prompt
     )
+
+    # =====================================
+    # EXECUTE
+    # =====================================
 
     answer = LLMTask.execute(
         llm_request

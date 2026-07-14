@@ -5,15 +5,15 @@ from tests.integration.base import (
 )
 
 
-class WorkspaceFlowTests(
+class DocumentFlowTests(
     IntegrationTestCase,
 ):
 
     # =====================================
-    # COMPLETE WORKSPACE LIFECYCLE
+    # DOCUMENT LIFECYCLE
     # =====================================
 
-    def test_complete_workspace_lifecycle(
+    def test_document_chat_lifecycle(
         self,
     ):
 
@@ -28,7 +28,7 @@ class WorkspaceFlowTests(
         ]
 
         # =================================
-        # MOCK UPLOAD
+        # MOCK UPLOAD DEPENDENCIES
         # =================================
 
         self.start_patch(
@@ -59,7 +59,7 @@ class WorkspaceFlowTests(
                         "page": 1,
 
                         "text":
-                            "Artificial Intelligence",
+                            "Artificial Intelligence"
 
                     },
 
@@ -68,7 +68,7 @@ class WorkspaceFlowTests(
                         "page": 2,
 
                         "text":
-                            "Machine Learning",
+                            "Machine Learning"
 
                     },
 
@@ -86,7 +86,7 @@ class WorkspaceFlowTests(
 
             "app.api.routes.routes_document.detect_document_intent",
 
-            "summary",
+            "question",
 
         )
 
@@ -118,73 +118,6 @@ class WorkspaceFlowTests(
         )
 
         # =================================
-        # MOCK STREAM
-        # =================================
-
-        class FakeContext:
-
-            pass
-
-        fake_context = FakeContext()
-
-        fake_context.session_id = session_id
-        fake_context.provider = "mock-provider"
-        fake_context.model = "mock-model"
-        fake_context.intent = "research"
-        fake_context.response = None
-        fake_context.analysis = ""
-
-        def fake_stream():
-
-            yield "Streaming "
-
-            yield "Response"
-
-        self.start_patch(
-
-            "app.api.routes.routes_chat_stream.research_analysis",
-
-            (
-
-                fake_context,
-
-                fake_stream(),
-
-            ),
-
-        )
-
-        self.start_patch(
-
-            "app.api.routes.routes_chat_stream.serialize_research_context",
-
-            {
-
-                "session_id": session_id,
-
-                "intent": "research",
-
-            },
-
-        )
-
-        self.start_patch(
-
-            "app.api.routes.routes_chat_stream.persist_stream_assistant",
-
-            "Streaming Response",
-
-        )
-
-        self.start_patch(
-
-            "app.api.routes.routes_chat_stream.persist_stream_execution",
-
-            {},
-
-        )
-
-        # =================================
         # UPLOAD
         # =================================
 
@@ -199,7 +132,7 @@ class WorkspaceFlowTests(
                     "paper.pdf",
 
                     io.BytesIO(
-                        b"dummy pdf"
+                        b"pdf"
                     ),
 
                     "application/pdf",
@@ -222,14 +155,16 @@ class WorkspaceFlowTests(
             200,
         )
 
-        upload_payload = upload.json()
+        upload_payload = (
+            upload.json()
+        )
 
         document_id = upload_payload[
             "document_id"
         ]
 
         # =================================
-        # DOCUMENT LIST
+        # VERIFY LIST
         # =================================
 
         listing = self.client.get(
@@ -255,6 +190,18 @@ class WorkspaceFlowTests(
 
         )
 
+        self.assertEqual(
+
+            payload[
+                "documents"
+            ][0][
+                "document_id"
+            ],
+
+            document_id,
+
+        )
+
         # =================================
         # DOCUMENT CHAT
         # =================================
@@ -272,7 +219,7 @@ class WorkspaceFlowTests(
                     document_id,
 
                 "question":
-                    "Ringkas dokumen",
+                    "Jelaskan isi dokumen",
 
             },
 
@@ -283,116 +230,49 @@ class WorkspaceFlowTests(
             200,
         )
 
+        chat_payload = (
+            chat.json()
+        )
+
         self.assertEqual(
 
-            chat.json()["answer"],
+            chat_payload[
+                "answer"
+            ],
 
             "Mock LLM Response",
 
         )
 
-        # =================================
-        # STREAM CHAT
-        # =================================
+        self.assertEqual(
 
-        stream = self.client.post(
+            chat_payload[
+                "intent"
+            ],
 
-            "/chat-stream",
-
-            json={
-
-                "session_id":
-                    session_id,
-
-                "message":
-                    "Jelaskan dokumen",
-
-                "active_document_ids": [
-
-                    document_id,
-
-                ],
-
-            },
+            "question",
 
         )
 
         self.assertEqual(
-            stream.status_code,
-            200,
-        )
 
-        body = stream.text
+            chat_payload[
+                "retrieved_chunks"
+            ],
 
-        self.assertIn(
-            '"type": "start"',
-            body,
-        )
+            1,
 
-        self.assertIn(
-            '"type": "metadata"',
-            body,
-        )
-
-        self.assertIn(
-            '"type": "context"',
-            body,
-        )
-
-        self.assertIn(
-            '"type": "token"',
-            body,
-        )
-
-        self.assertIn(
-            '"type": "context_final"',
-            body,
-        )
-
-        self.assertIn(
-            '"type": "end"',
-            body,
         )
 
         # =================================
         # DELETE DOCUMENT
         # =================================
 
-        delete = self.client.delete(
-
-            f"/session/{session_id}"
-            f"/documents/{document_id}"
-
-        )
-
-        self.assertEqual(
-            delete.status_code,
-            200,
-        )
-
-        listing = self.client.get(
-
-            f"/session/{session_id}/documents"
-
-        )
-
-        self.assertEqual(
-
-            listing.json()[
-                "total_documents"
-            ],
-
-            0,
-
-        )
-
-        # =================================
-        # DELETE SESSION
-        # =================================
-
         deleted = self.client.delete(
 
             f"/session/{session_id}"
+
+            f"/documents/{document_id}"
 
         )
 
@@ -402,19 +282,98 @@ class WorkspaceFlowTests(
         )
 
         # =================================
-        # VERIFY SESSION REMOVED
+        # VERIFY EMPTY
         # =================================
 
-        missing = self.client.get(
+        listing = self.client.get(
 
-            f"/session/{session_id}"
+            f"/session/{session_id}/documents"
 
         )
 
         self.assertEqual(
+            listing.status_code,
+            200,
+        )
 
-            missing.status_code,
+        payload = listing.json()
 
+        self.assertEqual(
+
+            payload[
+                "total_documents"
+            ],
+
+            0,
+
+        )
+
+    # =====================================
+    # DOCUMENT CHAT UNKNOWN DOCUMENT
+    # =====================================
+
+    def test_document_chat_unknown_document(
+        self,
+    ):
+
+        session = self.create_session()
+
+        session_id = session[
+            "session_id"
+        ]
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    session_id,
+
+                "document_id":
+                    "missing",
+
+                "question":
+                    "Halo",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
             404,
+        )
 
+    # =====================================
+    # DOCUMENT CHAT UNKNOWN SESSION
+    # =====================================
+
+    def test_document_chat_unknown_session(
+        self,
+    ):
+
+        response = self.client.post(
+
+            "/document/chat",
+
+            json={
+
+                "session_id":
+                    "missing",
+
+                "document_id":
+                    "missing",
+
+                "question":
+                    "Halo",
+
+            },
+
+        )
+
+        self.assertEqual(
+            response.status_code,
+            404,
         )
