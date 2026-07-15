@@ -123,3 +123,35 @@ test-results/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ==========================================
+# DELBOT PLATFORM RUNTIME
+# ==========================================
+
+platform/runtime/
+platform/cache/
+platform/logs/
+platform/models/
+platform/data/
+
+platform/runtime/**
+platform/cache/**
+platform/logs/**
+platform/models/**
+platform/data/**
+
+# ==========================================
+# DELBOT RUNTIME
+# ==========================================
+
+runtime/**
+!runtime/
+!runtime/pid/
+!runtime/state/
+!runtime/socket/
+!runtime/tmp/
+
+runtime/pid/*
+runtime/state/*
+runtime/socket/*
+runtime/tmp/*

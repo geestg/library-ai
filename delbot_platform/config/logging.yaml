@@ -1,0 +1,11 @@
+logging:
+  level: INFO
+
+files:
+  backend: platform/logs/backend.log
+  gateway: platform/logs/gateway.log
+  chat: platform/logs/chat.log
+  embedding: platform/logs/embedding.log
+  reranker: platform/logs/reranker.log
+  vision: platform/logs/vision.log
+  ocr: platform/logs/ocr.log
