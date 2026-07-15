@@ -1,0 +1,20 @@
+project:
+  name: DELBot
+  version: 2.0.0
+
+environment:
+  mode: production
+
+paths:
+  models: models
+  cache: cache
+  logs: logs
+  runtime: runtime
+  data: data
+
+gpu:
+  dtype: bfloat16
+  device: cuda
+
+server:
+  host: 0.0.0.0

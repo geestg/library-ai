@@ -1,0 +1,26 @@
+backend:
+  port: 8000
+
+frontend:
+  port: 5173
+
+gateway:
+  port: 8100
+
+chat:
+  port: 8101
+
+embedding:
+  port: 8102
+
+reranker:
+  port: 8103
+
+vision:
+  port: 8104
+
+ocr:
+  port: 8105
+
+speech:
+  port: 8106
