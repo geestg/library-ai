@@ -20,3 +20,9 @@ class Block:
     text: str
 
     block_type: str
+
+    font_size: float = 0.0
+
+    font_name: str = ""
+
+    bold: bool = False
