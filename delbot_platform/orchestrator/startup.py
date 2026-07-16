@@ -3,6 +3,12 @@ from __future__ import annotations
 from delbot_platform.ai.recovery.recovery import (
     RecoveryManager,
 )
+from delbot_platform.boot.boot_result import (
+    BootResult,
+)
+from delbot_platform.boot.boot_state import (
+    BootState,
+)
 from delbot_platform.controller.service_controller import (
     ServiceController,
 )
@@ -19,13 +25,17 @@ from delbot_platform.core.runtime_manager import (
 
 class StartupOrchestrator:
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         self.config = ConfigManager()
 
         self.controller = ServiceController()
 
-    def initialize(self):
+    #
+    # Initialization
+    #
+
+    def initialize(self) -> None:
 
         EnvironmentManager.setup()
 
@@ -35,11 +45,51 @@ class StartupOrchestrator:
 
         return RecoveryManager.load_states()
 
-    def start_services(self):
+    #
+    # Startup
+    #
 
-        self.controller.start_all()
+    def start_services(
+        self,
+    ) -> list[BootResult]:
 
-    def run(self):
+        return self.controller.start_all()
+
+    #
+    # UI
+    #
+
+    def _print_results(
+        self,
+        results: list[BootResult],
+    ) -> None:
+
+        if not results:
+
+            print("No services configured.")
+            return
+
+        print()
+
+        print("Service Startup Results")
+        print("-----------------------")
+
+        for result in results:
+
+            elapsed = f"{result.elapsed:.2f}s"
+
+            print(
+                f"{result.service:<12}"
+                f"{result.state.value:<12}"
+                f"{elapsed:<10}"
+                f"{result.message}"
+            )
+
+    #
+    # Main
+    #
+
+    def run(self) -> list[BootResult]:
 
         print()
 
@@ -63,9 +113,7 @@ class StartupOrchestrator:
 
         if not states:
 
-            print(
-                "No previous services found."
-            )
+            print("No previous services found.")
 
         else:
 
@@ -85,10 +133,16 @@ class StartupOrchestrator:
 
         print("Starting services...")
 
-        self.start_services()
+        results = self.start_services()
+
+        self._print_results(
+            results,
+        )
 
         print()
 
         print(
             "Platform initialization complete."
         )
+
+        return results

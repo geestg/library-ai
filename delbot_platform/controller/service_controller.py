@@ -3,6 +3,12 @@ from __future__ import annotations
 from delbot_platform.ai.process.process_manager import (
     ProcessManager,
 )
+from delbot_platform.boot.boot_result import (
+    BootResult,
+)
+from delbot_platform.boot.boot_state import (
+    BootState,
+)
 from delbot_platform.boot.service_boot import (
     ServiceBoot,
 )
@@ -12,13 +18,6 @@ from delbot_platform.services.service_registry import (
 
 
 class ServiceController:
-    """
-    Facade responsible for managing the lifecycle of AI Platform services.
-
-    The controller coordinates PlatformService definitions,
-    ServiceBoot, and ProcessManager without exposing runtime
-    implementation details to callers.
-    """
 
     def __init__(self) -> None:
 
@@ -29,53 +28,85 @@ class ServiceController:
         self.process = ProcessManager()
 
     #
-    # Single service operations
+    # Single service
     #
 
     def start(
         self,
         name: str,
-    ):
+    ) -> BootResult:
 
-        service = self.registry.get(name)
+        service = self.registry.get(
+            name,
+        )
 
         spec = service.launch_spec()
 
-        return self.boot.start(spec)
+        return self.boot.start(
+            spec,
+        )
 
     def stop(
         self,
         name: str,
     ) -> bool:
 
-        return self.process.stop(name)
+        return self.process.stop(
+            name,
+        )
 
     #
-    # Batch operations
+    # Batch
     #
 
-    def start_all(self):
+    def start_all(
+        self,
+    ) -> list[BootResult]:
 
-        processes = []
+        results: list[BootResult] = []
 
         for service in self.registry.enabled():
 
-            processes.append(
-                self.start(
+            try:
+
+                result = self.start(
                     service.name,
                 )
+
+            except Exception as exc:
+
+                result = BootResult(
+                    service=service.name,
+                    state=BootState.FAILED,
+                    message=str(exc),
+                )
+
+            results.append(
+                result,
             )
 
-        return processes
+        return results
 
-    def stop_all(self):
+    def stop_all(
+        self,
+    ) -> dict[str, bool]:
 
-        results = {}
+        results: dict[str, bool] = {}
 
         for service in self.registry.enabled():
 
-            results[service.name] = self.stop(
-                service.name,
-            )
+            try:
+
+                results[
+                    service.name
+                ] = self.stop(
+                    service.name,
+                )
+
+            except Exception:
+
+                results[
+                    service.name
+                ] = False
 
         return results

@@ -6,6 +6,9 @@ from pathlib import Path
 from delbot_platform.ai.process.process_info import (
     ProcessInfo,
 )
+from delbot_platform.ai.process.process_monitor import (
+    ProcessMonitor,
+)
 from delbot_platform.ai.process.process_registry import (
     ProcessRegistry,
 )
@@ -16,6 +19,8 @@ class ProcessManager:
     def __init__(self) -> None:
 
         self.registry = ProcessRegistry()
+
+        self.monitor = ProcessMonitor()
 
     #
     # Lifecycle
@@ -42,7 +47,7 @@ class ProcessManager:
             workdir=workdir,
             pid=proc.pid,
             process=proc,
-            running=True,
+            running=False,
             host=host,
             port=port,
         )
@@ -66,15 +71,13 @@ class ProcessManager:
 
             return False
 
-        if process.process is not None:
-
-            process.process.terminate()
-
-            process.process.wait()
+        self.monitor.terminate(
+            process,
+        )
 
         process.process = None
-        process.running = False
         process.pid = None
+        process.running = False
 
         self.registry.register(
             process,
@@ -83,7 +86,53 @@ class ProcessManager:
         return True
 
     #
-    # Query API
+    # State
+    #
+
+    def mark_running(
+        self,
+        name: str,
+    ) -> ProcessInfo:
+
+        process = self.registry.get(
+            name,
+        )
+
+        if process is None:
+
+            raise KeyError(name)
+
+        process.running = True
+
+        self.registry.register(
+            process,
+        )
+
+        return process
+
+    def mark_failed(
+        self,
+        name: str,
+    ) -> ProcessInfo:
+
+        process = self.registry.get(
+            name,
+        )
+
+        if process is None:
+
+            raise KeyError(name)
+
+        process.running = False
+
+        self.registry.register(
+            process,
+        )
+
+        return process
+
+    #
+    # Query
     #
 
     def get(
@@ -91,15 +140,28 @@ class ProcessManager:
         name: str,
     ) -> ProcessInfo | None:
 
-        return self.registry.get(
+        process = self.registry.get(
             name,
+        )
+
+        if process is None:
+
+            return None
+
+        return self.monitor.refresh(
+            process,
         )
 
     def list(
         self,
     ) -> list[ProcessInfo]:
 
-        return self.registry.list()
+        return [
+            self.monitor.refresh(
+                process,
+            )
+            for process in self.registry.list()
+        ]
 
     def exists(
         self,
@@ -115,7 +177,7 @@ class ProcessManager:
         name: str,
     ) -> bool:
 
-        process = self.registry.get(
+        process = self.get(
             name,
         )
 

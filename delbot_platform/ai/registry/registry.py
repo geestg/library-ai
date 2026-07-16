@@ -1,10 +1,23 @@
 from __future__ import annotations
 
-from pathlib import Path
-
-from delbot_platform.ai.registry.loader import RegistryLoader
-from delbot_platform.ai.registry.model_info import ModelInfo
-from delbot_platform.core.path_manager import PathManager
+from delbot_platform.ai.registry.loader import (
+    RegistryLoader,
+)
+from delbot_platform.ai.registry.model_backend import (
+    ModelBackend,
+)
+from delbot_platform.ai.registry.model_backend_config import (
+    ModelBackendConfig,
+)
+from delbot_platform.ai.registry.model_info import (
+    ModelInfo,
+)
+from delbot_platform.ai.registry.model_runtime import (
+    ModelRuntime,
+)
+from delbot_platform.core.path_manager import (
+    PathManager,
+)
 
 
 class ModelRegistry:
@@ -20,207 +33,90 @@ class ModelRegistry:
             config_file,
         )
 
-    #
-    # Internal Helpers
-    #
+    def _category(
+        self,
+        category: str,
+    ) -> dict:
 
-    def _model(
+        return self.data[
+            category
+        ]
+
+    def _build(
         self,
         category: str,
         name: str,
     ) -> ModelInfo:
 
-        model = self.data[
-            category
-        ]["models"][name]
+        model = self._category(
+            category,
+        )["models"][name]
 
-        return ModelInfo(
-            name=name,
-            backend=model["backend"],
-            path=str(
-                PathManager.ROOT
-                / model["path"]
-            ),
+        runtime = ModelRuntime(
+            host="0.0.0.0",
             port=model["port"],
+        )
+
+        backend_config = ModelBackendConfig(
             dtype=model["dtype"],
             max_context=model["max_context"],
             tensor_parallel_size=model["tensor_parallel_size"],
             gpu_memory_utilization=model["gpu_memory_utilization"],
         )
 
-    def _default_name(
+        return ModelInfo(
+            name=name,
+            backend=ModelBackend(
+                model["backend"],
+            ),
+            path=str(
+                PathManager.ROOT
+                / model["path"]
+            ),
+            runtime=runtime,
+            backend_config=backend_config,
+        )
+
+    def get(
         self,
         category: str,
-    ) -> str:
-
-        return self.data[
-            category
-        ]["default"]
-
-    #
-    # Chat
-    #
-
-    def chat(
-        self,
         name: str,
     ) -> ModelInfo:
 
-        return self._model(
-            "chat",
+        return self._build(
+            category,
             name,
         )
 
-    def chat_default(
+    def default(
         self,
+        category: str,
     ) -> ModelInfo:
 
-        return self.chat(
-            self._default_name(
-                "chat",
-            )
+        default_name = self._category(
+            category,
+        )["default"]
+
+        return self.get(
+            category,
+            default_name,
         )
 
-    #
-    # Fast Chat
-    #
-
-    def fast_chat(
+    def categories(
         self,
-        name: str,
-    ) -> ModelInfo:
+    ) -> list[str]:
 
-        return self._model(
-            "fast_chat",
-            name,
+        return list(
+            self.data.keys()
         )
 
-    def fast_chat_default(
+    def models(
         self,
-    ) -> ModelInfo:
+        category: str,
+    ) -> list[str]:
 
-        return self.fast_chat(
-            self._default_name(
-                "fast_chat",
-            )
-        )
-
-    #
-    # Coding
-    #
-
-    def coding(
-        self,
-        name: str,
-    ) -> ModelInfo:
-
-        return self._model(
-            "coding",
-            name,
-        )
-
-    def coding_default(
-        self,
-    ) -> ModelInfo:
-
-        return self.coding(
-            self._default_name(
-                "coding",
-            )
-        )
-
-    #
-    # Vision
-    #
-
-    def vision(
-        self,
-        name: str,
-    ) -> ModelInfo:
-
-        return self._model(
-            "vision",
-            name,
-        )
-
-    def vision_default(
-        self,
-    ) -> ModelInfo:
-
-        return self.vision(
-            self._default_name(
-                "vision",
-            )
-        )
-
-    #
-    # Embedding
-    #
-
-    def embedding(
-        self,
-        name: str,
-    ) -> ModelInfo:
-
-        return self._model(
-            "embedding",
-            name,
-        )
-
-    def embedding_default(
-        self,
-    ) -> ModelInfo:
-
-        return self.embedding(
-            self._default_name(
-                "embedding",
-            )
-        )
-
-    #
-    # Reranker
-    #
-
-    def reranker(
-        self,
-        name: str,
-    ) -> ModelInfo:
-
-        return self._model(
-            "reranker",
-            name,
-        )
-
-    def reranker_default(
-        self,
-    ) -> ModelInfo:
-
-        return self.reranker(
-            self._default_name(
-                "reranker",
-            )
-        )
-
-    #
-    # OCR
-    #
-
-    def ocr(
-        self,
-        name: str,
-    ) -> ModelInfo:
-
-        return self._model(
-            "ocr",
-            name,
-        )
-
-    def ocr_default(
-        self,
-    ) -> ModelInfo:
-
-        return self.ocr(
-            self._default_name(
-                "ocr",
-            )
+        return list(
+            self._category(
+                category,
+            )["models"].keys()
         )

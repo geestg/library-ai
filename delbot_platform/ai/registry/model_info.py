@@ -1,4 +1,16 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
+
+from delbot_platform.ai.registry.model_backend import (
+    ModelBackend,
+)
+from delbot_platform.ai.registry.model_backend_config import (
+    ModelBackendConfig,
+)
+from delbot_platform.ai.registry.model_runtime import (
+    ModelRuntime,
+)
 
 
 @dataclass(slots=True)
@@ -6,16 +18,10 @@ class ModelInfo:
 
     name: str
 
-    backend: str
+    backend: ModelBackend
 
     path: str
 
-    port: int
+    runtime: ModelRuntime
 
-    dtype: str
-
-    max_context: int
-
-    tensor_parallel_size: int
-
-    gpu_memory_utilization: float
+    backend_config: ModelBackendConfig

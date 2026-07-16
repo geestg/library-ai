@@ -1,4 +1,8 @@
-from delbot_platform.ai.registry.model_info import ModelInfo
+from __future__ import annotations
+
+from delbot_platform.ai.registry.model_info import (
+    ModelInfo,
+)
 
 
 class VLLMLauncher:
@@ -6,7 +10,11 @@ class VLLMLauncher:
     @staticmethod
     def build_command(
         model: ModelInfo,
-    ):
+    ) -> list[str]:
+
+        runtime = model.runtime
+
+        config = model.backend_config
 
         return [
 
@@ -20,21 +28,27 @@ class VLLMLauncher:
             model.path,
 
             "--host",
-            "0.0.0.0",
+            runtime.host,
 
             "--port",
-            str(model.port),
+            str(runtime.port),
 
             "--dtype",
-            model.dtype,
+            config.dtype,
 
             "--tensor-parallel-size",
-            str(model.tensor_parallel_size),
+            str(
+                config.tensor_parallel_size,
+            ),
 
             "--gpu-memory-utilization",
-            str(model.gpu_memory_utilization),
+            str(
+                config.gpu_memory_utilization,
+            ),
 
             "--max-model-len",
-            str(model.max_context),
+            str(
+                config.max_context,
+            ),
 
         ]

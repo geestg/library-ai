@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from delbot_platform.ai.registry.model_category import (
-    ModelCategory,
-)
+from delbot_platform.ai.registry.model_category import ModelCategory
+
 from delbot_platform.ai.runtime.base import (
     BaseRuntime,
 )
@@ -11,9 +10,8 @@ from delbot_platform.ai.runtime.base import (
 def main() -> None:
 
     BaseRuntime(
-        ModelCategory.CHAT,
+        ModelCategory.FAST_CHAT,
     ).run()
-
 
 if __name__ == "__main__":
 

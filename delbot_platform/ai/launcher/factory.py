@@ -1,6 +1,17 @@
-from delbot_platform.ai.launcher.infinity import InfinityLauncher
-from delbot_platform.ai.launcher.native import NativeLauncher
-from delbot_platform.ai.launcher.vllm import VLLMLauncher
+from __future__ import annotations
+
+from delbot_platform.ai.launcher.infinity import (
+    InfinityLauncher,
+)
+from delbot_platform.ai.launcher.native import (
+    NativeLauncher,
+)
+from delbot_platform.ai.launcher.vllm import (
+    VLLMLauncher,
+)
+from delbot_platform.ai.registry.model_backend import (
+    ModelBackend,
+)
 
 
 class LauncherFactory:
@@ -10,15 +21,28 @@ class LauncherFactory:
         model,
     ):
 
-        if model.backend == "vllm":
-            return VLLMLauncher.build_command(model)
+        match model.backend:
 
-        if model.backend == "infinity":
-            return InfinityLauncher.build_command(model)
+            case ModelBackend.VLLM:
 
-        if model.backend == "native":
-            return NativeLauncher.build_command(model)
+                return VLLMLauncher.build_command(
+                    model,
+                )
 
-        raise ValueError(
-            f"Unsupported backend: {model.backend}"
-        )
+            case ModelBackend.INFINITY:
+
+                return InfinityLauncher.build_command(
+                    model,
+                )
+
+            case ModelBackend.NATIVE:
+
+                return NativeLauncher.build_command(
+                    model,
+                )
+
+            case _:
+
+                raise ValueError(
+                    f"Unsupported backend: {model.backend}"
+                )
