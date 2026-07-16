@@ -1,43 +1,47 @@
 from __future__ import annotations
 
-from delbot_platform.documents.classification.page_region import (
-    PageRegion,
+from delbot_platform.documents.classification.page_type import (
+    PageType,
 )
 
 
 class PageClassifier:
 
-
     def classify(
         self,
-        page_number: int,
-        text: str = "",
-    ) -> PageRegion:
+        page,
+    ) -> PageType:
 
+        text = page.get_text().strip()
 
         upper = text.upper()
 
+        if not upper:
 
-        if page_number == 1:
+            return PageType.BLANK
 
-            return PageRegion.COVER
+        if page.number == 0:
 
+            return PageType.COVER
 
-        front_keywords = [
-            "ABSTRAK",
-            "ABSTRACT",
-            "KATA PENGANTAR",
-            "DAFTAR ISI",
-            "LEMBAR PENGESAHAN",
-        ]
+        if "DAFTAR ISI" in upper:
 
+            return PageType.TABLE_OF_CONTENTS
 
-        if any(
-            keyword in upper
-            for keyword in front_keywords
-        ):
+        if "DAFTAR PUSTAKA" in upper:
 
-            return PageRegion.FRONT_MATTER
+            return PageType.BIBLIOGRAPHY
 
+        if "LAMPIRAN" in upper:
 
-        return PageRegion.CONTENT
+            return PageType.APPENDIX
+
+        if "BAB " in upper:
+
+            return PageType.CHAPTER
+
+        if "KATA PENGANTAR" in upper:
+
+            return PageType.PREFACE
+
+        return PageType.UNKNOWN

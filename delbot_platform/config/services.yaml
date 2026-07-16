@@ -7,6 +7,9 @@ frontend:
 gateway:
   port: 8100
 
+research_api:
+  port: 8200
+
 chat:
   port: 8101
 

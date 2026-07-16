@@ -20,6 +20,10 @@ from delbot_platform.launcher.paddleocr import (
     PaddleOCRLauncher,
 )
 
+from delbot_platform.launcher.research_api_launcher import (
+    ResearchAPILauncher,
+)
+
 from delbot_platform.launcher.vllm import (
     VLLMLauncher,
 )
@@ -34,6 +38,8 @@ class LauncherFactory:
     _LAUNCHERS = {
 
         "gateway": GatewayLauncher,
+
+        "research_api": ResearchAPILauncher,
 
         "chat": VLLMLauncher,
 
@@ -79,6 +85,11 @@ class LauncherFactory:
     def gateway() -> GatewayLauncher:
 
         return GatewayLauncher()
+
+    @staticmethod
+    def research_api() -> ResearchAPILauncher:
+
+        return ResearchAPILauncher()
 
     @staticmethod
     def embedding() -> InfinityLauncher:

@@ -24,6 +24,10 @@ from delbot_platform.services.reranker_service import (
     RerankerService,
 )
 
+from delbot_platform.services.research_api_service import (
+    ResearchAPIService,
+)
+
 from delbot_platform.services.service import (
     PlatformService,
 )
@@ -42,21 +46,30 @@ class PlatformServiceRegistry:
     Converts configuration-defined services into PlatformService
     implementations.
 
-    This registry mirrors the public API of Core ServiceRegistry,
-    but returns PlatformService instances.
+    Configuration remains the source of truth.
     """
 
     _SERVICES: dict[str, type[PlatformService]] = {
+
         "gateway": GatewayService,
+
+        "research_api": ResearchAPIService,
+
         "chat": ChatService,
+
         "embedding": EmbeddingService,
+
         "reranker": RerankerService,
+
         "vision": VisionService,
+
         "ocr": OCRService,
+
         "speech": SpeechService,
+
     }
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         self._registry = ServiceRegistry()
 
@@ -71,10 +84,12 @@ class PlatformServiceRegistry:
             if service_cls is None:
                 continue
 
-            self._services[config.name] = service_cls()
+            self._services[
+                config.name
+            ] = service_cls()
 
     #
-    # Backward-compatible API
+    # Backward Compatibility
     #
 
     def service(
@@ -82,7 +97,9 @@ class PlatformServiceRegistry:
         name: str,
     ) -> PlatformService:
 
-        return self.get(name)
+        return self.get(
+            name,
+        )
 
     def all(
         self,
@@ -91,7 +108,7 @@ class PlatformServiceRegistry:
         return self.services()
 
     #
-    # New API
+    # Current API
     #
 
     def get(
@@ -99,7 +116,9 @@ class PlatformServiceRegistry:
         name: str,
     ) -> PlatformService:
 
-        return self._services[name]
+        return self._services[
+            name
+        ]
 
     def services(
         self,
@@ -123,7 +142,7 @@ class PlatformServiceRegistry:
         return name in self._services
 
     #
-    # Pythonic API
+    # Python API
     #
 
     def __contains__(
@@ -131,9 +150,13 @@ class PlatformServiceRegistry:
         name: str,
     ) -> bool:
 
-        return self.exists(name)
+        return self.exists(
+            name,
+        )
 
-    def __iter__(self):
+    def __iter__(
+        self,
+    ):
 
         return iter(
             self._services.values()

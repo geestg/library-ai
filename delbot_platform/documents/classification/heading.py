@@ -10,7 +10,12 @@ from delbot_platform.documents.models.block import (
 
 
 class HeadingClassifier:
+    """
+    Classify a Block into a semantic document type.
 
+    This classifier updates the Block in-place and also
+    returns the resolved DocumentBlockType.
+    """
 
     def classify(
         self,
@@ -19,57 +24,60 @@ class HeadingClassifier:
 
         text = block.text.strip()
 
-
         if not text:
 
-            return DocumentBlockType.UNKNOWN
+            block.type = DocumentBlockType.UNKNOWN
+            return block.type
 
+        if self._is_date(text):
 
-        if self._is_date(
-            text,
-        ):
+            block.type = DocumentBlockType.DATE
+            return block.type
 
-            return DocumentBlockType.DATE
+        if self._is_institution(text):
 
+            block.type = DocumentBlockType.INSTITUTION
+            return block.type
 
-        if self._is_institution(
-            text,
-        ):
+        if self._is_title(block):
 
-            return DocumentBlockType.INSTITUTION
+            block.type = DocumentBlockType.TITLE
+            return block.type
 
+        if self._looks_like_author(block):
 
-        if self._is_title(
-            block,
-        ):
+            block.type = DocumentBlockType.AUTHOR
+            return block.type
 
-            return DocumentBlockType.TITLE
+        if self._is_heading(block):
 
+            block.type = DocumentBlockType.HEADING
+            return block.type
 
-        if self._looks_like_author(
-            block,
-        ):
+        block.type = DocumentBlockType.PARAGRAPH
 
-            return DocumentBlockType.AUTHOR
+        return block.type
 
+    def classify_all(
+        self,
+        blocks: list[Block],
+    ) -> list[Block]:
 
-        if self._is_heading(
-            block,
-        ):
+        for block in blocks:
 
-            return DocumentBlockType.HEADING
+            self.classify(
+                block,
+            )
 
-
-        return DocumentBlockType.PARAGRAPH
-
-
+        return blocks
 
     def _is_date(
         self,
         text: str,
     ) -> bool:
 
-        months = [
+        months = (
+
             "JANUARI",
             "FEBRUARI",
             "MARET",
@@ -82,7 +90,8 @@ class HeadingClassifier:
             "OKTOBER",
             "NOVEMBER",
             "DESEMBER",
-        ]
+
+        )
 
         upper = text.upper()
 
@@ -91,30 +100,26 @@ class HeadingClassifier:
             for month in months
         )
 
-
-
     def _is_institution(
         self,
         text: str,
     ) -> bool:
 
-        upper = text.upper()
+        keywords = (
 
-
-        keywords = [
             "INSTITUT",
             "UNIVERSITAS",
             "FAKULTAS",
             "PROGRAM STUDI",
-        ]
 
+        )
+
+        upper = text.upper()
 
         return any(
             keyword in upper
             for keyword in keywords
         )
-
-
 
     def _is_title(
         self,
@@ -122,12 +127,14 @@ class HeadingClassifier:
     ) -> bool:
 
         return (
+
             block.page == 1
+
             and block.font_size >= 14
+
             and block.bold
+
         )
-
-
 
     def _looks_like_author(
         self,
@@ -136,29 +143,26 @@ class HeadingClassifier:
 
         text = block.text.strip()
 
-        words = text.split()
-
-
-        if len(words) > 4:
+        if len(text.split()) > 4:
 
             return False
 
-
         if any(
-            char.isdigit()
-            for char in text
+            c.isdigit()
+            for c in text
         ):
 
             return False
 
-
         return (
+
             block.page == 1
+
             and block.bold
+
             and block.font_size >= 12
+
         )
-
-
 
     def _is_heading(
         self,
@@ -166,6 +170,9 @@ class HeadingClassifier:
     ) -> bool:
 
         return (
+
             block.font_size >= 13
+
             and block.bold
+
         )
