@@ -1,6 +1,14 @@
-from delbot_platform.gateway.providers.base import BaseProvider
-from delbot_platform.gateway.schemas.request import ChatRequest
-from delbot_platform.gateway.schemas.response import ChatResponse
+from __future__ import annotations
+
+from delbot_platform.gateway.providers.base import (
+    BaseProvider,
+)
+from delbot_platform.gateway.request import (
+    ChatRequest,
+)
+from delbot_platform.gateway.response import (
+    ChatResponse,
+)
 
 
 class LocalProvider(BaseProvider):
@@ -11,6 +19,6 @@ class LocalProvider(BaseProvider):
     ) -> ChatResponse:
 
         return ChatResponse(
-            model=request.model,
-            response="Dummy response from LocalProvider",
+            content="Dummy response from LocalProvider",
+            model=request.model or "local",
         )

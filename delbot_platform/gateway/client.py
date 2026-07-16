@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+from typing import Any
+
 import httpx
 
-from delbot_platform.ai.registry.model_category import (
-    ModelCategory,
+from delbot_platform.ai.registry.model_runtime import (
+    ModelRuntime,
 )
-from delbot_platform.gateway.router import (
-    GatewayRouter,
+from delbot_platform.gateway.exceptions import (
+    GatewayTimeout,
+    GatewayUnavailable,
 )
 
 
@@ -15,63 +18,99 @@ class GatewayClient:
     def __init__(
         self,
         timeout: float = 30.0,
+        retries: int = 3,
     ) -> None:
 
         self.timeout = timeout
 
-        self.router = GatewayRouter()
+        self.retries = retries
 
-    def _base_url(
+    def _build_url(
         self,
-        category: ModelCategory,
+        runtime: ModelRuntime,
+        endpoint: str,
     ) -> str:
-
-        runtime = self.router.runtime(
-            category,
-        )
 
         return (
             f"http://{runtime.host}:{runtime.port}"
+            f"{endpoint}"
         )
+
+    def request(
+        self,
+        runtime: ModelRuntime,
+        method: str,
+        endpoint: str,
+        payload: dict[str, Any] | None = None,
+    ) -> Any:
+
+        url = self._build_url(
+            runtime,
+            endpoint,
+        )
+
+        last_error: Exception | None = None
+
+        for _ in range(
+            self.retries,
+        ):
+
+            try:
+
+                response = httpx.request(
+                    method=method,
+                    url=url,
+                    json=payload,
+                    timeout=self.timeout,
+                )
+
+                response.raise_for_status()
+
+                return response.json()
+
+            except httpx.TimeoutException as exc:
+
+                last_error = exc
+
+            except httpx.HTTPError as exc:
+
+                last_error = exc
+
+        if isinstance(
+            last_error,
+            httpx.TimeoutException,
+        ):
+
+            raise GatewayTimeout(
+                str(last_error),
+            ) from last_error
+
+        raise GatewayUnavailable(
+            str(last_error),
+        ) from last_error
 
     def get(
         self,
-        category: ModelCategory,
+        runtime: ModelRuntime,
         endpoint: str,
     ):
 
-        url = (
-            self._base_url(category)
-            + endpoint
+        return self.request(
+            runtime=runtime,
+            method="GET",
+            endpoint=endpoint,
         )
-
-        response = httpx.get(
-            url,
-            timeout=self.timeout,
-        )
-
-        response.raise_for_status()
-
-        return response.json()
 
     def post(
         self,
-        category: ModelCategory,
+        runtime: ModelRuntime,
         endpoint: str,
-        payload: dict,
+        payload: dict[str, Any],
     ):
 
-        url = (
-            self._base_url(category)
-            + endpoint
+        return self.request(
+            runtime=runtime,
+            method="POST",
+            endpoint=endpoint,
+            payload=payload,
         )
-
-        response = httpx.post(
-            url,
-            json=payload,
-            timeout=self.timeout,
-        )
-
-        response.raise_for_status()
-
-        return response.json()

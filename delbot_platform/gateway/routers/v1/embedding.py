@@ -13,14 +13,16 @@ from delbot_platform.gateway.services.gateway import (
 )
 
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/v1",
+    tags=["Embedding"],
+)
 
 service = GatewayService()
 
 
 @router.post(
-    "/embedding",
-    response_model=None,
+    "/embeddings",
 )
 async def embedding(
     request: EmbeddingRequest,

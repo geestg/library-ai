@@ -5,20 +5,28 @@ from fastapi import APIRouter
 from delbot_platform.gateway.request import (
     ChatRequest,
 )
+from delbot_platform.gateway.response import (
+    ChatResponse,
+)
 from delbot_platform.gateway.services.gateway import (
     GatewayService,
 )
 
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/v1",
+    tags=["Chat"],
+)
 
 service = GatewayService()
 
 
-@router.post("/chat")
+@router.post(
+    "/chat/completions",
+)
 async def chat(
     request: ChatRequest,
-):
+) -> ChatResponse:
 
     return await service.chat(
         request,
