@@ -154,4 +154,4 @@ runtime/**
 runtime/pid/*
 runtime/state/*
 runtime/socket/*
-runtime/tmp/*
+runtime/tmp/*documents_tree.txt
