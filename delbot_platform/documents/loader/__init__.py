@@ -1,5 +1,16 @@
-from .pdf import PDFLoader
+from .source import (
+    DocumentSource,
+)
+
+from .local import (
+    LocalDocumentSource,
+)
+
 
 __all__ = [
-    "PDFLoader",
+
+    "DocumentSource",
+
+    "LocalDocumentSource",
+
 ]

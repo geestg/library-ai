@@ -2,63 +2,66 @@ from __future__ import annotations
 
 import time
 
-import fitz
-
-from delbot_platform.documents.loader.pdf import (
-    PDFLoader,
-)
-from delbot_platform.documents.extraction.block import (
-    BlockExtractor,
-)
-from delbot_platform.documents.classification.heading import (
-    HeadingClassifier,
-)
-from delbot_platform.documents.classification.page_classifier import (
-    PageClassifier,
-)
-from delbot_platform.documents.structure.builder import (
-    SectionBuilder,
-)
-from delbot_platform.documents.structure.hierarchy import (
-    SectionHierarchyBuilder,
-)
-from delbot_platform.documents.chunking.builder import (
+from delbot_platform.documents.chunking import (
     ChunkBuilder,
 )
+
 from delbot_platform.documents.embedding.pipeline.pipeline import (
     EmbeddingPipeline,
 )
+
 from delbot_platform.documents.pipeline.models.index_result import (
     DocumentIndexResult,
 )
+
+from delbot_platform.documents.pipeline.preprocessing import (
+    DocumentPreprocessingPipeline,
+)
+
 from delbot_platform.documents.registry.manager import (
     DocumentRegistryManager,
 )
 
 
 class DocumentIndexingPipeline:
+    """
+    Canonical Document Indexing Pipeline.
+
+    Flow
+
+        Registry
+            │
+            ▼
+        Preprocessing
+            │
+            ▼
+        DocumentSection[]
+            │
+            ▼
+        ChunkBuilder
+            │
+            ▼
+        EmbeddingPipeline
+            │
+            ▼
+        DocumentIndexResult
+    """
 
     def __init__(
         self,
     ) -> None:
 
-        self.registry = DocumentRegistryManager()
-
-        self.loader = PDFLoader()
-
-        self.extractor = BlockExtractor()
-
-        self.heading = HeadingClassifier()
-
-        self.page_classifier = PageClassifier()
-
-        self.section_builder = SectionBuilder()
-
-        self.hierarchy_builder = (
-            SectionHierarchyBuilder()
+        self.registry = (
+            DocumentRegistryManager()
         )
 
-        self.chunk_builder = ChunkBuilder()
+        self.preprocessing = (
+            DocumentPreprocessingPipeline()
+        )
+
+        self.chunk_builder = (
+            ChunkBuilder()
+        )
 
         self.embedding = (
             EmbeddingPipeline()
@@ -75,62 +78,21 @@ class DocumentIndexingPipeline:
             pdf_path,
         )
 
-        pdf = self.loader.load(
-            pdf_path,
+        sections = self.preprocessing.process(
+
+            document_id=document.id,
+
+            source=document.source,
+
+            pdf_path=pdf_path,
+
         )
 
-        items = []
-
-        block_count = 0
-
-        for page in pdf:
-
-            blocks = self.extractor.extract(
-                page,
-            )
-
-            block_count += len(
-                blocks,
-            )
-
-            page_type = (
-                self.page_classifier.classify(
-                    page,
-                )
-            )
-
-            for block in blocks:
-
-                items.append(
-
-                    self.heading.classify(
-
-                        block,
-
-                        page_type,
-                    )
-
-                )
-
-        sections = (
-            self.section_builder.build(
-                items,
-            )
+        chunks = self.chunk_builder.build(
+            sections,
         )
 
-        hierarchy = (
-            self.hierarchy_builder.build(
-                sections,
-            )
-        )
-
-        chunks = (
-            self.chunk_builder.build(
-                hierarchy,
-            )
-        )
-
-        vectors = await self.embedding.embed(
+        vectors = await self.embedding.run(
             chunks,
         )
 
@@ -139,13 +101,35 @@ class DocumentIndexingPipeline:
             - started
         )
 
+        block_count = sum(
+
+            section.block_count
+
+            for section in sections
+
+        )
+
+        page_count = max(
+
+            (
+
+                section.page_end
+
+                for section in sections
+
+            ),
+
+            default=0,
+
+        )
+
         return DocumentIndexResult(
 
             document_id=document.id,
 
             source=document.source,
 
-            pages=len(pdf),
+            pages=page_count,
 
             blocks=block_count,
 
@@ -164,4 +148,5 @@ class DocumentIndexingPipeline:
             elapsed=elapsed,
 
             success=True,
+
         )

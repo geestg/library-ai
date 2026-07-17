@@ -1,32 +1,64 @@
 from __future__ import annotations
 
+
+from delbot_platform.documents.classification.document_type import (
+    DocumentBlockType,
+)
+
 from delbot_platform.documents.models.block import (
     Block,
 )
 
 
 class BlockExtractor:
+    """
+    Extract atomic document blocks from PDF pages.
+
+    Responsibility:
+
+    PDF Page
+        |
+        v
+    Layout blocks
+        |
+        v
+    Document Block objects
+
+    This layer only extracts physical information.
+    Semantic classification is handled by HeadingClassifier.
+    """
+
 
     def extract(
         self,
         page,
     ) -> list[Block]:
 
-        result: list[Block] = []
+        blocks: list[Block] = []
 
         data = page.get_text(
             "dict",
         )
 
+
         counter = 0
+
 
         for item in data.get(
             "blocks",
             [],
         ):
 
+
+            #
+            # Ignore image blocks
+            #
+
             if "lines" not in item:
+
                 continue
+
+
 
             texts: list[str] = []
 
@@ -34,61 +66,145 @@ class BlockExtractor:
 
             font_names: list[str] = []
 
-            is_bold = False
 
-            for line in item["lines"]:
+            bold = False
 
-                for span in line["spans"]:
 
-                    texts.append(
-                        span["text"],
+
+            for line in item.get(
+                "lines",
+                [],
+            ):
+
+
+                for span in line.get(
+                    "spans",
+                    [],
+                ):
+
+
+                    text = span.get(
+                        "text",
+                        "",
                     )
+
+
+                    if text:
+
+                        texts.append(
+                            text,
+                        )
+
 
                     font_sizes.append(
-                        span["size"],
+                        float(
+                            span.get(
+                                "size",
+                                0,
+                            )
+                        )
                     )
+
 
                     font_names.append(
-                        span["font"],
+                        span.get(
+                            "font",
+                            "",
+                        )
                     )
 
-                    if "Bold" in span["font"]:
-                        is_bold = True
 
-            text = " ".join(
+                    font = span.get(
+                        "font",
+                        "",
+                    )
+
+
+                    if "Bold" in font:
+
+                        bold = True
+
+
+
+            content = " ".join(
                 texts,
             ).strip()
 
-            if not text:
+
+            if not content:
+
                 continue
+
+
 
             counter += 1
 
+
+
             average_font_size = (
-                sum(font_sizes) / len(font_sizes)
+
+                sum(font_sizes)
+                /
+                len(font_sizes)
+
                 if font_sizes
+
                 else 0.0
+
             )
+
 
             font_name = (
+
                 font_names[0]
+
                 if font_names
+
                 else ""
+
             )
 
-            result.append(
+
+
+            blocks.append(
+
                 Block(
+
                     id=f"block-{counter}",
+
                     page=page.number + 1,
+
                     bbox=tuple(
                         item["bbox"]
                     ),
-                    text=text,
-                    block_type="text",
+
+                    text=content,
+
+
+                    #
+                    # semantic classification
+                    # will happen later
+                    #
+
+                    type=DocumentBlockType.UNKNOWN,
+
+
                     font_size=average_font_size,
+
                     font_name=font_name,
-                    bold=is_bold,
+
+                    bold=bold,
+
+
+                    metadata={
+
+                        "source": "pymupdf",
+
+                    },
+
                 )
+
             )
 
-        return result
+
+        return blocks
