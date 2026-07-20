@@ -1,31 +1,32 @@
-from __future__ import annotations
-
 from fastapi import APIRouter
 
-from delbot_platform.gateway.request import (
-    EmbeddingRequest,
-)
-from delbot_platform.gateway.response import (
-    EmbeddingResponse,
-)
+
 from delbot_platform.gateway.services.gateway import (
     GatewayService,
 )
 
+from delbot_platform.gateway.request import (
+    EmbeddingRequest,
+)
 
-router = APIRouter()
+
+
+router = APIRouter(
+    prefix="/v1",
+    tags=["Embedding"],
+)
+
+
 
 service = GatewayService()
 
 
-@router.post(
-    "/embedding",
-    response_model=None,
-)
-async def embedding(
-    request: EmbeddingRequest,
-) -> EmbeddingResponse:
+
+@router.post("/embeddings")
+async def embeddings(
+    request:EmbeddingRequest,
+):
 
     return await service.embedding(
-        request,
+        request
     )

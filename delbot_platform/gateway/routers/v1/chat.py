@@ -2,21 +2,15 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from delbot_platform.gateway.request import (
-    ChatRequest,
-)
-from delbot_platform.gateway.response import (
-    ChatResponse,
-)
-from delbot_platform.gateway.services.gateway import (
-    GatewayService,
-)
+from delbot_platform.gateway.request import ChatRequest
+from delbot_platform.gateway.services.gateway import GatewayService
 
 
 router = APIRouter(
     prefix="/v1",
     tags=["Chat"],
 )
+
 
 service = GatewayService()
 
@@ -26,8 +20,10 @@ service = GatewayService()
 )
 async def chat(
     request: ChatRequest,
-) -> ChatResponse:
+):
 
-    return await service.chat(
+    response = await service.chat(
         request,
     )
+
+    return response

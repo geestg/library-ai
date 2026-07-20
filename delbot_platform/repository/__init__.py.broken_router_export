@@ -1,0 +1,12 @@
+"""
+Repository domain package.
+
+Contains:
+- discovery
+- ingestion
+- download
+- manifest
+- resolver
+"""
+
+__all__ = []

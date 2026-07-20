@@ -1,30 +1,36 @@
 from __future__ import annotations
 
+
 import subprocess
+
+
 from pathlib import Path
+
 
 from delbot_platform.ai.process.process_info import (
     ProcessInfo,
 )
+
 from delbot_platform.ai.process.process_monitor import (
     ProcessMonitor,
 )
+
 from delbot_platform.ai.process.process_registry import (
     ProcessRegistry,
 )
 
 
+
 class ProcessManager:
 
-    def __init__(self) -> None:
+
+    def __init__(self):
 
         self.registry = ProcessRegistry()
 
         self.monitor = ProcessMonitor()
 
-    #
-    # Lifecycle
-    #
+
 
     def start(
         self,
@@ -32,157 +38,110 @@ class ProcessManager:
         name: str,
         command: list[str],
         workdir: Path,
-        host: str = "127.0.0.1",
-        port: int = 0,
-    ) -> ProcessInfo:
+        host="127.0.0.1",
+        port=0,
+    ):
 
-        proc = subprocess.Popen(
+
+        process = subprocess.Popen(
             command,
             cwd=workdir,
         )
 
+
         info = ProcessInfo(
+
             name=name,
+
             command=command,
+
             workdir=workdir,
-            pid=proc.pid,
-            process=proc,
-            running=False,
+
+            pid=process.pid,
+
+            process=process,
+
+            running=True,
+
             host=host,
+
             port=port,
+
         )
 
+
         self.registry.register(
-            info,
+            info
         )
+
 
         return info
 
+
+
     def stop(
         self,
-        name: str,
-    ) -> bool:
+        name:str,
+    ):
 
-        process = self.registry.get(
-            name,
+
+        info = self.registry.get(
+            name
         )
 
-        if process is None:
+
+        if info is None:
 
             return False
 
-        self.monitor.terminate(
-            process,
-        )
 
-        process.process = None
-        process.pid = None
-        process.running = False
+        if info.process:
+
+            info.process.terminate()
+
+
+        info.running=False
+
 
         self.registry.register(
-            process,
+            info
         )
+
 
         return True
 
-    #
-    # State
-    #
 
-    def mark_running(
-        self,
-        name: str,
-    ) -> ProcessInfo:
-
-        process = self.registry.get(
-            name,
-        )
-
-        if process is None:
-
-            raise KeyError(name)
-
-        process.running = True
-
-        self.registry.register(
-            process,
-        )
-
-        return process
-
-    def mark_failed(
-        self,
-        name: str,
-    ) -> ProcessInfo:
-
-        process = self.registry.get(
-            name,
-        )
-
-        if process is None:
-
-            raise KeyError(name)
-
-        process.running = False
-
-        self.registry.register(
-            process,
-        )
-
-        return process
-
-    #
-    # Query
-    #
 
     def get(
         self,
-        name: str,
-    ) -> ProcessInfo | None:
+        name:str,
+    ):
 
-        process = self.registry.get(
-            name,
+
+        info=self.registry.get(
+            name
         )
 
-        if process is None:
 
-            return None
+        if info:
 
-        return self.monitor.refresh(
-            process,
-        )
+            return self.monitor.refresh(
+                info
+            )
 
-    def list(
-        self,
-    ) -> list[ProcessInfo]:
+
+        return None
+
+
+
+    def list(self):
 
         return [
+
             self.monitor.refresh(
-                process,
+                x
             )
-            for process in self.registry.list()
+
+            for x in self.registry.list()
+
         ]
-
-    def exists(
-        self,
-        name: str,
-    ) -> bool:
-
-        return self.registry.exists(
-            name,
-        )
-
-    def running(
-        self,
-        name: str,
-    ) -> bool:
-
-        process = self.get(
-            name,
-        )
-
-        if process is None:
-
-            return False
-
-        return process.running

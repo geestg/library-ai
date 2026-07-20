@@ -1,12 +1,21 @@
 from __future__ import annotations
 
+from fastapi import APIRouter
 
-from delbot_platform.repository import (
-    repository_router,
+
+router = APIRouter(
+    prefix="/repository",
+    tags=["repository"],
 )
 
 
-router = repository_router
+@router.get("/health")
+def repository_health():
+
+    return {
+        "service": "repository",
+        "status": "ok",
+    }
 
 
 __all__ = [

@@ -1,16 +1,11 @@
-from .indexing_adapter import (
-    DocumentIndexingAdapter,
-)
-
-from .document_bridge import (
-    RepositoryDocumentBridge,
+from .document_loader import (
+    RepositoryDocumentLoader,
 )
 
 
 __all__ = [
 
-    "DocumentIndexingAdapter",
-
-    "RepositoryDocumentBridge",
+    "RepositoryDocumentLoader",
 
 ]
+

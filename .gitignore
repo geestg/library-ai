@@ -1,3 +1,4 @@
+cat > .gitignore <<'EOF'
 # ==========================================
 # ENVIRONMENT VARIABLES
 # ==========================================
@@ -54,7 +55,7 @@ pnpm-debug.log*
 
 
 # ==========================================
-# LOCAL DATABASE / DOCKER STORAGE
+# LOCAL DATABASE / STORAGE
 # ==========================================
 
 *.db
@@ -63,6 +64,7 @@ pnpm-debug.log*
 
 .qdrant/
 qdrant_storage/
+
 postgres_data/
 minio_data/
 
@@ -89,7 +91,7 @@ temp/
 
 
 # ==========================================
-# TEST / COVERAGE OUTPUT
+# TEST OUTPUT
 # ==========================================
 
 coverage/
@@ -106,7 +108,7 @@ test-results/
 
 
 # ==========================================
-# IDE / EDITOR
+# IDE
 # ==========================================
 
 .idea/
@@ -117,12 +119,13 @@ test-results/
 
 
 # ==========================================
-# OPERATING SYSTEM
+# OS
 # ==========================================
 
 .DS_Store
 Thumbs.db
 desktop.ini
+
 
 # ==========================================
 # DELBOT PLATFORM RUNTIME
@@ -134,24 +137,47 @@ platform/logs/
 platform/models/
 platform/data/
 
-platform/runtime/**
-platform/cache/**
-platform/logs/**
-platform/models/**
-platform/data/**
 
 # ==========================================
 # DELBOT RUNTIME
 # ==========================================
 
-runtime/**
-!runtime/
-!runtime/pid/
-!runtime/state/
-!runtime/socket/
-!runtime/tmp/
+runtime/
 
-runtime/pid/*
-runtime/state/*
-runtime/socket/*
-runtime/tmp/*documents_tree.txt
+# allow empty runtime structure only
+!runtime/
+!runtime/.gitkeep
+
+
+# ==========================================
+# DOCUMENT INGESTION OUTPUT
+# ==========================================
+
+documents_tree.txt
+
+*.bin
+*.index
+*.embedding
+
+
+# ==========================================
+# DATASET LARGE FILES
+# ==========================================
+
+repository_data/**/*.pdf
+repository_data/**/*.zip
+
+
+EOF
+# Runtime
+runtime/
+cache/
+
+# Vector database
+data/qdrant/
+
+# Local repository data
+repository/raw/
+
+# Temporary backups
+*.before_*

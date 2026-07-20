@@ -51,7 +51,7 @@ class VLLMProvider(BaseProvider):
                 "messages": [
                     {
                         "role": "user",
-                        "content": request.message,
+                        "content": request.get_message(),
                     }
                 ],
                 "temperature": request.temperature,

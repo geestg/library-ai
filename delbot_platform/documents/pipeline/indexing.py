@@ -1,26 +1,38 @@
 from __future__ import annotations
 
+
 import time
+
 
 from delbot_platform.documents.chunking import (
     ChunkBuilder,
 )
 
+
 from delbot_platform.documents.embedding.pipeline.pipeline import (
     EmbeddingPipeline,
 )
+
 
 from delbot_platform.documents.pipeline.models.index_result import (
     DocumentIndexResult,
 )
 
+
 from delbot_platform.documents.pipeline.preprocessing import (
     DocumentPreprocessingPipeline,
 )
 
+
 from delbot_platform.documents.registry.manager import (
     DocumentRegistryManager,
 )
+
+
+from delbot_platform.vectorstore import (
+    QdrantRepository,
+)
+
 
 
 class DocumentIndexingPipeline:
@@ -30,53 +42,75 @@ class DocumentIndexingPipeline:
     Flow
 
         Registry
-            │
-            ▼
+            |
+            v
         Preprocessing
-            │
-            ▼
-        DocumentSection[]
-            │
-            ▼
-        ChunkBuilder
-            │
-            ▼
-        EmbeddingPipeline
-            │
-            ▼
-        DocumentIndexResult
+            |
+            v
+        Sections
+            |
+            v
+        Chunk Builder
+            |
+            v
+        Embedding
+            |
+            v
+        Qdrant Storage
+            |
+            v
+        Index Result
+
     """
+
+
 
     def __init__(
         self,
     ) -> None:
 
+
         self.registry = (
             DocumentRegistryManager()
         )
+
 
         self.preprocessing = (
             DocumentPreprocessingPipeline()
         )
 
+
         self.chunk_builder = (
             ChunkBuilder()
         )
 
+
         self.embedding = (
             EmbeddingPipeline()
         )
+
+
+        self.vectorstore = (
+            QdrantRepository()
+        )
+
+
 
     async def index(
         self,
         pdf_path: str,
     ) -> DocumentIndexResult:
 
+
         started = time.perf_counter()
+
+
 
         document = self.registry.resolve(
             pdf_path,
         )
+
+
 
         sections = self.preprocessing.process(
 
@@ -88,18 +122,35 @@ class DocumentIndexingPipeline:
 
         )
 
+
+
         chunks = self.chunk_builder.build(
             sections,
         )
+
+
 
         vectors = await self.embedding.run(
             chunks,
         )
 
-        elapsed = (
-            time.perf_counter()
-            - started
+
+
+        stored = self.vectorstore.save(
+            vectors,
         )
+
+
+
+        elapsed = (
+
+            time.perf_counter()
+
+            - started
+
+        )
+
+
 
         block_count = sum(
 
@@ -108,6 +159,8 @@ class DocumentIndexingPipeline:
             for section in sections
 
         )
+
+
 
         page_count = max(
 
@@ -123,6 +176,8 @@ class DocumentIndexingPipeline:
 
         )
 
+
+
         return DocumentIndexResult(
 
             document_id=document.id,
@@ -133,17 +188,11 @@ class DocumentIndexingPipeline:
 
             blocks=block_count,
 
-            sections=len(
-                sections,
-            ),
+            sections=len(sections),
 
-            chunks=len(
-                chunks,
-            ),
+            chunks=len(chunks),
 
-            vectors=len(
-                vectors,
-            ),
+            vectors=stored,
 
             elapsed=elapsed,
 

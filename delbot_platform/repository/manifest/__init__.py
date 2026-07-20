@@ -1,7 +1,11 @@
-from .builder import ManifestBuilder
+from .pdf_manifest import (
+    PDFManifestBuilder,
+)
 
 
 __all__ = [
-    "ManifestBuilder",
+
+    "PDFManifestBuilder",
+
 ]
 

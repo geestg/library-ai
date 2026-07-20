@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+from delbot_platform.core.lifecycle.service_definition import (
+    ServiceDefinition,
+)
+
 from delbot_platform.core.path_manager import (
     PathManager,
 )
+
 from delbot_platform.launcher.base import (
     BaseLauncher,
 )
+
 from delbot_platform.launcher.spec import (
     LaunchSpec,
 )
@@ -13,28 +19,25 @@ from delbot_platform.launcher.spec import (
 
 class PaddleOCRLauncher(BaseLauncher):
 
-    NAME = "ocr"
-
-    HOST = "127.0.0.1"
-
-    PORT = 8105
+    MODULE = "delbot_platform.ai.runtime.ocr"
 
     HEALTH_ENDPOINT = "/health"
 
-    MODULE = "delbot_platform.ai.runtime.ocr"
-
-    def build(self) -> LaunchSpec:
+    def build(
+        self,
+        definition: ServiceDefinition,
+    ) -> LaunchSpec:
 
         return LaunchSpec(
-            name=self.NAME,
+            name=definition.name,
             command=[
                 "python",
                 "-m",
                 self.MODULE,
             ],
             workdir=PathManager.ROOT,
-            host=self.HOST,
-            port=self.PORT,
+            host=definition.host,
+            port=definition.port,
             health_check=True,
             health_endpoint=self.HEALTH_ENDPOINT,
             environment=None,

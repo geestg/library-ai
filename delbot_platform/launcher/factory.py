@@ -1,19 +1,19 @@
 from __future__ import annotations
 
-from delbot_platform.core.service_registry import (
-    Service,
+from delbot_platform.core.lifecycle.service_definition import (
+    ServiceDefinition,
 )
 
 from delbot_platform.launcher.base import (
     BaseLauncher,
 )
 
-from delbot_platform.launcher.gateway_launcher import (
-    GatewayLauncher,
+from delbot_platform.launcher.ai_runtime import (
+    AIRuntimeLauncher,
 )
 
-from delbot_platform.launcher.infinity import (
-    InfinityLauncher,
+from delbot_platform.launcher.gateway_launcher import (
+    GatewayLauncher,
 )
 
 from delbot_platform.launcher.paddleocr import (
@@ -22,10 +22,6 @@ from delbot_platform.launcher.paddleocr import (
 
 from delbot_platform.launcher.research_api_launcher import (
     ResearchAPILauncher,
-)
-
-from delbot_platform.launcher.vllm import (
-    VLLMLauncher,
 )
 
 from delbot_platform.launcher.whisper import (
@@ -41,13 +37,13 @@ class LauncherFactory:
 
         "research_api": ResearchAPILauncher,
 
-        "chat": VLLMLauncher,
+        "chat": AIRuntimeLauncher,
 
-        "embedding": InfinityLauncher,
+        "embedding": AIRuntimeLauncher,
 
-        "reranker": InfinityLauncher,
+        "reranker": AIRuntimeLauncher,
 
-        "vision": VLLMLauncher,
+        "vision": AIRuntimeLauncher,
 
         "ocr": PaddleOCRLauncher,
 
@@ -55,63 +51,20 @@ class LauncherFactory:
 
     }
 
-    #
-    # Production API
-    #
-
     @classmethod
     def create(
         cls,
-        service: Service,
+        definition: ServiceDefinition,
     ) -> BaseLauncher:
 
         launcher = cls._LAUNCHERS.get(
-            service.name,
+            definition.launcher,
         )
 
         if launcher is None:
 
             raise ValueError(
-                f"No launcher registered for '{service.name}'."
+                f"Unknown launcher: {definition.launcher}"
             )
 
         return launcher()
-
-    #
-    # Backward Compatibility
-    #
-
-    @staticmethod
-    def gateway() -> GatewayLauncher:
-
-        return GatewayLauncher()
-
-    @staticmethod
-    def research_api() -> ResearchAPILauncher:
-
-        return ResearchAPILauncher()
-
-    @staticmethod
-    def embedding() -> InfinityLauncher:
-
-        return InfinityLauncher()
-
-    @staticmethod
-    def reranker() -> InfinityLauncher:
-
-        return InfinityLauncher()
-
-    @staticmethod
-    def vision() -> VLLMLauncher:
-
-        return VLLMLauncher()
-
-    @staticmethod
-    def ocr() -> PaddleOCRLauncher:
-
-        return PaddleOCRLauncher()
-
-    @staticmethod
-    def speech() -> WhisperLauncher:
-
-        return WhisperLauncher()

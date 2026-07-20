@@ -3,17 +3,9 @@ from __future__ import annotations
 from delbot_platform.ai.process.process_manager import (
     ProcessManager,
 )
-from delbot_platform.boot.boot_result import (
-    BootResult,
-)
-from delbot_platform.boot.boot_state import (
-    BootState,
-)
-from delbot_platform.boot.service_boot import (
-    ServiceBoot,
-)
-from delbot_platform.services.service_registry import (
-    PlatformServiceRegistry,
+
+from delbot_platform.core.lifecycle.orchestrator import (
+    PlatformOrchestrator,
 )
 
 
@@ -21,92 +13,90 @@ class ServiceController:
 
     def __init__(self) -> None:
 
-        self.registry = PlatformServiceRegistry()
-
-        self.boot = ServiceBoot()
+        self.platform = PlatformOrchestrator()
 
         self.process = ProcessManager()
 
-    #
-    # Single service
-    #
+    ###########################################################################
+    # Service
+    ###########################################################################
 
     def start(
         self,
         name: str,
-    ) -> BootResult:
+    ):
 
-        service = self.registry.get(
-            name,
-        )
+        spec = self.platform.launch_spec(name)
 
-        spec = service.launch_spec()
-
-        return self.boot.start(
-            spec,
+        return self.process.start(
+            name=spec.name,
+            command=spec.command,
+            workdir=spec.workdir,
+            host=spec.host,
+            port=spec.port,
         )
 
     def stop(
         self,
         name: str,
-    ) -> bool:
+    ):
 
-        return self.process.stop(
-            name,
-        )
+        return self.process.stop(name)
 
-    #
-    # Batch
-    #
-
-    def start_all(
+    def restart(
         self,
-    ) -> list[BootResult]:
+        name: str,
+    ):
 
-        results: list[BootResult] = []
+        self.stop(name)
 
-        for service in self.registry.enabled():
+        return self.start(name)
 
-            try:
+    def status(
+        self,
+        name: str,
+    ):
 
-                result = self.start(
-                    service.name,
+        return self.process.get(name)
+
+    ###########################################################################
+    # All Services
+    ###########################################################################
+
+    def start_all(self):
+
+        result = []
+
+        for definition in self.platform.definitions():
+
+            result.append(
+                self.start(
+                    definition.name,
                 )
-
-            except Exception as exc:
-
-                result = BootResult(
-                    service=service.name,
-                    state=BootState.FAILED,
-                    message=str(exc),
-                )
-
-            results.append(
-                result,
             )
 
-        return results
+        return result
 
-    def stop_all(
-        self,
-    ) -> dict[str, bool]:
+    def stop_all(self):
 
-        results: dict[str, bool] = {}
+        result = []
 
-        for service in self.registry.enabled():
+        for definition in self.platform.definitions():
 
-            try:
-
-                results[
-                    service.name
-                ] = self.stop(
-                    service.name,
+            result.append(
+                self.stop(
+                    definition.name,
                 )
+            )
 
-            except Exception:
+        return result
 
-                results[
-                    service.name
-                ] = False
+    def restart_all(self):
 
-        return results
+        self.stop_all()
+
+        return self.start_all()
+
+    def status_all(self):
+
+        return self.process.list()

@@ -1,25 +1,11 @@
 from __future__ import annotations
 
-from delbot_platform.ai.recovery.recovery import (
-    RecoveryManager,
+from delbot_platform.boot.service_boot import (
+    ServiceBoot,
 )
-from delbot_platform.boot.boot_result import (
-    BootResult,
-)
-from delbot_platform.boot.boot_state import (
-    BootState,
-)
+
 from delbot_platform.controller.service_controller import (
     ServiceController,
-)
-from delbot_platform.core.config_manager import (
-    ConfigManager,
-)
-from delbot_platform.core.environment import (
-    EnvironmentManager,
-)
-from delbot_platform.core.runtime_manager import (
-    RuntimeManager,
 )
 
 
@@ -27,122 +13,51 @@ class StartupOrchestrator:
 
     def __init__(self) -> None:
 
-        self.config = ConfigManager()
-
         self.controller = ServiceController()
 
-    #
-    # Initialization
-    #
+        self.boot = ServiceBoot()
 
-    def initialize(self) -> None:
 
-        EnvironmentManager.setup()
+    ###########################################################################
+    # Start Platform
+    ###########################################################################
 
-        RuntimeManager.ensure_directories()
-
-    def recover(self):
-
-        return RecoveryManager.load_states()
-
-    #
-    # Startup
-    #
-
-    def start_services(
-        self,
-    ) -> list[BootResult]:
-
-        return self.controller.start_all()
-
-    #
-    # UI
-    #
-
-    def _print_results(
-        self,
-        results: list[BootResult],
-    ) -> None:
-
-        if not results:
-
-            print("No services configured.")
-            return
+    def run(self):
 
         print()
 
-        print("Service Startup Results")
-        print("-----------------------")
+        print("=" * 70)
+        print("DELBot Platform Startup")
+        print("=" * 70)
 
-        for result in results:
+        processes = self.boot.boot()
 
-            elapsed = f"{result.elapsed:.2f}s"
+        print()
+
+        print("=" * 70)
+        print("Startup Completed")
+        print("=" * 70)
+
+        for process in processes:
 
             print(
-                f"{result.service:<12}"
-                f"{result.state.value:<12}"
-                f"{elapsed:<10}"
-                f"{result.message}"
+                f"{process.name:20}"
+                f"PID={process.pid}"
             )
 
-    #
-    # Main
-    #
+        return processes
 
-    def run(self) -> list[BootResult]:
 
-        print()
+    ###########################################################################
+    # Stop Platform
+    ###########################################################################
 
-        print("===================================")
-        print("DELBot Platform")
-        print("===================================")
+    def stop(self):
 
         print()
 
-        print("Initializing environment...")
+        print("=" * 70)
+        print("Stopping DELBot Platform")
+        print("=" * 70)
 
-        self.initialize()
-
-        print("Environment OK")
-
-        print()
-
-        print("Recovering services...")
-
-        states = self.recover()
-
-        if not states:
-
-            print("No previous services found.")
-
-        else:
-
-            for state in states:
-
-                status = (
-                    "RUNNING"
-                    if state["running"]
-                    else "STOPPED"
-                )
-
-                print(
-                    f"- {state['name']} ({status})"
-                )
-
-        print()
-
-        print("Starting services...")
-
-        results = self.start_services()
-
-        self._print_results(
-            results,
-        )
-
-        print()
-
-        print(
-            "Platform initialization complete."
-        )
-
-        return results
+        return self.controller.stop_all()

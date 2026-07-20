@@ -1,101 +1,82 @@
 from __future__ import annotations
 
-import time
 
-from delbot_platform.ai.process.process_info import (
-    ProcessInfo,
-)
-from delbot_platform.ai.process.process_manager import (
-    ProcessManager,
-)
-from delbot_platform.boot.boot_result import (
-    BootResult,
-)
-from delbot_platform.boot.boot_state import (
-    BootState,
-)
-from delbot_platform.boot.service_waiter import (
-    ServiceWaiter,
-)
-from delbot_platform.launcher.spec import (
-    LaunchSpec,
+from delbot_platform.controller.service_controller import (
+    ServiceController,
 )
 
 
 class ServiceBoot:
 
+
+    BOOT_ORDER = [
+
+        "embedding",
+
+        "reranker",
+
+        "vision",
+
+        "ocr",
+
+
+        "chat",
+
+        "gateway",
+
+        "research_api",
+
+    ]
+
+
     def __init__(self) -> None:
 
-        self.pm = ProcessManager()
+        self.controller = ServiceController()
 
-        self.waiter = ServiceWaiter()
+
 
     def start(
         self,
-        spec: LaunchSpec,
-    ) -> BootResult:
+        service: str,
+    ):
 
-        started = time.perf_counter()
+        print()
 
-        process: ProcessInfo = self.pm.start(
-            name=spec.name,
-            command=spec.command,
-            workdir=spec.workdir,
-            host=spec.host,
-            port=spec.port,
+        print(
+            f"[BOOT] Starting {service}"
         )
 
-        try:
 
-            if spec.health_check:
+        process = self.controller.start(
+            service,
+        )
 
-                self.waiter.wait(
-                    host=spec.host,
-                    port=spec.port,
-                    endpoint=spec.health_endpoint,
-                )
 
-            self.pm.mark_running(
-                process.name,
+        print(
+            f"[BOOT] PID {process.pid}"
+        )
+
+
+        return process
+
+
+
+    def boot(self):
+
+        processes = []
+
+
+        for service in self.BOOT_ORDER:
+
+
+            process = self.start(
+                service,
             )
 
-            return BootResult(
-                service=process.name,
-                state=BootState.READY,
-                pid=process.pid,
-                host=process.host,
-                port=process.port,
-                elapsed=time.perf_counter() - started,
+
+            processes.append(
+                process,
             )
 
-        except TimeoutError as exc:
 
-            self.pm.mark_failed(
-                process.name,
-            )
-
-            return BootResult(
-                service=process.name,
-                state=BootState.TIMEOUT,
-                pid=process.pid,
-                host=process.host,
-                port=process.port,
-                elapsed=time.perf_counter() - started,
-                message=str(exc),
-            )
-
-        except Exception as exc:
-
-            self.pm.mark_failed(
-                process.name,
-            )
-
-            return BootResult(
-                service=process.name,
-                state=BootState.FAILED,
-                pid=process.pid,
-                host=process.host,
-                port=process.port,
-                elapsed=time.perf_counter() - started,
-                message=str(exc),
-            )
+        return processes

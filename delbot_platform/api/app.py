@@ -1,19 +1,12 @@
-from __future__ import annotations
-
-
 from fastapi import FastAPI
 
 
-from delbot_platform.api.routers.document import (
+from delbot_platform.api.routes.document import (
     router as document_router,
 )
 
-from delbot_platform.api.routers.research import (
+from delbot_platform.api.routes.research import (
     router as research_router,
-)
-
-from delbot_platform.api.routers.repository import (
-    router as repository_router,
 )
 
 
@@ -26,38 +19,28 @@ app = FastAPI(
 
 
 app.include_router(
-    research_router,
+    document_router
 )
 
 
 app.include_router(
-    document_router,
-)
-
-
-app.include_router(
-    repository_router,
+    research_router
 )
 
 
 
 @app.get("/")
-async def root():
+def root():
 
     return {
 
-        "service": "DELBot Research API",
+        "service":"DELBot Research API",
 
-        "status": "running",
+        "status":"running",
 
-        "modules": [
-
-            "research",
-
+        "modules":[
             "document",
-
-            "repository",
-
-        ],
+            "research",
+        ]
 
     }

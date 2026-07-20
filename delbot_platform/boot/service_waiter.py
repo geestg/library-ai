@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import socket
 import time
 
-from delbot_platform.boot.service_health import (
-    ServiceHealth,
+from delbot_platform.ai.process.process_info import (
+    ProcessInfo,
 )
 
 
@@ -11,46 +12,77 @@ class ServiceWaiter:
 
     def __init__(
         self,
-        timeout: int = 30,
+        timeout: int = 60,
         interval: float = 1.0,
-    ):
+    ) -> None:
 
         self.timeout = timeout
         self.interval = interval
-        self.health = ServiceHealth()
+
 
     def wait(
         self,
-        host: str,
-        port: int,
-        endpoint: str = "/health",
-    ) -> bool:
+        process: ProcessInfo,
+    ) -> ProcessInfo:
+
+        if process.port == 0:
+
+            return process
+
 
         start = time.time()
 
+
         while True:
 
-            if self.health.check(
-                host=host,
-                port=port,
-                endpoint=endpoint,
+            if self._check_port(
+                process.host,
+                process.port,
             ):
 
-                return True
+                return process
 
-            elapsed = (
-                time.time()
-                - start
-            )
 
-            if elapsed >= self.timeout:
+            if time.time() - start > self.timeout:
 
                 raise TimeoutError(
-                    f"Service {host}:{port}{endpoint} "
-                    f"did not become healthy within "
-                    f"{self.timeout} seconds."
+                    f"Service {process.name} "
+                    f"failed waiting on "
+                    f"{process.host}:{process.port}"
                 )
 
+
+            if process.process:
+
+                exit_code = process.process.poll()
+
+                if exit_code is not None:
+
+                    raise RuntimeError(
+                        f"Service {process.name} exited "
+                        f"with code {exit_code}"
+                    )
+
+
             time.sleep(
-                self.interval,
+                self.interval
             )
+
+
+    def _check_port(
+        self,
+        host: str,
+        port: int,
+    ) -> bool:
+
+        try:
+
+            with socket.create_connection(
+                (host, port),
+                timeout=1,
+            ):
+                return True
+
+        except OSError:
+
+            return False

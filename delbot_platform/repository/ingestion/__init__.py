@@ -1,18 +1,8 @@
-from .metadata import (
-    MetadataParser,
-)
-
-from .files import (
-    FileParser,
-)
-
-from .downloader import (
-    FileDownloader,
+from .dataset_loader import (
+    DatasetLoader,
 )
 
 
 __all__ = [
-    "MetadataParser",
-    "FileParser",
-    "FileDownloader",
+    "DatasetLoader",
 ]

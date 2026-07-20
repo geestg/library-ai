@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from delbot_platform.core.lifecycle.service_definition import (
+    ServiceDefinition,
+)
+
 from delbot_platform.core.path_manager import (
     PathManager,
 )
@@ -15,34 +19,24 @@ from delbot_platform.launcher.spec import (
 
 class GatewayLauncher(BaseLauncher):
 
-    NAME = "gateway"
-
-    HOST = "127.0.0.1"
-
-    PORT = 8100
-
     HEALTH_ENDPOINT = "/health"
 
-    def build(self) -> LaunchSpec:
+    def build(
+        self,
+        definition: ServiceDefinition,
+    ) -> LaunchSpec:
 
         return LaunchSpec(
-            name=self.NAME,
-
+            name=definition.name,
             command=[
                 "python",
                 "-m",
                 "delbot_platform.gateway",
             ],
-
             workdir=PathManager.ROOT,
-
-            host=self.HOST,
-
-            port=self.PORT,
-
+            host=definition.host,
+            port=definition.port,
             health_check=True,
-
             health_endpoint=self.HEALTH_ENDPOINT,
-
             environment=None,
         )

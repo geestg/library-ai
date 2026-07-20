@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import asyncio
+
+from sentence_transformers import SentenceTransformer
+
 from delbot_platform.documents.embedding.base import (
     EmbeddingService,
 )
@@ -13,10 +17,21 @@ from delbot_platform.documents.chunking.chunk import (
 )
 
 
-
 class LocalEmbeddingProvider(
     EmbeddingService,
 ):
+
+    MODEL_NAME = "BAAI/bge-m3"
+
+
+    def __init__(
+        self,
+    ) -> None:
+
+        self.model = SentenceTransformer(
+            self.MODEL_NAME,
+            device="cpu",
+        )
 
 
     async def embed(
@@ -25,10 +40,28 @@ class LocalEmbeddingProvider(
     ) -> list[VectorRecord]:
 
 
+        texts = [
+            chunk.text
+            for chunk in chunks
+        ]
+
+
+        vectors = await asyncio.to_thread(
+            self.model.encode,
+            texts,
+            batch_size=16,
+            normalize_embeddings=True,
+            show_progress_bar=False,
+        )
+
+
         results = []
 
 
-        for chunk in chunks:
+        for chunk, vector in zip(
+            chunks,
+            vectors,
+        ):
 
             results.append(
 
@@ -36,9 +69,7 @@ class LocalEmbeddingProvider(
 
                     id=chunk.id,
 
-                    vector=[
-                        0.0
-                    ],
+                    vector=vector.tolist(),
 
                     metadata={
 
