@@ -1,17 +1,11 @@
-from .config_manager import ConfigManager
-from .environment import EnvironmentManager
-from .path_manager import PathManager
-from .runtime_manager import RuntimeManager
-from .service_registry import (
-    Service,
-    ServiceRegistry,
-)
+"""
+DELBot Core Platform.
 
-__all__ = [
-    "ConfigManager",
-    "EnvironmentManager",
-    "PathManager",
-    "RuntimeManager",
-    "Service",
-    "ServiceRegistry",
-]
+This package contains the platform foundation shared across the
+entire DELBot ecosystem.
+
+Submodules should be imported explicitly to avoid unnecessary
+dependencies and import-time side effects.
+"""
+
+__all__: list[str] = []
