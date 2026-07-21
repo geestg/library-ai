@@ -181,3 +181,10 @@ repository/raw/
 
 # Temporary backups
 *.before_*
+
+# DELBot data
+delbot_platform/repository_data/
+tools/qdrant
+*.bin
+*.index
+*.sqlite
