@@ -1,6 +1,3 @@
-from __future__ import annotations
-
-
 from fastapi import APIRouter
 from pydantic import BaseModel
 
@@ -10,7 +7,7 @@ from delbot_platform.research.research_engine import ResearchEngine
 
 
 router = APIRouter(
-    prefix="/api/research",
+    prefix="/research",
     tags=["Research"]
 )
 
@@ -37,12 +34,4 @@ def ask_research(
     )
 
 
-    return {
-
-        "query":request.query,
-
-        "answer":result["answer"],
-
-        "citations":result["citations"]
-
-    }
+    return result

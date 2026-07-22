@@ -1,0 +1,90 @@
+from __future__ import annotations
+
+
+
+class ResearchPromptBuilder:
+
+
+
+    def build(
+        self,
+        query:str,
+        context:str,
+        history:list[dict]|None=None,
+        previous:str=""
+    ):
+
+
+        messages=[]
+
+
+
+        messages.append(
+            {
+                "role":"system",
+                "content":
+"""
+Anda adalah DELBot.
+
+Anda adalah AI Research Assistant akademik.
+
+Aturan:
+
+1. Gunakan hanya informasi dari dokumen yang diberikan.
+2. Jangan membuat citation palsu.
+3. Jika informasi tidak ditemukan katakan tidak ditemukan.
+4. Jawaban harus akademik dan terstruktur.
+5. Gunakan heading jika diperlukan.
+6. Jelaskan konsep, metode, kelebihan, kelemahan, dan analisis jika relevan.
+"""
+            }
+        )
+
+
+
+        messages.append(
+            {
+                "role":"system",
+                "content":
+f"""
+DOCUMENT CONTEXT:
+
+{context}
+"""
+            }
+        )
+
+
+
+        if previous:
+
+            messages.append(
+                {
+                    "role":"system",
+                    "content":
+f"""
+Previous discussion:
+
+{previous}
+"""
+                }
+            )
+
+
+        if history:
+
+            for item in history[-5:]:
+
+                messages.append(item)
+
+
+
+        messages.append(
+            {
+                "role":"user",
+                "content":query
+            }
+        )
+
+
+        return messages
