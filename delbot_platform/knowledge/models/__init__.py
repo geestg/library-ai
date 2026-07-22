@@ -2,6 +2,7 @@ from .knowledge_domain import KnowledgeDomain
 from .knowledge_source import KnowledgeSource
 from .knowledge_entity import KnowledgeEntity
 from .knowledge_relation import KnowledgeRelation
+from .author import Author
 from .repository import Repository
 from .collection import Collection
 from .document import Document
@@ -13,6 +14,7 @@ __all__ = [
     "KnowledgeSource",
     "KnowledgeEntity",
     "KnowledgeRelation",
+    "Author",
     "Repository",
     "Collection",
     "Document",

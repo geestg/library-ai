@@ -8,6 +8,7 @@ from delbot_platform.knowledge.models import Collection
 from delbot_platform.knowledge.models import Document
 from delbot_platform.knowledge.models import KnowledgeDomain
 from delbot_platform.knowledge.models import KnowledgeEntity
+from delbot_platform.knowledge.models import KnowledgeRelation
 from delbot_platform.knowledge.models import KnowledgeSource
 from delbot_platform.knowledge.models import Repository
 
@@ -148,6 +149,84 @@ class Citation:
 
         return self.document.entities
 
+    @property
+    def relation_ids(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for entity in self.entities:
+
+            for relation in entity.relations:
+
+                if not relation.relation_id:
+                    continue
+
+                if relation.relation_id in seen:
+                    continue
+
+                seen.add(
+                    relation.relation_id,
+                )
+                values.append(
+                    relation.relation_id,
+                )
+
+        return values
+
+    @property
+    def relation_types(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for entity in self.entities:
+
+            for relation in entity.relations:
+
+                if not relation.relation_type:
+                    continue
+
+                if relation.relation_type in seen:
+                    continue
+
+                seen.add(
+                    relation.relation_type,
+                )
+                values.append(
+                    relation.relation_type,
+                )
+
+        return values
+
+    @property
+    def relations(
+        self,
+    ) -> list[KnowledgeRelation]:
+
+        values: list[KnowledgeRelation] = []
+        seen: set[str] = set()
+
+        for entity in self.entities:
+
+            for relation in entity.relations:
+
+                if relation.relation_id in seen:
+                    continue
+
+                seen.add(
+                    relation.relation_id,
+                )
+                values.append(
+                    relation,
+                )
+
+        return values
+
     def export(
         self,
     ) -> dict[str, Any]:
@@ -170,6 +249,8 @@ class Citation:
                 entity.export()
                 for entity in self.entities
             ],
+            "relation_ids": self.relation_ids,
+            "relation_types": self.relation_types,
             "page": self.page,
             "chunk_id": self.chunk_id,
             "score": self.score,
@@ -249,7 +330,9 @@ class Citation:
                     ),
                 ),
                 entities=[
-                    KnowledgeEntity.from_dict(entity)
+                    KnowledgeEntity.from_dict(
+                        entity,
+                    )
                     for entity in data.get(
                         "entities",
                         [],

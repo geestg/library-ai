@@ -4,9 +4,13 @@ from dataclasses import dataclass
 from dataclasses import field
 from typing import Any
 
+from delbot_platform.knowledge.models.author import Author
 from delbot_platform.knowledge.models.document import Document
 from delbot_platform.knowledge.models.knowledge_entity import (
     KnowledgeEntity,
+)
+from delbot_platform.knowledge.models.knowledge_relation import (
+    KnowledgeRelation,
 )
 
 
@@ -84,8 +88,7 @@ class DocumentChunk:
     def repository_root_path(
         self,
     ) -> str:
-
-        return self.document.collection.repository.root_path
+                return self.document.collection.repository.root_path
 
     @property
     def source_id(
@@ -123,11 +126,98 @@ class DocumentChunk:
         return self.document.domain
 
     @property
+    def authors(
+        self,
+    ) -> list[Author]:
+
+        return self.document.authors
+
+    @property
+    def author_ids(
+        self,
+    ) -> list[str]:
+
+        return self.document.author_ids
+
+    @property
+    def author_names(
+        self,
+    ) -> list[str]:
+
+        return self.document.author_names
+
+    @property
     def entities(
         self,
     ) -> list[KnowledgeEntity]:
 
         return self.document.entities
+
+    @property
+    def relations(
+        self,
+    ) -> list[KnowledgeRelation]:
+
+        relations: list[KnowledgeRelation] = []
+
+        for entity in self.document.entities:
+
+            relations.extend(
+                entity.relations,
+            )
+
+        return relations
+
+    @property
+    def relation_ids(
+        self,
+    ) -> list[str]:
+
+        ids: list[str] = []
+        seen: set[str] = set()
+
+        for relation in self.relations:
+
+            if not relation.relation_id:
+                continue
+
+            if relation.relation_id in seen:
+                continue
+
+            seen.add(
+                relation.relation_id,
+            )
+
+            ids.append(
+                relation.relation_id,
+            )
+
+        return ids
+
+    @property
+    def relation_types(
+        self,
+    ) -> list[str]:
+                values: list[str] = []
+        seen: set[str] = set()
+
+        for relation in self.relations:
+
+            if not relation.relation_type:
+                continue
+
+            if relation.relation_type in seen:
+                continue
+
+            seen.add(
+                relation.relation_type,
+            )
+
+            values.append(
+                relation.relation_type,
+            )
+
+        return values
 
     def export(
         self,
@@ -148,10 +238,18 @@ class DocumentChunk:
             "source_name": self.document.source_name,
             "domain_id": self.document.domain_id,
             "domain_name": self.document.domain_name,
+            "authors": [
+                author.export()
+                for author in self.document.authors
+            ],
+            "author_ids": self.author_ids,
+            "author_names": self.author_names,
             "entities": [
                 entity.export()
                 for entity in self.document.entities
             ],
+            "relation_ids": self.relation_ids,
+            "relation_types": self.relation_types,
             "page": self.page,
             "text": self.text,
             "vector_score": self.vector_score,
@@ -186,16 +284,26 @@ class DocumentChunk:
                     "file_path",
                     "",
                 ),
+                authors=[
+                    Author.from_dict(
+                        item,
+                    )
+                    for item in data.get(
+                        "authors",
+                        [],
+                    )
+                ],
                 entities=[
-                    KnowledgeEntity.from_dict(entity)
-                    for entity in data.get(
+                    KnowledgeEntity.from_dict(
+                        item,
+                    )
+                    for item in data.get(
                         "entities",
                         [],
                     )
                 ],
             )
-
-        return cls(
+                    return cls(
             chunk_id=data.get(
                 "chunk_id",
                 "",
