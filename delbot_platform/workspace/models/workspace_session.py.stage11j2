@@ -1,0 +1,95 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+
+from delbot_platform.research.state import ResearchState
+from delbot_platform.workspace.models.chat_message import ChatMessage
+from delbot_platform.workspace.models.workspace_metadata import (
+    WorkspaceMetadata,
+)
+
+
+@dataclass(slots=True)
+class WorkspaceSession:
+
+    session_id: str
+
+    title: str
+
+    messages: list[ChatMessage] = field(
+        default_factory=list,
+    )
+
+    metadata: WorkspaceMetadata = field(
+        default_factory=WorkspaceMetadata,
+    )
+
+    research_state: ResearchState = field(
+        default_factory=ResearchState,
+    )
+
+    created_at: str = ""
+
+    updated_at: str = ""
+
+    def export(
+        self,
+    ) -> dict:
+
+        return {
+            "session_id": self.session_id,
+            "title": self.title,
+            "messages": [
+                message.export()
+                for message in self.messages
+            ],
+            "metadata": self.metadata.export(),
+            "research_state": self.research_state.export(),
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict,
+    ) -> "WorkspaceSession":
+
+        return cls(
+            session_id=data.get(
+                "session_id",
+                "",
+            ),
+            title=data.get(
+                "title",
+                "",
+            ),
+            messages=[
+                ChatMessage.from_dict(item)
+                for item in data.get(
+                    "messages",
+                    [],
+                )
+            ],
+            metadata=WorkspaceMetadata.from_dict(
+                data.get(
+                    "metadata",
+                    {},
+                )
+            ),
+            research_state=ResearchState.from_dict(
+                data.get(
+                    "research_state",
+                    {},
+                )
+            ),
+            created_at=data.get(
+                "created_at",
+                "",
+            ),
+            updated_at=data.get(
+                "updated_at",
+                "",
+            ),
+        )

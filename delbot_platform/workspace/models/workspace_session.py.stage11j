@@ -1,0 +1,84 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+from typing import Any
+
+from delbot_platform.research.state import ResearchState
+
+
+@dataclass(slots=True)
+class WorkspaceSession:
+
+    session_id: str
+
+    title: str
+
+    messages: list[dict[str, Any]] = field(
+        default_factory=list,
+    )
+
+    metadata: dict[str, Any] = field(
+        default_factory=dict,
+    )
+
+    research_state: ResearchState = field(
+        default_factory=ResearchState,
+    )
+
+    created_at: str = ""
+
+    updated_at: str = ""
+
+    def export(
+        self,
+    ) -> dict[str, Any]:
+
+        return {
+            "session_id": self.session_id,
+            "title": self.title,
+            "messages": self.messages,
+            "metadata": self.metadata,
+            "research_state": self.research_state.export(),
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+    ) -> "WorkspaceSession":
+
+        return cls(
+            session_id=data.get(
+                "session_id",
+                "",
+            ),
+            title=data.get(
+                "title",
+                "",
+            ),
+            messages=data.get(
+                "messages",
+                [],
+            ),
+            metadata=data.get(
+                "metadata",
+                {},
+            ),
+            research_state=ResearchState.from_dict(
+                data.get(
+                    "research_state",
+                    {},
+                )
+            ),
+            created_at=data.get(
+                "created_at",
+                "",
+            ),
+            updated_at=data.get(
+                "updated_at",
+                "",
+            ),
+        )

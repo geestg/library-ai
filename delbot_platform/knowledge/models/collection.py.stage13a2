@@ -1,0 +1,55 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+from typing import Any
+
+
+@dataclass(slots=True)
+class Collection:
+
+    collection_id: str
+
+    name: str
+
+    description: str = ""
+
+    metadata: dict[str, Any] = field(
+        default_factory=dict,
+    )
+
+    def export(
+        self,
+    ) -> dict[str, Any]:
+
+        return {
+            "collection_id": self.collection_id,
+            "name": self.name,
+            "description": self.description,
+            "metadata": self.metadata,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+    ) -> "Collection":
+
+        return cls(
+            collection_id=data.get(
+                "collection_id",
+                "",
+            ),
+            name=data.get(
+                "name",
+                "",
+            ),
+            description=data.get(
+                "description",
+                "",
+            ),
+            metadata=data.get(
+                "metadata",
+                {},
+            ),
+        )

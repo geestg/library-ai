@@ -1,56 +1,35 @@
 from __future__ import annotations
 
+from delbot_platform.knowledge.models import DocumentChunk
 
 
 class ContextBuilder:
 
-
     def build(
         self,
-        results
-    ):
+        results: list[DocumentChunk],
+    ) -> str:
 
+        contexts: list[str] = []
 
-        contexts=[]
-
-
-        for index,item in enumerate(results):
-
-
-            text=item.get(
-                "text",
-                ""
-            )
-
-
-            source=item.get(
-                "source",
-                ""
-            )
-
-
-            page=item.get(
-                "page",
-                ""
-            )
-
+        for index, chunk in enumerate(results):
 
             contexts.append(
                 f"""
-SOURCE {index+1}
+SOURCE {index + 1}
+
+TITLE:
+{chunk.document.title}
 
 FILE:
-{source}
+{chunk.document.file_path}
 
 PAGE:
-{page}
+{chunk.page}
 
 CONTENT:
-{text}
-"""
+{chunk.text}
+""".strip()
             )
 
-
-        return "\n\n".join(
-            contexts
-        )
+        return "\n\n".join(contexts)

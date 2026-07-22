@@ -33,10 +33,12 @@ class ResearchMemory:
             "history": [],
             "last_query": "",
             "last_answer": "",
+            "summary": "",
             "topics": [],
             "keywords": [],
             "sources": [],
-            "summary": "",
+            "notes": [],
+            "timeline": [],
             "research_state": {},
             "created_at": now,
             "updated_at": now,
@@ -47,9 +49,12 @@ class ResearchMemory:
         session_id: str,
     ) -> dict[str, Any]:
 
-        file = self._file(session_id)
+        file = self._file(
+            session_id
+        )
 
         if not file.exists():
+
             return self._default_memory()
 
         data = json.loads(
@@ -58,11 +63,11 @@ class ResearchMemory:
             )
         )
 
-        default = self._default_memory()
+        memory = self._default_memory()
 
-        default.update(data)
+        memory.update(data)
 
-        return default
+        return memory
 
     def save(
         self,
@@ -74,9 +79,13 @@ class ResearchMemory:
         summary: str | None = None,
         keywords: list[str] | None = None,
         sources: list[Any] | None = None,
+        notes: list[Any] | None = None,
+        timeline: list[Any] | None = None,
     ) -> dict[str, Any]:
 
-        data = self.load(session_id)
+        data = self.load(
+            session_id
+        )
 
         data["history"].append(
             {
@@ -96,27 +105,60 @@ class ResearchMemory:
         data["last_answer"] = answer
 
         if query and query not in data["topics"]:
-            data["topics"].append(query)
 
-        if keywords:
-            for keyword in keywords:
-                if keyword not in data["keywords"]:
-                    data["keywords"].append(keyword)
-
-        if sources:
-            for source in sources:
-                if source not in data["sources"]:
-                    data["sources"].append(source)
+            data["topics"].append(
+                query
+            )
 
         if summary is not None:
+
             data["summary"] = summary
 
+        if keywords:
+
+            for keyword in keywords:
+
+                if keyword not in data["keywords"]:
+
+                    data["keywords"].append(
+                        keyword
+                    )
+
+        if sources:
+
+            for source in sources:
+
+                if source not in data["sources"]:
+
+                    data["sources"].append(
+                        source
+                    )
+
+        if notes:
+
+            for note in notes:
+
+                if note not in data["notes"]:
+
+                    data["notes"].append(
+                        note
+                    )
+
+        if timeline:
+
+            data["timeline"] = timeline
+
         if research_state is not None:
+
             data["research_state"] = research_state
 
-        data["updated_at"] = datetime.utcnow().isoformat()
+        data["updated_at"] = (
+            datetime.utcnow().isoformat()
+        )
 
-        self._file(session_id).write_text(
+        self._file(
+            session_id
+        ).write_text(
             json.dumps(
                 data,
                 indent=2,

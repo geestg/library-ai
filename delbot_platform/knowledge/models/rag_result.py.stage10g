@@ -1,0 +1,44 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+
+from delbot_platform.knowledge.models.document_chunk import DocumentChunk
+from delbot_platform.research.models import Citation
+
+
+@dataclass(slots=True)
+class RAGResult:
+
+    query: str = ""
+
+    documents: list[DocumentChunk] = field(
+        default_factory=list,
+    )
+
+    context: str = ""
+
+    citations: list[Citation] = field(
+        default_factory=list,
+    )
+
+    def export(
+        self,
+    ) -> dict:
+
+        return {
+
+            "query": self.query,
+
+            "documents": [
+                item.export()
+                for item in self.documents
+            ],
+
+            "context": self.context,
+
+            "citations": [
+                item.export()
+                for item in self.citations
+            ],
+
+        }

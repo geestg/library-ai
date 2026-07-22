@@ -1,0 +1,226 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+from typing import Any
+
+from delbot_platform.knowledge.models.document_chunk import DocumentChunk
+from delbot_platform.research.models.citation import Citation
+
+
+@dataclass(slots=True)
+class RAGResult:
+
+    query: str = ""
+
+    documents: list[DocumentChunk] = field(
+        default_factory=list,
+    )
+
+    context: str = ""
+
+    citations: list[Citation] = field(
+        default_factory=list,
+    )
+
+    @property
+    def collections(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = chunk.document.collection.name
+
+            if not name:
+                continue
+
+            if name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def collection_ids(
+        self,
+    ) -> list[str]:
+
+        ids: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = (
+                chunk.document.collection.collection_id
+            )
+
+            if not value:
+                continue
+
+            if value in seen:
+                continue
+
+            seen.add(value)
+            ids.append(value)
+
+        return ids
+
+    @property
+    def repositories(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = (
+                chunk.document.collection.repository.name
+            )
+
+            if not name:
+                continue
+
+            if name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def repository_ids(
+        self,
+    ) -> list[str]:
+
+        ids: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = (
+                chunk.document.collection.repository.repository_id
+            )
+
+            if not value:
+                continue
+
+            if value in seen:
+                continue
+
+            seen.add(value)
+            ids.append(value)
+
+        return ids
+
+    @property
+    def knowledge_sources(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = (
+                chunk.document.collection.repository.source.name
+            )
+
+            if not name:
+                continue
+
+            if name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def knowledge_source_ids(
+        self,
+    ) -> list[str]:
+
+        ids: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = (
+                chunk.document.collection.repository.source.source_id
+            )
+
+            if not value:
+                continue
+
+            if value in seen:
+                continue
+
+            seen.add(value)
+            ids.append(value)
+
+        return ids
+
+    def export(
+        self,
+    ) -> dict[str, Any]:
+
+        return {
+            "query": self.query,
+            "documents": [
+                document.export()
+                for document in self.documents
+            ],
+            "context": self.context,
+            "citations": [
+                citation.export()
+                for citation in self.citations
+            ],
+            "collections": self.collections,
+            "collection_ids": self.collection_ids,
+            "repositories": self.repositories,
+            "repository_ids": self.repository_ids,
+            "knowledge_sources": self.knowledge_sources,
+            "knowledge_source_ids": self.knowledge_source_ids,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+    ) -> "RAGResult":
+
+        return cls(
+            query=data.get(
+                "query",
+                "",
+            ),
+            documents=[
+                DocumentChunk.from_dict(item)
+                for item in data.get(
+                    "documents",
+                    [],
+                )
+            ],
+            context=data.get(
+                "context",
+                "",
+            ),
+            citations=[
+                Citation.from_dict(item)
+                for item in data.get(
+                    "citations",
+                    [],
+                )
+            ],
+        )

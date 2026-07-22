@@ -1,48 +1,47 @@
 from __future__ import annotations
 
-
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-
 from delbot_platform.research.research_engine import ResearchEngine
-
+from delbot_platform.workspace.session_manager import SessionManager
 
 
 router = APIRouter(
     prefix="/api/research",
-    tags=["Research"]
+    tags=["Research"],
 )
 
 
+session_manager = SessionManager()
 
-engine = ResearchEngine()
-
+engine = ResearchEngine(
+    session_manager=session_manager,
+)
 
 
 class ResearchRequest(BaseModel):
 
-    query:str
+    session_id: str
 
+    query: str
 
 
 @router.post("/ask")
 def ask_research(
-    request:ResearchRequest
+    request: ResearchRequest,
 ):
 
-
     result = engine.ask(
-        request.query
+        session_id=request.session_id,
+        query=request.query,
     )
 
-
     return {
-
-        "query":request.query,
-
-        "answer":result["answer"],
-
-        "citations":result["citations"]
-
+        "session_id": request.session_id,
+        "query": request.query,
+        "answer": result["answer"],
+        "sources": result["sources"],
+        "research_state": result["research_state"],
     }
+

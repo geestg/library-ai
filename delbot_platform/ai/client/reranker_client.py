@@ -1,90 +1,60 @@
 from __future__ import annotations
 
-
 import requests
 
+from delbot_platform.knowledge.models import DocumentChunk
 
 
 class RerankerClient:
 
-
-
     def __init__(
         self,
-        url="http://localhost:8106/v1/rerank"
-    ):
+        url: str = "http://localhost:8106/v1/rerank",
+    ) -> None:
 
-        self.url=url
-
-
+        self.url = url
 
     def rerank(
         self,
-        query:str,
-        documents:list[dict]
-    ):
+        query: str,
+        documents: list[DocumentChunk],
+    ) -> list[DocumentChunk]:
 
+        texts = []
 
-        texts=[]
-
-
-        for doc in documents:
+        for document in documents:
 
             texts.append(
-                doc["text"]
+                document.text
             )
 
-
-
-        response=requests.post(
-
+        response = requests.post(
             self.url,
-
             json={
-
-                "query":query,
-
-                "documents":texts
-
+                "query": query,
+                "documents": texts,
             },
-
-            timeout=600
-
+            timeout=600,
         )
-
-
 
         response.raise_for_status()
 
+        ranked = response.json()["results"]
 
-
-        ranked=response.json()["results"]
-
-
-
-        output=[]
-
-
+        output: list[DocumentChunk] = []
 
         for item in ranked:
 
-
-            original=documents[
+            chunk = documents[
                 item["index"]
             ]
 
-
-            output.append(
-
-                {
-
-                    **original,
-
-                    "rerank_score":item["score"]
-
-                }
-
+            chunk.rerank_score = float(
+                item["score"]
             )
 
+            output.append(
+                chunk
+            )
 
         return output

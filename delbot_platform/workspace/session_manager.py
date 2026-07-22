@@ -6,23 +6,32 @@ import uuid
 from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
-from delbot_platform.research.state.research_state import ResearchState
+from delbot_platform.research.state import ResearchState
+from delbot_platform.workspace.models import ChatMessage
+from delbot_platform.workspace.models import WorkspaceMetadata
+from delbot_platform.workspace.models import WorkspaceSession
 
 
 class SessionManager:
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+    ) -> None:
 
-        self.base_path = Path("runtime/workspace")
+        self.base_path = Path(
+            "runtime/workspace"
+        )
 
         self.base_path.mkdir(
             parents=True,
             exist_ok=True,
         )
 
-        self.sessions: dict[str, dict[str, Any]] = {}
+        self.sessions: dict[
+            str,
+            WorkspaceSession,
+        ] = {}
 
         self.load_all()
 
@@ -31,24 +40,37 @@ class SessionManager:
         session_id: str,
     ) -> Path:
 
-        return self.base_path / f"{session_id}.json"
+        return (
+            self.base_path
+            / f"{session_id}.json"
+        )
 
-    def load_all(self) -> None:
+    def load_all(
+        self,
+    ) -> None:
 
         self.sessions.clear()
 
-        for file in self.base_path.glob("*.json"):
+        for file in self.base_path.glob(
+            "*.json"
+        ):
 
             try:
 
-                session = json.loads(
+                data = json.loads(
                     file.read_text(
                         encoding="utf-8",
                     )
                 )
 
+                session = (
+                    WorkspaceSession.from_dict(
+                        data
+                    )
+                )
+
                 self.sessions[
-                    session["session_id"]
+                    session.session_id
                 ] = session
 
             except Exception:
@@ -56,18 +78,18 @@ class SessionManager:
 
     def save(
         self,
-        session: dict[str, Any],
+        session: WorkspaceSession,
     ) -> None:
 
-        session["updated_at"] = (
+        session.updated_at = (
             datetime.utcnow().isoformat()
         )
 
         self._file(
-            session["session_id"]
+            session.session_id
         ).write_text(
             json.dumps(
-                session,
+                session.export(),
                 indent=4,
                 ensure_ascii=False,
             ),
@@ -77,7 +99,7 @@ class SessionManager:
     def create(
         self,
         title: str,
-    ) -> dict[str, Any]:
+    ) -> dict:
 
         session_id = str(
             uuid.uuid4()
@@ -85,116 +107,154 @@ class SessionManager:
 
         state = ResearchState()
 
-        state.update_topic(title)
+        state.update_topic(
+            title
+        )
 
-        now = datetime.utcnow().isoformat()
+        now = (
+            datetime.utcnow()
+            .isoformat()
+        )
 
-        session = {
-            "session_id": session_id,
-            "title": title,
-            "messages": [],
-            "metadata": {},
-            "research_state": state.export(),
-            "created_at": now,
-            "updated_at": now,
-        }
+        session = WorkspaceSession(
+            session_id=session_id,
+            title=title,
+            messages=[],
+            metadata=WorkspaceMetadata(),
+            research_state=state,
+            created_at=now,
+            updated_at=now,
+        )
 
         self.sessions[
             session_id
         ] = session
 
-        self.save(session)
+        self.save(
+            session
+        )
 
-        return deepcopy(session)
+        return deepcopy(
+            session.export()
+        )
+
+    def get_object(
+        self,
+        session_id: str,
+    ) -> WorkspaceSession | None:
+
+        return self.sessions.get(
+            session_id
+        )
 
     def get(
         self,
         session_id: str,
-    ) -> dict[str, Any] | None:
+    ) -> dict | None:
 
-        session = self.sessions.get(session_id)
+        session = self.get_object(
+            session_id
+        )
 
         if session is None:
             return None
 
-        return session
+        return session.export()
 
     def exists(
         self,
         session_id: str,
     ) -> bool:
 
-        return session_id in self.sessions
+        return (
+            session_id
+            in self.sessions
+        )
 
     def add_message(
         self,
         session_id: str,
         role: str,
         content: str,
-    ) -> dict[str, Any] | None:
+    ) -> dict | None:
 
-        session = self.get(session_id)
+        session = self.get_object(
+            session_id
+        )
 
         if session is None:
             return None
 
-        session["messages"].append(
-            {
-                "role": role,
-                "content": content,
-                "timestamp": datetime.utcnow().isoformat(),
-            }
+        session.messages.append(
+            ChatMessage(
+                role=role,
+                content=content,
+                timestamp=datetime.utcnow().isoformat(),
+            )
         )
 
-        self.save(session)
+        self.save(
+            session
+        )
 
-        return session
+        return session.export()
 
     def update_state(
         self,
         session_id: str,
         key: str,
-        value: Any,
-    ) -> dict[str, Any] | None:
+        value,
+    ) -> dict | None:
 
-        session = self.get(session_id)
+        session = self.get_object(
+            session_id
+        )
 
         if session is None:
             return None
 
-        session["research_state"][key] = value
+        session.research_state.update(
+            key,
+            value,
+        )
 
-        self.save(session)
+        self.save(
+            session
+        )
 
-        return session
+        return session.export()
 
     def replace_state(
         self,
         session_id: str,
         state: ResearchState,
-    ) -> dict[str, Any] | None:
+    ) -> dict | None:
 
-        session = self.get(session_id)
+        session = self.get_object(
+            session_id
+        )
 
         if session is None:
             return None
 
-        session["research_state"] = state.export()
+        session.research_state = state
 
-        self.save(session)
+        self.save(
+            session
+        )
 
-        return session
+        return session.export()
 
     def get_state(
         self,
         session_id: str,
     ) -> ResearchState | None:
 
-        session = self.get(session_id)
+        session = self.get_object(
+            session_id
+        )
 
         if session is None:
             return None
 
-        return ResearchState.from_dict(
-            session["research_state"]
-        )
+        return session.research_state

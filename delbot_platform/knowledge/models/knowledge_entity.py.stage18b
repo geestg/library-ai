@@ -1,0 +1,73 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+from typing import Any
+
+
+@dataclass(slots=True)
+class KnowledgeEntity:
+
+    entity_id: str = ""
+
+    name: str = ""
+
+    entity_type: str = ""
+
+    aliases: list[str] = field(
+        default_factory=list,
+    )
+
+    description: str = ""
+
+    metadata: dict[str, Any] = field(
+        default_factory=dict,
+    )
+
+    def export(
+        self,
+    ) -> dict[str, Any]:
+
+        return {
+            "entity_id": self.entity_id,
+            "name": self.name,
+            "entity_type": self.entity_type,
+            "aliases": list(self.aliases),
+            "description": self.description,
+            "metadata": self.metadata,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+    ) -> "KnowledgeEntity":
+
+        return cls(
+            entity_id=data.get(
+                "entity_id",
+                "",
+            ),
+            name=data.get(
+                "name",
+                "",
+            ),
+            entity_type=data.get(
+                "entity_type",
+                "",
+            ),
+            aliases=list(
+                data.get(
+                    "aliases",
+                    [],
+                ),
+            ),
+            description=data.get(
+                "description",
+                "",
+            ),
+            metadata=data.get(
+                "metadata",
+                {},
+            ),
+        )
