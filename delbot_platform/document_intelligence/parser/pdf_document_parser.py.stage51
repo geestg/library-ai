@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 from delbot_platform.document_intelligence.loader.loaded_document import (
     LoadedDocument,
 )
@@ -28,7 +26,6 @@ class PDFDocumentParser(DocumentParser):
         self,
         mapper: LayoutMapper | None = None,
     ) -> None:
-
         self._mapper = mapper or PyMuPDFMapper()
 
     def _build_pages(
@@ -40,13 +37,12 @@ class PDFDocumentParser(DocumentParser):
 
         pages: list[Page] = []
 
-        for page_index, pdf_page in enumerate(
-            backend,
-        ):
+        for page_index, pdf_page in enumerate(backend):
+
             pages.append(
                 self._mapper.build_page(
                     page_index=page_index,
-                    pymupdf_page=pdf_page,
+                    page=pdf_page,
                 ),
             )
 
@@ -57,20 +53,14 @@ class PDFDocumentParser(DocumentParser):
         document: LoadedDocument,
     ) -> ParsedDocument:
 
+        pages = self._build_pages(document)
+
         backend = document.backend_document
 
-        source_path = Path(
-            document.source_path,
-        )
-
         return ParsedDocument(
-            title=source_path.stem,
-            file_path=str(
-                source_path,
-            ),
-            pages=self._build_pages(
-                document,
-            ),
+            title=document.source_path.stem,
+            file_path=str(document.source_path),
+            pages=pages,
             metadata={
                 "page_count": backend.page_count,
             },

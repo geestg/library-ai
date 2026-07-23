@@ -2,93 +2,245 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from dataclasses import field
+from typing import TYPE_CHECKING
 from typing import Any
 
-from delbot_platform.knowledge.models.author import Author
-from delbot_platform.research.models.citation import Citation
+from delbot_platform.knowledge.models.document_chunk import DocumentChunk
+
+if TYPE_CHECKING:
+    from delbot_platform.research.models.citation import Citation
 
 
 @dataclass(slots=True)
-class ResearchResult:
+class RAGResult:
 
-    answer: str
+    query: str = ""
 
-    sources: list[Citation] = field(
+    documents: list[DocumentChunk] = field(
         default_factory=list,
     )
 
-    authors: list[Author] = field(
+    context: str = ""
+
+    citations: list["Citation"] = field(
         default_factory=list,
     )
 
-    author_ids: list[str] = field(
-        default_factory=list,
-    )
+    @property
+    def collections(
+        self,
+    ) -> list[str]:
 
-    author_names: list[str] = field(
-        default_factory=list,
-    )
+        names: list[str] = []
+        seen: set[str] = set()
 
-    collections: list[str] = field(
-        default_factory=list,
-    )
+        for chunk in self.documents:
 
-    collection_ids: list[str] = field(
-        default_factory=list,
-    )
+            name = chunk.document.collection.name
 
-    repositories: list[str] = field(
-        default_factory=list,
-    )
+            if not name or name in seen:
+                continue
 
-    repository_ids: list[str] = field(
-        default_factory=list,
-    )
+            seen.add(name)
+            names.append(name)
 
-    knowledge_sources: list[str] = field(
-        default_factory=list,
-    )
+        return names
 
-    knowledge_source_ids: list[str] = field(
-        default_factory=list,
-    )
+    @property
+    def collection_ids(
+        self,
+    ) -> list[str]:
 
-    knowledge_domains: list[str] = field(
-        default_factory=list,
-    )
+        values: list[str] = []
+        seen: set[str] = set()
 
-    knowledge_domain_ids: list[str] = field(
-        default_factory=list,
-    )
+        for chunk in self.documents:
 
-    entities: list[str] = field(
-        default_factory=list,
-    )
+            value = chunk.document.collection.collection_id
 
-    entity_ids: list[str] = field(
-        default_factory=list,
-    )
+            if not value or value in seen:
+                continue
 
-    research_state: dict[str, Any] = field(
-        default_factory=dict,
-    )
+            seen.add(value)
+            values.append(value)
+
+        return values
+
+    @property
+    def repositories(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = chunk.document.repository.name
+
+            if not name or name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def repository_ids(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = chunk.document.repository.repository_id
+
+            if not value or value in seen:
+                continue
+
+            seen.add(value)
+            values.append(value)
+
+        return values
+
+    @property
+    def knowledge_sources(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = chunk.document.source.name
+
+            if not name or name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def knowledge_source_ids(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = chunk.document.source.source_id
+
+            if not value or value in seen:
+                continue
+
+            seen.add(value)
+            values.append(value)
+
+        return values
+
+    @property
+    def knowledge_domains(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            name = chunk.document.domain.name
+
+            if not name or name in seen:
+                continue
+
+            seen.add(name)
+            names.append(name)
+
+        return names
+
+    @property
+    def knowledge_domain_ids(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            value = chunk.document.domain.domain_id
+
+            if not value or value in seen:
+                continue
+
+            seen.add(value)
+            values.append(value)
+
+        return values
+
+    @property
+    def entities(
+        self,
+    ) -> list[str]:
+
+        names: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            for entity in chunk.document.entities:
+
+                if not entity.name or entity.name in seen:
+                    continue
+
+                seen.add(entity.name)
+                names.append(entity.name)
+
+        return names
+
+    @property
+    def entity_ids(
+        self,
+    ) -> list[str]:
+
+        values: list[str] = []
+        seen: set[str] = set()
+
+        for chunk in self.documents:
+
+            for entity in chunk.document.entities:
+
+                if not entity.entity_id or entity.entity_id in seen:
+                    continue
+
+                seen.add(entity.entity_id)
+                values.append(entity.entity_id)
+
+        return values
 
     def export(
         self,
     ) -> dict[str, Any]:
 
         return {
-            "answer": self.answer,
-            "sources": [
-                source.export()
-                for source in self.sources
+            "query": self.query,
+            "documents": [
+                document.export()
+                for document in self.documents
             ],
-            "authors": [
-                author.export()
-                for author in self.authors
+            "context": self.context,
+            "citations": [
+                citation.export()
+                for citation in self.citations
             ],
-            "author_ids": self.author_ids,
-            "author_names": self.author_names,
             "collections": self.collections,
             "collection_ids": self.collection_ids,
             "repositories": self.repositories,
@@ -99,84 +251,37 @@ class ResearchResult:
             "knowledge_domain_ids": self.knowledge_domain_ids,
             "entities": self.entities,
             "entity_ids": self.entity_ids,
-            "research_state": self.research_state,
         }
 
     @classmethod
     def from_dict(
         cls,
         data: dict[str, Any],
-    ) -> "ResearchResult":
+    ) -> "RAGResult":
+
+        from delbot_platform.research.models.citation import Citation
 
         return cls(
-            answer=data.get(
-                "answer",
+            query=data.get(
+                "query",
                 "",
             ),
-            sources=[
+            documents=[
+                DocumentChunk.from_dict(item)
+                for item in data.get(
+                    "documents",
+                    [],
+                )
+            ],
+            context=data.get(
+                "context",
+                "",
+            ),
+            citations=[
                 Citation.from_dict(item)
                 for item in data.get(
-                    "sources",
+                    "citations",
                     [],
                 )
             ],
-            authors=[
-                Author.from_dict(item)
-                for item in data.get(
-                    "authors",
-                    [],
-                )
-            ],
-            author_ids=data.get(
-                "author_ids",
-                [],
-            ),
-            author_names=data.get(
-                "author_names",
-                [],
-            ),
-            collections=data.get(
-                "collections",
-                [],
-            ),
-            collection_ids=data.get(
-                "collection_ids",
-                [],
-            ),
-            repositories=data.get(
-                "repositories",
-                [],
-            ),
-            repository_ids=data.get(
-                "repository_ids",
-                [],
-            ),
-            knowledge_sources=data.get(
-                "knowledge_sources",
-                [],
-            ),
-            knowledge_source_ids=data.get(
-                "knowledge_source_ids",
-                [],
-            ),
-            knowledge_domains=data.get(
-                "knowledge_domains",
-                [],
-            ),
-            knowledge_domain_ids=data.get(
-                "knowledge_domain_ids",
-                [],
-            ),
-            entities=data.get(
-                "entities",
-                [],
-            ),
-            entity_ids=data.get(
-                "entity_ids",
-                [],
-            ),
-            research_state=data.get(
-                "research_state",
-                {},
-            ),
         )

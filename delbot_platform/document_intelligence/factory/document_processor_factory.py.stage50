@@ -3,9 +3,6 @@ from __future__ import annotations
 from delbot_platform.document_intelligence.analyzer.heading_detector import (
     HeadingDetector,
 )
-from delbot_platform.document_intelligence.analyzer.page_text_analyzer import (
-    PageTextAnalyzer,
-)
 from delbot_platform.document_intelligence.builder.default_document_builder import (
     DefaultDocumentBuilder,
 )
@@ -42,7 +39,6 @@ class DocumentProcessorFactory:
                 PDFDocumentParser(),
             ),
             AnalyzerStage(
-                PageTextAnalyzer(),
                 HeadingDetector(),
             ),
             BuilderStage(
