@@ -2,12 +2,10 @@ from __future__ import annotations
 
 from delbot_platform.ai.client.llm_client import LLMClient
 from delbot_platform.knowledge.models import (
+    Author,
     RAGResult,
 )
 from delbot_platform.knowledge.rag.rag_engine import RAGEngine
-from delbot_platform.research.builders.research_result_builder import (
-    ResearchResultBuilder,
-)
 from delbot_platform.research.memory.research_memory import (
     ResearchMemory,
 )
@@ -32,7 +30,6 @@ class ResearchEngine:
         self.rag = RAGEngine()
         self.llm = LLMClient()
         self.builder = ResearchPromptBuilder()
-        self.result_builder = ResearchResultBuilder()
         self.memory = ResearchMemory()
 
     def ask(
@@ -108,6 +105,35 @@ class ResearchEngine:
 
         exported_state = state.export()
 
+        authors: list[Author] = []
+        author_ids: list[str] = []
+        author_names: list[str] = []
+
+        seen_author_ids: set[str] = set()
+
+        for citation in citations:
+
+            for author in citation.authors:
+
+                if author.author_id in seen_author_ids:
+                    continue
+
+                seen_author_ids.add(
+                    author.author_id
+                )
+
+                authors.append(
+                    author
+                )
+
+                author_ids.append(
+                    author.author_id
+                )
+
+                author_names.append(
+                    author.full_name
+                )
+
         self.memory.save(
             session_id=session_id,
             query=query,
@@ -135,8 +161,11 @@ class ResearchEngine:
             ),
         )
 
-        return self.result_builder.build(
+        return ResearchResult(
             answer=answer,
-            citations=citations,
+            sources=citations,
+            authors=authors,
+            author_ids=author_ids,
+            author_names=author_names,
             research_state=exported_state,
         )

@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+from typing import Any
+
+from delbot_platform.document_intelligence.mapper.layout_mapper import (
+    LayoutMapper,
+)
+from delbot_platform.document_intelligence.models.block import (
+    Block,
+)
+from delbot_platform.document_intelligence.models.line import (
+    Line,
+)
+from delbot_platform.document_intelligence.models.page import (
+    Page,
+)
+from delbot_platform.document_intelligence.models.span import (
+    Span,
+)
+
+
+class PyMuPDFMapper(LayoutMapper):
+
+    def build_page(
+        self,
+        page_index: int,
+        pymupdf_page: Any,
+    ) -> Page:
+
+        page = Page(
+            page_index=page_index,
+            page_number=page_index + 1,
+        )
+
+        layout = pymupdf_page.get_text(
+            "dict",
+        )
+
+        for block_data in layout.get(
+            "blocks",
+            [],
+        ):
+
+            block = Block()
+
+            for line_data in block_data.get(
+                "lines",
+                [],
+            ):
+
+                line = Line()
+
+                for span_data in line_data.get(
+                    "spans",
+                    [],
+                ):
+
+                    span = Span(
+                        text=span_data.get(
+                            "text",
+                            "",
+                        ),
+                        font_name=span_data.get(
+                            "font",
+                            "",
+                        ),
+                        font_size=float(
+                            span_data.get(
+                                "size",
+                                0.0,
+                            ),
+                        ),
+                    )
+
+                    line.spans.append(
+                        span,
+                    )
+
+                block.lines.append(
+                    line,
+                )
+
+            page.blocks.append(
+                block,
+            )
+
+        return page

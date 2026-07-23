@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from dataclasses import field
 from typing import Any
 
+from delbot_platform.knowledge.models.author import Author
 from delbot_platform.research.models.citation import Citation
 
 
@@ -13,6 +14,18 @@ class ResearchResult:
     answer: str
 
     sources: list[Citation] = field(
+        default_factory=list,
+    )
+
+    authors: list[Author] = field(
+        default_factory=list,
+    )
+
+    author_ids: list[str] = field(
+        default_factory=list,
+    )
+
+    author_names: list[str] = field(
         default_factory=list,
     )
 
@@ -70,6 +83,12 @@ class ResearchResult:
                 source.export()
                 for source in self.sources
             ],
+            "authors": [
+                author.export()
+                for author in self.authors
+            ],
+            "author_ids": self.author_ids,
+            "author_names": self.author_names,
             "collections": self.collections,
             "collection_ids": self.collection_ids,
             "repositories": self.repositories,
@@ -101,6 +120,21 @@ class ResearchResult:
                     [],
                 )
             ],
+            authors=[
+                Author.from_dict(item)
+                for item in data.get(
+                    "authors",
+                    [],
+                )
+            ],
+            author_ids=data.get(
+                "author_ids",
+                [],
+            ),
+            author_names=data.get(
+                "author_names",
+                [],
+            ),
             collections=data.get(
                 "collections",
                 [],

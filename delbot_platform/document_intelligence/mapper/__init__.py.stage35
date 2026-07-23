@@ -1,0 +1,7 @@
+from delbot_platform.document_intelligence.mapper.pymupdf_mapper import (
+    PyMuPDFMapper,
+)
+
+__all__ = [
+    "PyMuPDFMapper",
+]

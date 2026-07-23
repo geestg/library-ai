@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from dataclasses import field
 from typing import Any
 
-from delbot_platform.knowledge.models.author import Author
 from delbot_platform.knowledge.models.document import Document
 from delbot_platform.knowledge.models.knowledge_entity import (
     KnowledgeEntity,
@@ -36,102 +35,98 @@ class DocumentChunk:
     def document_id(
         self,
     ) -> str:
+
         return self.document.document_id
 
     @property
     def document_title(
         self,
     ) -> str:
+
         return self.document.title
 
     @property
     def file_path(
         self,
     ) -> str:
+
         return self.document.file_path
 
     @property
     def collection_id(
         self,
     ) -> str:
+
         return self.document.collection.collection_id
 
     @property
     def collection_name(
         self,
     ) -> str:
+
         return self.document.collection.name
 
     @property
     def repository_id(
         self,
     ) -> str:
+
         return self.document.collection.repository.repository_id
 
     @property
     def repository_name(
         self,
     ) -> str:
+
         return self.document.collection.repository.name
 
     @property
     def repository_root_path(
         self,
     ) -> str:
+
         return self.document.collection.repository.root_path
 
     @property
     def source_id(
         self,
     ) -> str:
+
         return self.document.source_id
 
     @property
     def source_name(
         self,
     ) -> str:
+
         return self.document.source_name
 
     @property
     def domain_id(
         self,
     ) -> str:
+
         return self.document.domain_id
 
     @property
     def domain_name(
         self,
     ) -> str:
+
         return self.document.domain_name
 
     @property
     def domain(
         self,
     ):
+
         return self.document.domain
-
-    @property
-    def authors(
-        self,
-    ) -> list[Author]:
-        return self.document.authors
-
-    @property
-    def author_ids(
-        self,
-    ) -> list[str]:
-        return self.document.author_ids
-
-    @property
-    def author_names(
-        self,
-    ) -> list[str]:
-        return self.document.author_names
 
     @property
     def entities(
         self,
     ) -> list[KnowledgeEntity]:
+
         return self.document.entities
 
     def export(
@@ -153,12 +148,6 @@ class DocumentChunk:
             "source_name": self.document.source_name,
             "domain_id": self.document.domain_id,
             "domain_name": self.document.domain_name,
-            "authors": [
-                author.export()
-                for author in self.document.authors
-            ],
-            "author_ids": self.document.author_ids,
-            "author_names": self.document.author_names,
             "entities": [
                 entity.export()
                 for entity in self.document.entities
@@ -177,12 +166,33 @@ class DocumentChunk:
     ) -> "DocumentChunk":
 
         if "document" in data:
+
             document = Document.from_dict(
                 data["document"],
             )
+
         else:
-            document = Document.from_dict(
-                data,
+
+            document = Document(
+                document_id=data.get(
+                    "document_id",
+                    "",
+                ),
+                title=data.get(
+                    "document_title",
+                    "",
+                ),
+                file_path=data.get(
+                    "file_path",
+                    "",
+                ),
+                entities=[
+                    KnowledgeEntity.from_dict(entity)
+                    for entity in data.get(
+                        "entities",
+                        [],
+                    )
+                ],
             )
 
         return cls(

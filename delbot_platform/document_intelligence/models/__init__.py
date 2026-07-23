@@ -1,0 +1,27 @@
+from delbot_platform.document_intelligence.models.block import (
+    Block,
+)
+from delbot_platform.document_intelligence.models.bounding_box import (
+    BoundingBox,
+)
+from delbot_platform.document_intelligence.models.line import (
+    Line,
+)
+from delbot_platform.document_intelligence.models.page import (
+    Page,
+)
+from delbot_platform.document_intelligence.models.parsed_document import (
+    ParsedDocument,
+)
+from delbot_platform.document_intelligence.models.span import (
+    Span,
+)
+
+__all__ = [
+    "Block",
+    "BoundingBox",
+    "Line",
+    "Page",
+    "ParsedDocument",
+    "Span",
+]
