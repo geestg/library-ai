@@ -38,6 +38,6 @@ class InfinityRuntimeClient:
 
         return self.client.post(
             runtime=self.runtime,
-            endpoint="/embeddings",
+            endpoint="/v1/embeddings",
             payload=payload,
         )

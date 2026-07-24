@@ -6,8 +6,8 @@ from delbot_platform.api.schemas.document import (
     DocumentIndexRequest,
 )
 
-from delbot_platform.documents.services.indexing import (
-    DocumentIndexService,
+from delbot_platform.application.factory import (
+    ApplicationFactory,
 )
 
 
@@ -19,7 +19,9 @@ router = APIRouter(
 )
 
 
-service = DocumentIndexService()
+application = (
+    ApplicationFactory.documents()
+)
 
 
 @router.post(
@@ -29,12 +31,12 @@ async def index_document(
     request: DocumentIndexRequest,
 ):
 
-    result = await service.index(
+    artifact, result = await application.execute(
         request.pdf_path,
     )
 
     return {
-        "document_id": result.document_id,
+        "document_id": artifact.document.document_id,
         "source": result.source,
         "pages": result.pages,
         "blocks": result.blocks,

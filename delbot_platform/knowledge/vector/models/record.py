@@ -1,13 +1,7 @@
-from __future__ import annotations
+from delbot_platform.vectors import (
+    VectorRecord,
+)
 
-from dataclasses import dataclass
-
-
-@dataclass(slots=True)
-class VectorRecord:
-
-    id: str
-
-    vector: list[float]
-
-    metadata: dict
+__all__ = [
+    "VectorRecord",
+]

@@ -5,8 +5,8 @@ from pathlib import Path
 from delbot_platform.documents.pipeline.indexing import (
     DocumentIndexingPipeline,
 )
-
-from delbot_platform.documents.pipeline.models.index_result import (
+from delbot_platform.documents.pipeline.models import (
+    DocumentIndexArtifact,
     DocumentIndexResult,
 )
 
@@ -22,8 +22,11 @@ class DocumentIndexService:
     async def index(
         self,
         pdf_path: str | Path,
-    ) -> DocumentIndexResult:
+    ) -> tuple[
+        DocumentIndexArtifact,
+        DocumentIndexResult,
+    ]:
 
-        return await self.pipeline.index(
-            pdf_path,
+        return await self.pipeline.index_with_summary(
+            str(pdf_path),
         )

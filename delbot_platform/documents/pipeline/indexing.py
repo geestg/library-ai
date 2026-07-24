@@ -1,201 +1,125 @@
 from __future__ import annotations
 
-
 import time
-
 
 from delbot_platform.documents.chunking import (
     ChunkBuilder,
 )
-
-
 from delbot_platform.documents.embedding.pipeline.pipeline import (
     EmbeddingPipeline,
 )
-
-
-from delbot_platform.documents.pipeline.models.index_result import (
+from delbot_platform.documents.pipeline.models import (
+    DocumentIndexArtifact,
     DocumentIndexResult,
 )
-
-
 from delbot_platform.documents.pipeline.preprocessing import (
     DocumentPreprocessingPipeline,
 )
-
-
 from delbot_platform.documents.registry.manager import (
     DocumentRegistryManager,
 )
-
-
 from delbot_platform.vectorstore import (
     QdrantRepository,
 )
 
 
-
 class DocumentIndexingPipeline:
-    """
-    Canonical Document Indexing Pipeline.
-
-    Flow
-
-        Registry
-            |
-            v
-        Preprocessing
-            |
-            v
-        Sections
-            |
-            v
-        Chunk Builder
-            |
-            v
-        Embedding
-            |
-            v
-        Qdrant Storage
-            |
-            v
-        Index Result
-
-    """
-
-
 
     def __init__(
         self,
     ) -> None:
 
-
-        self.registry = (
-            DocumentRegistryManager()
-        )
-
+        self.registry = DocumentRegistryManager()
 
         self.preprocessing = (
             DocumentPreprocessingPipeline()
         )
 
+        self.chunk_builder = ChunkBuilder()
 
-        self.chunk_builder = (
-            ChunkBuilder()
-        )
-
-
-        self.embedding = (
-            EmbeddingPipeline()
-        )
-
+        self.embedding = EmbeddingPipeline()
 
         self.vectorstore = (
             QdrantRepository()
         )
 
-
-
     async def index(
         self,
         pdf_path: str,
-    ) -> DocumentIndexResult:
-
-
-        started = time.perf_counter()
-
-
+    ) -> DocumentIndexArtifact:
 
         document = self.registry.resolve(
             pdf_path,
         )
 
-
-
         sections = self.preprocessing.process(
-
             document_id=document.id,
-
             source=document.source,
-
             pdf_path=pdf_path,
-
         )
-
-
 
         chunks = self.chunk_builder.build(
             sections,
         )
 
-
-
         vectors = await self.embedding.run(
             chunks,
         )
 
-
-
-        stored = self.vectorstore.save(
+        self.vectorstore.save(
             vectors,
         )
 
-
-
-        elapsed = (
-
-            time.perf_counter()
-
-            - started
-
+        return DocumentIndexArtifact(
+            document=document,
+            sections=sections,
+            chunks=chunks,
+            vectors=vectors,
         )
 
-
-
-        block_count = sum(
-
-            section.block_count
-
-            for section in sections
-
-        )
-
-
-
-        page_count = max(
-
-            (
-
-                section.page_end
-
-                for section in sections
-
-            ),
-
-            default=0,
-
-        )
-
-
+    def summarize(
+        self,
+        artifact: DocumentIndexArtifact,
+        elapsed: float,
+    ) -> DocumentIndexResult:
 
         return DocumentIndexResult(
-
-            document_id=document.id,
-
-            source=document.source,
-
-            pages=page_count,
-
-            blocks=block_count,
-
-            sections=len(sections),
-
-            chunks=len(chunks),
-
-            vectors=stored,
-
+            document_id=artifact.document_id,
+            source=artifact.source,
+            pages=artifact.page_count,
+            blocks=artifact.block_count,
+            sections=artifact.section_count,
+            chunks=artifact.chunk_count,
+            vectors=artifact.vector_count,
             elapsed=elapsed,
-
             success=True,
+        )
 
+    async def index_with_summary(
+        self,
+        pdf_path: str,
+    ) -> tuple[
+        DocumentIndexArtifact,
+        DocumentIndexResult,
+    ]:
+
+        started = time.perf_counter()
+
+        artifact = await self.index(
+            pdf_path,
+        )
+
+        elapsed = (
+            time.perf_counter()
+            - started
+        )
+
+        summary = self.summarize(
+            artifact,
+            elapsed,
+        )
+
+        return (
+            artifact,
+            summary,
         )
