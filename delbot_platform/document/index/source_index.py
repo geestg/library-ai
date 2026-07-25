@@ -1,102 +1,64 @@
 from __future__ import annotations
 
-
-from qdrant_client import QdrantClient
-
+from delbot_platform.vectorstore.qdrant.singleton import (
+    get_qdrant_store,
+)
 
 
 class SourceIndex:
 
+    def __init__(
+        self,
+    ) -> None:
 
+        self.store = get_qdrant_store()
+        self.store.create_collection()
 
-    COLLECTION="delbot_documents"
+    def build(
+        self,
+    ):
 
+        sources = {}
 
-
-    def __init__(self):
-
-        self.client=QdrantClient(
-
-            host="127.0.0.1",
-
-            port=6333
-
-        )
-
-
-
-    def build(self):
-
-
-        sources={}
-
-
-        offset=None
-
-
+        offset = None
 
         while True:
 
-
-            points,offset=self.client.scroll(
-
-                collection_name=self.COLLECTION,
-
+            points, offset = self.store.scroll(
                 limit=100,
-
-                offset=offset
-
+                offset=offset,
             )
-
-
 
             for point in points:
 
+                payload = point.payload or {}
 
-                payload=point.payload
-
-
-                source=payload.get(
-                    "source"
+                source = payload.get(
+                    "source",
                 )
 
-
                 if not source:
-
                     continue
-
-
 
                 if source not in sources:
 
-
-                    sources[source]={
-
-                        "pages":0,
-
-                        "sample":""
-
+                    sources[source] = {
+                        "pages": 0,
+                        "sample": "",
                     }
 
-
-
-                sources[source]["pages"]+=1
-
-
+                sources[source]["pages"] += 1
 
                 if not sources[source]["sample"]:
 
-                    sources[source]["sample"]=payload.get(
-                        "text",
-                        ""
-                    )[:500]
-
-
+                    sources[source]["sample"] = (
+                        payload.get(
+                            "text",
+                            "",
+                        )[:500]
+                    )
 
             if offset is None:
-
                 break
-
-
 
         return sources

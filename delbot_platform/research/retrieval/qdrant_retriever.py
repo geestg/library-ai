@@ -1,55 +1,40 @@
 from __future__ import annotations
 
-
-from qdrant_client import QdrantClient
-
-
 from delbot_platform.research.embedding.query import (
     QueryEmbedding,
 )
-
+from delbot_platform.vectorstore.qdrant.singleton import (
+    get_qdrant_store,
+)
 
 
 class QdrantRetriever:
 
+    def __init__(
+        self,
+    ) -> None:
 
-    COLLECTION = "delbot_documents"
-
-
-
-    def __init__(self):
-
-        self.client = QdrantClient(
-            host="127.0.0.1",
-            port=6333,
-        )
-
+        self.store = get_qdrant_store()
+        self.store.create_collection()
 
         self.embedding = QueryEmbedding()
 
-
-
     def search(
         self,
-        query:str,
-        limit:int = 5,
-    ):
-
+        query: str,
+        limit: int = 5,
+    ) -> list[dict]:
 
         vector = self.embedding.embed(
-            query
+            query,
         )
 
-
-        results = self.client.search(
-            collection_name=self.COLLECTION,
+        results = self.store.search(
             query_vector=vector,
             limit=limit,
         )
 
-
-        documents=[]
-
+        documents: list[dict] = []
 
         for item in results:
 
@@ -59,6 +44,5 @@ class QdrantRetriever:
                     "payload": item.payload,
                 }
             )
-
 
         return documents

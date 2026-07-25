@@ -1,77 +1,54 @@
 from __future__ import annotations
 
+from qdrant_client.models import PointStruct
 
-from qdrant_client import QdrantClient
-
-from qdrant_client.models import (
-    VectorParams,
-    Distance,
-    PointStruct,
+from delbot_platform.vectorstore.qdrant.singleton import (
+    get_qdrant_store,
 )
-
 
 
 class QdrantStorage:
 
+    def __init__(
+        self,
+    ) -> None:
 
-    def __init__(self):
-
-        self.client = QdrantClient(
-            host="127.0.0.1",
-            port=6333,
-        )
-
-
-        self.collection="delbot_documents"
-
-
+        self.store = get_qdrant_store()
 
     def ensure_collection(
         self,
-        size:int,
-    ):
+        size: int,
+    ) -> None:
 
-
-        collections=[
-            c.name
-            for c in self.client.get_collections().collections
-        ]
-
-
-        if self.collection not in collections:
-
-            self.client.create_collection(
-                collection_name=self.collection,
-                vectors_config=VectorParams(
-                    size=size,
-                    distance=Distance.COSINE,
-                ),
-            )
-
-
+        self.store.create_collection()
 
     def insert(
         self,
-        vectors:list,
-        payloads:list,
-    ):
+        vectors: list,
+        payloads: list,
+    ) -> int:
 
+        points: list[PointStruct] = []
 
-        points=[]
+        for index, (vector, payload) in enumerate(
+            zip(vectors, payloads)
+        ):
 
-
-        for idx,vector in enumerate(vectors):
+            document_id = payload.get(
+                "document_id",
+                index,
+            )
 
             points.append(
                 PointStruct(
-                    id=idx,
+                    id=str(document_id),
                     vector=vector,
-                    payload=payloads[idx],
+                    payload=payload,
                 )
             )
 
-
-        self.client.upsert(
-            collection_name=self.collection,
-            points=points,
+        self.store.upsert(
+            points,
         )
+
+        return len(points)

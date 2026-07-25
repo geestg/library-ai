@@ -1,65 +1,49 @@
 from __future__ import annotations
 
-
-from qdrant_client import QdrantClient
-
-from delbot_platform.ai.client.embedding_client import EmbeddingClient
-
+from delbot_platform.ai.client.embedding_client import (
+    EmbeddingClient,
+)
+from delbot_platform.vectorstore.qdrant.singleton import (
+    get_qdrant_store,
+)
 
 
 class VectorRetriever:
 
-
     def __init__(
         self,
-        collection="delbot_documents"
-    ):
+    ) -> None:
 
-        self.collection = collection
-
-
-        self.qdrant = QdrantClient(
-            host="localhost",
-            port=6333
-        )
-
+        self.store = get_qdrant_store()
+        self.store.create_collection()
 
         self.embedder = EmbeddingClient()
 
-
-
     def search(
         self,
-        query:str,
-        limit:int=10
+        query: str,
+        limit: int = 10,
     ):
 
-
         vector = self.embedder.embed(
-            [query]
+            [query],
         )[0]
 
-
-        results = self.qdrant.search(
-            collection_name=self.collection,
+        results = self.store.search(
             query_vector=vector,
             limit=limit,
-            with_payload=True
+            with_payload=True,
         )
 
+        output = []
 
-        output=[]
-
-
-        for r in results:
+        for item in results:
 
             output.append(
                 {
-                    "score":r.score,
-
-                    "payload":r.payload
+                    "score": item.score,
+                    "payload": item.payload,
                 }
             )
-
 
         return output

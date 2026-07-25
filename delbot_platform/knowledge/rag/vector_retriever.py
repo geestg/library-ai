@@ -1,24 +1,20 @@
 from __future__ import annotations
 
-from qdrant_client import QdrantClient
-
 from delbot_platform.ai.client.embedding_client import EmbeddingClient
 from delbot_platform.knowledge.models import DocumentChunk
+from delbot_platform.vectorstore.qdrant.singleton import (
+    get_qdrant_store,
+)
 
 
 class VectorRetriever:
 
     def __init__(
         self,
-        collection: str = "delbot_documents",
     ) -> None:
 
-        self.collection = collection
-
-        self.client = QdrantClient(
-            host="localhost",
-            port=6333,
-        )
+        self.store = get_qdrant_store()
+        self.store.create_collection()
 
         self.embedding = EmbeddingClient()
 
@@ -32,8 +28,7 @@ class VectorRetriever:
             query,
         )
 
-        results = self.client.search(
-            collection_name=self.collection,
+        results = self.store.search(
             query_vector=vector,
             limit=limit,
             with_payload=True,
@@ -52,36 +47,34 @@ class VectorRetriever:
                 or ""
             )
 
-            chunk = DocumentChunk(
-                chunk_id=str(item.id),
-                document_id=payload.get(
-                    "document_id",
-                    "",
-                ),
-                document_title=payload.get(
-                    "document_title",
-                    "",
-                ),
-                file_path=payload.get(
-                    "source_file",
-                    payload.get(
-                        "file",
+            documents.append(
+                DocumentChunk(
+                    chunk_id=str(item.id),
+                    document_id=payload.get(
+                        "document_id",
                         "",
                     ),
-                ),
-                page=payload.get(
-                    "page",
-                    0,
-                ),
-                text=text,
-                vector_score=float(
-                    item.score,
-                ),
-                metadata=payload,
-            )
-
-            documents.append(
-                chunk,
+                    document_title=payload.get(
+                        "document_title",
+                        "",
+                    ),
+                    file_path=payload.get(
+                        "source_file",
+                        payload.get(
+                            "file",
+                            "",
+                        ),
+                    ),
+                    page=payload.get(
+                        "page",
+                        0,
+                    ),
+                    text=text,
+                    vector_score=float(
+                        item.score,
+                    ),
+                    metadata=payload,
+                )
             )
 
         return documents
