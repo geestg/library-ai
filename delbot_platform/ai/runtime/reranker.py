@@ -90,3 +90,15 @@ def rerank(
         "results":results
 
     }
+
+import uvicorn
+
+
+if __name__ == "__main__":
+
+    uvicorn.run(
+        "delbot_platform.ai.runtime.reranker:app",
+        host="0.0.0.0",
+        port=8106,
+        reload=False,
+    )

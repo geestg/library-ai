@@ -2,15 +2,24 @@ from __future__ import annotations
 
 from dataclasses import replace
 
-from delbot_platform.repository.ingestion import (
-    DatasetLoader,
+from delbot_platform.repository.catalog import (
+    CatalogAdapter,
+    CatalogLoader,
 )
+
 from delbot_platform.repository.models import (
     RepositoryItem,
     RepositoryScanResult,
 )
+
 from delbot_platform.repository.resolver import (
     LocalPDFResolver,
+)
+
+
+DEFAULT_CATALOG = (
+    "delbot_platform/repository_data/metadata/"
+    "repository_catalog.json"
 )
 
 
@@ -18,21 +27,19 @@ class RepositoryService:
     """
     Repository orchestration service.
 
-    Responsibilities:
+    Source of truth:
 
-    - load repository metadata
-    - resolve PDF artifacts
-    - provide repository state
+        repository_catalog.json
     """
 
     def __init__(
         self,
-        dataset_path: str = "backend/app/dataset/skripsi_dataset.json",
+        catalog_path: str = DEFAULT_CATALOG,
         pdf_resolver: LocalPDFResolver | None = None,
     ) -> None:
 
-        self.loader = DatasetLoader(
-            dataset_path,
+        self.loader = CatalogLoader(
+            catalog_path,
         )
 
         self.pdf_resolver = (
@@ -47,7 +54,17 @@ class RepositoryService:
         self,
     ) -> list[RepositoryItem]:
 
-        self.items = self.loader.load()
+        catalog = self.loader.load()
+
+        self.items = [
+
+            CatalogAdapter.to_repository_item(
+                record,
+            )
+
+            for record in catalog
+
+        ]
 
         return self.items
 
@@ -95,8 +112,13 @@ class RepositoryService:
                 missing += 1
 
         return RepositoryScanResult(
+
             total=len(results),
+
             pdf_available=available,
+
             pdf_missing=missing,
+
             items=results,
+
         )

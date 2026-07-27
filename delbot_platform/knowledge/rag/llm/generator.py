@@ -1,45 +1,25 @@
 from __future__ import annotations
 
-
-from delbot_platform.ai.registry.model_category import (
-    ModelCategory,
+from delbot_platform.ai.client.llm_client import (
+    LLMClient,
 )
-
-
-from delbot_platform.ai.registry.registry import (
-    ModelRegistry,
-)
-
-
-from delbot_platform.gateway.client import (
-    GatewayClient,
-)
-
 
 from delbot_platform.knowledge.citation.source import (
     CitationSource,
 )
-
 
 from delbot_platform.knowledge.rag.llm.response import (
     LLMResponse,
 )
 
 
-
 class LLMGenerator:
-
 
     def __init__(
         self,
     ) -> None:
 
-
-        self.registry = ModelRegistry()
-
-        self.client = GatewayClient()
-
-
+        self.client = LLMClient()
 
     async def generate(
         self,
@@ -48,73 +28,34 @@ class LLMGenerator:
         instruction: str | None = None,
     ) -> LLMResponse:
 
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "You are DELBot, an academic research assistant.\n"
+                    "Answer ONLY from the supplied context.\n"
+                    "If the context is insufficient, explicitly say so.\n"
+                    "Do not fabricate facts."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"Context:\n"
+                    f"{context}\n\n"
+                    f"Question:\n"
+                    f"{instruction or ''}"
+                ),
+            },
+        ]
 
-        runtime = self.registry.default(
-            ModelCategory.CHAT,
-        ).runtime
-
-
-
-        payload = {
-
-            "messages": [
-
-                {
-
-                    "role": "system",
-
-                    "content":
-                    (
-                        "You are DELBot, "
-                        "an academic research assistant. "
-                        "Answer based on provided context."
-                    ),
-
-                },
-
-                {
-
-                    "role": "user",
-
-                    "content":
-                    (
-                        f"Context:\n\n"
-                        f"{context}\n\n"
-                        f"Question:\n"
-                        f"{instruction or ''}"
-                    ),
-
-                },
-
-            ],
-
-        }
-
-
-
-        response = self.client.post(
-
-            runtime=runtime,
-
-            endpoint="/chat",
-
-            payload=payload,
-
+        answer = self.client.chat(
+            messages=messages,
+            temperature=0.2,
+            max_tokens=1024,
         )
-
-
-
-        answer = response.get(
-            "answer",
-            "",
-        )
-
-
 
         return LLMResponse(
-
             answer=answer,
-
             citations=citations,
-
         )

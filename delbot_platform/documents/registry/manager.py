@@ -37,8 +37,10 @@ class DocumentRegistryManager:
             pdf_path,
         )
 
+        # gunakan nama file tanpa extension sebagai
+        # document identifier pada MVP
         document_id = (
-            path.parent.name
+            path.stem
         )
 
         existing = self.repository.get(
@@ -46,7 +48,6 @@ class DocumentRegistryManager:
         )
 
         if existing is not None:
-
             return existing
 
         record = DocumentRecord(

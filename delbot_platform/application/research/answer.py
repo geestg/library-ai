@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.rag.llm.response import (
-    LLMResponse,
+from delbot_platform.knowledge.rag.research.response import (
+    ResearchPipelineResponse,
 )
 
 from delbot_platform.research.services import (
@@ -28,7 +28,7 @@ class ResearchAnswerApplication:
     async def execute(
         self,
         question: str,
-    ) -> LLMResponse:
+    ) -> ResearchPipelineResponse:
 
         return await self.service.answer(
             question=question,

@@ -1,74 +1,48 @@
 from __future__ import annotations
 
-
 from pathlib import Path
-
-import json
-
 
 
 class RepositoryDocumentLoader:
     """
-    Load available PDF documents
-    from repository manifest.
-    """
+    Discover available PDF documents directly from the repository.
 
+    Repository layout:
+
+    delbot_platform/
+        repository_data/
+            pdf/
+                *.pdf
+    """
 
     def __init__(
         self,
-        manifest_path: str = "data/repository/manifests/pdf_manifest.json",
+        repository_path: str = "delbot_platform/repository_data/pdf",
     ) -> None:
 
-
-        self.manifest_path = Path(
-            manifest_path
-        )
-
-
+        self.repository_path = Path(repository_path)
 
     def load_available(
         self,
     ) -> list[dict]:
 
-
-        if not self.manifest_path.exists():
-
+        if not self.repository_path.exists():
             raise FileNotFoundError(
-                self.manifest_path
+                self.repository_path
             )
 
+        documents: list[dict] = []
 
-        with self.manifest_path.open(
-            "r",
-            encoding="utf-8",
-        ) as file:
+        for pdf in sorted(
+            self.repository_path.glob("*.pdf")
+        ):
 
-
-            data = json.load(
-                file
+            documents.append(
+                {
+                    "document_id": pdf.stem,
+                    "pdf_path": str(pdf),
+                    "source": pdf.name,
+                }
             )
-
-
-
-        documents = []
-
-
-        for item in data:
-
-
-            if (
-                item["status"]
-                ==
-                "available"
-                and
-                item["pdf_path"]
-            ):
-
-
-                documents.append(
-                    item
-                )
-
 
         return documents
-

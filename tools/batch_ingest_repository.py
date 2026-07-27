@@ -1,200 +1,108 @@
 from __future__ import annotations
 
-
+import asyncio
 import sys
-import json
-
-
 from pathlib import Path
 
-
-ROOT=Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(
     0,
-    str(ROOT)
+    str(ROOT),
+)
+
+from delbot_platform.documents.pipeline.indexing import (
+    DocumentIndexingPipeline,
+)
+from delbot_platform.repository import (
+    RepositoryDocumentLoader,
+)
+from delbot_platform.vectorstore import (
+    QdrantRepository,
 )
 
 
+async def main() -> None:
 
-from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+    print("=" * 60)
+    print("DELBot Repository Batch Indexer")
+    print("=" * 60)
 
-from delbot_platform.ai.client.embedding_client import EmbeddingClient
+    loader = RepositoryDocumentLoader()
 
-from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+    pipeline = DocumentIndexingPipeline()
 
+    repository = QdrantRepository()
 
+    documents = loader.load_available()
 
-PDF_DIR=Path(
-    "delbot_platform/repository_data/thesis_files"
-)
+    print(f"PDF COUNT : {len(documents)}")
 
+    indexed = 0
+    failed = 0
 
-META_FILE=Path(
-    "delbot_platform/repository_data/metadata/skripsi_dataset.json"
-)
-
-
-
-def load_metadata():
-
-    with open(
-        META_FILE,
-        "r",
-        encoding="utf-8"
-    ) as f:
-
-        return json.load(f)
-
-
-
-def main():
-
-
-    print("="*60)
-    print("DELBot BATCH VECTOR INGEST")
-    print("="*60)
-
-
-    pdfs=list(
-        PDF_DIR.glob("*.pdf")
-    )
-
-
-    print(
-        "PDF COUNT:",
-        len(pdfs)
-    )
-
-
-    metadata=load_metadata()
-
-
-    pdf_engine=PDFIngestion()
-
-    embedder=EmbeddingClient()
-
-    store=QdrantStore()
-
-
-    store.create_collection(
-        1024
-    )
-
-
-    total=0
-
-
-    for index,pdf in enumerate(
-        pdfs,
-        start=1
+    for index, document in enumerate(
+        documents,
+        start=1,
     ):
 
+        pdf_path = document["pdf_path"]
 
         print()
         print(
-            f"[{index}/{len(pdfs)}]",
-            pdf.name
+            f"[{index}/{len(documents)}]",
+            Path(pdf_path).name,
         )
 
+        try:
 
-        result=pdf_engine.ingest(
-            str(pdf)
-        )
-
-
-        chunks=result.get(
-            "chunks",
-            []
-        )
-
-
-        if not chunks:
+            artifact = await pipeline.index(
+                pdf_path,
+            )
 
             print(
-                "NO CHUNKS"
+                f"Sections : {len(artifact.sections)}"
             )
 
-            continue
-
-
-
-        print(
-            "Chunks:",
-            len(chunks)
-        )
-
-
-        vectors=embedder.embed(
-            chunks
-        )
-
-
-        print(
-            "Vectors:",
-            len(vectors)
-        )
-
-
-        payloads=[]
-
-
-        meta=metadata[
-            (index-1) % len(metadata)
-        ]
-
-
-        for chunk in chunks:
-
-
-            payloads.append(
-                {
-                    "text":chunk,
-                    "title":meta.get("title"),
-                    "author":meta.get("author"),
-                    "year":meta.get("year"),
-                    "prodi":meta.get("prodi"),
-                    "source":pdf.name
-                }
+            print(
+                f"Chunks   : {len(artifact.chunks)}"
             )
 
+            print(
+                f"Vectors  : {len(artifact.vectors)}"
+            )
 
+            indexed += 1
 
-        inserted=store.insert(
-            vectors,
-            payloads
-        )
+        except Exception as exc:
 
+            failed += 1
 
-        total+=inserted
-
-
-        print(
-            "Inserted:",
-            inserted
-        )
-
-
+            print(
+                "FAILED:",
+                exc,
+            )
 
     print()
-    print("="*60)
+    print("=" * 60)
+
     print(
-        "TOTAL VECTOR:",
-        total
+        "Indexed Documents :",
+        indexed,
+    )
+
+    print(
+        "Failed Documents  :",
+        failed,
+    )
+
+    print(
+        "Total Vectors     :",
+        repository.count(),
     )
 
 
-    print(
-        "QDRANT COUNT:",
-        store.count()
+if __name__ == "__main__":
+    asyncio.run(
+        main(),
     )
-
-
-    print(
-        "DONE"
-    )
-
-
-
-if __name__=="__main__":
-    main()

@@ -7,23 +7,16 @@ from delbot_platform.api.schemas.research import (
     ResearchAnswerRequest,
     ResearchAnswerResponse,
 )
-
 from delbot_platform.application.factory import (
     ApplicationFactory,
 )
 
-
 router = APIRouter(
     prefix="/research",
-    tags=[
-        "research",
-    ],
+    tags=["research"],
 )
 
-
-application = (
-    ApplicationFactory.research()
-)
+application = ApplicationFactory.research()
 
 
 @router.post(
@@ -38,16 +31,36 @@ async def answer_research(
         question=request.question,
     )
 
-    citations = [
-        CitationResponse(
-            document_id=item.document_id,
-            source=item.source,
-            section=item.section,
-            page_start=item.page_start,
-            page_end=item.page_end,
+    citations: list[CitationResponse] = []
+
+    for item in result.citations:
+
+        metadata = item.metadata or {}
+
+        page_start = metadata.get(
+            "page_start",
+            item.page,
         )
-        for item in result.citations
-    ]
+
+        page_end = metadata.get(
+            "page_end",
+            item.page,
+        )
+
+        section = metadata.get(
+            "section",
+            "",
+        )
+
+        citations.append(
+            CitationResponse(
+                document_id=item.document_id,
+                source=str(item.source_name),
+                section=section,
+                page_start=page_start,
+                page_end=page_end,
+            )
+        )
 
     return ResearchAnswerResponse(
         answer=result.answer,

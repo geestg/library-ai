@@ -36,7 +36,7 @@ async def index_document(
     )
 
     return {
-        "document_id": artifact.document.document_id,
+        "document_id": artifact.document.id,
         "source": result.source,
         "pages": result.pages,
         "blocks": result.blocks,

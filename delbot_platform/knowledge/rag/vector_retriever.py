@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from delbot_platform.ai.client.embedding_client import EmbeddingClient
+from delbot_platform.knowledge.models import Document
 from delbot_platform.knowledge.models import DocumentChunk
 from delbot_platform.vectorstore.qdrant.singleton import (
     get_qdrant_store,
@@ -14,6 +15,7 @@ class VectorRetriever:
     ) -> None:
 
         self.store = get_qdrant_store()
+
         self.store.create_collection()
 
         self.embedding = EmbeddingClient()
@@ -47,24 +49,14 @@ class VectorRetriever:
                 or ""
             )
 
+            document = Document.from_dict(
+                payload,
+            )
+
             documents.append(
                 DocumentChunk(
                     chunk_id=str(item.id),
-                    document_id=payload.get(
-                        "document_id",
-                        "",
-                    ),
-                    document_title=payload.get(
-                        "document_title",
-                        "",
-                    ),
-                    file_path=payload.get(
-                        "source_file",
-                        payload.get(
-                            "file",
-                            "",
-                        ),
-                    ),
+                    document=document,
                     page=payload.get(
                         "page",
                         0,
