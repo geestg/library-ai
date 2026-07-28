@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from delbot_platform.ai.client.llm_client import LLMClient
-from delbot_platform.knowledge.models import (
-    RAGResult,
+from delbot_platform.knowledge.rag.models.response import (
+    RAGResponse,
 )
 from delbot_platform.knowledge.rag.rag_engine import RAGEngine
 from delbot_platform.research.builders.research_result_builder import (
@@ -35,7 +35,7 @@ class ResearchEngine:
         self.result_builder = ResearchResultBuilder()
         self.memory = ResearchMemory()
 
-    def ask(
+    async def ask(
         self,
         session_id: str,
         query: str,
@@ -60,8 +60,8 @@ class ResearchEngine:
             query
         )
 
-        rag_result: RAGResult = (
-            self.rag.search(
+        rag_result: RAGResponse = (
+            await self.rag.search(
                 query
             )
         )

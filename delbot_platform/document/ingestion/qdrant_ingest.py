@@ -4,8 +4,8 @@ import uuid
 
 from qdrant_client.models import PointStruct
 
-from delbot_platform.research.embedding.query import (
-    QueryEmbedding,
+from delbot_platform.ai.client.embedding_client import (
+    EmbeddingClient,
 )
 from delbot_platform.vectorstore.qdrant.singleton import (
     get_qdrant_store,
@@ -21,7 +21,7 @@ class QdrantIngest:
         self.store = get_qdrant_store()
         self.store.create_collection()
 
-        self.embedding = QueryEmbedding()
+        self.embedding = EmbeddingClient()
 
     def ensure_collection(
         self,

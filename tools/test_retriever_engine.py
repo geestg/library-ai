@@ -1,73 +1,58 @@
 from __future__ import annotations
 
-
+import asyncio
 import sys
-
 from pathlib import Path
 
-
-ROOT=Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(
     0,
-    str(ROOT)
+    str(ROOT),
+)
+
+from delbot_platform.knowledge.retrieval.qdrant import (
+    QdrantRetriever,
 )
 
 
-from delbot_platform.knowledge.retrieval.retriever import VectorRetriever
+async def main():
 
+    retriever = QdrantRetriever()
 
+    query = """
+    cara membuat penelitian machine learning
+    """
 
-retriever=VectorRetriever()
+    print("=" * 80)
+    print("QUERY")
+    print("=" * 80)
+    print(query.strip())
 
-
-
-query="""
-cara membuat penelitian machine learning
-"""
-
-
-print("="*60)
-print(query)
-print("="*60)
-
-
-
-results=retriever.search(
-    query,
-    limit=5
-)
-
-
-
-for i,r in enumerate(results):
+    results = await retriever.retrieve(
+        query=query,
+        limit=5,
+    )
 
     print()
-    print("RANK",i+1)
+    print("=" * 80)
+    print(f"HASIL : {len(results)}")
+    print("=" * 80)
 
-    print(
-        "SCORE:",
-        r["score"]
-    )
+    for i, item in enumerate(results, start=1):
 
-
-    payload=r["payload"]
-
-
-    print(
-        payload.get(
-            "source_file",
-            ""
-        )
-    )
-
-
-    print(
-        payload.get(
-            "text",
-            ""
-        )[:500]
-    )
+        print()
+        print(f"RANK {i}")
+        print("-" * 80)
+        print("SCORE      :", item.score)
+        print("DOCUMENT   :", item.metadata.document_id)
+        print("SOURCE     :", item.metadata.source)
+        print("SECTION    :", item.metadata.section)
+        print("PAGE       :", f"{item.metadata.page_start}-{item.metadata.page_end}")
+        print()
+        print(item.content[:500])
+        print("-" * 80)
 
 
-    print("-"*60)
+if __name__ == "__main__":
+    asyncio.run(main())

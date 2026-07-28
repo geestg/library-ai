@@ -100,7 +100,7 @@ class QdrantRetriever(
             retrieved.append(
                 RetrievalResult(
                     id=item.id,
-                    score=0.0,
+                    score=item.score,
                     content=payload.get(
                         "text",
                         "",

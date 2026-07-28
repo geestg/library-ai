@@ -1,13 +1,14 @@
+from __future__ import annotations
+
 from fastapi import APIRouter
-
-
 from pydantic import BaseModel
 
-
-from delbot_platform.research.services.rag import (
-    RAGService,
+from delbot_platform.research.research_engine import (
+    ResearchEngine,
 )
-
+from delbot_platform.workspace.session_manager import (
+    SessionManager,
+)
 
 
 router = APIRouter(
@@ -15,27 +16,28 @@ router = APIRouter(
     tags=["Research"],
 )
 
+session_manager = SessionManager()
 
-
-rag = RAGService()
-
+engine = ResearchEngine(
+    session_manager=session_manager,
+)
 
 
 class ResearchRequest(BaseModel):
 
-    query:str
+    session_id: str
 
+    query: str
 
 
 @router.post("/chat")
-def research_chat(
-    body:ResearchRequest
+async def research_chat(
+    body: ResearchRequest,
 ):
 
-
-    result = rag.answer(
-        body.query
+    result = await engine.ask(
+        session_id=body.session_id,
+        query=body.query,
     )
-
 
     return result

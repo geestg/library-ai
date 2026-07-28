@@ -12,7 +12,6 @@ router = APIRouter(
     tags=["Research"],
 )
 
-
 session_manager = SessionManager()
 
 engine = ResearchEngine(
@@ -28,11 +27,11 @@ class ResearchRequest(BaseModel):
 
 
 @router.post("/ask")
-def ask_research(
+async def ask_research(
     request: ResearchRequest,
 ):
 
-    result = engine.ask(
+    result = await engine.ask(
         session_id=request.session_id,
         query=request.query,
     )
@@ -40,8 +39,7 @@ def ask_research(
     return {
         "session_id": request.session_id,
         "query": request.query,
-        "answer": result["answer"],
-        "sources": result["sources"],
-        "research_state": result["research_state"],
+        "answer": result.answer,
+        "sources": result.sources,
+        "research_state": result.research_state,
     }
-

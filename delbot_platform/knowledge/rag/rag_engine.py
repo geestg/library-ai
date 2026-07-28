@@ -1,8 +1,10 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.models import RAGResult
 from delbot_platform.knowledge.rag.pipeline import (
     RAGPipeline,
+)
+from delbot_platform.knowledge.rag.models.response import (
+    RAGResponse,
 )
 
 
@@ -14,13 +16,13 @@ class RAGEngine:
 
         self.pipeline = RAGPipeline()
 
-    def search(
+    async def search(
         self,
         query: str,
         limit: int = 5,
-    ) -> RAGResult:
+    ) -> RAGResponse:
 
-        return self.pipeline.search(
+        return await self.pipeline.build(
             query=query,
-            limit=limit,
+            retrieve_limit=limit,
         )

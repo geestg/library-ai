@@ -1,16 +1,20 @@
 from __future__ import annotations
 
-
 from dataclasses import dataclass
+from typing import Any
 
 
-
-@dataclass
+@dataclass(slots=True)
 class VectorRecord:
-
+    """
+    Canonical vector representation used across the DELBot
+    embedding, vector storage, retrieval, and reranking pipeline.
+    """
 
     id: str
 
-    vector: list[float]
+    score: float = 0.0
 
-    metadata: dict
+    vector: list[float] | None = None
+
+    metadata: dict[str, Any] | None = None
