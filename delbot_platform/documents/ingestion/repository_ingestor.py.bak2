@@ -57,8 +57,6 @@ class RepositoryDocumentIngestor:
         results = []
 
 
-        print("INGEST START", flush=True)
-
         for index, document in enumerate(documents, start=1):
 
             print(
@@ -87,17 +85,13 @@ class RepositoryDocumentIngestor:
                 results.append(
                     {
                         "document_id":
-                            result.document_id,
+                            document["document_id"],
+
                         "success":
                             True,
-                        "pages":
-                            result.page_count,
-                        "sections":
-                            result.section_count,
-                        "chunks":
-                            result.chunk_count,
-                        "vectors":
-                            result.vector_count,
+
+                        "result":
+                            result,
                     }
                 )
 
@@ -119,5 +113,4 @@ class RepositoryDocumentIngestor:
                 continue
 
 
-        print(f"INGEST FINISHED: {len(results)}", flush=True)
         return results

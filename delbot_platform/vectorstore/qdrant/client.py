@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from qdrant_client import QdrantClient
@@ -18,7 +17,8 @@ class QdrantVectorStore:
 
     def __init__(
         self,
-        path: str = "data/qdrant",
+        host: str = "127.0.0.1",
+        port: int = 6333,
         collection: str = "delbot_documents",
         vector_size: int = 1024,
     ) -> None:
@@ -26,13 +26,9 @@ class QdrantVectorStore:
         self.collection = collection
         self.vector_size = vector_size
 
-        Path(path).mkdir(
-            parents=True,
-            exist_ok=True,
-        )
-
         self.client = QdrantClient(
-            path=path,
+            host=host,
+            port=port,
         )
 
     # =====================================================
@@ -148,11 +144,9 @@ class QdrantVectorStore:
         self,
     ) -> int:
 
-        result = self.client.count(
+        return self.client.count(
             collection_name=self.collection,
-        )
-
-        return result.count
+        ).count
 
     # =====================================================
     # Utility
@@ -163,9 +157,13 @@ class QdrantVectorStore:
     ) -> bool:
 
         try:
+
             self.client.get_collections()
+
             return True
+
         except Exception:
+
             return False
 
     def close(

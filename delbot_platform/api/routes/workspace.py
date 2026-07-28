@@ -17,7 +17,7 @@ router = APIRouter(
 session_manager = SessionManager()
 
 research_engine = ResearchEngine(
-    session_manager,
+    session_manager=session_manager,
 )
 
 
@@ -70,7 +70,7 @@ def get_session(
 
 
 @router.post("/{session_id}/ask")
-def ask(
+async def ask(
     session_id: str,
     body: AskRequest,
 ):
@@ -86,12 +86,10 @@ def ask(
             detail="Session not found",
         )
 
-    result: ResearchResult = (
-        research_engine.ask(
-            session_id=session_id,
-            query=body.query,
-            history=session["messages"],
-        )
+    result: ResearchResult = await research_engine.ask(
+        session_id=session_id,
+        query=body.query,
+        history=session["messages"],
     )
 
     session_manager.add_message(

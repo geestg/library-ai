@@ -16,6 +16,10 @@ from delbot_platform.workflows.factory import (
     WorkflowFactory,
 )
 
+from delbot_platform.application.documents import (
+    RepositoryDocumentIndexApplication,
+)
+
 
 class ApplicationFactory:
     """
@@ -41,3 +45,8 @@ class ApplicationFactory:
     def research() -> ResearchAnswerApplication:
 
         return ResearchAnswerApplication()
+
+    @staticmethod
+    def repository_documents() -> RepositoryDocumentIndexApplication:
+
+        return RepositoryDocumentIndexApplication()
