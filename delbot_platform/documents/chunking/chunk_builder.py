@@ -2,18 +2,15 @@ from __future__ import annotations
 
 from uuid import uuid4
 
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
 )
-
 from delbot_platform.documents.chunking.policy.policy import (
     ChunkPolicy,
 )
-
-from delbot_platform.documents.metadata.chunk_metadata import (
-    ChunkMetadata,
+from delbot_platform.documents.metadata.builder.chunk import (
+    ChunkMetadataBuilder,
 )
-
 from delbot_platform.documents.structure.section.section import (
     DocumentSection,
 )
@@ -21,18 +18,35 @@ from delbot_platform.documents.structure.section.section import (
 
 class ChunkBuilder:
     """
-    Build semantic chunks from document sections.
+    Canonical semantic chunk builder.
 
-    Each chunk keeps document identity,
-    page information and section hierarchy.
+    Pipeline
+
+        DocumentSection
+                │
+                ▼
+        ChunkBuilder
+                │
+                ▼
+        ChunkMetadataBuilder
+                │
+                ▼
+        ChunkMetadata
+                │
+                ▼
+        DocumentChunk
     """
 
     def __init__(
         self,
-        policy: ChunkPolicy | None = None,
+        policy: ChunkPolicy | None =None,
     ) -> None:
 
         self.policy = policy or ChunkPolicy()
+
+        self.metadata_builder = (
+            ChunkMetadataBuilder()
+        )
 
     def build(
         self,
@@ -46,7 +60,6 @@ class ChunkBuilder:
             text = section.text.strip()
 
             if not text:
-
                 continue
 
             start = 0
@@ -56,50 +69,49 @@ class ChunkBuilder:
             while start < length:
 
                 end = min(
-
-                    start
-                    + self.policy.max_characters,
-
+                    start + self.policy.max_characters,
                     length,
-
                 )
 
                 chunk_text = text[start:end]
 
-                metadata = ChunkMetadata(
-
+                chunk = DocumentChunk(
+                    id=str(uuid4()),
                     document_id=section.document_id,
-
-                    source=section.source,
-
-                    section=section.title,
-
-                    level=section.level,
-
+                    text=chunk_text,
                     page_start=section.page_start,
-
                     page_end=section.page_end,
-
-                    chapter=section.chapter,
-
+                    metadata=None,
                 )
 
-                chunk = DocumentChunk(
+                chunk.metadata = (
+                    self.metadata_builder.build(
+                        chunk,
+                    )
+                )
 
-                    id=str(
-                        uuid4(),
-                    ),
+                chunk.metadata.source = (
+                    section.source
+                )
 
-                    document_id=section.document_id,
+                chunk.metadata.section_title = (
+                    section.title
+                )
 
-                    text=chunk_text,
+                chunk.metadata.level = (
+                    section.level
+                )
 
-                    page_start=section.page_start,
+                chunk.metadata.chapter = (
+                    section.chapter
+                )
 
-                    page_end=section.page_end,
+                chunk.metadata.page_start = (
+                    section.page_start
+                )
 
-                    metadata=metadata,
-
+                chunk.metadata.page_end = (
+                    section.page_end
                 )
 
                 chunks.append(
@@ -107,16 +119,11 @@ class ChunkBuilder:
                 )
 
                 if end >= length:
-
                     break
 
                 start = max(
-
                     0,
-
-                    end
-                    - self.policy.overlap_characters,
-
+                    end - self.policy.overlap_characters,
                 )
 
         total = len(chunks)

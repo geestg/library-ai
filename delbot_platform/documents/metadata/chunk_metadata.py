@@ -1,42 +1,75 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from dataclasses import field
+from dataclasses import dataclass, field
 
 
 @dataclass(slots=True)
 class ChunkMetadata:
     """
-    Canonical metadata attached to every semantic chunk.
+    Canonical metadata describing one semantic chunk.
 
-    This object is propagated throughout the indexing,
-    retrieval, reranking, citation, and RAG pipeline.
+    Every chunk indexed into the vector database should carry
+    this metadata.
+
+    Future PRs may extend this model without breaking the API.
     """
 
+    # ---------------------------------------------------------
+    # Identity
+    # ---------------------------------------------------------
+
     document_id: str
+    chunk_id: str
 
-    source: str
+    # ---------------------------------------------------------
+    # Source
+    # ---------------------------------------------------------
 
-    section: str
+    source: str = "repository"
 
-    level: int
+    # ---------------------------------------------------------
+    # Location
+    # ---------------------------------------------------------
 
-    page_start: int
+    page_start: int = 0
+    page_end: int = 0
 
-    page_end: int
-
+    section_title: str | None = None
     chapter: str | None = None
 
-    chunk_index: int = 0
+    # ---------------------------------------------------------
+    # Hierarchy
+    # ---------------------------------------------------------
 
-    total_chunks: int = 0
+    level: int = 0
+
+    # ---------------------------------------------------------
+    # Statistics
+    # ---------------------------------------------------------
+
+    token_count: int = 0
+    character_count: int = 0
+
+    # ---------------------------------------------------------
+    # Retrieval
+    # ---------------------------------------------------------
 
     language: str = "id"
 
-    repository_id: str | None = None
+    # ---------------------------------------------------------
+    # Optional metadata
+    # ---------------------------------------------------------
 
-    heading: str | None = None
+    tags: list[str] = field(default_factory=list)
 
-    attributes: dict[str, str] = field(
-        default_factory=dict,
-    )
+    keywords: list[str] = field(default_factory=list)
+
+    # ---------------------------------------------------------
+    # Future
+    # ---------------------------------------------------------
+
+    embedding_model: str | None = None
+
+    embedding_version: str | None = None
+
+    checksum: str | None = None

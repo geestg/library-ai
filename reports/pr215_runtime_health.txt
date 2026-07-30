@@ -1,0 +1,1480 @@
+
+============================================================
+Repository
+============================================================
+Root : /workspace/delbot
+Date : Thu Jul 30 09:13:18 UTC 2026
+Host : 650767fe7d3d
+User : delbot
+
+============================================================
+OS
+============================================================
+PRETTY_NAME="Ubuntu 22.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.4 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+============================================================
+Uptime
+============================================================
+ 09:13:19 up 32 days, 17:55,  0 users,  load average: 112.42, 114.69, 116.18
+
+============================================================
+Load
+============================================================
+112.42 114.69 116.18 115/53260 1672720
+
+============================================================
+Memory
+============================================================
+               total        used        free      shared  buff/cache   available
+Mem:           2.0Ti       1.9Ti        10Gi       2.0Gi        47Gi        44Gi
+Swap:             0B          0B          0B
+
+============================================================
+Disk
+============================================================
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         1.8T  1.6T   67G  97% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M   16K   64M   1% /dev/shm
+/dev/md127       28T   17T  9.9T  63% /workspace
+/dev/md0        1.8T  1.6T   67G  97% /etc/hosts
+tmpfs          1008G   12K 1008G   1% /proc/driver/nvidia
+tmpfs           202G  9.6M  202G   1% /run/nvidia-persistenced/socket
+tmpfs          1008G     0 1008G   0% /proc/acpi
+tmpfs          1008G     0 1008G   0% /proc/scsi
+tmpfs          1008G     0 1008G   0% /sys/firmware
+tmpfs          1008G     0 1008G   0% /sys/devices/virtual/powercap
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu0/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu1/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu2/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu3/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu4/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu5/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu6/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu7/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu8/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu9/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu10/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu11/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu12/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu13/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu14/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu15/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu16/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu17/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu18/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu19/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu20/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu21/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu22/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu23/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu24/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu25/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu26/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu27/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu28/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu29/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu30/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu31/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu32/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu33/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu34/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu35/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu36/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu37/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu38/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu39/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu40/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu41/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu42/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu43/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu44/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu45/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu46/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu47/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu48/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu49/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu50/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu51/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu52/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu53/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu54/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu55/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu56/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu57/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu58/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu59/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu60/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu61/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu62/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu63/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu64/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu65/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu66/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu67/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu68/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu69/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu70/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu71/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu72/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu73/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu74/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu75/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu76/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu77/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu78/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu79/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu80/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu81/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu82/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu83/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu84/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu85/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu86/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu87/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu88/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu89/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu90/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu91/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu92/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu93/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu94/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu95/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu96/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu97/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu98/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu99/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu100/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu101/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu102/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu103/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu104/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu105/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu106/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu107/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu108/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu109/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu110/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu111/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu112/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu113/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu114/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu115/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu116/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu117/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu118/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu119/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu120/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu121/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu122/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu123/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu124/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu125/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu126/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu127/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu128/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu129/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu130/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu131/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu132/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu133/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu134/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu135/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu136/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu137/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu138/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu139/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu140/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu141/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu142/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu143/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu144/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu145/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu146/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu147/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu148/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu149/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu150/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu151/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu152/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu153/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu154/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu155/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu156/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu157/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu158/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu159/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu160/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu161/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu162/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu163/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu164/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu165/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu166/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu167/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu168/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu169/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu170/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu171/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu172/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu173/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu174/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu175/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu176/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu177/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu178/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu179/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu180/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu181/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu182/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu183/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu184/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu185/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu186/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu187/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu188/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu189/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu190/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu191/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu192/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu193/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu194/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu195/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu196/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu197/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu198/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu199/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu200/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu201/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu202/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu203/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu204/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu205/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu206/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu207/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu208/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu209/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu210/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu211/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu212/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu213/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu214/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu215/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu216/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu217/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu218/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu219/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu220/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu221/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu222/thermal_throttle
+tmpfs          1008G     0 1008G   0% /sys/devices/system/cpu/cpu223/thermal_throttle
+
+============================================================
+Top CPU
+============================================================
+    PID    PPID STAT %CPU %MEM CMD
+1085337       1 Z    23.8  0.0 [python] <defunct>
+  30138       1 Z     2.4  0.0 [python] <defunct>
+  21910       1 Sl    2.2  0.1 runtime/bin/qdrant --config-path runtime/qdrant_config/config.yaml
+1520914       1 Ssl   1.5  0.0 python -m delbot_platform.ai.runtime.embedding
+ 950852  950448 Sl    1.4  0.1 VLLM::EngineCore
+1521094       1 Ssl   1.3  0.0 python -m delbot_platform.ai.runtime.reranker
+1619280 1617158 Sl    1.1  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node --dns-result-order=ipv4first /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
+  16146       1 Z     0.6  0.0 [python] <defunct>
+1620187 1619280 Sl    0.2  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:0d4d660aed5c92a24e0edd9a38ae5b639f8f67d853 --node-ipc --clientProcessId=1619280
+1643463 1643428 Sl    0.2  0.0 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1643428 --on-host=127.0.0.1 --on-port
+ 950448       1 Sl    0.1  0.0 python3 -m vllm.entrypoints.openai.api_server --model /workspace/Qwen3-30B-MoE --port 11435 --max-model-len 32768 --trust-remote-code --gpu-memory-utilization 0.8
+1518438       1 Ssl   0.1  0.0 python -m delbot_platform.gateway
+1521278       1 Ssl   0.1  0.0 python -m delbot_platform.ai.runtime.vision
+1521291       1 Ss    0.1  0.0 python -m delbot_platform.ai.runtime.ocr
+1521293       1 Ssl   0.1  0.0 python -m delbot_platform.ai.runtime.chat
+1522086       1 Ssl   0.1  0.0 python -m delbot_platform.api
+1617158 1617154 Sl    0.1  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=39513 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-aa9db180-e11d-43d6-887a-194164377939
+1617579 1617158 Sl    0.1  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=ptyHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012136
+1619029       1 Sl    0.1  0.0 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1618995 --on-host=127.0.0.1 --on-port
+1619292 1617158 Sl    0.1  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=fileWatcher
+      1       0 Ss    0.0  0.0 sleep infinity
+     30       1 Ss    0.0  0.0 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+     32       1 Z     0.0  0.0 [sshd] <defunct>
+     60       1 Z     0.0  0.0 [sshd] <defunct>
+     61       1 Zs    0.0  0.0 [bash] <defunct>
+    896       1 Z     0.0  0.0 [python3] <defunct>
+   1429       1 Z     0.0  0.0 [python3] <defunct>
+   2584       1 Z     0.0  0.0 [python3] <defunct>
+   3138       1 Z     0.0  0.0 [python3] <defunct>
+   3668       1 Z     0.0  0.0 [python3] <defunct>
+   4310       1 Z     0.0  0.0 [python3] <defunct>
+   4909       1 Z     0.0  0.0 [python3] <defunct>
+   5369       1 Z     0.0  0.0 [python3] <defunct>
+   5697       1 Z     0.0  0.0 [sshd] <defunct>
+   5698       1 Zs    0.0  0.0 [bash] <defunct>
+   5732       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 5698 --on-host=127.0.0.1 --on-port
+   5973    5732 Ssl   0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 --cli-data-dir /home/delbot/.vscode-server/cli agent host
+   6211    5732 Z     0.0  0.0 [bash] <defunct>
+   6426       1 Z     0.0  0.0 [MainThread] <defunct>
+   6503    5732 S     0.0  0.0 /bin/bash
+   6504       1 Z     0.0  0.0 [pet] <defunct>
+   6520       1 Z     0.0  0.0 [MainThread] <defunct>
+   7417       1 Z     0.0  0.0 [MainThread] <defunct>
+   7793       1 Z     0.0  0.0 [python3] <defunct>
+   8057       1 Zs    0.0  0.0 [bash] <defunct>
+   8486       1 Z     0.0  0.0 [python3] <defunct>
+   9054       1 Z     0.0  0.0 [sshd] <defunct>
+   9055       1 Zs    0.0  0.0 [bash] <defunct>
+   9089       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 9055 --on-host=127.0.0.1 --on-port
+   9402       1 Z     0.0  0.0 [MainThread] <defunct>
+   9634    9089 S     0.0  0.0 /bin/bash
+   9875       1 Z     0.0  0.0 [pet] <defunct>
+  10204       1 Zs    0.0  0.0 [bash] <defunct>
+  10339       1 Z     0.0  0.0 [MainThread] <defunct>
+  10923       1 Z     0.0  0.0 [python3] <defunct>
+  11124       1 Z     0.0  0.0 [python3] <defunct>
+  11126       1 Z     0.0  0.0 [python3] <defunct>
+  13526       1 Z     0.0  0.0 [python] <defunct>
+  13913       1 Z     0.0  0.0 [python] <defunct>
+
+============================================================
+Top Memory
+============================================================
+    PID    PPID STAT %MEM %CPU CMD
+  21910       1 Sl    0.1  2.2 runtime/bin/qdrant --config-path runtime/qdrant_config/config.yaml
+ 950852  950448 Sl    0.1  1.4 VLLM::EngineCore
+1521094       1 Ssl   0.0  1.3 python -m delbot_platform.ai.runtime.reranker
+1518438       1 Ssl   0.0  0.1 python -m delbot_platform.gateway
+1520914       1 Ssl   0.0  1.5 python -m delbot_platform.ai.runtime.embedding
+1620187 1619280 Sl    0.0  0.2 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:0d4d660aed5c92a24e0edd9a38ae5b639f8f67d853 --node-ipc --clientProcessId=1619280
+ 950448       1 Sl    0.0  0.1 python3 -m vllm.entrypoints.openai.api_server --model /workspace/Qwen3-30B-MoE --port 11435 --max-model-len 32768 --trust-remote-code --gpu-memory-utilization 0.8
+1619280 1617158 Sl    0.0  1.1 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node --dns-result-order=ipv4first /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
+1522086       1 Ssl   0.0  0.1 python -m delbot_platform.api
+1617604 1617559 Sl    0.0  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node_modules/@github/copilot-linux-x64/index.js --headless --no-auto-update --log-level info --stdio --no-auto-login
+1617158 1617154 Sl    0.0  0.1 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=39513 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-aa9db180-e11d-43d6-887a-194164377939
+1617559 1617361 Sl    0.0  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=agentHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012137 --user-data-dir /home/delbot/.vscode-server/data
+1619292 1617158 Sl    0.0  0.1 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=fileWatcher
+1619348 1619280 Sl    0.0  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=1619280
+1617361 1617356 Sl    0.0  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --socket-path /tmp/code-22907cfe-1c5d-431a-98c2-b2c7bf3e04bd --agent-host-path /tmp/code-0e60909d-156f-4a15-891b-4bae74597410 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token
+1617579 1617158 Sl    0.0  0.1 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=ptyHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012136
+1521278       1 Ssl   0.0  0.1 python -m delbot_platform.ai.runtime.vision
+1521291       1 Ss    0.0  0.1 python -m delbot_platform.ai.runtime.ocr
+1521293       1 Ssl   0.0  0.1 python -m delbot_platform.ai.runtime.chat
+ 952652       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 952618 --on-host=127.0.0.1 --on-port
+ 955169       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 955135 --on-host=127.0.0.1 --on-port
+1643463 1643428 Sl    0.0  0.2 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1643428 --on-host=127.0.0.1 --on-port
+1061808       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1061774 --on-host=127.0.0.1 --on-port
+ 950851  950448 S     0.0  0.0 /workspace/vllm_env/bin/python3 -c from multiprocessing.resource_tracker import main;main(26)
+ 989225       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 989191 --on-host=127.0.0.1 --on-port
+ 981194       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 981160 --on-host=127.0.0.1 --on-port
+   5973    5732 Ssl   0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 --cli-data-dir /home/delbot/.vscode-server/cli agent host
+ 997805       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 997771 --on-host=127.0.0.1 --on-port
+1643399      30 Ss    0.0  0.0 sshd: delbot [priv]
+1616902       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1616622 --on-host=127.0.0.1 --on-port
+1622271      30 Ss    0.0  0.0 sshd: delbot [priv]
+1622299 1622271 S     0.0  0.0 sshd: delbot@pts/1
+1643427 1643399 S     0.0  0.0 sshd: delbot@notty
+1453980       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453946 --on-host=127.0.0.1 --on-port
+1345652       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1345618 --on-host=127.0.0.1 --on-port
+1048374       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1048340 --on-host=127.0.0.1 --on-port
+ 939498       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 939437 --on-host=127.0.0.1 --on-port
+1287886       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1287852 --on-host=127.0.0.1 --on-port
+1289469       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1289435 --on-host=127.0.0.1 --on-port
+1620119 1617579 Ss+   0.0  0.0 /bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+1622300 1622299 Ss+   0.0  0.0 -bash
+1672415 1617579 Ss    0.0  0.1 /usr/bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+1254160       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1254126 --on-host=127.0.0.1 --on-port
+1415233       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1415199 --on-host=127.0.0.1 --on-port
+1316325       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1316291 --on-host=127.0.0.1 --on-port
+1532195       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1532161 --on-host=127.0.0.1 --on-port
+1432834       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1432800 --on-host=127.0.0.1 --on-port
+1349749       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1349715 --on-host=127.0.0.1 --on-port
+1208289       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1208255 --on-host=127.0.0.1 --on-port
+1413228       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1413194 --on-host=127.0.0.1 --on-port
+1089255       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1088975 --on-host=127.0.0.1 --on-port
+1453490       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453456 --on-host=127.0.0.1 --on-port
+1216282       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1216248 --on-host=127.0.0.1 --on-port
+1347610       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1347576 --on-host=127.0.0.1 --on-port
+1589944       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1589910 --on-host=127.0.0.1 --on-port
+1284651       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1284617 --on-host=127.0.0.1 --on-port
+1286468       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1286434 --on-host=127.0.0.1 --on-port
+1489375       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1489341 --on-host=127.0.0.1 --on-port
+1135384       1 Sl    0.0  0.0 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1135350 --on-host=127.0.0.1 --on-port
+
+============================================================
+Zombie Processes
+============================================================
+     32       1 Z    [sshd] <defunct>
+     60       1 Z    [sshd] <defunct>
+     61       1 Zs   [bash] <defunct>
+    896       1 Z    [python3] <defunct>
+   1429       1 Z    [python3] <defunct>
+   2584       1 Z    [python3] <defunct>
+   3138       1 Z    [python3] <defunct>
+   3668       1 Z    [python3] <defunct>
+   4310       1 Z    [python3] <defunct>
+   4909       1 Z    [python3] <defunct>
+   5369       1 Z    [python3] <defunct>
+   5697       1 Z    [sshd] <defunct>
+   5698       1 Zs   [bash] <defunct>
+   6211    5732 Z    [bash] <defunct>
+   6426       1 Z    [MainThread] <defunct>
+   6504       1 Z    [pet] <defunct>
+   6520       1 Z    [MainThread] <defunct>
+   7417       1 Z    [MainThread] <defunct>
+   7793       1 Z    [python3] <defunct>
+   8057       1 Zs   [bash] <defunct>
+   8486       1 Z    [python3] <defunct>
+   9054       1 Z    [sshd] <defunct>
+   9055       1 Zs   [bash] <defunct>
+   9402       1 Z    [MainThread] <defunct>
+   9875       1 Z    [pet] <defunct>
+  10204       1 Zs   [bash] <defunct>
+  10339       1 Z    [MainThread] <defunct>
+  10923       1 Z    [python3] <defunct>
+  11124       1 Z    [python3] <defunct>
+  11126       1 Z    [python3] <defunct>
+  13526       1 Z    [python] <defunct>
+  13913       1 Z    [python] <defunct>
+  13914       1 Z    [VLLM::EngineCor] <defunct>
+  14908       1 Z    [sshd] <defunct>
+  14937       1 Z    [sshd] <defunct>
+  14938       1 Zs   [bash] <defunct>
+  16146       1 Z    [python] <defunct>
+  17805       1 Zs   [sudo] <defunct>
+  17882       1 Zs   [sudo] <defunct>
+  17939       1 Zs   [sudo] <defunct>
+  18119       1 Zs   [sudo] <defunct>
+  18152       1 Zs   [sudo] <defunct>
+  18185       1 Zs   [sudo] <defunct>
+  18254       1 Zs   [sudo] <defunct>
+  19624       1 Zs   [sudo] <defunct>
+  30138       1 Z    [python] <defunct>
+ 882542       1 Z    [sshd] <defunct>
+ 882543       1 Zs   [bash] <defunct>
+ 904462       1 Z    [sshd] <defunct>
+ 904463       1 Zs   [bash] <defunct>
+ 905156       1 Z    [sshd] <defunct>
+ 939436       1 Z    [sshd] <defunct>
+ 939437       1 Zs   [bash] <defunct>
+ 939815  939498 Z    [bash] <defunct>
+ 940167       1 Z    [MainThread] <defunct>
+ 940818       1 Z    [pet] <defunct>
+ 940865       1 Z    [MainThread] <defunct>
+ 942317       1 Z    [MainThread] <defunct>
+ 952617       1 Z    [sshd] <defunct>
+ 952618       1 Zs   [bash] <defunct>
+ 953202       1 Z    [MainThread] <defunct>
+ 953225       1 Z    [pet] <defunct>
+ 953960       1 Z    [MainThread] <defunct>
+ 955134       1 Z    [sshd] <defunct>
+ 955135       1 Zs   [bash] <defunct>
+ 955687       1 Z    [MainThread] <defunct>
+ 955695       1 Z    [pet] <defunct>
+ 956420       1 Z    [MainThread] <defunct>
+ 981159       1 Z    [sshd] <defunct>
+ 981160       1 Zs   [bash] <defunct>
+ 984207       1 Z    [python] <defunct>
+ 989190       1 Z    [sshd] <defunct>
+ 989191       1 Zs   [bash] <defunct>
+ 989615       1 Z    [pet] <defunct>
+ 989617       1 Z    [MainThread] <defunct>
+ 990440       1 Z    [MainThread] <defunct>
+ 991279       1 Z    [sshd] <defunct>
+ 997770       1 Z    [sshd] <defunct>
+ 997771       1 Zs   [bash] <defunct>
+ 998056  997805 Z    [bash] <defunct>
+ 998122       1 Z    [MainThread] <defunct>
+ 998491       1 Z    [pet] <defunct>
+ 998536       1 Z    [MainThread] <defunct>
+ 999073       1 Zs   [bash] <defunct>
+ 999153       1 Z    [MainThread] <defunct>
+1000065       1 Zs   [bash] <defunct>
+1001020       1 Zs   [bash] <defunct>
+1005987       1 Z    [python] <defunct>
+1048339       1 Z    [sshd] <defunct>
+1048340       1 Zs   [bash] <defunct>
+1048631 1048374 Z    [bash] <defunct>
+1048848       1 Z    [MainThread] <defunct>
+1049094       1 Z    [pet] <defunct>
+1049112       1 Z    [MainThread] <defunct>
+1049351       1 Zs   [bash] <defunct>
+1049813       1 Z    [MainThread] <defunct>
+1052114       1 Z    [sshd] <defunct>
+1052770       1 Z    [python] <defunct>
+1054053       1 Z    [sshd] <defunct>
+1055445       1 Z    [sshd] <defunct>
+1055650       1 Z    [sshd] <defunct>
+1055909       1 Z    [sshd] <defunct>
+1055910       1 Zs   [bash] <defunct>
+1061467       1 Z    [sshd] <defunct>
+1061773       1 Z    [sshd] <defunct>
+1061774       1 Zs   [bash] <defunct>
+1062121       1 Z    [pet] <defunct>
+1062966       1 Z    [MainThread] <defunct>
+1066590       1 Z    [MainThread] <defunct>
+1083107       1 Z    [git] <defunct>
+1083225       1 Z    [git] <defunct>
+1083453       1 Z    [ssh] <defunct>
+1085337       1 Z    [python] <defunct>
+1088974       1 Z    [sshd] <defunct>
+1088975       1 Zs   [bash] <defunct>
+1089506 1089255 Z    [bash] <defunct>
+1089610       1 Z    [MainThread] <defunct>
+1089774       1 Z    [pet] <defunct>
+1089777       1 Z    [MainThread] <defunct>
+1090561       1 Zs   [bash] <defunct>
+1090667       1 Z    [MainThread] <defunct>
+1090764       1 Zs   [bash] <defunct>
+1108022       1 Z    [ssh] <defunct>
+1108151       1 Z    [git] <defunct>
+1108152       1 Z    [ssh] <defunct>
+1108190       1 Z    [ssh] <defunct>
+1108354       1 Z    [ssh] <defunct>
+1108498       1 Z    [git] <defunct>
+1108499       1 Z    [ssh] <defunct>
+1108680       1 Z    [ssh] <defunct>
+1108840       1 Z    [git] <defunct>
+1108841       1 Z    [ssh] <defunct>
+1120224       1 Z    [sshd] <defunct>
+1120225       1 Zs   [bash] <defunct>
+1120509 1120259 Z    [bash] <defunct>
+1120914       1 Z    [MainThread] <defunct>
+1120933       1 Z    [MainThread] <defunct>
+1120990       1 Z    [pet] <defunct>
+1120992       1 Z    [MainThread] <defunct>
+1121811       1 Z    [MainThread] <defunct>
+1123379       1 Z    [sshd] <defunct>
+1123380       1 Zs   [bash] <defunct>
+1135349       1 Z    [sshd] <defunct>
+1135350       1 Zs   [bash] <defunct>
+1159019       1 Z    [sshd] <defunct>
+1159020       1 Zs   [bash] <defunct>
+1163502       1 Z    [sshd] <defunct>
+1163503       1 Zs   [bash] <defunct>
+1163788 1163537 Z    [bash] <defunct>
+1163921       1 Z    [MainThread] <defunct>
+1164204       1 Z    [MainThread] <defunct>
+1164270       1 Z    [pet] <defunct>
+1165080       1 Z    [MainThread] <defunct>
+1165344       1 Z    [sshd] <defunct>
+1165345       1 Zs   [bash] <defunct>
+1165658       1 Z    [MainThread] <defunct>
+1165951       1 Z    [pet] <defunct>
+1165954       1 Z    [MainThread] <defunct>
+1166781       1 Z    [MainThread] <defunct>
+1181499       1 Z    [MainThread] <defunct>
+1182135       1 Z    [ssh] <defunct>
+1204684       1 Z    [sshd] <defunct>
+1204685       1 Zs   [bash] <defunct>
+1207398       1 Z    [sshd] <defunct>
+1207399       1 Zs   [bash] <defunct>
+1208254       1 Z    [sshd] <defunct>
+1208255       1 Zs   [bash] <defunct>
+1208540 1208289 Z    [bash] <defunct>
+1208645       1 Z    [MainThread] <defunct>
+1208956       1 Z    [MainThread] <defunct>
+1209047       1 Z    [MainThread] <defunct>
+1209460       1 Z    [pet] <defunct>
+1209848       1 Zs   [bash] <defunct>
+1209947       1 Z    [MainThread] <defunct>
+1210043       1 Zs   [bash] <defunct>
+1216247       1 Z    [sshd] <defunct>
+1216248       1 Zs   [bash] <defunct>
+1216748       1 Z    [MainThread] <defunct>
+1216815       1 Z    [pet] <defunct>
+1216990       1 Z    [MainThread] <defunct>
+1217556       1 Zs   [bash] <defunct>
+1217623       1 Z    [MainThread] <defunct>
+1218907       1 Z    [sshd] <defunct>
+1218908       1 Zs   [bash] <defunct>
+1225887       1 Z    [sshd] <defunct>
+1225969       1 Z    [sshd] <defunct>
+1225970       1 Zs   [bash] <defunct>
+1227619       1 Z    [sshd] <defunct>
+1227620       1 Zs   [bash] <defunct>
+1227905 1227654 Z    [bash] <defunct>
+1228310       1 Z    [MainThread] <defunct>
+1228322       1 Z    [MainThread] <defunct>
+1228372       1 Z    [pet] <defunct>
+1228375       1 Z    [MainThread] <defunct>
+1229141       1 Zs   [bash] <defunct>
+1229231       1 Z    [MainThread] <defunct>
+1234391       1 Z    [git] <defunct>
+1243606       1 Zs   [bash] <defunct>
+1254125       1 Z    [sshd] <defunct>
+1254126       1 Zs   [bash] <defunct>
+1254626       1 Z    [MainThread] <defunct>
+1254647       1 Z    [MainThread] <defunct>
+1255033       1 Z    [MainThread] <defunct>
+1255106       1 Z    [pet] <defunct>
+1255783       1 Zs   [bash] <defunct>
+1255905       1 Z    [MainThread] <defunct>
+1266876       1 Z    [sshd] <defunct>
+1266877       1 Zs   [bash] <defunct>
+1284616       1 Z    [sshd] <defunct>
+1284617       1 Zs   [bash] <defunct>
+1284901 1284651 Z    [bash] <defunct>
+1285306       1 Z    [MainThread] <defunct>
+1285317       1 Z    [MainThread] <defunct>
+1285430       1 Z    [pet] <defunct>
+1285462       1 Z    [MainThread] <defunct>
+1286380       1 Z    [MainThread] <defunct>
+1286433       1 Z    [sshd] <defunct>
+1286434       1 Zs   [bash] <defunct>
+1286981       1 Z    [pet] <defunct>
+1286998       1 Z    [MainThread] <defunct>
+1287764       1 Z    [MainThread] <defunct>
+1287813       1 Z    [sshd] <defunct>
+1287851       1 Z    [sshd] <defunct>
+1287852       1 Zs   [bash] <defunct>
+1288209       1 Z    [pet] <defunct>
+1288243       1 Z    [MainThread] <defunct>
+1289093       1 Z    [MainThread] <defunct>
+1289434       1 Z    [sshd] <defunct>
+1289435       1 Zs   [bash] <defunct>
+1289988       1 Z    [pet] <defunct>
+1290301       1 Z    [MainThread] <defunct>
+1290539       1 Zs   [bash] <defunct>
+1290632       1 Z    [MainThread] <defunct>
+1296558       1 Zs   [bash] <defunct>
+1316058       1 Z    [sshd] <defunct>
+1316059       1 Zs   [bash] <defunct>
+1316290       1 Z    [sshd] <defunct>
+1316291       1 Zs   [bash] <defunct>
+1316578 1316325 Z    [bash] <defunct>
+1316983       1 Z    [MainThread] <defunct>
+1317004       1 Z    [MainThread] <defunct>
+1317059       1 Z    [MainThread] <defunct>
+1317294       1 Z    [pet] <defunct>
+1317834       1 Zs   [bash] <defunct>
+1317957       1 Z    [MainThread] <defunct>
+1318756       1 Z    [sshd] <defunct>
+1318757       1 Zs   [bash] <defunct>
+1320267       1 Z    [sshd] <defunct>
+1320268       1 Zs   [bash] <defunct>
+1323494       1 Z    [sshd] <defunct>
+1323495       1 Zs   [bash] <defunct>
+1324746       1 Z    [sshd] <defunct>
+1324747       1 Zs   [bash] <defunct>
+1334642       1 Z    [python] <defunct>
+1335197       1 Z    [python] <defunct>
+1335507       1 Z    [python] <defunct>
+1336099       1 Z    [python] <defunct>
+1336372       1 Z    [python] <defunct>
+1336748       1 Z    [python] <defunct>
+1337065       1 Z    [python] <defunct>
+1338078       1 Z    [python] <defunct>
+1339429       1 Z    [python] <defunct>
+1345587       1 Z    [sshd] <defunct>
+1345617       1 Z    [sshd] <defunct>
+1345618       1 Zs   [bash] <defunct>
+1346120       1 Z    [MainThread] <defunct>
+1346156       1 Z    [MainThread] <defunct>
+1346528       1 Z    [pet] <defunct>
+1347334       1 Z    [MainThread] <defunct>
+1347575       1 Z    [sshd] <defunct>
+1347576       1 Zs   [bash] <defunct>
+1347925       1 Z    [pet] <defunct>
+1347927       1 Z    [MainThread] <defunct>
+1348742       1 Z    [MainThread] <defunct>
+1349714       1 Z    [sshd] <defunct>
+1349715       1 Zs   [bash] <defunct>
+1350209       1 Z    [pet] <defunct>
+1350272       1 Z    [MainThread] <defunct>
+1350522       1 Zs   [bash] <defunct>
+1350967       1 Z    [MainThread] <defunct>
+1368405       1 Z    [python] <defunct>
+1373373       1 Zs   [bash] <defunct>
+1373528       1 Zs   [bash] <defunct>
+1373680       1 Zs   [bash] <defunct>
+1375774       1 Z    [sshd] <defunct>
+1375775       1 Zs   [bash] <defunct>
+1381567       1 Z    [sshd] <defunct>
+1381568       1 Zs   [bash] <defunct>
+1381853 1381602 Z    [bash] <defunct>
+1382258       1 Z    [MainThread] <defunct>
+1382270       1 Z    [MainThread] <defunct>
+1382320       1 Z    [pet] <defunct>
+1383061       1 Z    [MainThread] <defunct>
+1383151       1 Z    [MainThread] <defunct>
+1411269       1 Z    [sshd] <defunct>
+1411272       1 Zs   [bash] <defunct>
+1411551 1411306 Z    [bash] <defunct>
+1411648       1 Z    [MainThread] <defunct>
+1411967       1 Z    [MainThread] <defunct>
+1412019       1 Z    [MainThread] <defunct>
+1412072       1 Z    [pet] <defunct>
+1412964       1 Z    [MainThread] <defunct>
+1413193       1 Z    [sshd] <defunct>
+1413194       1 Zs   [bash] <defunct>
+1413512       1 Z    [MainThread] <defunct>
+1413786       1 Z    [MainThread] <defunct>
+1414243       1 Z    [pet] <defunct>
+1414618       1 Zs   [bash] <defunct>
+1414702       1 Z    [MainThread] <defunct>
+1415198       1 Z    [sshd] <defunct>
+1415199       1 Zs   [bash] <defunct>
+1415544       1 Z    [MainThread] <defunct>
+1416005       1 Z    [pet] <defunct>
+1416338       1 Zs   [bash] <defunct>
+1416566       1 Z    [MainThread] <defunct>
+1418469       1 Z    [sshd] <defunct>
+1428429       1 Z    [sshd] <defunct>
+1428430       1 Zs   [bash] <defunct>
+1432799       1 Z    [sshd] <defunct>
+1432800       1 Zs   [bash] <defunct>
+1433302       1 Z    [MainThread] <defunct>
+1433321       1 Z    [MainThread] <defunct>
+1433611       1 Z    [MainThread] <defunct>
+1434051       1 Z    [pet] <defunct>
+1434394       1 Zs   [bash] <defunct>
+1434549       1 Z    [MainThread] <defunct>
+1451497       1 Z    [sshd] <defunct>
+1451498       1 Zs   [bash] <defunct>
+1452469       1 Z    [sshd] <defunct>
+1452470       1 Zs   [bash] <defunct>
+1453455       1 Z    [sshd] <defunct>
+1453456       1 Zs   [bash] <defunct>
+1453945       1 Z    [sshd] <defunct>
+1453946       1 Zs   [bash] <defunct>
+1454446       1 Z    [MainThread] <defunct>
+1454497       1 Z    [pet] <defunct>
+1455361       1 Zs   [bash] <defunct>
+1455485       1 Z    [MainThread] <defunct>
+1455652       1 Z    [MainThread] <defunct>
+1489340       1 Z    [sshd] <defunct>
+1489341       1 Zs   [bash] <defunct>
+1489841       1 Z    [MainThread] <defunct>
+1490090       1 Z    [pet] <defunct>
+1490093       1 Z    [MainThread] <defunct>
+1490773       1 Z    [MainThread] <defunct>
+1516916       1 Z    [python] <defunct>
+1517431       1 Zs   [python] <defunct>
+1518027       1 Zs   [python] <defunct>
+1518231       1 Zs   [python] <defunct>
+1518406       1 Zs   [python] <defunct>
+1518418       1 Zs   [python] <defunct>
+1518423       1 Zs   [python] <defunct>
+1518872       1 Zs   [python] <defunct>
+1518873       1 Zs   [python] <defunct>
+1521311       1 Zs   [python] <defunct>
+1521312       1 Zs   [python] <defunct>
+1522077       1 Zs   [python] <defunct>
+1522079       1 Zs   [python] <defunct>
+1522085       1 Zs   [python] <defunct>
+1525290       1 Z    [git] <defunct>
+1525437       1 Z    [git] <defunct>
+1525677       1 Z    [git] <defunct>
+1525979       1 Z    [git] <defunct>
+1526105       1 Z    [git] <defunct>
+1526187       1 Z    [git] <defunct>
+1532160       1 Z    [sshd] <defunct>
+1532161       1 Zs   [bash] <defunct>
+1532446 1532195 Z    [bash] <defunct>
+1532596       1 Z    [MainThread] <defunct>
+1532862       1 Z    [MainThread] <defunct>
+1532911       1 Z    [MainThread] <defunct>
+1533153       1 Z    [pet] <defunct>
+1533171       1 Z    [MainThread] <defunct>
+1533936       1 Zs   [bash] <defunct>
+1534005       1 Z    [MainThread] <defunct>
+1552053       1 Z    [sshd] <defunct>
+1552850       1 Z    [sshd] <defunct>
+1552851       1 Zs   [bash] <defunct>
+1553352       1 Z    [MainThread] <defunct>
+1553402       1 Z    [MainThread] <defunct>
+1553657       1 Z    [pet] <defunct>
+1554470       1 Z    [MainThread] <defunct>
+1554827       1 Z    [MainThread] <defunct>
+1564744       1 Z    [MainThread] <defunct>
+1568271       1 Zs   [sudo] <defunct>
+1568584       1 Zs   [sudo] <defunct>
+1569515       1 Z    [watch] <defunct>
+1589909       1 Z    [sshd] <defunct>
+1589910       1 Zs   [bash] <defunct>
+1590190 1589944 Z    [bash] <defunct>
+1590582       1 Z    [MainThread] <defunct>
+1590617       1 Z    [MainThread] <defunct>
+1590658       1 Z    [pet] <defunct>
+1591550       1 Z    [MainThread] <defunct>
+1592750       1 Z    [sshd] <defunct>
+1592751       1 Zs   [bash] <defunct>
+1604264       1 Z    [MainThread] <defunct>
+1606952       1 Z    [sshd] <defunct>
+1606953       1 Zs   [bash] <defunct>
+1616621       1 Z    [sshd] <defunct>
+1616622       1 Zs   [bash] <defunct>
+1617891       1 Z    [pet] <defunct>
+1617895       1 Z    [MainThread] <defunct>
+1618704       1 Z    [MainThread] <defunct>
+1618994       1 Z    [sshd] <defunct>
+1618995       1 Zs   [bash] <defunct>
+1647586       1 Zs   [sudo] <defunct>
+1647589       1 Zs   [sudo] <defunct>
+1647620       1 Zs   [sudo] <defunct>
+1647634       1 Zs   [sudo] <defunct>
+1647637       1 Zs   [sudo] <defunct>
+1647716       1 Zs   [sudo] <defunct>
+4028447       1 Z    [python] <defunct>
+4038219       1 Z    [sshd] <defunct>
+
+============================================================
+Zombie Count
+============================================================
+414
+
+============================================================
+Zombie Parent Distribution
+============================================================
+    399 1
+      1 997805
+      1 939498
+      1 5732
+      1 1589944
+      1 1532195
+      1 1411306
+      1 1381602
+      1 1316325
+      1 1284651
+      1 1227654
+      1 1208289
+      1 1163537
+      1 1120259
+      1 1089255
+      1 1048374
+
+============================================================
+Python Runtime
+============================================================
+896 python3
+1429 python3
+2584 python3
+3138 python3
+3668 python3
+4310 python3
+4909 python3
+5369 python3
+7793 python3
+8486 python3
+10923 python3
+11124 python3
+11126 python3
+13526 python
+13913 python
+16146 python
+30138 python
+950448 python3 -m vllm.entrypoints.openai.api_server --model /workspace/Qwen3-30B-MoE --port 11435 --max-model-len 32768 --trust-remote-code --gpu-memory-utilization 0.8
+950851 /workspace/vllm_env/bin/python3 -c from multiprocessing.resource_tracker import main;main(26)
+984207 python
+1005987 python
+1052770 python
+1085337 python
+1334642 python
+1335197 python
+1335507 python
+1336099 python
+1336372 python
+1336748 python
+1337065 python
+1338078 python
+1339429 python
+1368405 python
+1516916 python
+1517431 python
+1518027 python
+1518231 python
+1518406 python
+1518418 python
+1518423 python
+1518438 python -m delbot_platform.gateway
+1518872 python
+1518873 python
+1520914 python -m delbot_platform.ai.runtime.embedding
+1521094 python -m delbot_platform.ai.runtime.reranker
+1521278 python -m delbot_platform.ai.runtime.vision
+1521291 python -m delbot_platform.ai.runtime.ocr
+1521293 python -m delbot_platform.ai.runtime.chat
+1521311 python
+1521312 python
+1522077 python
+1522079 python
+1522085 python
+1522086 python -m delbot_platform.api
+1619346 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet server
+1620187 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:0d4d660aed5c92a24e0edd9a38ae5b639f8f67d853 --node-ipc --clientProcessId=1619280
+4028447 python
+
+============================================================
+FastAPI Runtime
+============================================================
+
+============================================================
+DELBot Runtime
+============================================================
+5732 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 5698 --on-host=127.0.0.1 --on-port
+5973 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 --cli-data-dir /home/delbot/.vscode-server/cli agent host
+9089 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 9055 --on-host=127.0.0.1 --on-port
+939498 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 939437 --on-host=127.0.0.1 --on-port
+952652 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 952618 --on-host=127.0.0.1 --on-port
+955169 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 955135 --on-host=127.0.0.1 --on-port
+981194 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 981160 --on-host=127.0.0.1 --on-port
+989225 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 989191 --on-host=127.0.0.1 --on-port
+997805 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 997771 --on-host=127.0.0.1 --on-port
+1048374 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1048340 --on-host=127.0.0.1 --on-port
+1061808 /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1061774 --on-host=127.0.0.1 --on-port
+1089255 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1088975 --on-host=127.0.0.1 --on-port
+1120259 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1120225 --on-host=127.0.0.1 --on-port
+1135384 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1135350 --on-host=127.0.0.1 --on-port
+1163537 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1163503 --on-host=127.0.0.1 --on-port
+1165379 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1165345 --on-host=127.0.0.1 --on-port
+1208289 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1208255 --on-host=127.0.0.1 --on-port
+1216282 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1216248 --on-host=127.0.0.1 --on-port
+1227654 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1227620 --on-host=127.0.0.1 --on-port
+1254160 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1254126 --on-host=127.0.0.1 --on-port
+1284651 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1284617 --on-host=127.0.0.1 --on-port
+1286468 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1286434 --on-host=127.0.0.1 --on-port
+1287886 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1287852 --on-host=127.0.0.1 --on-port
+1289469 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1289435 --on-host=127.0.0.1 --on-port
+1316325 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1316291 --on-host=127.0.0.1 --on-port
+1345652 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1345618 --on-host=127.0.0.1 --on-port
+1347610 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1347576 --on-host=127.0.0.1 --on-port
+1349749 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1349715 --on-host=127.0.0.1 --on-port
+1381602 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1381568 --on-host=127.0.0.1 --on-port
+1411306 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1411272 --on-host=127.0.0.1 --on-port
+1413228 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1413194 --on-host=127.0.0.1 --on-port
+1415233 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1415199 --on-host=127.0.0.1 --on-port
+1432834 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1432800 --on-host=127.0.0.1 --on-port
+1451532 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1451498 --on-host=127.0.0.1 --on-port
+1452504 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1452470 --on-host=127.0.0.1 --on-port
+1453490 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453456 --on-host=127.0.0.1 --on-port
+1453980 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453946 --on-host=127.0.0.1 --on-port
+1489375 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1489341 --on-host=127.0.0.1 --on-port
+1518438 python -m delbot_platform.gateway
+1520914 python -m delbot_platform.ai.runtime.embedding
+1521094 python -m delbot_platform.ai.runtime.reranker
+1521278 python -m delbot_platform.ai.runtime.vision
+1521291 python -m delbot_platform.ai.runtime.ocr
+1521293 python -m delbot_platform.ai.runtime.chat
+1522086 python -m delbot_platform.api
+1532195 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1532161 --on-host=127.0.0.1 --on-port
+1552885 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1552851 --on-host=127.0.0.1 --on-port
+1589944 /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1589910 --on-host=127.0.0.1 --on-port
+1616902 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1616622 --on-host=127.0.0.1 --on-port
+1617154 /bin/bash /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/bin/code-server --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=39513 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-aa9db180-e11d-43d6-887a-194164377939
+1617158 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=39513 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-aa9db180-e11d-43d6-887a-194164377939
+1617356 /bin/bash /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/bin/code-server --socket-path /tmp/code-22907cfe-1c5d-431a-98c2-b2c7bf3e04bd --agent-host-path /tmp/code-0e60909d-156f-4a15-891b-4bae74597410 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token
+1617361 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --socket-path /tmp/code-22907cfe-1c5d-431a-98c2-b2c7bf3e04bd --agent-host-path /tmp/code-0e60909d-156f-4a15-891b-4bae74597410 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token
+1617559 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=agentHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012137 --user-data-dir /home/delbot/.vscode-server/data
+1617579 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=ptyHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012136
+1617604 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node_modules/@github/copilot-linux-x64/index.js --headless --no-auto-update --log-level info --stdio --no-auto-login
+1619029 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1618995 --on-host=127.0.0.1 --on-port
+1619280 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node --dns-result-order=ipv4first /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
+1619292 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=fileWatcher
+1619346 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet server
+1619348 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=1619280
+1620119 /bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+1620187 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:0d4d660aed5c92a24e0edd9a38ae5b639f8f67d853 --node-ipc --clientProcessId=1619280
+1622271 sshd: delbot [priv]
+1622299 sshd: delbot@pts/1
+1643399 sshd: delbot [priv]
+1643427 sshd: delbot@notty
+1643463 /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1643428 --on-host=127.0.0.1 --on-port
+1672415 /usr/bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+1672829 tee -a /workspace/delbot/reports/pr215_runtime_health.txt
+
+============================================================
+VLLM
+============================================================
+950448 python3 -m vllm.entrypoints.openai.api_server --model /workspace/Qwen3-30B-MoE --port 11435 --max-model-len 32768 --trust-remote-code --gpu-memory-utilization 0.8
+950851 /workspace/vllm_env/bin/python3 -c from multiprocessing.resource_tracker import main;main(26)
+
+============================================================
+Qdrant
+============================================================
+21910 runtime/bin/qdrant --config-path runtime/qdrant_config/config.yaml
+
+============================================================
+Tree
+============================================================
+
+============================================================
+GPU
+============================================================
+Failed to initialize NVML: Unknown Error
+
+============================================================
+Open Ports
+============================================================
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                       
+LISTEN 0      4096      10.10.1.17:36515      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=77)) 
+LISTEN 0      4096      10.10.1.17:39211      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=73)) 
+LISTEN 0      4096      10.10.1.17:39367      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=81)) 
+LISTEN 0      2048         0.0.0.0:11435      0.0.0.0:*    users:(("python3",pid=950448,fd=17))         
+LISTEN 0      4096      10.10.1.17:41099      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=85)) 
+LISTEN 0      128          0.0.0.0:6334       0.0.0.0:*    users:(("qdrant",pid=21910,fd=516))          
+LISTEN 0      1024         0.0.0.0:6333       0.0.0.0:*    users:(("qdrant",pid=21910,fd=515))          
+LISTEN 0      2048         0.0.0.0:8101       0.0.0.0:*    users:(("python",pid=1521293,fd=6))          
+LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=1518438,fd=8))          
+LISTEN 0      2048         0.0.0.0:8107       0.0.0.0:*    users:(("python",pid=1521291,fd=6))          
+LISTEN 0      2048         0.0.0.0:8106       0.0.0.0:*    users:(("python",pid=1521094,fd=7))          
+LISTEN 0      2048         0.0.0.0:8105       0.0.0.0:*    users:(("python",pid=1520914,fd=8))          
+LISTEN 0      2048         0.0.0.0:8104       0.0.0.0:*    users:(("python",pid=1521278,fd=6))          
+LISTEN 0      128          0.0.0.0:22         0.0.0.0:*                                                 
+LISTEN 0      4096      10.10.1.17:45865      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=93)) 
+LISTEN 0      4096      10.10.1.17:46331      0.0.0.0:*    users:(("VLLM::EngineCor",pid=950852,fd=89)) 
+LISTEN 0      2048       127.0.0.1:8200       0.0.0.0:*    users:(("python",pid=1522086,fd=6))          
+LISTEN 0      511        127.0.0.1:51336      0.0.0.0:*    users:(("MainThread",pid=1620187,fd=30))     
+LISTEN 0      128        127.0.0.1:42481      0.0.0.0:*    users:(("code-1b6a188127",pid=1254160,fd=9)) 
+LISTEN 0      128        127.0.0.1:42587      0.0.0.0:*    users:(("code-1b6a188127",pid=1589944,fd=9)) 
+LISTEN 0      128        127.0.0.1:42519      0.0.0.0:*    users:(("code-8a7abeba6e",pid=9089,fd=9))    
+LISTEN 0      128        127.0.0.1:42539      0.0.0.0:*    users:(("code-8a7abeba6e",pid=955169,fd=9))  
+LISTEN 0      128        127.0.0.1:42655      0.0.0.0:*    users:(("code-1b6a188127",pid=1289469,fd=9)) 
+LISTEN 0      128        127.0.0.1:42793      0.0.0.0:*    users:(("code-1b6a188127",pid=1453490,fd=9)) 
+LISTEN 0      128        127.0.0.1:42967      0.0.0.0:*    users:(("code-1b6a188127",pid=1345652,fd=10))
+LISTEN 0      128        127.0.0.1:42883      0.0.0.0:*    users:(("code-8a7abeba6e",pid=952652,fd=10)) 
+LISTEN 0      128        127.0.0.1:41047      0.0.0.0:*    users:(("code-1b6a188127",pid=1489375,fd=9)) 
+LISTEN 0      128        127.0.0.1:41213      0.0.0.0:*    users:(("code-1b6a188127",pid=1287886,fd=9)) 
+LISTEN 0      128        127.0.0.1:41505      0.0.0.0:*    users:(("code-8a7abeba6e",pid=1061808,fd=9)) 
+LISTEN 0      128        127.0.0.1:44273      0.0.0.0:*    users:(("code-e4c7e7b1d6",pid=1619029,fd=9)) 
+LISTEN 0      128        127.0.0.1:44349      0.0.0.0:*    users:(("code-1b6a188127",pid=1552885,fd=9)) 
+LISTEN 0      128        127.0.0.1:44561      0.0.0.0:*    users:(("code-8a7abeba6e",pid=1048374,fd=9)) 
+LISTEN 0      128        127.0.0.1:44759      0.0.0.0:*    users:(("code-1b6a188127",pid=1411306,fd=9)) 
+LISTEN 0      128        127.0.0.1:44911      0.0.0.0:*    users:(("code-1b6a188127",pid=1135384,fd=9)) 
+LISTEN 0      128        127.0.0.1:43061      0.0.0.0:*    users:(("code-1b6a188127",pid=1349749,fd=9)) 
+LISTEN 0      128        127.0.0.1:43735      0.0.0.0:*    users:(("code-8a7abeba6e",pid=981194,fd=9))  
+LISTEN 0      128        127.0.0.1:43693      0.0.0.0:*    users:(("code-1b6a188127",pid=1316325,fd=9)) 
+LISTEN 0      128        127.0.0.1:46475      0.0.0.0:*    users:(("code-1b6a188127",pid=1347610,fd=9)) 
+LISTEN 0      128        127.0.0.1:45093      0.0.0.0:*    users:(("code-8a7abeba6e",pid=989225,fd=9))  
+LISTEN 0      128        127.0.0.1:46021      0.0.0.0:*    users:(("code-1b6a188127",pid=1216282,fd=9)) 
+LISTEN 0      128        127.0.0.1:46057      0.0.0.0:*    users:(("code-1b6a188127",pid=1413228,fd=9)) 
+LISTEN 0      128        127.0.0.1:34121      0.0.0.0:*    users:(("code-1b6a188127",pid=1532195,fd=9)) 
+LISTEN 0      511        127.0.0.1:32773      0.0.0.0:*    users:(("MainThread",pid=1617559,fd=27))     
+LISTEN 0      128        127.0.0.1:33655      0.0.0.0:*    users:(("code-8a7abeba6e",pid=939498,fd=10)) 
+LISTEN 0      128        127.0.0.1:33733      0.0.0.0:*    users:(("code-1b6a188127",pid=1227654,fd=9)) 
+LISTEN 0      128        127.0.0.1:36333      0.0.0.0:*    users:(("code-1b6a188127",pid=1452504,fd=9)) 
+LISTEN 0      128        127.0.0.1:36535      0.0.0.0:*    users:(("code-1b6a188127",pid=1208289,fd=9)) 
+LISTEN 0      128        127.0.0.1:36839      0.0.0.0:*    users:(("code-e4c7e7b1d6",pid=1643463,fd=10))
+LISTEN 0      128        127.0.0.1:35079      0.0.0.0:*    users:(("code-8a7abeba6e",pid=997805,fd=9))  
+LISTEN 0      128        127.0.0.1:35259      0.0.0.0:*    users:(("code-e4c7e7b1d6",pid=1616902,fd=9)) 
+LISTEN 0      128        127.0.0.1:38145      0.0.0.0:*    users:(("code-1b6a188127",pid=1453980,fd=9)) 
+LISTEN 0      128        127.0.0.1:38191      0.0.0.0:*    users:(("code-1b6a188127",pid=1451532,fd=9)) 
+LISTEN 0      128        127.0.0.1:38289      0.0.0.0:*    users:(("code-1b6a188127",pid=1286468,fd=9)) 
+LISTEN 0      128        127.0.0.1:38437      0.0.0.0:*    users:(("code-1b6a188127",pid=1381602,fd=9)) 
+LISTEN 0      128        127.0.0.1:36981      0.0.0.0:*    users:(("code-1b6a188127",pid=1089255,fd=9)) 
+LISTEN 0      128        127.0.0.1:37169      0.0.0.0:*    users:(("code-1b6a188127",pid=1415233,fd=9)) 
+LISTEN 0      128        127.0.0.1:37497      0.0.0.0:*    users:(("code-1b6a188127",pid=1432834,fd=9)) 
+LISTEN 0      128        127.0.0.1:40103      0.0.0.0:*    users:(("code-1b6a188127",pid=1284651,fd=10))
+LISTEN 0      128        127.0.0.1:40345      0.0.0.0:*    users:(("code-8a7abeba6e",pid=5732,fd=9))    
+LISTEN 0      128        127.0.0.1:40563      0.0.0.0:*    users:(("code-1b6a188127",pid=1165379,fd=9)) 
+LISTEN 0      128        127.0.0.1:38949      0.0.0.0:*    users:(("code-1b6a188127",pid=1120259,fd=9)) 
+LISTEN 0      128        127.0.0.1:39513      0.0.0.0:*    users:(("code-8a7abeba6e",pid=5973,fd=11))   
+LISTEN 0      128        127.0.0.1:39471      0.0.0.0:*    users:(("code-1b6a188127",pid=1163537,fd=9)) 
+LISTEN 0      128             [::]:22            [::]:*                                                 
+LISTEN 0      4096               *:44369            *:*    users:(("VLLM::EngineCor",pid=950852,fd=67)) 
+
+============================================================
+Docker
+============================================================
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+============================================================
+Compile
+============================================================
+Compile OK
+Listing 'delbot_platform'...
+Listing 'delbot_platform/ai'...
+Listing 'delbot_platform/ai/client'...
+Listing 'delbot_platform/ai/embedding'...
+Listing 'delbot_platform/ai/embedding/providers'...
+Listing 'delbot_platform/ai/http'...
+Listing 'delbot_platform/ai/process'...
+Listing 'delbot_platform/ai/recovery'...
+Listing 'delbot_platform/ai/registry'...
+Listing 'delbot_platform/ai/runtime'...
+Listing 'delbot_platform/ai/vector_store'...
+Listing 'delbot_platform/ai/vector_store/providers'...
+Listing 'delbot_platform/api'...
+Listing 'delbot_platform/api/routers'...
+Listing 'delbot_platform/api/routes'...
+Listing 'delbot_platform/api/schemas'...
+Listing 'delbot_platform/application'...
+Listing 'delbot_platform/application/documents'...
+Listing 'delbot_platform/application/factory'...
+Listing 'delbot_platform/application/repository'...
+Listing 'delbot_platform/application/research'...
+Listing 'delbot_platform/boot'...
+Listing 'delbot_platform/config'...
+Listing 'delbot_platform/controller'...
+Listing 'delbot_platform/core'...
+Listing 'delbot_platform/core/lifecycle'...
+Listing 'delbot_platform/document_intelligence'...
+Listing 'delbot_platform/document_intelligence/analyzer'...
+Listing 'delbot_platform/document_intelligence/backend'...
+Listing 'delbot_platform/document_intelligence/backend/pdf'...
+Listing 'delbot_platform/document_intelligence/builder'...
+Listing 'delbot_platform/document_intelligence/debug'...
+Listing 'delbot_platform/document_intelligence/factory'...
+Listing 'delbot_platform/document_intelligence/loader'...
+Listing 'delbot_platform/document_intelligence/mapper'...
+Listing 'delbot_platform/document_intelligence/models'...
+Listing 'delbot_platform/document_intelligence/parser'...
+Listing 'delbot_platform/document_intelligence/pipeline'...
+Listing 'delbot_platform/document_intelligence/processor'...
+Listing 'delbot_platform/documents'...
+Listing 'delbot_platform/documents/chunking'...
+Listing 'delbot_platform/documents/chunking/policy'...
+Listing 'delbot_platform/documents/classification'...
+Listing 'delbot_platform/documents/docs'...
+Listing 'delbot_platform/documents/embedding'...
+Listing 'delbot_platform/documents/embedding/factory'...
+Listing 'delbot_platform/documents/embedding/mapper'...
+Listing 'delbot_platform/documents/embedding/models'...
+Listing 'delbot_platform/documents/embedding/pipeline'...
+Listing 'delbot_platform/documents/embedding/providers'...
+Listing 'delbot_platform/documents/extraction'...
+Listing 'delbot_platform/documents/ingestion'...
+Listing 'delbot_platform/documents/loader'...
+Listing 'delbot_platform/documents/loader/sources'...
+Listing 'delbot_platform/documents/metadata'...
+Listing 'delbot_platform/documents/metadata/builder'...
+Listing 'delbot_platform/documents/metadata/mapper'...
+Listing 'delbot_platform/documents/models'...
+Listing 'delbot_platform/documents/parser'...
+Listing 'delbot_platform/documents/parser/backend'...
+Listing 'delbot_platform/documents/pipeline'...
+Listing 'delbot_platform/documents/pipeline/models'...
+Listing 'delbot_platform/documents/registry'...
+Listing 'delbot_platform/documents/services'...
+Listing 'delbot_platform/documents/structure'...
+Listing 'delbot_platform/documents/structure/section'...
+Listing 'delbot_platform/gateway'...
+Listing 'delbot_platform/gateway/mapper'...
+Listing 'delbot_platform/gateway/openai'...
+Listing 'delbot_platform/gateway/providers'...
+Listing 'delbot_platform/gateway/routers'...
+Listing 'delbot_platform/gateway/routers/v1'...
+Listing 'delbot_platform/gateway/runtime'...
+Listing 'delbot_platform/gateway/services'...
+Listing 'delbot_platform/knowledge'...
+Listing 'delbot_platform/knowledge/citation'...
+Listing 'delbot_platform/knowledge/context'...
+Listing 'delbot_platform/knowledge/extraction'...
+Listing 'delbot_platform/knowledge/graph'...
+Listing 'delbot_platform/knowledge/hydration'...
+Listing 'delbot_platform/knowledge/models'...
+Listing 'delbot_platform/knowledge/pipeline'...
+Listing 'delbot_platform/knowledge/pipeline/models'...
+Listing 'delbot_platform/knowledge/rag'...
+Listing 'delbot_platform/knowledge/rag/llm'...
+Listing 'delbot_platform/knowledge/rag/models'...
+Listing 'delbot_platform/knowledge/rag/research'...
+Listing 'delbot_platform/knowledge/rerank'...
+Listing 'delbot_platform/knowledge/reranking'...
+Listing 'delbot_platform/knowledge/retrieval'...
+Listing 'delbot_platform/knowledge/services'...
+Listing 'delbot_platform/knowledge/vector'...
+Listing 'delbot_platform/knowledge/vector/models'...
+Listing 'delbot_platform/knowledge/vector/repository'...
+Listing 'delbot_platform/launcher'...
+Listing 'delbot_platform/orchestrator'...
+Listing 'delbot_platform/orchestrator/services'...
+Listing 'delbot_platform/repository'...
+Listing 'delbot_platform/repository/catalog'...
+Listing 'delbot_platform/repository/discovery'...
+Listing 'delbot_platform/repository/download'...
+Listing 'delbot_platform/repository/ingestion'...
+Listing 'delbot_platform/repository/integration'...
+Listing 'delbot_platform/repository/manifest'...
+Listing 'delbot_platform/repository/models'...
+Listing 'delbot_platform/repository/providers'...
+Listing 'delbot_platform/repository/resolver'...
+Listing 'delbot_platform/repository_data'...
+Listing 'delbot_platform/repository_data/metadata'...
+Listing 'delbot_platform/repository_data/pdf'...
+Listing 'delbot_platform/repository_data/processed'...
+Listing 'delbot_platform/repository_data/processed/documents'...
+Listing 'delbot_platform/repository_data/processed/documents/0087b57cdff943ca8b4aca6f5f80e304'...
+Listing 'delbot_platform/repository_data/processed/documents/0091138c6d4f4efcb854a974665ef945'...
+Listing 'delbot_platform/repository_data/processed/documents/01877a38ed37473e952b4fb7c589eaa6'...
+Listing 'delbot_platform/repository_data/processed/documents/02ba5ab268814ecaabb1f6cec3934794'...
+Listing 'delbot_platform/repository_data/processed/documents/02c28d7833c5493dafb6b83e74925d5b'...
+Listing 'delbot_platform/repository_data/processed/documents/02c622adef404bef8ba40610bebb4c90'...
+Listing 'delbot_platform/repository_data/processed/documents/02c7e6ff056f4b39a09fb6ef119ba52b'...
+Listing 'delbot_platform/repository_data/processed/documents/02ec25a2524e40b7b021562ebb0c532a'...
+Listing 'delbot_platform/repository_data/processed/documents/0310fa0d4a5c42f79858f2ddbc48b936'...
+Listing 'delbot_platform/repository_data/processed/documents/03197818aab14b70b6dd15ca3188c93a'...
+Listing 'delbot_platform/repository_data/processed/documents/03aa3a20898241c796d659f0eef4ddad'...
+Listing 'delbot_platform/repository_data/processed/documents/03f8b626d2f544ccaee933f88b3735c6'...
+Listing 'delbot_platform/repository_data/processed/documents/043c8338e39a4f6bb7b02af365d5d0dc'...
+Listing 'delbot_platform/repository_data/processed/documents/0447d568e8c64eda8d3d937e99f7e022'...
+Listing 'delbot_platform/repository_data/processed/documents/04d3d193a4e14ab78a8813b965b2f9fb'...
+Listing 'delbot_platform/repository_data/processed/documents/05218bcffac34ac0b30749fa161462e1'...
+Listing 'delbot_platform/repository_data/processed/documents/05266735e81142edabcc624683a32936'...
+Listing 'delbot_platform/repository_data/processed/documents/0536c14dc0734ef2858998eaf1dfe4fb'...
+Listing 'delbot_platform/repository_data/processed/documents/053cca5f3d30412794db8e36f3b11d10'...
+Listing 'delbot_platform/repository_data/processed/documents/059af22343dd4dc9a6d11a452a34908a'...
+Listing 'delbot_platform/repository_data/processed/documents/06484a5d2ca246fcb5ca4cb6ec775b13'...
+Listing 'delbot_platform/repository_data/processed/documents/0665d56c2dba4bc08a52dd4a1a75b616'...
+Listing 'delbot_platform/repository_data/processed/documents/066ab331ce5e49b0a4411760fa25279e'...
+Listing 'delbot_platform/repository_data/processed/documents/06aa6364b33b4dc4854ad4a6d20c53c9'...
+Listing 'delbot_platform/repository_data/processed/documents/06ca2659d23a4aaa93fb6d09317bb514'...
+Listing 'delbot_platform/repository_data/processed/documents/076175700a304c34be23e106d98b7dd8'...
+Listing 'delbot_platform/repository_data/processed/documents/07fcadbe57f84bb49d5dd0b02a727aac'...
+Listing 'delbot_platform/repository_data/processed/documents/0814aca7141f4fdc98dcc86fcbf2656b'...
+Listing 'delbot_platform/repository_data/processed/documents/085b244f9ccb414388589faea0f4ab9e'...
+Listing 'delbot_platform/repository_data/processed/documents/0865c8dd6be84d578389329d35048ffc'...
+Listing 'delbot_platform/repository_data/processed/documents/086af07a05e745008df83fb7e6917601'...
+Listing 'delbot_platform/repository_data/processed/documents/0872b067e8de4d989bde53e84836b112'...
+Listing 'delbot_platform/repository_data/processed/documents/087b4d729c1544e9a90c795c8ee822a1'...
+Listing 'delbot_platform/repository_data/processed/documents/08a1cff48d3c403cbcd11e34d9470a65'...
+Listing 'delbot_platform/repository_data/processed/documents/08ee8fe334c944be8259c53bb21b291e'...
+Listing 'delbot_platform/repository_data/processed/documents/0911d7db69034836b90aac2969235e77'...
+Listing 'delbot_platform/repository_data/processed/documents/09d4ac4303b641289275677d302b9cc3'...
+Listing 'delbot_platform/repository_data/processed/documents/0a06a8f5ee3a4854bb3d2999727f721b'...
+Listing 'delbot_platform/repository_data/processed/documents/0a7ef0c8a7c54899987569811db8f490'...
+Listing 'delbot_platform/repository_data/processed/documents/0aa199e0de9040108ab025fab950888b'...
+Listing 'delbot_platform/repository_data/processed/documents/0affa2f47c0940529d51c68b335e5dd0'...
+Listing 'delbot_platform/repository_data/processed/documents/0b2ceb49421c4af592d77bd5eaed442b'...
+Listing 'delbot_platform/repository_data/processed/documents/0bad87c525f64ab28570ac752becab15'...
+Listing 'delbot_platform/repository_data/processed/documents/0bfaa82453dd4398ad01bf78423c55b6'...
+Listing 'delbot_platform/repository_data/processed/documents/0c260cd697e64d2f8e13ad1859e236a7'...
+Listing 'delbot_platform/repository_data/processed/documents/0d1432b9301646af8280237d57d8a0f9'...
+Listing 'delbot_platform/repository_data/processed/documents/0d2210638e474b98889e1275051e700a'...
+Listing 'delbot_platform/repository_data/processed/documents/0d4a02e697064ac0ab9cecb163cd1800'...
+Listing 'delbot_platform/repository_data/processed/documents/0d80107f2d8840f598c074ab813dd62f'...
+Listing 'delbot_platform/repository_data/processed/documents/0daee5f861fa4e4b948ee5dcd35e4d34'...
+Listing 'delbot_platform/repository_data/processed/documents/0dc61b75e25244b19c9b5cb8b5a1eea7'...
+Listing 'delbot_platform/repository_data/processed/documents/0dd6f8e1566e445fbcc49c69c2715c18'...
+Listing 'delbot_platform/repository_data/processed/documents/0ded6e98cd614c2093d9d1e31c19ae5c'...
+Listing 'delbot_platform/repository_data/processed/documents/0dfa36ac26994858919ff033a3e87d5c'...
+Listing 'delbot_platform/repository_data/processed/documents/0e036e14b2f841a492108ecbafcfaa8d'...
+Listing 'delbot_platform/repository_data/processed/documents/0e2c422cc8544c488721398908baafe9'...
+Listing 'delbot_platform/repository_data/processed/documents/0e47e7c8fe204645bef65ba415ab1303'...
+Listing 'delbot_platform/repository_data/processed/documents/0e6e186dd6e945a4870d0e1d4c1164fa'...
+Listing 'delbot_platform/repository_data/processed/documents/0e8207be782f42e7b4d375fbcf36c5a2'...
+Listing 'delbot_platform/repository_data/processed/documents/0ef71eefa4e749169b11051e205eaa3e'...
+Listing 'delbot_platform/repository_data/processed/documents/0f5e3d256f9b4ec59651f1ad37a5d0c7'...
+Listing 'delbot_platform/repository_data/processed/documents/0f662ae5ff604af4be27d38ec77d8e51'...
+Listing 'delbot_platform/repository_data/processed/documents/0f7d282855814cde9ba29e2e4d3d1d76'...
+Listing 'delbot_platform/repository_data/processed/documents/0f8883ba51c041b0b38982935f1aa20a'...
+Listing 'delbot_platform/repository_data/processed/documents/0fa218c0efe24b60990148b3502a254c'...
+Listing 'delbot_platform/repository_data/processed/documents/0fb2bfb065ec40bd8fa65209dfdb7af0'...
+Listing 'delbot_platform/repository_data/processed/documents/0fb408cdb78f4be8a357c6395fd6c0d1'...
+Listing 'delbot_platform/repository_data/processed/documents/0fc266d397c344d38551862e2a72f1fe'...
+Listing 'delbot_platform/repository_data/processed/documents/0fe51907cc2b44a29ac1729791443d47'...
+Listing 'delbot_platform/repository_data/processed/documents/0ff47c59f90b4881a36395bcb4dd508b'...
+Listing 'delbot_platform/repository_data/processed/documents/100affe804a04ad8ab8f1101edf7a345'...
+Listing 'delbot_platform/repository_data/processed/documents/1024449ec6464f998b8f456055e864e5'...
+Listing 'delbot_platform/repository_data/processed/documents/103d54fd47e24f30bf5a4040af1b7cc2'...
+Listing 'delbot_platform/repository_data/processed/documents/1091d4bd4f164f4390f6f335527a16ba'...
+Listing 'delbot_platform/repository_data/processed/documents/1096e58d736346139811054750c2b720'...
+Listing 'delbot_platform/repository_data/processed/documents/10d32423bc1048bc841b046ca59de462'...
+Listing 'delbot_platform/repository_data/processed/documents/10d6e2936a034885a08734c404a10fbc'...
+Listing 'delbot_platform/repository_data/processed/documents/10f8f7e51a6242f893e33ab17dd6d451'...
+Listing 'delbot_platform/repository_data/processed/documents/1108481d1b384616b0667ebefd0b74e0'...
+Listing 'delbot_platform/repository_data/processed/documents/1162ff56cabe47369e029c4acf52b0de'...
+Listing 'delbot_platform/repository_data/processed/documents/119b33e4a6c94748bdae63fc8c0dbe32'...
+Listing 'delbot_platform/repository_data/processed/documents/11d56dd101de4acc99bacb0258b205db'...
+Listing 'delbot_platform/repository_data/processed/documents/11db8dfdb2024b23a6036faa7c1956bc'...
+Listing 'delbot_platform/repository_data/processed/documents/127bc4aa55794a0db0a14da4c0a929a4'...
+Listing 'delbot_platform/repository_data/processed/documents/129aa872e7e5445393cd02b3004c29bf'...
+Listing 'delbot_platform/repository_data/processed/documents/12be5dd14d80435b925e2fa3b5cecd54'...
+Listing 'delbot_platform/repository_data/processed/documents/12bec2745d8a4162b701edbee6eaa08c'...
+Listing 'delbot_platform/repository_data/processed/documents/1324a988bcfc4878b5235962197ce3cd'...
+Listing 'delbot_platform/repository_data/processed/documents/133c4c037d33465987861f1e1b6c8910'...
+Listing 'delbot_platform/repository_data/processed/documents/13494d71984a4914a3b0c8bdb9a56afb'...
+Listing 'delbot_platform/repository_data/processed/documents/13959bc79ceb47929acc089d41a28aa2'...
+Listing 'delbot_platform/repository_data/processed/documents/1456edef05544470b0b42f31a8e9b9ac'...
+Listing 'delbot_platform/repository_data/processed/documents/145dc7ccbb6f4c7b8936384d2c8e6b52'...
+Listing 'delbot_platform/repository_data/processed/documents/14b058183660412fa4ca1016193e9298'...
+Listing 'delbot_platform/repository_data/processed/documents/15297eb9c75f4463978ced711704b540'...
+Listing 'delbot_platform/repository_data/processed/documents/15397a38360d4402984b94f48f475aa1'...
+Listing 'delbot_platform/repository_data/processed/documents/1569e1f53cee42bd97c673e3cbcb3b5a'...
+Listing 'delbot_platform/repository_data/processed/documents/159a0e4cf5ee4551879bf195c01939f3'...
+Listing 'delbot_platform/repository_data/processed/documents/15bbfff830ef41a7b023048d75ede507'...
+Listing 'delbot_platform/repository_data/processed/documents/15eebf845f24484cbd264bff5038b43a'...
+Listing 'delbot_platform/repository_data/processed/documents/16595f5afed0414c9169627319669bc4'...
+Listing 'delbot_platform/repository_data/processed/documents/16770c6e87a44445ba2d9ca655e5ae6b'...
+Listing 'delbot_platform/repository_data/processed/documents/16976fd9b6b14e83915c24ddbbc11bcc'...
+Listing 'delbot_platform/repository_data/processed/documents/16afe09f26204661a7e1df15fed4f227'...
+Listing 'delbot_platform/repository_data/processed/documents/16b89d93fe154285a33df975dacd48e1'...
+Listing 'delbot_platform/repository_data/processed/documents/16dff6a6c2424bf6a9dc17d89b1ccdcc'...
+Listing 'delbot_platform/repository_data/processed/documents/1737b330fd524a24a41af8093ae06216'...
+Listing 'delbot_platform/repository_data/processed/documents/175a1c15da9d47d5b1746f354abc7910'...
+Listing 'delbot_platform/repository_data/processed/documents/176f46723bc84099b54fcbb2d0acff34'...
+Listing 'delbot_platform/repository_data/processed/documents/179357b21f7a400095a73d10b0792163'...
+Listing 'delbot_platform/repository_data/processed/documents/17ad50a4149143358a6b4df88c50f04f'...
+Listing 'delbot_platform/repository_data/processed/documents/181ba801a91949d8b6bfa62f4e0398f0'...
+Listing 'delbot_platform/repository_data/processed/documents/18309f00cc224cbdba77f9639663f9fe'...
+Listing 'delbot_platform/repository_data/processed/documents/1834020a679b4436aab45e19f4725365'...
+Listing 'delbot_platform/repository_data/processed/documents/185ba5752e9e4277bd953ae3d0f882a1'...
+Listing 'delbot_platform/repository_data/processed/documents/187936244bd74ad8898f079ab36f3aea'...
+Listing 'delbot_platform/repository_data/processed/documents/18960ef0cb5840a2b9eaf4ea3d8839e8'...
+Listing 'delbot_platform/repository_data/processed/documents/18a0ac49c44444f6a7eeaf15d761ea7f'...
+Listing 'delbot_platform/repository_data/processed/documents/18cae25f855543bfbaeb1c47bdf07f64'...
+Listing 'delbot_platform/repository_data/processed/documents/18e1aba1c1ef4315b20ea2f49a131449'...
+Listing 'delbot_platform/repository_data/processed/documents/1946a3586e304d918877a28f03b3457c'...
+Listing 'delbot_platform/repository_data/processed/documents/195a6585fa9a486593de8531c5f68719'...
+Listing 'delbot_platform/repository_data/processed/documents/197b90ab8ffd4363b3dc0a2cc2bb060b'...
+Listing 'delbot_platform/repository_data/processed/documents/19aac0e513da480f87625f58ec8894ae'...
+Listing 'delbot_platform/repository_data/processed/documents/19c3daa7aa21467f994ef4ad99cff25c'...
+Listing 'delbot_platform/repository_data/processed/documents/1a3244f9e95c4095bb4e84bb9e48b134'...
+Listing 'delbot_platform/repository_data/processed/documents/1a34d74ed8964a7fa53b7a835b0b1436'...
+Listing 'delbot_platform/repository_data/processed/documents/1a5508b1cb6b492f9a1f43a7f683cba2'...
+Listing 'delbot_platform/repository_data/processed/documents/1a75abb84ec941239ebf5fb6215f7bbb'...
+Listing 'delbot_platform/repository_data/processed/documents/1a78594d20264f74a171cc7095c51a29'...
+Listing 'delbot_platform/repository_data/processed/documents/1aa65c629bc44b0eb0fa9c48e5cac0fe'...
+Listing 'delbot_platform/repository_data/processed/documents/1ad214b74e404ecb90328eefb55f814d'...
+Listing 'delbot_platform/repository_data/processed/documents/1adc8a4953634071a1d99cdfb5a2a0f8'...
+Listing 'delbot_platform/repository_data/processed/documents/1af6ca934df84ace98b38a023e671651'...
+Listing 'delbot_platform/repository_data/processed/documents/1afa2d7176064c15b36225bae162c494'...
+Listing 'delbot_platform/repository_data/processed/documents/1b0b3ba8f23243819b876ee5ca3242fd'...
+Listing 'delbot_platform/repository_data/processed/documents/1b26e47ff1a443269afe962fd430ba86'...
+Listing 'delbot_platform/repository_data/processed/documents/1b5d829f452e4b81ae97ad54fc250afc'...
+Listing 'delbot_platform/repository_data/processed/documents/1ba6c45c50ef4ac199ea1a940b85089b'...
+Listing 'delbot_platform/repository_data/processed/documents/1bd0df6d007a45939c7166e138736c3d'...
+Listing 'delbot_platform/repository_data/processed/documents/1c3056dcf7db4700af8af3ffd9329d72'...
+Listing 'delbot_platform/repository_data/processed/documents/1c4db357b81a45ee8d4cc3e807fc4d9a'...
+Listing 'delbot_platform/repository_data/processed/documents/1d09a87a5e124a4fb1ae7e3267247fd5'...
+Listing 'delbot_platform/repository_data/processed/documents/1d15209d809849f18aae5b7cb737545c'...
+Listing 'delbot_platform/repository_data/processed/documents/1d219e6ab6de4bbd99cea5147bc29d38'...
+Listing 'delbot_platform/repository_data/processed/documents/1d3c8a979c1849ea90750129a7194afa'...
+Listing 'delbot_platform/repository_data/processed/documents/1d3f67ca67b14dd280b88d3672283287'...
+Listing 'delbot_platform/repository_data/processed/documents/1d6fdad8a2fd407e895eb3433b5aa43c'...
+Listing 'delbot_platform/repository_data/processed/documents/1d7f60c77fe14a618d970a7de1e1ed80'...
+Listing 'delbot_platform/repository_data/processed/documents/1dc51f7929e24a93bbf29eac62055f2f'...
+Listing 'delbot_platform/repository_data/processed/documents/1dd92fa2dc3a4435ad5ada38ca067882'...
+Listing 'delbot_platform/repository_data/processed/documents/1e08b36783fe4a82828232a9e10d3e4e'...
+Listing 'delbot_platform/repository_data/processed/documents/1e15eefe68eb4aab98ccbf30da68e490'...
+Listing 'delbot_platform/repository_data/processed/documents/1e425d35f8324bf1af2ad400b3f7beaf'...
+Listing 'delbot_platform/repository_data/processed/documents/1e46fe0065524e81a550289678bbd361'...
+Listing 'delbot_platform/repository_data/processed/documents/1e5222274111486693ce5736c2d78c3b'...
+Listing 'delbot_platform/repository_data/processed/documents/1e568913932e43ab8704b541df3cc60d'...
+Listing 'delbot_platform/repository_data/processed/documents/1e8a43d7bcb648c8a44bde0fb00e08f7'...
+Listing 'delbot_platform/repository_data/processed/documents/1e8dbd1b62e845188d2a4e8d3c27414a'...
+Listing 'delbot_platform/repository_data/processed/documents/1e91ace4746548068adcc9f110256cf7'...
+Listing 'delbot_platform/repository_data/processed/documents/21d977d30fb5452e8de38f10d79a61e6'...
+Listing 'delbot_platform/repository_data/processed/documents/262a899064b54d2d90382b31779f8384'...
+Listing 'delbot_platform/repository_data/processed/documents/285cb3c24ff648859ebc8f5c6d7a6fb3'...
+Listing 'delbot_platform/repository_data/processed/documents/2a81aa4cc3ed4c468398111efb8aa598'...
+Listing 'delbot_platform/repository_data/processed/documents/2b4b00a63bc84082be26e6d7364d6808'...
+Listing 'delbot_platform/repository_data/processed/documents/35593a2e162a4827b73bcbfd67e1e04a'...
+Listing 'delbot_platform/repository_data/processed/documents/4519133a0e28427790386a7916df2cf2'...
+Listing 'delbot_platform/repository_data/processed/documents/4a72cfe00d7d494da3662fbf6affe4bb'...
+Listing 'delbot_platform/repository_data/processed/documents/4bc1c8ca6a1d45e2a6212616eddd1e4d'...
+Listing 'delbot_platform/repository_data/processed/documents/53f76f6fb3764e5883a1877d63f2cbee'...
+Listing 'delbot_platform/repository_data/processed/documents/55f1b06e96234da0aadeaea6c02395c8'...
+Listing 'delbot_platform/repository_data/processed/documents/6765bd6afc52400392e9ca3942422150'...
+Listing 'delbot_platform/repository_data/processed/documents/68407311274344efa0df34c239a91d1e'...
+Listing 'delbot_platform/repository_data/processed/documents/6a5d97aa70144af0937e8dfe0989345a'...
+Listing 'delbot_platform/repository_data/processed/documents/7212e56f487d467e8ebbcb0ba16f80bf'...
+Listing 'delbot_platform/repository_data/processed/documents/7bee5fbc7fc7466c97c08ebbc44f4f9d'...
+Listing 'delbot_platform/repository_data/processed/documents/83078797a06a4bf79d1540715b630e2d'...
+Listing 'delbot_platform/repository_data/processed/documents/85e1bd5f30b1457d9d2cc2d8b3b1a243'...
+Listing 'delbot_platform/repository_data/processed/documents/Fulltext'...
+Listing 'delbot_platform/repository_data/processed/documents/a338e4a2c1504950a4a0a3be6601c7b7'...
+Listing 'delbot_platform/repository_data/processed/documents/a53ea47ce666446a9d8ac940dae6831e'...
+Listing 'delbot_platform/repository_data/processed/documents/b81aeaa403734b6188dc77440dc61e71'...
+Listing 'delbot_platform/repository_data/processed/documents/bde403ec64174417ad0489e4e8ecf5c2'...
+Listing 'delbot_platform/repository_data/processed/documents/c24ddfc4b32a481ea36f1da85fa35138'...
+Listing 'delbot_platform/repository_data/processed/documents/c2db654e65b64e33a1c09bfe207fc229'...
+Listing 'delbot_platform/repository_data/processed/documents/c92eadd4f36f4696b01483e8e4553b1d'...
+Listing 'delbot_platform/repository_data/processed/documents/d5ab5a9d6bd14e37b733e2e9ecadfe70'...
+Listing 'delbot_platform/repository_data/processed/documents/f4384ccce0cf413eb1dcd64b4f3808b2'...
+Listing 'delbot_platform/research'...
+Listing 'delbot_platform/research/builders'...
+Listing 'delbot_platform/research/context'...
+Listing 'delbot_platform/research/generator'...
+Listing 'delbot_platform/research/llm'...
+Listing 'delbot_platform/research/memory'...
+Listing 'delbot_platform/research/models'...
+Listing 'delbot_platform/research/pipeline'...
+Listing 'delbot_platform/research/rag'...
+Listing 'delbot_platform/research/services'...
+Listing 'delbot_platform/research/state'...
+Listing 'delbot_platform/vectors'...
+Listing 'delbot_platform/vectorstore'...
+Listing 'delbot_platform/vectorstore/qdrant'...
+Listing 'delbot_platform/workflows'...
+Listing 'delbot_platform/workflows/factory'...
+Listing 'delbot_platform/workflows/repository'...
+Listing 'delbot_platform/workflows/repository/models'...
+Listing 'delbot_platform/workspace'...
+Listing 'delbot_platform/workspace/models'...
+
+============================================================
+Git
+============================================================
+ M delbot_platform/api/main.py
+ M delbot_platform/api/routes/document.py
+ D delbot_platform/document/__init__.py
+ D delbot_platform/document/chunking/chunker.py
+ D delbot_platform/document/embedding/client.py
+ D delbot_platform/document/index/__init__.py
+ D delbot_platform/document/index/source_index.py
+ D delbot_platform/document/ingestion/__init__.py
+ D delbot_platform/document/ingestion/qdrant_ingest.py
+ D delbot_platform/document/knowledge.py
+ D delbot_platform/document/metadata/__init__.py
+ D delbot_platform/document/metadata/metadata_loader.py
+ D delbot_platform/document/metadata/metadata_registry.py
+ D delbot_platform/document/metadata/pdf_metadata.py
+ D delbot_platform/document/parser/pdf_parser.py
+ D delbot_platform/document/pipeline/__init__.py
+ D delbot_platform/document/pipeline/chunker.py
+ D delbot_platform/document/pipeline/document_pipeline.py
+ D delbot_platform/document/pipeline/ingest_pdf.py
+ D delbot_platform/document/pipeline/ocr_loader.py
+ D delbot_platform/document/pipeline/pdf_loader.py
+ D delbot_platform/document/retrieval/__init__.py
+ D delbot_platform/document/retrieval/hybrid_retriever.py
+ D delbot_platform/document/retrieval/metadata_retriever.py
+ D delbot_platform/document/storage/qdrant.py
+ M delbot_platform/documents/chunking/__init__.py
+ D delbot_platform/documents/chunking/chunk.py
+ M delbot_platform/documents/chunking/chunk_builder.py
+ M delbot_platform/documents/classification/heading.py
+ M delbot_platform/documents/embedding/base.py
+ M delbot_platform/documents/embedding/pipeline/pipeline.py
+ M delbot_platform/documents/embedding/providers/gateway.py
+ M delbot_platform/documents/embedding/providers/local.py
+ D delbot_platform/documents/ingestion/repository_ingestor.py.bak2
+ D delbot_platform/documents/ingestion/repository_ingestor.py.trace
+ D delbot_platform/documents/loader/local.py
+ M delbot_platform/documents/metadata/builder/chunk.py
+ M delbot_platform/documents/metadata/builder/document.py
+ M delbot_platform/documents/metadata/chunk_metadata.py
+ M delbot_platform/documents/pipeline/indexing.py
+ M delbot_platform/documents/pipeline/models/artifact.py
+ M delbot_platform/knowledge/citation/builder.py
+ M delbot_platform/knowledge/context/builder.py
+ M delbot_platform/knowledge/hydration/citation.py
+ M delbot_platform/knowledge/rag/vector_retriever.py
+ M delbot_platform/knowledge/reranking/result.py
+ M delbot_platform/knowledge/retrieval/qdrant.py
+ M delbot_platform/knowledge/vector/repository/qdrant.py
+ M delbot_platform/vectorstore/qdrant/repository.py
+ M tools/test_research_engine.py
+ M tools/test_retrieval.py
+ M tools/test_vector_schema.py
+?? delbot_platform/documents/embedding/mapper/
+?? delbot_platform/documents/embedding/models/
+?? delbot_platform/documents/metadata/mapper/
+?? delbot_platform/documents/metadata/metadata_extractor.py
+?? delbot_platform/documents/metadata/repository.py
+?? delbot_platform/documents/models/document_chunk.py
+?? reports/
+?? tools/audit_heading_classifier.py
+
+============================================================
+Finished
+============================================================
+/workspace/delbot/reports/pr215_runtime_health.txt

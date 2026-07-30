@@ -1,4 +1,4 @@
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
 )
 

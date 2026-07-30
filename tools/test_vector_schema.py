@@ -1,53 +1,51 @@
 from __future__ import annotations
 
-
 import sys
-
 from pathlib import Path
 
-
-ROOT=Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(
     0,
-    str(ROOT)
+    str(ROOT),
+)
+
+from delbot_platform.knowledge.rag.vector_retriever import (
+    VectorRetriever,
 )
 
 
-from delbot_platform.knowledge.rag.vector_retriever import VectorRetriever
+retriever = VectorRetriever()
 
-
-
-retriever=VectorRetriever()
-
-
-results=retriever.search(
-
+results = retriever.search(
     "bagaimana metodologi penelitian machine learning",
-
-    3
-
+    3,
 )
 
+for chunk in results:
 
-for r in results:
+    print("=" * 60)
 
-    print("="*50)
+    exported = chunk.export()
 
-    print(r.keys())
+    print(exported.keys())
+
+    print()
 
     print("TEXT:")
+    print(chunk.text[:300])
 
-    print(r["text"][:300])
+    print()
 
     print("SOURCE:")
+    print(chunk.source_name)
 
-    print(r["source"])
+    print()
 
     print("PAGE:")
+    print(chunk.page)
 
-    print(r["page"])
+    print()
 
     print("VECTOR SCORE:")
-
-    print(r["vector_score"])
+    print(chunk.vector_score)

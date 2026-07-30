@@ -1,55 +1,60 @@
 from __future__ import annotations
 
-from delbot_platform.documents.chunking.chunk import (
-    DocumentChunk,
-)
-
 from delbot_platform.documents.metadata.chunk_metadata import (
     ChunkMetadata,
-)
-
-from delbot_platform.documents.registry.document import (
-    DocumentRecord,
-)
-
-from delbot_platform.documents.structure.section.section import (
-    DocumentSection,
 )
 
 
 class ChunkMetadataBuilder:
     """
-    Build metadata attached to every semantic chunk.
+    Canonical builder for ChunkMetadata.
+
+    Responsibilities
+    ----------------
+    - Build canonical ChunkMetadata.
+    - Normalize metadata for vector storage.
+    - Keep embedding pipeline independent from chunk models.
+
+    This builder is the single public entrypoint for creating
+    metadata attached to semantic chunks.
     """
 
     def build(
         self,
-        *,
-        record: DocumentRecord,
-        section: DocumentSection,
-        chunk: DocumentChunk,
-        chunk_index: int,
-        total_chunks: int,
+        chunk,
     ) -> ChunkMetadata:
 
+        page_start = getattr(chunk, "page_start", 0)
+        page_end = getattr(chunk, "page_end", page_start)
+
+        section_title = getattr(chunk, "section_title", None)
+
+        chapter = getattr(chunk, "chapter", None)
+
+        level = getattr(chunk, "level", None)
+
+        
+
+        token_count = getattr(
+            chunk,
+            "token_count",
+            len(getattr(chunk, "text", "").split()),
+        )
+
+        character_count = len(
+            getattr(chunk, "text", "")
+        )
+
         return ChunkMetadata(
-
-            document_id=record.id,
-
-            source=record.source,
-
-            section=section.title,
-
-            level=section.level,
-
-            chapter=section.chapter,
-
-            page_start=chunk.page_start,
-
-            page_end=chunk.page_end,
-
-            chunk_index=chunk_index,
-
-            total_chunks=total_chunks,
-
+            document_id=getattr(chunk, "document_id"),
+            chunk_id=getattr(chunk, "chunk_id"),
+            source=getattr(chunk, "source", "repository"),
+            page_start=page_start,
+            page_end=page_end,
+            section_title=section_title,
+            chapter=chapter,
+            level=level,
+            
+            token_count=token_count,
+            character_count=character_count,
         )

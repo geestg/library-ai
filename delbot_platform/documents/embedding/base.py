@@ -4,13 +4,13 @@ from abc import ABC
 from abc import abstractmethod
 
 
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
 )
-
-from delbot_platform.documents.embedding.vector import (
-    VectorRecord,
+from delbot_platform.documents.embedding.models import (
+    EmbeddingVector,
 )
+
 
 
 class EmbeddingService(ABC):
@@ -20,6 +20,6 @@ class EmbeddingService(ABC):
     async def embed(
         self,
         chunks: list[DocumentChunk],
-    ) -> list[VectorRecord]:
+    ) -> list[EmbeddingVector]:
 
         pass

@@ -4,14 +4,14 @@ import asyncio
 
 from sentence_transformers import SentenceTransformer
 
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
+)
+from delbot_platform.documents.embedding.models import (
+    EmbeddingVector,
 )
 from delbot_platform.documents.embedding.base import (
     EmbeddingService,
-)
-from delbot_platform.documents.embedding.vector import (
-    VectorRecord,
 )
 
 
@@ -33,7 +33,7 @@ class LocalEmbeddingProvider(
     async def embed(
         self,
         chunks: list[DocumentChunk],
-    ) -> list[VectorRecord]:
+    ) -> list[EmbeddingVector]:
 
         texts = [
             chunk.text
@@ -48,7 +48,7 @@ class LocalEmbeddingProvider(
             show_progress_bar=False,
         )
 
-        results: list[VectorRecord] = []
+        results: list[EmbeddingVector] = []
 
         for chunk, vector in zip(
             chunks,
@@ -56,17 +56,15 @@ class LocalEmbeddingProvider(
         ):
 
             results.append(
-                VectorRecord(
-                    id=chunk.id,
+                EmbeddingVector(
+                    document_id=chunk.document_id,
+                    chunk_id=chunk.id,
                     vector=vector.tolist(),
-                    metadata={
-                        "document_id": chunk.metadata.document_id,
-                        "source": chunk.metadata.source,
-                        "section": chunk.metadata.section,
-                        "page_start": chunk.metadata.page_start,
-                        "page_end": chunk.metadata.page_end,
-                        "text": chunk.text,
-                    },
+                    text=chunk.text,
+                    metadata=chunk.metadata,
+                    provider="local",
+                    model=self.MODEL_NAME,
+                    dimension=len(vector),
                 )
             )
 

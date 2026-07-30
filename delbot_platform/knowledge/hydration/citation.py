@@ -31,7 +31,7 @@ class CitationHydrator:
             document_id=metadata.document_id,
             page_start=metadata.page_start,
             page_end=metadata.page_end,
-            section=metadata.section,
+            section=metadata.section_title,
             text=result.content,
         )
 

@@ -8,6 +8,15 @@ from delbot_platform.documents.chunking import (
 from delbot_platform.documents.embedding.pipeline.pipeline import (
     EmbeddingPipeline,
 )
+from delbot_platform.documents.embedding.mapper import (
+    EmbeddingVectorMapper,
+)
+from delbot_platform.documents.metadata.builder.document import (
+    DocumentMetadataBuilder,
+)
+from delbot_platform.documents.metadata.repository import (
+    DocumentMetadataRepository,
+)
 from delbot_platform.documents.pipeline.models import (
     DocumentIndexArtifact,
     DocumentIndexResult,
@@ -37,6 +46,14 @@ class DocumentIndexingPipeline:
 
         self.chunk_builder = ChunkBuilder()
 
+        self.metadata_builder = (
+            DocumentMetadataBuilder()
+        )
+
+        self.metadata_repository = (
+            DocumentMetadataRepository()
+        )
+
         self.embedding = EmbeddingPipeline()
 
         self.vectorstore = (
@@ -62,16 +79,33 @@ class DocumentIndexingPipeline:
             sections,
         )
 
+        metadata = self.metadata_builder.build(
+            record=document,
+            sections=sections,
+            chunks=chunks,
+        )
+
+        self.metadata_repository.save(
+            metadata,
+        )
+
         vectors = await self.embedding.run(
             chunks,
         )
 
+        vector_records = (
+            EmbeddingVectorMapper.to_vector_records(
+                vectors,
+            )
+        )
+
         self.vectorstore.save(
-            vectors,
+            vector_records,
         )
 
         return DocumentIndexArtifact(
             document=document,
+            metadata=metadata,
             sections=sections,
             chunks=chunks,
             vectors=vectors,

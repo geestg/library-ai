@@ -1,0 +1,504 @@
+
+==================================================
+Repository
+==================================================
+Root : /workspace/delbot
+Date : Thu Jul 30 08:44:32 UTC 2026
+Git  : f09af09
+
+==================================================
+Package Statistics
+==================================================
+
+delbot_platform/document_intelligence
+Python Files : 52
+Classes      : 39
+Functions    : 0
+
+delbot_platform/documents
+Python Files : 78
+Classes      : 54
+Functions    : 0
+
+delbot_platform/knowledge
+Python Files : 74
+Classes      : 51
+Functions    : 0
+
+delbot_platform/research
+Python Files : 24
+Classes      : 16
+Functions    : 0
+
+delbot_platform/repository
+Python Files : 33
+Classes      : 21
+Functions    : 0
+
+delbot_platform/vectorstore
+Python Files : 5
+Classes      : 2
+Functions    : 1
+
+delbot_platform/gateway
+Python Files : 36
+Classes      : 30
+Functions    : 4
+
+delbot_platform/api
+Python Files : 16
+Classes      : 10
+Functions    : 10
+
+==================================================
+Cross Package Imports
+==================================================
+
+--------------------------------------------------
+document_intelligence
+--------------------------------------------------
+document_intelligence        95
+documents                     0
+knowledge                     2
+research                      0
+repository                    0
+vectorstore                   0
+gateway                       0
+api                           0
+
+--------------------------------------------------
+documents
+--------------------------------------------------
+document_intelligence         0
+documents                   112
+knowledge                     0
+research                      0
+repository                    1
+vectorstore                   1
+gateway                       1
+api                           0
+
+--------------------------------------------------
+knowledge
+--------------------------------------------------
+document_intelligence         0
+documents                    10
+knowledge                    88
+research                      8
+repository                    0
+vectorstore                   4
+gateway                       1
+api                           0
+
+--------------------------------------------------
+research
+--------------------------------------------------
+document_intelligence         0
+documents                     0
+knowledge                     8
+research                     12
+repository                    0
+vectorstore                   0
+gateway                       0
+api                           0
+
+--------------------------------------------------
+repository
+--------------------------------------------------
+document_intelligence         0
+documents                     0
+knowledge                     0
+research                      0
+repository                   13
+vectorstore                   0
+gateway                       0
+api                           0
+
+--------------------------------------------------
+vectorstore
+--------------------------------------------------
+document_intelligence         0
+documents                     0
+knowledge                     0
+research                      0
+repository                    0
+vectorstore                   2
+gateway                       0
+api                           0
+
+--------------------------------------------------
+gateway
+--------------------------------------------------
+document_intelligence         0
+documents                     0
+knowledge                     0
+research                      1
+repository                    0
+vectorstore                   0
+gateway                      40
+api                           0
+
+--------------------------------------------------
+api
+--------------------------------------------------
+document_intelligence         0
+documents                     1
+knowledge                     0
+research                      4
+repository                    1
+vectorstore                   0
+gateway                       0
+api                          12
+
+==================================================
+External Imports
+==================================================
+
+
+==================================================
+Modules Never Imported
+==================================================
+delbot_platform/vectorstore/qdrant/repository.py
+delbot_platform/orchestrator/status.py
+delbot_platform/orchestrator/shutdown.py
+delbot_platform/orchestrator/health.py
+delbot_platform/orchestrator/services/ocr.py
+delbot_platform/orchestrator/services/gateway.py
+delbot_platform/orchestrator/services/vision.py
+delbot_platform/orchestrator/services/reranker.py
+delbot_platform/orchestrator/services/speech.py
+delbot_platform/orchestrator/services/embedding.py
+delbot_platform/core/lifecycle/service_dependency.py
+delbot_platform/core/lifecycle/boot_policy.py
+delbot_platform/core/lifecycle/service_event.py
+delbot_platform/core/logger.py
+delbot_platform/core/environment.py
+delbot_platform/document_intelligence/builder/semantic_chunk_builder.py
+delbot_platform/document_intelligence/builder/paragraph_builder.py
+delbot_platform/vectors/models.py
+delbot_platform/gateway/__main__.py
+delbot_platform/gateway/routers/vision.py
+delbot_platform/gateway/routers/v1/chat.py
+delbot_platform/gateway/routers/v1/embedding.py
+delbot_platform/gateway/routers/reranker.py
+delbot_platform/research/generator/llm_generator.py
+delbot_platform/research/context/document_context.py
+delbot_platform/research/rag/context.py
+delbot_platform/research/pipeline/research_answer_pipeline.py
+delbot_platform/research/llm/chat_client.py
+delbot_platform/research/llm/client.py
+delbot_platform/research/state/research_state.py
+delbot_platform/research/services/answer.py
+delbot_platform/knowledge/vector/qdrant_store.py
+delbot_platform/knowledge/vector/repository/memory.py
+delbot_platform/knowledge/citation/builder.py
+delbot_platform/knowledge/retrieval/metadata_retriever.py
+delbot_platform/knowledge/rag/vector_retriever.py
+delbot_platform/knowledge/rag/context_builder.py
+delbot_platform/knowledge/rag/citation_builder.py
+delbot_platform/knowledge/graph/edge_builder.py
+delbot_platform/knowledge/graph/node_builder.py
+delbot_platform/knowledge/hydration/citation.py
+delbot_platform/knowledge/hydration/local.py
+delbot_platform/knowledge/pipeline/models/artifact.py
+delbot_platform/knowledge/rerank/reranker.py
+delbot_platform/knowledge/models/rag_result.py
+delbot_platform/knowledge/reranking/local.py
+delbot_platform/knowledge/extraction/extraction_config.py
+delbot_platform/knowledge/services/processing.py
+delbot_platform/config/validator.py
+delbot_platform/config/manager.py
+delbot_platform/config/models.py
+delbot_platform/boot/boot_result.py
+delbot_platform/boot/service_waiter.py
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py
+delbot_platform/ai/runtime/fast_chat.py
+delbot_platform/ai/runtime/monitor.py
+delbot_platform/ai/runtime/coding.py
+delbot_platform/ai/runtime/vision.py
+delbot_platform/ai/runtime/reranker.py
+delbot_platform/ai/runtime/infinity.py
+delbot_platform/ai/client/reranker_client.py
+delbot_platform/ai/recovery/recovery.py
+delbot_platform/ai/registry/exceptions.py
+delbot_platform/ai/http/http_client.py
+delbot_platform/ai/embedding/embedding_builder.py
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+delbot_platform/ai/embedding/embedding_config.py
+delbot_platform/ai/embedding/embedding_service.py
+delbot_platform/launcher/infinity.py
+delbot_platform/launcher/vllm.py
+delbot_platform/__main__.py
+delbot_platform/workflows/factory/workflow_factory.py
+delbot_platform/workflows/repository/ingestion.py
+delbot_platform/workflows/repository/models/result.py
+delbot_platform/workflows/repository/models/artifact.py
+delbot_platform/api/app.py
+delbot_platform/api/research.py
+delbot_platform/api/__main__.py
+delbot_platform/api/routes/document.py
+delbot_platform/application/factory/application_factory.py
+delbot_platform/application/research/answer.py
+delbot_platform/application/repository/ingest.py
+delbot_platform/application/documents/index_repository.py
+delbot_platform/application/documents/index.py
+delbot_platform/repository/download/pdf_downloader.py
+delbot_platform/repository/download/downloader.py
+delbot_platform/repository/ingestion/dataset_loader.py
+delbot_platform/repository/resolver/local_pdf.py
+delbot_platform/repository/resolver/dspace_bitstream.py
+delbot_platform/repository/resolver/dspace_html.py
+delbot_platform/repository/resolver/url_normalizer.py
+delbot_platform/repository/discovery/service.py
+delbot_platform/repository/discovery/gitlab.py
+delbot_platform/repository/discovery/http.py
+delbot_platform/repository/discovery/base.py
+delbot_platform/repository/models/scan_result.py
+delbot_platform/repository/manifest/pdf_manifest.py
+delbot_platform/repository/providers/dspace.py
+delbot_platform/repository/providers/base.py
+delbot_platform/repository/catalog/adapter.py
+delbot_platform/repository/catalog/loader.py
+delbot_platform/repository/catalog/builder.py
+delbot_platform/workspace/models/workspace_session.py
+delbot_platform/workspace/storage.py
+delbot_platform/documents/ingestion/repository_ingestor.py
+delbot_platform/documents/pipeline/models/artifact.py
+delbot_platform/documents/pipeline/models/index_result.py
+delbot_platform/documents/models/chunk.py
+delbot_platform/documents/models/citation.py
+delbot_platform/documents/parser/pdf.py
+delbot_platform/documents/classification/academic_heading.py
+delbot_platform/documents/classification/heading_score.py
+delbot_platform/documents/classification/page_classifier.py
+delbot_platform/documents/classification/page_region.py
+delbot_platform/documents/embedding/models/embedding_vector.py
+delbot_platform/documents/embedding/mapper/vector_mapper.py
+delbot_platform/documents/embedding/vector.py
+
+==================================================
+Entrypoints
+==================================================
+delbot_platform/__main__.py
+delbot_platform/api/__main__.py
+delbot_platform/gateway/__main__.py
+
+delbot_platform/gateway/app.py:app = FastAPI(
+delbot_platform/ai/runtime/reranker.py:app = FastAPI(
+delbot_platform/ai/runtime/chat.py:app = FastAPI(
+delbot_platform/ai/runtime/infinity.py:app = FastAPI(
+delbot_platform/ai/runtime/base.py:        self.app = FastAPI(
+delbot_platform/ai/runtime/embedding.py:app = FastAPI(
+delbot_platform/api/app.py:app = FastAPI(
+delbot_platform/api/main.py:app = FastAPI(
+
+==================================================
+Factory Classes
+==================================================
+delbot_platform/document_intelligence/factory/document_processor_factory.py:class DocumentProcessorFactory:
+delbot_platform/gateway/providers/factory.py:class ProviderFactory:
+delbot_platform/launcher/factory.py:class LauncherFactory:
+delbot_platform/workflows/factory/workflow_factory.py:class WorkflowFactory:
+delbot_platform/application/factory/application_factory.py:class ApplicationFactory:
+delbot_platform/documents/registry/factory.py:class DocumentRepositoryFactory:
+delbot_platform/documents/embedding/factory/provider.py:class EmbeddingProviderFactory:
+
+==================================================
+Builder Classes
+==================================================
+delbot_platform/document_intelligence/pipeline/builder_stage.py:class BuilderStage(PipelineStage):
+delbot_platform/document_intelligence/builder/semantic_chunk_builder.py:class SemanticChunkBuilder:
+delbot_platform/document_intelligence/builder/paragraph_builder.py:class ParagraphBuilder:
+delbot_platform/document_intelligence/builder/document_builder.py:class DocumentBuilder(ABC):
+delbot_platform/document_intelligence/builder/default_document_builder.py:class DefaultDocumentBuilder(DocumentBuilder):
+delbot_platform/research/context/document_context.py:class DocumentContextBuilder:
+delbot_platform/research/rag/context.py:class ResearchContextBuilder:
+delbot_platform/research/prompt_builder.py:class ResearchPromptBuilder:
+delbot_platform/research/builders/research_result_builder.py:class ResearchResultBuilder:
+delbot_platform/knowledge/citation/builder.py:class CitationBuilder:
+delbot_platform/knowledge/context/builder.py:class ContextBuilder:
+delbot_platform/knowledge/rag/context_builder.py:class ContextBuilder:
+delbot_platform/knowledge/rag/citation_builder.py:class CitationBuilder:
+delbot_platform/knowledge/graph/graph_builder.py:class GraphBuilder:
+delbot_platform/ai/embedding/embedding_builder.py:class EmbeddingBuilder:
+delbot_platform/repository/manifest/pdf_manifest.py:class PDFManifestBuilder:
+delbot_platform/repository/catalog/builder.py:class RepositoryCatalogBuilder:
+delbot_platform/documents/metadata/builder/chunk.py:class ChunkMetadataBuilder:
+delbot_platform/documents/metadata/builder/document.py:class DocumentMetadataBuilder:
+delbot_platform/documents/structure/section/builder.py:class SectionBuilder:
+delbot_platform/documents/chunking/chunk_builder.py:class ChunkBuilder:
+
+==================================================
+Pipeline Classes
+==================================================
+delbot_platform/document_intelligence/pipeline/document_pipeline.py:class DocumentPipeline:
+delbot_platform/document_intelligence/pipeline/builder_stage.py:class BuilderStage(PipelineStage):
+delbot_platform/document_intelligence/pipeline/parser_stage.py:class ParserStage(PipelineStage):
+delbot_platform/document_intelligence/pipeline/analyzer_stage.py:class AnalyzerStage(PipelineStage):
+delbot_platform/document_intelligence/pipeline/pipeline_stage.py:class PipelineStage(ABC):
+delbot_platform/research/pipeline/research_answer_pipeline.py:class ResearchAnswerPipeline:
+delbot_platform/knowledge/rag/pipeline.py:class RAGPipeline:
+delbot_platform/knowledge/rag/research/pipeline.py:class ResearchAnswerPipeline:
+delbot_platform/knowledge/rag/research/response.py:class ResearchPipelineResponse:
+delbot_platform/knowledge/pipeline/pipeline_context.py:class KnowledgePipelineContext:
+delbot_platform/knowledge/pipeline/knowledge_pipeline.py:class KnowledgePipeline:
+delbot_platform/knowledge/pipeline/pipeline_result.py:class KnowledgePipelineResult:
+delbot_platform/documents/pipeline/indexing.py:class DocumentIndexingPipeline:
+delbot_platform/documents/pipeline/preprocessing.py:class DocumentPreprocessingPipeline:
+delbot_platform/documents/embedding/pipeline/pipeline.py:class EmbeddingPipeline:
+
+==================================================
+Repository Classes
+==================================================
+delbot_platform/vectorstore/qdrant/repository.py:class QdrantRepository:
+delbot_platform/knowledge/vector/repository/qdrant.py:class QdrantRepository(
+delbot_platform/knowledge/vector/repository/memory.py:class InMemoryVectorRepository(
+delbot_platform/knowledge/vector/repository/base.py:class VectorRepository(ABC):
+delbot_platform/knowledge/models/repository.py:class Repository:
+delbot_platform/workflows/repository/ingestion.py:class RepositoryIngestionWorkflow:
+delbot_platform/workflows/repository/models/result.py:class RepositoryIngestionResult:
+delbot_platform/workflows/repository/models/artifact.py:class RepositoryIngestionArtifact:
+delbot_platform/api/schemas/repository.py:class RepositoryIndexRequest(BaseModel):
+delbot_platform/api/schemas/repository.py:class RepositoryIndexResponse(BaseModel):
+delbot_platform/application/repository/ingest.py:class RepositoryIngestionApplication:
+delbot_platform/application/documents/index_repository.py:class RepositoryDocumentIndexApplication:
+delbot_platform/repository/resolver/url_normalizer.py:class RepositoryURLNormalizer:
+delbot_platform/repository/models/scan_result.py:class RepositoryScanResult:
+delbot_platform/repository/models/repository_item.py:class RepositoryStatus(str, Enum):
+delbot_platform/repository/models/repository_item.py:class RepositoryItem:
+delbot_platform/repository/integration/document_loader.py:class RepositoryDocumentLoader:
+delbot_platform/repository/service.py:class RepositoryService:
+delbot_platform/repository/providers/base.py:class RepositoryProvider(ABC):
+delbot_platform/repository/catalog/builder.py:class RepositoryCatalogBuilder:
+delbot_platform/repository/catalog/models.py:class RepositoryCatalog:
+delbot_platform/documents/ingestion/repository_ingestor.py:class RepositoryDocumentIngestor:
+delbot_platform/documents/metadata/repository.py:class DocumentMetadataRepository:
+delbot_platform/documents/registry/factory.py:class DocumentRepositoryFactory:
+delbot_platform/documents/registry/repository.py:class DocumentRepository(ABC):
+delbot_platform/documents/registry/memory.py:class InMemoryDocumentRepository(
+delbot_platform/documents/registry/filesystem.py:class FilesystemDocumentRepository(
+
+==================================================
+Service Classes
+==================================================
+delbot_platform/core/lifecycle/service_definition.py:class ServiceDefinition:
+delbot_platform/core/lifecycle/service_dependency.py:class ServiceDependency:
+delbot_platform/core/lifecycle/service_state.py:class ServiceState(str, Enum):
+delbot_platform/core/lifecycle/service_registry.py:class ServiceRegistry:
+delbot_platform/core/lifecycle/service_loader.py:class ServiceLoader:
+delbot_platform/controller/service_controller.py:class ServiceController:
+delbot_platform/gateway/services/gateway.py:class GatewayService:
+delbot_platform/repository_data/metadata/skripsi_dataset.json:    "abstract": "Topik yang diangkat dalam Tugas Akhir ini adalah Transformasi Web Service yang di-generate oleh CASA pada Netbeans IDE menjadi Web Service berbentuk class. Transformasi Tugas Akhir Diploma 3 Politeknik Informastika Del tahun 2008 dengan judul Application Integration Mediated by Enterprise Service Bus mengangkat studi kasus fiktif rantai suplai (interaksi antara manufacturer dan dealer). Dalam dokumen ini aplikasi yag ditransformasikan disebut sebagai existing application.\r\nPendekatan yang dilakukan adalah(1) mempelajari konsep SOA dalam melakukan interaksi aplikasi, web service yang menerapkan konsep SOA, dan Business Process Execution Language (BPEL), prinsip desain service, JAX-WS, dan JMS: (2) Melakukan analisis berdasarkan hasil implementasi existing application; (3) melakukan perancangan terhadap hasil implementasi existing application; (4) Transformasi existing application yang menggunakan BPEL ke Web Service berbentuk class dengan JAX-WS; (5) melakukan testing terhadap aplikasi.\r\nPada studi literatur kami mempelajari konsep-konsep penggunaan SOA, Web Service, BPEL, prinsip desain service, JAX-WS dan JMS.\r\nSelanjutnya dilakukan analisis proses bisnis terhadap existing application yang mengangkat studi kasus rantai suplai. Analisis dimulai dengan mempelajari proses bisnis existing application.\r\nPada perancangan terdapat dua skema service yaitu Purchase Order dan Update Price. Purchase Order adalah pemesanan barang yang dilakukan oleh Dealer dan Update Price adalah pemberitahuan harga barang terbaru yang dilakukan oleh Manufacture.\r\nProses pengkajian dilanjutkan dengan implementasi. Pada langkah ini dibangun dua prototype aplikasi masing-masing untuk manufakturer dan dealer menggunakan Java EE 5. Dari kajian dapat disimpulkan bahwa implementasi Web Service yang baik dapat dilakukan dengan JAX-WS yang menghasilkan class Code \r\nKata kunci: Transformasi, Web Service, BPEL, JMS, dan JAX-WS",
+delbot_platform/repository_data/metadata/repository_catalog.json:    "abstract": "Topik yang diangkat dalam Tugas Akhir ini adalah Transformasi Web Service yang di-generate oleh CASA pada Netbeans IDE menjadi Web Service berbentuk class. Transformasi Tugas Akhir Diploma 3 Politeknik Informastika Del tahun 2008 dengan judul Application Integration Mediated by Enterprise Service Bus mengangkat studi kasus fiktif rantai suplai (interaksi antara manufacturer dan dealer). Dalam dokumen ini aplikasi yag ditransformasikan disebut sebagai existing application.\r\nPendekatan yang dilakukan adalah(1) mempelajari konsep SOA dalam melakukan interaksi aplikasi, web service yang menerapkan konsep SOA, dan Business Process Execution Language (BPEL), prinsip desain service, JAX-WS, dan JMS: (2) Melakukan analisis berdasarkan hasil implementasi existing application; (3) melakukan perancangan terhadap hasil implementasi existing application; (4) Transformasi existing application yang menggunakan BPEL ke Web Service berbentuk class dengan JAX-WS; (5) melakukan testing terhadap aplikasi.\r\nPada studi literatur kami mempelajari konsep-konsep penggunaan SOA, Web Service, BPEL, prinsip desain service, JAX-WS dan JMS.\r\nSelanjutnya dilakukan analisis proses bisnis terhadap existing application yang mengangkat studi kasus rantai suplai. Analisis dimulai dengan mempelajari proses bisnis existing application.\r\nPada perancangan terdapat dua skema service yaitu Purchase Order dan Update Price. Purchase Order adalah pemesanan barang yang dilakukan oleh Dealer dan Update Price adalah pemberitahuan harga barang terbaru yang dilakukan oleh Manufacture.\r\nProses pengkajian dilanjutkan dengan implementasi. Pada langkah ini dibangun dua prototype aplikasi masing-masing untuk manufakturer dan dealer menggunakan Java EE 5. Dari kajian dapat disimpulkan bahwa implementasi Web Service yang baik dapat dilakukan dengan JAX-WS yang menghasilkan class Code \r\nKata kunci: Transformasi, Web Service, BPEL, JMS, dan JAX-WS",
+delbot_platform/repository_data/metadata/repository_catalog.json:      "abstract": "Topik yang diangkat dalam Tugas Akhir ini adalah Transformasi Web Service yang di-generate oleh CASA pada Netbeans IDE menjadi Web Service berbentuk class. Transformasi Tugas Akhir Diploma 3 Politeknik Informastika Del tahun 2008 dengan judul Application Integration Mediated by Enterprise Service Bus mengangkat studi kasus fiktif rantai suplai (interaksi antara manufacturer dan dealer). Dalam dokumen ini aplikasi yag ditransformasikan disebut sebagai existing application.\r\nPendekatan yang dilakukan adalah(1) mempelajari konsep SOA dalam melakukan interaksi aplikasi, web service yang menerapkan konsep SOA, dan Business Process Execution Language (BPEL), prinsip desain service, JAX-WS, dan JMS: (2) Melakukan analisis berdasarkan hasil implementasi existing application; (3) melakukan perancangan terhadap hasil implementasi existing application; (4) Transformasi existing application yang menggunakan BPEL ke Web Service berbentuk class dengan JAX-WS; (5) melakukan testing terhadap aplikasi.\r\nPada studi literatur kami mempelajari konsep-konsep penggunaan SOA, Web Service, BPEL, prinsip desain service, JAX-WS dan JMS.\r\nSelanjutnya dilakukan analisis proses bisnis terhadap existing application yang mengangkat studi kasus rantai suplai. Analisis dimulai dengan mempelajari proses bisnis existing application.\r\nPada perancangan terdapat dua skema service yaitu Purchase Order dan Update Price. Purchase Order adalah pemesanan barang yang dilakukan oleh Dealer dan Update Price adalah pemberitahuan harga barang terbaru yang dilakukan oleh Manufacture.\r\nProses pengkajian dilanjutkan dengan implementasi. Pada langkah ini dibangun dua prototype aplikasi masing-masing untuk manufakturer dan dealer menggunakan Java EE 5. Dari kajian dapat disimpulkan bahwa implementasi Web Service yang baik dapat dilakukan dengan JAX-WS yang menghasilkan class Code \r\nKata kunci: Transformasi, Web Service, BPEL, JMS, dan JAX-WS",
+delbot_platform/research/services/answer.py:class ResearchAnswerService:
+delbot_platform/knowledge/services/processing.py:class KnowledgeService:
+delbot_platform/boot/service_boot.py:class ServiceBoot:
+delbot_platform/boot/service_health.py:class ServiceHealth:
+delbot_platform/boot/service_waiter.py:class ServiceWaiter:
+delbot_platform/ai/embedding/embedding_service.py:class EmbeddingService:
+delbot_platform/repository/service.py:class RepositoryService:
+delbot_platform/documents/extraction/service.py:class DocumentExtractionService:
+delbot_platform/documents/services/indexing.py:class DocumentIndexService:
+delbot_platform/documents/embedding/base.py:class EmbeddingService(ABC):
+
+==================================================
+ABC Base Classes
+==================================================
+delbot_platform/document_intelligence/loader/document_loader.py:class DocumentLoader(ABC):
+delbot_platform/document_intelligence/pipeline/pipeline_stage.py:class PipelineStage(ABC):
+delbot_platform/document_intelligence/builder/document_builder.py:class DocumentBuilder(ABC):
+delbot_platform/document_intelligence/parser/document_parser.py:class DocumentParser(ABC):
+delbot_platform/document_intelligence/backend/backend.py:class Backend(ABC):
+delbot_platform/document_intelligence/analyzer/document_analyzer.py:class DocumentAnalyzer(ABC):
+delbot_platform/document_intelligence/mapper/layout_mapper.py:class LayoutMapper(ABC):
+delbot_platform/gateway/providers/base.py:class BaseProvider(ABC):
+delbot_platform/knowledge/vector/repository/base.py:class VectorRepository(ABC):
+delbot_platform/knowledge/retrieval/base.py:class Retriever(ABC):
+delbot_platform/knowledge/reranking/base.py:class Reranker(ABC):
+delbot_platform/knowledge/extraction/knowledge_extractor.py:class KnowledgeExtractor(ABC):
+delbot_platform/ai/vector_store/base_vector_store.py:class BaseVectorStore(ABC):
+delbot_platform/ai/embedding/base_embedding_provider.py:class BaseEmbeddingProvider(ABC):
+delbot_platform/launcher/base.py:class BaseLauncher(ABC):
+delbot_platform/repository/providers/base.py:class RepositoryProvider(ABC):
+delbot_platform/documents/loader/source.py:class DocumentSource(ABC):
+delbot_platform/documents/registry/repository.py:class DocumentRepository(ABC):
+delbot_platform/documents/parser/backend/base.py:class PDFBackend(ABC):
+delbot_platform/documents/parser/base.py:class DocumentParser(ABC):
+delbot_platform/documents/embedding/base.py:class EmbeddingService(ABC):
+
+==================================================
+Compile Validation
+==================================================
+Compile OK
+
+==================================================
+Git Status
+==================================================
+ M delbot_platform/api/main.py
+ M delbot_platform/api/routes/document.py
+ D delbot_platform/document/__init__.py
+ D delbot_platform/document/chunking/chunker.py
+ D delbot_platform/document/embedding/client.py
+ D delbot_platform/document/index/__init__.py
+ D delbot_platform/document/index/source_index.py
+ D delbot_platform/document/ingestion/__init__.py
+ D delbot_platform/document/ingestion/qdrant_ingest.py
+ D delbot_platform/document/knowledge.py
+ D delbot_platform/document/metadata/__init__.py
+ D delbot_platform/document/metadata/metadata_loader.py
+ D delbot_platform/document/metadata/metadata_registry.py
+ D delbot_platform/document/metadata/pdf_metadata.py
+ D delbot_platform/document/parser/pdf_parser.py
+ D delbot_platform/document/pipeline/__init__.py
+ D delbot_platform/document/pipeline/chunker.py
+ D delbot_platform/document/pipeline/document_pipeline.py
+ D delbot_platform/document/pipeline/ingest_pdf.py
+ D delbot_platform/document/pipeline/ocr_loader.py
+ D delbot_platform/document/pipeline/pdf_loader.py
+ D delbot_platform/document/retrieval/__init__.py
+ D delbot_platform/document/retrieval/hybrid_retriever.py
+ D delbot_platform/document/retrieval/metadata_retriever.py
+ D delbot_platform/document/storage/qdrant.py
+ M delbot_platform/documents/chunking/__init__.py
+ D delbot_platform/documents/chunking/chunk.py
+ M delbot_platform/documents/chunking/chunk_builder.py
+ M delbot_platform/documents/classification/heading.py
+ M delbot_platform/documents/embedding/base.py
+ M delbot_platform/documents/embedding/pipeline/pipeline.py
+ M delbot_platform/documents/embedding/providers/gateway.py
+ M delbot_platform/documents/embedding/providers/local.py
+ D delbot_platform/documents/ingestion/repository_ingestor.py.bak2
+ D delbot_platform/documents/ingestion/repository_ingestor.py.trace
+ D delbot_platform/documents/loader/local.py
+ M delbot_platform/documents/metadata/builder/chunk.py
+ M delbot_platform/documents/metadata/builder/document.py
+ M delbot_platform/documents/metadata/chunk_metadata.py
+ M delbot_platform/documents/pipeline/indexing.py
+ M delbot_platform/documents/pipeline/models/artifact.py
+ M delbot_platform/knowledge/citation/builder.py
+ M delbot_platform/knowledge/context/builder.py
+ M delbot_platform/knowledge/hydration/citation.py
+ M delbot_platform/knowledge/rag/vector_retriever.py
+ M delbot_platform/knowledge/reranking/result.py
+ M delbot_platform/knowledge/retrieval/qdrant.py
+ M delbot_platform/knowledge/vector/repository/qdrant.py
+ M delbot_platform/vectorstore/qdrant/repository.py
+ M tools/test_research_engine.py
+ M tools/test_retrieval.py
+ M tools/test_vector_schema.py
+?? delbot_platform/documents/embedding/mapper/
+?? delbot_platform/documents/embedding/models/
+?? delbot_platform/documents/metadata/mapper/
+?? delbot_platform/documents/metadata/metadata_extractor.py
+?? delbot_platform/documents/metadata/repository.py
+?? delbot_platform/documents/models/document_chunk.py
+?? reports/
+?? tools/audit_heading_classifier.py
+
+==================================================
+Finished
+==================================================
+
+Report :
+/workspace/delbot/reports/pr215_dependency_graph.txt

@@ -6,14 +6,14 @@ from delbot_platform.ai.registry.model_category import (
 from delbot_platform.ai.registry.registry import (
     ModelRegistry,
 )
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
+)
+from delbot_platform.documents.embedding.models import (
+    EmbeddingVector,
 )
 from delbot_platform.documents.embedding.base import (
     EmbeddingService,
-)
-from delbot_platform.documents.embedding.vector import (
-    VectorRecord,
 )
 from delbot_platform.gateway.client import (
     GatewayClient,
@@ -37,13 +37,13 @@ class GatewayEmbeddingProvider(
     async def embed(
         self,
         chunks: list[DocumentChunk],
-    ) -> list[VectorRecord]:
+    ) -> list[EmbeddingVector]:
 
         runtime = self.registry.default(
             ModelCategory.EMBEDDING,
         ).runtime
 
-        results: list[VectorRecord] = []
+        results: list[EmbeddingVector] = []
 
         for chunk in chunks:
 
@@ -59,17 +59,15 @@ class GatewayEmbeddingProvider(
             vector = response["data"][0]["embedding"]
 
             results.append(
-                VectorRecord(
-                    id=chunk.id,
+                EmbeddingVector(
+                    document_id=chunk.document_id,
+                    chunk_id=chunk.id,
                     vector=vector,
-                    metadata={
-                        "document_id": chunk.metadata.document_id,
-                        "source": chunk.metadata.source,
-                        "section": chunk.metadata.section,
-                        "page_start": chunk.metadata.page_start,
-                        "page_end": chunk.metadata.page_end,
-                        "text": chunk.text,
-                    },
+                    text=chunk.text,
+                    metadata=chunk.metadata,
+                    provider="gateway",
+                    model="bge-m3",
+                    dimension=len(vector),
                 )
             )
 

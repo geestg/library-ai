@@ -1,0 +1,1995 @@
+============================================================
+DELBot Regression Heading Audit
+============================================================
+MuPDF error: format error: object is not a stream
+
+MuPDF error: format error: object is not a stream
+
+MuPDF error: format error: object is not a stream
+
+MuPDF error: format error: object is not a stream
+
+MuPDF error: format error: object is not a stream
+
+
+PDF Repository : 188
+
+TITLE       : 539
+AUTHOR      : 140
+DATE        : 2677
+INSTITUTION : 21345
+HEADING     : 2428
+PARAGRAPH   : 463148
+UNKNOWN     : 0
+
+============================================================
+Sample TITLE
+============================================================
+- PERUMUSAN STRATEGI PEMASARAN BAGI PENGUSAHA
+- KACANG SIHOBUK DENGAN METODE SWOT
+- TUGAS AKHIR
+- ANALISIS PENGAMBILAN KEPUTUSAN PENENTUAN
+- LOKASI CABANG TOKO ABC DI KABUPATEN TOBA
+- MENGGUNAKAN METODE  HYBRID  MCDM
+- 21S20016  ESTI PURWATI SORMIN
+- Penerapan Teknologi Augmented Reality,
+- Google Maps API, Google Play Services, dan
+- Facebook API pada Aplikasi Android
+- Tugas Akhir
+- 2015/2016
+- Door Lock System with Two Factor
+- Authentication
+- 2017/2018
+- PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN
+- TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM
+- DEL EGOV CENTER
+- DOKUMEN TUGAS AKHIR
+- N. PRISKILA NAPITUPULU
+- PERENCANAAN BAHAN BAKU UBI KAYU DAN OPTIMASI
+- PRODUKSI KERIPIK DI UMKM KERIPIK CAP RUMAH
+- INVESTIGASI DAMPAK  VALUE CO- CREATION  DAN
+- PEMASARAN DIGITAL TERHADAP KEPUASAN
+- PELANGGAN
+- (STUDI KASUS: UMKM CAFE HOLLYWOOD)
+- PENGEMBANGAN  PROTOTYPE LEARNING MANAGEMENT
+- SYSTEM  (LMS) BERBASIS  MOBILE  UNTUK INFINITE
+- LEARNING
+- 11420036 RAYMOND G SAOR SIMAMORA
+- 11420062 ANGELA ONE ERIKA
+- PERANCANGAN STRATEGI PENGEMBANGAN WISATA
+- OLAHRAGA DI WISATA AEK SITUMANDI TARUTUNG
+- DENGAN METODE  BUSINESS MODEL CANVAS  (BMC),
+- ANALISIS SWOT DAN  QUANTITATIVE STRATEGIC
+- PLANNING MATRIX  (QSPM)
+- PRODUK JADI MESIN TETAS TELUR AYAM OTOMATIS
+- 2024
+- 13321031  JEREMY FATRIC M PARDEDE
+- 13321036  BRIAN DANIEL NAPITUPULU
+- INDEX SUGGESTION BASED ON LOG ANALYSIS
+- LAGUBOTI
+- DESAIN  WIRELESS SENSOR NETWORK  (WSN) DAN
+- PEMANFAATAN SISTEM SENSOR UNTUK OPERASI
+- SEARCH AND RESCUE  (SAR) PADA KORBAN BENCANA
+- EVENT EXTRACTION FROM ENGLISH NEWS ARTICLE
+- USING BIDIRECTIONAL GATED RECURRENT UNIT
+- ANALISIS DIMENSI KUALITAS LAYANAN HUTAN WISATA
+- MATA KUCING DENGAN PENDEKATAN  GUEST EXPERIENCE
+- Analisis Algoritma Levensthein Distance
+- dan Algoritma Hamming Distance pada
+- Fitur Autocorrect dalam Pencarian Data
+- ANALISIS SIKLUS HIDUP ( LIFE CYCLE ANALYSIS ) SISTEM-
+- SISTEM PRODUKSI DI KABUPATEN TOBA SAMOSIR
+- Pengaruh Penerapan Wordnet Terhadap  Akurasi Penilaian Pada Penilaian Otomatis  Jawaban Esai Menggunakan Latent Semantic
+- Analysis
+- Rancang Bangun Sistem Pendeteksi
+- Spam SMS di Indonesia
+- 2016/2017
+- IDENTIFIKASI BAHAYA, PENILAIAN DAN
+- PENGENDALIAN RISIKO PADA AREA PRODUKSI DI PT.
+- RIHITINDO TOBA BETON
+- FACE RECOGNITION USING CONVOLUTIONAL NEURAL  NETWORK AND HISTOGRAM OF ORIENTED GRADIENTS
+- 11S14049  TITIN DESRIANA OMPUSUNGGU  11S14055   MAXWEL NATANAEL MUNTHE
+- Penerapan  Back-Propagation Neural Network  (BPNN) untuk Klasifikasi
+- Nilai Akhir TOEFL Mahasiswa (Studi Kasus: Mahasiswa Tingkat
+- RANCANG BANGUN ALAT KARAKTERISASI BUAH NANAS
+- BERDASARKAN PARAMETER AKUSTIK
+- PERANCANGAN DESAIN APLIKASI PENCATATAN
+- TRANSAKSI KEUANGAN DENGAN METODE WATERFALL
+- (STUDI KASUS: GITA ULOS, ERA BOUQUET, A2
+- PHOTOGRAPHY)
+- LIGHT TRACKER
+- 13321048  EIRENE LASMARIANI SIPAYUNG
+- 13321057  CAROL WINARTI SIAGIAN
+- 13321058  FEBRIANA HUTABALIAN
+- STRATEGI PENGEMBANGAN OBJEK WISATA ALAM BAH
+- MANIK DENGAN PERANCANGAN DESAIN LAYANAN DAN
+- BISNIS MODEL KANVAS
+- SKRIPSI
+- PERANCANGAN DAN IMPLEMENTASI  MONITORING  DAN
+- KONTROL ALAT PEMANGGANG KOPI
+- ANOTHER PARALLELISM TECHNIQUE OF GLCM
+- IMPLEMENTATION WITH CUDA PROGRAMMING
+- PERANCANGAN PERBAIKAN SISTEM PRODUKSI UNTUK
+- MENGURANGI WASTE PRODUCTION DENGAN
+- MENGGUNAKAN METODE LEAN SIX SIGMA
+- STUDI KASUS: PT. HUTAHAEAN
+- PERANCANGAN  BATTERY MANAGEMENT SYSTEM  (BMS)
+- PADA PURWARUPA ALAT MONITORING TANAH DAN
+- CUACA
+- 14S18024
+- Teks Bahasa Indonesia
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar
+- Sarjana Teknik
+- EVALUASI KEBERGUNAAN DAN PERBAIKAN
+- ANTARMUKA APLIKASI TRANSFREE BERBASIS MOBILE
+- MENGGUNAKAN METODE COGNITIVE WALKTHROUGH
+- DAN THINKING ALOUD
+- ANALISIS KEPUASAN WISATAWAN TERHADAP ATRIBUT
+- WISATA DENGAN METODE CUSTOMER SATISFACTION
+- INDEX (CSI) DAN IMPORTANCE PERFORMANCE
+- ANALYSIS (IPA) PADA OBJEK WISATA PANTAI DI
+- KABUPATEN SAMOSIR
+- IMPELENTASI ALGORITMA  LONG SHORT TERM MEMORY
+- (LSTM) UNTUK PREDIKSI SUHU UDARA DI RIAU,
+- PEKANBARU
+- 11321027  SIO ALEXANDRA SIAHAAN
+- PERANCANGAN PRODUK MIE DARI SAMPINGAN
+- TAPIOKA
+- (BAGIAN II: DESAIN PROTOTIPE SAMPAI STRATEGI)
+- KAJIAN RANTAI NILAI ANDALIMAN ( ZANTOXYLUM
+- ACANTHOPODIUM ) DI KABUPATEN TOBA SAMOSIR,
+- HUMBANG HASUNDUTAN, DAN SAMOSIR UNTUK
+- ANALISIS PENINGKATAN NILAI TAMBAH BAGI PARA
+- PEMANGKU KEPENTINGAN
+- ELECTROMAGNETIC DOOR LOCK SYSTEM
+- 13321045  CINDY THRESYA SITUMEANG
+- 13321043  LOUIS CRISTIANO R. PANGGABEAN
+- 13321059  TASYA DIVA AULIA S
+- INTEGRASI ULOSPEDIA DAN MODUL LIDI UNTUK
+- MENINGKATKAN FUNGSIONALITAS DAN KUALITAS DESAIN
+- WEBSITE DITENUN
+- 11S20014  LUSYE TRIKSI PASARIBU    11S20019  HEDRIN S. SITORUS    11S20047  GREYSSENLY ESTER LYA SIMANJUNTAK
+- METODE PEWARNAAN OTOMATIS MOTIF ULOS  BERDASARKAN JARINGAN  ADVERSARIAL  GENERATIF
+- 11S20003  REINHARD HOTTUA S.
+- 11S20046  RACHEL RIRIS ROTUA DAMANIK
+- 11S20048  THERESIA YOLANDA LAURA  HUTABARAT
+- PREDIKSI HASIL KUALITAS AIR SUNGAI DI  JAKARTA
+- MENGGUNAKAN ALGORITMA  K-NEAREST NEIGHBOR
+- (KNN) YANG DIOPTIMALISASI DENGAN  PARTICLE
+- SWARM OPTIMIZATION  (PSO)
+- VEHICLE TRACKING SYSTEM DASHBOARD
+- Perbandingan Mobile Application Automation
+- Testing Tools
+- Oleh:
+- 13321003  SINTA DEBORA SIMBOLON
+- 13321016  AGNES YOLANDA SIAHAAN
+- 13321028  JOSUA RAJA PRATAMA MARBUN
+- PERANCANGAN STRATEGI PEMASARAN DAN PELAYANAN
+- DENGAN MENGGUNAKAN METODE  BLUE OCEAN
+- STRATEGY  DAN SISTEM DINAMIK UNTUK MENINGKATKAN
+- JUMLAH PENGUNJUNG PADA MUSEUM  BATAK TB
+- SILALAHI CENTER
+- PERANCANGAN DAN IMPLEMENTASI SISTEM
+- ELEKTRIFIKASI BERBASIS PANEL SURYA PADA SISTEM
+- MONITORING PARAMETER AIR KOLAM BUDIDAYA
+- PERIKANAN
+- PERANCANGAN  WEBSITE   MONITORING  KUALITAS
+- TANAH DAN ANALISIS PERBANDINGAN DATA
+- PENGARUH NPK TERHADAP TANAMAN CABAI
+- DI KHDTK IT DEL
+- PENGARUH PENAMBAHAN RARU DAN BAKTERI ASAM
+- LAKTAT (BAL) DARI FASE YANG BERBEDA TERHADAP
+- 31S20021        MADDALENA NABABAN
+- KAJIAN AWAL KOMPOSTER MENARA PADA  PENGOMPOSAN SAMPAH ORGANIK DENGAN
+- VARIASI JENIS BIOAKTIVATOR DAN
+- KETINGGIAN TUMPUKAN
+- Kelompok: PEN/1920/11
+- PERANCANGAN MEDIA PEMBELAJARAN BERPIKIR
+- SISTEM DAN SIMULASI SISTEM BERBASIS DINAMIKA
+- SISTEM
+- Implementasi Metode StyleGAN Pada Aplikasi Digital Tenun
+- Nusantara (DiTenun) Untuk Menghasilkan Motif Baru
+- SISTEM NAVIGASI DAN PENYEMPROTAN OTOMATIS
+- PADA  DRONE  BERBASIS GPS
+- IRFAN SURYA DHARMA MANIK
+- 14S16047
+- 2019
+- PERANCANGAN ULANG  LAYOUT  AREA PRODUKSI GUNA
+- MENGURANGI ONGKOS  MATERIAL HANDLING  DENGAN
+- METODE   SLP  (SYSTEMATIC LAYOUT PLANNING ) PADA
+- AREA  PLANT  IGP 1 PT INTI GANDA PERDANA
+- IMPLEMENTASI METODE DMAIC ( DEFINE, MEASURE,
+- ANALYZE, IMPROVE, AND CONTROL ) DAN METODE
+- KAIZEN  DALAM PERBAIKAN KUALITAS PRODUK
+- DIMSUM AYAM DAN DIMSUM UDANG DI UMKM
+- WAROENG ROYAL DIMSUM
+- USER EXPERIENCE DESIGN AND EVALUATION FOR WEB-BASED
+- VISITOR MANAGEMENT SYSTEM
+- ( CASE STUDY : PT. ASURANSI SINARMAS)
+- 11420030     AGNES FENI ROSALINA NAIBAHO
+- TEKNOLOGI REKAYASA PERANGKAT LUNAK
+- Penerapan Metode ATDD dan BDD pada Proses
+- Pengembangan Software
+- ANALISIS DAN EVALUASI ALGORITMA  DENSITY-BASED
+- SPATIAL CLUSTERING OF APPLICATIONS WITH NOISE
+- (DBCAN) PADA TUBERKULOSIS
+- 11S19025  PRAWITA DWI FRISKILA
+- ANALISIS FAKTOR-FAKTOR YANG MEMPENGARUHI  KEMAUAN MEMBAYAR ( WILLINGNESS-TO-PAY ) PAKET
+- PERJALANAN WISATA ROHANI KE KAWASAN DANAU
+- TOBA
+- Body Temperature and Face Mask Detection for
+- The COVID-19 Health Protocol
+- Analisis dan Penggunaan
+- Test Case Generator ''Randy''
+- Togas Akhir
+- Politeknik Informatika Del  2012
+- PEMODELAN SISTEM DINAMIK DALAM MENINGKATKAN
+- JUMLAH PENDAFTAR DI PERGURUAN TINGGI SWASTA
+- 21S20047  WINDY AGELINA MANALU
+- WEBSITE MONITORING FOR DISASTER VICTIM
+- SEARCH AND RESCUE
+- IMANUEL MAURICE DARMAWAN SITANGGANG
+- 14S18017
+- AI BASED MOVING FLAG ON CTF SCENARIO
+- Anggiat Maruli Tua M
+- 11S16051
+- PERBANDINGAN  USER-BASED COLLABORATIVE FILTERING   DAN  ITEM-BASED COLLABORATIVE FILTERING  PADA SISTEM
+- DEL
+- PERANCANGAN SISTEM INFORMASI GEOGRAFIS PEMETAAN
+- PERGERAKAN PERMUKAAN TANAH BERDASARKAN HASIL
+- PENGOLAHAN DATA SATELIT
+- JOSEP VERI HARIANTO HULU
+- SECURE PERSONAL HEALTH RECORD FILES USING  INTERPLANETARY FILE SYSTEM AND BLOCKCHAIN
+- 11S20006  GUNTUR AUGUSTIN SINAGA  11S20038  VALENTINA MARGARETHA SIAHAAN
+- KAJIAN RANTAI NILAI UBI KAYU (MANIHOT ESCULETA)
+- DI KABUPATEN TOBA SAMOSIR UNTUK ANALISIS  PENINGKATAN NILAI TAMBAH BAGI PARA PEMANGKU
+- KEPENTINGAN
+- IMPLEMENTASI ALGORITMA  K-NEAREST NEIGHBORS
+- (KNN) UNTUK PREDIKSI RUTE TERPADAT (STUDI KASUS:
+- DATA PENUMPANG TRANSJAKARTA)
+- 11321003  GABRIEL SIGALINGGING
+- PENGARUH VARIASI KOMBINASI PAKAN TERHADAP
+- BOBOT LARVA BSF DAN METODE EKSTRAKSI  TERHADAP PEROLEHAN MINYAK LARVA BSF SEBAGAI
+- BAHAN BAKU BIODIESEL
+- 31S19014  FITRIYANTI EKA PUTRI ARUAN
+- DESAIN APLIKASI SISTEM PENGELOLAAN
+- ADMINISTRASI DAN INFORMASI MANAJEMEN
+- REKAYASA IT DEL
+- 21S20023      HANSEL SEPTIYAN PASARIBU
+- SLUDGE  INDUSTRI  PULP  DAN KERTAS
+- EVALUASI SISTEM INFORMASI MANAJEMEN
+- PENGELOLAAN SAMPAH RUMAH TANGGA (BERSINAR-
+- 11420074     SATRIO HOLMES AFRIDO SITUMORANG
+- REKAYASA PERANGKAT LUNAK
+- RECOMMENDER SYSTEM WITH TIME SERIES
+- RANCANG BANGUN  ONLINE LIBRARY INFORMATION
+- 11420055  IRMA TRIANA LBN TOBING
+- 11420057  TAHNIA VIONA HARTANTI
+- 11420075  LAKSAMANA YOSUA PARASIAN S.
+- ANALISIS DAN IMPLEMENTASI  ZERO TRUST NETWORK
+- ACCES  PADA  WEB APPLICATION  DAN  LEARNING
+- MANAGEMENT SYSTEM
+- 13321005   FRENGKY SORITUA MANURUNG
+- PID CONTROL IMPLEMENTATION FOR MOTOR SPEED
+- OF REMOTELY OPERATED VEHICLE
+- GLESIA PUTRA S.
+- 14S18044
+- Simulasi Pengintegrasian Sistem:  Hospital
+- Information System, Radiology Information System,
+- Modality,  dan  Picture Archiving and
+- Communication System
+- IMPLEMENTATION OF AUDITBEAT AND HEARTBEAT FOR
+- MONITORING FILE CHANGES ON SERVERS
+- (STUDY CASE: WEB SERVER, FILE SERVER, MAIL SERVER,
+- AND  DNS  SERVER)
+- DESIGN AND IMPLEMENTATION OF MULTI SENSOR
+- BASED BEDROOM CONDITION MONITORING SYSTEM
+- JOSE MARAMIS LUMBANTOBING
+- 14S18023
+- ENERGY MANAGEMENT OF STREET LAMP
+- POWERED BY ON-GRID SOLAR CELL
+- Pattern Generation with Texture Synthesis and
+- Machine Learning
+- PENGARUH KUALITAS LAYANAN WISATA DANAU TOBA
+- TERHADAP KEPUASAN WISATAWAN
+- (STUDY KASUS: THE KALDERA  NOMADIC TOURISM
+- RESORT SIBISA )
+- ANALISIS STRATEGI PENGEMBANGAN OBJEK WISATA
+- VENUE BONTEAN MENGGUNAKAN SWOT DAN  QUANTITATIVE STRATEGIC PLANNING MATRIX  (QSPM)
+- 21S20049  YOLA BUTAR-BUTAR
+- PEMODELAN  CUSTOMER VALUE CO-CREATION  DI
+- UMKM PARIWISATA KECAMATAN BALIGE
+- MENGGUNAKAN PERSPEKTIF  SERVICE DOMINANT
+- LOGIC
+- ANALISIS DAN PERANCANGAN APLIKASI
+- E-MARKETPLACE PARIWISATA  (STUDI KASUS: PARIWISATA DI KAWASAN DANAU TOBA)
+- ANITA P.K SITORUS
+- 11S16014
+- EMRYCHO C J SIMANUNGKALIT
+- PERANCANGAN DAN IMPLEMENTASI PROTOTIPE SISTEM
+- FERMENTASI NANAS BERBASIS ARDUINO MEGA
+- PENGGUNAAN TEKNOLOGI  BLOCKCHAIN  PADA BIDANG
+- KESEHATAN
+- ( USE OF BLOCKCHAIN TECHNOLOGY IN THE HEALTH )
+- PREDIKSI TINGGI CURAH HUJAN DAN KECEPATAN
+- ANGIN BERDASARKAN DATA CUACA DENGAN
+- PENERAPAN ALGORITMA  ARTIFICIAL NEURAL
+- NETWORK(ANN).
+- ASESMEN TEKNOLOGI PEMBELAJARAN CAMPURAN DI
+- SMA UNGGUL DEL DENGAN PENDEKATAN
+- TEKNOMETRIK
+- PERFORMANCE EVALUATION OF LORA E32 433T30D FOR
+- BUILDING WATER QUALITY MONITORING
+- IN RURAL AREA
+- PANGERAN ARITONANG
+- PERENCANAAN PERSEDIAAN BAHAN BAKU KASUR
+- MENGGUNAKAN   JUST IN TIME  DAN  ECONOMIC
+- ORDER QUANTITY   DI PT HILON SUMATERA
+- 21S20032    ARNOLDUS FAJAR
+- PENGARUH PEMBERIAN ASAP CAIR TANDAN KOSONG  KELAPA SAWIT (TKKS) PADA TANDAN BUAH SEGAR (TBS)  KELAPA SAWIT SELAMA WAKTU 
+- KUALITAS  CRUDE PALM OIL  (CPO)
+- Kelompok PEN/2021/14
+- Otomasi  Test Case Generation  dengan  Pemanfaatan Informasi  Path Coverage
+- TECHNOLOGY
+- TIPE ULIR ( SCREW PRESS ) SERTA PENGGUNAAN
+- KATALIS HOMOGEN TERHADAP PEMBUATAN
+- BIODIESEL DARI MINYAK BIJI  KEMIRI ( Aleurites moluccana ) DAN KEMIRI SUNAN
+- ( Reutealis trisperma )
+- IMPLEMENTASI ALGORITMA AHP-TOPSIS DALAM
+- PENENTUAN PENGAMBILAN KEPUTUSAN PEMAIN
+- SEPAK BOLA TERBAIK
+- 11S18014  Jose Marchelino Situmorang
+- PERANCANGAN DAN IMPLEMENTASI SISTEM KENDALI
+- AKTUATOR PADA MESIN OTOMATIS PEMBUAT
+- PUPUK ORGANIK CAIR MENGGUNAKAN
+- PROGRAMMABLE LOGIC CONTROLLER
+- ABSTRAK
+- PENGEMBANGAN LEARNING MANAGEMENT SYSTEM
+- (LMS) MENGGUNAKAN METODE PROTOTYPING DAN
+- EVALUASI ASPEK USABILITY (STUDI KASUS SMAN 1
+- SIMANINDO)
+- ANALISIS KUALITAS PELAYANAN STASIUN KERETA API
+- DENGAN METODE  SERVICE QUALITY  (SERVQUAL)
+- DAN  QUALITY FUNCTION DEPLOYMENT  (QFD)  (STUDI KASUS: STASIUN KERETA API MEDAN-RANTAU
+- PRAPAT)
+- PERANCANGAN SISTEM KONTROL GERBANG OTOMATIS
+- DENGAN ARDUINO UNO
+- PREDIKSI KETEPATAN LULUS TEPAT WAKTU
+- PENERAPAN ONTOLOGI DALAM PENCARIAN PROGRAM
+- STUDI BERBASIS WEB SEMANTIK
+- 11321018  ELSA KLARIZA SILALAHI
+- 11321039  PUTRA JAYA MANURUNG
+- ABSTRACT
+- USABILITY TESTING ON DEL LIBRARY INFORMATION
+- 11S14017 AMANDA FUJIYANTI  11S14023 MELVANDITO O.P. SIMANJUNTAK
+- RANCANG BANGUN SISTEM KENDALI PID PADA ROBOT
+- BERODA DUA BERBASIS WAYPOINT
+- PAULUS B. SIAHAAN
+- 14S16016
+- FREKUENSI KE USERS MENGGUNAKAN
+- RASPBERRY PI 3
+- SARA SIHOMBING
+- 14S14005
+- QUALITY SYSTEM PROTOTYPE FOR LAKE MONITORING
+- IDENTIFIKASI PELUANG DAN TANTANGAN
+- DALAM PENERAPAN  MODEL BISNIS INKLUSIF ( INCLUSIVE BUSINESS MODEL )
+- PADA INDUSTR-INDUSTRI  DI KABUPATEN TOBA SAMOSIR
+- PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN
+- PENDEKATAN LOGISTIC REGRESSION
+- MICHAEL YERIKHO HENOKH SIAHAAN
+- 11S18064
+- PREDIKSI RISIKO KREDIT MENGGUNAKAN
+- PENDEKATAN SUPPORT VECTOR MACHINE
+- IRVANDI AMIR HAMZAH SIHOMBING
+- 11S18067
+- BIRU  Arthrospira platensis  DENGAN MEDIA ALTERNATIF
+- KOTORAN KERBAU
+- RANCANG BANGUN  DASHBOARD SYSTEM  BERBASIS WEB
+- KARAKTERISASI OBJEK WISATA ROHANI DI TAPANULI
+- RAYA MENGGUNAKAN METODE TALC ( TOURISM AREA
+- LIFE CYCLE )
+- PENGUKURAN KINERJA UD. PARNA ULOS DENGAN
+- MENGGUNAKAN METODE  BALANCED SCORECARD
+- PENGEMBANGAN STRATEGI PEMASARAN DAN ANALISIS
+- KEBUTUHAN KONSUMEN TERHADAP TIPA-TIPA  SEBAGAI MAKANAN RINGAN KHAS TOBA SAMOSIR
+- (BAGIAN II : STRATEGI BISNIS)
+- IDENTIFIKASI FAKTOR-FAKTOR YANG MEMPENGARUHI
+- KEMAUAN MEMBAYAR ( WILLINGNESS-TO-PAY ) UNTUK
+- BIAYA PENDIDIKAN DI SEBUAH PERGURUAN TINGGI
+- DI SUMATERA UTARA
+- KAJIAN PUSTAKA
+- POTENSI KULIT BUAH UNTUK MENGHASILKAN BIOETANOL
+- DENGAN MENGKAJI KONDISI, SUBSTRAT, DAN METODE
+- Kelompok PEN/1920/03B
+- Gloria A. Tambunan      31S15018
+- IMPLEMENTASI PENGUKURAN CURAH
+- HUJAN MENGGUNAKAN SENSOR  ULTRASONIK PADA DIGITAL RAIN
+- CLIMATE MEASUREMENT
+- 2018
+- PERANCANGAN DAN PENGEMBANGAN STRATEGI BISNIS
+- DALAM PENINGKATAN PENJUALAN GELANG ULOS
+- SEBAGAI SUVENIR KHAS TOBA SAMOSIR
+- (BAGIAN II: STRATEGI BISNIS)
+
+============================================================
+Sample AUTHOR
+============================================================
+- LOGIC CONTROLLER (PLC)
+- DOKUMEN TUGAS AKHIR
+- PUTRA OLOAN HUTAGAOL
+- LAGUBOTI
+- MELALUI PROSES FERMENTASI
+- TUGAS AKHIR
+- Oleh :
+- Oleh:
+- FAJAR SAM HUTABARAT
+- DAN  SERVICE BLUEPRINT
+- ALGORITHM
+- JOHAN PRIANTO AMBARITA
+- Samosir Berbasis Android
+- ROV
+- ANNYLA NOVITA SARI
+- FRIYOGI TAMPUBOLON
+- UTANG BERDASARKAN PARAMETER TEKSTUR
+- INDRIANI TIOSARI SITORUS
+- DEBORA RODEARNA SIMARMATA
+- BASA T.P. SIMANJUNTAK
+- vulgaris  DAN  Scenedesmus sp
+- INTEGRATING INCIDENT RESPONSE PLATFORM
+- ANDREAS JUAN DANIEL SIMORANGKIR
+- CHARACTER RECOGNITION
+- ABSTRAK
+- APP) DENGAN  USABILITY TESTING
+- MAJU BERSAMA DI TARUTUNG)
+- BISNIS MODEL KANVAS
+- (STUDI KASUS: JaKet PEMATANGSIANTAR)
+- SKRIPSI
+- Menggunakan Metode  Image Segmentation
+- DENNIS RAYMON SITUMORANG
+- VEHICLE SPEED DETECTOR
+- Herianto Saragi
+- Evrin Lumbantobing
+- ANDRI BROARI SIMANJUNTAK
+- Tengah dan Sibolga)
+- Tugas Akhir
+- NAMED ENTITY RECOGNITION
+- MENGGUNAKAN METODE  SIX SIGMA
+- MERAH, KAB. SIMALUNGUN)
+- Vandora Esrawaty Sinaga
+- FREDY MORDECHAI MARPAUNG
+- PENGOLAHAN CITRA DIGITAL
+- Nova Prissila Nababan
+- PERANGKAT LUNAK
+- SITOLUAMA
+- SAMUEL HEBERTO HERISON
+- MENGGUNAKAN ALGORITMA REGRESI LOGISTIK
+- TEKNOLOGI REKAYASA PERANGKAT LUNAK
+- METHOD AND FIREBASE
+- DOKUMEN  SKRIPSI
+- BOAS PIRDO SAMOSIR
+- SYSTEM (sipp.del.ac.id)
+- ALDO ERWIN MANURUNG
+- PROSES PEMANENAN  Chlorella vulgaris
+- (Kajian Pustaka)
+- BAB II
+- KAJIAN PUSTAKA
+- DOKUMEN PROYEK AKHIR
+- RAFELLI SIMANGUNSONG
+- Sri Lestari Yusnita Nadapdap
+- FERMENTASI
+- Oleh   Waldo Owen Nainggolan
+
+============================================================
+Sample DATE
+============================================================
+- AGUSTUS 2019
+- Tanggal  :  6 Agustus 2019
+- Tanggal   : 6 Agustus 2019
+- Sitoluama, 6 Agustus 2019
+- JULI 2019
+- Laguboti, Juli 2019
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 18 Juni 2019
+- Laguboti, 31 Juli 2019
+- Tanggal    : 15 Agustus 2024
+- Tanggal  : 15 Agustus 2024
+- Laguboti, 15 Agustus 2024
+- dimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei
+- JULI 2020
+- Tanggal  :  31 Juli 2020
+- Laguboti, 31 Juli 2020
+- Sitoluama,      Juni 2016
+- Sitoluama,    Juni 2016
+- berada di awal tahap akses  preview  mulai dari versi 0.1 pada Mei 2013, kemudian memasuki
+- tahap beta mulai dari versi 0.8 yang dirilis pada Bulan Juni 2014.  Android studio  dengan
+- kemampuan yang stabil dirilis pada Bulan Desember 2014, mulai dari versi 1.0.  Android studio
+- Sitoluama, 22 Juni 2018
+- No. 1, Juni 2010, pp 33-38.
+- (LPP) Universitas Sebelas Maret Menggunakan SMS  Gateway , Program Diploma III
+- Sebelas Maret.
+- [Accessed 1 Juni 2018].
+- LAGUBOTI  AGUSTUS 2022
+- AGUSTUS 2022
+- Tanggal       : 08 Agustus 2022
+- Tanggal    : 08 Agustus 2022
+- Laguboti , 08 Agustus 2022
+- Laguboti, 31 Juli  2023
+- Laguboti, 31 Juli 2023
+- Desember 2022 kepada pemilik usaha yaitu Ibu Ira, diketahui bahwa terdapat
+- Januari  24750  26875  2125  8%  Februari  26400  25726  674  3%  Maret  24750  23447  1303  6%  April   26400  32739  6
+- 15 Agustus 2024
+- Pembimbing : Dr. Mariana Simanjuntak, S.S.,M.Sc     (            )      Penguji 1  : Wesly Mailander Siagian, S.Pt., M.M
+- Tanggal  :  15 Agustus 2024
+- pengusaha UMKM. Penelitian ini dimulai pada bulan Januari 2024 sampai bulan
+- Tanggal  :  13 Agustus 2024
+- Tanggal    : 13 Agustus 2024
+- Laguboti, 13 Agustus 2024
+- menghasilkan pendirian Apple Academy pada bulan September 2019,
+- yang dilaksanakan sejak bulan Januari hingga Juli 2023 dengan judul
+- 2.   Orang tua saya Santun J. Siahaan, S.Pd dan Dra. Julice Silitonga yang sangat
+- Tanggal    : 09 Agustus 2024
+- Pembimbing 1 : Istas Manalu, S.Si., M.Sc      (    )      Pembimbing 2 : Frengki Simatupang, S.Tr.Kom., M.T  (    )     
+- Laguboti, 09 Agustus 2024
+- Tanggal  : 09 Agustus 2024
+- Laguboti,   Juli 2019
+- Tabel 2.1 Tabel  instructor  ....................................................................................... 8  
+- (Sumber: Basis Data `cis_production` per tanggal 23 Juni 2019)
+- Lembar Pengesahan Tugas Akhir  Politeknik Informatika Del    Pengujian Sistem Komunikasi Radio  Paket untuk Menghubungka
+- Sitoluama, 16 Agustus 2006
+- Teknologi paket data pertama kali dikembangkan pada pertengahan tahun  1960-an dan diterapkan pada jaringan ARPANET yang
+- Standar TNC yang dipakai saat ini merupakan hasil dari diskusi pada bulan  Oktober 1981 pada pertemuan  Tucson Chapter I
+- Gambar 16 Mode Komunikasi Data Radio Paket     7.   Kemudian kita perlu mengkonfigurasi Transciever CAT/PTT. Untuk  mela
+- Tanggal  : Agustus 2022
+- Sitoluama, Agustus 2022
+- Pada tanggal : Agustus 2022
+- 12S17063  MEILYSA VERONIKA TARIGAN
+- AGUSTUS 2021
+- JULI 2021
+- Batam, 27 Juli 2021
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 13 Juli 2021 dan
+- Sitoluama, 12  Oktober 2017
+- Januari 2017
+- tanggal 7 Juni 2017
+- q3sline14tfsibrill iantschwarzvon autoliebhaberin abjuni
+- Tanggal  : 08 Agustus 2022
+- Laguboti, 08 Agustus 2022
+- JULI 2018
+- Laguboti, 31 Juli 2018
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 29 Juni 2018
+- Sitoluama, 31 Agustus 2017
+- Desember 2006). Versi ini menyimpan 155.287 kata dalam kompresi  file  dengan ukuran
+- [Accessed 18 November 2016].
+- Sitoluama, 04 September 2017
+- Lapor SMS per tanggal 12 Oktober 2016 ada sebanyak 47 SMS spam (pengecekan tanggal
+- 13 Oktober 2016). Total laporan masyarakat tentang SMS spam di situs Lapor SMS hingga
+- tanggal 13 Oktober 2016 adalah 49.379 laporan. Dalam penelitiannya yang berjudul SMS
+- Mobile/Table Top Operating System Share Trend  di negara Indonesia dari November 2015
+- Laguboti, 27 Juli 2021
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 12 Juli 2021
+- https://www.cbsnews.com/news/percentage-of-companies-that-report- systems-hacked/. [Diakses 29 September 2018].  [2] e. 
+- https://www.endgame.com/blog/technical-blog/ten-process-injection- techniques-technical-survey-common-and-trending-proce
+- Laguboti,   Juli 2018
+- Laguboti,    Juli 2018
+- Laguboti, 3 Juli 2018
+- LAGUBOTI  AGUSTUS 2018
+- Tanggal  :     Agustus 2018
+- Tanggal  : 03 Agustus 2018
+- Laguboti, 03 Agustus 2018
+- Tanggal  : 17 Juli 2020
+- Ditetapkan  : Laguboti   Tanggal   : 17 Juli  2020
+- Dibuat di  : Laguboti  Pada tanggal  : 17 Juli 2020
+- Tanggal    :  6 Agustus 2019
+- Pada tanggal  : 6 Agustus 2019
+- perpajakan (Dewi et al., 2022; Julianto et al., 2022). Penggunaan perangkat lunak
+- Mulai 1 Januari 2018, Standar Akuntansi Keuangan Entitas Mikro, Kecil, dan
+- Penulis melakukan penelitian dimulai pada Februari 2024 – Juni 2024. Jadwal
+- Februari  Maret  April  Mei  Juni
+- direncanakan akan diselesaikan dalam dua minggu pertama bulan Februari
+- PROGRAM STUDI DIII TEKNOLOGI INFORMASI                  LAGUBOTI                     JULI 2020
+- PROGRAM STUDI DIII TEKNOLOGI INFORMASI                                            LAGUBOTI                   JULI 2020
+- Tanggal  : 29 Juli 2020
+- Tanggal     : 29 Juli 2020
+- Laguboti,  31 Juli 2019
+- Tanggal  :   23 Juli 2020
+- Ditetapkan di  : Institut Teknologi Del  Tanggal  : 23 Juli 2020
+- Laguboti, 23 Juli 2020
+- Ditetapkan di  : Institut Teknologi Del  Tanggal  : 6 Agustus 2019
+- Laguboti, 6 Agustus 2019
+- LAGUBOTI  AGUSTUS 2020
+- Tanggal  : 03 Agustus 2020
+- AGUSTUS 2020
+- Tanggal : 03 Agustus 2020
+- Tanggal : 03Agustus2020
+- Tanggal     :  15 Agustus 2024
+- Tanggal   : 15 Agustus 2024
+- Tabel 2.1 Contoh Diagram  SIPOC ........................................................................ 11  Tabel 2.2 N
+- Tanggal  :  02 Agustus 2022
+- Laguboti, 02 Agustus 2022
+- Pada tanggal  : 02 Agustus 2022
+- Tanggal  :    Agustus 2018
+- Tanggal  : 20 Juli 2018
+- Laguboti, 20 Juli 2018
+- Tanggal  : 05 Agustus 2022
+- Tanggal   : 05 Agustus 2022
+- Laguboti, 05 Agustus 2022
+- JULI 2023
+- LAGUBOTI                                    JULI 2023
+- Pembimbing 2 : Nina Juliana Roberta Turnip, S.T., M.T    (      )
+- Tanggal     : 11 Agustus 2023
+- Laguboti, 11 Agustus 2023
+- Tanggal                  : 03 Agustus 2020
+- Tanggal     :  Agustus 2020
+- Vismeike Septauli Simbolon
+- Nama : Vismeike Septauli Simbolon
+- Laguboti, 28 Juli 2022
+- Tanggal  :  17 Juli 2024
+- Ditetapkan di  : Laguboti  Tanggal  : 18 Juli 2024
+- Tanggal  :  12 Juli 2024
+- Laguboti, 12 Juli 2024
+- tidak sengaja. Hasilnya, dari januari hingga februari 2019, sekitar 843 hektar
+- Laguboti, 31 Juli 2019      Melisa Fibrida Siahaan
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal  18 Juni 2019
+- Laguboti, 31 Juli 2019                    Peneliti,
+- (ISO/IEC18004) pada bulan Juni 2000 [11].  Quick Response Code , atau kode QR,
+- 8.   Pada tanggal 23 Agustus 2024 pukul 15:46:00 hingga 16:46:00, ruangan dapat
+- 4.   Pada tanggal 23 Agustus 2024 pukul 15:35:00 hingga 16:35:00, ruangan dapat
+- (penamuda meida), “Intenet ofThings,” no. July, pp. 1–23, 2020.
+- Simbolon, Reynaldi Simbolon, Rensis F.N Simbolon, Yessi Meilinda
+- 1   DiTenun,  Ditenun WebApp ,  https://ditenun.com/  diakses pada tanggal 25 November 2023
+- 2   DiTenun,  Ditenun WebApp ,  https://ditenun.com/  diakses pada tanggal 25 November 2023
+- 3   DiTenun,  Ditenun WebApp ,  https://ditenun.com/  diakses pada tanggal 25 November 2023
+- 4  Image Colorization cGAN,  Kaggle webapp ,  https://www.kaggle.com/code/andreydolgovyazov/image-colorization-cgan  dia
+- Tanggal  :   18 Juli 2023
+- Tanggal  :  18 Juli  2023
+- Tanggal  : 20 Juli 2023
+- Tanggal  :   28 Juli 2020
+- Tanggal  : 28 Juli 2020
+- Laguboti,  28 Juli 2020
+- LAGUBOTI   MARET 2021
+- MARET 2021
+- Tanggal    :  12 Maret 2021
+- Tanggal  : 12 Maret   2021
+- smartphone . Pada Desember 2016 terdapat sebanyak 2.600.000 aplikasi Android di pasar
+- mobile  (Meier, 2009, hal. 1). Pada Android, aplikasi dibuat menggunakan API dan
+- Dimension (3D) (Meier, 2009, hal. 1). Pengembangan aplikasi Android mengacu pada
+- beragam fitur yang dapat membantu pengembangan aplikasi Android (Meier, 2009, hal. 5).
+- Tanggal  :  8 Agustus 2024
+- Sitoluama, 8 Agustus 2024
+- (Febriana & Meirinawati, 2021).
+- Batak TB Silalahi Center diresmikan di Balige pada tanggal 18 Januari 2011 oleh
+- Tuahena  et al . (2019)  Chairunnisa & Yusrini (2017)  5  Sistem keamanan (X5)  Meisari  et al . (2021)  Interview kepad
+- Febriana, N., & Meirinawati, M. (2021). Manajemen Strategi Pegelolaan Desa
+- Meisari, Y., Cardiah, T., & Raja, T. (2021).  Redesain interior museum prabu geusan
+- Sitoluama, 23 Agustus 2022
+- Pada tanggal:  23 Agustus 2022
+- pernapasan bermula di kota Wuhan, Provinsi Hubei, China pada tanggal 31 Desember 2019.
+- Januari 2020 [1]. Oleh sebab itu, pemerintah mengambil tindakan untuk menerapkan  physical
+- (WAG) . Berdasarkan hasil wawancara dengan guru (10-11 September 2021) yang merupakan
+- telah berhasil dipertahankan di hadapan dewan penguji pada 14 Juli 2021 dan
+- Sampai  dengan  17  April  2020,  sebanyak  37.000  pelaku  UMKM
+- JULI 2022
+- Tanggal  :  6 Juli 2022
+- Laguboti, 6 Juli 2022
+- Pada tanggal  : 6 Juli 2022
+- Tanggal    :  16 Agustus 2024
+- Tanggal  : 16 Agustus 2024
+- Penelitian ini bertujuan untuk merancang dan mengembangkan sebuah website  yang memonitor kualitas tanah serta menganali
+- This research aims to design and develop a website that monitors soil quality and  analyzes the comparison of NPK effect
+- 7.   Joy Damanik, Christin Pasaribu, Juli Situmorang, Mutiara Silitonga
+- Sitoluama, 25 Agustus 2022
+- Tanggal   : 24 Agustus 2022
+- Sitoluama, 24 Agustus 2022
+- Pada tanggal 13 Oktober 2021 bertempat di Kedai Onand  Coffee  yang dilaksanakan
+- 28 Januari 2022 dengan metode wawancara.
+- 1.   Ibu Dra. Roga Florida Kembaren, M.Si. dan Bapak Meiyer Marthen Kinda,
+- 2.   Ibu Dra. Roga Florida Kembaren, M.Sc. dan Ibu Juli Yanti Damanik, S.S.,
+- Sitoluruna, 28 Agustus 2012
+- Volu1ne XIII. No. I. Januari 2008.
+- Penguji  1     :  Nina Juliana Roberta Turnip, S.T., M.T    (                                 )
+- Tanggal : Sabtu, 31 Juli 2020
+- Sitoluama, 31 Juli 2020
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 15 Juli 2021
+- Tanggal     :   06 Agustus 2022
+- Tanggal  : 04 Agustus 2021
+- Nama  : Monalisa Sibarani   NIM    : 21S15030  Dengan ini menyatakan bahwa skripsi yang berjudul “Perancangan Strategi  
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 12 Juni 2019
+- terutama sejak tahun 1970-an. Namun sejak masalah krisis ekonomi pada bulan Juli 1997
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 04 Juli 2019
+- Laguboti, 22 Juli 2022
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 22 Juli 2021
+- Tabel 1.  Data Aktual vs Data Target Rejection Rate Produk Dimsum Ayam ....... 3   Tabel 2.  Data Aktual VS Data Target 
+- Pada tanggal : 15 Agustus 2024
+- Sitoluama, 15 Agustus 2024
+- Sitoluama, 5 Juni 2017
+- Gambar 1 ATDD Cycle ....................................................................................................
+- Gambar 22   Dependensi Juni
+- Engineering  Institute,  5  april  2013.  [Online].  Available:
+- https://smartbear.com/learn/automated- test ing/. [Accessed Kamis desember 2016].
+- TBC dari bulan Oktober 2019 sampai
+- Desember 2019.
+- Dewi Juliyanti Silaen
+- Nama : Dewi Juliyanti Silaen
+- Laguboti, 21 Juli 2020
+- TANGGAL    :     Agustus 2021
+- Tanggal  :       Agustus 2021
+- Penguji 1  : Hadi Sutanto Saragi, S.T., M.Eng.  (                      )        Penguji 2  : Iswanti Sihaloho, S.Si., M.
+- Dibuat di  : Laguboti  Pada Tanggal  : 08 Agustus 2022
+- Tanggal  :  04 Agustus 2022
+- Laguboti, 04 Agustus 2022
+- Tanggal  :  04 Agustus 2022  Yang Menyatakan
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal  15 Juli 2021
+- Nina Juliana Roberta Turnip, S.T.,M.T
+- 2.   Ibu Dra. Roga Florida Kembaren, M.Si., dan Ibu Nina Juliana Roberta Turnip S.T,
+- LAGUBOTI AGUSTUS 2020
+- Tanggal : 3 Agustus 2020
+- Laguboti, 3 Agustus 2020
+- Tanggal  : 20 Agustus 2018
+- Tanggal  :  20 Agustus 2018
+- Tanggal  : 16 Juli 2018
+- Sitoluama,  25 Mei 2018
+- Sitoluama, 25 Mei 2018
+- [1]   PRABOWO,  ROYNALDI. 12  JUNI 2017.  “ Deteksi Objek Bergerak Dalam Air
+- [4]  SAMUDERA,  ADYA,  NANDANA.  2  AGUSTUS  2015.  “ Perancangan  Sistem
+- from  email .mime.image import MIMEImage
+- Agustus 2022
+- Tanggal  : 11 Agustus 2022
+- Laguboti, 11 Agustus 2022
+- Pada tanggal  : 11 Agustus 2022
+- iThings/Gree ,  no.  September,  pp.  1499–1506,  2018,  doi:
+- [12] A. A. Vazirani, O. O’Donoghue, D. Brindley, and E. Meinert, “Blockchain
+- Laguboti,  Juli 2018
+- ubi kayu di Kabupaten Toba Samosir pada bulan Januari 2018, masyarakat Toba
+- Menurut (Chopra & Meindl, 2001) rantai pasokan terdiri dari semua pihak yang
+- Laguboti, 17 Juli 2024
+- Januari  2020  hingga
+- Desember  2022,  dengan
+- espresso. harian dari Januari
+- 2020  hingga  Desember
+- Tanggal    : 16 Agustus 2024
+- Penguji 1  : Meiyer Marthen Kinda, S.T., M.T.
+- Tanggal             :   16 Agustus 2024
+- Tanggal  :  16 Agustus 2024
+- 2.   Ibu Dra. Roga Florida Kembaren, M.Si dan Ibu Juli Yanti Damanik, S.S.,
+- suatu meitde yang digunakan untuk memcahkan suatu masalah berdasarkan
+- LAGUBOTI                                    JULI 2020
+- Pembimbing 1: Meiyer Marthen Kinda, S.T., M.T.   (   tanda tangan       )
+- Pembimbing 2 : Nina Juliana Roberta Turnip, S.T., M.T.  (    tanda tangan      )
+- Tanggal   : 31 Juli 2020
+- Tanggal: 15 Agustus 2024
+- [5] Meilinaeka, “These 3  Usability   Testing  methods before creating a product ,”
+- International Conference on Human Factors in Computing Systems: April
+- AGUSTUS 2018
+- Tanggal  : 01 Agustus 2018
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 12 Juli 2021 dan
+- Perusahaan ini didirikan berdasarkan akta No. 84 tanggal 31 Oktober 2016 dan
+- Pematangsiantar, 27 Juli 2021
+- TANGGAL  : 16 Agustus 2024
+- Pada Tanggal  : 16 Agustus 2024
+- Laguboti, 16 Agustus 2024
+- Laguboti, 08 Agustus 2024
+- Sistem Informasi Modern dan Solusinya,” no. April, 2023, doi:
+- Tanggal   : 1 Agustus 2020
+- Tanggal   :   ... Agustus 2020
+- Tanggal  :  09 Agustus 2022
+- Laguboti, 9 Agustus 2022
+- Sitoluama, 30 Juni 2012
+- China, 2-7 Januari 2012.
+- "DICOM", diakses pada bulan November 2011 dari http://docs.oracle.com
+- Laguboti, Agustus 2024
+- Tanggal   : 15 Agustus 2022
+- Laguboti, 15 Agustus 2022
+- lain,   baik di IT Del maupun institusi pendidikan lainnya.      Laguboti, 27 Agustus 2018
+- Laguboti, 27 Agustus 2018      Pembimbing
+- Sitoluama, 27 Juli 2018
+- Agustus 2020
+- NIM  :  13317002                     TANDA TANGAN  :                 TANGGAL  :  Agustus 2020                NAMA  :  Ad
+- TANDA TANGAN  :                   TANGGAL  :  Agustus 2020
+- Ditetapkan  :Laguboti  Tanggal           : 04 Agustus 2020
+- Sitoluama, 10 Juni 2018
+- ditetapkan-sebagai-warisan-budaya-takbenda-indonesia-tahun-2013/  (diakses pada  16 Oktober 2017)
+- [7]   http://kebudayaanindonesia.net/kebudayaan/1102/kain-ulos   (diakses  pada  16  Oktober 2017)
+- (diakses pada 16 Oktober 2017)
+- warisan dunia kepada UNESCO pada September 2019, diantaranya adalah
+- (Juliandi, 2018))
+- Gambar 2.  Contoh Variabel Pada PLS (Juliandi, 2018)
+- Gambar 3.  Contoh Model Struktur Sumber: (Juliandi, 2018)
+- Gambar 4.  Contoh Model Hubungan Variabel (Juliandi, 2018)
+- LAGUBOTI   AGUSTUS 2021
+- Laguboti,  13 Agustus 2021
+- t =  document.getElementsByTagName(" script ")[0],          n =  "https://quantcast.mgr.consensu.org".concat("/choice /"
+- 'use strict';  /** @type {!Array} */  dataLayer = [];  var pbjs = pbjs || {};  pbjs.que = pbjs.que || [];  !function() {
+- IDToken  yang terdapat pada  nameId  akan diganti dengan string kosong
+- Ditetapkan di   : Laguboti  Tanggal    : 15 Agustus 2024
+- dikunjungi sejak bulan Februari tahun 2023 sebagai destinasi wisata. Venue
+- Ditetapkan di  : Institut Teknologi Del  Tanggal  : 4 Agustus 2021
+- [1]   Agregasi VOA, "Jumlah Sampah di Indonesia Capai 64 Juta Ton," 2019.  [Online].Available:  https://techno.okezone.c
+- [7]   Pamungkas Adi, "Segementasi Citra," 2018. [Online]. Available:  https://pemrogramanmatlab.com/pengolahan-citra-dig
+- Tanggal  :  3 Agustus 2020
+- Tanggal  : 3 Agustus 2020
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 8 Juli 2022
+- dan Metiovani Julianti), Sahabat+Manaris (The Nandes, Felix Sitorus, dan
+- Tanggal  :  2 Agustus 2020
+- Sitoluama, 03 Agustus 2011
+- Tanggal  : 8 Agustus 2022
+- Penguji  : Arie Satia Dharma, S.T, M.Kom  ( )        Ditetapkan di : Laguboti  Tanggal  : 8 Agustus 2022
+- Laguboti, 8 Agustus 2022
+- Sitoluama, 01 Agustus 2011
+- 1nasih-harus-d i ta111 bah, diakses pada tanggal 5 Oktober 20 I 0
+- uk.org.uk/n1ms.ht1n, diakses pada tanggal 5 Oktober 20 l 0
+- [3]   SMS, http://cn.wikipedia.org/,viki/S!\1S, diakses pada tanggal 11 Mei 2011
+- [4]   Kannel, http://,,w,v.kannel.org/userguide, diakses pada tanggal 11 Mei 201 I
+- Tanggal  : 09 Agustus 2021
+- Pada tanggal         : 10 Agustus 2021
+- 10 tahun yaitu dimulai dari Januari 2010 hingga Desember 2019.
+- Laguboti, 25 Juli 2022
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 7 Juli 2022
+- Pandemi Covid-19 yang melanda Indonesia sejak Maret 2020 telah mengakibatkan  pembelajaran tatap muka di SMA Unggul Del 
+- Tanggal    : 6 Agustus 2019
+- Laguboti, 26 Juli 2019
+- LAGUBOTI  AGUSTUS 2021
+- Ditetapkan di : Laguboti      Tanggal          : 13 Agustus 2021
+- Laguboti, 13 Agustus 2021
+- 03 November
+- 11  Tapi pada 26 Desember tahun 2007 dusun tersebut terkena longsor dan semua warganya
+- Tanggal     :   15 Agustus 2024
+- Ditetapkan di  : Laguboti  Tanggal  : 15 Agustus 2024
+- 65,00 kg hingga 1.141,42 kg, dengan bulan terendah pada Juli sebesar 65,00 kg dan
+- JULI 202I
+- Penguji 1  : Nina Juliana Roberta Turnip, S.T.,M.T  (  SIGNED  )
+- Tanggal  :  13 Juli 2021
+- 3.   Ibu Dra. Roga Florida Kembaren, M. Si. dan Ibu Nina Juliana Roberta Turnip, S.T.,
+- Sitoluama,  September 2017
+- https://smartbear.com/learn/automated-testing/. [Accessed 11 Oktober 2017].
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 15 Juli 2021
+- Laguboti, 27 Juli 2020
+- Industri pengolahan tahu Keluarga Bahari di Desa Rambung Merah adalah salah  satu industri di bidang pengolahan makanan 
+- Kelompok PEN/1920/09A    Julian Tigor Tampubolon                     31S15020     Josia Roganda Gultom                  
+- Kelompok PEN/1920/09A  Julian Tigor Tampubolon                     31S15020   Josia Roganda Gultom                      
+- 1. Nama      : Julian Tigor Tampubolon
+- Tanggal    : 04 Agustus 2022
+- Tanggal  : 04 Agustus 2022
+- Sitoluama, 3 Agustus 2020
+- Balige, 27 Juli 2021
+- Telah berhasil dipertahankan dihadapan dewan penguji pada tanggal 14 Juli 2021
+- Kabupaten Toba dan kegiatan penelitian dimulai dari bulan Februari 2021 dan
+- JANUARI 2022
+- Tanggal  :  Januari 2022
+- Laguboti,  Januari 2022
+- Pada tanggal  :  Januari 2022
+- Meisita br Tarigan, S.Tr.T, Yanri Praja Harianja, Amd.T, dan Rebekha
+- bulan Februari hingga Juni. Pengumpulan dan pengolahan data akan dilakukan pada
+- Pembimbing : Junita Amalia, S.Pd., M.Si  (     )
+- Tanggal  : 13 Agustus 2021
+- Tanggal    : 30 Agustus 2022
+- 1.   Bapak Batara Parada Siahaan, S.Kom., M.S.M., M.I.M. dan Ibu Rini Juliana
+- 11.   Aprilia Galingging S.Pd, Parade Manurung, S.Kom, Artauli Galingging, Nita
+- APRIL 2022
+- Tanggal  : 24 Januari 2022
+- Ditetapkan : Laguboti  Tanggal  : 15 Agustus 2024
+- Pada tanggal:  12 Agustus 2024
+- Sitoluama, Agustus 2024
+- Glob. Eng. Educ. Conf. EDUCON , vol. 2018-April, hal. 738–745, 2018, doi:
+- Telkom, Universitas Sebelas Maret, Universitas Katolik Atma Jaya, Universitas
+- Tanggal Pengujian  03 Agustus 2024
+- 03 Agustus 2024
+- [5]  T. Berners-Lee, J. Hendler, and O. Lassila,  The Semantic Web , no. April. 2002.
+- Tanggal  : Juni, 2 2021
+- Tanggal     : 29 Agustus 2018
+- Tanggal  : 8 Agustus 2018
+- Laguboti, 30 Agustus 2018
+- Tanggal        : 03 Agustus 2020
+- Tanggal            : 03 Agustus 2020
+- Laguboti, 03/Agustus/2020
+- Pada tanggal  : 03 Agustus 2020
+- baik di IT Del maupun institusi pendidikan lainnya.      Laguboti, 03 Agustus 2018
+- Laguboti, 3 Agustus 2018
+- menggunakan-arduino. Diakses 22 Desember 2017 (11 Juli 2018)
+- JUNI 2020
+- telah  berhasil dipertahankan di hadapan dewan penguji pada tanggal 30 Juni 2020
+- lain, baik di IT Del maupun institusi pendidikan lainnya.      Laguboti, 27 Agustus 2018
+- Laguboti, 27 Agustus 2018
+- Sitoluama, 27 Agustus 2018
+- Laguboti,     Juli 2018
+- Laguboti,      Juli 2018
+- Pembimbing 1 : Nina Juliana Roberta Turnip, S.T., M.T   (    tanda tangan        )
+- Tanggal     : 31 Juli 2020
+- Tanggal  : 25 Juli 2022
+- Ditetapkan di : Laguboti   Tanggal  : 25 Juli 2022
+- Laguboti, Agustus 2022
+- Tanggal : 25 Juli 2022
+- SITOLUAMA  AGUSTUS 2018
+- Sitoluama, Agustus 2018
+- Tanggal:  08 Agustus 2022
+- Tamggal  :  4 Agustus 2022
+- Laguboti, 4 Agustus 2022
+- JUNI 2023
+- :   12 Juli 2023
+- Laguboti, 12 Juli 2023
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 30 Juni 2020
+- Telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 29 Juli 2020
+- Penguji  2    : Nina Juliana Roberta Turnip, S.T.,M.T        ( tanda tangan………… )
+- Tanggal  : 31 Juli 2020
+- lain, baik di Institut Tenologi Del maupun institusi pendidikan lainnya.      Laguboti, 27 Agustus 2018
+- [1]   Kodali, Ravi Kishore. 2016. IoT Based Weather Station. India. National Institute of  Technology.  [2]   M. Pujar, 
+- telah berhasil dipertahankan di hadapan dewan penguji pada tanggal 1 Juli 2020
+
+============================================================
+Sample INSTITUTION
+============================================================
+- INSTITUT TEKNOLOGI DEL
+- FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO
+- PROGRAM STUDI SARJANA TEKNIK ELEKTRO
+- pada Program Studi Teknik Elektro
+- Pada Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri
+- PROGRAM STUDI MANAJEMEN REKAYASA
+- FAKULTAS TEKNOLOGI INDUSTRI
+- Sarjana Teknik pada Program Studi Manajemen Rekayasa, Fakultas Teknologi
+- PROGRAM STUDI SARJANA MANAJEMEN REKAYASA
+- PROGRAM STUDI TEKNIK BIOPROSES
+- FAKULTAS BIOTEKNOLOGI
+- Program Studi Teknik Informatika
+- Institut Teknologi Del
+- Dokumen ini merupakan bagian dari dokumentasi penyelenggaraan Tugas Akhir mahasiswa Institut   Teknologi DEL. Dilarang m
+- Institut Teknologi DEL
+- Program Studi Teknik Komputer
+- Institut Teknologi Del  Tugas Akhir Diploma 3, Hlmn 1 dari 124    Door Lock System  with  Two Factor Authentication
+- Institut Teknologi Del  Tugas Akhir Diploma 3, Hlmn 2 dari 124    Door Lock System  with  Two Factor Authentication
+- PROGRAM STUDI SARJANA INFORMATIKA
+- ii                                                                                      Institut Teknologi Del
+- pada Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri
+- menyelesaikan program Sarjana (S1) program studi Manajemen Rekayasa, Fakultas
+- PROGRAM STUDI SARJANA TERAPAN
+- FAKULTAS VOKASI
+- memperoleh gelar Sarjana Teknik pada Program Studi Manajemen Rekayasa,
+- PROGRAM STUDI DIPLOMA III TEKNOLOGI KOMPUTER
+- PROGRAM STUDI SARJANA SISTEM INFORMASI
+- Program Studi Sarjana Sistem Informasi
+- Pengujian Sistem Komunikasi Radio  Paket untuk Menghubungkan Komputer  dan LAN yang Berjarak Jauh      Tugas Akhir    Di
+- Deni Lumbantoruan  NIDN.0114017901          Dinyatakan memenuhi syarat dan karenanya disetujui dan disahkan  sebagai   L
+- Sarjana Teknik pada Program Studi Sarjana Teknik Elektro
+- INSTITUT  TEKNOLOGI  DEL
+- Teknik pada Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri,
+- Institut Teknologi Del    Tugas Akhir Diploma 3, Hlmn. 1  dari  111
+- Institut Teknologi Del  Tugas Akhir Diploma 4, Hlmn.  1  dari  147
+- sebagai   Laporan Tugas Akhir Diploma 4  Program Studi Teknik Informatika
+- Institut Teknologi Del        Tugas Akhir Diploma 4, Hlmn. 2 dari 174
+- Laporan Tugas Akhir Diploma 4  Program Studi Teknik Informatika
+- Sarjana Teknik Program Studi Sarjana Teknik Informatika
+- FAKULTAS TEKNIK INFORMATIKA DAN ELEKTRO
+- PROGRAM STUDI TEKNIK INFORMATIKA
+- Tugas Akhir ini diajukan oleh  :  1.   Nama  : Titin Desriana Ompusunggu              NIM  : 11S14049              Progr
+- PROGRAM STUDI DIII TEKNOLOGI INFORMASI
+- FAKULTAS INFORMATIKA DAN TEKNIK  ELEKTRO
+- A.md.Kom   Program Studi Teknologi Informasi
+- padaProgram Studi Manajemen Rekayasa, Fakultas Teknologi Industri
+- gelar Sarjana Teknik pada Program Studi Manajemen Rekayasa, Fakultas
+- Teknologi Industri, Institut Teknologi Del.
+- PROGRAM STUDI TEKNIK ELEKTRO
+- FAKULTAS   INFORMATIKA DAN TEKNIK ELEKTRO
+- FAKULTAS TEKOLOGI INDUSTRI
+- Sarjana Teknik pada Program Studi Teknik Elektro
+- 11S14012  Esri Analiza Pane  11S14013  Astri Neva Y. Sibuea                  FAKULTAS TEKNIK INFORMATIKA DAN ELEKTRO
+- ii  Institut Teknologi Del
+- iii  Institut Teknologi Del
+- Diploma III Program Studi Teknologi Komputer
+- Institut Teknologi Del  Tugas Akhir Diploma 3, Hlmn. v dari 157
+- Institut Teknologi Del  Tugas Akhir Diploma 3, Hlmn. vi dari  157
+- Fakultas/Program Studi   :  Diploma III Teknologi Komputer
+- PROGRAM STUDI SARJANA INFORMATIKA  FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO
+- 1  Institut Teknologi Del
+- INSTITUT TEKNOLOGI DEL    2024
+- Program Studi Sarjana Informatika
+- Program Studi Informatika
+- Institut Teknologi Del  Tugas Akhir Diploma 4, Hlmn. i
+- PROGRAM STUDI DIII TEKNOLOGI KOMPUTER
+- Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri
+- 3.   Bapak Dr. Arnaldo Marulitua Sinaga, ST., M.InfoTech. selaku Rektor Institut
+- PROGRAM STUDI SARJANA TEKNIK ELEKTRO   FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO
+- PROGRAM STUDI SARJANA TEKNIK ELEKTRO  FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO
+- PROGRAM STUDI DIPLOMA 3 TEKNOLOGI INFORMASI
+- Institut Teknologi Del  Tugas Akhir Diploma 3, Hlmn. 2 dari 176
+- Program Studi  :  DIII Teknologi Informasi
+- PROGRAM STUDI SARJANA TEKNIK BIOPROSES
+- vi       Institut Teknologi Del
+- vii       Institut Teknologi Del
+- sarjana Teknik pada Program Studi Manajemen Rekayasa, Fakultas Teknologi
+- ii                                 Institut Teknologi Del
+- Diajukan sebagai salah satu syarat untuk menyelesaikan Program Studi (S1) pada
+- Institut Teknologi Del  Tugas Akhir Diploma, Hlmn 2 dari 144
+- kelulusan pada program studi Teknik Informatika Institut Teknologi Del. Judul Tugas Akhir
+- Akhir 3 T.A 2016/2017 di Institut Teknologi Del.
+- PROGRAM STUDI D3 TEKNOLOGI KOMPUTER
+- Program Studi Teknik lnformasi
+- (STUDI KASUS: INSTITUT TEKNOLOGI DEL)
+- Komputer Program Studi Sarjana Informatika
+- Elektro pada Program Studi Sarjana Teknik Elektro
+- REKOMENDASI DI PERPUSTAKAAN INSTITUT TEKNOLOGI
+- Institut Teknologi Del  Prototype Object detection Using raspberry pi
+- i  Institut Teknologi Del
+- PROGRAM STUDI SARJANA INFORMATIKA   FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO
+- ii     Institut Teknologi Del
+- PROGRAM STUDI DIPLOMA III TEKNOLOGI INFORMASI
+- PROGRAM STUDI SARJANA TERAPAN TEKNOLOGI
+- pada Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri, Institut
+- Institut  Teknologi  Del
+- Institut  T.ktoloel  Dal
+- Institut  Telotuloql  Ikl  Tugas  Akhit Diplona  3,  Elnn  68  dui  78
+- pada  Jaringan  Komputer. Institut Teknologi  Bandung:Bandung.
+- [3]  Ayunda Pratamq Rizqi.  2008.  Konsep  F,re]ra,l/  Berbasis  paket  Filtering. Universitas
+- SYSTEM  (OLIS) INSTITUT TEKNOLOGI DEL VERSI 2
+- i    Institut Teknologi Del
+- Disainpaikan Sebagai Bagian Dari Persyaratan Kelulusan Diplo1na 3  Program Studi Teknik lnformasi
+- Nasional Teknologi lnforn1asi 2005, Universitas Gunadarma.
+- Di1nensi Disertai Aplikasi Sisten1 Informasi yang Interaktif', Universitas Kristen Petra
+- Program Studi Sarjana Teknik Elektro  Fakultas Teknik Informatika dan Elektro
+- Program Studi Sarjana Teknik Elektro
+- PROGRAM STUDI S1 TEKNIK ELEKTRO
+- FAKULTAS TEKNIK INFORMATIKA DAN
+- Program Studi Diploma III Tenologi Komputer
+- PROGRAM STUDI DIPLOMA 3 TEKNOLOGI KOMPUTER
+- Program Studi Teknik Informatika            Oleh :      11414001 Sandy Ambarita  11414021 Eduardo Silalahi  11414030 Dia
+- Institut Teknologi Del  Tugas Akhir Diploma 4, Hlmn. 1 dari 201
+- pada program Studi Manajemen Rekayasa, Fakultas Teknologi Industri
+- Fakultas Informatika dan Teknik Elektro Institut Teknologi Del. Penulis menyadari
+- i                               Institut Teknologi Del
+- i       Institut Teknologi Del
+- Diajukan sebagai salah satu syarat untuk menyelesaikan Program Studi Sarjana (S1)
+- Program Studi  : Sarjana Sistem Informasi
+- PROGRAM STUDI  SARJANA MANAJEMEN REKAYASA
+- Institut Teknologi Del  Tugas Akhir Diploma 4, Hlmn. 2 dari 81
+- pada Program Studi Manajemen Rekayasa, Fakultas Teknologi Industri i
+- AUTOMATION TESTING ON PRESENSI DEL INSTITUTE OF
+- sarjana Program Studi Sarjana Informatika
+- menyelesaikan program Sarjana (S1) Program Studi Manajemen Rekayasa,
+- Fakultas Teknologi Industri, Institut Teknologi Del
+- 6.   Bapak  , selaku Kepala Program Studi
+- Manajemen Rekayasa Institut Teknologi Del dosen penguji Tugas Akhir
+- vii     Institut Teknologi Del
+- viii        Institut Teknologi Del
+- PROGRAM STUDI DIPLOMA IV TEKNOLOGI REKAYASA
+- Institut Teknologi Del  Tugas Akhir Diploma 4, Hlmn. ii dari 201
+- MAHASISWA INSTITUT TEKNOLOGI DEL
+- FAKULTAS VOKASI  INSTITUT TEKNOLOGI DEL
+- v  Institut Teknologi Del
+- Program Studi     : Sarjana Teknik Elektro
+- Teknik Elektro, pada Program Studi Teknik Elektro, Fakultas Informatika
+- iv                                        Institut Teknologi Del
+- Program Studi  : DIII Teknologi Komputer
+- v                                        Institut Teknologi Del
+- PROGRAM STUDI S1 TEKNIK INFORMATIKA
+- Program Studi   : S1 Teknik Informatika
+- Nama        : Paulus B. Siahaan    NIM        : 14S16016    Program Studi     : Sarjana Teknik Elektro  Judul dokumen tu
+- Program Studi S1 Teknik Elektro
+- PROGRAM STUDI SARJANA TEKNIK
+- ANALISIS SIKAP PEMANGKU KEPENTINGAN TERHADAP  KEBERLANJUTAN PEMBANGUNAN BERBASIS   PARIWISATA DI KAWASAN DANAU TOBA     
+- DENGAN MODEL  WATERFALL  UNTUK PMB   (STUDI KASUS INSTITUT TEKNOLOGI DEL)
+- Diajukan sebagai salah satu syarat untuk menyelesaikan Program  Sarjana (S1) pada Program Studi Manajemen Rekayasa, Faku
+- Mengetahui:  Program Studi Sarjana Teknik Elektro
+- ELEKTRO  FAKULTAS TEKNIK INFORMATIKA DAN
+
+============================================================
+Sample HEADING
+============================================================
+- DAFTAR LAMPIRAN
+- Gambar 4.6.  Penahan Biji Kemiri pada Conveyor
+- Gambar 4.7.  Pemisah untuk Wadah Penampung
+- Gambar 4.9.  Posisi Servo Pemisah
+- PERNYATAAN ORISINALITAS
+- HALAMAN PENGESAHAN
+- UCAPAN TERIMA KASIH
+- PERNYATAAN PERSETUJUAN PUBLIKASI TUGAS AKHIR
+- UNTUK KEPENTINGAN AKADEMIS
+- TUGAS AKHIR
+- ANALISIS PENGAMBILAN KEPUTUSAN PENENTUAN
+- LOKASI CABANG TOKO ABC DI KABUPATEN TOBA
+- MENGGUNAKAN METODE  HYBRID  MCDM
+- 21S20016  ESTI PURWATI SORMIN
+- AMILASE DENGAN METODE ISOLASI LANGSUNG DAN
+- Kelompok PEN/1920/05B  Monika G.S Situngkir     31S16017      Johan Bastian Lubis      31S16024
+- KAJIAN LITERATUR PERBANDINGAN KUALITAS ENZIM
+- MELALUI PROSES FERMENTASI
+- Lembar Pengesahan Tugas Akhir
+- Penerapan Teknologi Augmented Reality, Google Maps
+- API, Google Play Services, dan Facebook API pada
+- Aplikasi Android
+- Prakata
+- Door Lock System with Two Factor
+- Authentication
+- Abstrak
+- PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX
+- MENGGUNAKAN METODE USABILITY TESTING DENGAN
+- TEKNIK RETROSPECTIVE THINK ALOUD PADA
+- PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM
+- DEL EGOV CENTER
+- ADAT MINANG UD REZEKI BARU
+- INVESTIGASI DAMPAK  VALUE CO- CREATION  DAN
+- PEMASARAN DIGITAL TERHADAP KEPUASAN
+- PELANGGAN
+- (STUDI KASUS: UMKM CAFE HOLLYWOOD)
+- PENGEMBANGAN  PROTOTYPE LEARNING MANAGEMENT
+- SYSTEM  (LMS) BERBASIS  MOBILE  UNTUK INFINITE
+- LEARNING
+- Diajukan Sebagai Salah Satu Syarat Untuk Memperoleh Gelar
+- DAFTAR ISI
+- DAFTAR TABEL
+- DAFTAR GAMBAR
+- 2024
+- 13321031  JEREMY FATRIC M. PARDEDE
+- 13321036  BRIAN DANIEL NAPITUPULU
+- 13321049  TRISNA PAULINA LUMBAN RAJA
+- ABSTRAK
+- INDEX SUGGESTION BASED ON LOG ANALYSIS
+- LAGUBOTI
+- ABSTRACT
+- Pengujian Sistem Komunikasi Radio  Paket untuk Menghubungkan Komputer  dan LAN yang Berjarak Jauh
+- Daftar Tabel
+- Bab 1. Pendahuluan
+- DESAIN  WIRELESS SENSOR NETWORK  (WSN) DAN
+- PEMANFAATAN SISTEM SENSOR UNTUK OPERASI
+- SEARCH AND RESCUE  (SAR) PADA KORBAN BENCANA
+- EVENT EXTRACTION FROM ENGLISH NEWS ARTICLE
+- USING BIDIRECTIONAL GATED RECURRENT UNIT
+- KATA PENGANTAR
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Diploma 3
+- Analisis Algoritma  Levensthein Distance
+- dan Algoritma  Hamming Distance  pada
+- fitur  Autocorrect  dalam Pencarian Data
+- LAGU BOT
+- PREDIKSI HOAX PADA BERITA BERBAHASA INDONESIA
+- DENGAN FEATURE SELECTION MENGGUNAKAN NAÏVE
+- BAYES
+- DOKUMEN TUGAS AKHIR
+- Menggunakan Latent Semantic Analysis
+- PRAKATA
+- Daftar Gambar
+- Rancang Bangun Sistem Pendeteksi
+- Spam SMS di Indonesia
+- KATA PENGHANTAR
+- UCAPAN TERIMAKASIH
+- PERNYATAAN PERSETUJUAN PUBLIKASI TUGAS
+- PENGUKURAN TINGKAT EKO-EFISIENSI   DENGAN METODE  LIFE CYCLE ASSESSMENT  PADA  INDUSTRI KECIL MENENGAH ULOS DI TOBA SAMO
+- Gambar 3.7. Hasil akhir dari pooling layer
+- Tabel 3.3. Akuarsi uji coba penggunaan classifier
+- D ESAIN
+- 4.2.2.2   Tahap Preprocessing pada Histogram of Oriented Gradients
+- Akhir Tahun Ajaran 2018/2019 Diploma III IT Del)
+- Penerapan  Back-Propagation Neural Network  (BPNN) untuk Klasifikasi
+- Nilai Akhir TOEFL Mahasiswa (Studi Kasus: Mahasiswa Tingkat
+- RANCANG BANGUN ALAT KARAKTERISASI BUAH NANAS
+- BERDASARKAN PARAMETER AKUSTIK
+- HALAMAN PERNYATAAN ORISINALITAS
+- HALAMAN PERNYATAAN PERSETUJUAN PUBLIKASI
+- PERANCANGAN DESAIN APLIKASI PENCATATAN
+- TRANSAKSI KEUANGAN DENGAN METODE WATERFALL
+- (STUDI KASUS: GITA ULOS, ERA BOUQUET, A2
+- PHOTOGRAPHY)
+- LIGHT TRACKER
+- 13321048  EIRENE LASMARIANI SIPAYUNG
+- 13321057   CAROL WINARTI SIAGIAN
+- 13321058  FEBRIANA HUTABALIAN
+- 11317004  Ronatiur Febriani Lumban Gaol  11317040  Feny Bertarida. M.S. Simanjuntak  11317041  Chorintians Lucky Panjait
+- Rancang Bangun Aplikasi Homestay   Daerah Toba
+- baik.
+- SISTEM KOMUNIKASI  WIRELESS   PADA  UNDERWATER
+- 14S16027
+- ROV
+- PERANCANGAN DAN IMPLEMENTASI  MONITORING  DAN
+- KONTROL ALAT PEMANGGANG KOPI
+- 14S15025
+- PENGENALAN BIJI KOPI ARABIKA VARIETAS SIGARAR
+- MENGGUNAKAN  MACHINE LEARNING   (STUDI KASUS: KSU POM HUMBANG COOPERATIVE)
+- 11S16016
+- 11S15010
+- ANOTHER PARALELISM TECHNIQUE OF GLCM
+- IMPLEMENTATIN WITH CUDA PROGRAMMING
+- TUGASAKHIR
+- AGSUTUS 2020
+- PERANCANGAN PERBAIKAN SISTEM PRODUKSI UNTUK
+- MENGURANGI  WASTE PRODUCTION  DENGAN
+- MENGGUNAKAN METODE  LEAN SIX SIGMA
+- STUDI KASUS: PT. HUTAHAEAN
+- PERANCANGAN  BATTERY MANAGEMENT SYSTEM  (BMS)
+- PADA PURWARUPA ALAT MONITORING TANAH DAN
+- CUACA
+- BASA T.P. SIMANJUNTAK
+- Analisis Perbandingan Akurasi  Keyword Extraction  antara  Algoritma Naïve Bayes dan Algoritma WordNet - PageRank pada
+- AKHIR UNTUK KEPENTINGAN AKADEMIS
+- DAFTAR SCRIPT
+- EVALUASI KEBERGUNAAN DAN PERBAIKAN
+- ANTARMUKA APLIKASI TRANSFREE BERBASIS MOBILE
+- MENGGUNAKAN METODE COGNITIVE WALKTHROUGH
+- DAN THINKING ALOUD
+- PEMANFAATAN LIMBAH KULIT UDANG DAN ECENG  GONDOK SEBAGAI FLOKULAN UNTUK PEMANENAN  Chlorella
+- PEN II/2223/GANJIL/01A        Rismauli  Siahaan                                31S18024
+- vulgaris  DAN  Ccenedesmus sp
+- Kelompok PEN II/2223/GANJIL/01A    Rismauli  Siahaan                               31S18024
+- (TheHive, Cortex, MISP) WITH SIEM TOOLS (AlienVault)
+- 2020
+- IMPELENTASI ALGORITMA  LONG SHORT TERM MEMORY
+- (LSTM) UNTUK PREDIKSI SUHU UDARA DI RIAU,
+- PEKANBARU
+- 11321027  SIO ALEXANDRA SIAHAAN
+- BAB I
+- PENDAHULUAN
+- ELECTROMAGNETIC DOOR LOCK SYSTEM
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar
+- Ahli Madya Teknik (A.Md.T)
+- 13321045  CINDY THRESYA SITUMEANG
+- INTEGRASI ULOSPEDIA DAN MODUL LIDI UNTUK
+- MENINGKATKAN FUNGSIONALITAS DAN KUALITAS DESAIN
+- WEBSITE DITENUN
+- METODE PEWARNAAN OTOMATIS MOTIF ULOS  BERDASARKAN JARINGAN  ADVERSARIAL  GENERATIF
+- Sarjana Komputer (S.Kom)
+- 11S20003  REINHARD HOTTUA S.
+- 11S20046  RACHEL RIRIS ROTUA DAMANIK
+- PREDIKSI HASIL KUALITAS AIR SUNGAI DI  JAKARTA
+- MENGGUNAKAN ALGORITMA  K-NEAREST NEIGHBOR
+- (KNN) YANG DIOPTIMALISASI DENGAN  PARTICLE
+- SWARM OPTIMIZATION  (PSO) )
+- 11S19043
+- VEHICLE TRACKING SYSTEM DASHBOARD
+- PENGEMBANGAN APLIKASI IDENTIFIKASI CITRA TEKS
+- MENGGUNAKAN  FASTER REGION BASED  CONVOLUTIONAL NEURAL NETWORK  DAN  OPTICAL
+- 11S20004  SAMUEL IMMANUEL HERLINTON SIBUEA
+- 11S20016  NANCHY MONIKA SIADARI
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Diploma 4
+- Perbandingan Mobile Application Automation
+- Testing Tools
+- FINAL PRODUCT OF AIR QUALITY MONITORING SYSTEM
+- 13321016  AGNES YOLANDA SIAHAAN
+- 13321028  JOSUA RAJA PRATAMA MARBUN
+- BAB I  PENDAHULUAN
+- BAB II  KAJIAN PUSTAKA
+- 4.1.3.3   Implementasi fungsi mengelola pengumuman
+- 4.1.3.7   Implementasi fungsi mengelola mata pelajaran per kelas
+- 4.1.3.11   Implementasi fungsi melihat profil sekolah
+- 4.1.3.12   Implementasi fungsi melihat pengumuman
+- PERANCANGAN DAN IMPLEMENTASI SISTEM
+- ELEKTRIFIKASI BERBASIS PANEL SURYA PADA SISTEM
+- MONITORING PARAMETER AIR KOLAM BUDIDAYA
+- PERIKANAN
+- PERANCANGAN  WEBSITE   MONITORING  KUALITAS
+- TANAH DAN ANALISIS PERBANDINGAN DATA
+- PENGARUH NPK TERHADAP TANAMAN CABAI
+- KRITERIA RASA DAN AROMA TUAK
+- PENGARUH PENAMBAHAN RARU DAN BAKTERI ASAM
+- LAKTAT (BAL) DARI FASE YANG BERBEDA TERHADAP
+- Bab I
+- Pendahuluan
+- 1.1  Latar Belakang
+- Bab VI
+- KAJIAN AWAL KOMPOSTER MENARA PADA  PENGOMPOSAN SAMPAH ORGANIK DENGAN
+- VARIASI JENIS BIOAKTIVATOR DAN
+- KETINGGIAN TUMPUKAN
+- Kelompok: PEN/1920/11
+- RELATIVE WEIGHT
+- Implementasi Metode StyleGAN Pada Aplikasi Digital Tenun
+- Nusantara (DiTenun) Untuk Menghasilkan Motif Baru
+- SISTEM NAVIGASI DAN PENYEMPROTAN OTOMATIS
+- PADA  DRONE  BERBASIS GPS
+- 11420060     ROSA STEFANI SINAGA
+- USER EXPERIENCE DESIGN AND EVALUATION FOR WEB-BASED
+- VISITOR MANAGEMENT SYSTEM
+- Daftar Pseudocode
+- pengerjaan skripsi.
+- Body Temperature and Face Mask Detection for The
+- COVID-19 Health Protocol
+- BAB Ill
+- Analisis Test Case Generator "Randy"
+- 3.1  Test Case Generator Randy
+- Bab IV  Studi Kasus
+- 4.1  Studi kasus program SString.c
+- PEMODELAN SISTEM DINAMIK DALAM MENINGKATKAN
+- JUMLAH PENDAFTAR DI PERGURUAN TINGGI SWASTA
+- Sarjana Teknik (S.T.)
+- IMPLEMENTASI APLIKASI  PROCTORING  DELPROCTOR
+- DENGAN MENGGUNAKAN OPENCV
+- WEBSITE MONITORING FOR DISASTER VICTIM
+- SEARCH AND RESCUE
+- IMANUEL MAURICE DARMAWAN SITANGGANG
+- 14S18017
+- ANDALIMAN ( Zanthoxylum acanthopodium DC)
+- Kelompok PEN II/GANJIL/2223/05A        Lastiar Elizabeth Marpaung  31S19008
+- AI BASED MOVING FLAG ON CTF SCENARIO
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar Sarjana Teknik
+- eksperimen yang dilakukan dapat dilihat pada Gambar 4.24.
+- Prototype Object Detection Using Raspberry Pi
+- Prototyping Object Detection Using Raspberry
+- BAB II Tinjauan
+- HALAMAN PERNYATAAN ORISINALITAS  Tugas akhir ini adalah hasil karya saya sendiri, dan semua sumber baik yang dikutip mau
+- HALAMAN PERNYATAAN PERSETUJUAN PUBLIKASI  DOKUMEN TUGAS AKHIR UNTUK KEPENTINGAN AKADEMIS
+- SECURE PERSONAL HEALTH RECORD FILES USING  INTERPLANETARY FILE SYSTEM AND BLOCKCHAIN
+- 11S20006  GUNTUR AUGUSTIN SINAGA  11S20038  VALENTINA MARGARETHA SIAHAAN
+- IMPLEMENTASI ALGORITMA  K-NEAREST NEIGHBORS
+- (KNN) UNTUK PREDIKSI RUTE TERPADAT (STUDI KASUS:
+- DATA PENUMPANG TRANSJAKARTA)
+- PENGARUH VARIASI KOMBINASI PAKAN TERHADAP
+- BOBOT LARVA BSF DAN METODE EKSTRAKSI  TERHADAP PEROLEHAN MINYAK LARVA BSF SEBAGAI
+- BAHAN BAKU BIODIESEL
+- DESAIN APLIKASI SISTEM PENGELOLAAN
+- ADMINISTRASI DAN INFORMASI MANAJEMEN
+- REKAYASA IT DEL
+- 21S20023      HANSEL SEPTIYAN PASARIBU
+- KAJIAN LITERATUR PENGARUH TEKANAN DAN  TEMPERATUR KEMPA SERTA JENIS  ADHESIVE  TERHADAP  SIFAT FISIK DAN MEKANIK  PARTIC
+- Kelompok PEN/1920/10      Cindy Miranda Br Sitorus    31S16009     Putra Angel Sibuea      31S16011
+- SLUDGE  INDUSTRI  PULP  DAN KERTAS
+- Kelompok PEN/1920/10    Cindy Miranda Br Sitorus    31S16009     Putra Angel Sibuea      31S16011
+- EVALUASI SISTEM INFORMASI MANAJEMEN
+- PENGELOLAAN SAMPAH RUMAH TANGGA (BERSINAR-
+- APP) DENGAN  USABILITY TESTING
+- RECOMMENDER SYSTEM WITH TIME SERIES
+- Sarjana Teknik
+- 11S14009  RANTY DEVIANA SIAHAAN
+- BAB I   PENDAHULUAN
+- BAB V   PENGOLAHAN DAN ANALISIS DATA
+- RANCANG BANGUN  ONLINE LIBRARY INFORMATION
+- Sarjana Terapan Komputer (S.Tr.Kom)
+- 11420055  IRMA TRIANA LBN TOBING
+- ANALISIS DAN IMPLEMENTASI  ZERO TRUST NETWORK
+- ACCES  PADA  WEB APPLICATION  DAN  LEARNING
+- MANAGEMENT SYSTEM
+- 13321005  FRENGKY SORITUA MANURUNG
+- Analisis Perbandingan Algoritma Particle Swarm Optimization dan
+- Algoritma Kelelawar dalam Mengoptimasi Nilai Parameter
+- Model ARIMA
+- PID CONTROL IMPLEMENTATION FOR MOTOR SPEED
+- OF REMOTELY OPERATED VEHICLE
+- GLESIA PUTRA S.
+- Poli1eknik  Jnformatika Del  Tugas Akhir Diplorna 3, H!,nn 2 of  100
+- Bab I  Pendahuluan
+- Polifeknik  lnfor,natika Del  Tugas Akhir Diplo1na 3, Hhnn 8 of  100
+- IMPLEMENTATION OF AUDITBEAT AND HEARTBEAT FOR
+- MONITORING FILE CHANGES ON SERVERS
+- (STUDY CASE: WEB SERVER, FILE SERVER, MAIL SERVER,
+- AND  DNS  SERVER)
+- DESIGN AND IMPLEMENTATION OF MULTI SENSOR
+- BASED BEDROOM CONDITION MONITORING SYSTEM
+- JOSE MARAMIS LUMBANTOBING
+- 14S18023
+- ENERGY MANAGEMENT OF STREET LAMP POWERED BY
+- ON-GRID SOLAR CELL
+- Network Performance and Designing SDN Testbed
+- BAB I PENDAHULUAN
+- BAB II TINJAUAN PUSTAKA
+- Pattern Generation with  Texture Synthesis and
+- Machine Learning
+- 2022
+- ANALISIS STRATEGI PENGEMBANGAN OBJEK WISATA
+- VENUE BONTEAN MENGGUNAKAN SWOT DAN  QUANTITATIVE STRATEGIC PLANNING MATRIX  (QSPM)
+- 21S20049  YOLA BUTAR-BUTAR
+- LAMPIRAN
+- 11S16017
+- 11S16050
+- VEHICLE SPEED DETECTOR
+- Herianto Saragi
+- ANALISIS DAN PERANCANGAN APLIKASI
+- E-MARKETPLACE PARIWISATA  (STUDI KASUS: PARIWISATA DI KAWASAN DANAU TOBA)
+- ANITA P.K SITORUS
+- 11S16014
+- PERANCANGAN DAN IMPLEMENTASI PROTOTIPE SISTEM
+- FERMENTASI NANAS BERBASIS ARDUINO MEGA
+- PENGGUNAAN TEKNOLOGI  BLOCKCHAIN  PADA BIDANG
+- KESEHATAN
+- ( USE OF BLOCKCHAIN TECHNOLOGY IN THE HEALTH )
+- 11S18059  Kristiane Purba
+- Lembar Pengesahan Skripsi Diploma 3
+- Reporting  Rekaman Kamera CCTV
+- berbasis Media MMS  Gateway
+- Oleh:
+- Dinyatakan memenuhi syarat dan karenanya disetujui dan disahkan sebagai
+- 1   HALAMAN JUDUL
+- PERFORMANCE EVALUATION OF LORA E32 433T30D FOR
+- BUILDING WATER QUALITY MONITORING
+- IN RURAL AREA
+- PERENCANAAN PERSEDIAAN BAHAN BAKU KASUR
+- MENGGUNAKAN   JUST IN TIME  DAN  ECONOMIC
+- ORDER QUANTITY   DI PT HILON SUMATERA
+- 21S20032    ARNOLDUS FAJAR
+- Herwanto Cristopel Simanullang             31S16008
+- PENGARUH PEMBERIAN ASAP CAIR TANDAN KOSONG  KELAPA SAWIT (TKKS) PADA TANDAN BUAH SEGAR (TBS)  KELAPA SAWIT SELAMA WAKTU 
+- KUALITAS  CRUDE PALM OIL  (CPO)
+- LEMBAR PENGESAHAN TUGAS AKHIR
+- Otomasi  Test Case Generation  dengan
+- Pemanfaatan Informasi  Path Coverage
+- TECHNOLOGY
+- TIPE ULIR ( SCREW PRESS ) SERTA PENGGUNAAN
+- KATALIS HOMOGEN TERHADAP PEMBUATAN
+- BIODIESEL DARI MINYAK BIJI  KEMIRI ( Aleurites moluccana ) DAN KEMIRI SUNAN
+- ( Reutealis trisperma )
+- IMPLEMENTASI ALGORITMA AHP-TOPSIS DALAM
+- PENENTUAN PENGAMBILAN KEPUTUSAN PEMAIN
+- SEPAK BOLA TERBAIK
+- 11S18014   Jose Marchelino Situmorang
+- PERANCANGAN DAN IMPLEMENTASI SISTEM KENDALI
+- AKTUATOR PADA MESIN OTOMATIS PEMBUAT
+- PUPUK ORGANIK CAIR MENGGUNAKAN
+- PROGRAMMABLE LOGIC CONTROLLER
+- BIDIRECTIONAL LSTM AND WORD2VEC AS
+- VECTORIZATION
+- PENGEMBANGAN LEARNING MANAGEMENT SYSTEM
+- (LMS) MENGGUNAKAN METODE PROTOTYPING DAN
+- EVALUASI ASPEK USABILITY (STUDI KASUS SMAN 1
+- SIMANINDO)
+- PERANCANGAN SISTEM KONTROL GERBANG OTOMATIS
+- DENGAN ARDUINO UNO
+- PREDIKSI KETEPATAN LULUS TEPAT WAKTU
+- MENGGUNAKAN ALGORITMA REGRESI LOGISTIK
+- Gambar 3.15  Flowchart Web Interface
+- Code 4. 1  Data Selection Report
+- PENERAPAN ONTOLOGI DALAM PENCARIAN PROGRAM
+- STUDI BERBASIS WEB SEMANTIK
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar Ahli
+- Madya Komputer (A.Md. Kom)
+- REAL-TIME DETECTION CAR SPEED USING CENTROID
+- HALAMAN PERNYATAAN PERSETUJUAN
+- PUBLIKASI DOKUMEN TUGAS AKHIR UNTUK
+- KEPENTINGAN AKADEMIS
+- Gambar 4. 10 Grafik respon sudut dengan Kp=7, Ki=0, Kd=2 ........................................ 32
+- PENGIRIMAN DATA DARI RECEIVER RADIO
+- FREKUENSI KE USERS MENGGUNAKAN
+- RASPBERRY PI 3
+- KATA PENGANTAR       Puji Tuhan penulis ucapkan atas kehadiran Tuhan yang Maha Esa yang telah
+- Pariwisata di Kawasan Danau Toba”.
+- BAB II
+- ANALISIS PENGGUNAAN DAYA BATERAI PADA  WATER
+- QUALITY SYSTEM PROTOTYPE FOR LAKE MONITORING
+- Kelompok PEN/1920/01      Indra Panggabean                            31S15001     Sylva Permatasari Hs                 
+- Kelompok PEN/1920/01      Indra Pangabean                             31S15001     Sylva Permatasari Hs                 
+- PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN
+- PENDEKATAN LOGISTIC REGRESSION
+- MICHAEL YERIKHO HENOKH SIAHAAN
+- 11S18064
+- PREDIKSI RISIKO KREDIT MENGGUNAKAN
+- PENDEKATAN SUPPORT VECTOR MACHINE
+- IRVANDI AMIR HAMZAH SIHOMBING
+- 11S18067
+- Kelompok PEN/1920/04A  Nehemia Roito Hutajulu  31S16022   Hanna Gretty Manik    31S16028
+- Kelompok PEN/1718/01A      Lianty Simangunsong   (31S14001)     Brian A. Sinaga     (31S14022)
+- STUDI KINETIKA PERTUMBUHAN PADA MIKROALGA HIJAU-
+- BIRU  Arthrospira platensis  DENGAN MEDIA ALTERNATIF
+- KOTORAN KERBAU
+- DOKUMEN PROYEK AKHIR
+- Collaborative Filtering  menggunakan  Matrix
+- Factorization   Approach
+- 11S19003  TESALONIKA SIAHAAN
+- 11S19007
+- Rancang Bangun  Dashboard System  Berbasis Web
+- KAJIAN PUSTAKA
+- BAB III
+- Romauli N. Pangaribuan    31S14007
+- POTENSI KULIT BUAH UNTUK MENGHASILKAN BIOETANOL
+- DENGAN MENGKAJI KONDISI, SUBSTRAT, DAN METODE
+- FERMENTASI
+- NIM 14S14018
+- Implementasi Pengukuran Curah Hujan Menggunakan Sensor
+- Ultrasonik pada Digital Rain Climate Measurement
+- KATA PENGANTAR  Segala Puji syukur kita panjatkan kepada Tuhan Yang Maha Esa atas karena Rahmat dan
+- DAFTAR SINGKATAN
+- PERNYATAAAN PERSETUJUAN PUBLIKASI TUGAS AKHIR
+
+============================================================
+Sample PARAGRAPH
+============================================================
+- DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE
+- 14S15011
+- DESAIN ALAT PENYORTIR BIJI KEMIRI  BERBASIS PROGRAMMABLE
+- LOGIC CONTROLLER (PLC)
+- DOKUMEN TUGAS AKHIR
+- SKRIPSI
+- Diajukan sebagai salah satu syarat untuk menyelesaikan Program Sarjana (S1)
+- Sislein Sipahutar
+- 21S15027
+- ii
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar
+- Sarjana Teknik (S.T.)
+- HALAMAN PERNYATAAN ORISINALITAS
+- Tugas Akhir ini adalah hasil karya Penulis sendiri, dan semua sumber baik yang
+- dikutip maupun dirujuk telah Penulis nyatakan dengan benar.
+- KAJIAN LITERATUR PERBANDINGAN KUALITAS ENZIM
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar Sarjana Teknik
+- PEN/1920/05B  i
+- Skripsi ini diajukan oleh
+- Kelompok : PEN/1920/05B
+- Disampaikan sebagai Bagian dari Persyaratan Kelulusan Diploma 4
+- 21112001   Laurensius Sakti Lubis
+- 21112002   Marthin M. H. Pakpahan
+- 21112033   Kristian Sibarani
+- IT Del    Laporan-TA-1516-D4TI01    Halaman 2 dari 115
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Diploma 3
+- 13315002 Ropelita Sihombing
+- 13315023 Nickholas Pangaribuan
+- 13315027 Steven Sebastian Sitanggang
+- Halaman ini disengaja dikosongkan
+- Tugas Akhir ini adalah hasil karya saya sendiri, dan semua sumber baik yang
+- dikutup maupun dirujuk telah saya nyatakan benar.
+- Nama        : N Priskila Napitupulu
+- Diajukan sebagai salah satu syarat menyelesaikan program sarjana (S1)
+- ANGGI RETTA NATALIA PANJAITAN
+- 21S19042
+- 2023
+- Sarjana Teknik (S. T.)
+- dikutip maupun dirujuk telah saya nyatakan dengan benar.
+- Nama  :  Raymond G Saor Simamora
+- Nim  :  11420036
+- ASRI SIAHAAN
+- 21S19006
+- TUGAS AKHIR
+- PRODUK JADI MESIN TETAS TELUR AYAM OTOMATIS
+- Diajukan Sebagai Salah Satu Syarat Untuk Memperoleh Gelar
+- Ahli Madya Teknik (A.Md.T)
+- 12S15035   ELISABETH JESICA GURNING
+- 12S15039   SONYA AHNELA PARDOSI
+- 12S15042   WIDYA WILHELMINA SIMBOLON
+- Disampaikan sebagai Bagian dari Persyaratan Kelulusan Sarjana Komputer
+- Politeknik Informatika Del  2006
+- Politeknik Informatika Del    Tugas Akhir Diploma 3, Hlmn. 1 dari 47
+- Pengujian Sistem Komunikasi Radio Paket untuk Menghubungkan Komputer dan  LAN yang  Berjarak Jauh
+- Politeknik Informatika Del  Tugas Akhir Diploma 3, Hlmn. 2 dari 47
+- 14S18019
+- FAJAR SAM HUTABARAT
+- 12S17029  SILVANY ANGELIA LUMBAN GAOL
+- 12S17049  PADDY TAMMY SILITONGA
+- (Sengaja dibiarkan Kosong)
+- Novia Kristina Siagian
+- 21S17056
+- 11314003 Yulianty Sihombing
+- 11314020 Joko L S Banjarnahor
+- 11314025 Okta P Nainggolan
+- 2016/2017
+- Halaman ini sengaja dibiarkan kosong
+- i
+- PREDIKSI HOAX PADA BERITA BERBAHASA INDONESIA
+- DENGAN FEATURE SELECTION MENGGUNAKAN NAÏVE
+- BAYES
+- Asido Situmorang
+- 21S14010
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Diploma 4
+- Oleh:
+- 21113019  Yohanes Marthin Hutabarat  21113040  Putra Setiawan Simaremare  21113079  Andreas Hamonangan Sibuea
+- Oleh :
+- 21113037 Ester Melati Manalu  21113046 Dumaria Sartika Putri Sitinjak  21113060 Trima Wahyuni Manurung
+- Rancang Bangun Sistem Pendeteksi SMS Spam di Indonesia
+- Devi Triana Simanjuntak
+- 21S17047
+- BINARY OBFUSCATOR DEVELOPMENT
+- 12S15007   NAOMI NAINGGOLAN
+- 12S15014   SARAH ROSDIANA TAMBUNAN
+- 12S15052   ARIANSYAH NUGROHO
+- Yuli Yanthi Siagian
+- 21S14013
+- Disampaikan sebagai salah satu syarat untuk memperoleh gelar
+- Tugas Akhir ini adalah hasil karya penulis sendiri, dan semua
+- sumber baik yang dikutip maupun dirujuk telah penulis
+- 11317013      Cicasmi Hasibuan
+- 11317022        Amelia Arta Rezki Manurung
+- 11317057      Dwi Putri Anatasya Sibarani
+- 2020
+- I
+- 14S15045
+- JOHAN PRIANTO AMBARITA
+- 1
+- Keuangan dengan Metode  Waterfall  (Studi Kasus: Gita  Ulos, Era Bouquet, A2 Photography)    Pentingnya pembukuan dalam 
+- Waterfall .
+- ABSTRAK
+- ABSTRACT
+- Name   : 1. Eirene Lasmariani Sipayung        2. Carol Winarti Siagian        3. Febriana Hutabalian  Study Program: Dip
+- Rancang Bangun Aplikasi Homestay   Daerah Toba
+- Samosir Berbasis Android
+- Hot Mriah Oktavia Peranginangin
+- 21S15041
+- Yang bertanda tangan di bawah ini saya,
+- 14S15025
+- FRIYOGI TAMPUBOLON
+- LAGUBOTI
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Sarjana Program
+- Studi Sarjana Informatika
+- Tugas Akhir ini adalah hasil karya kami sendiri,
+- 12S16011 RUSMINA SIAHAAN
+- 12S16025 CHANDRO PARDEDE
+- 12S16060 WIWIN PUTRI GURNING
+- Diajukansebagaisalahsatusyaratuntuk memperolehGelarSarjanaKomputerProgramStudiSarjanaSistemInformasi
+- Tugas akhir ini adalah hasil karya penulis sendiri, dan semua sumber baik yang
+- dikutip maupun dirujuk telah penulis nyatakan dengan benar
+- 1.  Nama      :   Johannes Duta Christy Purba
+- NIM      :   21S20024
+- Tanda Tangan   :
+- Tugas Akhir ini adalah hasil karya saya sendiri dan semua sumber baik yang
+- Nama  :  Basa T.P. Simanjuntak
+- Tugas Akhir ini adalah hasil karya penulis sendiri, dan semua sumber baik
+- yang dikutip maupun yang dirujuk telah penulis nyatakan dengan benar.
+- Nama  : Esri Analiza Pane
+- NIM  : 11S14012
+- Tugas Akhir ini adalah hasil karya saya sendiri,
+- Dan semua sumber baik yang dikutip maupun dirujuktelah saya nyatakan
+- PEN II/2223/GANJIL/01A  i
+- Kelompok : PEN II/2223/GANJIL/01A
+- 13316017  Indra Daniel Butar-Butar
+- 13317021  Jeremia Sibarani
+- 13317028  Ferdiando
+- INTEGRATING INCIDENT RESPONSE PLATFORM
+- 21S18003
+- Tugas Akhir ini adalah hasil karya Penulis sendiri dan semua sumber baik yang
+- Nama  :  Sio Alexandra Siahaan
+- NIM  :  11321027
+- Melisa Fibrida Siahaan
+- 21S15061
+- Monitoring   and   Controlling   IoT   Devices   Via LoRa Network
+- Monitoring and Controlling IoT Device Via Lo-Ra Network
+- Nama   :  Anisa Gultom
+- NIM   :  13320016
+- Sorta Grace Pardede
+- 21S15013
+- HALAMAN PENGESAHAN
+- HALAMAN PERNYATAAN PERSETUJUAN PUBLIKASI KARYA
+- ILMIAH UNTUK KEPENTINGAN AKADEMIS
+- HALAMAN PERNYATAAN PERSETUJUAN PUBLIKASI DOKUMEN
+- TUGAS AKHIR UNTUK KEPENTINGAN AKADEMIS
+- Nama  : Reinhard Hottua S., Rachel Riris Rotua Damanik, Theresia
+- Yolanda Laura Hutabarat
+- Judul  : Metode Pewarnaan Otomatis Motif Ulos berdasarkan
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Sarjana
+- WYBREN AGUNG MANIK
+- 11S19036
+- 14S16060
+- DUL
+- ANDREAS JUAN DANIEL SIMORANGKIR
+- SISTEM REKOMENDASI POLIKLINIK BERDASARKAN KELUHAN
+- PASIEN
+- JUBEY SIMANJUNTAK
+- 11S16004
+- HALAMAN   PERNYATAAN   PERSETUJUAN   PUBLIKASI
+- A BSTRAK
+- 21113004  Nita Yolanda Lumbantobing  21113006  Adi Wibowo P.  21113009  Ariestoni Silalahi
+- Sitoluama,
+- Pembimbing
+- 13321003  SINTA DEBORA SIMBOLON
+- Diajukan sebagai salah satu syarat menyelesaikan Program Sarjana (S1) pada
+- William Purba
+- 21S18048
+- iv
+- RANCANG BANGUN APLIKASI PEMBELAJARAN SDN 176367
+- SOPOSURUNG BALIGE BERBASIS  WEBSITE  MENGGUNAKAN
+- FRAMEWORK  CODEIGNITER DENGAN METODE  WATERFALL
+- 11319015  Amelia Yusnita Sitanggang
+- STRATEGI BERTAHAN UMKM PARIWISATA DI KAWASAN
+- DANAU TOBA TERHADAP PANDEMI COVID-19
+- (STUDI KASUS : 3 UMKM PARIWISATA)
+- iii
+- Sarjana Teknik (S.T)
+- 2024
+- Pembangunan Aplikasi Kasir Kedai Onand  Coffee  Berbasis Android
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar Diploma III
+- NIM  NAMA
+- 11319020  Sharon C. Siahaan
+- Nama  : Maddalena Nababan
+- Judul Tugas Akhir  : Pengaruh Penambahan Raru dan Bakteri Asam Laktat
+- (BAL) dari Fase yang Berbeda Terhadap Kriteria Rasa
+- dan Aroma Tuak
+- Pada penelitian sebelumnya telah diketahui tuak yang paling disukai adalah hasil  fermentasi penambahan Bakteri Asam Lak
+- Stemming  merupakan salah satu proses  natural language processing  untuk   mengubah variasi kata menjadi bentuk dasarny
+- Pada penelitian ini aturan stemming infiks ditambahkan pada algoritma Nazief- Adriani. Penelitian ini menggunakan implem
+- Penelitian ini menunjukkan bahwa penambahan aturan  stemming  infiks pada  algoritma Nazief-Adriani dapat meningkatkan a
+- Stemming is one of process in natural language processing to transform word  variants into root word by applying morphol
+- Puji dan syukur kepada Tuhan Yang Maha Esa atas rahrnat-Nya yang menyertai penulis
+- selarna pengerjaan Tugas Akhir 1 dan Tugas Akhir 2, sehingga tahapan yang
+- direncanakan serta penyusunan laporan Tugas Akhir ini dapat dilalui dengan baik.
+- Tujuan penulisan laporan Tugas Akhir ini adalah untuk memberikan pemahaman kepada
+- pembaca dalam penerapan  embedded system  dalam rnengontrol pernakaian daya listrik
+- PEN/1920/11    i
+- Kelompok     : PEN/1920/11
+- 1. Nama                       : Kusuma Pertiwi Sitorus
+- Mariani Putri Sinaga
+- 21S17005
+- UNEDO IGNASIUS MANALU  12S18030
+- SANDRAULINA SIREGAR  12S18036
+- EVELIN THERESIA PANJAITAN   12S18053
+- IRFAN SURYA DHARMA MANIK
+- 14S16047
+- Tugas Akhir ini diajukan oleh   :
+- PERANCANGAN STRATEGI PENGEMBANGAN USAHA PADA INDUSTRI
+- TEKSTIL SARUNG TENUN BALIGE DI KABUPATEN TOBA SAMOSIR   MENGGUNAKAN  QUANTITATIVE STRATEGIC PLANNING MATRIX  (QSPM)
+- Diajukan sebagai salah satu syarat untuk menyelesaikan Program Sarjana (S1) pada
+- Monalisa Sibarani
+- Alex Pratama
+- 21S15067
+- Joshua Partogi Hutauruk
+- 21S18052
+- 11420030     AGNES FENI ROSALINA NAIBAHO
+- nyatakan dengan benar.
+- 11314019 Eki Yusina Maduna Simanjuntak
+- 11314026 Agnes Lasma Siregar
+- 11314027 Randy Saputra Purba
+- ANALISIS DAN EVALUASI ALGORITMA  DENSITY-BASED
+- SPATIAL CLUSTERING OF APPLICATIONS WITH NOISE
+- (DBSCAN) PADA TUBERKULOSIS
+- 21S16029
+- Yang bertanda tangan dibawah ini saya,
+- 13318010  Trifani Febrina  Hasibuan
+- 13318012  Verayani Fronika Simbolon
+- 13318033  Simon Jayama Sinaga
+- •
+- Disampaikan Sebagai Bagian Dari Persyaratan Kelulusan Diplorna 3
+- 11109001
+- 11109056
+- 11109060
+- dikutip maupun dirujuk telah Penulis nyatakan dengan benar
+- Nama     : Windy Agelina Manalu
+- NIM      : 21S20047
+- IMPLEMENTASI APLIKASI  PROCTORING  DELPROCTOR
+- DENGAN MENGGUNAKAN OPENCV
+- ABDULLAH UBAID
+- 11S18005
+- Tugas akhir ini adalah hasil karya saya sendiri, dan semua sumber baik
+- yang dikutip maupun dirujuk telah saya nyatakan dengan benar.
+- ANALISIS KEPUASAN PELANGGAN CAFE DI KABUPATEN
+- TAPANULI UTARA DENGAN METODE  SERVICE QUALITY
+- (SERVQUAL) DAN  IMPORTANCE PERFORMANCE ANALYSIS  (IPA)
+- OPTIMASI EKSTRAKSI ENZIM PROTEASE DARI BUAH
+- Kelompok PEN II/2223/GANJIL/05A  Lastiar Elizabeth Marpaung      31S19008
+- Disampaikan   sebagai   salah   satu   syarat   untuk   memperoleh   gelar   Sarjana   Komputer
+- Program   Studi   Sarjana   Informatika
+- 11S16051 Anggiat Maruli Tua M
+- 12S14018 RUTH NATASYA HUTAURUK  12S14035 YAN REGA PANJAITAN  12S14049 CITRA PAKPAHAN
+- Tugas Akhir ini adalah hasil karya sendiri,
+- dan semua sumber baik yang dikutip maupun dirujuk
+- Tugas Akhir
+- 13315015   Rio L Malau
+- 13315029   Fensius Musa F. B. Aritonang
+- dirujuk telah saya nyatakan dengan benar.
+- Nama  : Josep Veri Harianto Hulu
+- NIM  : 14S16059
+- Tanda Tangan  :
+- Puji syukur penulis panjatkan kepada Tuhan Yang Maha Esa yang telah melimpahkan
+- HALAMAN PERNYATAAN PERSETUJUAN PUBLIKASI
+- Rut Selvina Tambun
+- 21S14005
+- v
+- prediksi rute terpadat (Studi Kasus: Data Penumpang Transjakarta)
+- Pertumbuhan populasi yang pesat di Jakarta telah meningkatkan kebutuhan akan  transportasi umum yang efisien. Bus Transj
+- vi
+- Tugas Akhir ini adalah hasil karya Penelitian sendiri, dan semua sumber baik
+- ii                                            I nstitut Teknologi Del
+- PEN/1920/10  i
+- Kelompok    : PEN/1920/10
+- 1. Nama  : Satrio Holmes Afrido Situmorang
+- NIM  : 11420074
+- IMPLEMENTATION AND EVALUATION OF PERSONAL
+- 11S14009  RANTY DEVIANA SIAHAAN
+- 11S14046  GIDEON DIRGAHAYU MANURUNG
+- ANALISIS PENGUKURAN KINERJA DENGAN MENGGUNAKAN
+- METODE  BALANCED SCORECARD  (STUDI KASUS: PT MUAL TIO
+- Artha Simanjuntak
+- PENGEMBANGAN BISNIS JASA OJEK  ONLINE  MENGGUNAKAN
+- Asrya Rizky Sihombing
+- 21S17037
+- Perancangan  Model Jaringan  Keananan  dengan Menggunakan  Metode  HoneYPot  Pzda Jaringan  Lokal
+- Tugrs  Akbil
+- Disopsifan  S€bsgri  Bagiaa  Dni  Petsvtrat  o  K.lululm DiPIoff  3
+- trtogrm  sfudi  Tekik  Kompu&r
+- Oleh  r
+- Tugas Akhir ini adalah hasil kerja Penulis sendiri, dan semua sumber baik yang
+- NAMA  : Irma Triana Lbn Tobing
+- NIM  : 11420055
+- KATA PENGANTAR
+- ANALISIS PERBANDINGAN ALGORITMA PARTICLE SWARM
+- OPTIMIZATION DAN ALGORITMA KELELAWAR DALAM
+- MENGOPTIMASI NILAI PARAMETER MODEL ARIMA
+- Yopi Andrew Saragih
+- Nama  :  Glesia Putra S
+- NIM  :  14S18044
+- II 109012  11 I 09014  11109065
+- Annando Siagian  Faisal I. Silitonga  Edelina Parhusip
+- Puji dan syukur kepada Tuhan Yang Maha Esa atas rahmat-Nya yang menyertai para
+- Penulis sehingga dapat n1enyelesaikan tugas akhir yang  berjudul "Simulasi
+- Pengintegrasian Sisten, :  Hospital Information Systern, Radiology lnfor,nation System,
+- Karya tulis sebagai salah satu syarat untuk memperoleh gelar Sarjana
+- Oleh  Daniel Fernando Purba
+- 14S14020
+- 2018
+- Lembar Pengesahan
+- Comparative Study of Singlepath and Multipath Routing in Terms of
+- 13317002  Wendi Martin Situmeang
+- 13317006  Ade Kurniawan
+- Pattern Generation with Texture Synthesis and Machine Learning
+- 11414001 Sandy Ambarita  11414021 Eduardo Silalahi  11414030 Dian P Simanjuntak
+- Sitoluama,  2018                  Pembimbing I                                                            Pembimbing II 
+- Dinyatakan memenuhi syarat dan karenanya disetujui dan disahkan sebagai
+- Indri Dwiwanty Purba
+- 21S18051
+- DETECTING MALICIOUS JAVASCRIPT USING   TREE BASED CONVOLUTIONAL NEURAL NETWORK
+- ERNIKE NELSI MANURUNG   12S17007
+- JOVAN PIOMA PAKPAHAN   12S17020
+- INGGRIT SYAFITRI PURBA   12S17021
+- Sistem Deteksi Sampah pada  Autonomous Trash Cleaning Robot
+- 14S17045
+- Disampaikan sebagai salah satu syarat untuk memperoleh gelar Sarjana
+- Oky Rahayu
+- 21S18040
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar Sarjana
+- Puji dan syukur kepada Tuhan atas rahrnat-Nya yang menyertai penulis sehingga dapat
+- menyelesaikan Tugas Akhir yang berjudul "Penggunaan BPEL dalam  On Demand
+- Application  untuk Memampukan Kustomisasi Proses Bisnis" dengan baik dan tepat waktu.
+- Penulis mengucapkan terimakasih kepada Bapak Tennov Simanjuntak, M.Sc, atas masukan,  bimbingan,  dan arahannya selama p
+- terimakasih kepada Koordinator Tugas Akhir 2011 serta semua pihak yang telah membantu
+- 14S15003
+- ANDRI BROARI SIMANJUNTAK
+- 11S18059  KRISTIANE PURBA
+- NIM 11108017  Masto S itorus
+- NIM 11108030  Gesner Tampubolon
+- NIM 1110803 8  Jonny Roy
+- Pembimbin
+- Johannes Harungguan, S.T., M.T.
+- (Studi Kasus: Data berdasarkan Stasiun Meteorologi F.L Tobing Tapanuli
+- 11S17008 Firman M Sihombing
+- 11S17027 Doni A H Panggabean
+- Infor
+- PREDIKSI TINGGI CURAH HUJAN DAN KECEPATAN ANGIN
+- Karlina Gultom
+- 21S18012
+- 2022
+- dikutip maupun dirujuk telah saya nyatakan dengan baik.
+- Nama     : Pangeran Aritonang
+- NIM      : 14S15053
+- EMBEDDING FROM LANGUAGE MODELS REPRESENTATIONS BASED  BIDIRECTIONAL LONG SHORT-TERM MEMORY MODEL FOR INDONESIAN
+- FIVIN SADESLA TAMBUNAN        12S17004  MIKA LESTARI VALENTINA MANURUNG   12S17026  NITA SOPHIA WINANDI SIRAIT        12
+- Tugas Akhir ini diajukan oleh:
+- dikutip maupun dirujuk telah Penulis nyatakan adalah benar
+- PEN/2021/14
+- Skripsi ini diajukan oleh:
+- Kelompok   : PEN/2021/14
+- 1.   Nama  : Herwanto Cristopel Simanullang
+- 11414008 Rikky Salo  11414012 Jordi Hasibuan
+- Dr. Arnaldo Marulitua Sinaga, S.T, M.InfoTech
+- ANALISIS PENGENDALIAN KUALITAS PRODUK TAHU DENGAN
+- (STUDI KASUS: INDUSTRI PENGOLAHAN TAHU DI DESA RAMBUNG
+- 21S17017
+- 2021
+- 11317007  Diana Novita Sitio
+- 11317009  Cindy Claudia Sitanggang
+- 11317047  Adelya Putri Sitanggang
+- STUDI LITERATUR PENGARUH TEKNIK PENGEPRESAN
+- PEN1920/09A  i
+- 0
+- 14S16005
+- FREDY MORDECHAI MARPAUNG
+- Judul  : Evaluasi Kinerja Rantai Pasok Berbasis Model  Supply Chain Operations
+- Reference  (SCOR) di Toba Pulp Lestari, Tbk
+- Nama  : Marselo Hamonangan Sitorus
+- NIM  : 21S15053
+- PT TPL memiliki aktivitas rantai pasok yang kompleks karena memiliki volume produksi dan  volume penjualan yang besar de
+- PERANCANGAN  PLATFORM  KDTM (KURSUS DARING TERBUKA
+- DAN MASIF) MATERI BERPIKIR KOMPUTASIONAL DALAM
+- PEMECAHAN MASALAH BAGI PARA CALON PELATIH
+- MENDETEKSI OBJEK DAN KERUSAKAN DAUN DENGAN METODE
+- 14S17050
+- Tugas Akhir ini adalah hasil karya saya sendiri, dan semua sumber baik yang dikutip
+- PERNYATAAN ORISINALITAS
+- Nama : Elisa Harianja
+- NIM  : 21S19004
+- Singkatan merupakan hasil proses pemendekan yang berupa huruf atau gabungan  huruf yang terdiri dari pemendekan yang die
+- Abbreviation represents the result of shortening either character or combination of  character consisting of spelled cha
+- Keywords:  text normalization ,  corpus ,  word n-gram ,  character n-gram
+- CLASSIFICATION MODEL OF FAKE NEWS USING BIDIRECTIONAL
+- LSTM AND WORD2VEC AS VECTORIZATION
+- YENI CHINTYA PANJAITAN    12S17040
+- JUANDA ANTONIUS PAKPAHAN    12S17058
+- MELANI BASARIA PAKPAHAN     12S17064
+- 11418001  ICCA RIRIS SIALLAGAN
+- 11418007  VALENTINE TRIHANDAYANI
+- 11418010  GRACE D. SITANGGANG
+- Pengembangan  Learning Management System  (LMS) Menggunakan Metode  Prototyping  dan  Evaluasi Aspek  Usability  (studi 
+- Marianna Galingging
+- 21S15020
+- 14S17027
+- SAMUEL HEBERTO HERISON
+- 11420053    RINI MEYCIA PANJAITAN
+- 11420072    FIRMAN MOEDARDO PANJAITAN
+- ABSTRAK    Nama     : Elsa Klariza Silalahi, Putra Jaya Manurung, Renova
+- Gultom
+- Berbasis Web Semantik
+- Name     : Elsa Klariza Silalahi, Putra Jaya Manurung, Renova
+- 14S17053
+- Tugas akhir ini diajukan oleh   :
+- Nama       : Boas Pirdo Samosir
+- Nama  : Naek Benhoven Butarbutar, Samuel Prastio Napitupulu, Putri Siagian
+- Judul  : SMART ELECTRIC PANEL
+- Penelitian ini bertujuan untuk membangun perancangan dan implementasi Smart Electric  Panel yang dirancang untuk meningk
+- Kata Kunci : Smart Electric Panel, Internet of Things (IoT), Raspberry Pi3, Touchscreen,
+- on/off, Mikrokontroller Wemos D1, web aplikasi, Thinger.Io, smartphone
+- The Lake Toba region has been recognized for its beauty by the people of Indonesia and has
+- been designated a National Tourism Strategic Area. Lake Toba is also declared as the National
+- Geopark Area of the Republic of Indonesia. To support this, the government introduced the
+- concept of Lake Toba  Nomadic tourism  which was built in the Caldera Geopark area. One of
+- the  nomadic tourism  destinations is The Caldera  Nomadic tourism  Resort.
+- Tugas Akhir ini adalah hasil karya peneliti sendiri, dan semua sumber baik
+- yang dikutip maupun yang dirujuk telah peneliti nyatakan dengan benar.
+- Nama     : Amanda Fujiyanti
+- Nama          : Paulus B. Siahaan
+- Tugas Akhir Sarjana
+- Adalah benar dibuat oleh saya sendiri dan belum pernah dibuat dan diserahkan  sebelumnya baik sebagian atau pun seluruhn
+- Penulis
+- Sara Sihombing  NIM 14S14005
+- Elserida Quinta Nababan
+- 21S16021
+- Yang bertanda tangan di bawah ini saya.
+- 14S14022
+- Adalah benar dibuat oleh saya sendiri dan belum pernah dibuat dan diserahkan
+- sebelumnya baik sebagian atau pun seluruhnya, baik oleh saya mau pun orang
+- Samuel Hasudungan Tampubolon
+- 21S14012
+- STUDI PEMANFAATAN BAHAN ALAM SEBAGAI FLOKULAN DALAM
+- PROSES PEMANENAN  Chlorella vulgaris
+- (Kajian Pustaka)
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar sarjana
+- Tugas Akhir ini adalah hasil karya saya sendiri, dan semua sumber baik
+- Nama  : Michael Yerikho Henokh Siahaan
+- 2
+- Nama : Irvandi Amir Hamzah Sihombing
+- KAJIAN LITERATUR MENGENAI POTENSI PENGGUNAAN  METODE FERMENTASI UNTUK MENINGKATKAN AKTIVITAS
+- ANTIOKSIDAN DAN ANTIBAKTERI DARI KULIT BUAH
+- TUGAS AKHIR             Kelompok PEN/1920/04A  Nehemia Roito Hutajulu    31S16022   Hanna Gretty Manik      31S16028
+- 9
+- 2.1.   Landasan Teori
+- 2.1.1.   Pemasaran
+- Marketing  atau pemasaran merupakan suatu kegiatan yang wajib dilakukan oleh
+- setiap unit bisnis atau perusahaan untuk mempertahankan kelangsungan usahanya terutama
+- STUDI KINETIKA PERTUMBUHAN PADA MIKROALGA HIJAU-
+- PEN/1719/01A                                                    i
+- TA 2017/2018
+- Kelompok PEN/1718/01A
+- Lianty Simangunsong   (31S14001)   Brian A. Sinaga    (31S14022)
+- Collaborative Filtering  menggunakan  Matrix Factorization   Approach
+- Auro Daniel Ersa Silalahi
+- 11S18051
+- RAFELLI SIMANGUNSONG
+- 11S19003
+- Febriani Gultom
+- 21S14004
+- Frengklyn Novrado Marpaung
+- 21S16 042
+- Teknologi Industri
+- Samuel Christian Hamonangan Silitonga
+- 21S16020
+- 21S14014
+- PEN/1920/03B  i
+- Kelompok : PEN/1920/03B
+- 1. Nama      : Romauli N. Pangaribuan
+- Immanuel Tampubolon
+- 21S16043
+
+============================================================
+Sample UNKNOWN
+============================================================
+(none)
+
+============================================================
+Potential TITLE False Positive
+============================================================
+- TUGAS AKHIR
+- Tugas Akhir
+- DOKUMEN TUGAS AKHIR
+- SKRIPSI
+- Diajukan sebagai salah satu syarat untuk memperoleh gelar
+- Oleh:
+- BOBOT LARVA BSF DAN METODE EKSTRAKSI  TERHADAP PEROLEHAN MINYAK LARVA BSF SEBAGAI
+
+============================================================
+Potential AUTHOR False Positive
+============================================================
+- LOGIC CONTROLLER (PLC)
+- DOKUMEN TUGAS AKHIR
+- LAGUBOTI
+
+============================================================
+Potential DATE False Positive
+============================================================
+- 1.  Nama  : Silvany Angelia Lumban Gaol     NIM  : 12S17029    Program Studi  : Sistem Informasi  2.  Nama  : Paddy Tamm
+- 1.  Nama  : Silvany Angelia Lumban Gaol     NIM  : 12S17029    Program Studi  : Sistem Informasi    Fakultas  : Informat
+- Narayan, A. & Saxena, P., n.d. The Curse of 140 Characters: Evaluating the Efficacy of  SMS Spam Detection on Android. p
+- PROGRAM STUDI DIII TEKNOLOGI INFORMASI                  LAGUBOTI                     JULI 2020
+- PROGRAM STUDI DIII TEKNOLOGI INFORMASI                                            LAGUBOTI                   JULI 2020
+- Mariani Putri Sinaga dilahirkan di Pematang Siantar,  Sumatera Utara pada tanggal 9 Juli 1999 dari pasangan  Bapak Jusde
+- Dengan Hormat,  Dengan segala kerendahan hati, saya :  Nama   : Monalisa Sibarani  NIM    : 21S15030  Fakultas   : Tekno
+- tanggal 12 Juni 2019, penulis dinyatakan LULUS melalui sidang tertutup Program Studi
+- pada 5 Juli 2013 dengan 3 Fakultas dan 8 Program Studi, namun saat ini sudah
+- Indri Dwiwanty Purba lahir di  Doloksanggul, Sumatera Utara pada  tanggal 06 November 2000 sebagai  anak kedua dari empa
+- Elserida Quinta Nababan dilahirkan di Medan pada tanggal 14  Juli 1999 sebagai anak pertama dari empat orang bersaudara 

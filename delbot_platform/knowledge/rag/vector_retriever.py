@@ -42,11 +42,9 @@ class VectorRetriever:
 
             payload = item.payload or {}
 
-            text = (
-                payload.get("text")
-                or payload.get("content")
-                or payload.get("chunk_text")
-                or ""
+            text = payload.get(
+                "text",
+                "",
             )
 
             document = Document.from_dict(

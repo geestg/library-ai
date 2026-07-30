@@ -1,41 +1,51 @@
-from fastapi import APIRouter, UploadFile
 from pathlib import Path
 import shutil
 
+from fastapi import APIRouter, UploadFile
 
-from delbot_platform.document.pipeline import DocumentPipeline
-
-
-router=APIRouter(
-    prefix="/documents",
-    tags=["documents"]
+from delbot_platform.documents.services import (
+    DocumentIndexService,
 )
 
 
-pipeline=DocumentPipeline()
+router = APIRouter(
+    prefix="/documents",
+    tags=["documents"],
+)
+
+
+service = DocumentIndexService()
 
 
 @router.post("/upload")
 async def upload(
-    file:UploadFile
+    file: UploadFile,
 ):
 
-    target=Path(
-        "repository/raw"
-    ) / file.filename
+    target = (
+        Path("repository/raw")
+        / file.filename
+    )
 
+    target.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
     with target.open("wb") as buffer:
 
         shutil.copyfileobj(
             file.file,
-            buffer
+            buffer,
         )
 
-
-    result=pipeline.process(
-        str(target)
+    artifact, summary = (
+        await service.index(
+            str(target),
+        )
     )
 
-
-    return result
+    return {
+        "success": summary.success,
+        "summary": summary,
+    }

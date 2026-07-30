@@ -1,0 +1,116 @@
+
+==================================================
+Repository
+==================================================
+Root : /workspace/delbot
+Date : Thu Jul 30 08:09:21 UTC 2026
+Git  : f09af09
+
+==================================================
+backup_step40
+==================================================
+
+==================================================
+backup_step45
+==================================================
+
+==================================================
+backup_step50
+==================================================
+
+==================================================
+backup_step51
+==================================================
+
+==================================================
+migration_step33
+==================================================
+
+==================================================
+services.before_delete
+==================================================
+
+==================================================
+Searching Runtime Imports
+==================================================
+
+==================================================
+Searching import runtime
+==================================================
+
+==================================================
+Searching from runtime
+==================================================
+
+==================================================
+Compile Validation
+==================================================
+Compile OK
+
+==================================================
+Git Status
+==================================================
+ M delbot_platform/api/main.py
+ M delbot_platform/api/routes/document.py
+ D delbot_platform/document/__init__.py
+ D delbot_platform/document/chunking/chunker.py
+ D delbot_platform/document/embedding/client.py
+ D delbot_platform/document/index/__init__.py
+ D delbot_platform/document/index/source_index.py
+ D delbot_platform/document/ingestion/__init__.py
+ D delbot_platform/document/ingestion/qdrant_ingest.py
+ D delbot_platform/document/knowledge.py
+ D delbot_platform/document/metadata/__init__.py
+ D delbot_platform/document/metadata/metadata_loader.py
+ D delbot_platform/document/metadata/metadata_registry.py
+ D delbot_platform/document/metadata/pdf_metadata.py
+ D delbot_platform/document/parser/pdf_parser.py
+ D delbot_platform/document/pipeline/__init__.py
+ D delbot_platform/document/pipeline/chunker.py
+ D delbot_platform/document/pipeline/document_pipeline.py
+ D delbot_platform/document/pipeline/ingest_pdf.py
+ D delbot_platform/document/pipeline/ocr_loader.py
+ D delbot_platform/document/pipeline/pdf_loader.py
+ D delbot_platform/document/retrieval/__init__.py
+ D delbot_platform/document/retrieval/hybrid_retriever.py
+ D delbot_platform/document/retrieval/metadata_retriever.py
+ D delbot_platform/document/storage/qdrant.py
+ M delbot_platform/documents/chunking/__init__.py
+ D delbot_platform/documents/chunking/chunk.py
+ M delbot_platform/documents/chunking/chunk_builder.py
+ M delbot_platform/documents/classification/heading.py
+ M delbot_platform/documents/embedding/base.py
+ M delbot_platform/documents/embedding/pipeline/pipeline.py
+ M delbot_platform/documents/embedding/providers/gateway.py
+ M delbot_platform/documents/embedding/providers/local.py
+ D delbot_platform/documents/ingestion/repository_ingestor.py.bak2
+ D delbot_platform/documents/ingestion/repository_ingestor.py.trace
+ D delbot_platform/documents/loader/local.py
+ M delbot_platform/documents/metadata/builder/chunk.py
+ M delbot_platform/documents/metadata/builder/document.py
+ M delbot_platform/documents/metadata/chunk_metadata.py
+ M delbot_platform/documents/pipeline/indexing.py
+ M delbot_platform/documents/pipeline/models/artifact.py
+ M delbot_platform/knowledge/citation/builder.py
+ M delbot_platform/knowledge/context/builder.py
+ M delbot_platform/knowledge/hydration/citation.py
+ M delbot_platform/knowledge/rag/vector_retriever.py
+ M delbot_platform/knowledge/reranking/result.py
+ M delbot_platform/knowledge/retrieval/qdrant.py
+ M delbot_platform/knowledge/vector/repository/qdrant.py
+ M delbot_platform/vectorstore/qdrant/repository.py
+ M tools/test_research_engine.py
+ M tools/test_retrieval.py
+ M tools/test_vector_schema.py
+?? delbot_platform/documents/embedding/mapper/
+?? delbot_platform/documents/embedding/models/
+?? delbot_platform/documents/metadata/mapper/
+?? delbot_platform/documents/metadata/metadata_extractor.py
+?? delbot_platform/documents/metadata/repository.py
+?? delbot_platform/documents/models/document_chunk.py
+?? reports/
+?? tools/audit_heading_classifier.py
+
+==================================================
+Finished
+==================================================

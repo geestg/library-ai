@@ -44,7 +44,9 @@ class QdrantRepository:
         if not vectors:
             return 0
 
-        document_id = vectors[0].metadata.get(
+        first_payload = vectors[0].metadata
+
+        document_id = first_payload.get(
             "document_id",
         )
 
@@ -57,6 +59,8 @@ class QdrantRepository:
 
         for vector in vectors:
 
+            payload = vector.metadata
+
             point_id = str(
                 uuid5(
                     NAMESPACE_DNS,
@@ -68,7 +72,7 @@ class QdrantRepository:
                 PointStruct(
                     id=point_id,
                     vector=vector.vector,
-                    payload=vector.metadata,
+                    payload=payload,
                 )
             )
 

@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
 )
 
 
-from delbot_platform.documents.embedding.vector import (
-    VectorRecord,
+from delbot_platform.documents.embedding.models import (
+    EmbeddingVector,
 )
 
 
@@ -35,7 +35,7 @@ class EmbeddingPipeline:
     async def run(
         self,
         chunks: list[DocumentChunk],
-    ) -> list[VectorRecord]:
+    ) -> list[EmbeddingVector]:
 
         return await self.provider.embed(
             chunks,

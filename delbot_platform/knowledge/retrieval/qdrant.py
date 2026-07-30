@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from delbot_platform.documents.chunking.chunk import (
+from delbot_platform.documents.models.document_chunk import (
     DocumentChunk,
 )
 from delbot_platform.documents.embedding.pipeline.pipeline import (
@@ -8,6 +8,9 @@ from delbot_platform.documents.embedding.pipeline.pipeline import (
 )
 from delbot_platform.documents.metadata.chunk_metadata import (
     ChunkMetadata,
+)
+from delbot_platform.documents.metadata.mapper.chunk_metadata_mapper import (
+    ChunkMetadataMapper,
 )
 from delbot_platform.knowledge.retrieval.base import (
     Retriever,
@@ -41,15 +44,17 @@ class QdrantRetriever(
     ) -> list[RetrievalResult]:
 
         query_chunk = DocumentChunk(
-            id="query",
             document_id="query",
-            text=query,
+            chunk_id="query",
             page_start=0,
             page_end=0,
+            section_title="query",
+            text=query,
             metadata=ChunkMetadata(
                 document_id="query",
+                chunk_id="query",
                 source="query",
-                section="query",
+                section_title="query",
                 level=0,
                 page_start=0,
                 page_end=0,
@@ -73,28 +78,11 @@ class QdrantRetriever(
 
             payload = item.metadata
 
-            metadata = ChunkMetadata(
-                document_id=payload.get(
-                    "document_id",
-                    "",
-                ),
-                source=payload.get(
-                    "source",
-                    "",
-                ),
-                section=payload.get(
-                    "section",
-                    "",
-                ),
-                level=0,
-                page_start=payload.get(
-                    "page_start",
-                    0,
-                ),
-                page_end=payload.get(
-                    "page_end",
-                    0,
-                ),
+            metadata = (
+                ChunkMetadataMapper.from_payload(
+                    payload,
+                    default_chunk_id=str(item.id),
+                )
             )
 
             retrieved.append(

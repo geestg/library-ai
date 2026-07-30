@@ -25,7 +25,7 @@ class CitationBuilder:
                 CitationSource(
                     document_id=metadata.document_id,
                     source=metadata.source,
-                    section=metadata.section,
+                    section=metadata.section_title,
                     page_start=metadata.page_start,
                     page_end=metadata.page_end,
                 )

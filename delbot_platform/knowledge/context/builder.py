@@ -26,7 +26,7 @@ class ContextBuilder:
                     [
                         f"[SOURCE {index}]",
                         f"Document: {metadata.source}",
-                        f"Section: {metadata.section}",
+                        f"Section: {metadata.section_title}",
                         f"Pages: {metadata.page_start}-{metadata.page_end}",
                         "",
                         item.content,

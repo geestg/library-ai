@@ -63,12 +63,14 @@ class QdrantRepository(
 
         for item in results:
 
+            payload = item.payload or {}
+
             records.append(
                 VectorRecord(
                     id=str(item.id),
                     score=float(item.score),
                     vector=None,
-                    metadata=item.payload or {},
+                    metadata=payload,
                 )
             )
 
