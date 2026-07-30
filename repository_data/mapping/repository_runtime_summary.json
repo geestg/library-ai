@@ -1,0 +1,8 @@
+{
+  "total_items": 1298,
+  "pdf_available": 136,
+  "pdf_missing": 1162,
+  "status_distribution": {
+    "RepositoryStatus.METADATA_ONLY": 1298
+  }
+}

@@ -1,0 +1,31 @@
+========================================================================
+DELBOT RESEARCH RESULT RUNTIME
+========================================================================
+File Exists            : True
+ResearchResult Class   : True
+Dataclass              : True
+Total Fields           : 16
+Required Fields        : 16
+Matched Fields         : 16
+------------------------------------------------------------------------
+answer                  : True
+sources                 : True
+authors                 : True
+author_ids              : True
+author_names            : True
+collections             : True
+collection_ids          : True
+repositories            : True
+repository_ids          : True
+knowledge_sources       : True
+knowledge_source_ids    : True
+knowledge_domains       : True
+knowledge_domain_ids    : True
+entities                : True
+entity_ids              : True
+research_state          : True
+------------------------------------------------------------------------
+Functions              : 2
+Success                : True
+Exception              : None
+========================================================================

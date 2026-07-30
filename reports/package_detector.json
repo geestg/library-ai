@@ -1,0 +1,1616 @@
+[
+    {
+        "package": "__init__",
+        "modules": 19,
+        "canonical": 19,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "ai",
+            "api",
+            "application",
+            "boot",
+            "config",
+            "controller",
+            "core",
+            "document_intelligence",
+            "documents",
+            "gateway",
+            "knowledge",
+            "launcher",
+            "orchestrator",
+            "other",
+            "repository",
+            "research",
+            "vectors",
+            "vectorstore",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "__main__",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "api",
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "ai_runtime",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "analyzer",
+        "modules": 5,
+        "canonical": 5,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "app",
+        "modules": 2,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 2,
+        "layers": [
+            "api",
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "backend",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "base",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "boot_result",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "boot"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "boot_state",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "boot"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "builder",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "builders",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "catalog",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "builder",
+            "loader",
+            "model",
+            "module"
+        ]
+    },
+    {
+        "package": "chunking",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "circular",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "citation",
+        "modules": 3,
+        "canonical": 2,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "classification",
+        "modules": 8,
+        "canonical": 7,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "client",
+        "modules": 5,
+        "canonical": 2,
+        "merge": 1,
+        "review": 1,
+        "legacy": 1,
+        "layers": [
+            "ai",
+            "gateway"
+        ],
+        "components": [
+            "module",
+            "reranker"
+        ]
+    },
+    {
+        "package": "config_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "context",
+        "modules": 3,
+        "canonical": 3,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "debug",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "dependency",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "discovery",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "module",
+            "service"
+        ]
+    },
+    {
+        "package": "doctor",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "documents",
+        "modules": 3,
+        "canonical": 3,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "application"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "download",
+        "modules": 4,
+        "canonical": 3,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ]
+    },
+    {
+        "package": "embedding",
+        "modules": 21,
+        "canonical": 17,
+        "merge": 2,
+        "review": 2,
+        "legacy": 0,
+        "layers": [
+            "ai",
+            "documents"
+        ],
+        "components": [
+            "builder",
+            "mapper",
+            "module",
+            "pipeline",
+            "service"
+        ]
+    },
+    {
+        "package": "environment",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "exceptions",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "extraction",
+        "modules": 7,
+        "canonical": 6,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module",
+            "service"
+        ]
+    },
+    {
+        "package": "factory",
+        "modules": 7,
+        "canonical": 7,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "application",
+            "document_intelligence",
+            "launcher",
+            "workflows"
+        ],
+        "components": [
+            "factory",
+            "module"
+        ]
+    },
+    {
+        "package": "filter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "gateway_launcher",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "generator",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "graph",
+        "modules": 8,
+        "canonical": 6,
+        "merge": 0,
+        "review": 2,
+        "legacy": 0,
+        "layers": [
+            "knowledge",
+            "other"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "graph_filter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "health",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "http",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "hydration",
+        "modules": 4,
+        "canonical": 2,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "infinity",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "ingestion",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "documents",
+            "repository"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ]
+    },
+    {
+        "package": "inspect_pymupdf_span",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "integration",
+        "modules": 2,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ]
+    },
+    {
+        "package": "inventory",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "layer",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "lifecycle",
+        "modules": 10,
+        "canonical": 10,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module",
+            "service"
+        ]
+    },
+    {
+        "package": "llm",
+        "modules": 2,
+        "canonical": 0,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "loader",
+        "modules": 9,
+        "canonical": 4,
+        "merge": 2,
+        "review": 1,
+        "legacy": 2,
+        "layers": [
+            "config",
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ]
+    },
+    {
+        "package": "logger",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "main",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "api"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "manager",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "config"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "manifest",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "mapper",
+        "modules": 5,
+        "canonical": 3,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence",
+            "gateway"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ]
+    },
+    {
+        "package": "mappermupdf_mapper",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "mapper"
+        ]
+    },
+    {
+        "package": "memory",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "metadata",
+        "modules": 9,
+        "canonical": 7,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ]
+    },
+    {
+        "package": "metrics",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "models",
+        "modules": 50,
+        "canonical": 37,
+        "merge": 6,
+        "review": 7,
+        "legacy": 0,
+        "layers": [
+            "config",
+            "document_intelligence",
+            "documents",
+            "knowledge",
+            "other",
+            "repository",
+            "research",
+            "vectors",
+            "workspace"
+        ],
+        "components": [
+            "model",
+            "module"
+        ]
+    },
+    {
+        "package": "openai",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "other",
+        "modules": 25,
+        "canonical": 25,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module",
+            "pipeline",
+            "retriever"
+        ]
+    },
+    {
+        "package": "paddleocr",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "parser",
+        "modules": 9,
+        "canonical": 6,
+        "merge": 0,
+        "review": 1,
+        "legacy": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module",
+            "parser"
+        ]
+    },
+    {
+        "package": "path_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "pipeline",
+        "modules": 21,
+        "canonical": 18,
+        "merge": 0,
+        "review": 1,
+        "legacy": 2,
+        "layers": [
+            "document_intelligence",
+            "documents",
+            "knowledge",
+            "other",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module",
+            "parser",
+            "pipeline"
+        ]
+    },
+    {
+        "package": "process",
+        "modules": 5,
+        "canonical": 5,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module",
+            "registry"
+        ]
+    },
+    {
+        "package": "processor",
+        "modules": 2,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "prompt_builder",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "builder"
+        ]
+    },
+    {
+        "package": "providers",
+        "modules": 9,
+        "canonical": 6,
+        "merge": 1,
+        "review": 0,
+        "legacy": 2,
+        "layers": [
+            "gateway",
+            "repository"
+        ],
+        "components": [
+            "factory",
+            "module"
+        ]
+    },
+    {
+        "package": "qdrant",
+        "modules": 4,
+        "canonical": 2,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "vectorstore"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "rag",
+        "modules": 15,
+        "canonical": 9,
+        "merge": 1,
+        "review": 3,
+        "legacy": 2,
+        "layers": [
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module",
+            "pipeline",
+            "retriever"
+        ]
+    },
+    {
+        "package": "recovery",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "registry",
+        "modules": 16,
+        "canonical": 11,
+        "merge": 1,
+        "review": 1,
+        "legacy": 3,
+        "layers": [
+            "ai",
+            "documents"
+        ],
+        "components": [
+            "factory",
+            "loader",
+            "model",
+            "module",
+            "registry"
+        ]
+    },
+    {
+        "package": "repository",
+        "modules": 7,
+        "canonical": 5,
+        "merge": 0,
+        "review": 1,
+        "legacy": 1,
+        "layers": [
+            "application",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "request",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "rerank",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "reranker"
+        ]
+    },
+    {
+        "package": "reranking",
+        "modules": 5,
+        "canonical": 2,
+        "merge": 2,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "research",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 1,
+        "layers": [
+            "api",
+            "application"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "research_api_launcher",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "research_engine",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "resolver",
+        "modules": 6,
+        "canonical": 6,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other",
+            "repository"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "response",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "retrieval",
+        "modules": 6,
+        "canonical": 5,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module",
+            "retriever"
+        ]
+    },
+    {
+        "package": "router",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "routers",
+        "modules": 15,
+        "canonical": 4,
+        "merge": 3,
+        "review": 5,
+        "legacy": 3,
+        "layers": [
+            "api",
+            "gateway"
+        ],
+        "components": [
+            "model",
+            "module",
+            "reranker"
+        ]
+    },
+    {
+        "package": "routes",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 0,
+        "review": 2,
+        "legacy": 0,
+        "layers": [
+            "api"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "runtime_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "core"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "scanner",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "schemas",
+        "modules": 4,
+        "canonical": 1,
+        "merge": 1,
+        "review": 2,
+        "legacy": 0,
+        "layers": [
+            "api"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "service",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "repository"
+        ],
+        "components": [
+            "service"
+        ]
+    },
+    {
+        "package": "service_boot",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "boot"
+        ],
+        "components": [
+            "service"
+        ]
+    },
+    {
+        "package": "service_controller",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "controller"
+        ],
+        "components": [
+            "service"
+        ]
+    },
+    {
+        "package": "service_health",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "boot"
+        ],
+        "components": [
+            "service"
+        ]
+    },
+    {
+        "package": "service_waiter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "boot"
+        ],
+        "components": [
+            "service"
+        ]
+    },
+    {
+        "package": "services",
+        "modules": 15,
+        "canonical": 9,
+        "merge": 2,
+        "review": 1,
+        "legacy": 3,
+        "layers": [
+            "documents",
+            "gateway",
+            "knowledge",
+            "orchestrator",
+            "research"
+        ],
+        "components": [
+            "module",
+            "reranker"
+        ]
+    },
+    {
+        "package": "session_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "workspace"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "shutdown",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "spec",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "stage_4_24",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "startup",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "state",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "status",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "storage",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "workspace"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "structure",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ]
+    },
+    {
+        "package": "tests",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module",
+            "pipeline"
+        ]
+    },
+    {
+        "package": "validator",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "config"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "vector",
+        "modules": 8,
+        "canonical": 7,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "vector_store",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "vllm",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    },
+    {
+        "package": "whisper",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "layers": [
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ]
+    }
+]

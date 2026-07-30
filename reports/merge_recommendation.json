@@ -1,0 +1,877 @@
+[
+    {
+        "canonical_name": "chunk_metadata",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "dependency_score": 22,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.documents.metadata.chunk_metadata",
+            "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper"
+        ]
+    },
+    {
+        "canonical_name": "indexing",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 10,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.documents.pipeline.indexing",
+            "delbot_platform.documents.services.indexing"
+        ]
+    },
+    {
+        "canonical_name": "paragraph",
+        "count": 2,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.document_intelligence.builder.paragraph_builder",
+            "delbot_platform.document_intelligence.models.paragraph"
+        ]
+    },
+    {
+        "canonical_name": "process",
+        "count": 2,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module",
+            "registry"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.ai.process.process_manager",
+            "delbot_platform.ai.process.process_registry"
+        ]
+    },
+    {
+        "canonical_name": "qdrant",
+        "count": 2,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.knowledge.retrieval.qdrant",
+            "delbot_platform.knowledge.vector.repository.qdrant"
+        ]
+    },
+    {
+        "canonical_name": "chunk",
+        "count": 3,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 6,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.documents.chunking.chunk_builder",
+            "delbot_platform.documents.metadata.builder.chunk",
+            "delbot_platform.documents.models.chunk"
+        ]
+    },
+    {
+        "canonical_name": "semantic_chunk",
+        "count": 2,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 6,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.document_intelligence.builder.semantic_chunk_builder",
+            "delbot_platform.document_intelligence.models.semantic_chunk"
+        ]
+    },
+    {
+        "canonical_name": "research_result",
+        "count": 2,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 4,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.research.builders.research_result_builder",
+            "delbot_platform.research.models.research_result"
+        ]
+    },
+    {
+        "canonical_name": "test_rag",
+        "count": 3,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module",
+            "pipeline"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "tools.test_rag",
+            "tools.test_rag_engine",
+            "tools.test_rag_pipeline"
+        ]
+    },
+    {
+        "canonical_name": "vector",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 1,
+        "recommendation": "KEEP",
+        "reason": "Same architectural layer",
+        "modules": [
+            "delbot_platform.documents.embedding.mapper.vector_mapper",
+            "delbot_platform.documents.embedding.vector"
+        ]
+    },
+    {
+        "canonical_name": "manager",
+        "count": 2,
+        "layers": [
+            "config",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 6,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.config.manager",
+            "delbot_platform.documents.registry.manager"
+        ]
+    },
+    {
+        "canonical_name": "loader",
+        "count": 3,
+        "layers": [
+            "ai",
+            "config",
+            "repository"
+        ],
+        "components": [
+            "loader"
+        ],
+        "dependency_score": 4,
+        "ownership_score": 3,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.ai.registry.loader",
+            "delbot_platform.config.loader",
+            "delbot_platform.repository.catalog.loader"
+        ]
+    },
+    {
+        "canonical_name": "health",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 2,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.gateway.routers.health",
+            "delbot_platform.orchestrator.health"
+        ]
+    },
+    {
+        "canonical_name": "infinity",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 2,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.gateway.providers.infinity",
+            "delbot_platform.launcher.infinity"
+        ]
+    },
+    {
+        "canonical_name": "memory",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 2,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.documents.registry.memory",
+            "delbot_platform.knowledge.vector.repository.memory"
+        ]
+    },
+    {
+        "canonical_name": "pdf",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ],
+        "dependency_score": 2,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.document_intelligence.loader.pdf_loader",
+            "delbot_platform.documents.parser.pdf"
+        ]
+    },
+    {
+        "canonical_name": "vllm",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 2,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.gateway.providers.vllm",
+            "delbot_platform.launcher.vllm"
+        ]
+    },
+    {
+        "canonical_name": "answer",
+        "count": 2,
+        "layers": [
+            "application",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.application.research.answer",
+            "delbot_platform.research.services.answer"
+        ]
+    },
+    {
+        "canonical_name": "app",
+        "count": 2,
+        "layers": [
+            "api",
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.api.app",
+            "delbot_platform.gateway.app"
+        ]
+    },
+    {
+        "canonical_name": "artifact",
+        "count": 3,
+        "layers": [
+            "documents",
+            "knowledge",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 3,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.documents.pipeline.models.artifact",
+            "delbot_platform.knowledge.pipeline.models.artifact",
+            "delbot_platform.workflows.repository.models.artifact"
+        ]
+    },
+    {
+        "canonical_name": "context",
+        "count": 2,
+        "layers": [
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.knowledge.rag.context_builder",
+            "delbot_platform.research.rag.context"
+        ]
+    },
+    {
+        "canonical_name": "http",
+        "count": 2,
+        "layers": [
+            "ai",
+            "repository"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.ai.http.http_client",
+            "delbot_platform.repository.discovery.http"
+        ]
+    },
+    {
+        "canonical_name": "pymupdf",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.document_intelligence.mappermupdf_mapper",
+            "delbot_platform.documents.parser.backendmupdf"
+        ]
+    },
+    {
+        "canonical_name": "reranker",
+        "count": 4,
+        "layers": [
+            "ai",
+            "gateway",
+            "knowledge",
+            "orchestrator"
+        ],
+        "components": [
+            "reranker"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 4,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.ai.client.reranker_client",
+            "delbot_platform.gateway.routers.reranker",
+            "delbot_platform.knowledge.rerank.reranker",
+            "delbot_platform.orchestrator.services.reranker"
+        ]
+    },
+    {
+        "canonical_name": "vision",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 0,
+        "ownership_score": 2,
+        "recommendation": "LEGACY",
+        "reason": "Low dependency duplicate",
+        "modules": [
+            "delbot_platform.gateway.routers.vision",
+            "delbot_platform.orchestrator.services.vision"
+        ]
+    },
+    {
+        "canonical_name": "repository",
+        "count": 6,
+        "layers": [
+            "api",
+            "documents",
+            "knowledge",
+            "vectorstore"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 18,
+        "ownership_score": 4,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.api.routers.repository",
+            "delbot_platform.api.schemas.repository",
+            "delbot_platform.documents.metadata.repository",
+            "delbot_platform.documents.registry.repository",
+            "delbot_platform.knowledge.models.repository",
+            "delbot_platform.vectorstore.qdrant.repository"
+        ]
+    },
+    {
+        "canonical_name": "source",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 16,
+        "ownership_score": 2,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.documents.loader.source",
+            "delbot_platform.knowledge.citation.source"
+        ]
+    },
+    {
+        "canonical_name": "page",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 14,
+        "ownership_score": 2,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.document_intelligence.models.page",
+            "delbot_platform.documents.models.page"
+        ]
+    },
+    {
+        "canonical_name": "gateway",
+        "count": 5,
+        "layers": [
+            "documents",
+            "gateway",
+            "knowledge",
+            "orchestrator",
+            "other"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 12,
+        "ownership_score": 5,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            ".backup.stage_4_24.gateway",
+            "delbot_platform.documents.embedding.providers.gateway",
+            "delbot_platform.gateway.services.gateway",
+            "delbot_platform.knowledge.reranking.gateway",
+            "delbot_platform.orchestrator.services.gateway"
+        ]
+    },
+    {
+        "canonical_name": "heading",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 12,
+        "ownership_score": 2,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.document_intelligence.models.heading",
+            "delbot_platform.documents.classification.heading"
+        ]
+    },
+    {
+        "canonical_name": "chat",
+        "count": 5,
+        "layers": [
+            "gateway",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 2,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.gateway.mapper.chat",
+            "delbot_platform.gateway.openai.chat",
+            "delbot_platform.gateway.routers.chat",
+            "delbot_platform.gateway.routers.v1.chat",
+            "delbot_platform.research.llm.chat_client"
+        ]
+    },
+    {
+        "canonical_name": "citation",
+        "count": 4,
+        "layers": [
+            "documents",
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 3,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.documents.models.citation",
+            "delbot_platform.knowledge.hydration.citation",
+            "delbot_platform.knowledge.rag.citation_builder",
+            "delbot_platform.research.models.citation"
+        ]
+    },
+    {
+        "canonical_name": "client",
+        "count": 3,
+        "layers": [
+            "gateway",
+            "research",
+            "vectorstore"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 3,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.gateway.client",
+            "delbot_platform.research.llm.client",
+            "delbot_platform.vectorstore.qdrant.client"
+        ]
+    },
+    {
+        "canonical_name": "local",
+        "count": 5,
+        "layers": [
+            "documents",
+            "gateway",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 8,
+        "ownership_score": 3,
+        "recommendation": "MERGE",
+        "reason": "Moderate dependency",
+        "modules": [
+            "delbot_platform.documents.embedding.providers.local",
+            "delbot_platform.documents.loader.sources.local",
+            "delbot_platform.gateway.providers.local",
+            "delbot_platform.knowledge.hydration.local",
+            "delbot_platform.knowledge.reranking.local"
+        ]
+    },
+    {
+        "canonical_name": "document",
+        "count": 13,
+        "layers": [
+            "api",
+            "document_intelligence",
+            "documents",
+            "knowledge",
+            "repository"
+        ],
+        "components": [
+            "builder",
+            "loader",
+            "module",
+            "parser",
+            "pipeline"
+        ],
+        "dependency_score": 60,
+        "ownership_score": 5,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.api.routers.document",
+            "delbot_platform.api.routes.document",
+            "delbot_platform.api.schemas.document",
+            "delbot_platform.document_intelligence.builder.document_builder",
+            "delbot_platform.document_intelligence.loader.document_loader",
+            "delbot_platform.document_intelligence.parser.document_parser",
+            "delbot_platform.document_intelligence.pipeline.document_pipeline",
+            "delbot_platform.document_intelligence.processor.document_processor",
+            "delbot_platform.documents.metadata.builder.document",
+            "delbot_platform.documents.models.document",
+            "delbot_platform.documents.registry.document",
+            "delbot_platform.knowledge.models.document",
+            "delbot_platform.repository.integration.document_loader"
+        ]
+    },
+    {
+        "canonical_name": "block",
+        "count": 3,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 28,
+        "ownership_score": 2,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.document_intelligence.models.block",
+            "delbot_platform.documents.extraction.block",
+            "delbot_platform.documents.models.block"
+        ]
+    },
+    {
+        "canonical_name": "embedding",
+        "count": 9,
+        "layers": [
+            "ai",
+            "gateway",
+            "orchestrator",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module",
+            "service"
+        ],
+        "dependency_score": 26,
+        "ownership_score": 4,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.ai.client.embedding_client",
+            "delbot_platform.ai.embedding.embedding_builder",
+            "delbot_platform.ai.embedding.embedding_service",
+            "delbot_platform.gateway.mapper.embedding",
+            "delbot_platform.gateway.openai.embedding",
+            "delbot_platform.gateway.routers.embedding",
+            "delbot_platform.gateway.routers.v1.embedding",
+            "delbot_platform.orchestrator.services.embedding",
+            "delbot_platform.research.models.embedding"
+        ]
+    },
+    {
+        "canonical_name": "result",
+        "count": 4,
+        "layers": [
+            "knowledge",
+            "repository",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 24,
+        "ownership_score": 3,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.knowledge.reranking.result",
+            "delbot_platform.knowledge.retrieval.result",
+            "delbot_platform.repository.download.result",
+            "delbot_platform.workflows.repository.models.result"
+        ]
+    },
+    {
+        "canonical_name": "document_chunk",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 20,
+        "ownership_score": 2,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.documents.models.document_chunk",
+            "delbot_platform.knowledge.models.document_chunk"
+        ]
+    },
+    {
+        "canonical_name": "graph",
+        "count": 2,
+        "layers": [
+            "knowledge",
+            "other"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "dependency_score": 20,
+        "ownership_score": 2,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.knowledge.graph.graph_builder",
+            "tools.architecture.graph"
+        ]
+    },
+    {
+        "canonical_name": "research",
+        "count": 6,
+        "layers": [
+            "api",
+            "gateway",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 20,
+        "ownership_score": 3,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.api.research",
+            "delbot_platform.api.routers.research",
+            "delbot_platform.api.routes.research",
+            "delbot_platform.api.schemas.research",
+            "delbot_platform.gateway.routers.research",
+            "delbot_platform.research.research_engine"
+        ]
+    },
+    {
+        "canonical_name": "response",
+        "count": 4,
+        "layers": [
+            "gateway",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "dependency_score": 20,
+        "ownership_score": 2,
+        "recommendation": "REVIEW",
+        "reason": "High dependency impact",
+        "modules": [
+            "delbot_platform.gateway.response",
+            "delbot_platform.knowledge.rag.llm.response",
+            "delbot_platform.knowledge.rag.models.response",
+            "delbot_platform.knowledge.rag.research.response"
+        ]
+    }
+]

@@ -1,0 +1,49 @@
+{
+  "module": "delbot_platform.repository.models.repository_item",
+  "qualname": "RepositoryItem",
+  "signature": "(id: 'str', title: 'str', repository_url: 'str', pdf_url: 'str | None' = None, local_path: 'str | None' = None, status: 'RepositoryStatus' = <RepositoryStatus.METADATA_ONLY: 'metadata_only'>, metadata: 'dict | None' = None) -> None",
+  "parameters": [
+    {
+      "name": "id",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": null,
+      "annotation": "str"
+    },
+    {
+      "name": "title",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": null,
+      "annotation": "str"
+    },
+    {
+      "name": "repository_url",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": null,
+      "annotation": "str"
+    },
+    {
+      "name": "pdf_url",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": "None",
+      "annotation": "str | None"
+    },
+    {
+      "name": "local_path",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": "None",
+      "annotation": "str | None"
+    },
+    {
+      "name": "status",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": "<RepositoryStatus.METADATA_ONLY: 'metadata_only'>",
+      "annotation": "RepositoryStatus"
+    },
+    {
+      "name": "metadata",
+      "kind": "POSITIONAL_OR_KEYWORD",
+      "default": "None",
+      "annotation": "dict | None"
+    }
+  ]
+}

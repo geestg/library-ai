@@ -1,4 +1,3 @@
-cat > .gitignore <<'EOF'
 # ==========================================
 # ENVIRONMENT VARIABLES
 # ==========================================
@@ -105,6 +104,7 @@ test-results/
 *.bak
 *.backup
 *.old
+*.before_*
 
 
 # ==========================================
@@ -143,8 +143,8 @@ platform/data/
 # ==========================================
 
 runtime/
+cache/
 
-# allow empty runtime structure only
 !runtime/
 !runtime/.gitkeep
 
@@ -167,24 +167,19 @@ documents_tree.txt
 repository_data/**/*.pdf
 repository_data/**/*.zip
 
-
-EOF
-# Runtime
-runtime/
-cache/
-
-# Vector database
-data/qdrant/
-
-# Local repository data
 repository/raw/
 
-# Temporary backups
-*.before_*
 
-# DELBot data
-delbot_platform/repository_data/
+# ==========================================
+# VECTOR DATABASE
+# ==========================================
+
+data/qdrant/
 tools/qdrant
-*.bin
-*.index
-*.sqlite
+
+
+# ==========================================
+# DELBOT INTERNAL DATA
+# ==========================================
+
+delbot_platform/repository_data/

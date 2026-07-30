@@ -1,0 +1,1221 @@
+[
+  {
+    "file": "delbot_platform/api/app.py",
+    "routers": [],
+    "functions": [
+      "health",
+      "root"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/api/main.py",
+    "routers": [],
+    "functions": [
+      "health",
+      "root"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/api/routers/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/api/routers/document.py",
+    "routers": [
+      "router"
+    ],
+    "functions": [],
+    "async_functions": [
+      "index_all"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/api/routers/repository.py",
+    "routers": [
+      "router"
+    ],
+    "functions": [],
+    "async_functions": [
+      "repository_explorer",
+      "scan_repository"
+    ],
+    "contains_repository": true,
+    "contains_explorer": true
+  },
+  {
+    "file": "delbot_platform/api/routes/document.py",
+    "routers": [
+      "router"
+    ],
+    "functions": [],
+    "async_functions": [
+      "upload"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/api/schemas/repository.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/application/documents/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/application/documents/index_repository.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "execute"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/application/factory/application_factory.py",
+    "routers": [],
+    "functions": [
+      "documents",
+      "repository",
+      "repository_documents",
+      "research"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/application/repository/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/application/repository/ingest.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "execute"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/embedding/models/embedding_vector.py",
+    "routers": [],
+    "functions": [
+      "has_vector",
+      "size"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/ingestion/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/ingestion/repository_ingestor.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "ingest_available_documents"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/builder/chunk.py",
+    "routers": [],
+    "functions": [
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/builder/document.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "_block_count",
+      "_collect_pages",
+      "_page_count",
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/chunk_metadata.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/document_metadata.py",
+    "routers": [],
+    "functions": [
+      "__post_init__"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/metadata_extractor.py",
+    "routers": [],
+    "functions": [
+      "_detect_language",
+      "_extract_authors",
+      "_extract_title",
+      "_extract_year",
+      "extract"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/metadata/repository.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "directory",
+      "exists",
+      "load",
+      "metadata_path",
+      "save"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/pipeline/indexing.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "summarize"
+    ],
+    "async_functions": [
+      "index",
+      "index_with_summary"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/registry/factory.py",
+    "routers": [],
+    "functions": [
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/registry/filesystem.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "_directory",
+      "_metadata",
+      "clear",
+      "exists",
+      "get",
+      "list",
+      "remove",
+      "save"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/registry/manager.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "exists",
+      "get",
+      "list",
+      "remove",
+      "resolve"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/registry/memory.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "clear",
+      "exists",
+      "get",
+      "list",
+      "remove",
+      "save"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/documents/registry/repository.py",
+    "routers": [],
+    "functions": [
+      "exists",
+      "get",
+      "save"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/hydration/local.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "citation"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/collection.py",
+    "routers": [],
+    "functions": [
+      "domain_id",
+      "domain_name",
+      "export",
+      "from_dict",
+      "repository_id",
+      "repository_name",
+      "source_id",
+      "source_name"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/document.py",
+    "routers": [],
+    "functions": [
+      "author_ids",
+      "author_names",
+      "collection_id",
+      "collection_name",
+      "domain",
+      "domain_id",
+      "domain_name",
+      "export",
+      "from_dict",
+      "relation_ids",
+      "relation_types",
+      "relations",
+      "repository",
+      "repository_id",
+      "repository_name",
+      "repository_root_path",
+      "source",
+      "source_id",
+      "source_name"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/document_chunk.py",
+    "routers": [],
+    "functions": [
+      "author_ids",
+      "author_names",
+      "authors",
+      "collection_id",
+      "collection_name",
+      "document_id",
+      "document_title",
+      "domain",
+      "domain_id",
+      "domain_name",
+      "entities",
+      "export",
+      "file_path",
+      "from_dict",
+      "repository_id",
+      "repository_name",
+      "repository_root_path",
+      "source_id",
+      "source_name"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/rag_result.py",
+    "routers": [],
+    "functions": [
+      "collection_ids",
+      "collections",
+      "entities",
+      "entity_ids",
+      "export",
+      "from_dict",
+      "knowledge_domain_ids",
+      "knowledge_domains",
+      "knowledge_source_ids",
+      "knowledge_sources",
+      "repositories",
+      "repository_ids"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/models/repository.py",
+    "routers": [],
+    "functions": [
+      "domain_id",
+      "domain_name",
+      "export",
+      "from_dict",
+      "source_id",
+      "source_name"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/retrieval/qdrant.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "retrieve"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/vector/repository/base.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "insert",
+      "search"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/vector/repository/memory.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "insert",
+      "search"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/knowledge/vector/repository/qdrant.py",
+    "routers": [],
+    "functions": [
+      "__init__"
+    ],
+    "async_functions": [
+      "insert",
+      "search"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/catalog/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/catalog/adapter.py",
+    "routers": [],
+    "functions": [
+      "to_repository_item"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/catalog/builder.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "_document_id",
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/catalog/loader.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "exists",
+      "load"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/catalog/models.py",
+    "routers": [],
+    "functions": [
+      "__iter__",
+      "__len__",
+      "add",
+      "all"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/download/downloader.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "exists",
+      "prepare",
+      "register_existing"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/ingestion/dataset_loader.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "_generate_id",
+      "load"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/integration/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/integration/document_loader.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "load_available"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/manifest/pdf_manifest.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/models/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/models/repository_item.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/models/scan_result.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/providers/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/providers/base.py",
+    "routers": [],
+    "functions": [
+      "resolve_pdf"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/providers/dspace.py",
+    "routers": [],
+    "functions": [
+      "resolve_pdf"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/resolver/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/resolver/dspace_bitstream.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "resolve"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/resolver/dspace_html.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "resolve"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/resolver/local_pdf.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "resolve"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/resolver/url_normalizer.py",
+    "routers": [],
+    "functions": [
+      "normalize"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/repository/service.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "_scan_catalog",
+      "_scan_overlay",
+      "scan"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/research/builders/research_result_builder.py",
+    "routers": [],
+    "functions": [
+      "_collect_authors",
+      "_collect_entities",
+      "_collect_unique",
+      "build"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/research/models/citation.py",
+    "routers": [],
+    "functions": [
+      "author_ids",
+      "author_names",
+      "authors",
+      "collection",
+      "collection_id",
+      "collection_name",
+      "document_id",
+      "document_title",
+      "domain",
+      "domain_id",
+      "domain_name",
+      "entities",
+      "export",
+      "file_path",
+      "from_dict",
+      "relation_ids",
+      "relation_types",
+      "relations",
+      "repository",
+      "repository_id",
+      "repository_name",
+      "repository_root_path",
+      "source",
+      "source_id",
+      "source_name"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/research/models/research_result.py",
+    "routers": [],
+    "functions": [
+      "export",
+      "from_dict"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/vectorstore/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/vectorstore/qdrant/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/vectorstore/qdrant/repository.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "count",
+      "delete_document",
+      "save"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/factory/workflow_factory.py",
+    "routers": [],
+    "functions": [
+      "repository_ingestion"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/repository/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/repository/ingestion.py",
+    "routers": [],
+    "functions": [
+      "__init__",
+      "summarize"
+    ],
+    "async_functions": [
+      "ingest",
+      "ingest_with_summary"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/repository/models/__init__.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/repository/models/artifact.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "delbot_platform/workflows/repository/models/result.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/architecture/dependency.py",
+    "routers": [],
+    "functions": [
+      "analyze",
+      "main",
+      "write_csv",
+      "write_json",
+      "write_markdown"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/architecture/filter.py",
+    "routers": [],
+    "functions": [
+      "_is_python_source",
+      "filter_python_sources"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/architecture/inventory.py",
+    "routers": [],
+    "functions": [
+      "_categorize",
+      "_excluded",
+      "build",
+      "main",
+      "scan",
+      "write_csv",
+      "write_json",
+      "write_markdown"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/architecture/models.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/architecture/ownership.py",
+    "routers": [],
+    "functions": [
+      "detect_component",
+      "detect_layer",
+      "load_json",
+      "main"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/audit_heading_classifier.py",
+    "routers": [],
+    "functions": [
+      "audit_pdf",
+      "iter_pdfs",
+      "main",
+      "merge_counter",
+      "merge_list",
+      "print_section",
+      "suspicious"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/audit_pdf_index_mapping.py",
+    "routers": [],
+    "functions": [
+      "walk"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/audit_pdf_mapping.py",
+    "routers": [],
+    "functions": [
+      "walk"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/audit_pdf_mapping_v2.py",
+    "routers": [],
+    "functions": [
+      "walk"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/audit_qdrant_storage.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/batch_ingest_parallel.py",
+    "routers": [],
+    "functions": [
+      "main",
+      "process_pdf"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/batch_ingest_pdf.py",
+    "routers": [],
+    "functions": [
+      "main"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/batch_ingest_repository.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/build_pdf_index.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/debug_qdrant_runtime.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/find_pdf_mapping_source.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/ingest_metadata_vectors.py",
+    "routers": [],
+    "functions": [
+      "main"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/ingest_pdf_vectors.py",
+    "routers": [],
+    "functions": [
+      "main"
+    ],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/patch_pr41a_repository_scan_api.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/patch_pr41b_batch_index_api.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/patch_pr42c_repository_explorer.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": true
+  },
+  {
+    "file": "tools/patch_pr42d_repository_scan_fix.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/pr42d_hotfix_repository_service.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_citation_builder.py",
+    "routers": [],
+    "functions": [
+      "invoke_builder",
+      "locate_builder",
+      "perform_search"
+    ],
+    "async_functions": [
+      "build_query_embedding",
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_document_pipeline.py",
+    "routers": [],
+    "functions": [
+      "print_header"
+    ],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_document_pipeline_batch.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_pdf_extract.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_pdf_ingest.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_pdf_ingest_single.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_pdf_ocr.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_pr41a_repository_scan_api.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_qdrant_storage.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_rag_end_to_end.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [],
+    "contains_repository": true,
+    "contains_explorer": false
+  },
+  {
+    "file": "tools/test_repository_explorer.py",
+    "routers": [],
+    "functions": [],
+    "async_functions": [
+      "main"
+    ],
+    "contains_repository": true,
+    "contains_explorer": true
+  }
+]

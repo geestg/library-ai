@@ -1,0 +1,17 @@
+{
+  "summary": {
+    "Gateway Files": 450,
+    "Gateway Exists": true,
+    "Provider Exists": true,
+    "Async Chat": true,
+    "Await Found": true,
+    "Request Model": true,
+    "Response Model": true,
+    "Factory Exists": true,
+    "Factory chat()": false,
+    "Factory Return": false,
+    "Success": true,
+    "Exception": null
+  },
+  "report": "========================================================================\nDELBOT GATEWAY CHAT END-TO-END\n========================================================================\nGateway Files        : 450\nGateway Exists       : True\nProvider Exists      : True\n------------------------------------------------------------------------\nAsync Chat           : True\nAwait Found          : True\n------------------------------------------------------------------------\nRequest Model        : True\nResponse Model       : True\n------------------------------------------------------------------------\nFactory Exists       : True\nFactory chat()       : False\nFactory Return       : False\n------------------------------------------------------------------------\nSuccess              : True\nException            : None\n========================================================================"
+}

@@ -1,0 +1,15 @@
+{
+  "Router Exists": true,
+  "Endpoint Exists": true,
+  "Async Endpoint": true,
+  "Application": true,
+  "Await Execute": true,
+  "Request Model": true,
+  "Response Model": true,
+  "Citation Response": true,
+  "Metadata Access": true,
+  "Loop Citations": true,
+  "Return Response": true,
+  "Success": true,
+  "Exception": null
+}

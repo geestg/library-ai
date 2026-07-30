@@ -1,0 +1,41 @@
+============================================================
+DELBOT KERNEL MEMORY AUDIT
+============================================================
+
+DATE
+Thu Jul 30 09:50:01 UTC 2026
+
+HOSTNAME
+650767fe7d3d
+
+============================================================
+SYSTEM MEMORY
+============================================================
+MemTotal:       2113450464 kB
+MemFree:        237981936 kB
+MemAvailable:   257751988 kB
+Cached:         11788648 kB
+SwapCached:            0 kB
+AnonPages:      1793347208 kB
+Mapped:         14374456 kB
+Slab:           29199100 kB
+KernelStack:      861120 kB
+PageTables:      6026752 kB
+SecPageTables:         0 kB
+Committed_AS:   3360433832 kB
+AnonHugePages:  45082624 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+
+============================================================
+TOP PROCESS BY ANONYMOUS MEMORY
+============================================================
+PID      RSS_MB       ANON_MB      PRIVATE_MB   SHARED_MB    CMD
+
+awk: cannot open /proc/1/smaps_rollup (Permission denied)

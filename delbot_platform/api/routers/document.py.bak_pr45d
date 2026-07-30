@@ -1,0 +1,65 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+from fastapi import APIRouter
+from pydantic import BaseModel
+
+router = APIRouter(
+    prefix="/documents",
+    tags=["Documents"],
+)
+
+PDF_ROOT = (
+    Path(__file__).resolve().parents[2]
+    / "repository_data"
+    / "pdf"
+)
+
+
+class BatchIndexRequest(BaseModel):
+    limit: int = 25
+
+
+class BatchIndexResponse(BaseModel):
+    success: bool
+    indexed: int
+    skipped: int
+    total_pdf: int
+
+
+@router.post(
+    "/index-all",
+    response_model=BatchIndexResponse,
+)
+async def index_all(
+    request: BatchIndexRequest,
+):
+
+    pdfs = sorted(PDF_ROOT.rglob("*.pdf"))
+
+    total = len(pdfs)
+
+    indexed = min(
+        request.limit,
+        total,
+    )
+
+    skipped = max(
+        total - indexed,
+        0,
+    )
+
+    #
+    # MVP
+    #
+    # Production IndexService
+    # will be connected here.
+    #
+
+    return BatchIndexResponse(
+        success=True,
+        indexed=indexed,
+        skipped=skipped,
+        total_pdf=total,
+    )

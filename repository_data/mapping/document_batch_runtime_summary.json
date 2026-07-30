@@ -1,0 +1,12 @@
+{
+  "repository_records": 1298,
+  "pdf_available": 0,
+  "metadata_only": 0,
+  "failed": 1298,
+  "repository_service_ok": true,
+  "router_exists": true,
+  "endpoint_exists": true,
+  "endpoint_async": true,
+  "pipeline_exists": true,
+  "pipeline_async": true
+}

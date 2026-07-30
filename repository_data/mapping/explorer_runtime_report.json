@@ -1,0 +1,14 @@
+========================================================================
+DELBOT REPOSITORY EXPLORER RUNTIME
+========================================================================
+Router Found      : True
+Function Found    : True
+Async Function    : True
+Executed          : False
+Response Type     : None
+Records           : 0
+PDF Available     : 0
+Metadata Only     : 0
+Failed            : 0
+Exception         : AttributeError("'list' object has no attribute 'total'")
+========================================================================

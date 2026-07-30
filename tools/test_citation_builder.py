@@ -1,0 +1,258 @@
+from __future__ import annotations
+
+import asyncio
+import importlib
+import inspect
+import sys
+import time
+import uuid
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+
+def locate_builder():
+
+    candidates = [
+
+        (
+            "delbot_platform.knowledge.rag.citation_builder",
+            "CitationBuilder",
+        ),
+
+        (
+            "delbot_platform.knowledge.citation.builder",
+            "CitationBuilder",
+        ),
+
+        (
+            "delbot_platform.research.citation.builder",
+            "CitationBuilder",
+        ),
+
+    ]
+
+    for module_name, class_name in candidates:
+
+        try:
+
+            module = importlib.import_module(
+                module_name,
+            )
+
+        except Exception:
+            continue
+
+        cls = getattr(
+            module,
+            class_name,
+            None,
+        )
+
+        if cls is not None:
+            return module_name, cls
+
+    return None, None
+
+
+async def build_query_embedding():
+
+    from delbot_platform.documents.models.document_chunk import (
+        DocumentChunk,
+    )
+
+    from delbot_platform.documents.embedding.pipeline.pipeline import (
+        EmbeddingPipeline,
+    )
+
+    chunk = DocumentChunk(
+        document_id="query",
+        chunk_id=str(uuid.uuid4()),
+        page_start=1,
+        page_end=1,
+        text="PLC OMRON CPM2A dan Arduino Mega 2560",
+    )
+
+    pipeline = EmbeddingPipeline()
+
+    vectors = await pipeline.run(
+        [chunk],
+    )
+
+    return vectors[0].embedding
+
+
+def perform_search(
+    embedding,
+):
+
+    from delbot_platform.vectorstore import (
+        QdrantRepository,
+    )
+
+    repo = QdrantRepository()
+
+    results, _ = repo.store.search(
+        query_vector=embedding,
+        limit=5,
+        with_payload=True,
+    )
+
+    return results
+
+
+def invoke_builder(
+    builder,
+    results,
+):
+
+    methods = [
+
+        "build",
+        "build_many",
+        "from_results",
+        "from_retrieval",
+        "create",
+
+    ]
+
+    for method_name in methods:
+
+        if not hasattr(
+            builder,
+            method_name,
+        ):
+            continue
+
+        method = getattr(
+            builder,
+            method_name,
+        )
+
+        try:
+
+            output = method(
+                results,
+            )
+
+            return method_name, output, None
+
+        except Exception as exc:
+
+            return method_name, None, exc
+
+    return None, None, RuntimeError(
+        "No supported public method found."
+    )
+
+
+async def main():
+
+    print("=" * 70)
+    print("LOCATE CITATION BUILDER")
+    print("=" * 70)
+
+    module_name, builder_cls = locate_builder()
+
+    if builder_cls is None:
+
+        print("STATUS : NOT FOUND")
+        return
+
+    print("MODULE :", module_name)
+    print("CLASS  :", builder_cls.__name__)
+
+    print()
+    print("=" * 70)
+    print("PUBLIC METHODS")
+    print("=" * 70)
+
+    for name, member in inspect.getmembers(
+        builder_cls,
+        inspect.isfunction,
+    ):
+
+        if not name.startswith("_"):
+
+            print(name)
+
+    print()
+    print("=" * 70)
+    print("BUILD QUERY EMBEDDING")
+    print("=" * 70)
+
+    started = time.perf_counter()
+
+    embedding = await build_query_embedding()
+
+    print("DIMENSION :", len(embedding))
+
+    print()
+    print("=" * 70)
+    print("SEARCH QDRANT")
+    print("=" * 70)
+
+    results = perform_search(
+        embedding,
+    )
+
+    print("RESULTS :", len(results))
+
+    builder = builder_cls()
+
+    print()
+    print("=" * 70)
+    print("RUN BUILDER")
+    print("=" * 70)
+
+    method, output, error = invoke_builder(
+        builder,
+        results,
+    )
+
+    if error is not None:
+
+        print("METHOD :", method)
+        print("STATUS : FAILED")
+        print(type(error).__name__)
+        print(error)
+        return
+
+    elapsed = (
+        time.perf_counter()
+        - started
+    )
+
+    print("METHOD :", method)
+    print("STATUS : PASS")
+    print("TIME   : %.2fs" % elapsed)
+
+    print()
+    print("=" * 70)
+    print("OUTPUT TYPE")
+    print("=" * 70)
+
+    print(type(output))
+
+    print()
+    print("=" * 70)
+    print("OUTPUT")
+    print("=" * 70)
+
+    print(output)
+
+    print()
+    print("=" * 70)
+    print("PR-3.6A PASS")
+    print("=" * 70)
+
+
+if __name__ == "__main__":
+
+    asyncio.run(
+        main(),
+    )
+

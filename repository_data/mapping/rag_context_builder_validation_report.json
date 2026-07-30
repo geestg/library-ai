@@ -1,0 +1,15 @@
+{
+  "target": "/workspace/delbot/delbot_platform/knowledge/rag/context_builder.py",
+  "report": {
+    "file_exists": true,
+    "class_exists": true,
+    "build_exists": true,
+    "build_async": false,
+    "context_builder_calls": 0,
+    "retrieval_result_usage": false,
+    "rag_result_usage": false,
+    "returns_context": true,
+    "success": true,
+    "exception": null
+  }
+}

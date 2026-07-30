@@ -1,0 +1,14 @@
+{
+  "Builder Exists": true,
+  "Builder Class": true,
+  "build()": true,
+  "_collect_authors()": true,
+  "_collect_unique()": true,
+  "_collect_entities()": true,
+  "Import Author": true,
+  "Import Citation": true,
+  "Import ResearchResult": true,
+  "Return ResearchResult": true,
+  "Success": true,
+  "Exception": null
+}

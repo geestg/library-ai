@@ -1,0 +1,4702 @@
+[
+    {
+        "module": "delbot_platform.ai.registry.loader",
+        "path": "delbot_platform/ai/registry/loader.py",
+        "layer": "ai",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.config.loader",
+        "path": "delbot_platform/config/loader.py",
+        "layer": "config",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.loader.pdf_loader",
+        "path": "delbot_platform/document_intelligence/loader/pdf_loader.py",
+        "layer": "document_intelligence",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.documents.registry.manager",
+        "path": "delbot_platform/documents/registry/manager.py",
+        "layer": "documents",
+        "status": "LEGACY",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.documents.registry.memory",
+        "path": "delbot_platform/documents/registry/memory.py",
+        "layer": "documents",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.infinity",
+        "path": "delbot_platform/gateway/providers/infinity.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.vllm",
+        "path": "delbot_platform/gateway/providers/vllm.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.health",
+        "path": "delbot_platform/gateway/routers/health.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "BLOCKED",
+        "reason": "Referenced by other modules"
+    },
+    {
+        "module": "delbot_platform.ai.__init__",
+        "path": "delbot_platform/ai/__init__.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.client.__init__",
+        "path": "delbot_platform/ai/client/__init__.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.client.llm_client",
+        "path": "delbot_platform/ai/client/llm_client.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.base_embedding_provider",
+        "path": "delbot_platform/ai/embedding/base_embedding_provider.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.embedding_config",
+        "path": "delbot_platform/ai/embedding/embedding_config.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.embedding_request",
+        "path": "delbot_platform/ai/embedding/embedding_request.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.embedding_result",
+        "path": "delbot_platform/ai/embedding/embedding_result.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.providers.infinity_embedding_provider",
+        "path": "delbot_platform/ai/embedding/providers/infinity_embedding_provider.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.process.__init__",
+        "path": "delbot_platform/ai/process/__init__.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.process.process_info",
+        "path": "delbot_platform/ai/process/process_info.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.process.process_manager",
+        "path": "delbot_platform/ai/process/process_manager.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.process.process_monitor",
+        "path": "delbot_platform/ai/process/process_monitor.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.process.process_registry",
+        "path": "delbot_platform/ai/process/process_registry.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.recovery.__init__",
+        "path": "delbot_platform/ai/recovery/__init__.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.recovery.recovery",
+        "path": "delbot_platform/ai/recovery/recovery.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.__init__",
+        "path": "delbot_platform/ai/registry/__init__.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.exceptions",
+        "path": "delbot_platform/ai/registry/exceptions.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.model_backend",
+        "path": "delbot_platform/ai/registry/model_backend.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.model_backend_config",
+        "path": "delbot_platform/ai/registry/model_backend_config.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.model_category",
+        "path": "delbot_platform/ai/registry/model_category.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 7,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.model_info",
+        "path": "delbot_platform/ai/registry/model_info.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.model_runtime",
+        "path": "delbot_platform/ai/registry/model_runtime.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.registry.registry",
+        "path": "delbot_platform/ai/registry/registry.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 9,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.vector_store.base_vector_store",
+        "path": "delbot_platform/ai/vector_store/base_vector_store.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+        "path": "delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+        "layer": "ai",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.__init__",
+        "path": "delbot_platform/api/__init__.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.__main__",
+        "path": "delbot_platform/api/__main__.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.main",
+        "path": "delbot_platform/api/main.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.routers.__init__",
+        "path": "delbot_platform/api/routers/__init__.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.routes.workspace",
+        "path": "delbot_platform/api/routes/workspace.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.api.schemas.__init__",
+        "path": "delbot_platform/api/schemas/__init__.py",
+        "layer": "api",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.__init__",
+        "path": "delbot_platform/application/__init__.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.documents.__init__",
+        "path": "delbot_platform/application/documents/__init__.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.documents.index",
+        "path": "delbot_platform/application/documents/index.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.documents.index_repository",
+        "path": "delbot_platform/application/documents/index_repository.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.factory.__init__",
+        "path": "delbot_platform/application/factory/__init__.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.factory.application_factory",
+        "path": "delbot_platform/application/factory/application_factory.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.repository.__init__",
+        "path": "delbot_platform/application/repository/__init__.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.repository.ingest",
+        "path": "delbot_platform/application/repository/ingest.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.application.research.__init__",
+        "path": "delbot_platform/application/research/__init__.py",
+        "layer": "application",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.__init__",
+        "path": "delbot_platform/boot/__init__.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.boot_result",
+        "path": "delbot_platform/boot/boot_result.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.boot_state",
+        "path": "delbot_platform/boot/boot_state.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.service_boot",
+        "path": "delbot_platform/boot/service_boot.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.service_health",
+        "path": "delbot_platform/boot/service_health.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.boot.service_waiter",
+        "path": "delbot_platform/boot/service_waiter.py",
+        "layer": "boot",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.config.__init__",
+        "path": "delbot_platform/config/__init__.py",
+        "layer": "config",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.config.models",
+        "path": "delbot_platform/config/models.py",
+        "layer": "config",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.config.validator",
+        "path": "delbot_platform/config/validator.py",
+        "layer": "config",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.controller.__init__",
+        "path": "delbot_platform/controller/__init__.py",
+        "layer": "controller",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.controller.service_controller",
+        "path": "delbot_platform/controller/service_controller.py",
+        "layer": "controller",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.__init__",
+        "path": "delbot_platform/core/__init__.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.config_manager",
+        "path": "delbot_platform/core/config_manager.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.environment",
+        "path": "delbot_platform/core/environment.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.__init__",
+        "path": "delbot_platform/core/lifecycle/__init__.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.boot_policy",
+        "path": "delbot_platform/core/lifecycle/boot_policy.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.orchestrator",
+        "path": "delbot_platform/core/lifecycle/orchestrator.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_definition",
+        "path": "delbot_platform/core/lifecycle/service_definition.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 11,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_dependency",
+        "path": "delbot_platform/core/lifecycle/service_dependency.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_event",
+        "path": "delbot_platform/core/lifecycle/service_event.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_loader",
+        "path": "delbot_platform/core/lifecycle/service_loader.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_registry",
+        "path": "delbot_platform/core/lifecycle/service_registry.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.service_state",
+        "path": "delbot_platform/core/lifecycle/service_state.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.lifecycle.state_machine",
+        "path": "delbot_platform/core/lifecycle/state_machine.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.logger",
+        "path": "delbot_platform/core/logger.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.path_manager",
+        "path": "delbot_platform/core/path_manager.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 12,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.core.runtime_manager",
+        "path": "delbot_platform/core/runtime_manager.py",
+        "layer": "core",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.__init__",
+        "path": "delbot_platform/document_intelligence/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.analyzer.__init__",
+        "path": "delbot_platform/document_intelligence/analyzer/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.analyzer.document_analyzer",
+        "path": "delbot_platform/document_intelligence/analyzer/document_analyzer.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.analyzer.heading_detector",
+        "path": "delbot_platform/document_intelligence/analyzer/heading_detector.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.analyzer.layout_statistics_analyzer",
+        "path": "delbot_platform/document_intelligence/analyzer/layout_statistics_analyzer.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.analyzer.page_text_analyzer",
+        "path": "delbot_platform/document_intelligence/analyzer/page_text_analyzer.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.backend.__init__",
+        "path": "delbot_platform/document_intelligence/backend/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.backend.backend",
+        "path": "delbot_platform/document_intelligence/backend/backend.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.backend.pdf.__init__",
+        "path": "delbot_platform/document_intelligence/backend/pdf/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.backend.pdfmupdf_backend",
+        "path": "delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.builder.__init__",
+        "path": "delbot_platform/document_intelligence/builder/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.builder.default_document_builder",
+        "path": "delbot_platform/document_intelligence/builder/default_document_builder.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.builder.paragraph_builder",
+        "path": "delbot_platform/document_intelligence/builder/paragraph_builder.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.builder.semantic_chunk_builder",
+        "path": "delbot_platform/document_intelligence/builder/semantic_chunk_builder.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.debug.__init__",
+        "path": "delbot_platform/document_intelligence/debug/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.debug.layout_debugger",
+        "path": "delbot_platform/document_intelligence/debug/layout_debugger.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.factory.__init__",
+        "path": "delbot_platform/document_intelligence/factory/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.factory.document_processor_factory",
+        "path": "delbot_platform/document_intelligence/factory/document_processor_factory.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.loader.__init__",
+        "path": "delbot_platform/document_intelligence/loader/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.loader.loaded_document",
+        "path": "delbot_platform/document_intelligence/loader/loaded_document.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.mapper.__init__",
+        "path": "delbot_platform/document_intelligence/mapper/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.mapper.layout_mapper",
+        "path": "delbot_platform/document_intelligence/mapper/layout_mapper.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.__init__",
+        "path": "delbot_platform/document_intelligence/models/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.bounding_box",
+        "path": "delbot_platform/document_intelligence/models/bounding_box.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.heading_collection",
+        "path": "delbot_platform/document_intelligence/models/heading_collection.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.heading_level",
+        "path": "delbot_platform/document_intelligence/models/heading_level.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.layout_statistics",
+        "path": "delbot_platform/document_intelligence/models/layout_statistics.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.line",
+        "path": "delbot_platform/document_intelligence/models/line.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.paragraph",
+        "path": "delbot_platform/document_intelligence/models/paragraph.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.paragraph_collection",
+        "path": "delbot_platform/document_intelligence/models/paragraph_collection.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.parsed_document",
+        "path": "delbot_platform/document_intelligence/models/parsed_document.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 15,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.semantic_chunk",
+        "path": "delbot_platform/document_intelligence/models/semantic_chunk.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.semantic_chunk_collection",
+        "path": "delbot_platform/document_intelligence/models/semantic_chunk_collection.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.span",
+        "path": "delbot_platform/document_intelligence/models/span.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.parser.__init__",
+        "path": "delbot_platform/document_intelligence/parser/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.parser.pdf_document_parser",
+        "path": "delbot_platform/document_intelligence/parser/pdf_document_parser.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.__init__",
+        "path": "delbot_platform/document_intelligence/pipeline/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.analyzer_stage",
+        "path": "delbot_platform/document_intelligence/pipeline/analyzer_stage.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.builder_stage",
+        "path": "delbot_platform/document_intelligence/pipeline/builder_stage.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.parser_stage",
+        "path": "delbot_platform/document_intelligence/pipeline/parser_stage.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.pipeline_stage",
+        "path": "delbot_platform/document_intelligence/pipeline/pipeline_stage.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.processor.__init__",
+        "path": "delbot_platform/document_intelligence/processor/__init__.py",
+        "layer": "document_intelligence",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.__init__",
+        "path": "delbot_platform/documents/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.chunking.__init__",
+        "path": "delbot_platform/documents/chunking/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.chunking.chunk_builder",
+        "path": "delbot_platform/documents/chunking/chunk_builder.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.chunking.policy.__init__",
+        "path": "delbot_platform/documents/chunking/policy/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.chunking.policy.policy",
+        "path": "delbot_platform/documents/chunking/policy/policy.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.__init__",
+        "path": "delbot_platform/documents/classification/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.academic_heading",
+        "path": "delbot_platform/documents/classification/academic_heading.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.document_type",
+        "path": "delbot_platform/documents/classification/document_type.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.heading_score",
+        "path": "delbot_platform/documents/classification/heading_score.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.page_classifier",
+        "path": "delbot_platform/documents/classification/page_classifier.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.page_region",
+        "path": "delbot_platform/documents/classification/page_region.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.classification.page_type",
+        "path": "delbot_platform/documents/classification/page_type.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.__init__",
+        "path": "delbot_platform/documents/embedding/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.base",
+        "path": "delbot_platform/documents/embedding/base.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.factory.__init__",
+        "path": "delbot_platform/documents/embedding/factory/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.factory.provider",
+        "path": "delbot_platform/documents/embedding/factory/provider.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.mapper.__init__",
+        "path": "delbot_platform/documents/embedding/mapper/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.mapper.vector_mapper",
+        "path": "delbot_platform/documents/embedding/mapper/vector_mapper.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.models.__init__",
+        "path": "delbot_platform/documents/embedding/models/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.models.embedding_vector",
+        "path": "delbot_platform/documents/embedding/models/embedding_vector.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.pipeline.__init__",
+        "path": "delbot_platform/documents/embedding/pipeline/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.pipeline.pipeline",
+        "path": "delbot_platform/documents/embedding/pipeline/pipeline.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.providers.__init__",
+        "path": "delbot_platform/documents/embedding/providers/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.vector",
+        "path": "delbot_platform/documents/embedding/vector.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.extraction.__init__",
+        "path": "delbot_platform/documents/extraction/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.extraction.service",
+        "path": "delbot_platform/documents/extraction/service.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.ingestion.__init__",
+        "path": "delbot_platform/documents/ingestion/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.ingestion.repository_ingestor",
+        "path": "delbot_platform/documents/ingestion/repository_ingestor.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.loader.__init__",
+        "path": "delbot_platform/documents/loader/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.loader.sources.__init__",
+        "path": "delbot_platform/documents/loader/sources/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.__init__",
+        "path": "delbot_platform/documents/metadata/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.builder.__init__",
+        "path": "delbot_platform/documents/metadata/builder/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.builder.chunk",
+        "path": "delbot_platform/documents/metadata/builder/chunk.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.chunk_metadata",
+        "path": "delbot_platform/documents/metadata/chunk_metadata.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 8,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.document_metadata",
+        "path": "delbot_platform/documents/metadata/document_metadata.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper",
+        "path": "delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.metadata_extractor",
+        "path": "delbot_platform/documents/metadata/metadata_extractor.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.models.__init__",
+        "path": "delbot_platform/documents/models/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.models.chunk",
+        "path": "delbot_platform/documents/models/chunk.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.models.metadata",
+        "path": "delbot_platform/documents/models/metadata.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.__init__",
+        "path": "delbot_platform/documents/parser/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.backend.__init__",
+        "path": "delbot_platform/documents/parser/backend/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.backend.base",
+        "path": "delbot_platform/documents/parser/backend/base.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.base",
+        "path": "delbot_platform/documents/parser/base.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.__init__",
+        "path": "delbot_platform/documents/pipeline/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.indexing",
+        "path": "delbot_platform/documents/pipeline/indexing.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.models.__init__",
+        "path": "delbot_platform/documents/pipeline/models/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.models.index_result",
+        "path": "delbot_platform/documents/pipeline/models/index_result.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.preprocessing",
+        "path": "delbot_platform/documents/pipeline/preprocessing.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.registry.__init__",
+        "path": "delbot_platform/documents/registry/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.registry.factory",
+        "path": "delbot_platform/documents/registry/factory.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.registry.filesystem",
+        "path": "delbot_platform/documents/registry/filesystem.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.services.__init__",
+        "path": "delbot_platform/documents/services/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.services.indexing",
+        "path": "delbot_platform/documents/services/indexing.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.structure.__init__",
+        "path": "delbot_platform/documents/structure/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.structure.section.__init__",
+        "path": "delbot_platform/documents/structure/section/__init__.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.structure.section.builder",
+        "path": "delbot_platform/documents/structure/section/builder.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.documents.structure.section.section",
+        "path": "delbot_platform/documents/structure/section/section.py",
+        "layer": "documents",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.__init__",
+        "path": "delbot_platform/gateway/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.__main__",
+        "path": "delbot_platform/gateway/__main__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.exceptions",
+        "path": "delbot_platform/gateway/exceptions.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.mapper.__init__",
+        "path": "delbot_platform/gateway/mapper/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.openai.__init__",
+        "path": "delbot_platform/gateway/openai/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.__init__",
+        "path": "delbot_platform/gateway/providers/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.base",
+        "path": "delbot_platform/gateway/providers/base.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.factory",
+        "path": "delbot_platform/gateway/providers/factory.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.request",
+        "path": "delbot_platform/gateway/request.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 9,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.router",
+        "path": "delbot_platform/gateway/router.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.__init__",
+        "path": "delbot_platform/gateway/routers/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.models",
+        "path": "delbot_platform/gateway/routers/models.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.v1.__init__",
+        "path": "delbot_platform/gateway/routers/v1/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.gateway.services.__init__",
+        "path": "delbot_platform/gateway/services/__init__.py",
+        "layer": "gateway",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.__init__",
+        "path": "delbot_platform/knowledge/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.citation.__init__",
+        "path": "delbot_platform/knowledge/citation/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.citation.builder",
+        "path": "delbot_platform/knowledge/citation/builder.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.context.__init__",
+        "path": "delbot_platform/knowledge/context/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.context.builder",
+        "path": "delbot_platform/knowledge/context/builder.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.extraction.__init__",
+        "path": "delbot_platform/knowledge/extraction/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.extraction.extraction_config",
+        "path": "delbot_platform/knowledge/extraction/extraction_config.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.extraction.extraction_result",
+        "path": "delbot_platform/knowledge/extraction/extraction_result.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.extraction.knowledge_extractor",
+        "path": "delbot_platform/knowledge/extraction/knowledge_extractor.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.__init__",
+        "path": "delbot_platform/knowledge/graph/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.edge_builder",
+        "path": "delbot_platform/knowledge/graph/edge_builder.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.graph_edge",
+        "path": "delbot_platform/knowledge/graph/graph_edge.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.graph_node",
+        "path": "delbot_platform/knowledge/graph/graph_node.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.knowledge_graph",
+        "path": "delbot_platform/knowledge/graph/knowledge_graph.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.node_builder",
+        "path": "delbot_platform/knowledge/graph/node_builder.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.hydration.__init__",
+        "path": "delbot_platform/knowledge/hydration/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.hydration.base",
+        "path": "delbot_platform/knowledge/hydration/base.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.__init__",
+        "path": "delbot_platform/knowledge/models/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.author",
+        "path": "delbot_platform/knowledge/models/author.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.collection",
+        "path": "delbot_platform/knowledge/models/collection.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.knowledge_domain",
+        "path": "delbot_platform/knowledge/models/knowledge_domain.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.knowledge_entity",
+        "path": "delbot_platform/knowledge/models/knowledge_entity.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.knowledge_relation",
+        "path": "delbot_platform/knowledge/models/knowledge_relation.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.knowledge_source",
+        "path": "delbot_platform/knowledge/models/knowledge_source.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.rag_result",
+        "path": "delbot_platform/knowledge/models/rag_result.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.__init__",
+        "path": "delbot_platform/knowledge/pipeline/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.knowledge_pipeline",
+        "path": "delbot_platform/knowledge/pipeline/knowledge_pipeline.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.models.__init__",
+        "path": "delbot_platform/knowledge/pipeline/models/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.pipeline_context",
+        "path": "delbot_platform/knowledge/pipeline/pipeline_context.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.pipeline_result",
+        "path": "delbot_platform/knowledge/pipeline/pipeline_result.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.__init__",
+        "path": "delbot_platform/knowledge/rag/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.llm.__init__",
+        "path": "delbot_platform/knowledge/rag/llm/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.llm.generator",
+        "path": "delbot_platform/knowledge/rag/llm/generator.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.models.__init__",
+        "path": "delbot_platform/knowledge/rag/models/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.pipeline",
+        "path": "delbot_platform/knowledge/rag/pipeline.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.rag_engine",
+        "path": "delbot_platform/knowledge/rag/rag_engine.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.research.__init__",
+        "path": "delbot_platform/knowledge/rag/research/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.research.pipeline",
+        "path": "delbot_platform/knowledge/rag/research/pipeline.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.vector_retriever",
+        "path": "delbot_platform/knowledge/rag/vector_retriever.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.reranking.__init__",
+        "path": "delbot_platform/knowledge/reranking/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.reranking.base",
+        "path": "delbot_platform/knowledge/reranking/base.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.__init__",
+        "path": "delbot_platform/knowledge/retrieval/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.base",
+        "path": "delbot_platform/knowledge/retrieval/base.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.metadata_retriever",
+        "path": "delbot_platform/knowledge/retrieval/metadata_retriever.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.qdrant",
+        "path": "delbot_platform/knowledge/retrieval/qdrant.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.retriever",
+        "path": "delbot_platform/knowledge/retrieval/retriever.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.services.__init__",
+        "path": "delbot_platform/knowledge/services/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.services.processing",
+        "path": "delbot_platform/knowledge/services/processing.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.__init__",
+        "path": "delbot_platform/knowledge/vector/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.models.__init__",
+        "path": "delbot_platform/knowledge/vector/models/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.models.record",
+        "path": "delbot_platform/knowledge/vector/models/record.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.qdrant_store",
+        "path": "delbot_platform/knowledge/vector/qdrant_store.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.repository.__init__",
+        "path": "delbot_platform/knowledge/vector/repository/__init__.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.repository.base",
+        "path": "delbot_platform/knowledge/vector/repository/base.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.repository.qdrant",
+        "path": "delbot_platform/knowledge/vector/repository/qdrant.py",
+        "layer": "knowledge",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.__init__",
+        "path": "delbot_platform/launcher/__init__.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.ai_runtime",
+        "path": "delbot_platform/launcher/ai_runtime.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.base",
+        "path": "delbot_platform/launcher/base.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 8,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.factory",
+        "path": "delbot_platform/launcher/factory.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.gateway_launcher",
+        "path": "delbot_platform/launcher/gateway_launcher.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.paddleocr",
+        "path": "delbot_platform/launcher/paddleocr.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.research_api_launcher",
+        "path": "delbot_platform/launcher/research_api_launcher.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.spec",
+        "path": "delbot_platform/launcher/spec.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 9,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.launcher.whisper",
+        "path": "delbot_platform/launcher/whisper.py",
+        "layer": "launcher",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.__init__",
+        "path": "delbot_platform/orchestrator/__init__.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.__init__",
+        "path": "delbot_platform/orchestrator/services/__init__.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.ocr",
+        "path": "delbot_platform/orchestrator/services/ocr.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.speech",
+        "path": "delbot_platform/orchestrator/services/speech.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.shutdown",
+        "path": "delbot_platform/orchestrator/shutdown.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.startup",
+        "path": "delbot_platform/orchestrator/startup.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.status",
+        "path": "delbot_platform/orchestrator/status.py",
+        "layer": "orchestrator",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.__init__",
+        "path": "delbot_platform/__init__.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.__main__",
+        "path": "delbot_platform/__main__.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.__init__",
+        "path": "tools/__init__.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.__init__",
+        "path": "tools/architecture/__init__.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.circular",
+        "path": "tools/architecture/circular.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.dependency",
+        "path": "tools/architecture/dependency.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.doctor",
+        "path": "tools/architecture/doctor.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.filter",
+        "path": "tools/architecture/filter.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.graph_filter",
+        "path": "tools/architecture/graph_filter.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.inventory",
+        "path": "tools/architecture/inventory.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.layer",
+        "path": "tools/architecture/layer.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.metrics",
+        "path": "tools/architecture/metrics.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.models",
+        "path": "tools/architecture/models.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 9,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.pipeline",
+        "path": "tools/architecture/pipeline.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.resolver",
+        "path": "tools/architecture/resolver.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.scanner",
+        "path": "tools/architecture/scanner.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.tests.test_circular",
+        "path": "tools/architecture/tests/test_circular.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.tests.test_layer",
+        "path": "tools/architecture/tests/test_layer.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.tests.test_metrics",
+        "path": "tools/architecture/tests/test_metrics.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.architecture.tests.test_pipeline",
+        "path": "tools/architecture/tests/test_pipeline.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.audit_heading_classifier",
+        "path": "tools/audit_heading_classifier.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.batch_ingest_parallel",
+        "path": "tools/batch_ingest_parallel.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.batch_ingest_pdf",
+        "path": "tools/batch_ingest_pdf.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.batch_ingest_repository",
+        "path": "tools/batch_ingest_repository.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.build_pdf_index",
+        "path": "tools/build_pdf_index.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.check_qdrant_payload",
+        "path": "tools/check_qdrant_payload.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.debug.inspect_pymupdf_span",
+        "path": "tools/debug/inspect_pymupdf_span.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.ingest_metadata_vectors",
+        "path": "tools/ingest_metadata_vectors.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.ingest_pdf_vectors",
+        "path": "tools/ingest_pdf_vectors.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_ingest",
+        "path": "tools/test_ingest.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_pdf_extract",
+        "path": "tools/test_pdf_extract.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_pdf_ingest",
+        "path": "tools/test_pdf_ingest.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_pdf_ingest_single",
+        "path": "tools/test_pdf_ingest_single.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_pdf_ocr",
+        "path": "tools/test_pdf_ocr.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_rag",
+        "path": "tools/test_rag.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_rag_engine",
+        "path": "tools/test_rag_engine.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_rag_final",
+        "path": "tools/test_rag_final.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_rag_llm",
+        "path": "tools/test_rag_llm.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_rag_pipeline",
+        "path": "tools/test_rag_pipeline.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_research_engine",
+        "path": "tools/test_research_engine.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_retrieval",
+        "path": "tools/test_retrieval.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_retriever_engine",
+        "path": "tools/test_retriever_engine.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "tools.test_vector_schema",
+        "path": "tools/test_vector_schema.py",
+        "layer": "other",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.__init__",
+        "path": "delbot_platform/repository/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.catalog.__init__",
+        "path": "delbot_platform/repository/catalog/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.catalog.adapter",
+        "path": "delbot_platform/repository/catalog/adapter.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.catalog.builder",
+        "path": "delbot_platform/repository/catalog/builder.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.catalog.models",
+        "path": "delbot_platform/repository/catalog/models.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.discovery.__init__",
+        "path": "delbot_platform/repository/discovery/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.discovery.base",
+        "path": "delbot_platform/repository/discovery/base.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.discovery.gitlab",
+        "path": "delbot_platform/repository/discovery/gitlab.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.discovery.service",
+        "path": "delbot_platform/repository/discovery/service.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.download.__init__",
+        "path": "delbot_platform/repository/download/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.download.downloader",
+        "path": "delbot_platform/repository/download/downloader.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.download.pdf_downloader",
+        "path": "delbot_platform/repository/download/pdf_downloader.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.ingestion.__init__",
+        "path": "delbot_platform/repository/ingestion/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.ingestion.dataset_loader",
+        "path": "delbot_platform/repository/ingestion/dataset_loader.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.integration.__init__",
+        "path": "delbot_platform/repository/integration/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.manifest.__init__",
+        "path": "delbot_platform/repository/manifest/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.manifest.pdf_manifest",
+        "path": "delbot_platform/repository/manifest/pdf_manifest.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.models.__init__",
+        "path": "delbot_platform/repository/models/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.models.repository_item",
+        "path": "delbot_platform/repository/models/repository_item.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.models.scan_result",
+        "path": "delbot_platform/repository/models/scan_result.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.providers.__init__",
+        "path": "delbot_platform/repository/providers/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.providers.base",
+        "path": "delbot_platform/repository/providers/base.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.providers.dspace",
+        "path": "delbot_platform/repository/providers/dspace.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.resolver.__init__",
+        "path": "delbot_platform/repository/resolver/__init__.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.resolver.dspace_bitstream",
+        "path": "delbot_platform/repository/resolver/dspace_bitstream.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.resolver.dspace_html",
+        "path": "delbot_platform/repository/resolver/dspace_html.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.resolver.local_pdf",
+        "path": "delbot_platform/repository/resolver/local_pdf.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.resolver.url_normalizer",
+        "path": "delbot_platform/repository/resolver/url_normalizer.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.repository.service",
+        "path": "delbot_platform/repository/service.py",
+        "layer": "repository",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.__init__",
+        "path": "delbot_platform/research/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.builders.__init__",
+        "path": "delbot_platform/research/builders/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.builders.research_result_builder",
+        "path": "delbot_platform/research/builders/research_result_builder.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.context.document_context",
+        "path": "delbot_platform/research/context/document_context.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.generator.__init__",
+        "path": "delbot_platform/research/generator/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.generator.llm_generator",
+        "path": "delbot_platform/research/generator/llm_generator.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.memory.__init__",
+        "path": "delbot_platform/research/memory/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.memory.research_memory",
+        "path": "delbot_platform/research/memory/research_memory.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.models.__init__",
+        "path": "delbot_platform/research/models/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.models.embedding_collection",
+        "path": "delbot_platform/research/models/embedding_collection.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.models.research_result",
+        "path": "delbot_platform/research/models/research_result.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.pipeline.__init__",
+        "path": "delbot_platform/research/pipeline/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.pipeline.research_answer_pipeline",
+        "path": "delbot_platform/research/pipeline/research_answer_pipeline.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.prompt_builder",
+        "path": "delbot_platform/research/prompt_builder.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.services.__init__",
+        "path": "delbot_platform/research/services/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.state.__init__",
+        "path": "delbot_platform/research/state/__init__.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.research.state.research_state",
+        "path": "delbot_platform/research/state/research_state.py",
+        "layer": "research",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.vectors.__init__",
+        "path": "delbot_platform/vectors/__init__.py",
+        "layer": "vectors",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.vectors.models",
+        "path": "delbot_platform/vectors/models.py",
+        "layer": "vectors",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.vectorstore.__init__",
+        "path": "delbot_platform/vectorstore/__init__.py",
+        "layer": "vectorstore",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.vectorstore.qdrant.__init__",
+        "path": "delbot_platform/vectorstore/qdrant/__init__.py",
+        "layer": "vectorstore",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.vectorstore.qdrant.singleton",
+        "path": "delbot_platform/vectorstore/qdrant/singleton.py",
+        "layer": "vectorstore",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.__init__",
+        "path": "delbot_platform/workflows/__init__.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.factory.__init__",
+        "path": "delbot_platform/workflows/factory/__init__.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.factory.workflow_factory",
+        "path": "delbot_platform/workflows/factory/workflow_factory.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.repository.__init__",
+        "path": "delbot_platform/workflows/repository/__init__.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.repository.ingestion",
+        "path": "delbot_platform/workflows/repository/ingestion.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workflows.repository.models.__init__",
+        "path": "delbot_platform/workflows/repository/models/__init__.py",
+        "layer": "workflows",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.models",
+        "path": "delbot_platform/workspace/models.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.models.__init__",
+        "path": "delbot_platform/workspace/models/__init__.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.models.chat_message",
+        "path": "delbot_platform/workspace/models/chat_message.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.models.workspace_metadata",
+        "path": "delbot_platform/workspace/models/workspace_metadata.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.models.workspace_session",
+        "path": "delbot_platform/workspace/models/workspace_session.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.session_manager",
+        "path": "delbot_platform/workspace/session_manager.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.workspace.storage",
+        "path": "delbot_platform/workspace/storage.py",
+        "layer": "workspace",
+        "status": "CANONICAL",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "KEEP",
+        "reason": "Canonical module"
+    },
+    {
+        "module": "delbot_platform.ai.client.embedding_client",
+        "path": "delbot_platform/ai/client/embedding_client.py",
+        "layer": "ai",
+        "status": "REVIEW",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.embedding_builder",
+        "path": "delbot_platform/ai/embedding/embedding_builder.py",
+        "layer": "ai",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.ai.embedding.embedding_service",
+        "path": "delbot_platform/ai/embedding/embedding_service.py",
+        "layer": "ai",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.research",
+        "path": "delbot_platform/api/research.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.routers.document",
+        "path": "delbot_platform/api/routers/document.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.routers.research",
+        "path": "delbot_platform/api/routers/research.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.routes.document",
+        "path": "delbot_platform/api/routes/document.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.routes.research",
+        "path": "delbot_platform/api/routes/research.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.schemas.document",
+        "path": "delbot_platform/api/schemas/document.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.schemas.research",
+        "path": "delbot_platform/api/schemas/research.py",
+        "layer": "api",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.builder.document_builder",
+        "path": "delbot_platform/document_intelligence/builder/document_builder.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.loader.document_loader",
+        "path": "delbot_platform/document_intelligence/loader/document_loader.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.block",
+        "path": "delbot_platform/document_intelligence/models/block.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.parser.document_parser",
+        "path": "delbot_platform/document_intelligence/parser/document_parser.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.pipeline.document_pipeline",
+        "path": "delbot_platform/document_intelligence/pipeline/document_pipeline.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.processor.document_processor",
+        "path": "delbot_platform/document_intelligence/processor/document_processor.py",
+        "layer": "document_intelligence",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.extraction.block",
+        "path": "delbot_platform/documents/extraction/block.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.builder.document",
+        "path": "delbot_platform/documents/metadata/builder/document.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.models.block",
+        "path": "delbot_platform/documents/models/block.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 8,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.models.document",
+        "path": "delbot_platform/documents/models/document.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.models.document_chunk",
+        "path": "delbot_platform/documents/models/document_chunk.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 8,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.documents.registry.document",
+        "path": "delbot_platform/documents/registry/document.py",
+        "layer": "documents",
+        "status": "REVIEW",
+        "incoming": 7,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.mapper.embedding",
+        "path": "delbot_platform/gateway/mapper/embedding.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.openai.embedding",
+        "path": "delbot_platform/gateway/openai/embedding.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.response",
+        "path": "delbot_platform/gateway/response.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.embedding",
+        "path": "delbot_platform/gateway/routers/embedding.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.research",
+        "path": "delbot_platform/gateway/routers/research.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.v1.embedding",
+        "path": "delbot_platform/gateway/routers/v1/embedding.py",
+        "layer": "gateway",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.graph.graph_builder",
+        "path": "delbot_platform/knowledge/graph/graph_builder.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.document",
+        "path": "delbot_platform/knowledge/models/document.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.document_chunk",
+        "path": "delbot_platform/knowledge/models/document_chunk.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.llm.response",
+        "path": "delbot_platform/knowledge/rag/llm/response.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.models.response",
+        "path": "delbot_platform/knowledge/rag/models/response.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.research.response",
+        "path": "delbot_platform/knowledge/rag/research/response.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.reranking.result",
+        "path": "delbot_platform/knowledge/reranking/result.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 8,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.knowledge.retrieval.result",
+        "path": "delbot_platform/knowledge/retrieval/result.py",
+        "layer": "knowledge",
+        "status": "REVIEW",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.embedding",
+        "path": "delbot_platform/orchestrator/services/embedding.py",
+        "layer": "orchestrator",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "tools.architecture.graph",
+        "path": "tools/architecture/graph.py",
+        "layer": "other",
+        "status": "REVIEW",
+        "incoming": 9,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.repository.download.result",
+        "path": "delbot_platform/repository/download/result.py",
+        "layer": "repository",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.repository.integration.document_loader",
+        "path": "delbot_platform/repository/integration/document_loader.py",
+        "layer": "repository",
+        "status": "REVIEW",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.research.models.embedding",
+        "path": "delbot_platform/research/models/embedding.py",
+        "layer": "research",
+        "status": "REVIEW",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.research.research_engine",
+        "path": "delbot_platform/research/research_engine.py",
+        "layer": "research",
+        "status": "REVIEW",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.workflows.repository.models.result",
+        "path": "delbot_platform/workflows/repository/models/result.py",
+        "layer": "workflows",
+        "status": "REVIEW",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MANUAL",
+        "reason": "Architecture review required"
+    },
+    {
+        "module": "delbot_platform.api.routers.repository",
+        "path": "delbot_platform/api/routers/repository.py",
+        "layer": "api",
+        "status": "MERGE",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.api.schemas.repository",
+        "path": "delbot_platform/api/schemas/repository.py",
+        "layer": "api",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.heading",
+        "path": "delbot_platform/document_intelligence/models/heading.py",
+        "layer": "document_intelligence",
+        "status": "MERGE",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.models.page",
+        "path": "delbot_platform/document_intelligence/models/page.py",
+        "layer": "document_intelligence",
+        "status": "MERGE",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.classification.heading",
+        "path": "delbot_platform/documents/classification/heading.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.providers.gateway",
+        "path": "delbot_platform/documents/embedding/providers/gateway.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.embedding.providers.local",
+        "path": "delbot_platform/documents/embedding/providers/local.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.loader.source",
+        "path": "delbot_platform/documents/loader/source.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 5,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.loader.sources.local",
+        "path": "delbot_platform/documents/loader/sources/local.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.metadata.repository",
+        "path": "delbot_platform/documents/metadata/repository.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.models.citation",
+        "path": "delbot_platform/documents/models/citation.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.models.page",
+        "path": "delbot_platform/documents/models/page.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.documents.registry.repository",
+        "path": "delbot_platform/documents/registry/repository.py",
+        "layer": "documents",
+        "status": "MERGE",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.client",
+        "path": "delbot_platform/gateway/client.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.mapper.chat",
+        "path": "delbot_platform/gateway/mapper/chat.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.openai.chat",
+        "path": "delbot_platform/gateway/openai/chat.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 2,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.providers.local",
+        "path": "delbot_platform/gateway/providers/local.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.chat",
+        "path": "delbot_platform/gateway/routers/chat.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.v1.chat",
+        "path": "delbot_platform/gateway/routers/v1/chat.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.gateway.services.gateway",
+        "path": "delbot_platform/gateway/services/gateway.py",
+        "layer": "gateway",
+        "status": "MERGE",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.citation.source",
+        "path": "delbot_platform/knowledge/citation/source.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 3,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.hydration.citation",
+        "path": "delbot_platform/knowledge/hydration/citation.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.hydration.local",
+        "path": "delbot_platform/knowledge/hydration/local.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.models.repository",
+        "path": "delbot_platform/knowledge/models/repository.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.citation_builder",
+        "path": "delbot_platform/knowledge/rag/citation_builder.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.reranking.gateway",
+        "path": "delbot_platform/knowledge/reranking/gateway.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.knowledge.reranking.local",
+        "path": "delbot_platform/knowledge/reranking/local.py",
+        "layer": "knowledge",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.gateway",
+        "path": "delbot_platform/orchestrator/services/gateway.py",
+        "layer": "orchestrator",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": ".backup.stage_4_24.gateway",
+        "path": ".backup/stage_4_24/gateway.py",
+        "layer": "other",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.research.llm.chat_client",
+        "path": "delbot_platform/research/llm/chat_client.py",
+        "layer": "research",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.research.llm.client",
+        "path": "delbot_platform/research/llm/client.py",
+        "layer": "research",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.research.models.citation",
+        "path": "delbot_platform/research/models/citation.py",
+        "layer": "research",
+        "status": "MERGE",
+        "incoming": 4,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.vectorstore.qdrant.client",
+        "path": "delbot_platform/vectorstore/qdrant/client.py",
+        "layer": "vectorstore",
+        "status": "MERGE",
+        "incoming": 1,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.vectorstore.qdrant.repository",
+        "path": "delbot_platform/vectorstore/qdrant/repository.py",
+        "layer": "vectorstore",
+        "status": "MERGE",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "MERGE",
+        "reason": "Merge before removal"
+    },
+    {
+        "module": "delbot_platform.ai.client.reranker_client",
+        "path": "delbot_platform/ai/client/reranker_client.py",
+        "layer": "ai",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.ai.http.http_client",
+        "path": "delbot_platform/ai/http/http_client.py",
+        "layer": "ai",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.api.app",
+        "path": "delbot_platform/api/app.py",
+        "layer": "api",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.application.research.answer",
+        "path": "delbot_platform/application/research/answer.py",
+        "layer": "application",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.config.manager",
+        "path": "delbot_platform/config/manager.py",
+        "layer": "config",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.document_intelligence.mappermupdf_mapper",
+        "path": "delbot_platform/document_intelligence/mapper/pymupdf_mapper.py",
+        "layer": "document_intelligence",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.backendmupdf",
+        "path": "delbot_platform/documents/parser/backend/pymupdf.py",
+        "layer": "documents",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.documents.parser.pdf",
+        "path": "delbot_platform/documents/parser/pdf.py",
+        "layer": "documents",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.documents.pipeline.models.artifact",
+        "path": "delbot_platform/documents/pipeline/models/artifact.py",
+        "layer": "documents",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.gateway.app",
+        "path": "delbot_platform/gateway/app.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.reranker",
+        "path": "delbot_platform/gateway/routers/reranker.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.gateway.routers.vision",
+        "path": "delbot_platform/gateway/routers/vision.py",
+        "layer": "gateway",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.knowledge.pipeline.models.artifact",
+        "path": "delbot_platform/knowledge/pipeline/models/artifact.py",
+        "layer": "knowledge",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rag.context_builder",
+        "path": "delbot_platform/knowledge/rag/context_builder.py",
+        "layer": "knowledge",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.knowledge.rerank.reranker",
+        "path": "delbot_platform/knowledge/rerank/reranker.py",
+        "layer": "knowledge",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.knowledge.vector.repository.memory",
+        "path": "delbot_platform/knowledge/vector/repository/memory.py",
+        "layer": "knowledge",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.launcher.infinity",
+        "path": "delbot_platform/launcher/infinity.py",
+        "layer": "launcher",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.launcher.vllm",
+        "path": "delbot_platform/launcher/vllm.py",
+        "layer": "launcher",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.health",
+        "path": "delbot_platform/orchestrator/health.py",
+        "layer": "orchestrator",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.reranker",
+        "path": "delbot_platform/orchestrator/services/reranker.py",
+        "layer": "orchestrator",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.orchestrator.services.vision",
+        "path": "delbot_platform/orchestrator/services/vision.py",
+        "layer": "orchestrator",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.repository.catalog.loader",
+        "path": "delbot_platform/repository/catalog/loader.py",
+        "layer": "repository",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.repository.discovery.http",
+        "path": "delbot_platform/repository/discovery/http.py",
+        "layer": "repository",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.research.rag.context",
+        "path": "delbot_platform/research/rag/context.py",
+        "layer": "research",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.research.services.answer",
+        "path": "delbot_platform/research/services/answer.py",
+        "layer": "research",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    },
+    {
+        "module": "delbot_platform.workflows.repository.models.artifact",
+        "path": "delbot_platform/workflows/repository/models/artifact.py",
+        "layer": "workflows",
+        "status": "LEGACY",
+        "incoming": 0,
+        "outgoing": 0,
+        "action": "SAFE_REMOVE",
+        "reason": "Isolated legacy module"
+    }
+]

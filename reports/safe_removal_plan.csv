@@ -1,0 +1,471 @@
+module,path,layer,status,incoming,outgoing,action,reason
+delbot_platform.ai.registry.loader,delbot_platform/ai/registry/loader.py,ai,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.config.loader,delbot_platform/config/loader.py,config,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.document_intelligence.loader.pdf_loader,delbot_platform/document_intelligence/loader/pdf_loader.py,document_intelligence,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.documents.registry.manager,delbot_platform/documents/registry/manager.py,documents,LEGACY,3,0,BLOCKED,Referenced by other modules
+delbot_platform.documents.registry.memory,delbot_platform/documents/registry/memory.py,documents,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.gateway.providers.infinity,delbot_platform/gateway/providers/infinity.py,gateway,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.gateway.providers.vllm,delbot_platform/gateway/providers/vllm.py,gateway,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.gateway.routers.health,delbot_platform/gateway/routers/health.py,gateway,LEGACY,1,0,BLOCKED,Referenced by other modules
+delbot_platform.ai.__init__,delbot_platform/ai/__init__.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.client.__init__,delbot_platform/ai/client/__init__.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.client.llm_client,delbot_platform/ai/client/llm_client.py,ai,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.ai.embedding.base_embedding_provider,delbot_platform/ai/embedding/base_embedding_provider.py,ai,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.ai.embedding.embedding_config,delbot_platform/ai/embedding/embedding_config.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.embedding.embedding_request,delbot_platform/ai/embedding/embedding_request.py,ai,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.ai.embedding.embedding_result,delbot_platform/ai/embedding/embedding_result.py,ai,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.ai.embedding.providers.infinity_embedding_provider,delbot_platform/ai/embedding/providers/infinity_embedding_provider.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.process.__init__,delbot_platform/ai/process/__init__.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.process.process_info,delbot_platform/ai/process/process_info.py,ai,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.ai.process.process_manager,delbot_platform/ai/process/process_manager.py,ai,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.ai.process.process_monitor,delbot_platform/ai/process/process_monitor.py,ai,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.ai.process.process_registry,delbot_platform/ai/process/process_registry.py,ai,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.ai.recovery.__init__,delbot_platform/ai/recovery/__init__.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.recovery.recovery,delbot_platform/ai/recovery/recovery.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.registry.__init__,delbot_platform/ai/registry/__init__.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.registry.exceptions,delbot_platform/ai/registry/exceptions.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.registry.model_backend,delbot_platform/ai/registry/model_backend.py,ai,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.ai.registry.model_backend_config,delbot_platform/ai/registry/model_backend_config.py,ai,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.ai.registry.model_category,delbot_platform/ai/registry/model_category.py,ai,CANONICAL,7,0,KEEP,Canonical module
+delbot_platform.ai.registry.model_info,delbot_platform/ai/registry/model_info.py,ai,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.ai.registry.model_runtime,delbot_platform/ai/registry/model_runtime.py,ai,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.ai.registry.registry,delbot_platform/ai/registry/registry.py,ai,CANONICAL,9,0,KEEP,Canonical module
+delbot_platform.ai.vector_store.base_vector_store,delbot_platform/ai/vector_store/base_vector_store.py,ai,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.ai.vector_store.providers.qdrant_vector_store,delbot_platform/ai/vector_store/providers/qdrant_vector_store.py,ai,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.api.__init__,delbot_platform/api/__init__.py,api,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.api.__main__,delbot_platform/api/__main__.py,api,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.api.main,delbot_platform/api/main.py,api,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.api.routers.__init__,delbot_platform/api/routers/__init__.py,api,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.api.routes.workspace,delbot_platform/api/routes/workspace.py,api,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.api.schemas.__init__,delbot_platform/api/schemas/__init__.py,api,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.__init__,delbot_platform/application/__init__.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.documents.__init__,delbot_platform/application/documents/__init__.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.documents.index,delbot_platform/application/documents/index.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.documents.index_repository,delbot_platform/application/documents/index_repository.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.factory.__init__,delbot_platform/application/factory/__init__.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.factory.application_factory,delbot_platform/application/factory/application_factory.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.repository.__init__,delbot_platform/application/repository/__init__.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.repository.ingest,delbot_platform/application/repository/ingest.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.application.research.__init__,delbot_platform/application/research/__init__.py,application,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.boot.__init__,delbot_platform/boot/__init__.py,boot,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.boot.boot_result,delbot_platform/boot/boot_result.py,boot,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.boot.boot_state,delbot_platform/boot/boot_state.py,boot,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.boot.service_boot,delbot_platform/boot/service_boot.py,boot,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.boot.service_health,delbot_platform/boot/service_health.py,boot,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.boot.service_waiter,delbot_platform/boot/service_waiter.py,boot,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.config.__init__,delbot_platform/config/__init__.py,config,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.config.models,delbot_platform/config/models.py,config,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.config.validator,delbot_platform/config/validator.py,config,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.controller.__init__,delbot_platform/controller/__init__.py,controller,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.controller.service_controller,delbot_platform/controller/service_controller.py,controller,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.core.__init__,delbot_platform/core/__init__.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.config_manager,delbot_platform/core/config_manager.py,core,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.core.environment,delbot_platform/core/environment.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.__init__,delbot_platform/core/lifecycle/__init__.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.boot_policy,delbot_platform/core/lifecycle/boot_policy.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.orchestrator,delbot_platform/core/lifecycle/orchestrator.py,core,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_definition,delbot_platform/core/lifecycle/service_definition.py,core,CANONICAL,11,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_dependency,delbot_platform/core/lifecycle/service_dependency.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_event,delbot_platform/core/lifecycle/service_event.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_loader,delbot_platform/core/lifecycle/service_loader.py,core,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_registry,delbot_platform/core/lifecycle/service_registry.py,core,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.service_state,delbot_platform/core/lifecycle/service_state.py,core,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.core.lifecycle.state_machine,delbot_platform/core/lifecycle/state_machine.py,core,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.core.logger,delbot_platform/core/logger.py,core,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.core.path_manager,delbot_platform/core/path_manager.py,core,CANONICAL,12,0,KEEP,Canonical module
+delbot_platform.core.runtime_manager,delbot_platform/core/runtime_manager.py,core,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.__init__,delbot_platform/document_intelligence/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.analyzer.__init__,delbot_platform/document_intelligence/analyzer/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.analyzer.document_analyzer,delbot_platform/document_intelligence/analyzer/document_analyzer.py,document_intelligence,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.document_intelligence.analyzer.heading_detector,delbot_platform/document_intelligence/analyzer/heading_detector.py,document_intelligence,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.document_intelligence.analyzer.layout_statistics_analyzer,delbot_platform/document_intelligence/analyzer/layout_statistics_analyzer.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.analyzer.page_text_analyzer,delbot_platform/document_intelligence/analyzer/page_text_analyzer.py,document_intelligence,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.document_intelligence.backend.__init__,delbot_platform/document_intelligence/backend/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.backend.backend,delbot_platform/document_intelligence/backend/backend.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.backend.pdf.__init__,delbot_platform/document_intelligence/backend/pdf/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.backend.pdfmupdf_backend,delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.builder.__init__,delbot_platform/document_intelligence/builder/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.builder.default_document_builder,delbot_platform/document_intelligence/builder/default_document_builder.py,document_intelligence,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.document_intelligence.builder.paragraph_builder,delbot_platform/document_intelligence/builder/paragraph_builder.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.builder.semantic_chunk_builder,delbot_platform/document_intelligence/builder/semantic_chunk_builder.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.debug.__init__,delbot_platform/document_intelligence/debug/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.debug.layout_debugger,delbot_platform/document_intelligence/debug/layout_debugger.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.factory.__init__,delbot_platform/document_intelligence/factory/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.factory.document_processor_factory,delbot_platform/document_intelligence/factory/document_processor_factory.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.loader.__init__,delbot_platform/document_intelligence/loader/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.loader.loaded_document,delbot_platform/document_intelligence/loader/loaded_document.py,document_intelligence,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.document_intelligence.mapper.__init__,delbot_platform/document_intelligence/mapper/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.mapper.layout_mapper,delbot_platform/document_intelligence/mapper/layout_mapper.py,document_intelligence,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.__init__,delbot_platform/document_intelligence/models/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.bounding_box,delbot_platform/document_intelligence/models/bounding_box.py,document_intelligence,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.heading_collection,delbot_platform/document_intelligence/models/heading_collection.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.heading_level,delbot_platform/document_intelligence/models/heading_level.py,document_intelligence,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.layout_statistics,delbot_platform/document_intelligence/models/layout_statistics.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.line,delbot_platform/document_intelligence/models/line.py,document_intelligence,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.paragraph,delbot_platform/document_intelligence/models/paragraph.py,document_intelligence,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.paragraph_collection,delbot_platform/document_intelligence/models/paragraph_collection.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.parsed_document,delbot_platform/document_intelligence/models/parsed_document.py,document_intelligence,CANONICAL,15,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.semantic_chunk,delbot_platform/document_intelligence/models/semantic_chunk.py,document_intelligence,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.semantic_chunk_collection,delbot_platform/document_intelligence/models/semantic_chunk_collection.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.models.span,delbot_platform/document_intelligence/models/span.py,document_intelligence,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.document_intelligence.parser.__init__,delbot_platform/document_intelligence/parser/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.parser.pdf_document_parser,delbot_platform/document_intelligence/parser/pdf_document_parser.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.pipeline.__init__,delbot_platform/document_intelligence/pipeline/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.document_intelligence.pipeline.analyzer_stage,delbot_platform/document_intelligence/pipeline/analyzer_stage.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.pipeline.builder_stage,delbot_platform/document_intelligence/pipeline/builder_stage.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.pipeline.parser_stage,delbot_platform/document_intelligence/pipeline/parser_stage.py,document_intelligence,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.document_intelligence.pipeline.pipeline_stage,delbot_platform/document_intelligence/pipeline/pipeline_stage.py,document_intelligence,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.document_intelligence.processor.__init__,delbot_platform/document_intelligence/processor/__init__.py,document_intelligence,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.__init__,delbot_platform/documents/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.chunking.__init__,delbot_platform/documents/chunking/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.chunking.chunk_builder,delbot_platform/documents/chunking/chunk_builder.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.chunking.policy.__init__,delbot_platform/documents/chunking/policy/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.chunking.policy.policy,delbot_platform/documents/chunking/policy/policy.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.classification.__init__,delbot_platform/documents/classification/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.classification.academic_heading,delbot_platform/documents/classification/academic_heading.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.classification.document_type,delbot_platform/documents/classification/document_type.py,documents,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.documents.classification.heading_score,delbot_platform/documents/classification/heading_score.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.classification.page_classifier,delbot_platform/documents/classification/page_classifier.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.classification.page_region,delbot_platform/documents/classification/page_region.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.classification.page_type,delbot_platform/documents/classification/page_type.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.embedding.__init__,delbot_platform/documents/embedding/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.base,delbot_platform/documents/embedding/base.py,documents,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.documents.embedding.factory.__init__,delbot_platform/documents/embedding/factory/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.factory.provider,delbot_platform/documents/embedding/factory/provider.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.embedding.mapper.__init__,delbot_platform/documents/embedding/mapper/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.mapper.vector_mapper,delbot_platform/documents/embedding/mapper/vector_mapper.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.models.__init__,delbot_platform/documents/embedding/models/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.models.embedding_vector,delbot_platform/documents/embedding/models/embedding_vector.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.pipeline.__init__,delbot_platform/documents/embedding/pipeline/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.pipeline.pipeline,delbot_platform/documents/embedding/pipeline/pipeline.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.embedding.providers.__init__,delbot_platform/documents/embedding/providers/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.embedding.vector,delbot_platform/documents/embedding/vector.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.extraction.__init__,delbot_platform/documents/extraction/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.extraction.service,delbot_platform/documents/extraction/service.py,documents,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.documents.ingestion.__init__,delbot_platform/documents/ingestion/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.ingestion.repository_ingestor,delbot_platform/documents/ingestion/repository_ingestor.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.loader.__init__,delbot_platform/documents/loader/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.loader.sources.__init__,delbot_platform/documents/loader/sources/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.metadata.__init__,delbot_platform/documents/metadata/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.metadata.builder.__init__,delbot_platform/documents/metadata/builder/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.metadata.builder.chunk,delbot_platform/documents/metadata/builder/chunk.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.metadata.chunk_metadata,delbot_platform/documents/metadata/chunk_metadata.py,documents,CANONICAL,8,0,KEEP,Canonical module
+delbot_platform.documents.metadata.document_metadata,delbot_platform/documents/metadata/document_metadata.py,documents,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.documents.metadata.mapper.chunk_metadata_mapper,delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py,documents,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.documents.metadata.metadata_extractor,delbot_platform/documents/metadata/metadata_extractor.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.models.__init__,delbot_platform/documents/models/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.models.chunk,delbot_platform/documents/models/chunk.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.models.metadata,delbot_platform/documents/models/metadata.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.parser.__init__,delbot_platform/documents/parser/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.parser.backend.__init__,delbot_platform/documents/parser/backend/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.parser.backend.base,delbot_platform/documents/parser/backend/base.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.parser.base,delbot_platform/documents/parser/base.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.pipeline.__init__,delbot_platform/documents/pipeline/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.pipeline.indexing,delbot_platform/documents/pipeline/indexing.py,documents,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.documents.pipeline.models.__init__,delbot_platform/documents/pipeline/models/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.pipeline.models.index_result,delbot_platform/documents/pipeline/models/index_result.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.pipeline.preprocessing,delbot_platform/documents/pipeline/preprocessing.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.registry.__init__,delbot_platform/documents/registry/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.registry.factory,delbot_platform/documents/registry/factory.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.registry.filesystem,delbot_platform/documents/registry/filesystem.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.services.__init__,delbot_platform/documents/services/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.services.indexing,delbot_platform/documents/services/indexing.py,documents,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.documents.structure.__init__,delbot_platform/documents/structure/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.structure.section.__init__,delbot_platform/documents/structure/section/__init__.py,documents,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.documents.structure.section.builder,delbot_platform/documents/structure/section/builder.py,documents,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.documents.structure.section.section,delbot_platform/documents/structure/section/section.py,documents,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.gateway.__init__,delbot_platform/gateway/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.__main__,delbot_platform/gateway/__main__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.exceptions,delbot_platform/gateway/exceptions.py,gateway,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.gateway.mapper.__init__,delbot_platform/gateway/mapper/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.openai.__init__,delbot_platform/gateway/openai/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.providers.__init__,delbot_platform/gateway/providers/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.providers.base,delbot_platform/gateway/providers/base.py,gateway,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.gateway.providers.factory,delbot_platform/gateway/providers/factory.py,gateway,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.gateway.request,delbot_platform/gateway/request.py,gateway,CANONICAL,9,0,KEEP,Canonical module
+delbot_platform.gateway.router,delbot_platform/gateway/router.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.routers.__init__,delbot_platform/gateway/routers/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.routers.models,delbot_platform/gateway/routers/models.py,gateway,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.gateway.routers.v1.__init__,delbot_platform/gateway/routers/v1/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.gateway.services.__init__,delbot_platform/gateway/services/__init__.py,gateway,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.__init__,delbot_platform/knowledge/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.citation.__init__,delbot_platform/knowledge/citation/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.citation.builder,delbot_platform/knowledge/citation/builder.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.context.__init__,delbot_platform/knowledge/context/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.context.builder,delbot_platform/knowledge/context/builder.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.extraction.__init__,delbot_platform/knowledge/extraction/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.extraction.extraction_config,delbot_platform/knowledge/extraction/extraction_config.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.extraction.extraction_result,delbot_platform/knowledge/extraction/extraction_result.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.extraction.knowledge_extractor,delbot_platform/knowledge/extraction/knowledge_extractor.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.__init__,delbot_platform/knowledge/graph/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.edge_builder,delbot_platform/knowledge/graph/edge_builder.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.graph_edge,delbot_platform/knowledge/graph/graph_edge.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.graph_node,delbot_platform/knowledge/graph/graph_node.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.knowledge_graph,delbot_platform/knowledge/graph/knowledge_graph.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.graph.node_builder,delbot_platform/knowledge/graph/node_builder.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.hydration.__init__,delbot_platform/knowledge/hydration/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.hydration.base,delbot_platform/knowledge/hydration/base.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.models.__init__,delbot_platform/knowledge/models/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.models.author,delbot_platform/knowledge/models/author.py,knowledge,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.knowledge.models.collection,delbot_platform/knowledge/models/collection.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.models.knowledge_domain,delbot_platform/knowledge/models/knowledge_domain.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.models.knowledge_entity,delbot_platform/knowledge/models/knowledge_entity.py,knowledge,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.knowledge.models.knowledge_relation,delbot_platform/knowledge/models/knowledge_relation.py,knowledge,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.knowledge.models.knowledge_source,delbot_platform/knowledge/models/knowledge_source.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.models.rag_result,delbot_platform/knowledge/models/rag_result.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.pipeline.__init__,delbot_platform/knowledge/pipeline/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.pipeline.knowledge_pipeline,delbot_platform/knowledge/pipeline/knowledge_pipeline.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.pipeline.models.__init__,delbot_platform/knowledge/pipeline/models/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.pipeline.pipeline_context,delbot_platform/knowledge/pipeline/pipeline_context.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.pipeline.pipeline_result,delbot_platform/knowledge/pipeline/pipeline_result.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.__init__,delbot_platform/knowledge/rag/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.llm.__init__,delbot_platform/knowledge/rag/llm/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.llm.generator,delbot_platform/knowledge/rag/llm/generator.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.models.__init__,delbot_platform/knowledge/rag/models/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.pipeline,delbot_platform/knowledge/rag/pipeline.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.rag_engine,delbot_platform/knowledge/rag/rag_engine.py,knowledge,CANONICAL,4,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.research.__init__,delbot_platform/knowledge/rag/research/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.research.pipeline,delbot_platform/knowledge/rag/research/pipeline.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.rag.vector_retriever,delbot_platform/knowledge/rag/vector_retriever.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.reranking.__init__,delbot_platform/knowledge/reranking/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.reranking.base,delbot_platform/knowledge/reranking/base.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.retrieval.__init__,delbot_platform/knowledge/retrieval/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.retrieval.base,delbot_platform/knowledge/retrieval/base.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.retrieval.metadata_retriever,delbot_platform/knowledge/retrieval/metadata_retriever.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.retrieval.qdrant,delbot_platform/knowledge/retrieval/qdrant.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.retrieval.retriever,delbot_platform/knowledge/retrieval/retriever.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.knowledge.services.__init__,delbot_platform/knowledge/services/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.services.processing,delbot_platform/knowledge/services/processing.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.__init__,delbot_platform/knowledge/vector/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.models.__init__,delbot_platform/knowledge/vector/models/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.models.record,delbot_platform/knowledge/vector/models/record.py,knowledge,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.qdrant_store,delbot_platform/knowledge/vector/qdrant_store.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.repository.__init__,delbot_platform/knowledge/vector/repository/__init__.py,knowledge,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.repository.base,delbot_platform/knowledge/vector/repository/base.py,knowledge,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.knowledge.vector.repository.qdrant,delbot_platform/knowledge/vector/repository/qdrant.py,knowledge,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.__init__,delbot_platform/launcher/__init__.py,launcher,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.launcher.ai_runtime,delbot_platform/launcher/ai_runtime.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.base,delbot_platform/launcher/base.py,launcher,CANONICAL,8,0,KEEP,Canonical module
+delbot_platform.launcher.factory,delbot_platform/launcher/factory.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.gateway_launcher,delbot_platform/launcher/gateway_launcher.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.paddleocr,delbot_platform/launcher/paddleocr.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.research_api_launcher,delbot_platform/launcher/research_api_launcher.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.launcher.spec,delbot_platform/launcher/spec.py,launcher,CANONICAL,9,0,KEEP,Canonical module
+delbot_platform.launcher.whisper,delbot_platform/launcher/whisper.py,launcher,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.orchestrator.__init__,delbot_platform/orchestrator/__init__.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.orchestrator.services.__init__,delbot_platform/orchestrator/services/__init__.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.orchestrator.services.ocr,delbot_platform/orchestrator/services/ocr.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.orchestrator.services.speech,delbot_platform/orchestrator/services/speech.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.orchestrator.shutdown,delbot_platform/orchestrator/shutdown.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.orchestrator.startup,delbot_platform/orchestrator/startup.py,orchestrator,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.orchestrator.status,delbot_platform/orchestrator/status.py,orchestrator,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.__init__,delbot_platform/__init__.py,other,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.__main__,delbot_platform/__main__.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.__init__,tools/__init__.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.__init__,tools/architecture/__init__.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.circular,tools/architecture/circular.py,other,CANONICAL,2,0,KEEP,Canonical module
+tools.architecture.dependency,tools/architecture/dependency.py,other,CANONICAL,1,0,KEEP,Canonical module
+tools.architecture.doctor,tools/architecture/doctor.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.filter,tools/architecture/filter.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.graph_filter,tools/architecture/graph_filter.py,other,CANONICAL,1,0,KEEP,Canonical module
+tools.architecture.inventory,tools/architecture/inventory.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.layer,tools/architecture/layer.py,other,CANONICAL,2,0,KEEP,Canonical module
+tools.architecture.metrics,tools/architecture/metrics.py,other,CANONICAL,2,0,KEEP,Canonical module
+tools.architecture.models,tools/architecture/models.py,other,CANONICAL,9,0,KEEP,Canonical module
+tools.architecture.pipeline,tools/architecture/pipeline.py,other,CANONICAL,2,0,KEEP,Canonical module
+tools.architecture.resolver,tools/architecture/resolver.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.scanner,tools/architecture/scanner.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.tests.test_circular,tools/architecture/tests/test_circular.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.tests.test_layer,tools/architecture/tests/test_layer.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.tests.test_metrics,tools/architecture/tests/test_metrics.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.architecture.tests.test_pipeline,tools/architecture/tests/test_pipeline.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.audit_heading_classifier,tools/audit_heading_classifier.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.batch_ingest_parallel,tools/batch_ingest_parallel.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.batch_ingest_pdf,tools/batch_ingest_pdf.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.batch_ingest_repository,tools/batch_ingest_repository.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.build_pdf_index,tools/build_pdf_index.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.check_qdrant_payload,tools/check_qdrant_payload.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.debug.inspect_pymupdf_span,tools/debug/inspect_pymupdf_span.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.ingest_metadata_vectors,tools/ingest_metadata_vectors.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.ingest_pdf_vectors,tools/ingest_pdf_vectors.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_ingest,tools/test_ingest.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_pdf_extract,tools/test_pdf_extract.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_pdf_ingest,tools/test_pdf_ingest.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_pdf_ingest_single,tools/test_pdf_ingest_single.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_pdf_ocr,tools/test_pdf_ocr.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_rag,tools/test_rag.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_rag_engine,tools/test_rag_engine.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_rag_final,tools/test_rag_final.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_rag_llm,tools/test_rag_llm.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_rag_pipeline,tools/test_rag_pipeline.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_research_engine,tools/test_research_engine.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_retrieval,tools/test_retrieval.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_retriever_engine,tools/test_retriever_engine.py,other,CANONICAL,0,0,KEEP,Canonical module
+tools.test_vector_schema,tools/test_vector_schema.py,other,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.__init__,delbot_platform/repository/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.catalog.__init__,delbot_platform/repository/catalog/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.catalog.adapter,delbot_platform/repository/catalog/adapter.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.catalog.builder,delbot_platform/repository/catalog/builder.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.catalog.models,delbot_platform/repository/catalog/models.py,repository,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.repository.discovery.__init__,delbot_platform/repository/discovery/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.discovery.base,delbot_platform/repository/discovery/base.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.discovery.gitlab,delbot_platform/repository/discovery/gitlab.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.discovery.service,delbot_platform/repository/discovery/service.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.download.__init__,delbot_platform/repository/download/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.download.downloader,delbot_platform/repository/download/downloader.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.download.pdf_downloader,delbot_platform/repository/download/pdf_downloader.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.ingestion.__init__,delbot_platform/repository/ingestion/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.ingestion.dataset_loader,delbot_platform/repository/ingestion/dataset_loader.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.integration.__init__,delbot_platform/repository/integration/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.manifest.__init__,delbot_platform/repository/manifest/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.manifest.pdf_manifest,delbot_platform/repository/manifest/pdf_manifest.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.models.__init__,delbot_platform/repository/models/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.models.repository_item,delbot_platform/repository/models/repository_item.py,repository,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.repository.models.scan_result,delbot_platform/repository/models/scan_result.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.providers.__init__,delbot_platform/repository/providers/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.providers.base,delbot_platform/repository/providers/base.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.providers.dspace,delbot_platform/repository/providers/dspace.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.resolver.__init__,delbot_platform/repository/resolver/__init__.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.resolver.dspace_bitstream,delbot_platform/repository/resolver/dspace_bitstream.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.resolver.dspace_html,delbot_platform/repository/resolver/dspace_html.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.resolver.local_pdf,delbot_platform/repository/resolver/local_pdf.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.resolver.url_normalizer,delbot_platform/repository/resolver/url_normalizer.py,repository,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.repository.service,delbot_platform/repository/service.py,repository,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.research.__init__,delbot_platform/research/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.builders.__init__,delbot_platform/research/builders/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.builders.research_result_builder,delbot_platform/research/builders/research_result_builder.py,research,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.research.context.document_context,delbot_platform/research/context/document_context.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.generator.__init__,delbot_platform/research/generator/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.generator.llm_generator,delbot_platform/research/generator/llm_generator.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.memory.__init__,delbot_platform/research/memory/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.memory.research_memory,delbot_platform/research/memory/research_memory.py,research,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.research.models.__init__,delbot_platform/research/models/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.models.embedding_collection,delbot_platform/research/models/embedding_collection.py,research,CANONICAL,3,0,KEEP,Canonical module
+delbot_platform.research.models.research_result,delbot_platform/research/models/research_result.py,research,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.research.pipeline.__init__,delbot_platform/research/pipeline/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.pipeline.research_answer_pipeline,delbot_platform/research/pipeline/research_answer_pipeline.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.prompt_builder,delbot_platform/research/prompt_builder.py,research,CANONICAL,2,0,KEEP,Canonical module
+delbot_platform.research.services.__init__,delbot_platform/research/services/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.state.__init__,delbot_platform/research/state/__init__.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.research.state.research_state,delbot_platform/research/state/research_state.py,research,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.vectors.__init__,delbot_platform/vectors/__init__.py,vectors,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.vectors.models,delbot_platform/vectors/models.py,vectors,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.vectorstore.__init__,delbot_platform/vectorstore/__init__.py,vectorstore,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.vectorstore.qdrant.__init__,delbot_platform/vectorstore/qdrant/__init__.py,vectorstore,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.vectorstore.qdrant.singleton,delbot_platform/vectorstore/qdrant/singleton.py,vectorstore,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.workflows.__init__,delbot_platform/workflows/__init__.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workflows.factory.__init__,delbot_platform/workflows/factory/__init__.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workflows.factory.workflow_factory,delbot_platform/workflows/factory/workflow_factory.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workflows.repository.__init__,delbot_platform/workflows/repository/__init__.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workflows.repository.ingestion,delbot_platform/workflows/repository/ingestion.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workflows.repository.models.__init__,delbot_platform/workflows/repository/models/__init__.py,workflows,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workspace.models,delbot_platform/workspace/models.py,workspace,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.workspace.models.__init__,delbot_platform/workspace/models/__init__.py,workspace,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workspace.models.chat_message,delbot_platform/workspace/models/chat_message.py,workspace,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.workspace.models.workspace_metadata,delbot_platform/workspace/models/workspace_metadata.py,workspace,CANONICAL,1,0,KEEP,Canonical module
+delbot_platform.workspace.models.workspace_session,delbot_platform/workspace/models/workspace_session.py,workspace,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.workspace.session_manager,delbot_platform/workspace/session_manager.py,workspace,CANONICAL,5,0,KEEP,Canonical module
+delbot_platform.workspace.storage,delbot_platform/workspace/storage.py,workspace,CANONICAL,0,0,KEEP,Canonical module
+delbot_platform.ai.client.embedding_client,delbot_platform/ai/client/embedding_client.py,ai,REVIEW,4,0,MANUAL,Architecture review required
+delbot_platform.ai.embedding.embedding_builder,delbot_platform/ai/embedding/embedding_builder.py,ai,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.ai.embedding.embedding_service,delbot_platform/ai/embedding/embedding_service.py,ai,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.api.research,delbot_platform/api/research.py,api,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.api.routers.document,delbot_platform/api/routers/document.py,api,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.api.routers.research,delbot_platform/api/routers/research.py,api,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.api.routes.document,delbot_platform/api/routes/document.py,api,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.api.routes.research,delbot_platform/api/routes/research.py,api,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.api.schemas.document,delbot_platform/api/schemas/document.py,api,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.api.schemas.research,delbot_platform/api/schemas/research.py,api,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.builder.document_builder,delbot_platform/document_intelligence/builder/document_builder.py,document_intelligence,REVIEW,3,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.loader.document_loader,delbot_platform/document_intelligence/loader/document_loader.py,document_intelligence,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.models.block,delbot_platform/document_intelligence/models/block.py,document_intelligence,REVIEW,4,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.parser.document_parser,delbot_platform/document_intelligence/parser/document_parser.py,document_intelligence,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.pipeline.document_pipeline,delbot_platform/document_intelligence/pipeline/document_pipeline.py,document_intelligence,REVIEW,3,0,MANUAL,Architecture review required
+delbot_platform.document_intelligence.processor.document_processor,delbot_platform/document_intelligence/processor/document_processor.py,document_intelligence,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.documents.extraction.block,delbot_platform/documents/extraction/block.py,documents,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.documents.metadata.builder.document,delbot_platform/documents/metadata/builder/document.py,documents,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.documents.models.block,delbot_platform/documents/models/block.py,documents,REVIEW,8,0,MANUAL,Architecture review required
+delbot_platform.documents.models.document,delbot_platform/documents/models/document.py,documents,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.documents.models.document_chunk,delbot_platform/documents/models/document_chunk.py,documents,REVIEW,8,0,MANUAL,Architecture review required
+delbot_platform.documents.registry.document,delbot_platform/documents/registry/document.py,documents,REVIEW,7,0,MANUAL,Architecture review required
+delbot_platform.gateway.mapper.embedding,delbot_platform/gateway/mapper/embedding.py,gateway,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.gateway.openai.embedding,delbot_platform/gateway/openai/embedding.py,gateway,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.gateway.response,delbot_platform/gateway/response.py,gateway,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.gateway.routers.embedding,delbot_platform/gateway/routers/embedding.py,gateway,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.gateway.routers.research,delbot_platform/gateway/routers/research.py,gateway,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.gateway.routers.v1.embedding,delbot_platform/gateway/routers/v1/embedding.py,gateway,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.knowledge.graph.graph_builder,delbot_platform/knowledge/graph/graph_builder.py,knowledge,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.knowledge.models.document,delbot_platform/knowledge/models/document.py,knowledge,REVIEW,3,0,MANUAL,Architecture review required
+delbot_platform.knowledge.models.document_chunk,delbot_platform/knowledge/models/document_chunk.py,knowledge,REVIEW,2,0,MANUAL,Architecture review required
+delbot_platform.knowledge.rag.llm.response,delbot_platform/knowledge/rag/llm/response.py,knowledge,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.knowledge.rag.models.response,delbot_platform/knowledge/rag/models/response.py,knowledge,REVIEW,4,0,MANUAL,Architecture review required
+delbot_platform.knowledge.rag.research.response,delbot_platform/knowledge/rag/research/response.py,knowledge,REVIEW,3,0,MANUAL,Architecture review required
+delbot_platform.knowledge.reranking.result,delbot_platform/knowledge/reranking/result.py,knowledge,REVIEW,8,0,MANUAL,Architecture review required
+delbot_platform.knowledge.retrieval.result,delbot_platform/knowledge/retrieval/result.py,knowledge,REVIEW,3,0,MANUAL,Architecture review required
+delbot_platform.orchestrator.services.embedding,delbot_platform/orchestrator/services/embedding.py,orchestrator,REVIEW,0,0,MANUAL,Architecture review required
+tools.architecture.graph,tools/architecture/graph.py,other,REVIEW,9,0,MANUAL,Architecture review required
+delbot_platform.repository.download.result,delbot_platform/repository/download/result.py,repository,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.repository.integration.document_loader,delbot_platform/repository/integration/document_loader.py,repository,REVIEW,1,0,MANUAL,Architecture review required
+delbot_platform.research.models.embedding,delbot_platform/research/models/embedding.py,research,REVIEW,4,0,MANUAL,Architecture review required
+delbot_platform.research.research_engine,delbot_platform/research/research_engine.py,research,REVIEW,5,0,MANUAL,Architecture review required
+delbot_platform.workflows.repository.models.result,delbot_platform/workflows/repository/models/result.py,workflows,REVIEW,0,0,MANUAL,Architecture review required
+delbot_platform.api.routers.repository,delbot_platform/api/routers/repository.py,api,MERGE,2,0,MERGE,Merge before removal
+delbot_platform.api.schemas.repository,delbot_platform/api/schemas/repository.py,api,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.document_intelligence.models.heading,delbot_platform/document_intelligence/models/heading.py,document_intelligence,MERGE,4,0,MERGE,Merge before removal
+delbot_platform.document_intelligence.models.page,delbot_platform/document_intelligence/models/page.py,document_intelligence,MERGE,5,0,MERGE,Merge before removal
+delbot_platform.documents.classification.heading,delbot_platform/documents/classification/heading.py,documents,MERGE,2,0,MERGE,Merge before removal
+delbot_platform.documents.embedding.providers.gateway,delbot_platform/documents/embedding/providers/gateway.py,documents,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.documents.embedding.providers.local,delbot_platform/documents/embedding/providers/local.py,documents,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.documents.loader.source,delbot_platform/documents/loader/source.py,documents,MERGE,5,0,MERGE,Merge before removal
+delbot_platform.documents.loader.sources.local,delbot_platform/documents/loader/sources/local.py,documents,MERGE,2,0,MERGE,Merge before removal
+delbot_platform.documents.metadata.repository,delbot_platform/documents/metadata/repository.py,documents,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.documents.models.citation,delbot_platform/documents/models/citation.py,documents,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.documents.models.page,delbot_platform/documents/models/page.py,documents,MERGE,2,0,MERGE,Merge before removal
+delbot_platform.documents.registry.repository,delbot_platform/documents/registry/repository.py,documents,MERGE,4,0,MERGE,Merge before removal
+delbot_platform.gateway.client,delbot_platform/gateway/client.py,gateway,MERGE,3,0,MERGE,Merge before removal
+delbot_platform.gateway.mapper.chat,delbot_platform/gateway/mapper/chat.py,gateway,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.gateway.openai.chat,delbot_platform/gateway/openai/chat.py,gateway,MERGE,2,0,MERGE,Merge before removal
+delbot_platform.gateway.providers.local,delbot_platform/gateway/providers/local.py,gateway,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.gateway.routers.chat,delbot_platform/gateway/routers/chat.py,gateway,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.gateway.routers.v1.chat,delbot_platform/gateway/routers/v1/chat.py,gateway,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.gateway.services.gateway,delbot_platform/gateway/services/gateway.py,gateway,MERGE,4,0,MERGE,Merge before removal
+delbot_platform.knowledge.citation.source,delbot_platform/knowledge/citation/source.py,knowledge,MERGE,3,0,MERGE,Merge before removal
+delbot_platform.knowledge.hydration.citation,delbot_platform/knowledge/hydration/citation.py,knowledge,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.knowledge.hydration.local,delbot_platform/knowledge/hydration/local.py,knowledge,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.knowledge.models.repository,delbot_platform/knowledge/models/repository.py,knowledge,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.knowledge.rag.citation_builder,delbot_platform/knowledge/rag/citation_builder.py,knowledge,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.knowledge.reranking.gateway,delbot_platform/knowledge/reranking/gateway.py,knowledge,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.knowledge.reranking.local,delbot_platform/knowledge/reranking/local.py,knowledge,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.orchestrator.services.gateway,delbot_platform/orchestrator/services/gateway.py,orchestrator,MERGE,0,0,MERGE,Merge before removal
+.backup.stage_4_24.gateway,.backup/stage_4_24/gateway.py,other,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.research.llm.chat_client,delbot_platform/research/llm/chat_client.py,research,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.research.llm.client,delbot_platform/research/llm/client.py,research,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.research.models.citation,delbot_platform/research/models/citation.py,research,MERGE,4,0,MERGE,Merge before removal
+delbot_platform.vectorstore.qdrant.client,delbot_platform/vectorstore/qdrant/client.py,vectorstore,MERGE,1,0,MERGE,Merge before removal
+delbot_platform.vectorstore.qdrant.repository,delbot_platform/vectorstore/qdrant/repository.py,vectorstore,MERGE,0,0,MERGE,Merge before removal
+delbot_platform.ai.client.reranker_client,delbot_platform/ai/client/reranker_client.py,ai,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.ai.http.http_client,delbot_platform/ai/http/http_client.py,ai,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.api.app,delbot_platform/api/app.py,api,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.application.research.answer,delbot_platform/application/research/answer.py,application,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.config.manager,delbot_platform/config/manager.py,config,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.document_intelligence.mappermupdf_mapper,delbot_platform/document_intelligence/mapper/pymupdf_mapper.py,document_intelligence,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.documents.parser.backendmupdf,delbot_platform/documents/parser/backend/pymupdf.py,documents,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.documents.parser.pdf,delbot_platform/documents/parser/pdf.py,documents,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.documents.pipeline.models.artifact,delbot_platform/documents/pipeline/models/artifact.py,documents,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.gateway.app,delbot_platform/gateway/app.py,gateway,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.gateway.routers.reranker,delbot_platform/gateway/routers/reranker.py,gateway,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.gateway.routers.vision,delbot_platform/gateway/routers/vision.py,gateway,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.knowledge.pipeline.models.artifact,delbot_platform/knowledge/pipeline/models/artifact.py,knowledge,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.knowledge.rag.context_builder,delbot_platform/knowledge/rag/context_builder.py,knowledge,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.knowledge.rerank.reranker,delbot_platform/knowledge/rerank/reranker.py,knowledge,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.knowledge.vector.repository.memory,delbot_platform/knowledge/vector/repository/memory.py,knowledge,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.launcher.infinity,delbot_platform/launcher/infinity.py,launcher,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.launcher.vllm,delbot_platform/launcher/vllm.py,launcher,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.orchestrator.health,delbot_platform/orchestrator/health.py,orchestrator,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.orchestrator.services.reranker,delbot_platform/orchestrator/services/reranker.py,orchestrator,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.orchestrator.services.vision,delbot_platform/orchestrator/services/vision.py,orchestrator,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.repository.catalog.loader,delbot_platform/repository/catalog/loader.py,repository,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.repository.discovery.http,delbot_platform/repository/discovery/http.py,repository,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.research.rag.context,delbot_platform/research/rag/context.py,research,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.research.services.answer,delbot_platform/research/services/answer.py,research,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module
+delbot_platform.workflows.repository.models.artifact,delbot_platform/workflows/repository/models/artifact.py,workflows,LEGACY,0,0,SAFE_REMOVE,Isolated legacy module

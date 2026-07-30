@@ -1,0 +1,123 @@
+{
+    "session_id": "7928c499-8673-43ee-8a70-a4a18c7274ff",
+    "title": "Research Engine Test",
+    "messages": [],
+    "metadata": {
+        "active_collection": "",
+        "active_document": "",
+        "selected_model": "",
+        "settings": {}
+    },
+    "research_state": {
+        "topic": "Research Engine Test",
+        "research_goal": null,
+        "current_question": "Bagaimana metodologi penelitian machine learning?",
+        "current_answer": "### Fakta\n\nMetodologi penelitian *machine learning* (ML) secara umum melibatkan serangkaian tahapan sistematis yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* terdiri dari beberapa tahapan utama:\n\n1. **Pemrosesan Data (Data Preprocessing)**  \n   Data mentah diproses untuk membersihkan, menangani nilai yang hilang, dan menyesuaikan format agar sesuai untuk analisis.\n\n2. **Analisis Data (Data Analysis)**  \n   Dilakukan untuk memahami struktur, pola, dan karakteristik data sebelum pelatihan model.\n\n3. **Pelatihan Model (Model Training)**  \n   Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses. Algoritma yang digunakan dapat berupa *Supervised Learning*, *Unsupervised Learning*, *Semi-Supervised Learning*, atau *Reinforcement Learning*.\n\n4. **Evaluasi Model (Model Evaluation)**  \n   Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerja prediksi. Dalam beberapa penelitian, kombinasi algoritma dan parameter (seperti kernel pada SVM) dievaluasi secara komparatif untuk menentukan model terbaik.\n\n5. **Penerapan dan Interpretasi Hasil**  \n   Model yang telah teruji kemudian diterapkan untuk membuat prediksi atau keputusan berdasarkan data baru.\n\nMetodologi penelitian *machine learning* juga mencakup pemilihan algoritma berdasarkan kriteria seperti *low generation error*, kemudahan komputasi, interpretasi, dan sensitivitas terhadap parameter seperti *kernel* pada SVM. Dalam penelitian tertentu, kombinasi algoritma SVM dengan tiga jenis *kernel* (RBF, polynomial, sigmoid) dievaluasi untuk mendapatkan model dengan akurasi terbaik.\n\n### Analisis\n\nDokumen menunjukkan bahwa metodologi *machine learning* tidak bersifat linier, tetapi bersifat iteratif dan terstruktur. Prosesnya didasarkan pada paradigma pembelajaran yang dibedakan menjadi empat jenis: *supervised learning*, *unsupervised learning*, *semi-supervised learning*, dan *reinforcement learning*. Setiap paradigma memiliki karakteristik berbeda terkait penggunaan label data dan tujuan akhir (klasifikasi, regresi, pengelompokan, atau pengambilan keputusan berdasarkan umpan balik).\n\nPemilihan algoritma sangat dipengaruhi oleh konteks penelitian. Misalnya, *Support Vector Machine (SVM)* dipilih karena kemampuannya dalam melakukan prediksi klasifikasi dan regresi dengan error rendah, serta kemudahan interpretasi. Namun, performa SVM sangat bergantung pada pemilihan *kernel* dan *tuning parameter*, sehingga perlu dilakukan eksperimen komparatif.\n\nSelain itu, evaluasi model tidak hanya berdasarkan *accuracy*, tetapi juga mempertimbangkan keseimbangan antara *precision* dan *recall* melalui metrik *f-score*, yang menunjukkan pendekatan yang lebih holistik dalam menilai kinerja model.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat terstruktur dan berbasis proses, meliputi tahapan: pengumpulan dan prapemrosesan",
+        "summary": "",
+        "keywords": [],
+        "sources": [
+            {
+                "document": {
+                    "document_id": "08ee8fe334c944be8259c53bb21b291e",
+                    "title": "08ee8fe334c944be8259c53bb21b291e",
+                    "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+                    "collection": {
+                        "collection_id": "default",
+                        "name": "Default",
+                        "description": "",
+                        "repository": {
+                            "repository_id": "local",
+                            "name": "Local Repository",
+                            "root_path": "delbot_platform/repository_data/pdf",
+                            "source": {
+                                "source_id": "",
+                                "name": "local",
+                                "description": "",
+                                "domain": {
+                                    "domain_id": "",
+                                    "name": "",
+                                    "description": "",
+                                    "metadata": {}
+                                },
+                                "domain_id": "",
+                                "domain_name": "",
+                                "metadata": {}
+                            },
+                            "source_id": "",
+                            "source_name": "local",
+                            "domain_id": "",
+                            "domain_name": "",
+                            "metadata": {}
+                        },
+                        "repository_id": "local",
+                        "repository_name": "Local Repository",
+                        "source_id": "",
+                        "source_name": "local",
+                        "domain_id": "",
+                        "domain_name": "",
+                        "metadata": {}
+                    },
+                    "collection_id": "default",
+                    "collection_name": "Default",
+                    "repository_id": "local",
+                    "repository_name": "Local Repository",
+                    "source_id": "",
+                    "source_name": "local",
+                    "domain_id": "",
+                    "domain_name": "",
+                    "authors": [],
+                    "author_ids": [],
+                    "author_names": [],
+                    "entities": [],
+                    "relation_ids": [],
+                    "relation_types": [],
+                    "metadata": {}
+                },
+                "document_id": "08ee8fe334c944be8259c53bb21b291e",
+                "document_title": "08ee8fe334c944be8259c53bb21b291e",
+                "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+                "collection_id": "default",
+                "collection_name": "Default",
+                "repository_id": "local",
+                "repository_name": "Local Repository",
+                "repository_root_path": "delbot_platform/repository_data/pdf",
+                "source_id": "",
+                "source_name": "local",
+                "domain_id": "",
+                "domain_name": "",
+                "authors": [],
+                "author_ids": [],
+                "author_names": [],
+                "entities": [],
+                "relation_ids": [],
+                "relation_types": [],
+                "page": 2,
+                "chunk_id": "",
+                "score": 0.0,
+                "text": "W., 2018). Secara umum, penerapan  machine learning\ndilakukan dengan menggunakan algoritma untuk mengembangkan mesin otomatis. Dari segi\nmetode pembelajaran, algoritma  machine learning  dapat dikategorikan sebagai berikut.\n1.   Supervised Learning\nSupervised learning  adalah pembelajaran terarah/terawasi (Putra, J. W., 2018). Terawasi\nartinya adalah pembelajaran ini telah diberikan label terhadap setiap data. Setelah\nmemberikan label terhadap data masukan maka sistem dapat melakukan proses  learning\nuntuk memprediksi masukan tersebut. Tujuan dari  supervised learning  yaitu untuk\nmelakukan klasifikasi (Gotama, P., 2018). Beberapa jenis algoritma yang digunakan untuk\nklasifikasi dalam  supervised   learning  adalah algoritma  Support Vector Machine  (SVM),\nNaïve   Bayes Classifier ,  K-Nearest Neighbor  (KNN),  Decision Tree ,  Artificial Neural\nNetwork  (ANN), dan  Fuzzy K-Nearest Neighbor .\n2.   Unsupervised Learning\nUnsupervised learning  adalah metode pembelajaran tidak terarah/terawasi. Teknik ini\nberbeda dari  supervised learning  karena inputan yang diberikan kepada sistem tidak\ndiberikan label.  Unsupervised learning  dapat digunakan untuk mencari struktur data yang\nada dan data tersebut dikelompokan berdasarkan informasi yang dimiliki yang disebut\ndengan  clustering .  Clustering   adalah  algoritma  yang  menggunakan  metode\npengelompokan tanpa memberikan label terhadap input (Gotama, P., 2018). Metode\nunsupervised learning  antara lain  clustering  dan  Self Organizing Map  (SOM).  Beberapa\njenis algoritma yang menerapkan metode  clustering  adalah algoritma  K-Means , chical\nClustering, DBSCAN, Hierar Agglomerative Clustering ,  Gaussian Mixture  dan  K-\nMedoids .\n3.   Semi-Supervised Learning\n35\nInstitut Teknologi Del\nSemi-Supervised learning  merupakan penggabungan dari  supervised learning  dan\nunsupervised learning . Metode ini menghasilkan suatu fungsi dan memberikan pola  input\ndan  output  yang sesuai dengan jumlah data yang sedikit.\n4.   Reinforc",
+                "metadata": {
+                    "page_start": 2,
+                    "page_end": 228,
+                    "section": "11S15010"
+                }
+            }
+        ],
+        "notes": [],
+        "timeline": [
+            {
+                "time": "2026-07-29T18:18:49.494900",
+                "event": "question",
+                "value": "Bagaimana metodologi penelitian machine learning?"
+            },
+            {
+                "time": "2026-07-29T18:18:58.909916",
+                "event": "answer",
+                "value": "### Fakta\n\nMetodologi penelitian *machine learning* (ML) secara umum melibatkan serangkaian tahapan sistematis yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* terdiri dari beberapa tahapan utama:\n\n1. **Pemrosesan Data (Data Preprocessing)**  \n   Data mentah diproses untuk membersihkan, menangani nilai yang hilang, dan menyesuaikan format agar sesuai untuk analisis.\n\n2. **Analisis Data (Data Analysis)**  \n   Dilakukan untuk memahami struktur, pola, dan karakteristik data sebelum pelatihan model.\n\n3. **Pelatihan Model (Model Training)**  \n   Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses. Algoritma yang digunakan dapat berupa *Supervised Learning*, *Unsupervised Learning*, *Semi-Supervised Learning*, atau *Reinforcement Learning*.\n\n4. **Evaluasi Model (Model Evaluation)**  \n   Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerja prediksi. Dalam beberapa penelitian, kombinasi algoritma dan parameter (seperti kernel pada SVM) dievaluasi secara komparatif untuk menentukan model terbaik.\n\n5. **Penerapan dan Interpretasi Hasil**  \n   Model yang telah teruji kemudian diterapkan untuk membuat prediksi atau keputusan berdasarkan data baru.\n\nMetodologi penelitian *machine learning* juga mencakup pemilihan algoritma berdasarkan kriteria seperti *low generation error*, kemudahan komputasi, interpretasi, dan sensitivitas terhadap parameter seperti *kernel* pada SVM. Dalam penelitian tertentu, kombinasi algoritma SVM dengan tiga jenis *kernel* (RBF, polynomial, sigmoid) dievaluasi untuk mendapatkan model dengan akurasi terbaik.\n\n### Analisis\n\nDokumen menunjukkan bahwa metodologi *machine learning* tidak bersifat linier, tetapi bersifat iteratif dan terstruktur. Prosesnya didasarkan pada paradigma pembelajaran yang dibedakan menjadi empat jenis: *supervised learning*, *unsupervised learning*, *semi-supervised learning*, dan *reinforcement learning*. Setiap paradigma memiliki karakteristik berbeda terkait penggunaan label data dan tujuan akhir (klasifikasi, regresi, pengelompokan, atau pengambilan keputusan berdasarkan umpan balik).\n\nPemilihan algoritma sangat dipengaruhi oleh konteks penelitian. Misalnya, *Support Vector Machine (SVM)* dipilih karena kemampuannya dalam melakukan prediksi klasifikasi dan regresi dengan error rendah, serta kemudahan interpretasi. Namun, performa SVM sangat bergantung pada pemilihan *kernel* dan *tuning parameter*, sehingga perlu dilakukan eksperimen komparatif.\n\nSelain itu, evaluasi model tidak hanya berdasarkan *accuracy*, tetapi juga mempertimbangkan keseimbangan antara *precision* dan *recall* melalui metrik *f-score*, yang menunjukkan pendekatan yang lebih holistik dalam menilai kinerja model.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat terstruktur dan berbasis proses, meliputi tahapan: pengumpulan dan prapemrosesan"
+            }
+        ],
+        "created_at": "2026-07-29T18:18:49.434440",
+        "updated_at": "2026-07-29T18:18:58.909934"
+    },
+    "created_at": "2026-07-29T18:18:49.434444",
+    "updated_at": "2026-07-29T18:18:58.909946"
+}

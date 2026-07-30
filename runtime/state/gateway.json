@@ -1,0 +1,13 @@
+{
+    "name": "gateway",
+    "command": [
+        "python",
+        "-m",
+        "delbot_platform.gateway"
+    ],
+    "workdir": "/workspace/delbot",
+    "pid": 1522085,
+    "running": true,
+    "host": "0.0.0.0",
+    "port": 8100
+}

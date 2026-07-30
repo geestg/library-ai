@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "Gateway Files": 18,
+    "Gateway Exists": true,
+    "Provider Exists": true,
+    "Async Chat": true,
+    "Await Found": true,
+    "Request Model": true,
+    "Response Model": true,
+    "Success": true,
+    "Exception": null
+  },
+  "report": "========================================================================\nDELBOT GATEWAY CHAT MVP\n========================================================================\nGateway Files        : 18\nGateway Exists       : True\nProvider Exists      : True\n------------------------------------------------------------------------\nAsync Chat           : True\nAwait Found          : True\n------------------------------------------------------------------------\nRequest Model        : True\nResponse Model       : True\n------------------------------------------------------------------------\nSuccess              : True\nException            : None\n========================================================================"
+}

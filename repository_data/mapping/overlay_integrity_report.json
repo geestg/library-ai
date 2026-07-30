@@ -1,0 +1,44 @@
+{
+  "exists": true,
+  "records": 1298,
+  "fields": [
+    "abstract",
+    "author",
+    "document_id",
+    "has_pdf",
+    "metadata",
+    "pdf_path",
+    "pdf_uuid",
+    "prodi",
+    "resolution",
+    "title",
+    "url",
+    "year"
+  ],
+  "sample": {
+    "abstract": "Dashboard menyediakan antarmuka berupa grafik, indikator visual, dan\r\nlaporan untuk menyajikan informasi secara sekilas. Penelitian ini bertujuan untuk\r\nmerancang sebuah Dashboard Penerimaan Mahasiswa Baru (PMB) di Institut\r\nTeknologi Del, yang memvisualisasikan data mahasiswa baru yang mendaftar\r\nsetiap tahun. Saat ini, Dashboard yang digunakan hanya menampilkan informasi\r\nterbatas, seperti jumlah pendaftar dari setiap jalur pendaftaran, dan jumlah\r\npendaftar yang lolos ke tahap berikutnya. Hal ini membuat Panitia PMB kesulitan\r\ndalam mengambil keputusan terkait data yang tersedia. Dalam proses\r\npembangunannya, penelitian ini akan menggunakan metode System Development\r\nLife Cycle (SDLC), dengan menggunakan model Waterfall. Metode ini merupakan\r\nmetode yang sistematis dalam setiap tahapannya. Dashboard ini bertujuan untuk\r\nmemudahkan panitia PMB dalam menganalisis data, pengambilan keputusan, dan\r\ntindakan berdasarkan data yang disajikan. Selain itu, data yang dianalisis juga\r\nberguna dalam kegiatan promosi untuk meningkatkan minat pendaftar baru.\r\nPenelitian ini akan menghasilkan Dashboard Penerimaan Mahasiswa Baru dalam\r\nbentuk website.\r\nKata kunci : Perancangan, Sistem Dashboard, Waterfall, Black Box, Penerimaan\r\nMahasiswa Baru",
+    "author": "SIMANGUNSONG, RAFELLI",
+    "document_id": "123456789-1589",
+    "has_pdf": true,
+    "metadata": {
+      "title": "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)",
+      "author": "SIMANGUNSONG, RAFELLI",
+      "year": "2023",
+      "abstract": "Dashboard menyediakan antarmuka berupa grafik, indikator visual, dan\r\nlaporan untuk menyajikan informasi secara sekilas. Penelitian ini bertujuan untuk\r\nmerancang sebuah Dashboard Penerimaan Mahasiswa Baru (PMB) di Institut\r\nTeknologi Del, yang memvisualisasikan data mahasiswa baru yang mendaftar\r\nsetiap tahun. Saat ini, Dashboard yang digunakan hanya menampilkan informasi\r\nterbatas, seperti jumlah pendaftar dari setiap jalur pendaftaran, dan jumlah\r\npendaftar yang lolos ke tahap berikutnya. Hal ini membuat Panitia PMB kesulitan\r\ndalam mengambil keputusan terkait data yang tersedia. Dalam proses\r\npembangunannya, penelitian ini akan menggunakan metode System Development\r\nLife Cycle (SDLC), dengan menggunakan model Waterfall. Metode ini merupakan\r\nmetode yang sistematis dalam setiap tahapannya. Dashboard ini bertujuan untuk\r\nmemudahkan panitia PMB dalam menganalisis data, pengambilan keputusan, dan\r\ntindakan berdasarkan data yang disajikan. Selain itu, data yang dianalisis juga\r\nberguna dalam kegiatan promosi untuk meningkatkan minat pendaftar baru.\r\nPenelitian ini akan menghasilkan Dashboard Penerimaan Mahasiswa Baru dalam\r\nbentuk website.\r\nKata kunci : Perancangan, Sistem Dashboard, Waterfall, Black Box, Penerimaan\r\nMahasiswa Baru",
+      "prodi": "Informatika",
+      "url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1589"
+    },
+    "pdf_path": "delbot_platform/repository_data/pdf/Fulltext.pdf",
+    "pdf_uuid": "Fulltext",
+    "prodi": "Informatika",
+    "resolution": "mapped",
+    "title": "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)",
+    "url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1589",
+    "year": "2023"
+  },
+  "pdf_path_exists": 136,
+  "pdf_path_missing": 0,
+  "status_distribution": {
+    "NONE": 1298
+  }
+}

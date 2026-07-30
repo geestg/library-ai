@@ -1,0 +1,50 @@
+{
+    "session_id": "d227517a-9683-42de-a789-8cf8d9f8b25a",
+    "title": "CNN Research",
+    "messages": [
+        {
+            "role": "user",
+            "content": "jelaskan CNN",
+            "timestamp": "2026-07-22T04:49:38.149726"
+        },
+        {
+            "role": "user",
+            "content": "apa kelemahan metode tersebut?",
+            "timestamp": "2026-07-22T04:49:41.349647"
+        },
+        {
+            "role": "user",
+            "content": "jelaskan CNN",
+            "timestamp": "2026-07-22T04:50:49.673545"
+        },
+        {
+            "role": "user",
+            "content": "apa kelemahan metode tersebut?",
+            "timestamp": "2026-07-22T04:50:59.867619"
+        },
+        {
+            "role": "user",
+            "content": "jelaskan CNN",
+            "timestamp": "2026-07-22T04:52:14.694813"
+        },
+        {
+            "role": "user",
+            "content": "jelaskan CNN",
+            "timestamp": "2026-07-22T04:52:55.610598"
+        },
+        {
+            "role": "user",
+            "content": "jelaskan CNN",
+            "timestamp": "2026-07-22T04:54:43.309382"
+        }
+    ],
+    "metadata": {},
+    "research_state": {
+        "topic": "CNN Research",
+        "keywords": [],
+        "last_query": null,
+        "sources": [],
+        "summary": null
+    },
+    "created_at": "2026-07-22T04:47:39.152823"
+}

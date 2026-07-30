@@ -1,0 +1,172 @@
+[
+  {
+    "id": "123456789-1589",
+    "title": "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1589",
+    "pdf_url": "delbot_platform/repository_data/pdf/Fulltext.pdf",
+    "local_path": "delbot_platform/repository_data/pdf/Fulltext.pdf",
+    "status": "pdf_available",
+    "metadata": {
+      "author": "SIMANGUNSONG, RAFELLI",
+      "year": "2023",
+      "abstract": "Dashboard menyediakan antarmuka berupa grafik, indikator visual, dan\r\nlaporan untuk menyajikan informasi secara sekilas. Penelitian ini bertujuan untuk\r\nmerancang sebuah Dashboard Penerimaan Mahasiswa Baru (PMB) di Institut\r\nTeknologi Del, yang memvisualisasikan data mahasiswa baru yang mendaftar\r\nsetiap tahun. Saat ini, Dashboard yang digunakan hanya menampilkan informasi\r\nterbatas, seperti jumlah pendaftar dari setiap jalur pendaftaran, dan jumlah\r\npendaftar yang lolos ke tahap berikutnya. Hal ini membuat Panitia PMB kesulitan\r\ndalam mengambil keputusan terkait data yang tersedia. Dalam proses\r\npembangunannya, penelitian ini akan menggunakan metode System Development\r\nLife Cycle (SDLC), dengan menggunakan model Waterfall. Metode ini merupakan\r\nmetode yang sistematis dalam setiap tahapannya. Dashboard ini bertujuan untuk\r\nmemudahkan panitia PMB dalam menganalisis data, pengambilan keputusan, dan\r\ntindakan berdasarkan data yang disajikan. Selain itu, data yang dianalisis juga\r\nberguna dalam kegiatan promosi untuk meningkatkan minat pendaftar baru.\r\nPenelitian ini akan menghasilkan Dashboard Penerimaan Mahasiswa Baru dalam\r\nbentuk website.\r\nKata kunci : Perancangan, Sistem Dashboard, Waterfall, Black Box, Penerimaan\r\nMahasiswa Baru",
+      "prodi": "Informatika",
+      "resolution": "mapped",
+      "pdf_uuid": "Fulltext",
+      "has_pdf": true
+    }
+  },
+  {
+    "id": "123456789-1285",
+    "title": "KLASIFIKASI WAJAH MENGGUNAKAN SELF ORGANIZING MAP",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1285",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "TAMBUNAN, NAOMI",
+      "year": "2022",
+      "abstract": "Wajah merupakan bagian utama dari kepala manusia yang digunakan sebagai\r\npusat pengenalan, ekspresi dan komunikasi dalam kehidupan sehari-hari. Dengan\r\nperbedaan yang ada pada setiap wajah, akan semakin sulit dilakukan pengenalan\r\nbanyak orang hanya dengan ingatan manusia sendiri. Oleh karena itu, dengan\r\nmemanfaatkan perkembangan zaman, terciptalah komputer yang berguna untuk\r\nmembantu manusia dalam melakukan pengenalan tersebut, yaitu Teknologi\r\nPengenalan Wajah. Dalam implementasinya, teknologi pengenalan wajah terbagi\r\nmenjadi dua, yaitu deteksi wajah dan klasifikasi wajah (Identifikasi). Dimana\r\ndeteksi wajah adalah suatu sistem yang membantu komputer untuk mengenali\r\nbentukan dari manusia tersebut. Dalam hal ini sistem akan digunakan untuk\r\nmengetahui mana yang wajah dan yang tidak. Sedangkan klasifikasi wajah\r\nmerupakan suatu tindakan yang dimanfaatkan untuk membedakan karakteristik\r\nwajah seseorang dengan yang lain dan mengenali kepemilikan dari wajah tersebut.\r\nAlgoritma Machine Learning yang digunakan dalam melakukan klasifikasi adalah\r\nSelf Oranizing Map. Tahapan yang dilakukan pada penelitian ini adalah fitur\r\nekstraksi terhadap dataset hasil Kelompok TA-16B dan selanjutnya peneliti\r\nmembentuk model klasifikasi yang akan di evaluasi dengan split data\r\nmenggunakan stratified kfold cross validation dengan jumlah n=4,5, dan 10.\r\nSetelah dilakukan proses pemodelan maka diperoleh evaluasi model dengan\r\nakurasi terbesar adalah 17% untuk dataset full wajah dan 11% untuk dataset mata.\r\nSetelahnya akan dilakukan pengujian pada model menggunakan 20 data yang\r\nberbeda.\r\nDari hasil penelitian yang dilakukan, bahwa model yang telah dibangun dengan\r\nmenggunakan Algoritma Self Oranizing Map dapat memiliki akurasi rata-rata\r\nsebesar 50% untuk dataset full wajah dan 25% untuk dataset mata. Dapat diartikan\r\nbahwa untuk model full wajah, pengujian yang berhasil dilakukan dari total 20 data yang berbeda, model hanya berhasil melakukan klasifikasi benar sebanyak 10\r\ndata, dan 5 data benar pada pengujian dataset mata.",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-1448",
+    "title": "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1448",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "Situmeang, Hans Mayson Pranajaya",
+      "year": "2023",
+      "abstract": "Tanda tangan digital menjadi semakin penting dalam memverifikasi keaslian dokumen\r\ndalam era digital saat ini. Penelitian ini bertujuan untuk mengembangkan aplikasi verifikasi\r\ndokumen dengan menggunakan algoritma RSA dalam proses enkripsi dan dekripsi, serta\r\nmetode hash SHA-256. Studi kasus dilakukan di Institut Teknologi Del. Penelitian ini\r\nmerumuskan dua masalah utama. Pertama, bagaimana penerapan algoritma pada\r\npembuatan aplikasi verifikasi dokumen dengan tanda tangan digital menggunakan\r\nalgoritma RSA dan SHA-256 di Institut Teknologi Del? Kedua, bagaimana mengevaluasi\r\nhasil verifikasi keaslian dari tanda tangan digital? Hasil analisis penelitian ini menunjukkan\r\nbahwa aplikasi verifikasi tanda tangan digital yang dikembangkan memiliki dua cara\r\nverifikasi. Pertama, melalui fitur verifikasi pada BAAK dengan proses enkripsi dan\r\ndekripsi menggunakan algoritma RSA dan SHA-256. Kedua, menggunakan QR code yang\r\ndapat dipindai melalui smartphone, yang akan menampilkan status keaslian tanda tangan\r\npada dokumen. Solusi ini dapat memudahkan proses verifikasi tanda tangan digital di\r\nInstitut Teknologi Del.\r\n\r\nKata kunci: Tanda tangan digital, Verifikasi dokumen, Algoritma RSA, SHA-256, Aplikasi, Institut Teknologi Del.",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-1457",
+    "title": "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1457",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "Owen, Timothy",
+      "year": "2022",
+      "abstract": "AI merupakan salah satu kemajuan dalam teknologi komputer yang memberikan \r\nsuatu program pada komputer untuk melakukan tugas seperti manusia. AI dapat \r\ndigunakan dalam mendeteksi emosi yang ada pada wajah pada manusia dengan \r\nmenggunakan gambar. Peneliti pada penelitian ini membuat sebuah AI yang dapat \r\nmendeteksi emosi yang ada pada wajah manusia melalui gambar wajah manusia \r\ntersebut. Pembuatan AI menggunakan teknologi pre-trained model yang dimana \r\npre-trained model mempermudah dan mempercepat proses untuk melatih AI . Pre trained model meliki prinsip yaitu , dengan menggunakan pengetahuan yang sudah \r\ndipelajari sebelumnya dapat menyelesaikan masalah yang baru. Pre-trained model \r\nyang digunakan oleh peneliti adalah Resnet-50 yang berdasarkan pada algoritma \r\nConvolutional Neural Network (CNN). Algoritma CNN merupakan algoritma yang \r\nbanyak digunakan pada pemrosesan gambar seperti klasifikasi gambar dan \r\nsegmentasi gambar. Dataset yang digunakan untuk melatih, evaluasi, dan test AI \r\nadalah KDEF dan untuk dataset FER – 2013 digunakan untuk saat test juga guna \r\nsebagai pembanding untuk test pada dataset KDEF. Nilai akurasi tertinggi dari \r\nmodel adalah 80% dengan parameter, learning rate 0.001, epoch 15, batch size 15. \r\nNilai akurasi 80% dapat dicapai oleh peneliti dikarenakan dataset KDEF yang \r\ndigunakan oleh peneliti di preproses dengan meng-crop gambar sehingga gambar \r\nberfokus pada hanya wajah dan mengurangi latar belakang gambar, akan tetapi saat \r\npeneliti menemukan masalah saat model di test dengan mnggunakan Dataset KDEF \r\nyang dimana model memiliki kesusahan dalam mendeteksi wajah netral dan juga \r\nsaat di test dengan menggunakan dataset FER-2013 nilai akurasi dari model rendah, \r\nhal tersebut dikarenakan gambar pada dataset FER-2013 mempunyai ukuran yang \r\nkecil. Peneliti berharap kedepannya agar nilai akurasi dapat ditingkatkan dengan \r\nmenggunakan teknik preproses yang lebih baik pada dataset yang digunakan.\r\n\r\nKata Kunci : pre-trained model, emotion detection,CNN,Resnet-50, KDEF, FER 2013",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-1299",
+    "title": "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN  PENDEKATAN LOGISTIC REGRESSION",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1299",
+    "pdf_url": "delbot_platform/repository_data/pdf/55f1b06e96234da0aadeaea6c02395c8.pdf",
+    "local_path": "delbot_platform/repository_data/pdf/55f1b06e96234da0aadeaea6c02395c8.pdf",
+    "status": "pdf_available",
+    "metadata": {
+      "author": "SIAHAAN, MICHAEL YERIKHO HENOKH",
+      "year": "2022",
+      "abstract": "Risiko kredit adalah salah satu permasalahan dalam dunia perbankan.Risiko kredit\r\nmerupakan potensi kerugian karena ketidakmampuan peminjam untuk membayar\r\nkembali pinjaman.Secara tradisional,hal ini mengacu pada risiko bahwa penerima\r\npinjaman akan gagal membayar pokok dan pembayaran bunga,dan dapat\r\nmengganggu arus kas dan meningkatkan biaya penagihan.Pada penelitian ini akan\r\ndilakukan feature selection untuk mendapatkan nilai kepentingan fitur dan\r\nmemilih atribut terpenting diantara atribut yang dimiliki.Pada percobaan ini akan\r\ndibentuk model klasifikasi menggunakan algoritma Logistic Regression.Pada\r\npenelitian ini didapatkan nilai akurasi sebesar 75% dengan metode evaluasi k-fold\r\ncross validation.Pada penelitian ini didapatkan 13 atribut yang paling berdampak\r\ndalam penentuan target kelas menggunakan metode feature selection.",
+      "prodi": "Informatika",
+      "resolution": "mapped",
+      "pdf_uuid": "55f1b06e96234da0aadeaea6c02395c8",
+      "has_pdf": true
+    }
+  },
+  {
+    "id": "123456789-559",
+    "title": "Pengenalan Aksara Batak Toba  dengan Pendekatan Machine Learning",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/559",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "Situmorang, Tua Roy S",
+      "year": "2019",
+      "abstract": "Aksara Batak Toba merupakan salah satu warisan kebudayaan yang patut untuk diperkenalkan kepada generasi berikutnya, dikarenakan kurangnya atau minimnya sarana atau media untuk memperkenalkan aksara Batak Toba. Salah satu solusi untuk meperkenalkan aksara Batak Toba adalah sebuah teknologi image processing dengan pendekatan machine learning. Teknologi image processing adalah teknologi yang menggunakan komputer untuk memanipulasi gambar. Adapun manipulasi dilakukan dengan inferensi data yang secara matematis yang kemudian membuat sebuah model dengan proses klasifikasi dari data yang diolah. \r\nProses klasifikasi yang dimaksud menggunakan algortima k-Nearest Neighbor (k-NN) dengan melakukan perbandingan distance yaitu Euclidean Distance atau Mahalanobis Distance. Konsep yang dilakukan terlebih dahulu adalah menyiapkan dataset terkait dengan aksara Batak Toba. Dataset tersebut disiapkan dengan proses data preprocessing yaitu augmentation, grayscale, resize, dan thresholding, dan juga proses pembentukan fitur atau feature extraction. Setelah dataset siap digunakan, maka dilakukan proses pemodelan dan model yang baik ditentukan dari akurasi hasil ekpserimental yang dilakukan. \r\nDari hasil penelitian yang dilakukan, bahwa teknologi yang digunakan pada penelitian ini dapat mengenali pola aksara Batak Toba dengan pendekatan machine learning. Adapun hal tersebut karena sesuai dengan defenisi machine learning yaitu ada data yang sudah diolah, model berdasarkan algoritma yang digunakan, dan informasi yang didapat berdasarkan model yang didapat yang dapat mengenali aksara melalui data dari ulikozok dan tulisan tangan. Adapun distance yang terbaik yaitu Euclidean Distance dengan akurasi 78,07 % dan 35,36 %.\r\nKata Kunci : Image processing, Machine Learning, algortima k-Nearest Neighbor (k-NN), Euclidean Distance, Mahalanobis Distance, Dataset.",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-1599",
+    "title": "METODE PEWARNAAN OTOMATIS MOTIF ULOS BERDASARKAN JARINGAN ADVERSARIAL GENERATIF",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1599",
+    "pdf_url": "delbot_platform/repository_data/pdf/0ded6e98cd614c2093d9d1e31c19ae5c.pdf",
+    "local_path": "delbot_platform/repository_data/pdf/0ded6e98cd614c2093d9d1e31c19ae5c.pdf",
+    "status": "pdf_available",
+    "metadata": {
+      "author": "HOTTUA S., REINHARD",
+      "year": "2024",
+      "abstract": "Proses desain dan pewarnaan Ulos membutuhkan pengetahuan, keahlian, dan\r\npengalaman penenun. Permintaan kustomisasi desain dan warna memakan waktu\r\nlebih lama dibandingkan dengan pewarnaan tanpa kustomisasi. Meskipun teknik\r\nmetaheuristik dan deep learning telah digunakan, kedua metode tersebut belum\r\nberhasil mengintegrasikan warna secara efektif ke dalam desain motif Ulos yang\r\nestetis dan menarik secara visual. Penelitian ini bertujuan untuk mengembangkan\r\nsistem pewarnaan otomatis yang dapat membantu para penenun merancang desain\r\npewarnaan motif Ulos yang estetis dan visual yang menarik.\r\nMetodologi ini menggunakan Conditional Generatif Adversarial Network dengan\r\narsitektur U-Net pada generator dan PatchGAN pada diskriminator untuk\r\npewarnaan otomatis motif Ulos. Langkah-langkahnya meliputi konversi citra Ulos\r\nke grayscale, augmentasi data dengan flipping dan penyesuaian kecerahan, serta\r\npelatihan model dengan hyperparameter optimal. Evaluasi menggunakan metrik\r\nStructural Similarity Indeks Measure (SSIM) dan Colorfulness, serta Human\r\nEvaluation dan Visual Comparison. Conditional GAN dapat melakukan pewarnaan\r\notomatis pada desain Ulos. Model ini berhasil menghasilkan pewarnaan otomatis\r\ndengan rata-rata nilai colorfulness 166,1965 dan nilai SSIM 0.9998, meskipun\r\nbeberapa warna yang dihasilkan berbeda dengan aslinya. Hasilnya tetap estetis dan\r\nrealistis sehingga dapat dibedakan manusia, memberikan penilaian positif terhadap\r\nhasil generasi Ulos.\r\nPengembangan yang dapat dilakukan berdasarkan topik serupa adalah dengan\r\nmenambah jumlah data yang ada atau menggunakan data yang berbeda. Selain itu,\r\ndapat dilakukan penyetelan hyperparameter dan arsitektur model agar tercipta\r\nmodel yang lebih baik. Evaluasi kualitas gambar hasil pewarnaan dapat\r\nmenggunakan PSNR. Pemanfaatan noise dimension juga dapat dipertimbangkan,\r\ndiharapkan dapat menghasilkan pewarnaan yang bervariasi meskipun gambar\r\nmasukan yang diberikan berulang kali. Dengan pendekatan-pendekatan tersebut,\r\ndiharapkan dapat diperoleh model pewarnaan otomatis yang lebih efektif dalam\r\nmembantu penenun merancang desain motif Ulos yang estetis dan menarik secara\r\nvisual.\r\nKata Kunci:\r\nUlos, Pewarnaan Otomatis, CGAN, U-Net, PatchGAN, SSIM, Colorfulness",
+      "prodi": "Informatika",
+      "resolution": "mapped",
+      "pdf_uuid": "0ded6e98cd614c2093d9d1e31c19ae5c",
+      "has_pdf": true
+    }
+  },
+  {
+    "id": "123456789-259",
+    "title": "PERBANDINGAN ALGORITMA BAYESIAN NETWORK DAN ALGORITMA DEEP NEURAL NETWORK DALAM MEMPREDIKSI HASIL PERTANDINGAN SEPAKBOLA LIGA INGGRIS MUSIM 2018 -2019",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/259",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "Marbun, Frans Togu Tua",
+      "year": "2018",
+      "abstract": "Sepakbola merupakan salah satu olahraga yang banyak digemari di kalangan masyarakat. Sepakbola menyajikan permainan indah yang dapat dinikmati oleh semua kalangan. Semakin berkembangnya teknologi, kini sepakbola tidak hanya sekedar pertandingan yang dapat dinikmati, namun sepakbola menyediakan data yang dapat dimanfaatkan untuk kemajuan tim yang bertanding dalam olahraga tersebut. Dataset tersebut dapat digunakan untuk memprediksi hasil pertandingan serta menganalisis perkembangan tim tersebut.\r\nPenelitian ini bertujuan untuk memprediksi kemenangan suatu tim dalam sepakbola Liga Inggris menggunakan algoritma Bayesian Network dan algoritma Deep Neural Network serta menganalisis perbandingan kedua algoritma tersebut dalam memprediksi kemenangan tim yang bertanding dalam sepakbola Liga Inggris 2018-2019 dengan membandingkan tingkat akurasi model dan akurasi dengan data testing, nilai loss, serta running time dari kedua algoritma tersebut.\r\nPenelitian ini menggunakan data hasil pertandingan Liga Inggris dari musim 2009-2010 sampai musim 2016-2017 yang diperoleh dari football-data.co.uk, data formasi yang diperoleh dari footyroom.com, data pemain dan data tim diperoleh dari Fifaindex.com. Data tersebut akan di-preprocessing terlebih dahulu untuk menghilangkan data NaN (missing value) kemudian melakukan encoding data, splitting data dan mendefinisikan variabel agar dapat data digunakan. Dari hasil percobaan diperoleh akurasi yang dihasilkan oleh algoritma Deep Neural Network adalah sebesar 83.06% dan algoritma Bayesian Network sebesar 47.04%. Sehingga penulis melakukan prediksi terhadap hasil pertandingan Liga Inggris musim 2018-2019 dengan menggunakan algoritma Deep Neural Network.\r\nKata Kunci : Bayesian Network, Deep Neural Network, Akurasi, Data Testing, Nilai Loss, Running Time, Encoding, Splitting, Preprocessing.",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-245",
+    "title": "HUMAN ACTIVITY RECOGNITION ON SMARTPHONE",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/245",
+    "pdf_url": null,
+    "local_path": null,
+    "status": "metadata_only",
+    "metadata": {
+      "author": "Pardede, Tongon Alexsander",
+      "year": "2018",
+      "abstract": "Human activity recognition  atau pengenalan aktivitas manusia dapat dimanfaatkan secara \r\nluas. Hal ini bertujuan agar masyarakat yang membutuhkan pemantauan khusus tentang \r\naktivitas  yang  sedang  dilakukan  dapat  diketahui  dengan  adanya  sistem  pengenalan \r\naktivitas  manusia.  Sistem  pengenalan  aktivitas  manusia  dapat  mengetahui  tentang \r\naktivitas apa yang sedang dilakukan, menggunakan sensor yang ada pada  smartphone.\r\nAktivitas  yang  dikenali  yaitu  berdiri,  duduk,  berbaring,  jalan,  naik  tangga  dan  turun \r\ntangga.\r\nPengenalan  aktivitas  manusia  ini  memerlukan  data  untuk  bahan  pembelajaran.  Oleh \r\nkarena itu, data  yang digunakan  yaitu data  yang  diperoleh dengan merekam data dari \r\nsensor  accelerometer  dan  gyroscope  yang  ada  pada  smartphone.  Data  diperoleh \r\nmenggunakan 30 subjek, yaitu 15 subjek untuk data training dan 15 subjek untuk data \r\ntest. Parameter yang diperoleh yaitu percepatan tubuh, percepatan gravitasi, kecepatan \r\nsudut dan parameter lainnya.\r\nData  yang  telah  dikumpulkan,  diproses  menggunakan  algoritma  deep  neural  network\r\ndengan menggunakan  tunning  hyperparameter  untuk memperoleh model  yang terbaik \r\ndan  menggunakan  metode  Decision  Tree  untuk  mengklasifikasikan  aktivitas  manusia \r\ndengan algoritma ID3. \r\nHasil yang diperoleh yaitu sebuah model, hasil pemprosesan data dan algoritma. Model \r\nyang  diperoleh  menghasilkan  akurasi  dari  setiap  algoritma  yang  digunakan,  yaitu \r\nmenggunakan algoritma DNN diperoleh akurasi model sebesar 96.03% kemudian akurasi \r\ntest 54% dan dengan algoritma ID3 diperoleh akurasi model sebesar 94.84% dan akurasi \r\ntest sebesar 47.87%. Hasil  yang diperoleh dari  model, diketahui bahwa model terbaik \r\ndiperoleh  dengan  menggunakan  algoritma  DNN  sehingga  menghasilkan  prediksi \r\naktivitas yang paling tepat. \r\nKata  kunci:  sensor,  smartphone,  algoritma  deep  neural  network,  decision  tree, \r\nalgoritma ID3",
+      "prodi": "Informatika",
+      "resolution": "unresolved",
+      "pdf_uuid": null,
+      "has_pdf": false
+    }
+  },
+  {
+    "id": "123456789-1073",
+    "title": "PREDIKSI TINGGI CURAH HUJAN DAN KECEPATAN ANGIN BERDASARKAN DATA CUACA DENGAN PENERAPAN ALGORITMA ARTIFICIAL NEURAL NETWORK(ANN). (Studi Kasus: Data berdasarkan Stasiun Meteorologi F.L Tobing Tapanuli Tengah dan Sibolga)",
+    "repository_url": "http://ri.del.ac.id:8080/xmlui/handle/123456789/1073",
+    "pdf_url": "delbot_platform/repository_data/pdf/1af6ca934df84ace98b38a023e671651.pdf",
+    "local_path": "delbot_platform/repository_data/pdf/1af6ca934df84ace98b38a023e671651.pdf",
+    "status": "pdf_available",
+    "metadata": {
+      "author": "Sihombing, Firman M",
+      "year": "2021",
+      "abstract": "Kondisi cuaca merupakan faktor yang sangat mempengaruhi aktivitas manusia\r\nkhususnya pada sektor transportasi karena kegiatan lalu lintas udara dan laut\r\ndilakukan dengan mempertimbangkan kondisi cuaca seperti hujan dan kecepatan\r\nangin. Untuk itu prediksi curah hujan dan angin penting dilakukan, sehingga semua\r\nkegiatan lalu lintas direncanakan dengan baik. Untuk mendapatkan hasil prediksi\r\nyang akurat, perlu dilakukan penelitian algoritma apa yang terbaik dan efektif. Pada\r\npenelitian ini dilakukan perbandingan pemodelan dari algoritma neural network\r\nyaitu Backpropagation (BPNN) dan Reccurent neural network (RNN). Dataset\r\nyang digunakan dalam penelitian ini adalah data cuaca periode 2010-2019 dari\r\nstasiun FL Tobing Badan Meteorologi, Klimatologi dan Geofisika yang berada di\r\nKabupaten Tapanuli Tengah. Implementasi jaringan syaraf tiruan\r\nBackpropragation dan Reccuren dilakukan dengan membangun pemodelan\r\nprediksi, dimana dataset yang digunakan akan dinormalisasi terlebih dahulu untuk\r\nmendapatkan nilai RMSE terkecil. Berdasarkan percobaan yang telah dilakukan\r\ndidapatkan bahwa dalam pemodelan prediksi curah hujan dengan nilai RMSE\r\nterkecil sebesar 0,079535 menggunakan algoritma BPNN. Sedangkan untuk\r\npemodelan prediksi kecepatan angin diperoleh nilai RMSE terkecil sebesar\r\n0,06281251 menggunakan algoritma RNN. Melalui penelitian ini didapatkan\r\nbahwa algoritma BPNN lebih baik dalam memprediksi curah hujan dan algoritma\r\nRNN lebih baik dalam memprediksi kecepatan angin.\r\n\r\nKata kunci: RMSE, Curah Hujan, Kecepatan Angin, BPNN, RNN.",
+      "prodi": "Informatika",
+      "resolution": "mapped",
+      "pdf_uuid": "1af6ca934df84ace98b38a023e671651",
+      "has_pdf": true
+    }
+  }
+]

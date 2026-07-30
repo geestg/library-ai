@@ -1,68 +1,107 @@
 from __future__ import annotations
 
 from fastapi import APIRouter
+from pydantic import BaseModel
 
-from delbot_platform.api.schemas.repository import (
-    RepositoryIndexRequest,
-    RepositoryIndexResponse,
-)
-
-from delbot_platform.application.factory import (
-    ApplicationFactory,
-)
-
-from delbot_platform.repository.models import (
-    RepositoryItem,
+from delbot_platform.repository.service import (
+    RepositoryService,
 )
 
 router = APIRouter(
     prefix="/repository",
-    tags=["repository"],
-)
-
-application = (
-    ApplicationFactory.repository()
+    tags=["Repository"],
 )
 
 
-@router.get("/health")
-def repository_health():
+class RepositoryScanRequest(BaseModel):
+    path: str
 
-    return {
-        "service": "repository",
-        "status": "ok",
-    }
+
+class RepositoryScanResponse(BaseModel):
+    repository: str
+    exists: bool
+    pdf_files: int
+    metadata_files: int
+    total_files: int
+
+
+class RepositoryItemResponse(BaseModel):
+    id: str
+    title: str
+    status: str
+    local_path: str | None = None
+
+
+class RepositoryExplorerResponse(BaseModel):
+    total: int
+    pdf_available: int
+    pdf_missing: int
+    items: list[RepositoryItemResponse]
 
 
 @router.post(
-    "/index",
-    response_model=RepositoryIndexResponse,
+    "/scan",
+    response_model=RepositoryScanResponse,
 )
-async def index_repository(
-    request: RepositoryIndexRequest,
-) -> RepositoryIndexResponse:
+async def scan_repository(
+    request: RepositoryScanRequest,
+):
 
-    repository = RepositoryItem(
-        id=request.id,
-        title=request.title,
-        repository_url=request.repository_url,
-        pdf_url=request.pdf_url,
+    from pathlib import Path
+
+    root = Path(request.path)
+
+    exists = root.exists()
+
+    pdf_files = 0
+    metadata_files = 0
+    total_files = 0
+
+    if exists:
+
+        for f in root.rglob("*"):
+
+            if not f.is_file():
+                continue
+
+            total_files += 1
+
+            if f.suffix.lower() == ".pdf":
+                pdf_files += 1
+
+            if f.name.lower() == "metadata.json":
+                metadata_files += 1
+
+    return RepositoryScanResponse(
+        repository=str(root),
+        exists=exists,
+        pdf_files=pdf_files,
+        metadata_files=metadata_files,
+        total_files=total_files,
     )
 
-    artifact, result = await application.execute(
-        repository,
+
+@router.get(
+    "/explorer",
+    response_model=RepositoryExplorerResponse,
+)
+async def repository_explorer():
+
+    service = RepositoryService()
+
+    result = service.scan()
+
+    return RepositoryExplorerResponse(
+        total=result.total,
+        pdf_available=result.pdf_available,
+        pdf_missing=result.pdf_missing,
+        items=[
+            RepositoryItemResponse(
+                id=item.id,
+                title=item.title,
+                status=item.status.value,
+                local_path=item.local_path,
+            )
+            for item in result.items
+        ],
     )
-
-    return RepositoryIndexResponse(
-        repository_id=result.repository_id,
-        document_id=result.document_id,
-        success=result.success,
-        indexed=result.indexed,
-        knowledge_created=result.knowledge_created,
-        elapsed=result.elapsed,
-    )
-
-
-__all__ = [
-    "router",
-]

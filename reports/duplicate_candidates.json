@@ -1,0 +1,1010 @@
+[
+    {
+        "key": "document",
+        "count": 13,
+        "layers": [
+            "api",
+            "document_intelligence",
+            "documents",
+            "knowledge",
+            "repository"
+        ],
+        "components": [
+            "builder",
+            "loader",
+            "module",
+            "parser",
+            "pipeline"
+        ],
+        "incoming": 30,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.api.routers.document",
+            "delbot_platform.api.routes.document",
+            "delbot_platform.api.schemas.document",
+            "delbot_platform.document_intelligence.builder.document_builder",
+            "delbot_platform.document_intelligence.loader.document_loader",
+            "delbot_platform.document_intelligence.parser.document_parser",
+            "delbot_platform.document_intelligence.pipeline.document_pipeline",
+            "delbot_platform.document_intelligence.processor.document_processor",
+            "delbot_platform.documents.metadata.builder.document",
+            "delbot_platform.documents.models.document",
+            "delbot_platform.documents.registry.document",
+            "delbot_platform.knowledge.models.document",
+            "delbot_platform.repository.integration.document_loader"
+        ],
+        "paths": [
+            "delbot_platform/api/routers/document.py",
+            "delbot_platform/api/routes/document.py",
+            "delbot_platform/api/schemas/document.py",
+            "delbot_platform/document_intelligence/builder/document_builder.py",
+            "delbot_platform/document_intelligence/loader/document_loader.py",
+            "delbot_platform/document_intelligence/parser/document_parser.py",
+            "delbot_platform/document_intelligence/pipeline/document_pipeline.py",
+            "delbot_platform/document_intelligence/processor/document_processor.py",
+            "delbot_platform/documents/metadata/builder/document.py",
+            "delbot_platform/documents/models/document.py",
+            "delbot_platform/documents/registry/document.py",
+            "delbot_platform/knowledge/models/document.py",
+            "delbot_platform/repository/integration/document_loader.py"
+        ]
+    },
+    {
+        "key": "embedding",
+        "count": 9,
+        "layers": [
+            "ai",
+            "gateway",
+            "orchestrator",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module",
+            "service"
+        ],
+        "incoming": 13,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.ai.client.embedding_client",
+            "delbot_platform.ai.embedding.embedding_builder",
+            "delbot_platform.ai.embedding.embedding_service",
+            "delbot_platform.gateway.mapper.embedding",
+            "delbot_platform.gateway.openai.embedding",
+            "delbot_platform.gateway.routers.embedding",
+            "delbot_platform.gateway.routers.v1.embedding",
+            "delbot_platform.orchestrator.services.embedding",
+            "delbot_platform.research.models.embedding"
+        ],
+        "paths": [
+            "delbot_platform/ai/client/embedding_client.py",
+            "delbot_platform/ai/embedding/embedding_builder.py",
+            "delbot_platform/ai/embedding/embedding_service.py",
+            "delbot_platform/gateway/mapper/embedding.py",
+            "delbot_platform/gateway/openai/embedding.py",
+            "delbot_platform/gateway/routers/embedding.py",
+            "delbot_platform/gateway/routers/v1/embedding.py",
+            "delbot_platform/orchestrator/services/embedding.py",
+            "delbot_platform/research/models/embedding.py"
+        ]
+    },
+    {
+        "key": "research",
+        "count": 6,
+        "layers": [
+            "api",
+            "gateway",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 10,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.api.research",
+            "delbot_platform.api.routers.research",
+            "delbot_platform.api.routes.research",
+            "delbot_platform.api.schemas.research",
+            "delbot_platform.gateway.routers.research",
+            "delbot_platform.research.research_engine"
+        ],
+        "paths": [
+            "delbot_platform/api/research.py",
+            "delbot_platform/api/routers/research.py",
+            "delbot_platform/api/routes/research.py",
+            "delbot_platform/api/schemas/research.py",
+            "delbot_platform/gateway/routers/research.py",
+            "delbot_platform/research/research_engine.py"
+        ]
+    },
+    {
+        "key": "repository",
+        "count": 6,
+        "layers": [
+            "api",
+            "documents",
+            "knowledge",
+            "vectorstore"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 9,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.api.routers.repository",
+            "delbot_platform.api.schemas.repository",
+            "delbot_platform.documents.metadata.repository",
+            "delbot_platform.documents.registry.repository",
+            "delbot_platform.knowledge.models.repository",
+            "delbot_platform.vectorstore.qdrant.repository"
+        ],
+        "paths": [
+            "delbot_platform/api/routers/repository.py",
+            "delbot_platform/api/schemas/repository.py",
+            "delbot_platform/documents/metadata/repository.py",
+            "delbot_platform/documents/registry/repository.py",
+            "delbot_platform/knowledge/models/repository.py",
+            "delbot_platform/vectorstore/qdrant/repository.py"
+        ]
+    },
+    {
+        "key": "gateway",
+        "count": 5,
+        "layers": [
+            "documents",
+            "gateway",
+            "knowledge",
+            "orchestrator",
+            "other"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 6,
+        "outgoing": 0,
+        "modules": [
+            ".backup.stage_4_24.gateway",
+            "delbot_platform.documents.embedding.providers.gateway",
+            "delbot_platform.gateway.services.gateway",
+            "delbot_platform.knowledge.reranking.gateway",
+            "delbot_platform.orchestrator.services.gateway"
+        ],
+        "paths": [
+            ".backup/stage_4_24/gateway.py",
+            "delbot_platform/documents/embedding/providers/gateway.py",
+            "delbot_platform/gateway/services/gateway.py",
+            "delbot_platform/knowledge/reranking/gateway.py",
+            "delbot_platform/orchestrator/services/gateway.py"
+        ]
+    },
+    {
+        "key": "chat",
+        "count": 5,
+        "layers": [
+            "gateway",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.mapper.chat",
+            "delbot_platform.gateway.openai.chat",
+            "delbot_platform.gateway.routers.chat",
+            "delbot_platform.gateway.routers.v1.chat",
+            "delbot_platform.research.llm.chat_client"
+        ],
+        "paths": [
+            "delbot_platform/gateway/mapper/chat.py",
+            "delbot_platform/gateway/openai/chat.py",
+            "delbot_platform/gateway/routers/chat.py",
+            "delbot_platform/gateway/routers/v1/chat.py",
+            "delbot_platform/research/llm/chat_client.py"
+        ]
+    },
+    {
+        "key": "local",
+        "count": 5,
+        "layers": [
+            "documents",
+            "gateway",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.embedding.providers.local",
+            "delbot_platform.documents.loader.sources.local",
+            "delbot_platform.gateway.providers.local",
+            "delbot_platform.knowledge.hydration.local",
+            "delbot_platform.knowledge.reranking.local"
+        ],
+        "paths": [
+            "delbot_platform/documents/embedding/providers/local.py",
+            "delbot_platform/documents/loader/sources/local.py",
+            "delbot_platform/gateway/providers/local.py",
+            "delbot_platform/knowledge/hydration/local.py",
+            "delbot_platform/knowledge/reranking/local.py"
+        ]
+    },
+    {
+        "key": "result",
+        "count": 4,
+        "layers": [
+            "knowledge",
+            "repository",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 12,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.knowledge.reranking.result",
+            "delbot_platform.knowledge.retrieval.result",
+            "delbot_platform.repository.download.result",
+            "delbot_platform.workflows.repository.models.result"
+        ],
+        "paths": [
+            "delbot_platform/knowledge/reranking/result.py",
+            "delbot_platform/knowledge/retrieval/result.py",
+            "delbot_platform/repository/download/result.py",
+            "delbot_platform/workflows/repository/models/result.py"
+        ]
+    },
+    {
+        "key": "response",
+        "count": 4,
+        "layers": [
+            "gateway",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 10,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.response",
+            "delbot_platform.knowledge.rag.llm.response",
+            "delbot_platform.knowledge.rag.models.response",
+            "delbot_platform.knowledge.rag.research.response"
+        ],
+        "paths": [
+            "delbot_platform/gateway/response.py",
+            "delbot_platform/knowledge/rag/llm/response.py",
+            "delbot_platform/knowledge/rag/models/response.py",
+            "delbot_platform/knowledge/rag/research/response.py"
+        ]
+    },
+    {
+        "key": "citation",
+        "count": 4,
+        "layers": [
+            "documents",
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.models.citation",
+            "delbot_platform.knowledge.hydration.citation",
+            "delbot_platform.knowledge.rag.citation_builder",
+            "delbot_platform.research.models.citation"
+        ],
+        "paths": [
+            "delbot_platform/documents/models/citation.py",
+            "delbot_platform/knowledge/hydration/citation.py",
+            "delbot_platform/knowledge/rag/citation_builder.py",
+            "delbot_platform/research/models/citation.py"
+        ]
+    },
+    {
+        "key": "reranker",
+        "count": 4,
+        "layers": [
+            "ai",
+            "gateway",
+            "knowledge",
+            "orchestrator"
+        ],
+        "components": [
+            "reranker"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.ai.client.reranker_client",
+            "delbot_platform.gateway.routers.reranker",
+            "delbot_platform.knowledge.rerank.reranker",
+            "delbot_platform.orchestrator.services.reranker"
+        ],
+        "paths": [
+            "delbot_platform/ai/client/reranker_client.py",
+            "delbot_platform/gateway/routers/reranker.py",
+            "delbot_platform/knowledge/rerank/reranker.py",
+            "delbot_platform/orchestrator/services/reranker.py"
+        ]
+    },
+    {
+        "key": "block",
+        "count": 3,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 14,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.models.block",
+            "delbot_platform.documents.extraction.block",
+            "delbot_platform.documents.models.block"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/models/block.py",
+            "delbot_platform/documents/extraction/block.py",
+            "delbot_platform/documents/models/block.py"
+        ]
+    },
+    {
+        "key": "client",
+        "count": 3,
+        "layers": [
+            "gateway",
+            "research",
+            "vectorstore"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.client",
+            "delbot_platform.research.llm.client",
+            "delbot_platform.vectorstore.qdrant.client"
+        ],
+        "paths": [
+            "delbot_platform/gateway/client.py",
+            "delbot_platform/research/llm/client.py",
+            "delbot_platform/vectorstore/qdrant/client.py"
+        ]
+    },
+    {
+        "key": "chunk",
+        "count": 3,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 3,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.chunking.chunk_builder",
+            "delbot_platform.documents.metadata.builder.chunk",
+            "delbot_platform.documents.models.chunk"
+        ],
+        "paths": [
+            "delbot_platform/documents/chunking/chunk_builder.py",
+            "delbot_platform/documents/metadata/builder/chunk.py",
+            "delbot_platform/documents/models/chunk.py"
+        ]
+    },
+    {
+        "key": "loader",
+        "count": 3,
+        "layers": [
+            "ai",
+            "config",
+            "repository"
+        ],
+        "components": [
+            "loader"
+        ],
+        "incoming": 2,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.ai.registry.loader",
+            "delbot_platform.config.loader",
+            "delbot_platform.repository.catalog.loader"
+        ],
+        "paths": [
+            "delbot_platform/ai/registry/loader.py",
+            "delbot_platform/config/loader.py",
+            "delbot_platform/repository/catalog/loader.py"
+        ]
+    },
+    {
+        "key": "artifact",
+        "count": 3,
+        "layers": [
+            "documents",
+            "knowledge",
+            "workflows"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.pipeline.models.artifact",
+            "delbot_platform.knowledge.pipeline.models.artifact",
+            "delbot_platform.workflows.repository.models.artifact"
+        ],
+        "paths": [
+            "delbot_platform/documents/pipeline/models/artifact.py",
+            "delbot_platform/knowledge/pipeline/models/artifact.py",
+            "delbot_platform/workflows/repository/models/artifact.py"
+        ]
+    },
+    {
+        "key": "test_rag",
+        "count": 3,
+        "layers": [
+            "other"
+        ],
+        "components": [
+            "module",
+            "pipeline"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "tools.test_rag",
+            "tools.test_rag_engine",
+            "tools.test_rag_pipeline"
+        ],
+        "paths": [
+            "tools/test_rag.py",
+            "tools/test_rag_engine.py",
+            "tools/test_rag_pipeline.py"
+        ]
+    },
+    {
+        "key": "chunk_metadata",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "incoming": 11,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.metadata.chunk_metadata",
+            "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper"
+        ],
+        "paths": [
+            "delbot_platform/documents/metadata/chunk_metadata.py",
+            "delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py"
+        ]
+    },
+    {
+        "key": "document_chunk",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 10,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.models.document_chunk",
+            "delbot_platform.knowledge.models.document_chunk"
+        ],
+        "paths": [
+            "delbot_platform/documents/models/document_chunk.py",
+            "delbot_platform/knowledge/models/document_chunk.py"
+        ]
+    },
+    {
+        "key": "graph",
+        "count": 2,
+        "layers": [
+            "knowledge",
+            "other"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 10,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.knowledge.graph.graph_builder",
+            "tools.architecture.graph"
+        ],
+        "paths": [
+            "delbot_platform/knowledge/graph/graph_builder.py",
+            "tools/architecture/graph.py"
+        ]
+    },
+    {
+        "key": "source",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 8,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.loader.source",
+            "delbot_platform.knowledge.citation.source"
+        ],
+        "paths": [
+            "delbot_platform/documents/loader/source.py",
+            "delbot_platform/knowledge/citation/source.py"
+        ]
+    },
+    {
+        "key": "page",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 7,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.models.page",
+            "delbot_platform.documents.models.page"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/models/page.py",
+            "delbot_platform/documents/models/page.py"
+        ]
+    },
+    {
+        "key": "heading",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 6,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.models.heading",
+            "delbot_platform.documents.classification.heading"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/models/heading.py",
+            "delbot_platform/documents/classification/heading.py"
+        ]
+    },
+    {
+        "key": "indexing",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 5,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.pipeline.indexing",
+            "delbot_platform.documents.services.indexing"
+        ],
+        "paths": [
+            "delbot_platform/documents/pipeline/indexing.py",
+            "delbot_platform/documents/services/indexing.py"
+        ]
+    },
+    {
+        "key": "paragraph",
+        "count": 2,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.builder.paragraph_builder",
+            "delbot_platform.document_intelligence.models.paragraph"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/builder/paragraph_builder.py",
+            "delbot_platform/document_intelligence/models/paragraph.py"
+        ]
+    },
+    {
+        "key": "process",
+        "count": 2,
+        "layers": [
+            "ai"
+        ],
+        "components": [
+            "module",
+            "registry"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.ai.process.process_manager",
+            "delbot_platform.ai.process.process_registry"
+        ],
+        "paths": [
+            "delbot_platform/ai/process/process_manager.py",
+            "delbot_platform/ai/process/process_registry.py"
+        ]
+    },
+    {
+        "key": "qdrant",
+        "count": 2,
+        "layers": [
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 4,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.knowledge.retrieval.qdrant",
+            "delbot_platform.knowledge.vector.repository.qdrant"
+        ],
+        "paths": [
+            "delbot_platform/knowledge/retrieval/qdrant.py",
+            "delbot_platform/knowledge/vector/repository/qdrant.py"
+        ]
+    },
+    {
+        "key": "manager",
+        "count": 2,
+        "layers": [
+            "config",
+            "documents"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 3,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.config.manager",
+            "delbot_platform.documents.registry.manager"
+        ],
+        "paths": [
+            "delbot_platform/config/manager.py",
+            "delbot_platform/documents/registry/manager.py"
+        ]
+    },
+    {
+        "key": "semantic_chunk",
+        "count": 2,
+        "layers": [
+            "document_intelligence"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 3,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.builder.semantic_chunk_builder",
+            "delbot_platform.document_intelligence.models.semantic_chunk"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/builder/semantic_chunk_builder.py",
+            "delbot_platform/document_intelligence/models/semantic_chunk.py"
+        ]
+    },
+    {
+        "key": "research_result",
+        "count": 2,
+        "layers": [
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 2,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.research.builders.research_result_builder",
+            "delbot_platform.research.models.research_result"
+        ],
+        "paths": [
+            "delbot_platform/research/builders/research_result_builder.py",
+            "delbot_platform/research/models/research_result.py"
+        ]
+    },
+    {
+        "key": "health",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 1,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.routers.health",
+            "delbot_platform.orchestrator.health"
+        ],
+        "paths": [
+            "delbot_platform/gateway/routers/health.py",
+            "delbot_platform/orchestrator/health.py"
+        ]
+    },
+    {
+        "key": "infinity",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 1,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.providers.infinity",
+            "delbot_platform.launcher.infinity"
+        ],
+        "paths": [
+            "delbot_platform/gateway/providers/infinity.py",
+            "delbot_platform/launcher/infinity.py"
+        ]
+    },
+    {
+        "key": "memory",
+        "count": 2,
+        "layers": [
+            "documents",
+            "knowledge"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 1,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.registry.memory",
+            "delbot_platform.knowledge.vector.repository.memory"
+        ],
+        "paths": [
+            "delbot_platform/documents/registry/memory.py",
+            "delbot_platform/knowledge/vector/repository/memory.py"
+        ]
+    },
+    {
+        "key": "pdf",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "loader",
+            "module"
+        ],
+        "incoming": 1,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.loader.pdf_loader",
+            "delbot_platform.documents.parser.pdf"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/loader/pdf_loader.py",
+            "delbot_platform/documents/parser/pdf.py"
+        ]
+    },
+    {
+        "key": "vllm",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "launcher"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 1,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.providers.vllm",
+            "delbot_platform.launcher.vllm"
+        ],
+        "paths": [
+            "delbot_platform/gateway/providers/vllm.py",
+            "delbot_platform/launcher/vllm.py"
+        ]
+    },
+    {
+        "key": "answer",
+        "count": 2,
+        "layers": [
+            "application",
+            "research"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.application.research.answer",
+            "delbot_platform.research.services.answer"
+        ],
+        "paths": [
+            "delbot_platform/application/research/answer.py",
+            "delbot_platform/research/services/answer.py"
+        ]
+    },
+    {
+        "key": "app",
+        "count": 2,
+        "layers": [
+            "api",
+            "gateway"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.api.app",
+            "delbot_platform.gateway.app"
+        ],
+        "paths": [
+            "delbot_platform/api/app.py",
+            "delbot_platform/gateway/app.py"
+        ]
+    },
+    {
+        "key": "context",
+        "count": 2,
+        "layers": [
+            "knowledge",
+            "research"
+        ],
+        "components": [
+            "builder",
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.knowledge.rag.context_builder",
+            "delbot_platform.research.rag.context"
+        ],
+        "paths": [
+            "delbot_platform/knowledge/rag/context_builder.py",
+            "delbot_platform/research/rag/context.py"
+        ]
+    },
+    {
+        "key": "http",
+        "count": 2,
+        "layers": [
+            "ai",
+            "repository"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.ai.http.http_client",
+            "delbot_platform.repository.discovery.http"
+        ],
+        "paths": [
+            "delbot_platform/ai/http/http_client.py",
+            "delbot_platform/repository/discovery/http.py"
+        ]
+    },
+    {
+        "key": "pymupdf",
+        "count": 2,
+        "layers": [
+            "document_intelligence",
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.document_intelligence.mappermupdf_mapper",
+            "delbot_platform.documents.parser.backendmupdf"
+        ],
+        "paths": [
+            "delbot_platform/document_intelligence/mapper/pymupdf_mapper.py",
+            "delbot_platform/documents/parser/backend/pymupdf.py"
+        ]
+    },
+    {
+        "key": "vector",
+        "count": 2,
+        "layers": [
+            "documents"
+        ],
+        "components": [
+            "mapper",
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.documents.embedding.mapper.vector_mapper",
+            "delbot_platform.documents.embedding.vector"
+        ],
+        "paths": [
+            "delbot_platform/documents/embedding/mapper/vector_mapper.py",
+            "delbot_platform/documents/embedding/vector.py"
+        ]
+    },
+    {
+        "key": "vision",
+        "count": 2,
+        "layers": [
+            "gateway",
+            "orchestrator"
+        ],
+        "components": [
+            "module"
+        ],
+        "incoming": 0,
+        "outgoing": 0,
+        "modules": [
+            "delbot_platform.gateway.routers.vision",
+            "delbot_platform.orchestrator.services.vision"
+        ],
+        "paths": [
+            "delbot_platform/gateway/routers/vision.py",
+            "delbot_platform/orchestrator/services/vision.py"
+        ]
+    }
+]

@@ -1,0 +1,18 @@
+{
+  "Router Exists": true,
+  "Factory Exists": true,
+  "RAG Engine": true,
+  "Pipeline Exists": true,
+  "Async Endpoint": true,
+  "Await execute()": true,
+  "Return Response": true,
+  "Factory research()": true,
+  "Factory Return": true,
+  "RAG search()": true,
+  "Pipeline Member": true,
+  "build() Async": true,
+  "await retrieve()": true,
+  "Pipeline Return": true,
+  "Success": true,
+  "Exception": null
+}

@@ -1,7 +1,22 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.models import DocumentChunk
-from delbot_platform.research.models import Citation
+from dataclasses import dataclass
+from typing import Any
+
+from delbot_platform.documents.models.document_chunk import (
+    DocumentChunk,
+)
+
+
+@dataclass(slots=True)
+class Citation:
+
+    document: str
+    page: int | str
+    chunk_id: str
+    score: float
+    text: str
+    metadata: Any = None
 
 
 class CitationBuilder:
@@ -15,17 +30,31 @@ class CitationBuilder:
 
         for chunk in results:
 
+            metadata = chunk.metadata
+
+            source = None
+
+            if metadata is not None:
+                source = getattr(
+                    metadata,
+                    "source",
+                    None,
+                )
+
+            if chunk.page_start == chunk.page_end:
+                page = chunk.page_start
+            else:
+                page = f"{chunk.page_start}-{chunk.page_end}"
+
             citations.append(
                 Citation(
-                    document=chunk.document,
-                    page=chunk.page,
+                    document=chunk.document_id,
+                    page=page,
                     chunk_id=chunk.chunk_id,
-                    score=chunk.rerank_score,
+                    score=chunk.score or 0.0,
                     text=chunk.text,
-                    metadata=chunk.metadata,
+                    metadata=source,
                 )
             )
 
         return citations
-
-    

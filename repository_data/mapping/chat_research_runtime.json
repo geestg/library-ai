@@ -1,0 +1,17 @@
+{
+  "router_exists": true,
+  "factory_exists": true,
+  "rag_engine_exists": true,
+  "pipeline_exists": true,
+  "async_endpoint": true,
+  "await_execute": true,
+  "return_response": true,
+  "factory_research": true,
+  "factory_application": true,
+  "rag_search_async": true,
+  "rag_pipeline_member": true,
+  "pipeline_build_async": true,
+  "pipeline_retrieve": true,
+  "pipeline_return": true,
+  "exception": null
+}

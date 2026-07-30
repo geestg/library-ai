@@ -1,0 +1,20 @@
+{
+  "stage": "PR-4.7A",
+  "summary": {
+    "knowledge_pipeline_exists": true,
+    "knowledge_pipeline_process": true,
+    "knowledge_pipeline_process_with_summary": true,
+    "knowledge_pipeline_summarize": true,
+    "knowledge_context": true,
+    "knowledge_artifact": true,
+    "qdrant_store_exists": true,
+    "qdrant_insert": true,
+    "retriever_exists": true,
+    "retriever_method": true,
+    "vector_repository_exists": true,
+    "vector_repository_save": true,
+    "vector_repository_count": true,
+    "success": true,
+    "exception": null
+  }
+}

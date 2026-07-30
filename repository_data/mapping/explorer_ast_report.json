@@ -1,0 +1,12 @@
+========================================================================
+DELBOT REPOSITORY EXPLORER AST AUDIT
+========================================================================
+Router Exists           : True
+Function Found          : True
+Async Function          : True
+Parameter Count         : 0
+RepositoryService Calls : 1
+scan() Calls            : 1
+Return Statements       : 1
+Exception               : None
+========================================================================

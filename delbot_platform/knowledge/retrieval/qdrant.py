@@ -22,7 +22,6 @@ from delbot_platform.knowledge.vector.repository.qdrant import (
     QdrantRepository,
 )
 
-
 class QdrantRetriever(
     Retriever,
 ):
@@ -79,10 +78,7 @@ class QdrantRetriever(
             payload = item.metadata
 
             metadata = (
-                ChunkMetadataMapper.from_payload(
-                    payload,
-                    default_chunk_id=str(item.id),
-                )
+                ChunkMetadataMapper.from_payload(payload)
             )
 
             retrieved.append(

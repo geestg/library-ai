@@ -76,7 +76,7 @@ class ChunkBuilder:
                 chunk_text = text[start:end]
 
                 chunk = DocumentChunk(
-                    id=str(uuid4()),
+                    chunk_id=str(uuid4()),
                     document_id=section.document_id,
                     text=chunk_text,
                     page_start=section.page_start,
@@ -125,13 +125,5 @@ class ChunkBuilder:
                     0,
                     end - self.policy.overlap_characters,
                 )
-
-        total = len(chunks)
-
-        for index, chunk in enumerate(chunks):
-
-            chunk.metadata.chunk_index = index
-
-            chunk.metadata.total_chunks = total
 
         return chunks

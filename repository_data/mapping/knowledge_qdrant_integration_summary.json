@@ -1,0 +1,18 @@
+{
+  "knowledge_pipeline": true,
+  "process": true,
+  "process_with_summary": true,
+  "summarize": true,
+  "qdrant_store": true,
+  "create_collection": true,
+  "insert": true,
+  "vector_repository": true,
+  "save": true,
+  "count": true,
+  "retriever": true,
+  "retrieve": true,
+  "embedding_run": true,
+  "qdrant_upsert": true,
+  "repository_search": true,
+  "success": true
+}

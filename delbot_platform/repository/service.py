@@ -1,124 +1,126 @@
 from __future__ import annotations
 
-from dataclasses import replace
+import json
+from pathlib import Path
+from typing import List
 
-from delbot_platform.repository.catalog import (
-    CatalogAdapter,
-    CatalogLoader,
-)
-
-from delbot_platform.repository.models import (
-    RepositoryItem,
-    RepositoryScanResult,
-)
-
-from delbot_platform.repository.resolver import (
-    LocalPDFResolver,
-)
-
-
-DEFAULT_CATALOG = (
-    "delbot_platform/repository_data/metadata/"
-    "repository_catalog.json"
-)
+from .catalog import CatalogAdapter
+from .models import RepositoryItem, RepositoryStatus
 
 
 class RepositoryService:
-    """
-    Repository orchestration service.
 
-    Source of truth:
+    def __init__(self) -> None:
 
-        repository_catalog.json
-    """
+        self.root = Path(__file__).resolve().parents[1]
 
-    def __init__(
-        self,
-        catalog_path: str = DEFAULT_CATALOG,
-        pdf_resolver: LocalPDFResolver | None = None,
-    ) -> None:
-
-        self.loader = CatalogLoader(
-            catalog_path,
+        self.metadata_dir = (
+            self.root
+            / "repository_data"
+            / "metadata"
         )
 
-        self.pdf_resolver = (
-            pdf_resolver
-            if pdf_resolver is not None
-            else LocalPDFResolver()
+        self.runtime_dir = (
+            self.root
+            / "repository_data"
+            / "runtime"
         )
 
-        self.items: list[RepositoryItem] = []
+        self.catalog_file = (
+            self.metadata_dir
+            / "repository_catalog.json"
+        )
 
-    def load(
-        self,
-    ) -> list[RepositoryItem]:
+        self.overlay_file = (
+            self.runtime_dir
+            / "repository_overlay.json"
+        )
 
-        catalog = self.loader.load()
+    # -----------------------------------------------------------------
 
-        self.items = [
+    def scan(self) -> List[RepositoryItem]:
 
-            CatalogAdapter.to_repository_item(
-                record,
+        if self.overlay_file.exists():
+            items = self._scan_overlay()
+
+            if items:
+                return items
+
+        return self._scan_catalog()
+
+    # -----------------------------------------------------------------
+
+    def _scan_overlay(self) -> List[RepositoryItem]:
+
+        try:
+
+            data = json.loads(
+                self.overlay_file.read_text(
+                    encoding="utf-8"
+                )
             )
 
-            for record in catalog
+        except Exception:
 
-        ]
+            data = []
 
-        return self.items
+        items: List[RepositoryItem] = []
 
-    def resolve_pdf(
-        self,
-        item: RepositoryItem,
-    ) -> RepositoryItem:
+        for row in data:
 
-        pdf = self.pdf_resolver.resolve(
-            item.id,
-        )
+            pdf_path = row.get("pdf_path")
 
-        if pdf is None:
-            return item
-
-        return replace(
-            item,
-            local_path=str(pdf),
-        )
-
-    def scan(
-        self,
-    ) -> RepositoryScanResult:
-
-        items = self.load()
-
-        available = 0
-        missing = 0
-
-        results: list[RepositoryItem] = []
-
-        for item in items:
-
-            resolved = self.resolve_pdf(
-                item,
+            status_value = row.get(
+                "status",
+                RepositoryStatus.METADATA_ONLY.value,
             )
 
-            results.append(
-                resolved,
+            try:
+                status = RepositoryStatus(status_value)
+            except Exception:
+                status = RepositoryStatus.METADATA_ONLY
+
+            metadata = {
+                "author": row.get("author"),
+                "year": row.get("year"),
+                "abstract": row.get("abstract"),
+                "prodi": row.get("prodi"),
+                "resolution": row.get("resolution"),
+                "pdf_uuid": row.get("pdf_uuid"),
+                "has_pdf": row.get("has_pdf"),
+            }
+
+            items.append(
+
+                RepositoryItem(
+
+                    id=row.get("document_id", ""),
+
+                    title=row.get("title", ""),
+
+                    repository_url=row.get("url", ""),
+
+                    pdf_url=pdf_path,
+
+                    local_path=pdf_path,
+
+                    status=status,
+
+                    metadata=metadata,
+
+                )
+
             )
 
-            if resolved.local_path:
-                available += 1
-            else:
-                missing += 1
+        return items
 
-        return RepositoryScanResult(
+    # -----------------------------------------------------------------
 
-            total=len(results),
+    def _scan_catalog(self) -> List[RepositoryItem]:
 
-            pdf_available=available,
-
-            pdf_missing=missing,
-
-            items=results,
-
+        adapter = CatalogAdapter(
+            self.catalog_file
         )
+
+        return adapter.load()
+

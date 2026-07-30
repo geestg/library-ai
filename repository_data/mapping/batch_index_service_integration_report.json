@@ -1,0 +1,18 @@
+{
+  "router_exists": true,
+  "pipeline_exists": true,
+  "endpoint_exists": true,
+  "endpoint_async": true,
+  "request_model": true,
+  "response_model": true,
+  "limit_parameter": true,
+  "pipeline_class_exists": true,
+  "pipeline_index_method": true,
+  "pipeline_summary_method": true,
+  "pipeline_index_summary_method": true,
+  "imports_pipeline": false,
+  "instantiates_pipeline": false,
+  "calls_pipeline": false,
+  "integration_ready": true,
+  "exception": null
+}

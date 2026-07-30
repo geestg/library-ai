@@ -1,181 +1,136 @@
 #!/usr/bin/env bash
+#
+# ============================================================
+# DELBot
+# Kernel Memory Audit
+#
+# Audit anonymous memory dari seluruh proses
+# Menggunakan /proc/*/smaps_rollup (lebih cepat)
+#
+# Author : DELBot
+# ============================================================
 
-set -uo pipefail
+set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+CYAN="\033[36m"
+RESET="\033[0m"
 
-REPORT_DIR="$ROOT/runtime/system_report"
-
-mkdir -p "$REPORT_DIR"
-
-REPORT="$REPORT_DIR/kernel_memory_$(date +%Y%m%d_%H%M%S).txt"
-
-exec > >(tee "$REPORT")
-exec 2>&1
-
+printf "\n${CYAN}"
 echo "============================================================"
-echo "DELBOT KERNEL MEMORY AUDIT"
+echo "        DELBOT KERNEL MEMORY AUDIT"
 echo "============================================================"
+printf "${RESET}\n"
 
-echo
-date
-
-echo
-hostname
-
-echo
-echo "============================================================"
-echo "SYSTEM MEMORY"
-echo "============================================================"
-
-grep -E \
-'MemTotal|MemFree|MemAvailable|AnonPages|Mapped|Cached|Slab|KernelStack|PageTables|AnonHugePages|HugePages|Committed_AS' \
-/proc/meminfo
-
-echo
-echo "============================================================"
-echo "TOP PROCESS MEMORY"
-echo "============================================================"
-
-printf "%-8s %-10s %-10s %-10s %-10s %s\n" \
-PID RSS_MB ANON_MB PRIVATE_MB SHARED_MB CMD
+if [[ $EUID -ne 0 ]]; then
+    echo -e "${RED}"
+    echo "ERROR:"
+    echo
+    echo "Harus dijalankan menggunakan sudo/root."
+    echo
+    echo "Contoh:"
+    echo
+    echo "sudo bash tools/system/audit_kernel_memory.sh"
+    echo
+    printf "${RESET}"
+    exit 1
+fi
 
 TMP=$(mktemp)
 
-for PROC in /proc/[0-9]*; do
+printf "%-8s %-30s %12s %12s %12s %12s\n" \
+PID NAME ANON_MB PRIVATE_MB SHARED_MB RSS_MB
 
-    PID=$(basename "$PROC")
+echo "-----------------------------------------------------------------------------------------------"
 
-    [[ -r "$PROC/status" ]] || continue
+TOTAL_ANON=0
+TOTAL_PRIVATE=0
+TOTAL_SHARED=0
+TOTAL_RSS=0
 
-    RSS=0
-    ANON=0
-    PRIVATE=0
-    SHARED=0
+for smaps in /proc/[0-9]*/smaps_rollup
+do
+    PID=$(echo "$smaps" | cut -d/ -f3)
 
-    while read -r KEY VALUE UNIT; do
+    [[ -r "$smaps" ]] || continue
 
-        case "$KEY" in
+    NAME=$(tr '\0' ' ' < /proc/$PID/cmdline 2>/dev/null | cut -c1-28)
 
-            VmRSS:)
-                RSS=$VALUE
-                ;;
-
-            RssAnon:)
-                ANON=$VALUE
-                ;;
-
-        esac
-
-    done < "$PROC/status"
-
-    if [[ -r "$PROC/smaps_rollup" ]]; then
-
-        PRIVATE=$(
-            awk '
-            /Private_Clean:/ {x+=$2}
-            /Private_Dirty:/ {x+=$2}
-            END{print x+0}
-            ' "$PROC/smaps_rollup" 2>/dev/null || echo 0
-        )
-
-        SHARED=$(
-            awk '
-            /Shared_Clean:/ {x+=$2}
-            /Shared_Dirty:/ {x+=$2}
-            END{print x+0}
-            ' "$PROC/smaps_rollup" 2>/dev/null || echo 0
-        )
-
+    if [[ -z "$NAME" ]]; then
+        NAME=$(cat /proc/$PID/comm 2>/dev/null || echo unknown)
     fi
 
-    CMD=$(tr '\0' ' ' < "$PROC/cmdline" 2>/dev/null)
+    ANON=$(awk '/Anonymous:/ {print $2}' "$smaps")
+    PRIVATE=$(awk '/Private_Dirty:/ {print $2}' "$smaps")
+    SHARED=$(awk '/Shared_Dirty:/ {print $2}' "$smaps")
+    RSS=$(awk '/Rss:/ {print $2}' "$smaps")
 
-    [[ -z "$CMD" ]] && CMD=$(cat "$PROC/comm" 2>/dev/null)
+    ANON=${ANON:-0}
+    PRIVATE=${PRIVATE:-0}
+    SHARED=${SHARED:-0}
+    RSS=${RSS:-0}
 
-    printf "%-8s %-10.1f %-10.1f %-10.1f %-10.1f %s\n" \
+    TOTAL_ANON=$((TOTAL_ANON+ANON))
+    TOTAL_PRIVATE=$((TOTAL_PRIVATE+PRIVATE))
+    TOTAL_SHARED=$((TOTAL_SHARED+SHARED))
+    TOTAL_RSS=$((TOTAL_RSS+RSS))
+
+    printf "%-8s %-30s %12d %12d %12d %12d\n" \
         "$PID" \
-        "$(awk "BEGIN{print $RSS/1024}")" \
-        "$(awk "BEGIN{print $ANON/1024}")" \
-        "$(awk "BEGIN{print $PRIVATE/1024}")" \
-        "$(awk "BEGIN{print $SHARED/1024}")" \
-        "$CMD" >> "$TMP"
-
+        "$NAME" \
+        $((ANON/1024)) \
+        $((PRIVATE/1024)) \
+        $((SHARED/1024)) \
+        $((RSS/1024)) \
+        >> "$TMP"
 done
 
-sort -k3 -nr "$TMP" | head -100
+sort -k3 -nr "$TMP"
 
 echo
 echo "============================================================"
 echo "TOTAL"
 echo "============================================================"
 
-awk '
-
-{
-
-rss+=$2
-anon+=$3
-priv+=$4
-shared+=$5
-
-}
-
-END{
-
-printf "RSS      : %.2f GB\n",rss/1024
-printf "ANON     : %.2f GB\n",anon/1024
-printf "PRIVATE  : %.2f GB\n",priv/1024
-printf "SHARED   : %.2f GB\n",shared/1024
-
-}
-
-' "$TMP"
+printf "Anonymous      : %12d MB\n" $((TOTAL_ANON/1024))
+printf "Private Dirty  : %12d MB\n" $((TOTAL_PRIVATE/1024))
+printf "Shared Dirty   : %12d MB\n" $((TOTAL_SHARED/1024))
+printf "RSS            : %12d MB\n" $((TOTAL_RSS/1024))
 
 echo
 echo "============================================================"
-echo "TOP ANON HUGEPAGES"
+echo "SYSTEM MEMORY"
 echo "============================================================"
 
-printf "%-8s %-12s %s\n" PID HUGE_MB CMD
+grep -E 'MemTotal|MemFree|MemAvailable|Cached|Buffers|AnonPages|Shmem|Slab|KernelStack|PageTables|SReclaimable|SUnreclaim' /proc/meminfo
 
-TMP2=$(mktemp)
+echo
+echo "============================================================"
+echo "CGROUP"
+echo "============================================================"
 
-for PROC in /proc/[0-9]*; do
-
-    PID=$(basename "$PROC")
-
-    [[ -r "$PROC/smaps_rollup" ]] || continue
-
-    HUGE=$(
-        awk '
-        /AnonHugePages:/ {print $2}
-        ' "$PROC/smaps_rollup" 2>/dev/null || echo 0
-    )
-
-    HUGE=${HUGE:-0}
-
-    CMD=$(tr '\0' ' ' < "$PROC/cmdline" 2>/dev/null)
-
-    [[ -z "$CMD" ]] && CMD=$(cat "$PROC/comm" 2>/dev/null)
-
-    printf "%-8s %-12.1f %s\n" \
-        "$PID" \
-        "$(awk "BEGIN{print $HUGE/1024}")" \
-        "$CMD" >> "$TMP2"
-
+for f in \
+/sys/fs/cgroup/memory.current \
+/sys/fs/cgroup/memory.max
+do
+    if [[ -f "$f" ]]; then
+        printf "%-25s : " "$(basename "$f")"
+        cat "$f"
+    fi
 done
 
-sort -k2 -nr "$TMP2" | head -60
-
 echo
 echo "============================================================"
-echo "OPEN DELETED FILES"
+echo "KERNEL SLAB"
 echo "============================================================"
 
-if command -v lsof >/dev/null 2>&1; then
-
-    lsof +L1 2>/dev/null | head -80
+if command -v slabtop >/dev/null
+then
+    slabtop -o | head -25
+else
+    echo "slabtop tidak tersedia."
 fi
 
 echo
@@ -183,13 +138,46 @@ echo "============================================================"
 echo "VMSTAT"
 echo "============================================================"
 
-vmstat -s
+grep -E \
+'anon|file|slab|unevictable|pgfault|pgmajfault|thp|nr_' \
+/proc/vmstat | head -80
 
 echo
 echo "============================================================"
-echo "REPORT"
+echo "TRANSPARENT HUGE PAGE"
 echo "============================================================"
 
-echo "$REPORT"
+if [[ -f /sys/kernel/mm/transparent_hugepage/enabled ]]; then
+    cat /sys/kernel/mm/transparent_hugepage/enabled
+fi
 
-rm -f "$TMP" "$TMP2"
+echo
+echo "============================================================"
+echo "HUGEPAGES"
+echo "============================================================"
+
+grep Huge /proc/meminfo
+
+echo
+echo "============================================================"
+echo "NUMA"
+echo "============================================================"
+
+if command -v numastat >/dev/null
+then
+    numastat
+fi
+
+echo
+echo "============================================================"
+echo "TOP 20 MAP SIZE"
+echo "============================================================"
+
+sort -k6 -nr "$TMP" | head -20
+
+rm "$TMP"
+
+echo
+echo "============================================================"
+echo "AUDIT COMPLETE"
+echo "============================================================"

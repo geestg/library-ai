@@ -1,0 +1,151 @@
+from pathlib import Path
+import ast
+import py_compile
+
+ROOT = Path(__file__).resolve().parents[1]
+
+service = ROOT / "delbot_platform/repository/service.py"
+
+code = r'''from __future__ import annotations
+
+from dataclasses import replace
+from pathlib import Path
+
+from delbot_platform.repository.catalog import (
+    CatalogAdapter,
+    CatalogLoader,
+)
+
+from delbot_platform.repository.models import (
+    RepositoryItem,
+    RepositoryScanResult,
+    RepositoryStatus,
+)
+
+from delbot_platform.repository.resolver import (
+    LocalPDFResolver,
+)
+
+DEFAULT_CATALOG = (
+    "delbot_platform/repository_data/metadata/"
+    "repository_catalog.json"
+)
+
+DEFAULT_PDF_DIR = Path(
+    "delbot_platform/repository_data/pdf"
+)
+
+
+class RepositoryService:
+    """
+    Repository orchestration service.
+    """
+
+    def __init__(
+        self,
+        catalog_path: str = DEFAULT_CATALOG,
+        pdf_resolver: LocalPDFResolver | None = None,
+    ) -> None:
+
+        self.loader = CatalogLoader(
+            catalog_path,
+        )
+
+        self.pdf_resolver = (
+            pdf_resolver
+            if pdf_resolver is not None
+            else LocalPDFResolver()
+        )
+
+        self.items: list[RepositoryItem] = []
+
+    def load(
+        self,
+    ) -> list[RepositoryItem]:
+
+        catalog = self.loader.load()
+
+        self.items = [
+            CatalogAdapter.to_repository_item(
+                record,
+            )
+            for record in catalog
+        ]
+
+        return self.items
+
+    def resolve_pdf(
+        self,
+        item: RepositoryItem,
+    ) -> RepositoryItem:
+
+        pdf = self.pdf_resolver.resolve(
+            item.id,
+        )
+
+        if pdf is None:
+            candidate = (
+                DEFAULT_PDF_DIR /
+                f"{item.id}.pdf"
+            )
+
+            if candidate.exists():
+                pdf = candidate
+
+        if pdf is None:
+            return item
+
+        return replace(
+            item,
+            local_path=str(pdf),
+            status=RepositoryStatus.PDF_AVAILABLE,
+        )
+
+    def scan(
+        self,
+    ) -> RepositoryScanResult:
+
+        items = self.load()
+
+        available = 0
+        missing = 0
+
+        results: list[RepositoryItem] = []
+
+        for item in items:
+
+            resolved = self.resolve_pdf(
+                item,
+            )
+
+            results.append(
+                resolved,
+            )
+
+            if resolved.local_path:
+                available += 1
+            else:
+                missing += 1
+
+        return RepositoryScanResult(
+            total=len(results),
+            pdf_available=available,
+            pdf_missing=missing,
+            items=results,
+        )
+'''
+
+service.write_text(
+    code,
+    encoding="utf-8",
+)
+
+ast.parse(code)
+py_compile.compile(
+    str(service),
+    doraise=True,
+)
+
+print("PATCH OK")
+print("AST PASS")
+print("COMPILE PASS")

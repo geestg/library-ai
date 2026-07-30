@@ -1,0 +1,1732 @@
+[
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 620
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 628
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 645
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 724
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 730
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 780
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 816
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 967
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1206
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1227
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1262
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1290
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1350
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1393
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1412
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1440
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1458
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1473
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1545
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1579
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1595
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1662
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1673
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1700
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1702
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1728
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1730
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1813
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1825
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1919
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 1986
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2066
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2131
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2303
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2356
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2558
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2670
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2686
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2967
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2969
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2987
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 2996
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3595
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3596
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3618
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3619
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3679
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 3985
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 4026
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/Image.py",
+    "call": "load",
+    "line": 4049
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 50
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 64
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 65
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 79
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 80
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 94
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 95
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 111
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 112
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 125
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 126
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 137
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 138
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 149
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 150
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 161
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 162
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 178
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 179
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 195
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 196
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 208
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 209
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 221
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 222
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 239
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 240
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 254
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 255
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 269
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 270
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageChops.py",
+    "call": "load",
+    "line": 310
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageDraw.py",
+    "call": "load",
+    "line": 185
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageDraw.py",
+    "call": "load",
+    "line": 859
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageFont.py",
+    "call": "load",
+    "line": 152
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageFont.py",
+    "call": "load",
+    "line": 929
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageMath.py",
+    "call": "scan",
+    "line": 302
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/ImageMath.py",
+    "call": "scan",
+    "line": 309
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/JpegImagePlugin.py",
+    "call": "load",
+    "line": 486
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/JpegImagePlugin.py",
+    "call": "load",
+    "line": 561
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/PalmImagePlugin.py",
+    "call": "load",
+    "line": 160
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1248
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1261
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1303
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1332
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1423
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1740
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 1834
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/PIL/TiffImagePlugin.py",
+    "call": "load",
+    "line": 2320
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py",
+    "call": "load",
+    "line": 199
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py",
+    "call": "load",
+    "line": 211
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py",
+    "call": "load",
+    "line": 221
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py",
+    "call": "load",
+    "line": 305
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py",
+    "call": "load",
+    "line": 321
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/accelerate/utils/modeling.py",
+    "call": "load",
+    "line": 1729
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/fontTools/ufoLib/__init__.py",
+    "call": "load",
+    "line": 176
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/fsspec/implementations/cache_metadata.py",
+    "call": "load",
+    "line": 59
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/fsspec/implementations/cache_metadata.py",
+    "call": "load",
+    "line": 62
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/gdown/download.py",
+    "call": "load",
+    "line": 131
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/_tree_cache.py",
+    "call": "load",
+    "line": 107
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/cli/extensions.py",
+    "call": "load",
+    "line": 303
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/cli/extensions.py",
+    "call": "load",
+    "line": 380
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/cli/extensions.py",
+    "call": "load",
+    "line": 634
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/cli/spaces.py",
+    "call": "load",
+    "line": 230
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/fastai_utils.py",
+    "call": "load",
+    "line": 115
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/hf_api.py",
+    "call": "load",
+    "line": 6798
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/hf_api.py",
+    "call": "load",
+    "line": 14767
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/hub_mixin.py",
+    "call": "load",
+    "line": 524
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/hub_mixin.py",
+    "call": "load",
+    "line": 806
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/huggingface_hub/repocard.py",
+    "call": "load",
+    "line": 772
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2050
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2209
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2256
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2279
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2308
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2337
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/imageio/plugins/_tifffile.py",
+    "call": "load",
+    "line": 2430
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/jinja2/environment.py",
+    "call": "load",
+    "line": 975
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/jinja2/idtracking.py",
+    "call": "load",
+    "line": 247
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/jinja2/idtracking.py",
+    "call": "load",
+    "line": 250
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/langsmith/client.py",
+    "call": "load",
+    "line": 429
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/matplotlib/cbook.py",
+    "call": "load",
+    "line": 588
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/hub/utils/aigc.py",
+    "call": "load",
+    "line": 418
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/sv/ERes2Net_aug.py",
+    "call": "load",
+    "line": 345
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 170
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 172
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 198
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 209
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 248
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 258
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 369
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 371
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 532
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/audio/tts/voice.py",
+    "call": "load",
+    "line": 535
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/cv/face_emotion/efficient/utils.py",
+    "call": "load",
+    "line": 538
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/cv/face_human_hand_detection/det_infer.py",
+    "call": "load",
+    "line": 18
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/cv/face_reconstruction/models/renderer.py",
+    "call": "load",
+    "line": 100
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/cv/image_matching/quadtree_attention_model.py",
+    "call": "load",
+    "line": 42
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/nlp/mglm/data_utils/corpora.py",
+    "call": "load",
+    "line": 160
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/models/nlp/mglm/data_utils/file_utils.py",
+    "call": "load",
+    "line": 78
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/msdatasets/meta/data_meta_manager.py",
+    "call": "load",
+    "line": 127
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/msdatasets/utils/_module_factories.py",
+    "call": "load",
+    "line": 628
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/pipelines/cv/animal_recognition_pipeline.py",
+    "call": "load",
+    "line": 70
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/pipelines/cv/general_recognition_pipeline.py",
+    "call": "load",
+    "line": 71
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/pipelines/cv/human3d_animation_pipeline.py",
+    "call": "load",
+    "line": 128
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/pipelines/cv/human3d_animation_pipeline.py",
+    "call": "load",
+    "line": 137
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/pipelines/cv/virtual_try_on_pipeline.py",
+    "call": "load",
+    "line": 55
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/preprocessors/templates/utils.py",
+    "call": "load",
+    "line": 467
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/utils/config.py",
+    "call": "load",
+    "line": 154
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope/utils/hub.py",
+    "call": "load",
+    "line": 126
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope_hub/_upload.py",
+    "call": "load",
+    "line": 397
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/modelscope_hub/cli/main.py",
+    "call": "load",
+    "line": 176
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/networkx/utils/backends.py",
+    "call": "load",
+    "line": 525
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/networkx/utils/backends.py",
+    "call": "load",
+    "line": 632
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/numpy/core/tests/test_multiarray.py",
+    "call": "load",
+    "line": 1490
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/numpy/core/tests/test_multiarray.py",
+    "call": "load",
+    "line": 1496
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/numpy/core/tests/test_multiarray.py",
+    "call": "load",
+    "line": 5337
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/onnxruntime/tools/symbolic_shape_infer.py",
+    "call": "load",
+    "line": 3075
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 567
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 629
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 709
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 807
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 896
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/paddle/distributed/auto_tuner/utils.py",
+    "call": "load",
+    "line": 950
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/distlib/util.py",
+    "call": "load",
+    "line": 356
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/distlib/util.py",
+    "call": "load",
+    "line": 941
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/distlib/util.py",
+    "call": "load",
+    "line": 1727
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 441
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__init__.py",
+    "call": "scan",
+    "line": 1154
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 2007
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 3181
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pip/_vendor/pygments/scanner.py",
+    "call": "scan",
+    "line": 97
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 437
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pkg_resources/__init__.py",
+    "call": "scan",
+    "line": 1167
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 2035
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pkg_resources/__init__.py",
+    "call": "load",
+    "line": 3209
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/polars/io/iceberg/_dataset.py",
+    "call": "scan",
+    "line": 395
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/polars/io/iceberg/_utils.py",
+    "call": "scan",
+    "line": 96
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pydantic/mypy.py",
+    "call": "load",
+    "line": 1412
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 438
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 440
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 445
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 447
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 449
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 454
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 470
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 557
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 560
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 563
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 565
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 567
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 569
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 579
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 581
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 584
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 590
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 592
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 595
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 601
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 603
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 606
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 611
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 613
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 616
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 618
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 626
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 628
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 630
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 632
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/lexers/pascal.py",
+    "call": "scan",
+    "line": 634
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/pygments/scanner.py",
+    "call": "scan",
+    "line": 97
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/qdrant_client/local/local_collection.py",
+    "call": "load",
+    "line": 213
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/cluster.py",
+    "call": "scan",
+    "line": 1091
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/cluster.py",
+    "call": "scan",
+    "line": 1103
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/cluster.py",
+    "call": "scan",
+    "line": 1137
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/cluster.py",
+    "call": "scan",
+    "line": 1150
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/core.py",
+    "call": "scan",
+    "line": 3378
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/redis/commands/core.py",
+    "call": "scan",
+    "line": 3563
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/regex/tests/test_regex.py",
+    "call": "scan",
+    "line": 812
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/ruamel/yaml/main.py",
+    "call": "scan",
+    "line": 347
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/ruamel/yaml/main.py",
+    "call": "load",
+    "line": 449
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/scipy/interpolate/tests/test_bsplines.py",
+    "call": "load",
+    "line": 2156
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py",
+    "call": "load",
+    "line": 1608
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py",
+    "call": "load",
+    "line": 1655
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py",
+    "call": "load",
+    "line": 1688
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py",
+    "call": "load",
+    "line": 1730
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py",
+    "call": "load",
+    "line": 1744
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py",
+    "call": "load",
+    "line": 194
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py",
+    "call": "load",
+    "line": 494
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/command/bdist_egg.py",
+    "call": "load",
+    "line": 383
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 205
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 788
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 810
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 852
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 860
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/dist.py",
+    "call": "load",
+    "line": 867
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/setuptools/tests/test_sdist.py",
+    "call": "load",
+    "line": 864
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/skimage/data/_fetchers.py",
+    "call": "load",
+    "line": 1110
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/skimage/data/_fetchers.py",
+    "call": "load",
+    "line": 1143
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/skimage/morphology/footprints.py",
+    "call": "load",
+    "line": 20
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/skimage/morphology/footprints.py",
+    "call": "load",
+    "line": 23
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py",
+    "call": "load",
+    "line": 348
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sympy/combinatorics/coset_table.py",
+    "call": "scan",
+    "line": 606
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sympy/combinatorics/coset_table.py",
+    "call": "scan",
+    "line": 668
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sympy/combinatorics/coset_table.py",
+    "call": "scan",
+    "line": 913
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/sympy/plotting/pygletplot/plot_axes.py",
+    "call": "load",
+    "line": 148
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/__init__.py",
+    "call": "load",
+    "line": 2954
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/common.py",
+    "call": "load",
+    "line": 1040
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/common.py",
+    "call": "load",
+    "line": 2222
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/common.py",
+    "call": "load",
+    "line": 2826
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/common.py",
+    "call": "scan",
+    "line": 2884
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/halide.py",
+    "call": "load",
+    "line": 449
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/simd.py",
+    "call": "load",
+    "line": 1702
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/triton.py",
+    "call": "load",
+    "line": 6207
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/codegen/triton.py",
+    "call": "load",
+    "line": 6452
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/dependencies.py",
+    "call": "load",
+    "line": 586
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/dependencies.py",
+    "call": "load",
+    "line": 717
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ir.py",
+    "call": "scan",
+    "line": 2408
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ir.py",
+    "call": "load",
+    "line": 3476
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ir.py",
+    "call": "load",
+    "line": 4559
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ir.py",
+    "call": "load",
+    "line": 4637
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ir.py",
+    "call": "load",
+    "line": 5172
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/loop_body.py",
+    "call": "scan",
+    "line": 505
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/loop_body.py",
+    "call": "load",
+    "line": 642
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/lowering.py",
+    "call": "load",
+    "line": 678
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/lowering.py",
+    "call": "load",
+    "line": 682
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/ops_handler.py",
+    "call": "load",
+    "line": 1104
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/runtime/triton_helpers.py",
+    "call": "load",
+    "line": 328
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/runtime/triton_helpers.py",
+    "call": "load",
+    "line": 335
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/runtime/triton_helpers.py",
+    "call": "load",
+    "line": 487
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/_inductor/scheduler.py",
+    "call": "load",
+    "line": 3974
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/hub.py",
+    "call": "load",
+    "line": 824
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/hub.py",
+    "call": "load",
+    "line": 898
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torch/testing/_internal/hop_db.py",
+    "call": "scan",
+    "line": 274
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/torchvision/datasets/_stereo_matching.py",
+    "call": "load",
+    "line": 799
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/integrations/hub_kernels.py",
+    "call": "load",
+    "line": 796
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/integrations/peft.py",
+    "call": "load",
+    "line": 717
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/modeling_utils.py",
+    "call": "load",
+    "line": 384
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py",
+    "call": "load",
+    "line": 312
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/auto/processing_auto.py",
+    "call": "load",
+    "line": 275
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/bark/processing_bark.py",
+    "call": "load",
+    "line": 102
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/bark/processing_bark.py",
+    "call": "load",
+    "line": 221
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/bark/processing_bark.py",
+    "call": "load",
+    "line": 311
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py",
+    "call": "load",
+    "line": 280
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py",
+    "call": "load",
+    "line": 304
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py",
+    "call": "load",
+    "line": 345
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py",
+    "call": "load",
+    "line": 642
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/oneformer/image_processing_oneformer.py",
+    "call": "load",
+    "line": 96
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/oneformer/image_processing_pil_oneformer.py",
+    "call": "load",
+    "line": 242
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/rag/retrieval_rag.py",
+    "call": "load",
+    "line": 142
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/models/rag/retrieval_rag.py",
+    "call": "load",
+    "line": 158
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/testing_utils.py",
+    "call": "load",
+    "line": 4238
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 1662
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 1781
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 1876
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 1906
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 1919
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/tokenization_utils_base.py",
+    "call": "load",
+    "line": 3609
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3401
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3525
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3573
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3603
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3635
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3646
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3651
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3665
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3685
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3692
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3709
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3719
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 3996
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/trainer.py",
+    "call": "load",
+    "line": 4000
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/training_args.py",
+    "call": "load",
+    "line": 2700
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/transformers/utils/hub.py",
+    "call": "load",
+    "line": 926
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/triton/language/core.py",
+    "call": "load",
+    "line": 2167
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/triton/language/core.py",
+    "call": "load",
+    "line": 2175
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/triton/runtime/interpreter.py",
+    "call": "load",
+    "line": 454
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/ultralytics/data/dataset.py",
+    "call": "load",
+    "line": 497
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/ultralytics/data/dataset.py",
+    "call": "load",
+    "line": 779
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/ultralytics/utils/patches.py",
+    "call": "load",
+    "line": 178
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/yaml/__init__.py",
+    "call": "load",
+    "line": 105
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/yaml/__init__.py",
+    "call": "load",
+    "line": 125
+  },
+  {
+    "file": ".venv/lib/python3.10/site-packages/yaml/__init__.py",
+    "call": "load",
+    "line": 145
+  },
+  {
+    "file": "delbot_platform/api/routers/repository.py",
+    "call": "RepositoryService",
+    "line": 90
+  },
+  {
+    "file": "delbot_platform/api/routers/repository.py",
+    "call": "scan",
+    "line": 92
+  },
+  {
+    "file": "delbot_platform/repository/service.py",
+    "call": "CatalogAdapter",
+    "line": 67
+  },
+  {
+    "file": "delbot_platform/repository/service.py",
+    "call": "load",
+    "line": 71
+  },
+  {
+    "file": "delbot_platform/workflows/factory/workflow_factory.py",
+    "call": "RepositoryService",
+    "line": 33
+  },
+  {
+    "file": "delbot_platform/workflows/repository/ingestion.py",
+    "call": "RepositoryService",
+    "line": 40
+  },
+  {
+    "file": "tools/architecture/dependency.py",
+    "call": "scan",
+    "line": 41
+  },
+  {
+    "file": "tools/architecture/inventory.py",
+    "call": "scan",
+    "line": 210
+  },
+  {
+    "file": "tools/architecture/inventory.py",
+    "call": "scan",
+    "line": 273
+  },
+  {
+    "file": "tools/architecture/ownership.py",
+    "call": "load",
+    "line": 20
+  },
+  {
+    "file": "tools/ingest_metadata_vectors.py",
+    "call": "load",
+    "line": 45
+  },
+  {
+    "file": "tools/test_pdf_extract.py",
+    "call": "load",
+    "line": 33
+  },
+  {
+    "file": "tools/test_pdf_ocr.py",
+    "call": "load",
+    "line": 31
+  }
+]

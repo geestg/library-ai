@@ -1,0 +1,4149 @@
+{
+    "summary": {
+        "modules": 470,
+        "edges": 1397,
+        "imports": 1397
+    },
+    "modules": [
+        {
+            "module": "delbot..backup.stage_4_24.gateway",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.gateway.client",
+                "delbot_platform.knowledge.reranking.base",
+                "delbot_platform.knowledge.reranking.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.__main__",
+            "imports": [
+                "argparse",
+                "delbot_platform.core.config_manager",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.core.runtime_manager",
+                "delbot_platform.orchestrator.startup"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.client.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.client.embedding_client",
+            "imports": [
+                "__future__",
+                "requests"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.client.llm_client",
+            "imports": [
+                "__future__",
+                "requests"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.client.reranker_client",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.models",
+                "requests"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.base_embedding_provider",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.ai.embedding.embedding_request",
+                "delbot_platform.ai.embedding.embedding_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.embedding_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.embedding.embedding_request",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.models.semantic_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.embedding_config",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.embedding_request",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.embedding_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.embedding_service",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.embedding.base_embedding_provider",
+                "delbot_platform.ai.embedding.embedding_request",
+                "delbot_platform.research.models.embedding",
+                "delbot_platform.research.models.embedding_collection"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.embedding.providers.infinity_embedding_provider",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.embedding.base_embedding_provider",
+                "delbot_platform.ai.embedding.embedding_request",
+                "delbot_platform.ai.embedding.embedding_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.http.http_client",
+            "imports": [
+                "__future__",
+                "httpx",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.process.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.process.process_info",
+            "imports": [
+                "dataclasses",
+                "pathlib",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.process.process_manager",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_info",
+                "delbot_platform.ai.process.process_monitor",
+                "delbot_platform.ai.process.process_registry",
+                "pathlib",
+                "requests",
+                "subprocess",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.process.process_monitor",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_info"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.process.process_registry",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_info",
+                "delbot_platform.core.runtime_manager",
+                "json"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.recovery.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.recovery.recovery",
+            "imports": [
+                "delbot_platform.core.runtime_manager",
+                "json",
+                "os"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.exceptions",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.loader",
+            "imports": [
+                "pathlib",
+                "yaml"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.model_backend",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.model_backend_config",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.model_category",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.model_info",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.ai.registry.model_backend",
+                "delbot_platform.ai.registry.model_backend_config",
+                "delbot_platform.ai.registry.model_runtime"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.model_runtime",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.registry.registry",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.loader",
+                "delbot_platform.ai.registry.model_backend",
+                "delbot_platform.ai.registry.model_backend_config",
+                "delbot_platform.ai.registry.model_info",
+                "delbot_platform.ai.registry.model_runtime",
+                "delbot_platform.core.path_manager"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.vector_store.base_vector_store",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.research.models.embedding",
+                "delbot_platform.research.models.embedding_collection"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.vector_store.base_vector_store",
+                "delbot_platform.research.models.embedding",
+                "delbot_platform.research.models.embedding_collection"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.__main__",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.main",
+                "uvicorn"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.app",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.routers.document",
+                "delbot_platform.api.routers.repository",
+                "delbot_platform.api.routers.research",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.main",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.routers.document",
+                "delbot_platform.api.routers.repository",
+                "delbot_platform.api.routers.research",
+                "delbot_platform.api.routes.research",
+                "delbot_platform.api.routes.workspace",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.research",
+            "imports": [
+                "delbot_platform.research.research_engine",
+                "fastapi",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routers.__init__",
+            "imports": [
+                "delbot.delbot_platform.api.routers.document",
+                "delbot.delbot_platform.api.routers.repository",
+                "delbot.delbot_platform.api.routers.research"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routers.document",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.schemas.document",
+                "delbot_platform.application.factory",
+                "fastapi",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routers.repository",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.schemas.repository",
+                "delbot_platform.application.factory",
+                "delbot_platform.repository.models",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routers.research",
+            "imports": [
+                "__future__",
+                "delbot_platform.api.schemas.research",
+                "delbot_platform.application.factory",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routes.document",
+            "imports": [
+                "delbot_platform.documents.services",
+                "fastapi",
+                "pathlib",
+                "shutil"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routes.research",
+            "imports": [
+                "__future__",
+                "delbot_platform.research.research_engine",
+                "delbot_platform.workspace.session_manager",
+                "fastapi",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.routes.workspace",
+            "imports": [
+                "__future__",
+                "delbot_platform.research.models",
+                "delbot_platform.research.research_engine",
+                "delbot_platform.workspace.session_manager",
+                "fastapi",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.schemas.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.schemas.document",
+            "imports": [
+                "__future__",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.schemas.repository",
+            "imports": [
+                "__future__",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.api.schemas.research",
+            "imports": [
+                "__future__",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.documents.__init__",
+            "imports": [
+                "delbot.delbot_platform.application.documents.index",
+                "delbot.delbot_platform.application.documents.index_repository"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.documents.index",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.documents.services",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.documents.index_repository",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.ingestion"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.factory.__init__",
+            "imports": [
+                "delbot.delbot_platform.application.factory.application_factory"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.factory.application_factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.application.documents",
+                "delbot_platform.application.repository",
+                "delbot_platform.application.research",
+                "delbot_platform.workflows.factory"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.repository.__init__",
+            "imports": [
+                "delbot.delbot_platform.application.repository.ingest"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.repository.ingest",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.models",
+                "delbot_platform.workflows.factory",
+                "delbot_platform.workflows.repository",
+                "delbot_platform.workflows.repository.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.research.__init__",
+            "imports": [
+                "delbot.delbot_platform.application.research.answer"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.application.research.answer",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.research.response",
+                "delbot_platform.research.services"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.boot_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.boot.boot_state"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.boot_state",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.service_boot",
+            "imports": [
+                "__future__",
+                "delbot_platform.controller.service_controller"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.service_health",
+            "imports": [
+                "__future__",
+                "httpx"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.boot.service_waiter",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_info",
+                "socket",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.config.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.config.loader",
+            "imports": [
+                "pathlib",
+                "yaml"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.config.manager",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.config.models",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.config.validator",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.controller.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.controller.service_controller",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_manager",
+                "delbot_platform.core.lifecycle.orchestrator"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.config_manager",
+            "imports": [
+                "delbot_platform.config.loader",
+                "delbot_platform.core.path_manager"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.environment",
+            "imports": [
+                "delbot_platform.core.path_manager",
+                "os"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.boot_policy",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.orchestrator",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.lifecycle.service_loader",
+                "delbot_platform.core.lifecycle.service_registry",
+                "delbot_platform.core.lifecycle.service_state",
+                "delbot_platform.core.lifecycle.state_machine",
+                "delbot_platform.launcher.factory",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_definition",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot.delbot_platform.core.lifecycle.boot_policy",
+                "delbot.delbot_platform.core.lifecycle.service_dependency"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_dependency",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_event",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_loader",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.config_manager",
+                "delbot_platform.core.lifecycle.service_definition"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_registry",
+            "imports": [
+                "__future__",
+                "delbot.delbot_platform.core.lifecycle.service_definition"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.service_state",
+            "imports": [
+                "__future__",
+                "enum",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.lifecycle.state_machine",
+            "imports": [
+                "__future__",
+                "delbot.delbot_platform.core.lifecycle.service_state"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.logger",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.path_manager",
+            "imports": [
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.core.runtime_manager",
+            "imports": [
+                "delbot_platform.core.path_manager",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.analyzer.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.analyzer.document_analyzer",
+                "delbot_platform.document_intelligence.analyzer.heading_detector",
+                "delbot_platform.document_intelligence.analyzer.page_text_analyzer"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.analyzer.document_analyzer",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.document_intelligence.models.parsed_document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.analyzer.heading_detector",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.analyzer.document_analyzer",
+                "delbot_platform.document_intelligence.analyzer.layout_statistics_analyzer",
+                "delbot_platform.document_intelligence.models.heading",
+                "delbot_platform.document_intelligence.models.heading_collection",
+                "delbot_platform.document_intelligence.models.heading_level",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.analyzer.layout_statistics_analyzer",
+            "imports": [
+                "__future__",
+                "collections",
+                "delbot_platform.document_intelligence.models.layout_statistics",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "statistics"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.analyzer.page_text_analyzer",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.analyzer.document_analyzer",
+                "delbot_platform.document_intelligence.models.parsed_document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.backend.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.backend.backend",
+            "imports": [
+                "__future__",
+                "abc",
+                "pathlib",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.backend.pdf.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.backend.pdf.pymupdf_backend",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.backend.backend",
+                "fitz",
+                "pathlib",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.builder.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.builder.default_document_builder",
+                "delbot_platform.document_intelligence.builder.document_builder"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.builder.default_document_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.builder.document_builder",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.knowledge.models.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.builder.document_builder",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.knowledge.models.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.builder.paragraph_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.models.block",
+                "delbot_platform.document_intelligence.models.paragraph",
+                "delbot_platform.document_intelligence.models.paragraph_collection",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.builder.semantic_chunk_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.models.paragraph",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.models.semantic_chunk",
+                "delbot_platform.document_intelligence.models.semantic_chunk_collection"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.debug.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.debug.layout_debugger"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.debug.layout_debugger",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.models.parsed_document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.factory.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.factory.document_processor_factory"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.factory.document_processor_factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.analyzer.heading_detector",
+                "delbot_platform.document_intelligence.analyzer.page_text_analyzer",
+                "delbot_platform.document_intelligence.builder.default_document_builder",
+                "delbot_platform.document_intelligence.loader.pdf_loader",
+                "delbot_platform.document_intelligence.parser.pdf_document_parser",
+                "delbot_platform.document_intelligence.pipeline.analyzer_stage",
+                "delbot_platform.document_intelligence.pipeline.builder_stage",
+                "delbot_platform.document_intelligence.pipeline.document_pipeline",
+                "delbot_platform.document_intelligence.pipeline.parser_stage",
+                "delbot_platform.document_intelligence.processor.document_processor"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.loader.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.loader.document_loader",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.document_intelligence.loader.loaded_document",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.loader.loaded_document",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "pathlib",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.loader.pdf_loader",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.backend.pdf.pymupdf_backend",
+                "delbot_platform.document_intelligence.loader.document_loader",
+                "delbot_platform.document_intelligence.loader.loaded_document",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.mapper.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.mapper.layout_mapper",
+                "delbot_platform.document_intelligence.mapper.pymupdf_mapper"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.mapper.layout_mapper",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.document_intelligence.models.page",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.mapper.pymupdf_mapper",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.mapper.layout_mapper",
+                "delbot_platform.document_intelligence.models.block",
+                "delbot_platform.document_intelligence.models.bounding_box",
+                "delbot_platform.document_intelligence.models.line",
+                "delbot_platform.document_intelligence.models.page",
+                "delbot_platform.document_intelligence.models.span",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.models.block",
+                "delbot_platform.document_intelligence.models.bounding_box",
+                "delbot_platform.document_intelligence.models.line",
+                "delbot_platform.document_intelligence.models.page",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.models.span"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.block",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.line"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.bounding_box",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.heading",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.heading_level"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.heading_collection",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.heading"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.heading_level",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.layout_statistics",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.line",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.span"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.page",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.block",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.paragraph",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.heading"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.paragraph_collection",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.paragraph"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.parsed_document",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.page",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.semantic_chunk",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.heading",
+                "delbot_platform.document_intelligence.models.paragraph"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.semantic_chunk_collection",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.semantic_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.models.span",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.document_intelligence.models.bounding_box",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.parser.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.parser.document_parser",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.document_intelligence.loader.loaded_document",
+                "delbot_platform.document_intelligence.models.parsed_document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.parser.pdf_document_parser",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.loader.loaded_document",
+                "delbot_platform.document_intelligence.mapper.layout_mapper",
+                "delbot_platform.document_intelligence.mapper.pymupdf_mapper",
+                "delbot_platform.document_intelligence.models.page",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.parser.document_parser",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.pipeline.document_pipeline",
+                "delbot_platform.document_intelligence.pipeline.pipeline_stage"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.analyzer_stage",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.analyzer.document_analyzer",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.pipeline.pipeline_stage"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.builder_stage",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.builder.document_builder",
+                "delbot_platform.document_intelligence.models.parsed_document",
+                "delbot_platform.document_intelligence.pipeline.pipeline_stage"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.document_pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.pipeline.pipeline_stage"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.parser_stage",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.loader.loaded_document",
+                "delbot_platform.document_intelligence.parser.document_parser",
+                "delbot_platform.document_intelligence.pipeline.pipeline_stage"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.pipeline.pipeline_stage",
+            "imports": [
+                "__future__",
+                "abc",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.processor.__init__",
+            "imports": [
+                "delbot_platform.document_intelligence.processor.document_processor"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.document_intelligence.processor.document_processor",
+            "imports": [
+                "__future__",
+                "delbot_platform.document_intelligence.loader.document_loader",
+                "delbot_platform.document_intelligence.pipeline.document_pipeline",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.__init__",
+            "imports": [
+                "__future__",
+                "delbot.delbot_platform.documents.ingestion"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.chunking.__init__",
+            "imports": [
+                "delbot_platform.documents.chunking.chunk_builder",
+                "delbot_platform.documents.models.document_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.chunking.chunk_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.chunking.policy.policy",
+                "delbot_platform.documents.metadata.builder.chunk",
+                "delbot_platform.documents.models.document_chunk",
+                "delbot_platform.documents.structure.section.section",
+                "uuid"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.chunking.policy.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.chunking.policy.policy",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.academic_heading",
+            "imports": [
+                "__future__",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.document_type",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.heading",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.classification.document_type",
+                "delbot_platform.documents.models.block",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.heading_score",
+            "imports": [
+                "__future__",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.page_classifier",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.classification.page_type"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.page_region",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.classification.page_type",
+            "imports": [
+                "__future__",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.models.document_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.factory.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.factory.provider",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.embedding.base",
+                "delbot_platform.documents.embedding.providers.gateway",
+                "delbot_platform.documents.embedding.providers.local"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.mapper.__init__",
+            "imports": [
+                "delbot.delbot_platform.documents.embedding.mapper.vector_mapper"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.mapper.vector_mapper",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper",
+                "delbot_platform.vectors"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.documents.embedding.models.embedding_vector"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.models.embedding_vector",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.chunk_metadata",
+                "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.pipeline.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.pipeline.pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.embedding.factory.provider",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.models.document_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.providers.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.providers.gateway",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.documents.embedding.base",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.models.document_chunk",
+                "delbot_platform.gateway.client"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.providers.local",
+            "imports": [
+                "__future__",
+                "asyncio",
+                "delbot_platform.documents.embedding.base",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.models.document_chunk",
+                "sentence_transformers"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.embedding.vector",
+            "imports": [
+                "delbot_platform.vectors"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.extraction.__init__",
+            "imports": [
+                "delbot_platform.documents.extraction.block",
+                "delbot_platform.documents.extraction.service"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.extraction.block",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.classification.document_type",
+                "delbot_platform.documents.models.block"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.extraction.service",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.extraction.block",
+                "delbot_platform.documents.loader.sources.local",
+                "delbot_platform.documents.models.block",
+                "delbot_platform.documents.parser.backend.pymupdf"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.ingestion.__init__",
+            "imports": [
+                "delbot.delbot_platform.documents.ingestion.repository_ingestor"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.ingestion.repository_ingestor",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.pipeline.indexing",
+                "delbot_platform.repository",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.loader.__init__",
+            "imports": [
+                "delbot.delbot_platform.documents.loader.local",
+                "delbot.delbot_platform.documents.loader.source"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.loader.source",
+            "imports": [
+                "__future__",
+                "abc",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.loader.sources.__init__",
+            "imports": [
+                "delbot_platform.documents.loader.sources.local"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.loader.sources.local",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.loader.source",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.__init__",
+            "imports": [
+                "delbot_platform.documents.metadata.chunk_metadata",
+                "delbot_platform.documents.metadata.document_metadata"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.builder.__init__",
+            "imports": [
+                "delbot_platform.documents.metadata.builder.chunk",
+                "delbot_platform.documents.metadata.builder.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.builder.chunk",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.metadata.chunk_metadata"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.builder.document",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.metadata.document_metadata",
+                "delbot_platform.documents.metadata.metadata_extractor",
+                "delbot_platform.documents.registry.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.chunk_metadata",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.document_metadata",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.mapper.chunk_metadata_mapper",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.chunk_metadata",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.metadata_extractor",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.metadata.document_metadata",
+                "re"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.metadata.repository",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.document_metadata",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.block",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.classification.document_type"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.chunk",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.citation",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.document",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.models.metadata",
+                "delbot_platform.documents.models.page"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.document_chunk",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.chunk_metadata"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.metadata",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.models.page",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.models.block"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.backend.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.backend.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.documents.loader.source"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.backend.pymupdf",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.loader.source",
+                "delbot_platform.documents.parser.backend.base",
+                "fitz"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.documents.loader.source",
+                "delbot_platform.documents.models.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.parser.pdf",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.loader.source",
+                "delbot_platform.documents.models.document",
+                "delbot_platform.documents.models.metadata",
+                "delbot_platform.documents.models.page",
+                "delbot_platform.documents.parser.backend.base",
+                "delbot_platform.documents.parser.backend.pymupdf",
+                "delbot_platform.documents.parser.base"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.__init__",
+            "imports": [
+                "delbot_platform.documents.pipeline.indexing",
+                "delbot_platform.documents.pipeline.preprocessing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.indexing",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.chunking",
+                "delbot_platform.documents.embedding.mapper",
+                "delbot_platform.documents.embedding.pipeline.pipeline",
+                "delbot_platform.documents.metadata.builder.document",
+                "delbot_platform.documents.metadata.repository",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.documents.pipeline.preprocessing",
+                "delbot_platform.documents.registry.manager",
+                "delbot_platform.vectorstore",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.documents.pipeline.models.artifact",
+                "delbot.delbot_platform.documents.pipeline.models.index_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.models.artifact",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.embedding.models",
+                "delbot_platform.documents.metadata.document_metadata",
+                "delbot_platform.documents.models.document_chunk",
+                "delbot_platform.documents.registry.document",
+                "delbot_platform.documents.structure.section.section"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.models.index_result",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.pipeline.preprocessing",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.classification.heading",
+                "delbot_platform.documents.extraction.service",
+                "delbot_platform.documents.models.block",
+                "delbot_platform.documents.structure.section.builder",
+                "delbot_platform.documents.structure.section.section"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.__init__",
+            "imports": [
+                "delbot_platform.documents.registry.document",
+                "delbot_platform.documents.registry.manager"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.document",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.registry.filesystem",
+                "delbot_platform.documents.registry.memory",
+                "delbot_platform.documents.registry.repository"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.filesystem",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.registry.document",
+                "delbot_platform.documents.registry.repository",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.manager",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.registry.document",
+                "delbot_platform.documents.registry.factory",
+                "delbot_platform.documents.registry.repository",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.memory",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.registry.document",
+                "delbot_platform.documents.registry.repository"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.registry.repository",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.documents.registry.document"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.services.__init__",
+            "imports": [
+                "delbot_platform.documents.services.indexing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.services.indexing",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.pipeline.indexing",
+                "delbot_platform.documents.pipeline.models",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.structure.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.structure.section.__init__",
+            "imports": [
+                "delbot_platform.documents.structure.section.builder",
+                "delbot_platform.documents.structure.section.section"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.structure.section.builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.classification.document_type",
+                "delbot_platform.documents.models.block",
+                "delbot_platform.documents.structure.section.section"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.documents.structure.section.section",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.models.block"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.__main__",
+            "imports": [
+                "delbot_platform.core.config_manager",
+                "uvicorn"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.app",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.routers.chat",
+                "delbot_platform.gateway.routers.embedding",
+                "delbot_platform.gateway.routers.health",
+                "delbot_platform.gateway.routers.models",
+                "delbot_platform.gateway.routers.research",
+                "fastapi",
+                "uvicorn"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.client",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_runtime",
+                "delbot_platform.gateway.exceptions",
+                "httpx",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.exceptions",
+            "imports": [
+                "__future__"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.mapper.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.mapper.chat",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.openai.chat"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.mapper.embedding",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.openai.embedding"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.openai.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.openai.chat",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.openai.embedding",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.gateway.openai.chat",
+                "delbot_platform.gateway.openai.embedding",
+                "delbot_platform.gateway.request"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_backend",
+                "delbot_platform.gateway.providers.base",
+                "delbot_platform.gateway.providers.infinity",
+                "delbot_platform.gateway.providers.local",
+                "delbot_platform.gateway.providers.vllm"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.infinity",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.gateway.mapper.embedding",
+                "delbot_platform.gateway.providers.base",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.runtime.infinity"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.local",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.providers.base",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.response"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.providers.vllm",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.gateway.mapper.chat",
+                "delbot_platform.gateway.mapper.embedding",
+                "delbot_platform.gateway.providers.base",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.runtime.vllm"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.request",
+            "imports": [
+                "__future__",
+                "pydantic",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.response",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.router",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.chat",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.services.gateway",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.embedding",
+            "imports": [
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.services.gateway",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.health",
+            "imports": [
+                "fastapi",
+                "torch"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.models",
+            "imports": [
+                "delbot_platform.ai.registry.registry",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.reranker",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.research",
+            "imports": [
+                "__future__",
+                "delbot_platform.research.research_engine",
+                "delbot_platform.workspace.session_manager",
+                "fastapi",
+                "pydantic"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.v1.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.v1.chat",
+            "imports": [
+                "__future__",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.services.gateway",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.v1.embedding",
+            "imports": [
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.services.gateway",
+                "fastapi"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.routers.vision",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.services.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.gateway.services.gateway",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.gateway.providers.factory",
+                "delbot_platform.gateway.request",
+                "delbot_platform.gateway.response"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.citation.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.citation.builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.citation.source",
+                "delbot_platform.knowledge.reranking.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.citation.source",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.context.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.context.builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.retrieval.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.extraction.__init__",
+            "imports": [
+                "delbot_platform.knowledge.extraction.extraction_result",
+                "delbot_platform.knowledge.extraction.knowledge_extractor"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.extraction.extraction_config",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.extraction.extraction_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.knowledge_entity",
+                "delbot_platform.knowledge.models.knowledge_relation"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.extraction.knowledge_extractor",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.knowledge.extraction.extraction_result",
+                "delbot_platform.knowledge.models.document_chunk"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.__init__",
+            "imports": [
+                "delbot_platform.knowledge.graph.graph_builder",
+                "delbot_platform.knowledge.graph.graph_edge",
+                "delbot_platform.knowledge.graph.graph_node",
+                "delbot_platform.knowledge.graph.knowledge_graph"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.edge_builder",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.graph_builder",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.graph.graph_edge",
+                "delbot_platform.knowledge.graph.graph_node",
+                "delbot_platform.knowledge.graph.knowledge_graph",
+                "delbot_platform.knowledge.models.knowledge_entity",
+                "delbot_platform.knowledge.models.knowledge_relation"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.graph_edge",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.knowledge_relation",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.graph_node",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.knowledge_entity",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.knowledge_graph",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.graph.graph_edge",
+                "delbot_platform.knowledge.graph.graph_node"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.graph.node_builder",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.hydration.__init__",
+            "imports": [
+                "delbot.delbot_platform.knowledge.hydration.base",
+                "delbot.delbot_platform.knowledge.hydration.citation",
+                "delbot.delbot_platform.knowledge.hydration.local"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.hydration.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.research.models.citation"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.hydration.citation",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.hydration.base",
+                "delbot_platform.knowledge.reranking.result",
+                "delbot_platform.research.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.hydration.local",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.registry.manager",
+                "delbot_platform.knowledge.hydration.base",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.research.models",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.knowledge.models.author",
+                "delbot.delbot_platform.knowledge.models.collection",
+                "delbot.delbot_platform.knowledge.models.document",
+                "delbot.delbot_platform.knowledge.models.document_chunk",
+                "delbot.delbot_platform.knowledge.models.knowledge_domain",
+                "delbot.delbot_platform.knowledge.models.knowledge_entity",
+                "delbot.delbot_platform.knowledge.models.knowledge_relation",
+                "delbot.delbot_platform.knowledge.models.knowledge_source",
+                "delbot.delbot_platform.knowledge.models.rag_result",
+                "delbot.delbot_platform.knowledge.models.repository"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.author",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.collection",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.knowledge.models.repository",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.document",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.knowledge.models.author",
+                "delbot_platform.knowledge.models.collection",
+                "delbot_platform.knowledge.models.knowledge_entity",
+                "delbot_platform.knowledge.models.knowledge_relation",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.document_chunk",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.author",
+                "delbot_platform.knowledge.models.document",
+                "delbot_platform.knowledge.models.knowledge_entity",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.knowledge_domain",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.knowledge_entity",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot.delbot_platform.knowledge.models.knowledge_relation",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.knowledge_relation",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.knowledge_source",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.knowledge_domain",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.rag_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.document_chunk",
+                "delbot_platform.research.models.citation",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.models.repository",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.knowledge.models.knowledge_source",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.__init__",
+            "imports": [
+                "delbot_platform.knowledge.pipeline.knowledge_pipeline",
+                "delbot_platform.knowledge.pipeline.pipeline_context",
+                "delbot_platform.knowledge.pipeline.pipeline_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.knowledge_pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.knowledge.pipeline.models",
+                "delbot_platform.knowledge.pipeline.pipeline_context",
+                "delbot_platform.knowledge.pipeline.pipeline_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.knowledge.pipeline.models.artifact"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.models.artifact",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.knowledge.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.pipeline_context",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.pipeline.pipeline_result",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.__init__",
+            "imports": [
+                "delbot.delbot_platform.knowledge.rag.citation_builder",
+                "delbot.delbot_platform.knowledge.rag.context_builder",
+                "delbot.delbot_platform.knowledge.rag.pipeline",
+                "delbot.delbot_platform.knowledge.rag.rag_engine",
+                "delbot.delbot_platform.knowledge.rag.vector_retriever"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.citation_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.research.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.context_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.llm.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.llm.generator",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.llm_client",
+                "delbot_platform.knowledge.citation.source",
+                "delbot_platform.knowledge.rag.llm.response"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.llm.response",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.citation.source"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.models.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.models.response",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.reranking.result",
+                "delbot_platform.research.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.context.builder",
+                "delbot_platform.knowledge.hydration",
+                "delbot_platform.knowledge.rag.models.response",
+                "delbot_platform.knowledge.reranking.gateway",
+                "delbot_platform.knowledge.reranking.result",
+                "delbot_platform.knowledge.retrieval.qdrant"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.rag_engine",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.models.response",
+                "delbot_platform.knowledge.rag.pipeline"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.research.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.research.pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.llm.generator",
+                "delbot_platform.knowledge.rag.pipeline",
+                "delbot_platform.knowledge.rag.research.response"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.research.response",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.rag.models.response",
+                "delbot_platform.research.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rag.vector_retriever",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.embedding_client",
+                "delbot_platform.knowledge.models",
+                "delbot_platform.vectorstore.qdrant.singleton"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.rerank.reranker",
+            "imports": [
+                "__future__"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.reranking.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.reranking.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.knowledge.reranking.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.reranking.gateway",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.model_category",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.gateway.client",
+                "delbot_platform.knowledge.reranking.base",
+                "delbot_platform.knowledge.reranking.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.reranking.local",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.reranking.base",
+                "delbot_platform.knowledge.reranking.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.reranking.result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.chunk_metadata"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.knowledge.retrieval.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.metadata_retriever",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.retrieval.retriever"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.qdrant",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.embedding.pipeline.pipeline",
+                "delbot_platform.documents.metadata.chunk_metadata",
+                "delbot_platform.documents.metadata.mapper.chunk_metadata_mapper",
+                "delbot_platform.documents.models.document_chunk",
+                "delbot_platform.knowledge.retrieval.base",
+                "delbot_platform.knowledge.retrieval.result",
+                "delbot_platform.knowledge.vector.repository.qdrant"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.metadata.chunk_metadata"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.retrieval.retriever",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.embedding_client",
+                "delbot_platform.vectorstore.qdrant.singleton"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.services.__init__",
+            "imports": [
+                "delbot.delbot_platform.knowledge.services.processing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.services.processing",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.knowledge.pipeline",
+                "delbot_platform.knowledge.pipeline.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.models.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.models.record",
+            "imports": [
+                "delbot_platform.vectors"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.qdrant_store",
+            "imports": [
+                "__future__",
+                "delbot_platform.vectorstore.qdrant.singleton",
+                "qdrant_client.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.repository.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.repository.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.knowledge.vector.models.record"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.repository.memory",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.vector.models.record",
+                "delbot_platform.knowledge.vector.repository.base"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.knowledge.vector.repository.qdrant",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.vector.models.record",
+                "delbot_platform.knowledge.vector.repository.base",
+                "delbot_platform.vectorstore.qdrant.singleton",
+                "qdrant_client.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.ai_runtime",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.registry.registry",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.base",
+            "imports": [
+                "__future__",
+                "abc",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.launcher.ai_runtime",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.gateway_launcher",
+                "delbot_platform.launcher.paddleocr",
+                "delbot_platform.launcher.research_api_launcher",
+                "delbot_platform.launcher.whisper"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.gateway_launcher",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.infinity",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.paddleocr",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.research_api_launcher",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.spec",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.vllm",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.launcher.whisper",
+            "imports": [
+                "__future__",
+                "delbot_platform.core.lifecycle.service_definition",
+                "delbot_platform.core.path_manager",
+                "delbot_platform.launcher.base",
+                "delbot_platform.launcher.spec"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.health",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_registry",
+                "delbot_platform.boot.service_health"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.embedding",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.gateway",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.ocr",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.reranker",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.speech",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.services.vision",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.shutdown",
+            "imports": [
+                "__future__",
+                "delbot_platform.controller.service_controller",
+                "delbot_platform.core.lifecycle.orchestrator"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.startup",
+            "imports": [
+                "__future__",
+                "delbot_platform.boot.service_boot",
+                "delbot_platform.controller.service_controller"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.orchestrator.status",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.process.process_registry"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.__init__",
+            "imports": [
+                "delbot_platform.repository.integration.document_loader",
+                "delbot_platform.repository.service"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.catalog.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.catalog.adapter",
+                "delbot.delbot_platform.repository.catalog.builder",
+                "delbot.delbot_platform.repository.catalog.loader",
+                "delbot.delbot_platform.repository.catalog.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.catalog.adapter",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.catalog.models",
+                "delbot_platform.repository.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.catalog.builder",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.repository.catalog.models",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.catalog.loader",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.catalog.models",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.catalog.models",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.discovery.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.discovery.base",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.discovery.gitlab",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.discovery.http",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.discovery.service",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.download.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.download.downloader",
+                "delbot.delbot_platform.repository.download.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.download.downloader",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.download.result",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.download.pdf_downloader",
+            "imports": [
+                "__future__",
+                "httpx",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.download.result",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.ingestion.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.ingestion.dataset_loader"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.ingestion.dataset_loader",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.models",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.integration.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.integration.document_loader"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.integration.document_loader",
+            "imports": [
+                "__future__",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.manifest.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.manifest.pdf_manifest"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.manifest.pdf_manifest",
+            "imports": [
+                "__future__",
+                "delbot_platform.repository.models",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.models.repository_item",
+                "delbot.delbot_platform.repository.models.scan_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.models.repository_item",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "enum"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.models.scan_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.repository.models.repository_item"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.providers.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.providers.base",
+                "delbot.delbot_platform.repository.providers.dspace"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.providers.base",
+            "imports": [
+                "__future__",
+                "abc"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.providers.dspace",
+            "imports": [
+                "__future__",
+                "bs4",
+                "delbot.delbot_platform.repository.providers.base",
+                "httpx",
+                "urllib.parse"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.resolver.__init__",
+            "imports": [
+                "delbot.delbot_platform.repository.resolver.dspace_bitstream",
+                "delbot.delbot_platform.repository.resolver.dspace_html",
+                "delbot.delbot_platform.repository.resolver.local_pdf",
+                "delbot.delbot_platform.repository.resolver.url_normalizer"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.resolver.dspace_bitstream",
+            "imports": [
+                "__future__",
+                "httpx",
+                "urllib.parse"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.resolver.dspace_html",
+            "imports": [
+                "__future__",
+                "bs4",
+                "httpx",
+                "urllib.parse"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.resolver.local_pdf",
+            "imports": [
+                "__future__",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.resolver.url_normalizer",
+            "imports": [
+                "__future__",
+                "urllib.parse"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.repository.service",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.repository.catalog",
+                "delbot_platform.repository.models",
+                "delbot_platform.repository.resolver"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.builders.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.builders.research_result_builder",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.models.author",
+                "delbot_platform.research.models.citation",
+                "delbot_platform.research.models.research_result",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.context.document_context",
+            "imports": [
+                "__future__"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.generator.__init__",
+            "imports": [
+                "delbot.delbot_platform.research.generator.llm_generator"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.generator.llm_generator",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.llm_client"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.llm.chat_client",
+            "imports": [
+                "__future__",
+                "httpx"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.llm.client",
+            "imports": [
+                "__future__",
+                "httpx"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.memory.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.memory.research_memory",
+            "imports": [
+                "__future__",
+                "datetime",
+                "json",
+                "pathlib",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.research.models.citation",
+                "delbot.delbot_platform.research.models.research_result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.models.citation",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.models.embedding",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.models.embedding_collection",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.research.models.embedding"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.models.research_result",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.knowledge.models.author",
+                "delbot_platform.research.models.citation",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.pipeline.__init__",
+            "imports": [
+                "delbot.delbot_platform.research.pipeline.research_answer_pipeline"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.pipeline.research_answer_pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.pipeline",
+                "delbot_platform.research.generator",
+                "delbot_platform.research.prompt_builder"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.prompt_builder",
+            "imports": [
+                "__future__",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.rag.context",
+            "imports": [
+                "__future__"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.research_engine",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.llm_client",
+                "delbot_platform.knowledge.rag.models.response",
+                "delbot_platform.knowledge.rag.rag_engine",
+                "delbot_platform.research.builders.research_result_builder",
+                "delbot_platform.research.memory.research_memory",
+                "delbot_platform.research.models",
+                "delbot_platform.research.prompt_builder",
+                "delbot_platform.workspace.session_manager"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.services.__init__",
+            "imports": [
+                "delbot.delbot_platform.research.services.answer"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.services.answer",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.research.pipeline",
+                "delbot_platform.knowledge.rag.research.response"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.state.__init__",
+            "imports": [
+                "delbot.delbot_platform.research.state.research_state"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.research.state.research_state",
+            "imports": [
+                "__future__",
+                "copy",
+                "datetime",
+                "delbot_platform.research.models",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectors.__init__",
+            "imports": [
+                "delbot.delbot_platform.vectors.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectors.models",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectorstore.__init__",
+            "imports": [
+                "delbot.delbot_platform.vectorstore.qdrant"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectorstore.qdrant.__init__",
+            "imports": [
+                "delbot.delbot_platform.vectorstore.qdrant.client",
+                "delbot.delbot_platform.vectorstore.qdrant.repository",
+                "delbot.delbot_platform.vectorstore.qdrant.singleton"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectorstore.qdrant.client",
+            "imports": [
+                "__future__",
+                "qdrant_client",
+                "qdrant_client.models",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectorstore.qdrant.repository",
+            "imports": [
+                "__future__",
+                "delbot_platform.vectors",
+                "delbot_platform.vectorstore.qdrant.singleton",
+                "qdrant_client.models",
+                "uuid"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.vectorstore.qdrant.singleton",
+            "imports": [
+                "__future__",
+                "delbot_platform.vectorstore.qdrant.client"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.factory.__init__",
+            "imports": [
+                "delbot.delbot_platform.workflows.factory.workflow_factory"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.factory.workflow_factory",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.services",
+                "delbot_platform.knowledge.services",
+                "delbot_platform.repository.service",
+                "delbot_platform.workflows.repository"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.repository.__init__",
+            "imports": [
+                "delbot.delbot_platform.workflows.repository.ingestion"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.repository.ingestion",
+            "imports": [
+                "__future__",
+                "delbot_platform.documents.services",
+                "delbot_platform.knowledge.services",
+                "delbot_platform.repository.models",
+                "delbot_platform.repository.service",
+                "delbot_platform.workflows.repository.models",
+                "pathlib",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.repository.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.workflows.repository.models.artifact",
+                "delbot.delbot_platform.workflows.repository.models.result"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.repository.models.artifact",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.documents.pipeline.models",
+                "delbot_platform.knowledge.pipeline.models",
+                "delbot_platform.repository.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workflows.repository.models.result",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.models.__init__",
+            "imports": [
+                "delbot.delbot_platform.workspace.models.chat_message",
+                "delbot.delbot_platform.workspace.models.workspace_metadata",
+                "delbot.delbot_platform.workspace.models.workspace_session"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.models.chat_message",
+            "imports": [
+                "__future__",
+                "dataclasses"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.models.workspace_metadata",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.models.workspace_session",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "delbot_platform.research.state",
+                "delbot_platform.workspace.models.chat_message",
+                "delbot_platform.workspace.models.workspace_metadata",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.models",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "datetime"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.session_manager",
+            "imports": [
+                "__future__",
+                "copy",
+                "datetime",
+                "delbot_platform.research.state",
+                "delbot_platform.workspace.models",
+                "json",
+                "pathlib",
+                "uuid"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.delbot_platform.workspace.storage",
+            "imports": [
+                "__future__",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.__init__",
+            "imports": [],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.__init__",
+            "imports": [
+                "delbot.tools.architecture.circular",
+                "delbot.tools.architecture.layer",
+                "delbot.tools.architecture.metrics",
+                "delbot.tools.architecture.models",
+                "delbot.tools.architecture.pipeline"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.circular",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.dependency",
+            "imports": [
+                "__future__",
+                "csv",
+                "dataclasses",
+                "delbot.tools.architecture.filter",
+                "delbot.tools.architecture.graph",
+                "delbot.tools.architecture.inventory",
+                "delbot.tools.architecture.models",
+                "delbot.tools.architecture.scanner",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.doctor",
+            "imports": [
+                "__future__",
+                "pathlib",
+                "tools.architecture.models",
+                "tools.architecture.pipeline"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.filter",
+            "imports": [
+                "__future__",
+                "delbot.tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.graph",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.graph_filter",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.inventory",
+            "imports": [
+                "__future__",
+                "ast",
+                "csv",
+                "dataclasses",
+                "delbot.tools.architecture.filter",
+                "delbot.tools.architecture.models",
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.layer",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.metrics",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.models",
+            "imports": [
+                "__future__",
+                "dataclasses",
+                "pathlib",
+                "tools.architecture.graph",
+                "typing"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.pipeline",
+            "imports": [
+                "__future__",
+                "pathlib",
+                "tools.architecture.circular",
+                "tools.architecture.dependency",
+                "tools.architecture.graph",
+                "tools.architecture.graph_filter",
+                "tools.architecture.layer",
+                "tools.architecture.metrics",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.resolver",
+            "imports": [
+                "__future__",
+                "ast",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.scanner",
+            "imports": [
+                "__future__",
+                "ast",
+                "delbot.tools.architecture.resolver",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.tests.test_circular",
+            "imports": [
+                "__future__",
+                "tools.architecture.circular",
+                "tools.architecture.graph",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.tests.test_layer",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph",
+                "tools.architecture.layer",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.tests.test_metrics",
+            "imports": [
+                "__future__",
+                "tools.architecture.graph",
+                "tools.architecture.metrics",
+                "tools.architecture.models"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.architecture.tests.test_pipeline",
+            "imports": [
+                "__future__",
+                "pathlib",
+                "tools.architecture.pipeline"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.audit_heading_classifier",
+            "imports": [
+                "__future__",
+                "collections",
+                "delbot_platform.documents.classification.heading",
+                "delbot_platform.documents.extraction.service",
+                "delbot_platform.documents.models.block",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.batch_ingest_parallel",
+            "imports": [
+                "concurrent.futures",
+                "delbot_platform.document.pipeline.ingest_pdf",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.batch_ingest_pdf",
+            "imports": [
+                "__future__",
+                "delbot_platform.document.pipeline.ingest_pdf",
+                "pathlib",
+                "time"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.batch_ingest_repository",
+            "imports": [
+                "__future__",
+                "asyncio",
+                "delbot_platform.documents.pipeline.indexing",
+                "delbot_platform.repository",
+                "delbot_platform.vectorstore",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.build_pdf_index",
+            "imports": [
+                "json",
+                "pathlib"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.check_qdrant_payload",
+            "imports": [
+                "qdrant_client"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.debug.inspect_pymupdf_span",
+            "imports": [
+                "__future__",
+                "fitz",
+                "json",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.ingest_metadata_vectors",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.embedding_client",
+                "delbot_platform.knowledge.vector.qdrant_store",
+                "json",
+                "pathlib",
+                "sys",
+                "uuid"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.ingest_pdf_vectors",
+            "imports": [
+                "__future__",
+                "delbot_platform.ai.client.embedding_client",
+                "delbot_platform.document.pipeline.ingest_pdf",
+                "delbot_platform.knowledge.vector.qdrant_store",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_ingest",
+            "imports": [
+                "delbot_platform.document.ingestion.qdrant_ingest",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_pdf_extract",
+            "imports": [
+                "delbot_platform.document.pipeline.pdf_loader",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_pdf_ingest",
+            "imports": [
+                "delbot_platform.document.pipeline.ingest_pdf",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_pdf_ingest_single",
+            "imports": [
+                "delbot_platform.document.pipeline.ingest_pdf",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_pdf_ocr",
+            "imports": [
+                "delbot_platform.document.pipeline.pdf_loader",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_rag",
+            "imports": [
+                "delbot_platform.research.services.rag",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_rag_engine",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.rag_engine",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_rag_final",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.rag_engine",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_rag_llm",
+            "imports": [
+                "delbot_platform.research.services.rag",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_rag_pipeline",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.rag_engine",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_research_engine",
+            "imports": [
+                "__future__",
+                "asyncio",
+                "delbot_platform.research.research_engine",
+                "delbot_platform.workspace.session_manager",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_retrieval",
+            "imports": [
+                "__future__",
+                "asyncio",
+                "delbot_platform.knowledge.retrieval.qdrant",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_retriever_engine",
+            "imports": [
+                "__future__",
+                "asyncio",
+                "delbot_platform.knowledge.retrieval.qdrant",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        },
+        {
+            "module": "delbot.tools.test_vector_schema",
+            "imports": [
+                "__future__",
+                "delbot_platform.knowledge.rag.vector_retriever",
+                "pathlib",
+                "sys"
+            ],
+            "import_records": []
+        }
+    ]
+}

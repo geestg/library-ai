@@ -1,0 +1,22 @@
+{
+  "router_exists": true,
+  "endpoint_exists": true,
+  "async_endpoint": true,
+  "application_exists": true,
+  "application_execute": true,
+  "await_execute": true,
+  "request_model": true,
+  "response_model": true,
+  "citation_response": true,
+  "metadata_access": true,
+  "citations_loop": true,
+  "return_response": true,
+  "imports": {
+    "ApplicationFactory": true,
+    "ResearchAnswerRequest": true,
+    "ResearchAnswerResponse": true,
+    "CitationResponse": true
+  },
+  "success": true,
+  "exception": null
+}

@@ -1,0 +1,11 @@
+{
+  "gateway_files": 18,
+  "chat_gateway": true,
+  "provider": true,
+  "async_chat": true,
+  "await_found": true,
+  "request_model": true,
+  "response_model": true,
+  "success": true,
+  "exception": null
+}

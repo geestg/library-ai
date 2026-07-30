@@ -1,0 +1,13 @@
+{
+  "router_exists": true,
+  "schema_exists": true,
+  "router_class": true,
+  "async_endpoint": true,
+  "post_route": true,
+  "request_model": true,
+  "response_model": true,
+  "application_execute": true,
+  "await_found": true,
+  "return_found": true,
+  "exception": null
+}

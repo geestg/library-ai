@@ -1,0 +1,1082 @@
+[
+    {
+        "package": "__init__",
+        "modules": 19,
+        "canonical": 19,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "__main__",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "ai_runtime",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "analyzer",
+        "modules": 5,
+        "canonical": 5,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "backend",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "base",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "boot_result",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "boot_state",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "builders",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "chunking",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "circular",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "config_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "context",
+        "modules": 3,
+        "canonical": 3,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "debug",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "dependency",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "doctor",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "documents",
+        "modules": 3,
+        "canonical": 3,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "environment",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "exceptions",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "factory",
+        "modules": 7,
+        "canonical": 7,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "filter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "gateway_launcher",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "generator",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "graph_filter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "ingestion",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "inspect_pymupdf_span",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "inventory",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "layer",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "lifecycle",
+        "modules": 10,
+        "canonical": 10,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "logger",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "main",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "manifest",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "memory",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "metrics",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "other",
+        "modules": 25,
+        "canonical": 25,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "paddleocr",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "path_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "process",
+        "modules": 5,
+        "canonical": 5,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "prompt_builder",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "recovery",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "request",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "research_api_launcher",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "resolver",
+        "modules": 6,
+        "canonical": 6,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "router",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "runtime_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "scanner",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "service",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "service_boot",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "service_controller",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "service_health",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "service_waiter",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "session_manager",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "shutdown",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "spec",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "startup",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "state",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "status",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "storage",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "structure",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "tests",
+        "modules": 4,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "validator",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "vector_store",
+        "modules": 2,
+        "canonical": 2,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "whisper",
+        "modules": 1,
+        "canonical": 1,
+        "merge": 0,
+        "review": 0,
+        "legacy": 0,
+        "action": "KEEP",
+        "reason": "Entire package canonical"
+    },
+    {
+        "package": "providers",
+        "modules": 9,
+        "canonical": 6,
+        "merge": 1,
+        "review": 0,
+        "legacy": 2,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "citation",
+        "modules": 3,
+        "canonical": 2,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "classification",
+        "modules": 8,
+        "canonical": 7,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "hydration",
+        "modules": 4,
+        "canonical": 2,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "llm",
+        "modules": 2,
+        "canonical": 0,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "qdrant",
+        "modules": 4,
+        "canonical": 2,
+        "merge": 2,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "stage_4_24",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 1,
+        "review": 0,
+        "legacy": 0,
+        "action": "MERGE",
+        "reason": "Merge candidates detected"
+    },
+    {
+        "package": "catalog",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "PARTIAL",
+        "reason": "Contains legacy modules"
+    },
+    {
+        "package": "discovery",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "PARTIAL",
+        "reason": "Contains legacy modules"
+    },
+    {
+        "package": "vector",
+        "modules": 8,
+        "canonical": 7,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "PARTIAL",
+        "reason": "Contains legacy modules"
+    },
+    {
+        "package": "app",
+        "modules": 2,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 2,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "health",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "http",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "infinity",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "manager",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "mappermupdf_mapper",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "rerank",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "vllm",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 0,
+        "legacy": 1,
+        "action": "REMOVE",
+        "reason": "Entire package marked legacy"
+    },
+    {
+        "package": "registry",
+        "modules": 16,
+        "canonical": 11,
+        "merge": 1,
+        "review": 1,
+        "legacy": 3,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "routers",
+        "modules": 15,
+        "canonical": 4,
+        "merge": 3,
+        "review": 5,
+        "legacy": 3,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "services",
+        "modules": 15,
+        "canonical": 9,
+        "merge": 2,
+        "review": 1,
+        "legacy": 3,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "loader",
+        "modules": 9,
+        "canonical": 4,
+        "merge": 2,
+        "review": 1,
+        "legacy": 2,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "parser",
+        "modules": 9,
+        "canonical": 6,
+        "merge": 0,
+        "review": 1,
+        "legacy": 2,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "pipeline",
+        "modules": 21,
+        "canonical": 18,
+        "merge": 0,
+        "review": 1,
+        "legacy": 2,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "rag",
+        "modules": 15,
+        "canonical": 9,
+        "merge": 1,
+        "review": 3,
+        "legacy": 2,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "client",
+        "modules": 5,
+        "canonical": 2,
+        "merge": 1,
+        "review": 1,
+        "legacy": 1,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "repository",
+        "modules": 7,
+        "canonical": 5,
+        "merge": 0,
+        "review": 1,
+        "legacy": 1,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "research",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 1,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "builder",
+        "modules": 5,
+        "canonical": 4,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "download",
+        "modules": 4,
+        "canonical": 3,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "embedding",
+        "modules": 21,
+        "canonical": 17,
+        "merge": 2,
+        "review": 2,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "extraction",
+        "modules": 7,
+        "canonical": 6,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "graph",
+        "modules": 8,
+        "canonical": 6,
+        "merge": 0,
+        "review": 2,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "integration",
+        "modules": 2,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "mapper",
+        "modules": 5,
+        "canonical": 3,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "metadata",
+        "modules": 9,
+        "canonical": 7,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "models",
+        "modules": 50,
+        "canonical": 37,
+        "merge": 6,
+        "review": 7,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "openai",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 1,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "processor",
+        "modules": 2,
+        "canonical": 1,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "reranking",
+        "modules": 5,
+        "canonical": 2,
+        "merge": 2,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "research_engine",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "response",
+        "modules": 1,
+        "canonical": 0,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "retrieval",
+        "modules": 6,
+        "canonical": 5,
+        "merge": 0,
+        "review": 1,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "routes",
+        "modules": 3,
+        "canonical": 1,
+        "merge": 0,
+        "review": 2,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    },
+    {
+        "package": "schemas",
+        "modules": 4,
+        "canonical": 1,
+        "merge": 1,
+        "review": 2,
+        "legacy": 0,
+        "action": "REVIEW",
+        "reason": "Manual verification required"
+    }
+]

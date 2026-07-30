@@ -1,0 +1,20 @@
+{
+  "summary": {
+    "Router Exists": true,
+    "Schema Exists": true,
+    "Factory Exists": true,
+    "Router Class": true,
+    "POST Route": true,
+    "Async Endpoint": true,
+    "Request Model": true,
+    "Response Model": true,
+    "Application execute()": true,
+    "Await Found": true,
+    "Return Found": true,
+    "Factory chat()": false,
+    "Factory Return": false,
+    "Success": true,
+    "Exception": null
+  },
+  "report": "========================================================================\nDELBOT CHAT API END-TO-END\n========================================================================\nRouter Exists         : True\nSchema Exists         : True\nFactory Exists        : True\n------------------------------------------------------------------------\nRouter Class          : True\nPOST Route            : True\nAsync Endpoint        : True\n------------------------------------------------------------------------\nRequest Model         : True\nResponse Model        : True\n------------------------------------------------------------------------\nApplication execute() : True\nAwait Found           : True\nReturn Found          : True\n------------------------------------------------------------------------\nFactory chat()        : False\nFactory Return        : False\n------------------------------------------------------------------------\nSuccess               : True\nException             : None\n========================================================================"
+}

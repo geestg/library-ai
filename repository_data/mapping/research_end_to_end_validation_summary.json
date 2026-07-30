@@ -1,0 +1,22 @@
+{
+  "router_exists": true,
+  "factory_exists": true,
+  "builder_exists": true,
+  "research_result_exists": true,
+  "rag_engine_exists": true,
+  "async_endpoint": true,
+  "await_execute": true,
+  "return_response": true,
+  "application_factory": true,
+  "request_model": true,
+  "response_model": true,
+  "builder_import": false,
+  "builder_build": true,
+  "collect_authors": true,
+  "collect_entities": true,
+  "collect_unique": true,
+  "rag_search": true,
+  "rag_async": true,
+  "success": true,
+  "exception": null
+}

@@ -1,0 +1,15 @@
+{
+  "builder_exists": true,
+  "class_exists": true,
+  "build_exists": true,
+  "collect_authors": true,
+  "collect_unique": true,
+  "collect_entities": true,
+  "research_result_return": true,
+  "imports": {
+    "Author": true,
+    "Citation": true,
+    "ResearchResult": true
+  },
+  "exception": null
+}

@@ -1,35 +1,62 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.models import DocumentChunk
+from delbot_platform.documents.models.document_chunk import (
+    DocumentChunk,
+)
 
 
 class ContextBuilder:
+    """
+    Canonical Context Builder.
+
+    Input
+        list[DocumentChunk]
+
+    Output
+        str
+    """
 
     def build(
         self,
-        results: list[DocumentChunk],
+        chunks: list[DocumentChunk],
     ) -> str:
+
+        if not chunks:
+            return ""
 
         contexts: list[str] = []
 
-        for index, chunk in enumerate(results):
+        for chunk in chunks:
 
-            contexts.append(
-                f"""
-SOURCE {index + 1}
+            metadata = chunk.metadata
 
-TITLE:
-{chunk.document.title}
+            source = chunk.document_id
 
-FILE:
-{chunk.document.file_path}
+            if metadata is not None and metadata.source:
+                source = metadata.source
 
-PAGE:
-{chunk.page}
+            section = ""
 
-CONTENT:
-{chunk.text}
-""".strip()
+            if chunk.section_title:
+                section = chunk.section_title
+
+            header = (
+                f"[Document: {source}] "
+                f"[Pages: {chunk.page_start}-{chunk.page_end}]"
             )
 
-        return "\n\n".join(contexts)
+            if section:
+                header += f" [Section: {section}]"
+
+            contexts.append(
+                "\n".join(
+                    [
+                        header,
+                        chunk.text.strip(),
+                    ]
+                )
+            )
+
+        return "\n\n============================================================\n\n".join(
+            contexts
+        )

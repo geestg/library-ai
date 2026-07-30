@@ -1,0 +1,137 @@
+from __future__ import annotations
+
+from uuid import uuid4
+
+from delbot_platform.documents.models.document_chunk import (
+    DocumentChunk,
+)
+from delbot_platform.documents.chunking.policy.policy import (
+    ChunkPolicy,
+)
+from delbot_platform.documents.metadata.builder.chunk import (
+    ChunkMetadataBuilder,
+)
+from delbot_platform.documents.structure.section.section import (
+    DocumentSection,
+)
+
+
+class ChunkBuilder:
+    """
+    Canonical semantic chunk builder.
+
+    Pipeline
+
+        DocumentSection
+                │
+                ▼
+        ChunkBuilder
+                │
+                ▼
+        ChunkMetadataBuilder
+                │
+                ▼
+        ChunkMetadata
+                │
+                ▼
+        DocumentChunk
+    """
+
+    def __init__(
+        self,
+        policy: ChunkPolicy | None =None,
+    ) -> None:
+
+        self.policy = policy or ChunkPolicy()
+
+        self.metadata_builder = (
+            ChunkMetadataBuilder()
+        )
+
+    def build(
+        self,
+        sections: list[DocumentSection],
+    ) -> list[DocumentChunk]:
+
+        chunks: list[DocumentChunk] = []
+
+        for section in sections:
+
+            text = section.text.strip()
+
+            if not text:
+                continue
+
+            start = 0
+
+            length = len(text)
+
+            while start < length:
+
+                end = min(
+                    start + self.policy.max_characters,
+                    length,
+                )
+
+                chunk_text = text[start:end]
+
+                chunk = DocumentChunk(
+                    id=str(uuid4()),
+                    document_id=section.document_id,
+                    text=chunk_text,
+                    page_start=section.page_start,
+                    page_end=section.page_end,
+                    metadata=None,
+                )
+
+                chunk.metadata = (
+                    self.metadata_builder.build(
+                        chunk,
+                    )
+                )
+
+                chunk.metadata.source = (
+                    section.source
+                )
+
+                chunk.metadata.section_title = (
+                    section.title
+                )
+
+                chunk.metadata.level = (
+                    section.level
+                )
+
+                chunk.metadata.chapter = (
+                    section.chapter
+                )
+
+                chunk.metadata.page_start = (
+                    section.page_start
+                )
+
+                chunk.metadata.page_end = (
+                    section.page_end
+                )
+
+                chunks.append(
+                    chunk,
+                )
+
+                if end >= length:
+                    break
+
+                start = max(
+                    0,
+                    end - self.policy.overlap_characters,
+                )
+
+        total = len(chunks)
+
+        for index, chunk in enumerate(chunks):
+
+            chunk.metadata.chunk_index = index
+
+            chunk.metadata.total_chunks = total
+
+        return chunks

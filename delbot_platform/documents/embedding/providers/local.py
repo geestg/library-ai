@@ -58,7 +58,7 @@ class LocalEmbeddingProvider(
             results.append(
                 EmbeddingVector(
                     document_id=chunk.document_id,
-                    chunk_id=chunk.id,
+                    chunk_id=chunk.chunk_id,
                     vector=vector.tolist(),
                     text=chunk.text,
                     metadata=chunk.metadata,

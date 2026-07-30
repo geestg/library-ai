@@ -2,15 +2,11 @@ from .source import (
     DocumentSource,
 )
 
-from .local import (
+from .sources import (
     LocalDocumentSource,
 )
 
-
 __all__ = [
-
     "DocumentSource",
-
     "LocalDocumentSource",
-
 ]

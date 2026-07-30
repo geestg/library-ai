@@ -1,0 +1,32 @@
+{
+    "session_id": "a6e17ab1-ab0f-4893-9cc4-e4434c7d41da",
+    "title": "MVP Verification",
+    "messages": [
+        {
+            "role": "user",
+            "content": "Apa topik penelitian yang paling banyak dibahas pada repository?",
+            "timestamp": "2026-07-28T17:22:34.333310"
+        }
+    ],
+    "metadata": {
+        "active_collection": "",
+        "active_document": "",
+        "selected_model": "",
+        "settings": {}
+    },
+    "research_state": {
+        "topic": "MVP Verification",
+        "research_goal": null,
+        "current_question": null,
+        "current_answer": null,
+        "summary": "",
+        "keywords": [],
+        "sources": [],
+        "notes": [],
+        "timeline": [],
+        "created_at": "2026-07-28T17:22:34.313668",
+        "updated_at": "2026-07-28T17:22:34.313704"
+    },
+    "created_at": "2026-07-28T17:22:34.313707",
+    "updated_at": "2026-07-28T17:22:34.333326"
+}

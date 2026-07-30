@@ -1,0 +1,13 @@
+{
+    "name": "research_api",
+    "command": [
+        "python",
+        "-m",
+        "delbot_platform.api"
+    ],
+    "workdir": "/workspace/delbot",
+    "pid": 1522086,
+    "running": true,
+    "host": "0.0.0.0",
+    "port": 8200
+}

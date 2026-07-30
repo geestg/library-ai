@@ -1,0 +1,231 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Bagaimana metodologi penelitian machine learning?"
+    },
+    {
+      "role": "assistant",
+      "content": "### Fakta\n\nMetodologi penelitian *machine learning* secara umum melibatkan serangkaian tahapan terstruktur yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* mencakup tahapan-tahapan berikut:\n\n1. **Pra-pemrosesan data** – Data mentah dipersiapkan untuk digunakan dalam pelatihan model.\n2. **Analisis data** – Data dianalisis untuk memahami pola dan karakteristiknya.\n3. **Pelatihan model** – Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses.\n4. **Evaluasi model** – Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerjanya.\n\nMetodologi ini diterapkan dalam penelitian yang menggunakan pendekatan kualitatif, dengan teknik pengumpulan data meliputi observasi dan wawancara, meskipun pendekatan ini lebih relevan untuk studi kasus sistem informasi seperti *Dashboard Penerimaan Mahasiswa Baru*.\n\nDalam konteks *machine learning*, penelitian menggunakan algoritma seperti **Support Vector Machine (SVM)** dengan kombinasi tiga jenis *kernel*: **RBF**, **polynomial**, dan **sigmoid**, untuk membandingkan performa dan menentukan model terbaik berdasarkan akurasi dan keseimbangan antara *precision* dan *recall*.\n\n### Analisis\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat **kuantitatif** dalam aspek teknis, meskipun penelitian secara keseluruhan menggunakan pendekatan kualitatif untuk konteks studi kasus. Hal ini menunjukkan bahwa *machine learning* diterapkan sebagai alat analisis data dalam penelitian yang lebih luas, bukan sebagai fokus utama metodologi penelitian.\n\nTahapan metodologi *machine learning* yang disebutkan dalam dokumen bersifat standar dan sesuai dengan praktik umum dalam bidang *machine learning*, yaitu:\n- Penggunaan data terlabel (*supervised learning*) untuk klasifikasi.\n- Penerapan algoritma klasifikasi seperti SVM, KNN, Naïve Bayes, dan K-Means.\n- Evaluasi model dengan metrik yang lebih dari sekadar *accuracy*, seperti *f-score*, untuk menangani ketidakseimbangan antara *precision* dan *recall*.\n\nPendekatan ini menekankan pentingnya **validasi model** dan **pemilihan parameter** (seperti *kernel* pada SVM) untuk memastikan hasil yang optimal.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* dalam dokumen yang tersedia mengikuti alur kerja standar: pra-pemrosesan data, pelatihan model, dan evaluasi model. Penelitian menggunakan pendekatan kuantitatif dalam aspek *machine learning*, meskipun secara keseluruhan menggunakan metodologi kualitatif untuk konteks studi kasus. Algoritma SVM dengan variasi *kernel* digunakan sebagai pendekatan utama, dengan evaluasi berdasarkan akurasi dan *f-score* untuk menentukan model terbaik. Metodologi ini menekankan pentingnya pemilihan algoritma, parameter, dan metrik evaluasi yang tepat dalam proses pengembangan model *machine learning*."
+    }
+  ],
+  "last_query": "Bagaimana metodologi penelitian machine learning?",
+  "last_answer": "### Fakta\n\nMetodologi penelitian *machine learning* secara umum melibatkan serangkaian tahapan terstruktur yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* mencakup tahapan-tahapan berikut:\n\n1. **Pra-pemrosesan data** – Data mentah dipersiapkan untuk digunakan dalam pelatihan model.\n2. **Analisis data** – Data dianalisis untuk memahami pola dan karakteristiknya.\n3. **Pelatihan model** – Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses.\n4. **Evaluasi model** – Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerjanya.\n\nMetodologi ini diterapkan dalam penelitian yang menggunakan pendekatan kualitatif, dengan teknik pengumpulan data meliputi observasi dan wawancara, meskipun pendekatan ini lebih relevan untuk studi kasus sistem informasi seperti *Dashboard Penerimaan Mahasiswa Baru*.\n\nDalam konteks *machine learning*, penelitian menggunakan algoritma seperti **Support Vector Machine (SVM)** dengan kombinasi tiga jenis *kernel*: **RBF**, **polynomial**, dan **sigmoid**, untuk membandingkan performa dan menentukan model terbaik berdasarkan akurasi dan keseimbangan antara *precision* dan *recall*.\n\n### Analisis\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat **kuantitatif** dalam aspek teknis, meskipun penelitian secara keseluruhan menggunakan pendekatan kualitatif untuk konteks studi kasus. Hal ini menunjukkan bahwa *machine learning* diterapkan sebagai alat analisis data dalam penelitian yang lebih luas, bukan sebagai fokus utama metodologi penelitian.\n\nTahapan metodologi *machine learning* yang disebutkan dalam dokumen bersifat standar dan sesuai dengan praktik umum dalam bidang *machine learning*, yaitu:\n- Penggunaan data terlabel (*supervised learning*) untuk klasifikasi.\n- Penerapan algoritma klasifikasi seperti SVM, KNN, Naïve Bayes, dan K-Means.\n- Evaluasi model dengan metrik yang lebih dari sekadar *accuracy*, seperti *f-score*, untuk menangani ketidakseimbangan antara *precision* dan *recall*.\n\nPendekatan ini menekankan pentingnya **validasi model** dan **pemilihan parameter** (seperti *kernel* pada SVM) untuk memastikan hasil yang optimal.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* dalam dokumen yang tersedia mengikuti alur kerja standar: pra-pemrosesan data, pelatihan model, dan evaluasi model. Penelitian menggunakan pendekatan kuantitatif dalam aspek *machine learning*, meskipun secara keseluruhan menggunakan metodologi kualitatif untuk konteks studi kasus. Algoritma SVM dengan variasi *kernel* digunakan sebagai pendekatan utama, dengan evaluasi berdasarkan akurasi dan *f-score* untuk menentukan model terbaik. Metodologi ini menekankan pentingnya pemilihan algoritma, parameter, dan metrik evaluasi yang tepat dalam proses pengembangan model *machine learning*.",
+  "summary": "",
+  "topics": [
+    "Bagaimana metodologi penelitian machine learning?"
+  ],
+  "keywords": [],
+  "sources": [
+    {
+      "document": {
+        "document_id": "08ee8fe334c944be8259c53bb21b291e",
+        "title": "08ee8fe334c944be8259c53bb21b291e",
+        "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+        "collection": {
+          "collection_id": "default",
+          "name": "Default",
+          "description": "",
+          "repository": {
+            "repository_id": "local",
+            "name": "Local Repository",
+            "root_path": "delbot_platform/repository_data/pdf",
+            "source": {
+              "source_id": "",
+              "name": "local",
+              "description": "",
+              "domain": {
+                "domain_id": "",
+                "name": "",
+                "description": "",
+                "metadata": {}
+              },
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "metadata": {}
+        },
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "metadata": {}
+      },
+      "document_id": "08ee8fe334c944be8259c53bb21b291e",
+      "document_title": "08ee8fe334c944be8259c53bb21b291e",
+      "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+      "collection_id": "default",
+      "collection_name": "Default",
+      "repository_id": "local",
+      "repository_name": "Local Repository",
+      "repository_root_path": "delbot_platform/repository_data/pdf",
+      "source_id": "",
+      "source_name": "local",
+      "domain_id": "",
+      "domain_name": "",
+      "authors": [],
+      "author_ids": [],
+      "author_names": [],
+      "entities": [],
+      "relation_ids": [],
+      "relation_types": [],
+      "page": 2,
+      "chunk_id": "",
+      "score": 0.0,
+      "text": "W., 2018). Secara umum, penerapan  machine learning\ndilakukan dengan menggunakan algoritma untuk mengembangkan mesin otomatis. Dari segi\nmetode pembelajaran, algoritma  machine learning  dapat dikategorikan sebagai berikut.\n1.   Supervised Learning\nSupervised learning  adalah pembelajaran terarah/terawasi (Putra, J. W., 2018). Terawasi\nartinya adalah pembelajaran ini telah diberikan label terhadap setiap data. Setelah\nmemberikan label terhadap data masukan maka sistem dapat melakukan proses  learning\nuntuk memprediksi masukan tersebut. Tujuan dari  supervised learning  yaitu untuk\nmelakukan klasifikasi (Gotama, P., 2018). Beberapa jenis algoritma yang digunakan untuk\nklasifikasi dalam  supervised   learning  adalah algoritma  Support Vector Machine  (SVM),\nNaïve   Bayes Classifier ,  K-Nearest Neighbor  (KNN),  Decision Tree ,  Artificial Neural\nNetwork  (ANN), dan  Fuzzy K-Nearest Neighbor .\n2.   Unsupervised Learning\nUnsupervised learning  adalah metode pembelajaran tidak terarah/terawasi. Teknik ini\nberbeda dari  supervised learning  karena inputan yang diberikan kepada sistem tidak\ndiberikan label.  Unsupervised learning  dapat digunakan untuk mencari struktur data yang\nada dan data tersebut dikelompokan berdasarkan informasi yang dimiliki yang disebut\ndengan  clustering .  Clustering   adalah  algoritma  yang  menggunakan  metode\npengelompokan tanpa memberikan label terhadap input (Gotama, P., 2018). Metode\nunsupervised learning  antara lain  clustering  dan  Self Organizing Map  (SOM).  Beberapa\njenis algoritma yang menerapkan metode  clustering  adalah algoritma  K-Means , chical\nClustering, DBSCAN, Hierar Agglomerative Clustering ,  Gaussian Mixture  dan  K-\nMedoids .\n3.   Semi-Supervised Learning\n35\nInstitut Teknologi Del\nSemi-Supervised learning  merupakan penggabungan dari  supervised learning  dan\nunsupervised learning . Metode ini menghasilkan suatu fungsi dan memberikan pola  input\ndan  output  yang sesuai dengan jumlah data yang sedikit.\n4.   Reinforc",
+      "metadata": {
+        "page_start": 2,
+        "page_end": 228,
+        "section": "11S15010"
+      }
+    }
+  ],
+  "notes": [],
+  "timeline": [
+    {
+      "time": "2026-07-29T10:08:11.908222",
+      "event": "question",
+      "value": "Bagaimana metodologi penelitian machine learning?"
+    },
+    {
+      "time": "2026-07-29T10:08:18.940529",
+      "event": "answer",
+      "value": "### Fakta\n\nMetodologi penelitian *machine learning* secara umum melibatkan serangkaian tahapan terstruktur yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* mencakup tahapan-tahapan berikut:\n\n1. **Pra-pemrosesan data** – Data mentah dipersiapkan untuk digunakan dalam pelatihan model.\n2. **Analisis data** – Data dianalisis untuk memahami pola dan karakteristiknya.\n3. **Pelatihan model** – Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses.\n4. **Evaluasi model** – Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerjanya.\n\nMetodologi ini diterapkan dalam penelitian yang menggunakan pendekatan kualitatif, dengan teknik pengumpulan data meliputi observasi dan wawancara, meskipun pendekatan ini lebih relevan untuk studi kasus sistem informasi seperti *Dashboard Penerimaan Mahasiswa Baru*.\n\nDalam konteks *machine learning*, penelitian menggunakan algoritma seperti **Support Vector Machine (SVM)** dengan kombinasi tiga jenis *kernel*: **RBF**, **polynomial**, dan **sigmoid**, untuk membandingkan performa dan menentukan model terbaik berdasarkan akurasi dan keseimbangan antara *precision* dan *recall*.\n\n### Analisis\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat **kuantitatif** dalam aspek teknis, meskipun penelitian secara keseluruhan menggunakan pendekatan kualitatif untuk konteks studi kasus. Hal ini menunjukkan bahwa *machine learning* diterapkan sebagai alat analisis data dalam penelitian yang lebih luas, bukan sebagai fokus utama metodologi penelitian.\n\nTahapan metodologi *machine learning* yang disebutkan dalam dokumen bersifat standar dan sesuai dengan praktik umum dalam bidang *machine learning*, yaitu:\n- Penggunaan data terlabel (*supervised learning*) untuk klasifikasi.\n- Penerapan algoritma klasifikasi seperti SVM, KNN, Naïve Bayes, dan K-Means.\n- Evaluasi model dengan metrik yang lebih dari sekadar *accuracy*, seperti *f-score*, untuk menangani ketidakseimbangan antara *precision* dan *recall*.\n\nPendekatan ini menekankan pentingnya **validasi model** dan **pemilihan parameter** (seperti *kernel* pada SVM) untuk memastikan hasil yang optimal.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* dalam dokumen yang tersedia mengikuti alur kerja standar: pra-pemrosesan data, pelatihan model, dan evaluasi model. Penelitian menggunakan pendekatan kuantitatif dalam aspek *machine learning*, meskipun secara keseluruhan menggunakan metodologi kualitatif untuk konteks studi kasus. Algoritma SVM dengan variasi *kernel* digunakan sebagai pendekatan utama, dengan evaluasi berdasarkan akurasi dan *f-score* untuk menentukan model terbaik. Metodologi ini menekankan pentingnya pemilihan algoritma, parameter, dan metrik evaluasi yang tepat dalam proses pengembangan model *machine learning*."
+    }
+  ],
+  "research_state": {
+    "topic": "Research Engine Test",
+    "research_goal": null,
+    "current_question": "Bagaimana metodologi penelitian machine learning?",
+    "current_answer": "### Fakta\n\nMetodologi penelitian *machine learning* secara umum melibatkan serangkaian tahapan terstruktur yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* mencakup tahapan-tahapan berikut:\n\n1. **Pra-pemrosesan data** – Data mentah dipersiapkan untuk digunakan dalam pelatihan model.\n2. **Analisis data** – Data dianalisis untuk memahami pola dan karakteristiknya.\n3. **Pelatihan model** – Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses.\n4. **Evaluasi model** – Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerjanya.\n\nMetodologi ini diterapkan dalam penelitian yang menggunakan pendekatan kualitatif, dengan teknik pengumpulan data meliputi observasi dan wawancara, meskipun pendekatan ini lebih relevan untuk studi kasus sistem informasi seperti *Dashboard Penerimaan Mahasiswa Baru*.\n\nDalam konteks *machine learning*, penelitian menggunakan algoritma seperti **Support Vector Machine (SVM)** dengan kombinasi tiga jenis *kernel*: **RBF**, **polynomial**, dan **sigmoid**, untuk membandingkan performa dan menentukan model terbaik berdasarkan akurasi dan keseimbangan antara *precision* dan *recall*.\n\n### Analisis\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat **kuantitatif** dalam aspek teknis, meskipun penelitian secara keseluruhan menggunakan pendekatan kualitatif untuk konteks studi kasus. Hal ini menunjukkan bahwa *machine learning* diterapkan sebagai alat analisis data dalam penelitian yang lebih luas, bukan sebagai fokus utama metodologi penelitian.\n\nTahapan metodologi *machine learning* yang disebutkan dalam dokumen bersifat standar dan sesuai dengan praktik umum dalam bidang *machine learning*, yaitu:\n- Penggunaan data terlabel (*supervised learning*) untuk klasifikasi.\n- Penerapan algoritma klasifikasi seperti SVM, KNN, Naïve Bayes, dan K-Means.\n- Evaluasi model dengan metrik yang lebih dari sekadar *accuracy*, seperti *f-score*, untuk menangani ketidakseimbangan antara *precision* dan *recall*.\n\nPendekatan ini menekankan pentingnya **validasi model** dan **pemilihan parameter** (seperti *kernel* pada SVM) untuk memastikan hasil yang optimal.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* dalam dokumen yang tersedia mengikuti alur kerja standar: pra-pemrosesan data, pelatihan model, dan evaluasi model. Penelitian menggunakan pendekatan kuantitatif dalam aspek *machine learning*, meskipun secara keseluruhan menggunakan metodologi kualitatif untuk konteks studi kasus. Algoritma SVM dengan variasi *kernel* digunakan sebagai pendekatan utama, dengan evaluasi berdasarkan akurasi dan *f-score* untuk menentukan model terbaik. Metodologi ini menekankan pentingnya pemilihan algoritma, parameter, dan metrik evaluasi yang tepat dalam proses pengembangan model *machine learning*.",
+    "summary": "",
+    "keywords": [],
+    "sources": [
+      {
+        "document": {
+          "document_id": "08ee8fe334c944be8259c53bb21b291e",
+          "title": "08ee8fe334c944be8259c53bb21b291e",
+          "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "08ee8fe334c944be8259c53bb21b291e",
+        "document_title": "08ee8fe334c944be8259c53bb21b291e",
+        "file_path": "delbot_platform/repository_data/pdf/08ee8fe334c944be8259c53bb21b291e.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "W., 2018). Secara umum, penerapan  machine learning\ndilakukan dengan menggunakan algoritma untuk mengembangkan mesin otomatis. Dari segi\nmetode pembelajaran, algoritma  machine learning  dapat dikategorikan sebagai berikut.\n1.   Supervised Learning\nSupervised learning  adalah pembelajaran terarah/terawasi (Putra, J. W., 2018). Terawasi\nartinya adalah pembelajaran ini telah diberikan label terhadap setiap data. Setelah\nmemberikan label terhadap data masukan maka sistem dapat melakukan proses  learning\nuntuk memprediksi masukan tersebut. Tujuan dari  supervised learning  yaitu untuk\nmelakukan klasifikasi (Gotama, P., 2018). Beberapa jenis algoritma yang digunakan untuk\nklasifikasi dalam  supervised   learning  adalah algoritma  Support Vector Machine  (SVM),\nNaïve   Bayes Classifier ,  K-Nearest Neighbor  (KNN),  Decision Tree ,  Artificial Neural\nNetwork  (ANN), dan  Fuzzy K-Nearest Neighbor .\n2.   Unsupervised Learning\nUnsupervised learning  adalah metode pembelajaran tidak terarah/terawasi. Teknik ini\nberbeda dari  supervised learning  karena inputan yang diberikan kepada sistem tidak\ndiberikan label.  Unsupervised learning  dapat digunakan untuk mencari struktur data yang\nada dan data tersebut dikelompokan berdasarkan informasi yang dimiliki yang disebut\ndengan  clustering .  Clustering   adalah  algoritma  yang  menggunakan  metode\npengelompokan tanpa memberikan label terhadap input (Gotama, P., 2018). Metode\nunsupervised learning  antara lain  clustering  dan  Self Organizing Map  (SOM).  Beberapa\njenis algoritma yang menerapkan metode  clustering  adalah algoritma  K-Means , chical\nClustering, DBSCAN, Hierar Agglomerative Clustering ,  Gaussian Mixture  dan  K-\nMedoids .\n3.   Semi-Supervised Learning\n35\nInstitut Teknologi Del\nSemi-Supervised learning  merupakan penggabungan dari  supervised learning  dan\nunsupervised learning . Metode ini menghasilkan suatu fungsi dan memberikan pola  input\ndan  output  yang sesuai dengan jumlah data yang sedikit.\n4.   Reinforc",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 228,
+          "section": "11S15010"
+        }
+      }
+    ],
+    "notes": [],
+    "timeline": [
+      {
+        "time": "2026-07-29T10:08:11.908222",
+        "event": "question",
+        "value": "Bagaimana metodologi penelitian machine learning?"
+      },
+      {
+        "time": "2026-07-29T10:08:18.940529",
+        "event": "answer",
+        "value": "### Fakta\n\nMetodologi penelitian *machine learning* secara umum melibatkan serangkaian tahapan terstruktur yang dimulai dari pengumpulan data hingga evaluasi model. Berdasarkan dokumen yang tersedia, alur kerja *machine learning* mencakup tahapan-tahapan berikut:\n\n1. **Pra-pemrosesan data** – Data mentah dipersiapkan untuk digunakan dalam pelatihan model.\n2. **Analisis data** – Data dianalisis untuk memahami pola dan karakteristiknya.\n3. **Pelatihan model** – Model dilatih menggunakan algoritma tertentu berdasarkan data yang telah diproses.\n4. **Evaluasi model** – Model dievaluasi menggunakan metrik seperti *accuracy*, *precision*, *recall*, dan *f-score* untuk menilai kinerjanya.\n\nMetodologi ini diterapkan dalam penelitian yang menggunakan pendekatan kualitatif, dengan teknik pengumpulan data meliputi observasi dan wawancara, meskipun pendekatan ini lebih relevan untuk studi kasus sistem informasi seperti *Dashboard Penerimaan Mahasiswa Baru*.\n\nDalam konteks *machine learning*, penelitian menggunakan algoritma seperti **Support Vector Machine (SVM)** dengan kombinasi tiga jenis *kernel*: **RBF**, **polynomial**, dan **sigmoid**, untuk membandingkan performa dan menentukan model terbaik berdasarkan akurasi dan keseimbangan antara *precision* dan *recall*.\n\n### Analisis\n\nMetodologi penelitian *machine learning* yang digunakan dalam dokumen-dokumen ini bersifat **kuantitatif** dalam aspek teknis, meskipun penelitian secara keseluruhan menggunakan pendekatan kualitatif untuk konteks studi kasus. Hal ini menunjukkan bahwa *machine learning* diterapkan sebagai alat analisis data dalam penelitian yang lebih luas, bukan sebagai fokus utama metodologi penelitian.\n\nTahapan metodologi *machine learning* yang disebutkan dalam dokumen bersifat standar dan sesuai dengan praktik umum dalam bidang *machine learning*, yaitu:\n- Penggunaan data terlabel (*supervised learning*) untuk klasifikasi.\n- Penerapan algoritma klasifikasi seperti SVM, KNN, Naïve Bayes, dan K-Means.\n- Evaluasi model dengan metrik yang lebih dari sekadar *accuracy*, seperti *f-score*, untuk menangani ketidakseimbangan antara *precision* dan *recall*.\n\nPendekatan ini menekankan pentingnya **validasi model** dan **pemilihan parameter** (seperti *kernel* pada SVM) untuk memastikan hasil yang optimal.\n\n### Kesimpulan\n\nMetodologi penelitian *machine learning* dalam dokumen yang tersedia mengikuti alur kerja standar: pra-pemrosesan data, pelatihan model, dan evaluasi model. Penelitian menggunakan pendekatan kuantitatif dalam aspek *machine learning*, meskipun secara keseluruhan menggunakan metodologi kualitatif untuk konteks studi kasus. Algoritma SVM dengan variasi *kernel* digunakan sebagai pendekatan utama, dengan evaluasi berdasarkan akurasi dan *f-score* untuk menentukan model terbaik. Metodologi ini menekankan pentingnya pemilihan algoritma, parameter, dan metrik evaluasi yang tepat dalam proses pengembangan model *machine learning*."
+      }
+    ],
+    "created_at": "2026-07-29T10:08:11.852131",
+    "updated_at": "2026-07-29T10:08:18.940545"
+  },
+  "created_at": "2026-07-29T10:08:18.941543",
+  "updated_at": "2026-07-29T10:08:18.941550"
+}

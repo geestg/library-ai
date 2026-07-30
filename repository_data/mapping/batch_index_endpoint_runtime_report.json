@@ -1,0 +1,14 @@
+========================================================================
+DELBOT BATCH INDEX ENDPOINT RUNTIME
+========================================================================
+Endpoint Exists : True
+Async Endpoint  : True
+Executed        : True
+Success         : True
+Indexed         : 25
+Skipped         : 163
+Total PDF(API)  : 188
+Total PDF(Disk) : 188
+Match           : True
+Exception       : None
+========================================================================

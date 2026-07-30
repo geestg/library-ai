@@ -1,0 +1,21 @@
+{
+  "pipeline_exists": true,
+  "class_exists": true,
+  "async_index": true,
+  "async_index_with_summary": true,
+  "summarize": true,
+  "registry": true,
+  "preprocessing": true,
+  "chunk_builder": true,
+  "metadata_builder": true,
+  "metadata_repository": true,
+  "embedding_pipeline": true,
+  "vectorstore": true,
+  "vectorstore_save": true,
+  "embedding_run": true,
+  "metadata_save": true,
+  "chunk_build": true,
+  "preprocess_process": true,
+  "success": true,
+  "exception": null
+}

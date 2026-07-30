@@ -1,0 +1,14 @@
+{
+  "pipeline_exists": true,
+  "class_exists": true,
+  "process": true,
+  "process_with_summary": true,
+  "summarize": true,
+  "returns_artifact": true,
+  "returns_summary": true,
+  "creates_context": true,
+  "creates_artifact": true,
+  "summary_result": true,
+  "success": true,
+  "exception": null
+}

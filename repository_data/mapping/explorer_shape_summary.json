@@ -1,0 +1,15 @@
+{
+  "router_found": true,
+  "function_found": true,
+  "async_function": true,
+  "executed": false,
+  "exception": "AttributeError(\"'list' object has no attribute 'total'\")",
+  "response_python_type": null,
+  "response_module": null,
+  "response_class": null,
+  "list_length": 0,
+  "sample_type": null,
+  "sample_keys": [],
+  "sample_preview": null,
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 35, in <module>\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/workspace/delbot/delbot_platform/api/routers/repository.py\", line 95, in repository_explorer\n    total=result.total,\nAttributeError: 'list' object has no attribute 'total'\n"
+}

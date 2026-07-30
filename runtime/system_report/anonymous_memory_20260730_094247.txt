@@ -1,0 +1,134 @@
+==========================================================
+ANONYMOUS MEMORY AUDIT
+==========================================================
+PID      RSS_MB     ANON_MB    SHMEM_MB   CMD
+
+21910    2704.1     2704.1     0.0        runtime/bin/qdrant --config-path runtime/qdrant_config/config.yaml 
+950852   2304.9     2123.8     57.8       VLLM::EngineCore                                                                                                                                  
+1518438  1557.9     1557.9     0.0        python -m delbot_platform.gateway 
+1521094  1260.1     1260.1     0.0        python -m delbot_platform.ai.runtime.reranker 
+1520914  818.4      818.4      0.0        python -m delbot_platform.ai.runtime.embedding 
+950448   653.0      653.0      0.0        python3 -m vllm.entrypoints.openai.api_server --model /workspace/Qwen3-30B-MoE --port 11435 --max-model-len 32768 --trust-remote-code --gpu-memory-utilization 0.8 
+1620187  622.0      620.6      0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:0d4d660aed5c92a24e0edd9a38ae5b639f8f67d853 --node-ipc --clientProcessId=1619280 
+1619280  518.9      518.9      0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node --dns-result-order=ipv4first /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false 
+1522086  495.0      495.0      0.0        python -m delbot_platform.api 
+1617604  168.1      168.1      0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node_modules/@github/copilot-linux-x64/index.js --headless --no-auto-update --log-level info --stdio --no-auto-login 
+1617158  95.2       95.2       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=39513 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-aa9db180-e11d-43d6-887a-194164377939 
+1617559  68.9       67.1       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=agentHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012137 --user-data-dir /home/delbot/.vscode-server/data 
+1619292  61.5       61.5       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=fileWatcher 
+1619348  53.3       41.1       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=1619280 
+1521293  29.8       29.8       0.0        python -m delbot_platform.ai.runtime.chat 
+1521291  31.5       29.8       0.0        python -m delbot_platform.ai.runtime.ocr 
+1521278  29.8       29.8       0.0        python -m delbot_platform.ai.runtime.vision 
+1617361  39.9       24.2       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/server-main.js --socket-path /tmp/code-22907cfe-1c5d-431a-98c2-b2c7bf3e04bd --agent-host-path /tmp/code-0e60909d-156f-4a15-891b-4bae74597410 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token 
+1617579  18.8       18.8       0.0        /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/bootstrap-fork --type=ptyHost --logsPath /home/delbot/.vscode-server/data/logs/20260730T012136 
+1616902  7.1        7.1        0.0        /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1616622 --on-host=127.0.0.1 --on-port 
+1453980  10.5       7.0        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453946 --on-host=127.0.0.1 --on-port 
+1345652  6.7        6.7        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1345618 --on-host=127.0.0.1 --on-port 
+989225   5.2        5.2        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 989191 --on-host=127.0.0.1 --on-port 
+952652   5.2        5.2        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 952618 --on-host=127.0.0.1 --on-port 
+939498   5.2        5.2        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 939437 --on-host=127.0.0.1 --on-port 
+1415233  5.2        5.2        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1415199 --on-host=127.0.0.1 --on-port 
+1289469  5.2        5.2        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1289435 --on-host=127.0.0.1 --on-port 
+1287886  7.0        5.2        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1287852 --on-host=127.0.0.1 --on-port 
+981194   5.1        5.1        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 981160 --on-host=127.0.0.1 --on-port 
+1532195  13.8       5.1        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1532161 --on-host=127.0.0.1 --on-port 
+1316325  5.1        5.1        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1316291 --on-host=127.0.0.1 --on-port 
+5973     5.0        5.0        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 --cli-data-dir /home/delbot/.vscode-server/cli agent host 
+1432834  5.0        5.0        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1432800 --on-host=127.0.0.1 --on-port 
+1413228  8.5        5.0        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1413194 --on-host=127.0.0.1 --on-port 
+1349749  6.7        5.0        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1349715 --on-host=127.0.0.1 --on-port 
+1208289  5.0        5.0        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1208255 --on-host=127.0.0.1 --on-port 
+1453490  4.9        4.9        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1453456 --on-host=127.0.0.1 --on-port 
+1089255  6.6        4.9        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1088975 --on-host=127.0.0.1 --on-port 
+1061808  8.4        4.9        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1061774 --on-host=127.0.0.1 --on-port 
+1048374  4.9        4.9        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1048340 --on-host=127.0.0.1 --on-port 
+1347610  10.0       4.8        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1347576 --on-host=127.0.0.1 --on-port 
+1216282  10.1       4.8        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1216248 --on-host=127.0.0.1 --on-port 
+955169   8.2        4.7        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 955135 --on-host=127.0.0.1 --on-port 
+1589944  4.7        4.7        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1589910 --on-host=127.0.0.1 --on-port 
+950851   8.8        3.5        0.0        /workspace/vllm_env/bin/python3 -c from multiprocessing.resource_tracker import main;main(26) 
+1673059  3.5        3.5        0.0        /usr/bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh 
+1622300  5.2        3.5        0.0        -bash 
+1620119  5.2        3.5        0.0        /bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh 
+1489375  5.2        3.5        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1489341 --on-host=127.0.0.1 --on-port 
+1286468  5.2        3.5        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1286434 --on-host=127.0.0.1 --on-port 
+1284651  3.5        3.5        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1284617 --on-host=127.0.0.1 --on-port 
+1254160  15.7       3.5        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1254126 --on-host=127.0.0.1 --on-port 
+1135384  5.0        3.3        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1135350 --on-host=127.0.0.1 --on-port 
+997805   3.2        3.2        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 997771 --on-host=127.0.0.1 --on-port 
+1451532  5.0        3.2        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1451498 --on-host=127.0.0.1 --on-port 
+1411306  8.5        3.2        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1411272 --on-host=127.0.0.1 --on-port 
+1165379  4.8        3.1        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1165345 --on-host=127.0.0.1 --on-port 
+1643463  2.9        2.9        0.0        /home/delbot/.vscode-server/code-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1643428 --on-host=127.0.0.1 --on-port 
+1452504  2.9        2.9        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1452470 --on-host=127.0.0.1 --on-port 
+1643427  1.8        1.8        0.0        sshd: delbot@notty 
+1622299  7.0        1.8        0.0        sshd: delbot@pts/1 
+1619346  1.8        1.8        0.0        /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet server 
+9089     1.7        1.7        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 9055 --on-host=127.0.0.1 --on-port 
+1163537  1.7        1.7        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1163503 --on-host=127.0.0.1 --on-port 
+1120259  3.5        1.7        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1120225 --on-host=127.0.0.1 --on-port 
+5732     1.5        1.5        0.0        /home/delbot/.vscode-server/code-8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 5698 --on-host=127.0.0.1 --on-port 
+1381602  1.5        1.5        0.0        /home/delbot/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 1381568 --on-host=127.0.0.1 --on-port 
+1643399  6.3        1.1        0.0        sshd: delbot [priv] 
+1622271  7.1        0.1        0.0        sshd: delbot [priv] 
+999153   0.0        0.0        0.0        MainThread
+999073   0.0        0.0        0.0        bash
+998536   0.0        0.0        0.0        MainThread
+998491   0.0        0.0        0.0        pet
+998321   1.8        0.0        0.0        /bin/bash 
+998122   0.0        0.0        0.0        MainThread
+998056   0.0        0.0        0.0        bash
+997771   0.0        0.0        0.0        bash
+997770   0.0        0.0        0.0        sshd
+991279   0.0        0.0        0.0        sshd
+990440   0.0        0.0        0.0        MainThread
+989916   1.8        0.0        0.0        /bin/bash 
+989617   0.0        0.0        0.0        MainThread
+989615   0.0        0.0        0.0        pet
+989191   0.0        0.0        0.0        bash
+989190   0.0        0.0        0.0        sshd
+9875     0.0        0.0        0.0        pet
+984207   0.0        0.0        0.0        python
+981160   0.0        0.0        0.0        bash
+981159   0.0        0.0        0.0        sshd
+9634     1.8        0.0        0.0        /bin/bash 
+956420   0.0        0.0        0.0        MainThread
+955695   0.0        0.0        0.0        pet
+955687   0.0        0.0        0.0        MainThread
+955484   1.8        0.0        0.0        /bin/bash 
+955135   0.0        0.0        0.0        bash
+955134   0.0        0.0        0.0        sshd
+953960   0.0        0.0        0.0        MainThread
+953225   0.0        0.0        0.0        pet
+953202   0.0        0.0        0.0        MainThread
+952963   1.8        0.0        0.0        /bin/bash 
+952618   0.0        0.0        0.0        bash
+952617   0.0        0.0        0.0        sshd
+942317   0.0        0.0        0.0        MainThread
+940865   0.0        0.0        0.0        MainThread
+940818   0.0        0.0        0.0        pet
+940771   1.8        0.0        0.0        /bin/bash 
+9402     0.0        0.0        0.0        MainThread
+940167   0.0        0.0        0.0        MainThread
+939815   0.0        0.0        0.0        bash
+939437   0.0        0.0        0.0        bash
+939436   0.0        0.0        0.0        sshd
+9055     0.0        0.0        0.0        bash
+9054     0.0        0.0        0.0        sshd
+905156   0.0        0.0        0.0        sshd
+904463   0.0        0.0        0.0        bash
+904462   0.0        0.0        0.0        sshd
+896      0.0        0.0        0.0        python3
+882543   0.0        0.0        0.0        bash
+882542   0.0        0.0        0.0        sshd
+8486     0.0        0.0        0.0        python3
+
+==========================================================
+TOTAL ANON
+==========================================================
+RSS  : 11.55 GB
+ANON : 11.24 GB
+SHMEM: 0.06 GB
+
+/workspace/delbot/runtime/system_report/anonymous_memory_20260730_094247.txt

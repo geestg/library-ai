@@ -1,0 +1,13 @@
+{
+    "name": "embedding",
+    "command": [
+        "python",
+        "-m",
+        "delbot_platform.ai.runtime.embedding"
+    ],
+    "workdir": "/workspace/delbot",
+    "pid": 1522077,
+    "running": true,
+    "host": "0.0.0.0",
+    "port": 8105
+}

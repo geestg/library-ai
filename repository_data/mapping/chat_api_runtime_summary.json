@@ -1,0 +1,14 @@
+{
+  "Router Exists": true,
+  "Schema Exists": true,
+  "Router Class": true,
+  "POST Route": true,
+  "Async Endpoint": true,
+  "Request Model": true,
+  "Response Model": true,
+  "Application execute()": true,
+  "Await Found": true,
+  "Return Found": true,
+  "Success": true,
+  "Exception": null
+}

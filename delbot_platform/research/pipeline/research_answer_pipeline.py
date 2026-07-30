@@ -19,7 +19,7 @@ class ResearchAnswerPipeline:
 
         self.generator = LLMGenerator()
 
-    def answer(
+    async def answer(
         self,
         *,
         question: str,
@@ -32,7 +32,7 @@ class ResearchAnswerPipeline:
 
         research_state = research_state or {}
 
-        rag = self.rag.search(
+        rag = await self.rag.build(
             query=question,
         )
 

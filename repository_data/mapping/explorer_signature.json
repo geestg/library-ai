@@ -1,0 +1,13 @@
+{
+  "router_exists": true,
+  "function_found": true,
+  "is_async": true,
+  "signature": null,
+  "annotations": {},
+  "defaults": {},
+  "decorators": [],
+  "return_statements": [],
+  "repository_service_calls": [],
+  "source": [],
+  "exception": "AttributeError(\"'AsyncFunctionDef' object has no attribute 'defaults'\")"
+}

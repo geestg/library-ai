@@ -1,0 +1,112 @@
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+
+import asyncio
+import sys
+import time
+import traceback
+
+from delbot_platform.documents.pipeline.indexing import (
+    DocumentIndexingPipeline,
+)
+from delbot_platform.repository import (
+    RepositoryDocumentLoader,
+)
+
+
+def print_header() -> None:
+    print("=" * 60)
+    print("DELBot MVP")
+    print("PR-3.2A")
+    print("Runtime Validation")
+    print("=" * 60)
+    print()
+
+
+async def main() -> int:
+    print_header()
+
+    loader = RepositoryDocumentLoader()
+
+    documents = loader.load_available()
+
+    if not documents:
+        print("PIPELINE FAILED")
+        print("Repository does not contain any PDF.")
+        return 1
+
+    document = documents[0]
+
+    pdf_path = document["pdf_path"]
+    document_id = document["document_id"]
+
+    print(f"PDF          : {pdf_path}")
+    print(f"Document ID  : {document_id}")
+    print()
+
+    pipeline = DocumentIndexingPipeline()
+
+    started = time.perf_counter()
+
+    artifact = await pipeline.index(
+        pdf_path,
+    )
+
+    elapsed = time.perf_counter() - started
+
+    result = pipeline.summarize(
+        artifact,
+        elapsed,
+    )
+
+    print("=" * 60)
+    print("SUMMARY")
+    print("=" * 60)
+
+    print(f"Page Count      : {len(getattr(artifact, 'pages', []))}")
+    print(f"Block Count     : {len(getattr(artifact, 'blocks', []))}")
+    print(f"Section Count   : {len(getattr(artifact, 'sections', []))}")
+    print(f"Chunk Count     : {len(getattr(artifact, 'chunks', []))}")
+    print(f"Embedding Count : {len(getattr(artifact, 'embeddings', []))}")
+    print(f"Vector Count    : {len(getattr(artifact, 'vectors', []))}")
+    print()
+
+    print("=" * 60)
+    print("RESULT")
+    print("=" * 60)
+
+    from dataclasses import fields
+
+    for field in fields(result):
+        value = getattr(result, field.name)
+        print(f"{field.name}: {value}")
+
+    print()
+    print(f"Elapsed Time : {elapsed:.2f} sec")
+    print()
+    print("=" * 60)
+    print("PIPELINE PASS")
+    print("=" * 60)
+
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(asyncio.run(main()))
+    except Exception:
+        print()
+        print("=" * 60)
+        print("PIPELINE FAILED")
+        print("=" * 60)
+        traceback.print_exc()
+        sys.exit(1)
+
