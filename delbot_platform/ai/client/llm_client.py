@@ -9,7 +9,7 @@ class LLMClient:
 
     def __init__(
         self,
-        url="http://localhost:11435/v1/chat/completions",
+        url="http://127.0.0.1:8101/v1/chat/completions",
         model="/workspace/Qwen3-30B-MoE"
     ):
 

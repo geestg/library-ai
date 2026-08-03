@@ -1,0 +1,444 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+import {
+    Sparkles,
+    BrainCircuit,
+    FolderOpen,
+    Search,
+    Files,
+    Clock3,
+    BookOpen,
+    SendHorizonal,
+    ChevronRight,
+    Loader2,
+    Trash2,
+} from "lucide-react";
+
+import { repositoryExplorer } from "../../api/repository";
+import { researchAnswer } from "../../api/research";
+
+type Summary = {
+    total: number;
+    pdf_available: number;
+    pdf_missing: number;
+};
+
+type Citation = {
+    document_id: string;
+    source: string;
+    section: string;
+    page_start?: number;
+    page_end?: number;
+};
+
+type ResearchResponse = {
+    answer: string;
+    citations: Citation[];
+};
+
+type Message = {
+    role: "user" | "assistant";
+    content: string;
+};
+
+type WorkspaceSession = {
+    id: string;
+    title: string;
+    created_at: string;
+    updated_at: string;
+    messages: Message[];
+    result: ResearchResponse | null;
+};
+
+const WORKSPACE_STORAGE = "workspace_sessions";
+const ACTIVE_WORKSPACE = "active_workspace";
+
+
+const STORAGE_KEY = "delbot_workspace";
+
+const STREAM_DELAY = 8;
+
+
+export default function DashboardPage() {
+
+    const conversationRef = useRef<HTMLDivElement>(null);
+
+    const [loadingRepository, setLoadingRepository] = useState(true);
+    const [loadingResearch, setLoadingResearch] = useState(false);
+
+    const [prompt, setPrompt] = useState("");
+    const [messages, setMessages] = useState<Message[]>([]);
+
+    const [workspaceSessions, setWorkspaceSessions] =
+        useState<WorkspaceSession[]>([]);
+
+    const [activeWorkspaceId, setActiveWorkspaceId] =
+        useState("");
+
+
+    const [result, setResult] = useState<ResearchResponse | null>(null);
+
+    const [summary, setSummary] = useState<Summary>({
+        total: 0,
+        pdf_available: 0,
+        pdf_missing: 0,
+    });
+
+    useEffect(() => {
+
+        repositoryExplorer()
+            .then((res) => {
+
+                setSummary({
+                    total: res.data.total ?? 0,
+                    pdf_available: res.data.pdf_available ?? 0,
+                    pdf_missing: res.data.pdf_missing ?? 0,
+                });
+
+            })
+            .catch(console.error)
+            .finally(() => setLoadingRepository(false));
+
+    }, []);
+
+    useEffect(() => {
+
+        try {
+
+            const saved =
+                localStorage.getItem(
+                    WORKSPACE_STORAGE
+                );
+
+            const active =
+                localStorage.getItem(
+                    ACTIVE_WORKSPACE
+                );
+
+            if (saved) {
+
+                setWorkspaceSessions(
+                    JSON.parse(saved)
+                );
+
+            }
+
+            if (active) {
+
+                setActiveWorkspaceId(active);
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
+    }, []);
+
+
+
+    useEffect(() => {
+
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+
+        if (!saved) {
+            return;
+        }
+
+        try {
+
+            const data = JSON.parse(saved);
+
+            setMessages(data.messages ?? []);
+            setResult(data.result ?? null);
+
+        } catch {
+            console.error("Invalid workspace session.");
+        }
+
+    }, []);
+
+    useEffect(() => {
+
+        sessionStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+                messages,
+                result,
+            })
+        );
+
+        conversationRef.current?.scrollTo({
+            top: conversationRef.current.scrollHeight,
+            behavior: "smooth",
+        });
+
+}, [messages, result]);
+
+
+    async function streamAnswer(answer: string) {
+
+        let text = "";
+
+        setMessages(prev => [
+            ...prev,
+            {
+                role: "assistant",
+                content: "",
+            },
+        ]);
+
+        for (const ch of answer) {
+
+            text += ch;
+
+            setMessages(prev => {
+
+                const copy = [...prev];
+
+                copy[copy.length - 1] = {
+                    role: "assistant",
+                    content: text,
+                };
+
+                return copy;
+
+            });
+
+            await new Promise(resolve =>
+                setTimeout(resolve, STREAM_DELAY)
+            );
+
+        }
+
+    }
+
+
+    async function askAI(question?: string) {
+
+        const current = (question ?? prompt).trim();
+
+        if (!current) {
+            return;
+        }
+
+        setMessages(prev => [
+            ...prev,
+            {
+                role: "user",
+                content: current,
+            },
+        ]);
+
+        setPrompt("");
+        setLoadingResearch(true);
+
+        try {
+
+            const response = await researchAnswer(current);
+
+            const data: ResearchResponse = response.data;
+
+            setResult(data);
+
+            await streamAnswer(data.answer);
+
+        } catch {
+
+            setMessages(prev => [
+                ...prev,
+                {
+                    role: "assistant",
+                    content: "Unable to answer this question.",
+                },
+            ]);
+
+        } finally {
+
+            setLoadingResearch(false);
+
+        }
+
+    }
+
+    function clearWorkspace() {
+
+        sessionStorage.removeItem(STORAGE_KEY);
+
+        setMessages([]);
+        setResult(null);
+        setPrompt("");
+
+    }
+
+    const quickPrompts = [
+        "Summarize repository.",
+        "Find research gaps.",
+        "Generate thesis ideas.",
+        "Compare CNN and ViT.",
+        "Explain recommendation systems.",
+    ];
+
+    const actions = [
+        {
+            title: "Repository",
+            description: "Browse indexed research documents.",
+            icon: FolderOpen,
+            to: "/repository",
+        },
+        {
+            title: "Semantic Search",
+            description: "Search repository semantically.",
+            icon: Search,
+            to: "/search",
+        },
+        {
+            title: "Document Index",
+            description: "Index new PDF documents.",
+            icon: Files,
+            to: "/documents",
+        },
+    ];
+
+
+
+    useEffect(() => {
+
+        localStorage.setItem(
+            WORKSPACE_STORAGE,
+            JSON.stringify(
+                workspaceSessions
+            )
+        );
+
+    }, [workspaceSessions]);
+
+    useEffect(() => {
+
+        if (activeWorkspaceId) {
+
+            localStorage.setItem(
+                ACTIVE_WORKSPACE,
+                activeWorkspaceId
+            );
+
+        }
+
+    }, [activeWorkspaceId]);
+
+    
+
+    function createWorkspace() {
+
+        const id = Date.now().toString();
+
+        const session = {
+            id: crypto.randomUUID(),
+            title: "New Conversation",
+            preview: "",
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            messages: [],
+            result: null,
+        };
+
+        setWorkspaceSessions((prev: WorkspaceSession[]) => [
+            session,
+            ...prev,
+        ]);
+
+        setActiveWorkspaceId(id);
+
+        setMessages([]);
+        setResult(null);
+        setPrompt("");
+
+    }
+
+    
+
+    
+function switchWorkspace(id: string) {
+
+        setActiveWorkspaceId(id);
+
+}
+
+
+
+
+    function renameWorkspace(id: string) {
+
+        const name = window.prompt("Conversation title");
+
+        if (!name) {
+            return;
+        }
+
+        setWorkspaceSessions(prev =>
+            prev.map(item =>
+                item.id === id
+                    ? {
+                        ...item,
+                        title: name,
+                    }
+                    : item
+            )
+        );
+
+    }
+
+    function deleteWorkspace(id: string) {
+
+        if (!window.confirm("Delete conversation?")) {
+            return;
+        }
+
+        const next = workspaceSessions.filter(
+            item => item.id !== id
+        );
+
+        setWorkspaceSessions(next);
+
+        if (activeWorkspaceId === id) {
+
+            if (next.length > 0) {
+            setActiveWorkspaceId(next[0].id);
+        }
+
+        }
+
+    }
+
+
+
+    return (
+        <div
+            style={{
+                padding: 32,
+                fontFamily: "sans-serif",
+            }}
+        >
+            <h1>DELBot AI Workspace</h1>
+
+            <p>
+                Dashboard Recovery Successful
+            </p>
+
+            <div>
+                Repository :
+                {" "}
+                {summary.total}
+            </div>
+
+            <div>
+                Messages :
+                {" "}
+                {messages.length}
+            </div>
+        </div>
+    );
+}

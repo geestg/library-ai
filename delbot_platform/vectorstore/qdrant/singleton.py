@@ -1,25 +1,128 @@
 from __future__ import annotations
 
+from pathlib import Path
 
-from delbot_platform.vectorstore.qdrant.client import (
-    QdrantVectorStore,
+from qdrant_client import QdrantClient
+from qdrant_client.models import (
+    Distance,
+    VectorParams,
 )
 
 
+class QdrantStore:
 
-_store = None
+    def __init__(
+        self,
+        path: str | None = None,
+    ) -> None:
+
+        if path is None:
+            path = str(
+                Path("repository_data")
+                / "qdrant_local"
+            )
+
+        Path(path).mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        self.client = QdrantClient(
+            path=path,
+        )
+
+    # =====================================================
+    # Collection
+    # =====================================================
+
+    def create_collection(
+        self,
+        collection_name: str = "delbot_documents",
+        vector_size: int = 1024,
+    ) -> None:
+
+        collections = (
+            self.client
+            .get_collections()
+            .collections
+        )
+
+        exists = any(
+            c.name == collection_name
+            for c in collections
+        )
+
+        if not exists:
+
+            self.client.create_collection(
+                collection_name=collection_name,
+                vectors_config=VectorParams(
+                    size=vector_size,
+                    distance=Distance.COSINE,
+                ),
+            )
+
+    # =====================================================
+    # CRUD
+    # =====================================================
+
+    def upsert(
+        self,
+        points,
+        collection_name: str = "delbot_documents",
+    ) -> None:
+
+        self.client.upsert(
+            collection_name=collection_name,
+            points=points,
+        )
+
+    def count(
+        self,
+        collection_name: str = "delbot_documents",
+    ) -> int:
+
+        return self.client.count(
+            collection_name=collection_name,
+        ).count
+
+    def delete_document(
+        self,
+        document_id: str,
+        collection_name: str = "delbot_documents",
+    ) -> None:
+
+        # MVP
+        return None
+
+    # =====================================================
+    # Search
+    # =====================================================
+
+    def search(
+        self,
+        query_vector,
+        limit: int = 5,
+        collection_name: str = "delbot_documents",
+        **kwargs,
+    ):
+
+        return self.client.search(
+            collection_name=collection_name,
+            query_vector=query_vector,
+            limit=limit,
+            **kwargs,
+        )
 
 
+_store: QdrantStore | None = None
 
-def get_qdrant_store() -> QdrantVectorStore:
 
+def get_qdrant_store() -> QdrantStore:
 
     global _store
 
-
     if _store is None:
-
-        _store = QdrantVectorStore()
-
+        _store = QdrantStore()
 
     return _store

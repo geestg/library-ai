@@ -1,7 +1,19 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.rag.pipeline import RAGPipeline
-from delbot_platform.research.generator import LLMGenerator
+import inspect
+
+from delbot_platform.knowledge.rag.pipeline import (
+    RAGPipeline,
+)
+
+from delbot_platform.research.generator import (
+    LLMGenerator,
+)
+
+from delbot_platform.research.models import (
+    ResearchPipelineResponse,
+)
+
 from delbot_platform.research.prompt_builder import (
     ResearchPromptBuilder,
 )
@@ -13,11 +25,25 @@ class ResearchAnswerPipeline:
         self,
     ) -> None:
 
-        self.rag = RAGPipeline()
+        self.rag = None
 
-        self.prompt_builder = ResearchPromptBuilder()
+        self.prompt_builder = (
+            ResearchPromptBuilder()
+        )
 
-        self.generator = LLMGenerator()
+        self.generator = (
+            LLMGenerator()
+        )
+
+    def get_rag(
+        self,
+    ) -> RAGPipeline:
+
+        if self.rag is None:
+
+            self.rag = RAGPipeline()
+
+        return self.rag
 
     async def answer(
         self,
@@ -26,26 +52,39 @@ class ResearchAnswerPipeline:
         history: list[dict] | None = None,
         previous: str = "",
         research_state: dict | None = None,
-    ):
+    ) -> ResearchPipelineResponse:
 
         history = history or []
 
-        research_state = research_state or {}
+        research_state = (
+            research_state or {}
+        )
 
-        rag = await self.rag.build(
+        rag = await self.get_rag().build(
             query=question,
         )
 
-        messages = self.prompt_builder.build(
-            query=question,
-            context=rag.context,
-            history=history,
-            previous=previous,
-            research_state=research_state,
+        messages = (
+            self.prompt_builder.build(
+                query=question,
+                context=rag.context,
+                history=history,
+                previous=previous,
+                research_state=research_state,
+            )
         )
 
-        answer = self.generator.generate(
+        generated = self.generator.generate(
             messages,
         )
 
-        return answer, rag
+        if inspect.isawaitable(
+            generated
+        ):
+            generated = await generated
+
+        return ResearchPipelineResponse(
+            answer=generated,
+            citations=rag.citations,
+            rag=rag,
+        )

@@ -25,7 +25,17 @@ class ResearchResponse(BaseModel):
     retrieved: int
 
 
-application = ResearchAnswerApplication()
+_application: ResearchAnswerApplication | None = None
+
+
+def get_application() -> ResearchAnswerApplication:
+
+    global _application
+
+    if _application is None:
+        _application = ResearchAnswerApplication()
+
+    return _application
 
 
 @router.post(
@@ -35,6 +45,8 @@ application = ResearchAnswerApplication()
 async def research_answer(
     request: ResearchRequest,
 ):
+
+    application = get_application()
 
     response = await application.execute(
         question=request.question,

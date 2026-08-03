@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-08-01T09:15:03.600545Z",
+  "project": "DELBot MVP",
+  "storage": {
+    "pdf_repository": {
+      "exists": true,
+      "size_mb": 1559.8
+    },
+    "mapping": {
+      "exists": true,
+      "size_mb": 37.2
+    },
+    "report": {
+      "exists": true,
+      "size_mb": 7.78
+    },
+    "qdrant_local": {
+      "exists": true,
+      "size_mb": 7.54
+    },
+    "mvp_export": {
+      "exists": true,
+      "size_mb": 6.16
+    }
+  },
+  "status": "SUCCESS"
+}

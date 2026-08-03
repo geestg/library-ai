@@ -1,11 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from delbot_platform.repository.service import (
-    RepositoryService,
-)
+from delbot_platform.repository.service import RepositoryService
 
 router = APIRouter(
     prefix="/repository",
@@ -39,15 +39,8 @@ class RepositoryExplorerResponse(BaseModel):
     items: list[RepositoryItemResponse]
 
 
-@router.post(
-    "/scan",
-    response_model=RepositoryScanResponse,
-)
-async def scan_repository(
-    request: RepositoryScanRequest,
-):
-
-    from pathlib import Path
+@router.post("/scan", response_model=RepositoryScanResponse)
+async def scan_repository(request: RepositoryScanRequest):
 
     root = Path(request.path)
 
@@ -58,9 +51,7 @@ async def scan_repository(
     total_files = 0
 
     if exists:
-
         for f in root.rglob("*"):
-
             if not f.is_file():
                 continue
 
@@ -89,12 +80,19 @@ async def repository_explorer():
 
     service = RepositoryService()
 
-    result = service.scan()
+    items = service.scan()
+
+    pdf_available = sum(
+        1 for item in items
+        if item.local_path
+    )
+
+    pdf_missing = len(items) - pdf_available
 
     return RepositoryExplorerResponse(
-        total=result.total,
-        pdf_available=result.pdf_available,
-        pdf_missing=result.pdf_missing,
+        total=len(items),
+        pdf_available=pdf_available,
+        pdf_missing=pdf_missing,
         items=[
             RepositoryItemResponse(
                 id=item.id,
@@ -102,6 +100,6 @@ async def repository_explorer():
                 status=item.status.value,
                 local_path=item.local_path,
             )
-            for item in result.items
+            for item in items
         ],
     )

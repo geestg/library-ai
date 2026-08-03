@@ -1,7 +1,0 @@
-{
-  "endpoint_module": "delbot_platform.api.routers.document",
-  "endpoint_signature": "(request: 'BatchIndexRequest')",
-  "pipeline_module": "delbot_platform.documents.pipeline.indexing",
-  "pipeline_signature": "(self, pdf_path: 'str') -> 'DocumentIndexArtifact'",
-  "ast_return": 1
-}

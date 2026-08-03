@@ -6,7 +6,6 @@ from delbot_platform.api.schemas.chat import (
     ChatRequest,
     ChatResponse,
 )
-
 from delbot_platform.application.factory import (
     ApplicationFactory,
 )
@@ -16,7 +15,17 @@ router = APIRouter(
     tags=["chat"],
 )
 
-application = ApplicationFactory.research()
+_application = None
+
+
+def get_application():
+
+    global _application
+
+    if _application is None:
+        _application = ApplicationFactory.research()
+
+    return _application
 
 
 @router.post(
@@ -26,6 +35,8 @@ application = ApplicationFactory.research()
 async def chat(
     request: ChatRequest,
 ) -> ChatResponse:
+
+    application = get_application()
 
     result = await application.execute(
         question=request.question,

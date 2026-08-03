@@ -30,17 +30,30 @@ class QdrantRetriever(
         self,
     ) -> None:
 
-        self.repository = QdrantRepository()
+        self.repository = None
 
-        self.embedding = EmbeddingPipeline(
-            provider="gateway",
-        )
+        self.embedding = None
+
+
+    def _initialize(
+        self,
+    ) -> None:
+
+        if self.repository is None:
+            self.repository = QdrantRepository()
+
+        if self.embedding is None:
+            self.embedding = EmbeddingPipeline(
+                provider="gateway",
+            )
 
     async def retrieve(
         self,
         query: str,
         limit: int = 5,
     ) -> list[RetrievalResult]:
+
+        self._initialize()
 
         query_chunk = DocumentChunk(
             document_id="query",

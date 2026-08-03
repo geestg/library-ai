@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.rag.research.pipeline import (
+from delbot_platform.research.pipeline import (
     ResearchAnswerPipeline,
 )
-from delbot_platform.knowledge.rag.research.response import (
+from delbot_platform.research.models import (
     ResearchPipelineResponse,
 )
 
@@ -17,7 +17,17 @@ class ResearchAnswerService:
         self,
     ) -> None:
 
-        self.pipeline = ResearchAnswerPipeline()
+        self.pipeline = None
+
+
+    def get_pipeline(
+        self,
+    ) -> ResearchAnswerPipeline:
+
+        if self.pipeline is None:
+            self.pipeline = ResearchAnswerPipeline()
+
+        return self.pipeline
 
     async def answer(
         self,
@@ -25,6 +35,6 @@ class ResearchAnswerService:
         question: str,
     ) -> ResearchPipelineResponse:
 
-        return await self.pipeline.answer(
+        return await self.get_pipeline().answer(
             question=question,
         )

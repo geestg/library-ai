@@ -1,9 +1,0 @@
-{
-  "endpoint_exists": true,
-  "pipeline_exists": true,
-  "imports_pipeline": false,
-  "instantiates_pipeline": false,
-  "calls_pipeline": false,
-  "integration_ready": true,
-  "exception": null
-}

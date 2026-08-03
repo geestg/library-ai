@@ -1,6 +1,0 @@
-=====================================================
-PROCESS MEMORY AUDIT
-=====================================================
-PID      RSS_MB     PSS_MB       SWAP_MB      CMD
-
-awk: cannot open /proc/1/smaps_rollup (Permission denied)

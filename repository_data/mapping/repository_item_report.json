@@ -1,6 +1,0 @@
-{
-  "module": "delbot_platform.repository.models.repository_item",
-  "class": "RepositoryItem",
-  "parameter_count": 7,
-  "signature": "(id: 'str', title: 'str', repository_url: 'str', pdf_url: 'str | None' = None, local_path: 'str | None' = None, status: 'RepositoryStatus' = <RepositoryStatus.METADATA_ONLY: 'metadata_only'>, metadata: 'dict | None' = None) -> None"
-}

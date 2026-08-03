@@ -16,7 +16,17 @@ router = APIRouter(
     tags=["research"],
 )
 
-application = ApplicationFactory.research()
+_application = None
+
+
+def get_application():
+
+    global _application
+
+    if _application is None:
+        _application = ApplicationFactory.research()
+
+    return _application
 
 
 @router.post(
@@ -27,38 +37,31 @@ async def answer_research(
     request: ResearchAnswerRequest,
 ) -> ResearchAnswerResponse:
 
+    application = get_application()
+
     result = await application.execute(
         question=request.question,
     )
 
-    citations: list[CitationResponse] = []
+    citations = []
 
     for item in result.citations:
 
         metadata = item.metadata or {}
 
-        page_start = metadata.get(
-            "page_start",
-            item.page,
-        )
-
-        page_end = metadata.get(
-            "page_end",
-            item.page,
-        )
-
-        section = metadata.get(
-            "section",
-            "",
-        )
-
         citations.append(
             CitationResponse(
                 document_id=item.document_id,
                 source=str(item.source_name),
-                section=section,
-                page_start=page_start,
-                page_end=page_end,
+                section=metadata.get("section", ""),
+                page_start=metadata.get(
+                    "page_start",
+                    item.page,
+                ),
+                page_end=metadata.get(
+                    "page_end",
+                    item.page,
+                ),
             )
         )
 

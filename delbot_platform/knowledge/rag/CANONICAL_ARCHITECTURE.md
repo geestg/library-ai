@@ -1,10 +1,8 @@
 # DELBot MVP Canonical RAG
 
-ResearchEngine
 
 ↓
 
-RAGEngine
 
 ↓
 

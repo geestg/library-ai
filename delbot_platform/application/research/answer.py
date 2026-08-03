@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from delbot_platform.knowledge.rag.research.response import (
+from delbot_platform.research.models import (
     ResearchPipelineResponse,
 )
 

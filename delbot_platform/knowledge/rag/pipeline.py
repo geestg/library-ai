@@ -27,17 +27,37 @@ class RAGPipeline:
         self,
     ) -> None:
 
-        self.retriever = QdrantRetriever()
+        self.retriever = None
 
-        self.reranker = GatewayReranker()
+        self.reranker = None
 
-        self.context_builder = ContextBuilder()
+        self.context_builder = None
 
-        self.provider = LocalDocumentProvider()
+        self.provider = None
 
-        self.hydrator = CitationHydrator(
-            self.provider,
-        )
+        self.hydrator = None
+
+    
+
+    def _initialize(self):
+
+        if self.retriever is None:
+            self.retriever = QdrantRetriever()
+
+        if self.reranker is None:
+            self.reranker = GatewayReranker()
+
+        if self.context_builder is None:
+            self.context_builder = ContextBuilder()
+
+        if self.provider is None:
+            self.provider = LocalDocumentProvider()
+
+        if self.hydrator is None:
+            self.hydrator = CitationHydrator(
+                self.provider,
+            )
+
 
     async def build(
         self,
@@ -45,6 +65,8 @@ class RAGPipeline:
         retrieve_limit: int = 20,
         rerank_limit: int = 5,
     ) -> RAGResponse:
+
+        self._initialize()
 
         retrieved = await self.retriever.retrieve(
             query=query,

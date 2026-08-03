@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-07-31T19:24:55.899735Z",
+  "project": "DELBot MVP",
+  "version": "0.1.0-mvp",
+  "backend": "QDRANT_LOCAL",
+  "artifacts": 13,
+  "package_exists": true,
+  "package": "/workspace/delbot/repository_data/mvp_export/delbot_mvp_package.tar.gz",
+  "files": [
+    "repository_data/mapping/repository_qa_validation.json",
+    "repository_data/mapping/local_embedding_build.json",
+    "repository_data/mapping/local_qdrant_index.json",
+    "repository_data/mapping/local_retrieval_engine.json",
+    "repository_data/mapping/repository_chat.json",
+    "repository_data/mapping/llm_answer_generator.json",
+    "repository_data/mapping/citation_builder.json",
+    "repository_data/mapping/ask_repository.json",
+    "repository_data/mapping/end_to_end_validation.json",
+    "repository_data/mapping/demo_query_suite.json",
+    "repository_data/mapping/mvp_final_readiness.json",
+    "repository_data/report/mvp_system_report.json",
+    "repository_data/report/mvp_smoke_test.json"
+  ],
+  "status": "SUCCESS"
+}

@@ -18,7 +18,13 @@ router = APIRouter(
 
 
 
-service = GatewayService()
+_service: GatewayService | None = None
+
+def get_service() -> GatewayService:
+    global _service
+    if _service is None:
+        _service = GatewayService()
+    return _service
 
 
 
@@ -26,6 +32,8 @@ service = GatewayService()
 async def embeddings(
     request:EmbeddingRequest,
 ):
+
+    service = get_service()
 
     return await service.embedding(
         request

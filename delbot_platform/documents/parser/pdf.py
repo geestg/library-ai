@@ -1,23 +1,35 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from delbot_platform.documents.loader.source import (
     DocumentSource,
 )
+
+from delbot_platform.documents.loader.sources.local import (
+    LocalDocumentSource,
+)
+
 from delbot_platform.documents.models.document import (
     Document,
 )
+
 from delbot_platform.documents.models.metadata import (
     Metadata,
 )
+
 from delbot_platform.documents.models.page import (
     Page,
 )
+
 from delbot_platform.documents.parser.backend.base import (
     PDFBackend,
 )
+
 from delbot_platform.documents.parser.backend.pymupdf import (
     PyMuPDFBackend,
 )
+
 from delbot_platform.documents.parser.base import (
     DocumentParser,
 )
@@ -36,10 +48,40 @@ class PDFParser(DocumentParser):
             else PyMuPDFBackend()
         )
 
+    def _normalize_source(
+        self,
+        source: DocumentSource | str | Path,
+    ) -> DocumentSource:
+
+        if isinstance(
+            source,
+            DocumentSource,
+        ):
+            return source
+
+        if isinstance(
+            source,
+            (
+                str,
+                Path,
+            ),
+        ):
+            return LocalDocumentSource(
+                source,
+            )
+
+        raise TypeError(
+            f"Unsupported source type: {type(source).__name__}"
+        )
+
     def parse(
         self,
-        source: DocumentSource,
+        source: DocumentSource | str | Path,
     ) -> Document:
+
+        source = self._normalize_source(
+            source,
+        )
 
         if not source.exists():
 

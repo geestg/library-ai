@@ -1,9 +1,0 @@
-{
-  "Factory Exists": true,
-  "chat()": false,
-  "chat Return": false,
-  "research()": true,
-  "research Return": true,
-  "Success": true,
-  "Exception": null
-}
