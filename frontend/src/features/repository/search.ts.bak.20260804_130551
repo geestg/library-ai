@@ -1,0 +1,31 @@
+import { repositoryIndexer } from "./indexing";
+
+export interface RepositorySearchRequest {
+    query: string;
+}
+
+export interface RepositorySearchResponse {
+    query: string;
+    indexed: boolean;
+}
+
+export class BackendRepositorySearcher {
+
+    async search(
+        request: RepositorySearchRequest,
+    ): Promise<RepositorySearchResponse> {
+
+        await repositoryIndexer.index({
+            files: [],
+        });
+
+        return {
+            query: request.query,
+            indexed: true
+        };
+    }
+
+}
+
+export const repositorySearcher =
+    new BackendRepositorySearcher();

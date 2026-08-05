@@ -31,6 +31,7 @@ class AIRuntimeLauncher(BaseLauncher):
         "reranker": "reranker",
         "vision": "vision",
         "ocr": "ocr",
+        "speech": "speech",
     }
 
     def __init__(self) -> None:

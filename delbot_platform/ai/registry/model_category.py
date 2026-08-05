@@ -19,6 +19,8 @@ class ModelCategory(str, Enum):
 
     OCR = "ocr"
 
+    SPEECH = "speech"
+
     def __str__(self) -> str:
 
         return self.value

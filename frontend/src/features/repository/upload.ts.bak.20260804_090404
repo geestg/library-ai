@@ -1,0 +1,27 @@
+import {
+    repositoryBackend,
+} from "./backend";
+
+export interface UploadFile {
+
+    name: string;
+
+    size: number;
+
+    file: File;
+}
+
+export class RepositoryUploadFlow {
+
+    async upload(
+        upload: UploadFile,
+    ) {
+
+        return repositoryBackend.upload({
+            file: upload.file,
+        });
+    }
+}
+
+export const repositoryUploadFlow =
+    new RepositoryUploadFlow();

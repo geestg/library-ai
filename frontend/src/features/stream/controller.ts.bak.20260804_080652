@@ -1,0 +1,23 @@
+import type { StreamChunk } from "../../contracts";
+import { streamClient } from "../../services/stream";
+
+export type StreamListener =
+    (chunk: StreamChunk) => void;
+
+export class StreamController {
+
+    async stream(
+        onChunk: StreamListener,
+    ): Promise<void> {
+
+        const chunks =
+            await streamClient.stream();
+
+        for (const chunk of chunks) {
+            onChunk(chunk);
+        }
+    }
+}
+
+export const streamController =
+    new StreamController();

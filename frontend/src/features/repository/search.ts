@@ -1,0 +1,26 @@
+
+export interface RepositorySearchRequest {
+    query: string;
+}
+
+export interface RepositorySearchResponse {
+    query: string;
+    results: unknown[];
+}
+
+export class RepositorySearcher {
+
+    async search(
+        request: RepositorySearchRequest,
+    ): Promise<RepositorySearchResponse> {
+
+
+        return {
+            query: request.query,
+            results: [],
+        };
+    }
+}
+
+export const repositorySearcher =
+    new RepositorySearcher();

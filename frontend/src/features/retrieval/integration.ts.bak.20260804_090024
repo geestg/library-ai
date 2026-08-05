@@ -1,0 +1,27 @@
+import type {
+    RetrievalRequest,
+    RetrievalResponse,
+} from "../../contracts";
+
+import { retrievalApi } from "../api";
+import { hybridRetrievalService } from "./hybrid";
+
+export class RetrievalIntegration {
+
+    async search(
+        request: RetrievalRequest,
+    ): Promise<RetrievalResponse> {
+
+        const local =
+            await hybridRetrievalService.search(request);
+
+        if (local.documents.length > 0) {
+            return local;
+        }
+
+        return retrievalApi.retrieve(request);
+    }
+}
+
+export const retrievalIntegration =
+    new RetrievalIntegration();

@@ -4,11 +4,15 @@ from delbot_platform.ai.runtime.base import (
     BaseRuntime,
 )
 
+from delbot_platform.ai.registry.model_category import (
+    ModelCategory,
+)
+
 
 def main() -> None:
 
     BaseRuntime(
-        "speech",
+        ModelCategory.SPEECH,
     ).run()
 
 

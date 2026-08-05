@@ -42,6 +42,15 @@ type Message = {
     content: string;
 };
 
+type WorkspaceItem = {
+    id: string;
+    title: string;
+    prompt: string;
+    updated_at: string;
+};
+
+
+
 type WorkspaceSession = {
     id: string;
     title: string;
@@ -60,6 +69,42 @@ const STORAGE_KEY = "delbot_workspace";
 const STREAM_DELAY = 8;
 
 
+const sidebarStyle = {
+    width: 260,
+    background: "#ffffff",
+    border: "1px solid #e5e7eb",
+    borderRadius: 12,
+    padding: 16,
+    height: "fit-content",
+} as const;
+
+
+
+const workspaceToolbarStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    marginBottom: 16,
+};
+
+// WORKSPACE_TOOLBAR_STYLE
+
+const workspaceButtonStyle = {
+    width: "100%",
+    textAlign: "left",
+    padding: "10px 12px",
+    marginBottom: 8,
+    border: "1px solid #e5e7eb",
+    borderRadius: 8,
+    background: "#f8fafc",
+    cursor: "pointer",
+} as const;
+
+
+
+import WorkspaceShell from "../../components/layout/WorkspaceShell";
+import ConversationWorkspace from "../../features/workspace/ConversationWorkspace";
 export default function DashboardPage() {
 
     const conversationRef = useRef<HTMLDivElement>(null);
@@ -70,21 +115,365 @@ export default function DashboardPage() {
     const [prompt, setPrompt] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
 
+const [result, setResult] =
+    useState<ResearchResponse | null>(null);
+
+
+
     const [workspaceSessions, setWorkspaceSessions] =
         useState<WorkspaceSession[]>([]);
 
     const [activeWorkspaceId, setActiveWorkspaceId] =
         useState("");
 
+const [summary, setSummary] = useState<Summary>({
+    total: 0,
+    pdf_available: 0,
+    pdf_missing: 0,
+});
 
-    const [result, setResult] = useState<ResearchResponse | null>(null);
 
-    const [summary, setSummary] = useState<Summary>({
-        total: 0,
-        pdf_available: 0,
-        pdf_missing: 0,
-    });
-const id = Date.now().toString();
+
+
+    
+
+    const [workspaces, setWorkspaces] =
+        useState<WorkspaceItem[]>([]);
+
+
+// WORKSPACE_LIST_POLISH
+
+
+    useEffect(() => {
+
+        repositoryExplorer()
+            .then((res) => {
+
+                setSummary({
+                    total: res.data.total ?? 0,
+                    pdf_available: res.data.pdf_available ?? 0,
+                    pdf_missing: res.data.pdf_missing ?? 0,
+                });
+
+            })
+            .catch(console.error)
+            .finally(() => setLoadingRepository(false));
+
+    }, []);
+
+    useEffect(() => {
+
+        try {
+
+            const saved =
+                localStorage.getItem(
+                    WORKSPACE_STORAGE
+                );
+
+            const active =
+                localStorage.getItem(
+                    ACTIVE_WORKSPACE
+                );
+
+            if (saved) {
+
+                setWorkspaceSessions(
+                    JSON.parse(saved)
+                );
+
+            }
+
+            if (active) {
+
+                setActiveWorkspaceId(active);
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
+    }, []);
+
+
+
+    useEffect(() => {
+
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+
+        if (!saved) {
+            return;
+        }
+
+        try {
+
+            const data = JSON.parse(saved);
+
+            setMessages(data.messages ?? []);
+            setResult(data.result ?? null);
+
+        } catch {
+            console.error("Invalid workspace session.");
+        }
+
+    }, []);
+
+    useEffect(() => {
+
+        sessionStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+                messages,
+                result,
+            })
+        );
+
+        conversationRef.current?.scrollTo({
+            top: conversationRef.current.scrollHeight,
+            behavior: "smooth",
+        });
+
+}, [messages, result]);
+    // AUTO_WORKSPACE_SAVE
+    useEffect(() => {
+
+        if (!activeWorkspaceId) {
+            return;
+        }
+
+        setWorkspaces(prev =>
+            prev.map(item =>
+                item.id === activeWorkspaceId
+                    ? {
+                          ...item,
+                          updated_at: new Date().toISOString(),
+                          messages,
+                          result,
+                      }
+                    : item
+            )
+        );
+
+    }, [messages, result, activeWorkspaceId]);
+
+    // RESTORE_WORKSPACE_SESSION
+    useEffect(() => {
+
+        if (!activeWorkspaceId) {
+            return;
+        }
+
+        const current = workspaceSessions.find(
+            item => item.id === activeWorkspaceId
+        );
+
+        if (!current) {
+            return;
+        }
+
+        setMessages(current.messages ?? []);
+        setResult(current.result ?? null);
+
+    }, [activeWorkspaceId]);
+
+
+
+
+
+
+
+
+
+    async function streamAnswer(answer: string) {
+
+        let text = "";
+
+        setMessages(prev => [
+            ...prev,
+            {
+                role: "assistant",
+                content: "",
+            },
+        ]);
+
+        for (const ch of answer) {
+
+            text += ch;
+
+            setMessages(prev => {
+
+                const copy = [...prev];
+
+                copy[copy.length - 1] = {
+                    role: "assistant",
+                    content: text,
+                };
+
+const activeWorkspaceButtonStyle = {
+    ...workspaceButtonStyle,
+    background:"#eef2ff",
+    border:"1px solid #6366f1",
+    fontWeight:600,
+};
+
+
+
+                return copy;
+
+            });
+
+            await new Promise(resolve =>
+                setTimeout(resolve, STREAM_DELAY)
+            );
+
+        }
+
+    }
+
+
+    async function askAI(question?: string) {
+
+        const current = (question ?? prompt).trim();
+
+        if (!current) {
+            return;
+        }
+
+        setMessages(prev => [
+            ...prev,
+            {
+                role: "user",
+                content: current,
+            },
+        ]);
+
+        setPrompt("");
+        setLoadingResearch(true);
+
+        try {
+
+            const response = await researchAnswer(current);
+
+            const data: ResearchResponse = response.data;
+
+            setResult(data);
+
+            await streamAnswer(data.answer);
+
+        } catch {
+
+            setMessages(prev => [
+                ...prev,
+                {
+                    role: "assistant",
+                    content: "Unable to answer this question.",
+                },
+            ]);
+
+        } finally {
+
+            setLoadingResearch(false);
+
+        }
+
+    }
+
+    function clearWorkspace() {
+
+        sessionStorage.removeItem(STORAGE_KEY);
+
+        setMessages([]);
+        setResult(null);
+        setPrompt("");
+
+    }
+
+    const quickPrompts = [
+        "Summarize repository.",
+        "Find research gaps.",
+        "Generate thesis ideas.",
+        "Compare CNN and ViT.",
+        "Explain recommendation systems.",
+    ];
+
+    const actions = [
+        {
+            title: "Repository",
+            description: "Browse indexed research documents.",
+            icon: FolderOpen,
+            to: "/repository",
+        },
+        {
+            title: "Semantic Search",
+            description: "Search repository semantically.",
+            icon: Search,
+            to: "/search",
+        },
+        {
+            title: "Document Index",
+            description: "Index new PDF documents.",
+            icon: Files,
+            to: "/documents",
+        },
+    ];
+
+
+
+    useEffect(() => {
+
+        localStorage.setItem(
+            WORKSPACE_STORAGE,
+            JSON.stringify(
+                workspaceSessions
+            )
+        );
+
+    }, [workspaceSessions]);
+
+    useEffect(() => {
+
+        localStorage.setItem(
+            "mvp_workspaces",
+            JSON.stringify(workspaces)
+        );
+
+    }, [workspaces]);
+
+    useEffect(() => {
+
+        if (!activeWorkspaceId) {
+            return;
+        }
+
+        localStorage.setItem(
+            "mvp_active_workspace",
+            activeWorkspaceId
+        );
+
+    }, [activeWorkspaceId]);
+
+
+
+    useEffect(() => {
+
+        if (activeWorkspaceId) {
+
+            localStorage.setItem(
+                ACTIVE_WORKSPACE,
+                activeWorkspaceId
+            );
+
+        }
+
+    }, [activeWorkspaceId]);
+
+    
+
+    function createWorkspace() {
+
+        const id = Date.now().toString();
 
         const session = {
             id: crypto.randomUUID(),
@@ -168,47 +557,23 @@ function switchWorkspace(id: string) {
 
     
 
-    return (
+    useEffect(() => {
 
-        <div
-            style={{
-                padding: 32,
-            }}
-        >
+        localStorage.setItem(
+            "mvp_workspaces",
+            JSON.stringify(workspaces)
+        );
 
-            <div
-                style={{
-                    background:"#ffffff",
-                    border:"1px solid #e5e7eb",
-                    borderRadius:16,
-                    padding:24,
-                }}
-            >
+    }, [workspaces]);
 
-                <h1
-                    style={{
-                        margin:0,
-                        fontSize:32,
-                    }}
-                >
-                    AI Research Workspace
-                </h1>
 
-                <p
-                    style={{
-                        color:"#64748b",
-                        marginTop:12,
-                        lineHeight:1.8,
-                    }}
-                >
-                    Dashboard recovery completed.
-                    Workspace will be restored gradually.
-                </p>
+return (
+    
 
-            </div>
+<WorkspaceShell>
+    <ConversationWorkspace />
+</WorkspaceShell>
 
-        </div>
 
-    );
-
+);
 }

@@ -1,0 +1,32 @@
+import type {
+    RetrievalRequest,
+    RetrievalResponse,
+} from "../../contracts";
+
+import {
+    retrievalPipeline,
+} from "../retrieval";
+
+export interface KnowledgeAdapter {
+
+    search(
+        request: RetrievalRequest,
+    ): Promise<RetrievalResponse>;
+
+}
+
+export class RetrievalKnowledgeAdapter
+implements KnowledgeAdapter {
+
+    async search(
+        request: RetrievalRequest,
+    ): Promise<RetrievalResponse> {
+
+        return retrievalPipeline.retrieve(request);
+
+    }
+
+}
+
+export const knowledgeAdapter =
+    new RetrievalKnowledgeAdapter();

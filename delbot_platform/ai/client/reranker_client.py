@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import requests
 
+from delbot_platform.core.config_manager import ConfigManager
 from delbot_platform.knowledge.models import DocumentChunk
 
 
@@ -9,8 +10,15 @@ class RerankerClient:
 
     def __init__(
         self,
-        url: str = "http://localhost:8106/v1/rerank",
+        url: str | None = None,
     ) -> None:
+
+        if url is None:
+            cfg = ConfigManager()
+            service = cfg.service("reranker")
+            host = service.get("host", "127.0.0.1")
+            port = service["port"]
+            url = f"http://{host}:{port}/v1/rerank"
 
         self.url = url
 
@@ -20,13 +28,10 @@ class RerankerClient:
         documents: list[DocumentChunk],
     ) -> list[DocumentChunk]:
 
-        texts = []
-
-        for document in documents:
-
-            texts.append(
-                document.text
-            )
+        texts = [
+            document.text
+            for document in documents
+        ]
 
         response = requests.post(
             self.url,
@@ -45,16 +50,12 @@ class RerankerClient:
 
         for item in ranked:
 
-            chunk = documents[
-                item["index"]
-            ]
+            chunk = documents[item["index"]]
 
             chunk.rerank_score = float(
                 item["score"]
             )
 
-            output.append(
-                chunk
-            )
+            output.append(chunk)
 
         return output

@@ -1,0 +1,26 @@
+import { colors, typography } from "../../design";
+
+export interface MarkdownRendererProps {
+    content?: string;
+}
+
+const containerStyle: React.CSSProperties = {
+    ...typography.body,
+    color: colors.text,
+    lineHeight: 1.8,
+    whiteSpace: "pre-wrap",
+    wordBreak: "break-word",
+};
+
+export default function MarkdownRenderer({
+    content = "",
+}: MarkdownRendererProps) {
+
+    return (
+        <div style={containerStyle}>
+            {content.length > 0
+                ? content
+                : "AI response will be rendered here."}
+        </div>
+    );
+}

@@ -14,6 +14,10 @@ from delbot_platform.api.routers.research import (
     router as research_router,
 )
 
+from delbot_platform.api.routers.retrieval import (
+    router as retrieval_router,
+)
+
 
 app = FastAPI(
     title="DELBot Research API",
@@ -31,6 +35,10 @@ app.include_router(
 
 app.include_router(
     research_router,
+)
+
+app.include_router(
+    retrieval_router,
 )
 
 

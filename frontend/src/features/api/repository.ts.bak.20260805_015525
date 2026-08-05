@@ -1,0 +1,27 @@
+import { apiClient } from "./client";
+
+export interface RepositoryUploadRequest {
+    files: File[];
+}
+
+export interface RepositoryUploadResponse {
+    accepted: number;
+}
+
+export class RepositoryApi {
+
+    async upload(
+        request: RepositoryUploadRequest,
+    ): Promise<RepositoryUploadResponse> {
+
+        void apiClient;
+        void request;
+
+        return {
+            accepted: request.files.length,
+        };
+    }
+}
+
+export const repositoryApi =
+    new RepositoryApi();

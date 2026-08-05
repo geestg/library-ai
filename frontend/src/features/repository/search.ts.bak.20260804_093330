@@ -1,0 +1,34 @@
+import { repositoryIndexer } from "./indexing";
+
+export interface RepositorySearchRequest {
+    query: string;
+}
+
+export interface RepositorySearchResult {
+    documents: unknown[];
+}
+
+export interface RepositorySearcher {
+    search(
+        request: RepositorySearchRequest,
+    ): Promise<RepositorySearchResult>;
+}
+
+export class BackendRepositorySearcher
+    implements RepositorySearcher {
+
+    async search(
+        request: RepositorySearchRequest,
+    ): Promise<RepositorySearchResult> {
+
+        await repositoryIndexer.index();
+
+        return {
+            documents: [],
+        };
+    }
+
+}
+
+export const repositorySearcher =
+    new BackendRepositorySearcher();

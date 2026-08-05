@@ -1,0 +1,20 @@
+import {
+    repositorySearcher,
+    type RepositorySearchRequest,
+    type RepositorySearchResponse,
+} from "./search";
+
+export class RepositorySynchronization {
+
+    async synchronize(
+        request: RepositorySearchRequest,
+    ): Promise<RepositorySearchResponse> {
+
+        return repositorySearcher.search(request);
+
+    }
+
+}
+
+export const repositorySynchronization =
+    new RepositorySynchronization();

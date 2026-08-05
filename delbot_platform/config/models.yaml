@@ -157,3 +157,26 @@ ocr:
       tensor_parallel_size: 1
 
       gpu_memory_utilization: 0.10
+
+speech:
+
+  default: whisper-large-v3
+
+  models:
+
+    whisper-large-v3:
+
+      backend: native
+
+      path: models/speech/whisper-large-v3
+
+      port: 8108
+
+      dtype: float16
+
+      max_context: 0
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.20
+
