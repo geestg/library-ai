@@ -4,22 +4,22 @@ from dataclasses import dataclass
 from dataclasses import field
 from typing import Any
 
-from delbot_platform.document_intelligence.models.page import (
-    Page,
-)
+from ..loader.loaded_document import LoadedDocument
+from .page import Page
 
 
 @dataclass(slots=True)
 class ParsedDocument:
-
-    title: str
-
-    file_path: str
+    source_document: LoadedDocument
 
     pages: list[Page] = field(
         default_factory=list,
     )
 
-    metadata: dict[str, Any] = field(
-        default_factory=dict,
+    headings: list[Any] = field(
+        default_factory=list,
+    )
+
+    paragraphs: list[Any] = field(
+        default_factory=list,
     )

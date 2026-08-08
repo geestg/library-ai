@@ -3,8 +3,8 @@ from __future__ import annotations
 from delbot_platform.ai.embedding.embedding_request import (
     EmbeddingRequest,
 )
-from delbot_platform.document_intelligence.models.parsed_document import (
-    ParsedDocument,
+from delbot_platform.document_intelligence.indexer.indexed_document import (
+    IndexedDocument,
 )
 from delbot_platform.document_intelligence.models.semantic_chunk import (
     SemanticChunk,
@@ -13,25 +13,22 @@ from delbot_platform.document_intelligence.models.semantic_chunk import (
 
 class EmbeddingBuilder:
     """
-    Convert SemanticChunkCollection into EmbeddingRequest objects.
+    Convert IndexedDocument into EmbeddingRequest objects.
     """
 
     def build(
         self,
-        document: ParsedDocument,
+        document: IndexedDocument,
     ) -> list[EmbeddingRequest]:
 
-        collection = document.metadata[
-            "semantic_chunk_collection"
-        ]
-
         requests: list[EmbeddingRequest] = []
+
+        collection = document.index
 
         for index, chunk in enumerate(
             collection,
             start=1,
         ):
-
             requests.append(
                 self._build_request(
                     index=index,

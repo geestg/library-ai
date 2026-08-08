@@ -30,11 +30,22 @@ class InfinityEmbeddingProvider(
         self._endpoint = endpoint
         self._model = model
 
+    def embed_many(
+        self,
+        requests: list[EmbeddingRequest],
+    ) -> list[EmbeddingResult]:
+
+        raise NotImplementedError(
+            "Infinity embedding provider is not implemented yet."
+        )
+
     def embed(
         self,
         request: EmbeddingRequest,
     ) -> EmbeddingResult:
 
-        raise NotImplementedError(
-            "Infinity embedding provider is not implemented yet."
-        )
+        return self.embed_many(
+            [
+                request,
+            ]
+        )[0]

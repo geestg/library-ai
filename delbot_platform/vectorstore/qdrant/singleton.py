@@ -17,9 +17,14 @@ class QdrantStore:
     ) -> None:
 
         if path is None:
-            path = str(
-                Path("repository_data")
-                / "qdrant_local"
+            import os
+
+            path = os.getenv(
+                "DELBOT_QDRANT_PATH",
+                str(
+                    Path("repository_data")
+                    / "qdrant_local"
+                ),
             )
 
         Path(path).mkdir(
@@ -92,8 +97,25 @@ class QdrantStore:
         collection_name: str = "delbot_documents",
     ) -> None:
 
-        # MVP
-        return None
+        from qdrant_client.models import (
+            Filter,
+            FieldCondition,
+            MatchValue,
+        )
+
+        self.client.delete(
+            collection_name=collection_name,
+            points_selector=Filter(
+                must=[
+                    FieldCondition(
+                        key="document_id",
+                        match=MatchValue(
+                            value=document_id,
+                        ),
+                    )
+                ]
+            ),
+        )
 
     # =====================================================
     # Search

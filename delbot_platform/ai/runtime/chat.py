@@ -51,15 +51,57 @@ def chat(
 
     user_message = request.messages[-1].content
 
+    context = ""
+    for message in request.messages:
+        if message.role == "system" and "DOCUMENT CONTEXT" in message.content:
+            context = message.content.split(
+                "DOCUMENT CONTEXT",
+                1,
+            )[1].strip()
 
     answer = (
-        "Berdasarkan context yang diberikan, "
-        "DELBot adalah Digital Engineering Library Bot. "
-        "DELBot merupakan AI Research Operating System "
-        "untuk membantu penelitian akademik menggunakan "
-        "LLM, RAG, Document Intelligence, "
-        "Knowledge Retrieval dan Research Engine."
+        "Informasi yang relevan tidak ditemukan dalam context."
     )
+
+    question_terms = [
+        word.lower().strip("?,.!:;()")
+        for word in user_message.split()
+        if len(word.strip("?,.!:;()")) > 2
+    ]
+
+    paragraphs = [
+        paragraph.strip()
+        for paragraph in context.split("\n\n")
+        if paragraph.strip()
+    ]
+
+    scored = []
+
+    for paragraph in paragraphs:
+        lowered = paragraph.lower()
+        score = sum(
+            1
+            for term in question_terms
+            if term in lowered
+        )
+        if score > 0:
+            scored.append((score, paragraph))
+
+    scored.sort(
+        key=lambda item: item[0],
+        reverse=True,
+    )
+
+    if scored:
+        selected = [
+            item[1]
+            for item in scored[:3]
+        ]
+
+        answer = (
+            "Berdasarkan dokumen yang ditemukan:\n\n"
+            + "\n\n".join(selected)
+        )
 
 
     return {
@@ -97,13 +139,22 @@ def chat(
 
 if __name__=="__main__":
 
+    import os
+
+    host = os.getenv(
+        "CHAT_HOST",
+        "0.0.0.0",
+    )
+
+    port = int(
+        os.getenv(
+            "CHAT_PORT",
+            "8101",
+        )
+    )
 
     uvicorn.run(
-
         app,
-
-        host="0.0.0.0",
-
-        port=8101
-
+        host=host,
+        port=port,
     )

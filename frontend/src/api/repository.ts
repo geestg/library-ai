@@ -5,7 +5,7 @@ export function repositoryExplorer() {
 }
 
 export function repositoryScan(path: string) {
-    return api.post("/repository/scan", {
+    return api.post("/api/repository/scan", {
         path,
     });
 }

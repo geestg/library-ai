@@ -392,8 +392,8 @@ const activeWorkspaceButtonStyle = {
 
     const quickPrompts = [
         "Summarize repository.",
-        "Find research gaps.",
-        "Generate thesis ideas.",
+        "Identify the main research gaps in the retrieved academic literature. Focus on limitations, unresolved problems, findings, recommendations, future work, and aspects not yet addressed. Ignore table of contents, lists of figures, lists of tables, appendices, bibliography, page numbers, and navigation text. Do not summarize the documents. Return 3 concise numbered gaps with Gap, Evidence, Limitation, Missing Aspect, and Research Direction. Only use evidence supported by the retrieved documents.",
+        "Generate feasible thesis ideas from the retrieved academic literature. Focus on research problems, limitations, findings, recommendations, future work, and unresolved aspects. Ignore table of contents, lists of figures, lists of tables, appendices, bibliography, page numbers, and navigation text. Do not summarize the documents. Return 3 concise numbered thesis ideas with Research Problem, Proposed Focus, Gap or Novelty, and Supporting Evidence. Only use evidence supported by the retrieved documents.",
         "Compare CNN and ViT.",
         "Explain recommendation systems.",
     ];

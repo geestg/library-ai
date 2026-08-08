@@ -11,7 +11,7 @@ research_api:
   port: 8200
 
 chat:
-  port: 8101
+  port: 8107
 
 embedding:
   port: 8102
