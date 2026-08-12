@@ -1,0 +1,28 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Hai, apa kabar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    }
+  ],
+  "last_query": "Hai, apa kabar?",
+  "last_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+  "summary": "",
+  "topics": [
+    "Hai, apa kabar?"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [],
+    "current_answer": "Informasi yang relevan tidak ditemukan dalam context."
+  },
+  "created_at": "2026-08-10T15:15:03.063222",
+  "updated_at": "2026-08-10T15:15:03.063237"
+}

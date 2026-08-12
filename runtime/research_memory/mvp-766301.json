@@ -1,0 +1,28 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Hai, apa kabar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Baik. Kamu sendiri bagaimana? Kalau sedang menyiapkan penelitian, kita juga bisa mulai dari mencari arah topiknya."
+    }
+  ],
+  "last_query": "Hai, apa kabar?",
+  "last_answer": "Baik. Kamu sendiri bagaimana? Kalau sedang menyiapkan penelitian, kita juga bisa mulai dari mencari arah topiknya.",
+  "summary": "",
+  "topics": [
+    "Hai, apa kabar?"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [],
+    "current_answer": "Baik. Kamu sendiri bagaimana? Kalau sedang menyiapkan penelitian, kita juga bisa mulai dari mencari arah topiknya."
+  },
+  "created_at": "2026-08-11T04:13:01.676309",
+  "updated_at": "2026-08-11T04:13:01.676318"
+}

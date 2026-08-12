@@ -51,6 +51,7 @@ class QdrantRetriever(
         self,
         query: str,
         limit: int = 5,
+        document_ids: list[str] | None = None,
     ) -> list[RetrievalResult]:
 
         self._initialize()
@@ -82,6 +83,7 @@ class QdrantRetriever(
         results = await self.repository.search(
             vector=vectors[0].vector,
             limit=limit,
+            document_ids=document_ids,
         )
 
         retrieved: list[RetrievalResult] = []

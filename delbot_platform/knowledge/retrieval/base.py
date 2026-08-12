@@ -17,6 +17,7 @@ class Retriever(ABC):
         self,
         query: str,
         limit: int = 5,
+        document_ids: list[str] | None = None,
     ) -> list[RetrievalResult]:
 
         pass

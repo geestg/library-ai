@@ -1,10 +1,14 @@
-import { colors, layout, typography } from "../../design";
-import { Button, Divider } from "../../components/ui";
-import WorkspaceSession from "../../features/workspace/WorkspaceSession";
+import {
+    FileText,
+    LayoutDashboard,
+} from "lucide-react";
+import { NavLink } from "react-router-dom";
+
+import { colors, typography } from "../../design";
 
 const sidebarStyle: React.CSSProperties = {
-    width: layout.sidebar.width,
-    minWidth: layout.sidebar.minWidth,
+    width: 240,
+    minWidth: 240,
     display: "flex",
     flexDirection: "column",
     background: colors.surface,
@@ -12,22 +16,25 @@ const sidebarStyle: React.CSSProperties = {
 };
 
 const headerStyle: React.CSSProperties = {
-    padding: 20,
+    padding: "22px 20px 20px",
 };
 
-const workspaceListStyle: React.CSSProperties = {
-    flex: 1,
-    padding: "0 12px 16px",
-    overflowY: "auto",
+const navStyle: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    gap: 4,
+    padding: 12,
 };
 
-const workspaceItemStyle: React.CSSProperties = {
+const linkStyle: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
     padding: "10px 12px",
-    borderRadius: 10,
-    cursor: "pointer",
+    borderRadius: 8,
     color: colors.textSecondary,
-    transition: "all .15s ease",
-    marginBottom: 4,
+    fontSize: 14,
+    fontWeight: 500,
 };
 
 export default function WorkspaceSidebar() {
@@ -35,48 +42,99 @@ export default function WorkspaceSidebar() {
         <aside style={sidebarStyle}>
 
             <div style={headerStyle}>
-
                 <div
                     style={{
                         ...typography.h3,
                         color: colors.text,
-                        marginBottom: 4,
                     }}
                 >
-                    DELBot
+                    DELBOT
+
                 </div>
 
                 <div
                     style={{
                         ...typography.caption,
                         color: colors.textMuted,
+                        marginTop: 4,
                     }}
                 >
-                    Academic Research Workspace
-                </div>
 
+                </div>
             </div>
 
-            <Divider />
 
-            <WorkspaceSession />
+            <div
+                style={{
+                    height: 1,
+                    background: colors.border,
+                }}
+            />
 
-            <div style={{ padding: 16 }}>
-                <Button style={{ width: "100%" }}>
-                    + New Workspace
-                </Button>
-            </div>
+            <nav style={navStyle}>
 
-            <Divider />
-
-            <WorkspaceSession />
-
-            <div style={workspaceListStyle}>
-
-                <div style={workspaceItemStyle}>
-                    Untitled Research
+                <div
+                    style={{
+                        fontSize: "18px",
+                        fontWeight: 800,
+                        letterSpacing: "0.08em",
+                        marginBottom: "18px",
+                        padding: "0 12px",
+                    }}
+                >
                 </div>
 
+
+                <NavLink
+                    to="/"
+                    end
+                    style={({ isActive }) => ({
+                        ...linkStyle,
+                        background: isActive
+                            ? colors.primarySoft
+                            : "transparent",
+                        color: isActive
+                            ? colors.primary
+                            : colors.textSecondary,
+                    })}
+                >
+                    <LayoutDashboard size={17} />
+    <span>Research Workspace</span>
+                </NavLink>
+
+                <NavLink
+                    to="/repository"
+                    style={({ isActive }) => ({
+                        ...linkStyle,
+                        background: isActive
+                            ? colors.primarySoft
+                            : "transparent",
+                        color: isActive
+                            ? colors.primary
+                            : colors.textSecondary,
+                    })}
+                >
+                    <FileText size={17} />
+                    <span>Repository</span>
+                </NavLink>
+
+            </nav>
+
+            <div
+                style={{
+                    marginTop: "auto",
+                    padding: "16px 20px",
+                    borderTop: `1px solid ${colors.border}`,
+                }}
+            >
+                <div
+                    style={{
+                        ...typography.caption,
+                        color: colors.textMuted,
+                    }}
+                >
+
+                </div>
             </div>
 
         </aside>

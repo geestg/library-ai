@@ -1,7 +1,7 @@
 import { api } from "./client";
 
 export function repositoryExplorer() {
-    return api.get("/repository/explorer");
+    return api.get("/api/repository/explorer");
 }
 
 export function repositoryScan(path: string) {

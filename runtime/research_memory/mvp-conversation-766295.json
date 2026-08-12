@@ -1,0 +1,62 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Hai, apa kabar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    },
+    {
+      "role": "user",
+      "content": "Aku mau meneliti tentang AI, ada ide?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    },
+    {
+      "role": "user",
+      "content": "Computer Vision menarik."
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    }
+  ],
+  "last_query": "Computer Vision menarik.",
+  "last_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+  "summary": "",
+  "topics": [
+    "Hai, apa kabar?",
+    "Aku mau meneliti tentang AI, ada ide?",
+    "Computer Vision menarik."
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [
+      "computer vision"
+    ],
+    "current_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+    "research_goal": "Aku mau meneliti tentang AI, ada ide?",
+    "current_question": "Computer Vision menarik.",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Aku mau meneliti tentang AI, ada ide?"
+      },
+      {
+        "event": "research_turn",
+        "value": "Computer Vision menarik."
+      }
+    ],
+    "topic": "computer vision",
+    "research_direction": "computer vision"
+  },
+  "created_at": "2026-08-11T02:21:51.321400",
+  "updated_at": "2026-08-11T02:21:51.348774"
+}

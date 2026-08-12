@@ -28,8 +28,10 @@ class ResearchAnswerApplication:
     async def execute(
         self,
         question: str,
+        session_id: str | None = None,
     ) -> ResearchPipelineResponse:
 
         return await self.service.answer(
             question=question,
+            session_id=session_id,
         )

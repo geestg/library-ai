@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 
+from delbot_platform.api.routers.chat import (
+    router as chat_router,
+)
+
 from delbot_platform.api.routers.document import (
     router as document_router,
 )
@@ -27,6 +31,10 @@ app = FastAPI(
 
 app.include_router(
     repository_router,
+)
+
+app.include_router(
+    chat_router,
 )
 
 app.include_router(

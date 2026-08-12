@@ -1,0 +1,32 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Computer Vision menarik."
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    }
+  ],
+  "last_query": "Computer Vision menarik.",
+  "last_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+  "summary": "",
+  "topics": [
+    "Computer Vision menarik."
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "current_answer": "Informasi yang relevan tidak ditemukan dalam context."
+  },
+  "created_at": "2026-08-10T15:13:59.805618",
+  "updated_at": "2026-08-10T15:13:59.805626"
+}

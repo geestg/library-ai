@@ -34,6 +34,7 @@ class QdrantStore:
 
         self.client = QdrantClient(
             path=path,
+            force_disable_check_same_thread=True,
         )
 
     # =====================================================

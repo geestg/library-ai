@@ -63,6 +63,128 @@ def chat(
         "Informasi yang relevan tidak ditemukan dalam context."
     )
 
+    system_text = "\n".join(
+        message.content
+        for message in request.messages
+        if message.role == "system"
+    ).lower()
+
+    conversation_mode = (
+        "mode: conversation" in system_text
+    )
+
+    research_mode = (
+        "mode: research" in system_text
+    )
+
+    if conversation_mode:
+        lowered = user_message.lower().strip()
+
+        if any(
+            greeting in lowered
+            for greeting in (
+                "hai",
+                "halo",
+                "hello",
+                "apa kabar",
+            )
+        ):
+            answer = (
+                "Baik. Kamu sendiri bagaimana? "
+                "Kalau sedang menyiapkan penelitian, "
+                "kita juga bisa mulai dari mencari arah topiknya."
+            )
+        elif any(
+            term in lowered
+            for term in (
+                "terima kasih",
+                "makasih",
+                "thanks",
+            )
+        ):
+            answer = (
+                "Sama-sama. Kita lanjutkan ketika kamu "
+                "sudah siap membahas penelitian."
+            )
+        else:
+            answer = (
+                "Saya siap membantu. "
+                "Kalau pembicaraan mulai masuk ke penelitian, "
+                "kita bisa mempersempit topik dan arah penelitian "
+                "terlebih dahulu sebelum menggunakan evidence repository."
+            )
+
+        return {
+            "id": "chatcmpl-delbot",
+            "object": "chat.completion",
+            "model": request.model,
+            "choices": [
+                {
+                    "index": 0,
+                    "message": {
+                        "role": "assistant",
+                        "content": answer,
+                    },
+                    "finish_reason": "stop",
+                }
+            ],
+        }
+
+    if research_mode and not context.strip():
+        lowered = user_message.lower().strip()
+
+        if (
+            "ai" in lowered
+            or "artificial intelligence" in lowered
+            or "kecerdasan buatan" in lowered
+        ):
+            answer = (
+                "AI cukup luas. Untuk mempersempit arah penelitian, "
+                "kamu bisa mempertimbangkan:\n\n"
+                "- AI untuk pendidikan atau kampus\n"
+                "- Computer Vision\n"
+                "- NLP atau LLM\n"
+                "- AI untuk biologi\n"
+                "- AI untuk penelitian atau akademik\n"
+                "- bidang AI lain yang sesuai minatmu\n\n"
+                "Pilih satu arah yang paling menarik, lalu kita "
+                "bisa lanjut mencari penelitian yang relevan dari repository."
+            )
+        elif (
+            "computer vision" in lowered
+            or "computer-vision" in lowered
+        ):
+            answer = (
+                "Computer Vision bisa menjadi arah penelitian yang "
+                "lebih spesifik. Kita dapat mempersempitnya lagi "
+                "berdasarkan objek, masalah, dataset, atau metode "
+                "yang ingin digunakan. Setelah arahnya cukup jelas, "
+                "DELBot dapat mencari penelitian yang relevan dari repository."
+            )
+        else:
+            answer = (
+                "Topiknya sudah mulai masuk ke penelitian, tetapi "
+                "belum perlu mengambil evidence dari repository. "
+                "Mari persempit terlebih dahulu bidang, objek, masalah, "
+                "atau arah penelitian yang ingin kamu dalami."
+            )
+
+        return {
+            "id": "chatcmpl-delbot",
+            "object": "chat.completion",
+            "model": request.model,
+            "choices": [
+                {
+                    "index": 0,
+                    "message": {
+                        "role": "assistant",
+                        "content": answer,
+                    },
+                    "finish_reason": "stop",
+                }
+            ],
+        }
+
     question_terms = [
         word.lower().strip("?,.!:;()")
         for word in user_message.split()
@@ -149,7 +271,7 @@ if __name__=="__main__":
     port = int(
         os.getenv(
             "CHAT_PORT",
-            "8101",
+            "8107",
         )
     )
 

@@ -10,7 +10,7 @@ chat:
 
       path: models/chat/qwen3-32b
 
-      port: 8101
+      port: 8107
 
       dtype: bfloat16
 

@@ -1,0 +1,27 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+
+from delbot_platform.knowledge.rag.models.response import (
+    RAGResponse,
+)
+
+from .citation import Citation
+
+
+@dataclass(slots=True)
+class ResearchPipelineResponse:
+    """
+    Canonical response produced by the Research Answer Pipeline.
+    """
+
+    answer: str
+
+    session_id: str = ""
+
+    citations: list[Citation] = field(
+        default_factory=list,
+    )
+
+    rag: RAGResponse | None = None

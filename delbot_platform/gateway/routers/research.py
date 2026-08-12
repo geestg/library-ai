@@ -15,6 +15,7 @@ router = APIRouter(
 
 class ResearchRequest(BaseModel):
     question: str
+    session_id: str | None = None
 
 
 class ResearchResponse(BaseModel):
@@ -23,6 +24,7 @@ class ResearchResponse(BaseModel):
     context_length: int
     documents: int
     retrieved: int
+    session_id: str
 
 
 _application: ResearchAnswerApplication | None = None
@@ -50,12 +52,26 @@ async def research_answer(
 
     response = await application.execute(
         question=request.question,
+        session_id=request.session_id,
     )
 
     return ResearchResponse(
         answer=response.answer,
         citations=response.citations,
-        context_length=len(response.rag.context),
-        documents=len(response.rag.documents),
-        retrieved=len(response.rag.citations),
+        context_length=(
+            len(response.rag.context)
+            if response.rag is not None
+            else 0
+        ),
+        documents=(
+            len(response.rag.documents)
+            if response.rag is not None
+            else 0
+        ),
+        retrieved=(
+            len(response.rag.citations)
+            if response.rag is not None
+            else 0
+        ),
+        session_id=response.session_id,
     )

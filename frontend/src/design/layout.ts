@@ -1,32 +1,30 @@
 export const layout = {
-
     app: {
-        minWidth: 1280,
+        minWidth: 900,
         minHeight: "100vh",
     },
 
     sidebar: {
-        width: 260,
-        minWidth: 260,
-        maxWidth: 260,
+        width: 236,
+        minWidth: 236,
+        maxWidth: 236,
     },
 
     workspace: {
-        minWidth: 720,
+        minWidth: 0,
     },
 
     evidence: {
-        width: 360,
-        minWidth: 360,
+        width: 340,
+        minWidth: 300,
         maxWidth: 360,
     },
 
     topbar: {
-        height: 60,
+        height: 64,
     },
 
     content: {
-        padding: 32,
+        padding: 28,
     },
-
 };

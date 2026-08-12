@@ -1,0 +1,45 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Hai, apa kabar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    },
+    {
+      "role": "user",
+      "content": "Aku mau meneliti tentang AI, ada ide?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    }
+  ],
+  "last_query": "Aku mau meneliti tentang AI, ada ide?",
+  "last_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+  "summary": "",
+  "topics": [
+    "Hai, apa kabar?",
+    "Aku mau meneliti tentang AI, ada ide?"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [],
+    "current_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+    "research_goal": "Aku mau meneliti tentang AI, ada ide?",
+    "current_question": "Aku mau meneliti tentang AI, ada ide?",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Aku mau meneliti tentang AI, ada ide?"
+      }
+    ]
+  },
+  "created_at": "2026-08-10T15:21:53.232165",
+  "updated_at": "2026-08-10T15:21:53.291790"
+}

@@ -1,0 +1,298 @@
+from __future__ import annotations
+
+import inspect
+
+from delbot_platform.knowledge.rag.pipeline import (
+    RAGPipeline,
+)
+
+from delbot_platform.research.generator import (
+    LLMGenerator,
+)
+
+from delbot_platform.research.models import (
+    ResearchPipelineResponse,
+)
+
+from delbot_platform.research.prompt_builder import (
+    ResearchPromptBuilder,
+)
+
+
+class ResearchAnswerPipeline:
+
+    def __init__(
+        self,
+    ) -> None:
+
+        self.rag = None
+
+        self.prompt_builder = (
+            ResearchPromptBuilder()
+        )
+
+        self.generator = (
+            LLMGenerator()
+        )
+
+    def _is_research_turn(
+        self,
+        question: str,
+        history: list[dict],
+    ) -> bool:
+
+        text = question.lower().strip()
+
+        research_terms = (
+            "research",
+            "research gap",
+            "research question",
+            "research idea",
+            "thesis",
+            "thesis idea",
+            "skripsi",
+            "tesis",
+            "penelitian",
+            "meneliti",
+            "riset",
+            "jurnal",
+            "paper",
+            "literatur",
+            "literature review",
+            "akademik",
+            "kampus",
+            "metode penelitian",
+            "metodologi",
+            "dataset",
+            "machine learning",
+            "deep learning",
+            "artificial intelligence",
+            "artificial intelligence",
+            "kecerdasan buatan",
+            "computer vision",
+            "nlp",
+            "llm",
+            "gap",
+        )
+
+        if any(
+            term in text
+            for term in research_terms
+        ):
+            return True
+
+        research_history_terms = (
+            "penelitian",
+            "meneliti",
+            "riset",
+            "research",
+            "thesis",
+            "skripsi",
+            "tesis",
+            "jurnal",
+            "paper",
+            "literatur",
+            "research gap",
+            "thesis idea",
+            "akademik",
+            "metode",
+            "dataset",
+            "machine learning",
+            "deep learning",
+            "artificial intelligence",
+            "kecerdasan buatan",
+            "computer vision",
+            "nlp",
+            "llm",
+        )
+
+        for item in history[-8:]:
+            content = str(
+                item.get("content", "")
+            ).lower()
+
+            if any(
+                term in content
+                for term in research_history_terms
+            ):
+                return True
+
+        return False
+
+    def _evolve_research_state(
+        self,
+        *,
+        question: str,
+        history: list[dict],
+        previous: str,
+        research_state: dict,
+        research_turn: bool,
+    ) -> dict:
+        state = dict(research_state or {})
+
+        keywords = list(
+            state.get("keywords") or []
+        )
+
+        text = question.strip()
+        lowered = text.lower()
+
+        topic_terms = (
+            "computer vision",
+            "machine learning",
+            "deep learning",
+            "artificial intelligence",
+            "kecerdasan buatan",
+            "natural language processing",
+            "nlp",
+            "llm",
+            "iot",
+            "internet of things",
+            "robotics",
+            "data science",
+        )
+
+        detected_topic = None
+
+        for term in topic_terms:
+            if term in lowered:
+                detected_topic = term
+                break
+
+        if detected_topic:
+            state["topic"] = detected_topic
+
+            if detected_topic not in keywords:
+                keywords.append(detected_topic)
+
+        research_goal_terms = (
+            "meneliti",
+            "penelitian",
+            "riset",
+            "research",
+            "skripsi",
+            "tesis",
+            "thesis",
+            "research gap",
+            "thesis idea",
+            "ide penelitian",
+        )
+
+        if any(
+            term in lowered
+            for term in research_goal_terms
+        ):
+            state["research_goal"] = text
+
+        if research_turn:
+            state["current_question"] = text
+
+        if previous:
+            state["current_answer"] = previous
+
+        state["keywords"] = keywords
+
+        if detected_topic:
+            state["research_direction"] = detected_topic
+
+        if research_turn:
+            timeline = list(
+                state.get("timeline") or []
+            )
+
+            timeline.append(
+                {
+                    "event": "research_turn",
+                    "value": text,
+                }
+            )
+
+            state["timeline"] = timeline[-20:]
+
+        return state
+
+    def get_rag(
+        self,
+    ) -> RAGPipeline:
+
+        if self.rag is None:
+
+            self.rag = RAGPipeline()
+
+        return self.rag
+
+    async def answer(
+        self,
+        *,
+        question: str,
+        history: list[dict] | None = None,
+        previous: str = "",
+        research_state: dict | None = None,
+    ) -> ResearchPipelineResponse:
+
+        history = history or []
+
+        research_state = (
+            research_state or {}
+        )
+
+        research_turn = self._is_research_turn(
+            question,
+            history,
+        )
+
+        research_state = self._evolve_research_state(
+            question=question,
+            history=history,
+            previous=previous,
+            research_state=research_state,
+            research_turn=research_turn,
+        )
+
+        if research_turn:
+
+            rag = await self.get_rag().build(
+                query=question,
+            )
+
+            context = rag.context
+            citations = rag.citations
+
+        else:
+
+            rag = None
+            context = ""
+            citations = []
+
+        messages = (
+            self.prompt_builder.build(
+                query=question,
+                context=context,
+                history=history,
+                previous=previous,
+                research_state=research_state,
+                mode=(
+                    "research"
+                    if research_turn
+                    else "conversation"
+                ),
+            )
+        )
+
+        generated = self.generator.generate(
+            messages,
+        )
+
+        if inspect.isawaitable(
+            generated
+        ):
+            generated = await generated
+
+        research_state["current_answer"] = generated
+
+        return ResearchPipelineResponse(
+            answer=generated,
+            citations=citations,
+            research_state=research_state,
+            rag=rag,
+        )

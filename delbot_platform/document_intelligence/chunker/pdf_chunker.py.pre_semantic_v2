@@ -1,0 +1,44 @@
+from __future__ import annotations
+
+from ..models.parsed_document import ParsedDocument
+from ..models.semantic_chunk import SemanticChunk
+from ..models.semantic_chunk_collection import SemanticChunkCollection
+from .document_chunker import DocumentChunker
+
+
+class PDFChunker(DocumentChunker):
+
+    def chunk(
+        self,
+        document: ParsedDocument,
+    ) -> SemanticChunkCollection:
+
+        chunks = []
+
+        for page in document.pages:
+            for block in page.blocks:
+
+                text = " ".join(
+                    span.text
+                    for line in block.lines
+                    for span in line.spans
+                    if span.text.strip()
+                ).strip()
+
+                if not text:
+                    continue
+
+                chunks.append(
+                    SemanticChunk(
+                        page=page.page_number,
+                        heading=None,
+                        text=text,
+                        tokens=[],
+                        metadata={},
+                        embedding=None,
+                    )
+                )
+
+        return SemanticChunkCollection(
+            chunks=chunks,
+        )

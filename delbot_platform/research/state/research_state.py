@@ -32,6 +32,9 @@ class ResearchState:
             "sources": [],
             "notes": [],
             "timeline": [],
+            "research_direction": None,
+            "research_gap": None,
+            "thesis_idea": None,
             "created_at": now,
             "updated_at": now,
         }

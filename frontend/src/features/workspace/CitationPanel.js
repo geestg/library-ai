@@ -1,21 +1,36 @@
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import { colors } from "../../design";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { colors, typography, radius, spacing } from "../../design";
 import Citation from "../../components/citation/Citation";
 import PDFEvidenceViewer from "../../components/pdf/PDFEvidenceViewer";
 const panelStyle = {
     width: 340,
-    display: "flex",
-    flexDirection: "column",
-    background: colors.surface,
+    minWidth: 340,
+    height: "100%",
+    padding: `${spacing.xl}px ${spacing.lg}px`,
     borderLeft: `1px solid ${colors.border}`,
-};
-const bodyStyle = {
-    padding: 20,
+    background: colors.surfaceSecondary,
     overflowY: "auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: 16,
+};
+const headerStyle = {
+    marginBottom: spacing.lg,
+};
+const titleStyle = {
+    ...typography.h3,
+    margin: 0,
+    color: colors.text,
+};
+const descriptionStyle = {
+    ...typography.caption,
+    marginTop: 5,
+    color: colors.textSecondary,
+    lineHeight: 1.5,
+};
+const evidenceStyle = {
+    background: colors.surface,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.md,
+    overflow: "hidden",
 };
 export default function CitationPanel() {
-    return (_jsx("aside", { style: panelStyle, children: _jsxs(_Fragment, { children: [_jsx(Citation, {}), _jsx(PDFEvidenceViewer, {})] }) }));
+    return (_jsxs("aside", { style: panelStyle, children: [_jsxs("div", { style: headerStyle, children: [_jsx("div", { style: titleStyle, children: "Evidence" }), _jsx("div", { style: descriptionStyle, children: "Sources and document context used by DELBot." })] }), _jsx("div", { style: evidenceStyle, children: _jsx(Citation, {}) }), _jsx(PDFEvidenceViewer, {})] }));
 }

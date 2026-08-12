@@ -18,8 +18,14 @@ class ResearchPipelineResponse:
 
     answer: str
 
+    session_id: str = ""
+
     citations: list[Citation] = field(
         default_factory=list,
+    )
+
+    research_state: dict = field(
+        default_factory=dict,
     )
 
     rag: RAGResponse | None = None

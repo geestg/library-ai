@@ -52,11 +52,33 @@ class QdrantRepository(
         self,
         vector: list[float],
         limit: int = 5,
+        document_ids: list[str] | None = None,
     ) -> list[VectorRecord]:
+
+        query_filter = None
+
+        if document_ids:
+            from qdrant_client.models import (
+                FieldCondition,
+                Filter,
+                MatchAny,
+            )
+
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="document_id",
+                        match=MatchAny(
+                            any=document_ids,
+                        ),
+                    )
+                ]
+            )
 
         results = self.store.search(
             query_vector=vector,
             limit=limit,
+            query_filter=query_filter,
         )
 
         records: list[VectorRecord] = []

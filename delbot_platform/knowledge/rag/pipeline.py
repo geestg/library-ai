@@ -64,6 +64,7 @@ class RAGPipeline:
         query: str,
         retrieve_limit: int = 20,
         rerank_limit: int = 5,
+        document_ids: list[str] | None = None,
     ) -> RAGResponse:
 
         self._initialize()
@@ -71,6 +72,7 @@ class RAGPipeline:
         retrieved = await self.retriever.retrieve(
             query=query,
             limit=retrieve_limit,
+            document_ids=document_ids,
         )
 
         candidates = [

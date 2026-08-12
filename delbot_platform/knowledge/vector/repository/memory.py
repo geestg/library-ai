@@ -41,6 +41,7 @@ class InMemoryVectorRepository(
         self,
         vector: list[float],
         limit: int = 5,
+        document_ids: list[str] | None = None,
     ) -> list[VectorRecord]:
 
 

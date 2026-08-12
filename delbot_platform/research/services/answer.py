@@ -1,8 +1,15 @@
 from __future__ import annotations
 
+from uuid import uuid4
+
+from delbot_platform.research.memory import (
+    ResearchMemory,
+)
+
 from delbot_platform.research.pipeline import (
     ResearchAnswerPipeline,
 )
+
 from delbot_platform.research.models import (
     ResearchPipelineResponse,
 )
@@ -19,6 +26,7 @@ class ResearchAnswerService:
 
         self.pipeline = None
 
+        self.memory = ResearchMemory()
 
     def get_pipeline(
         self,
@@ -33,8 +41,65 @@ class ResearchAnswerService:
         self,
         *,
         question: str,
+        session_id: str | None = None,
     ) -> ResearchPipelineResponse:
 
-        return await self.get_pipeline().answer(
-            question=question,
+        session_id = (
+            session_id
+            or str(uuid4())
         )
+
+        memory = self.memory.load(
+            session_id,
+        )
+
+        history = memory.get(
+            "history",
+            [],
+        )
+
+        previous = memory.get(
+            "last_answer",
+            "",
+        )
+
+        research_state = memory.get(
+            "research_state",
+            {},
+        )
+
+        result = await self.get_pipeline().answer(
+            question=question,
+            history=history,
+            previous=previous,
+            research_state=research_state,
+        )
+
+        result.session_id = session_id
+
+        sources = []
+
+        for citation in result.citations:
+
+            if hasattr(
+                citation,
+                "to_dict",
+            ):
+                sources.append(
+                    citation.to_dict()
+                )
+
+            else:
+                sources.append(
+                    str(citation)
+                )
+
+        self.memory.save(
+            session_id=session_id,
+            query=question,
+            answer=result.answer,
+            research_state=result.research_state,
+            sources=sources,
+        )
+
+        return result
