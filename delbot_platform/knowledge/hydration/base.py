@@ -3,10 +3,6 @@ from __future__ import annotations
 from abc import ABC
 from abc import abstractmethod
 
-from delbot_platform.research.models.citation import (
-    Citation,
-)
-
 
 class DocumentProvider(
     ABC,

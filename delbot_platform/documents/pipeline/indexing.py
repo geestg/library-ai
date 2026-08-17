@@ -63,10 +63,12 @@ class DocumentIndexingPipeline:
     async def index(
         self,
         pdf_path: str,
+        document_id: str | None = None,
     ) -> DocumentIndexArtifact:
 
         document = self.registry.resolve(
             pdf_path,
+            document_id=document_id,
         )
 
         sections = self.preprocessing.process(
@@ -132,6 +134,7 @@ class DocumentIndexingPipeline:
     async def index_with_summary(
         self,
         pdf_path: str,
+        document_id: str | None = None,
     ) -> tuple[
         DocumentIndexArtifact,
         DocumentIndexResult,
@@ -141,6 +144,7 @@ class DocumentIndexingPipeline:
 
         artifact = await self.index(
             pdf_path,
+            document_id=document_id,
         )
 
         elapsed = (

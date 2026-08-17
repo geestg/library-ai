@@ -10,8 +10,8 @@ from delbot_platform.knowledge.hydration import (
 from delbot_platform.knowledge.rag.models.response import (
     RAGResponse,
 )
-from delbot_platform.knowledge.reranking.gateway import (
-    GatewayReranker,
+from delbot_platform.knowledge.reranking.local import (
+    LocalReranker,
 )
 from delbot_platform.knowledge.reranking.result import (
     RerankResult,
@@ -45,7 +45,7 @@ class RAGPipeline:
             self.retriever = QdrantRetriever()
 
         if self.reranker is None:
-            self.reranker = GatewayReranker()
+            self.reranker = LocalReranker()
 
         if self.context_builder is None:
             self.context_builder = ContextBuilder()

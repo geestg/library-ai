@@ -222,6 +222,103 @@ class ResearchAnswerPipeline:
 
         text = question.lower().strip()
 
+        metadata_discovery_terms = (
+            "apa yang ada",
+            "apa saja",
+            "penelitian apa",
+            "penelitian yang ada",
+            "penelitian yang relevan",
+            "penelitian relevan",
+            "penelitian terkait",
+            "literatur terkait",
+            "literatur yang relevan",
+            "literatur relevan",
+            "jurnal terkait",
+            "jurnal yang relevan",
+            "dokumen yang relevan",
+            "dokumen relevan",
+            "sumber penelitian",
+            "penelitian tersedia",
+            "literatur tersedia",
+            "yang tersedia",
+            "yang relevan",
+            "contoh penelitian",
+            "ada penelitian",
+            "ada jurnal",
+            "ada literatur",
+            "di repository",
+            "dari repository",
+            "dalam repository",
+            "terdapat di repository",
+            "terdapat dalam repository",
+            "berdasarkan repository",
+        )
+
+        metadata_discovery_only = any(
+            term in text
+            for term in metadata_discovery_terms
+        )
+
+        substantive_evidence_terms = (
+            "isi penelitian",
+            "isi jurnal",
+            "isi dokumen",
+            "fulltext",
+            "full text",
+            "teks lengkap",
+            "metode penelitian",
+            "metodologi penelitian",
+            "hasil penelitian",
+            "hasil eksperimen",
+            "temuan penelitian",
+            "limitations",
+            "keterbatasan penelitian",
+            "future work",
+            "rekomendasi penelitian",
+            "discussion",
+            "pembahasan penelitian",
+            "evidence",
+            "bukti",
+            "citation",
+            "sitasi",
+            "kutipan",
+            "bandingkan penelitian",
+            "bandingkan jurnal",
+            "compare penelitian",
+            "comparison",
+            "research gap",
+            "gap penelitian",
+            "kesenjangan penelitian",
+            "thesis idea",
+            "thesis ideas",
+            "ide skripsi",
+            "ide tesis",
+            "ide penelitian",
+        )
+
+        if (
+            metadata_discovery_only
+            and not any(
+                term in text
+                for term in substantive_evidence_terms
+            )
+            and not any(
+                term in text
+                for term in (
+                    "berdasarkan repository",
+                    "dari repository",
+                    "di repository",
+                    "dalam repository",
+                    "terdapat di repository",
+                    "terdapat dalam repository",
+                    "berdasarkan dokumen",
+                    "dari dokumen",
+                    "di dataset",
+                )
+            )
+        ):
+            return False
+
         evidence_terms = (
             "berdasarkan repository",
             "berdasarkan penelitian",
@@ -234,6 +331,9 @@ class ResearchAnswerPipeline:
             "dari jurnal",
             "dari dokumen",
             "di repository",
+            "dalam repository",
+            "terdapat di repository",
+            "terdapat dalam repository",
             "di dataset",
             "penelitian yang relevan",
             "literatur yang relevan",
@@ -281,23 +381,7 @@ class ResearchAnswerPipeline:
         )
 
         if has_idea_request:
-            discovered_documents = (
-                research_state.get(
-                    "discovered_documents"
-                )
-                or []
-            )
-
-            has_discovered_pdf = any(
-                bool(
-                    item.get("has_pdf")
-                )
-                for item in discovered_documents
-                if isinstance(item, dict)
-            )
-
-            if has_discovered_pdf:
-                return True
+            return True
 
         if any(
             term in text
@@ -501,11 +585,31 @@ class ResearchAnswerPipeline:
                 f"{author} {year}"
             ).lower()
 
-            score = sum(
-                1
-                for term in topic_terms
-                if term in searchable
-            )
+            score = 0
+
+            for term in topic_terms:
+                normalized = term.strip().lower()
+
+                if not normalized:
+                    continue
+
+                if " " in normalized:
+                    if normalized in searchable:
+                        score += 1
+                    continue
+
+                pattern = (
+                    r"(?<!\\w)"
+                    + re.escape(normalized)
+                    + r"(?!\\w)"
+                )
+
+                if re.search(
+                    pattern,
+                    searchable,
+                    flags=re.IGNORECASE,
+                ):
+                    score += 1
 
             if score > 0:
                 scored.append(
@@ -524,6 +628,7 @@ class ResearchAnswerPipeline:
 
         scored.sort(
             key=lambda item: (
+                -int(item[6]),
                 -item[0],
                 item[1].lower(),
             )
@@ -537,6 +642,7 @@ class ResearchAnswerPipeline:
                 "title": item[1],
                 "author": item[2],
                 "year": item[3],
+                "abstract": item[4][:1200],
                 "has_pdf": item[6],
             }
             for item in selected
@@ -678,10 +784,7 @@ class ResearchAnswerPipeline:
             research_state,
         )
 
-        if (
-            research_turn
-            and not evidence_turn
-        ):
+        if research_turn:
             discovery_topic = (
                 research_state.get("topic")
                 or research_state.get(
@@ -758,6 +861,8 @@ class ResearchAnswerPipeline:
             if is_continuation and topic:
                 rag_query = (
                     f"Research topic: {topic}. "
+                    f"Research direction: "
+                    f"{research_state.get('research_direction') or topic}. "
                     f"User follow-up: {question}"
                 )
 
@@ -789,11 +894,39 @@ class ResearchAnswerPipeline:
             else:
                 rag_query = question
 
+                if topic:
+                    rag_query = (
+                        f"Research topic: {topic}. "
+                        f"Research direction: "
+                        f"{research_state.get('research_direction') or topic}. "
+                        f"User research request: {question}"
+                    )
+
+                if research_gap:
+                    rag_query += (
+                        f" Existing research gap: {research_gap}"
+                    )
+
+                if thesis_idea:
+                    rag_query += (
+                        f" Existing thesis direction: {thesis_idea}"
+                    )
+
+            if not document_ids and discovered_documents:
+                document_ids = [
+                    str(item.get("document_id", ""))
+                    for item in discovered_documents
+                    if (
+                        item.get("document_id")
+                        and item.get("has_pdf") is True
+                    )
+                ]
+
             rag = await self.get_rag().build(
                 query=rag_query,
                 document_ids=(
                     document_ids
-                    if is_continuation
+                    if document_ids
                     else None
                 ),
             )
@@ -829,7 +962,7 @@ class ResearchAnswerPipeline:
             context = ""
             citations = []
 
-        if discovery_context:
+        if discovery_context and not evidence_turn:
             if context:
                 context = (
                     discovery_context

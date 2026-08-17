@@ -44,7 +44,7 @@ class QdrantRetriever(
 
         if self.embedding is None:
             self.embedding = EmbeddingPipeline(
-                provider="gateway",
+                provider="local",
             )
 
     async def retrieve(

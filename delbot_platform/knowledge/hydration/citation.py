@@ -6,9 +6,6 @@ from delbot_platform.knowledge.hydration.base import (
 from delbot_platform.knowledge.reranking.result import (
     RerankResult,
 )
-from delbot_platform.research.models import (
-    Citation,
-)
 
 
 class CitationHydrator:
@@ -24,6 +21,8 @@ class CitationHydrator:
         self,
         result: RerankResult,
     ) -> Citation:
+
+        from delbot_platform.research.models import Citation
 
         metadata = result.metadata
 

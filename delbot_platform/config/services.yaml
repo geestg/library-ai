@@ -14,16 +14,16 @@ chat:
   port: 8107
 
 embedding:
-  port: 8102
+  port: 8105
 
 reranker:
-  port: 8103
+  port: 8106
 
 vision:
   port: 8104
 
 ocr:
-  port: 8105
+  port: 8109
 
 speech:
-  port: 8106
+  port: 8108

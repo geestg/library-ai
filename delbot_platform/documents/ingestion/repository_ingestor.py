@@ -81,7 +81,8 @@ class RepositoryDocumentIngestor:
             try:
 
                 result = await self.pipeline.index(
-                    str(pdf_path)
+                    str(pdf_path),
+                    document_id=document["document_id"],
                 )
 
                 results.append(

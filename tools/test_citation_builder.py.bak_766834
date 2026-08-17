@@ -101,81 +101,30 @@ def perform_search(
         with_payload=True,
     )
 
-    from delbot_platform.documents.models.document_chunk import (
-        DocumentChunk,
-    )
     from delbot_platform.documents.metadata.mapper.chunk_metadata_mapper import (
         ChunkMetadataMapper,
+    )
+    from delbot_platform.knowledge.reranking.result import (
+        RerankResult,
     )
 
     results = []
 
     for item in raw_results:
-
         payload = item.payload or {}
-
-        metadata = ChunkMetadataMapper.from_payload(
-            payload,
-        )
-
-        page_start = int(
-            payload.get(
-                "page_start",
-                payload.get(
-                    "page",
-                    0,
-                ),
-            )
-        )
-
-        page_end = int(
-            payload.get(
-                "page_end",
-                payload.get(
-                    "page",
-                    page_start,
-                ),
-            )
-        )
-
-        chunk = DocumentChunk(
-            document_id=str(
-                payload.get(
-                    "document_id",
-                    "",
-                )
-            ),
-            chunk_id=str(
-                payload.get(
-                    "chunk_id",
-                    item.id,
-                )
-            ),
-            page_start=page_start,
-            page_end=page_end,
-            section_title=payload.get(
-                "section_title",
-            ),
-            chapter=payload.get(
-                "chapter",
-            ),
-            text=str(
-                payload.get(
-                    "text",
-                    payload.get(
-                        "content",
-                        "",
-                    ),
-                )
-            ),
-            metadata=metadata,
-            score=float(
-                item.score,
-            ),
-        )
+        metadata = ChunkMetadataMapper.from_payload(payload)
 
         results.append(
-            chunk,
+            RerankResult(
+                id=str(item.id),
+                score=float(item.score),
+                content=str(
+                    payload.get("text")
+                    or payload.get("content")
+                    or ""
+                ),
+                metadata=metadata,
+            )
         )
 
     return results

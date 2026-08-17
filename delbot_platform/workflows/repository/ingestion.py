@@ -74,6 +74,7 @@ class RepositoryIngestionWorkflow:
         document_artifact, _ = (
             await self.documents.index(
                 str(pdf),
+                document_id=resolved.id,
             )
         )
 

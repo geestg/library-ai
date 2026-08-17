@@ -9,10 +9,6 @@ from delbot_platform.gateway.routers.health import (
 from delbot_platform.gateway.routers.research import (
     router as research_router,
 )
-
-from delbot_platform.api.routers.retrieval import (
-    router as retrieval_router,
-)
 from delbot_platform.gateway.routers.chat import (
     router as chat_router,
 )
@@ -21,10 +17,6 @@ from delbot_platform.gateway.routers.embedding import (
 )
 from delbot_platform.gateway.routers.models import (
     router as models_router,
-)
-
-from delbot_platform.api.routers.document import (
-    router as document_router,
 )
 
 app = FastAPI(
@@ -44,10 +36,6 @@ app.include_router(
     research_router,
 )
 
-app.include_router(
-    retrieval_router,
-)
-
 #
 # AI APIs
 #
@@ -62,10 +50,6 @@ app.include_router(
 
 app.include_router(
     models_router,
-)
-
-app.include_router(
-    document_router,
 )
 
 

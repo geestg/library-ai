@@ -22,7 +22,7 @@ class EmbeddingPipeline:
 
     def __init__(
         self,
-        provider: str = "gateway",
+        provider: str = "local",
     ) -> None:
 
         self.provider = (

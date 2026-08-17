@@ -148,7 +148,7 @@ ocr:
 
       path: models/ocr/paddleocr
 
-      port: 8107
+      port: 8109
 
       dtype: float32
 

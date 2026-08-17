@@ -2,13 +2,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from dataclasses import field
+from typing import TYPE_CHECKING
 
 from delbot_platform.knowledge.reranking.result import (
     RerankResult,
 )
-from delbot_platform.research.models import (
-    Citation,
-)
+
+if TYPE_CHECKING:
+    from delbot_platform.research.models.citation import (
+        Citation,
+    )
 
 
 @dataclass(slots=True)

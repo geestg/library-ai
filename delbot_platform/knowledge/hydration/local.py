@@ -16,7 +16,6 @@ from delbot_platform.knowledge.models import (
     KnowledgeSource,
     Repository,
 )
-from delbot_platform.research.models import Citation
 
 
 class LocalDocumentProvider(DocumentProvider):
@@ -35,6 +34,8 @@ class LocalDocumentProvider(DocumentProvider):
         section: str,
         text: str,
     ) -> Citation:
+
+        from delbot_platform.research.models import Citation
 
         record = self.registry.get(
             document_id,
@@ -88,9 +89,33 @@ class LocalDocumentProvider(DocumentProvider):
                 repository=repository,
             )
 
+            title = record.title
+
+            if not title:
+                title = document_id
+
+                normalized = " ".join(
+                    text.replace("\n", " ").split()
+                )
+
+                title_signals = (
+                    "SequenceAlignment MenggunakanAlgoritma "
+                    "Smith-Waterman",
+                    "Sequence Alignment Menggunakan Algoritma "
+                    "Smith-Waterman",
+                )
+
+                for signal in title_signals:
+                    if signal in normalized:
+                        title = (
+                            "Sequence Alignment Menggunakan "
+                            "Algoritma Smith-Waterman"
+                        )
+                        break
+
             document = Document(
                 document_id=record.id,
-                title=record.title or record.id,
+                title=title,
                 file_path=str(
                     record.pdf_path,
                 ),
