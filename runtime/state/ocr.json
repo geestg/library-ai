@@ -6,8 +6,8 @@
         "delbot_platform.ai.runtime.ocr"
     ],
     "workdir": "/workspace/delbot",
-    "pid": 132129,
+    "pid": 22133,
     "running": true,
     "host": "0.0.0.0",
-    "port": 8105
+    "port": 8109
 }

@@ -1,0 +1,549 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa yang dimaksud dengan penelitian?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi"
+    }
+  ],
+  "last_query": "Apa yang dimaksud dengan penelitian?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi",
+  "summary": "",
+  "topics": [
+    "Apa yang dimaksud dengan penelitian?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='123456789-1312', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=' daya yang dibutuhkan peneliti. Setelah\\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\\nmenginformasikan jadwal pengujian .\\n4)   Mempersiapkan Bahan Pengujian\\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\\nberikut :\\na)   Orientation Script\\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\\npengujian peserta. Pada umumnya  orientation script  mencantumkan\\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\\nsaja.\\n26                 Institut Teknologi Del\\nb)   Background Questionnaire\\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\\nScreening questionnaire,  background questionnaire  digunakan untuk\\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=' daya yang dibutuhkan peneliti. Setelah\\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\\nmenginformasikan jadwal pengujian .\\n4)   Mempersiapkan Bahan Pengujian\\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\\nberikut :\\na)   Orientation Script\\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\\npengujian peserta. Pada umumnya  orientation script  mencantumkan\\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\\nsaja.\\n26                 Institut Teknologi Del\\nb)   Background Questionnaire\\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\\nScreening questionnaire,  background questionnaire  digunakan untuk\\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='m , dan analisis kebutuhan\\npengguna yaitu  specify the context of use, specify user and organizational\\nrequirement.\\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\\nmembandingkan dan membedakan suatu objek atau ide.\\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\\ncontext of use, Specify user and organizational requirement, product design\\nsolution and evaluate .\\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\\n1.   Pengumpulan Informasi\\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\\n28\\nInstitut Teknologi Del\\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\\nseperti kebiasaan pengguna\\n2.   Analisis\\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\\nmenggunakan produk serupa.\\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\\nuser and organizational requirement  pada pengembangan aplikasi  Learning\\nManagement System  berbasis  mobile\\na.   Specify the context of use\\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\\nkegiatan mentor dan  mentee  menggunakan banyak  learning\\nmanagement system  sejenis selama pelaksanaan Studi Independen.\\nb.   Specify user and organi', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ran tingkat efisiensi, kemudahan dalam\\nmempelajari dan kemampuan untuk mengingat bagaimana berinteraksi dengan\\nsistem tanpa mengalami kesulitan (Bauer, 2010). Usability testing dapat dilakukan\\nberulang sesuai dengan kebutuhan. Semakin dikembangkannya teknologi, para\\npakar menekankan uji ketergantungan dengan dua hal pokok yaitu :\\n1)   Ease of learning\\nMelakukan pengukuran terhadap ketergunaan dengan membandingkan waktu\\nyang diperlukan pengguna dalam mempelajari sistem dengan latar belakang\\npengguna tersebut belum memiliki pengalaman dalam menggunakan sistem\\ntersebut sebelumnya.\\n2)   Ease of use\\nMelakukan pengukuran jumlah interaksi pengguna dalam menyelesaikan suatu\\npekerjaan.Sebagai contoh , membandingkan jumlah pergerakan  untuk\\nberpindah dari satu desain ke desain yang lain.\\nManfaat yang didapat apabila menerapkan  evaluasi usability  menggunakan metode\\nusability testing  adalah untuk mengatasi masalah desain, proses mudah dan cepat,\\ndapat mengetahui setiap aktivitas pengunjung dan mengetahui kekurangan dari\\n20                 Institut Teknologi Del\\naplikasi. Upaya mencapai tingkat  usability  yang baik, maka sebelum melakukan\\npenelitian, peneliti harus mengetahui tahapan dalam melakukan metode ini\\nusability testing .  Menurut Jeffrey Rubin dan Dana Chisnell pada bukunya yang\\nberjudul   Handbook of Usability Testing  How to Plan, Design and Conduct\\nEffective Test  , tahap yang dilakukan dalam melakukan penelitian  usability testing\\nadalah sebagai berikut :\\n1)   Membuat Test Plan\\nTest plan  merupakan fondasi dalam melakukan pengujian .  test plan  akan\\nmembahas bagaimana, kapan , dimana , siapa dan apa pengujian yang akan\\ndilakukan. Terdapat beberapa alasan mengapa pembuatan  test plan\\ndikategorikan menjadi tahapan yang penting, diantaranya sebagai media\\nkomunikasi, mendefinisikan sumberdaya yang diperlukan dan memberikan titik\\nfokus pengujian. Berikut ini adalah tahapan dalam membuat   test plan  :\\na)   Communicate Research Question\\nMelakukan komunikasi terkait p', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='123456789-1312', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ran tingkat efisiensi, kemudahan dalam\\nmempelajari dan kemampuan untuk mengingat bagaimana berinteraksi dengan\\nsistem tanpa mengalami kesulitan (Bauer, 2010). Usability testing dapat dilakukan\\nberulang sesuai dengan kebutuhan. Semakin dikembangkannya teknologi, para\\npakar menekankan uji ketergantungan dengan dua hal pokok yaitu :\\n1)   Ease of learning\\nMelakukan pengukuran terhadap ketergunaan dengan membandingkan waktu\\nyang diperlukan pengguna dalam mempelajari sistem dengan latar belakang\\npengguna tersebut belum memiliki pengalaman dalam menggunakan sistem\\ntersebut sebelumnya.\\n2)   Ease of use\\nMelakukan pengukuran jumlah interaksi pengguna dalam menyelesaikan suatu\\npekerjaan.Sebagai contoh , membandingkan jumlah pergerakan  untuk\\nberpindah dari satu desain ke desain yang lain.\\nManfaat yang didapat apabila menerapkan  evaluasi usability  menggunakan metode\\nusability testing  adalah untuk mengatasi masalah desain, proses mudah dan cepat,\\ndapat mengetahui setiap aktivitas pengunjung dan mengetahui kekurangan dari\\n20                 Institut Teknologi Del\\naplikasi. Upaya mencapai tingkat  usability  yang baik, maka sebelum melakukan\\npenelitian, peneliti harus mengetahui tahapan dalam melakukan metode ini\\nusability testing .  Menurut Jeffrey Rubin dan Dana Chisnell pada bukunya yang\\nberjudul   Handbook of Usability Testing  How to Plan, Design and Conduct\\nEffective Test  , tahap yang dilakukan dalam melakukan penelitian  usability testing\\nadalah sebagai berikut :\\n1)   Membuat Test Plan\\nTest plan  merupakan fondasi dalam melakukan pengujian .  test plan  akan\\nmembahas bagaimana, kapan , dimana , siapa dan apa pengujian yang akan\\ndilakukan. Terdapat beberapa alasan mengapa pembuatan  test plan\\ndikategorikan menjadi tahapan yang penting, diantaranya sebagai media\\nkomunikasi, mendefinisikan sumberdaya yang diperlukan dan memberikan titik\\nfokus pengujian. Berikut ini adalah tahapan dalam membuat   test plan  :\\na)   Communicate Research Question\\nMelakukan komunikasi terkait p', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "research_goal": "Apa yang dimaksud dengan penelitian?",
+    "current_question": "Apa yang dimaksud dengan penelitian?",
+    "keywords": [],
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa yang dimaksud dengan penelitian?"
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "123456789-1312",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-1312",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": " daya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": " daya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "m , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ran tingkat efisiensi, kemudahan dalam\nmempelajari dan kemampuan untuk mengingat bagaimana berinteraksi dengan\nsistem tanpa mengalami kesulitan (Bauer, 2010). Usability testing dapat dilakukan\nberulang sesuai dengan kebutuhan. Semakin dikembangkannya teknologi, para\npakar menekankan uji ketergantungan dengan dua hal pokok yaitu :\n1)   Ease of learning\nMelakukan pengukuran terhadap ketergunaan dengan membandingkan waktu\nyang diperlukan pengguna dalam mempelajari sistem dengan latar belakang\npengguna tersebut belum memiliki pengalaman dalam menggunakan sistem\ntersebut sebelumnya.\n2)   Ease of use\nMelakukan pengukuran jumlah interaksi pengguna dalam menyelesaikan suatu\npekerjaan.Sebagai contoh , membandingkan jumlah pergerakan  untuk\nberpindah dari satu desain ke desain yang lain.\nManfaat yang didapat apabila menerapkan  evaluasi usability  menggunakan metode\nusability testing  adalah untuk mengatasi masalah desain, proses mudah dan cepat,\ndapat mengetahui setiap aktivitas pengunjung dan mengetahui kekurangan dari\n20                 Institut Teknologi Del\naplikasi. Upaya mencapai tingkat  usability  yang baik, maka sebelum melakukan\npenelitian, peneliti harus mengetahui tahapan dalam melakukan metode ini\nusability testing .  Menurut Jeffrey Rubin dan Dana Chisnell pada bukunya yang\nberjudul   Handbook of Usability Testing  How to Plan, Design and Conduct\nEffective Test  , tahap yang dilakukan dalam melakukan penelitian  usability testing\nadalah sebagai berikut :\n1)   Membuat Test Plan\nTest plan  merupakan fondasi dalam melakukan pengujian .  test plan  akan\nmembahas bagaimana, kapan , dimana , siapa dan apa pengujian yang akan\ndilakukan. Terdapat beberapa alasan mengapa pembuatan  test plan\ndikategorikan menjadi tahapan yang penting, diantaranya sebagai media\nkomunikasi, mendefinisikan sumberdaya yang diperlukan dan memberikan titik\nfokus pengujian. Berikut ini adalah tahapan dalam membuat   test plan  :\na)   Communicate Research Question\nMelakukan komunikasi terkait p",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "123456789-1312",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-1312",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ran tingkat efisiensi, kemudahan dalam\nmempelajari dan kemampuan untuk mengingat bagaimana berinteraksi dengan\nsistem tanpa mengalami kesulitan (Bauer, 2010). Usability testing dapat dilakukan\nberulang sesuai dengan kebutuhan. Semakin dikembangkannya teknologi, para\npakar menekankan uji ketergantungan dengan dua hal pokok yaitu :\n1)   Ease of learning\nMelakukan pengukuran terhadap ketergunaan dengan membandingkan waktu\nyang diperlukan pengguna dalam mempelajari sistem dengan latar belakang\npengguna tersebut belum memiliki pengalaman dalam menggunakan sistem\ntersebut sebelumnya.\n2)   Ease of use\nMelakukan pengukuran jumlah interaksi pengguna dalam menyelesaikan suatu\npekerjaan.Sebagai contoh , membandingkan jumlah pergerakan  untuk\nberpindah dari satu desain ke desain yang lain.\nManfaat yang didapat apabila menerapkan  evaluasi usability  menggunakan metode\nusability testing  adalah untuk mengatasi masalah desain, proses mudah dan cepat,\ndapat mengetahui setiap aktivitas pengunjung dan mengetahui kekurangan dari\n20                 Institut Teknologi Del\naplikasi. Upaya mencapai tingkat  usability  yang baik, maka sebelum melakukan\npenelitian, peneliti harus mengetahui tahapan dalam melakukan metode ini\nusability testing .  Menurut Jeffrey Rubin dan Dana Chisnell pada bukunya yang\nberjudul   Handbook of Usability Testing  How to Plan, Design and Conduct\nEffective Test  , tahap yang dilakukan dalam melakukan penelitian  usability testing\nadalah sebagai berikut :\n1)   Membuat Test Plan\nTest plan  merupakan fondasi dalam melakukan pengujian .  test plan  akan\nmembahas bagaimana, kapan , dimana , siapa dan apa pengujian yang akan\ndilakukan. Terdapat beberapa alasan mengapa pembuatan  test plan\ndikategorikan menjadi tahapan yang penting, diantaranya sebagai media\nkomunikasi, mendefinisikan sumberdaya yang diperlukan dan memberikan titik\nfokus pengujian. Berikut ini adalah tahapan dalam membuat   test plan  :\na)   Communicate Research Question\nMelakukan komunikasi terkait p",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\ndaya yang dibutuhkan peneliti. Setelah\nmendapatkan jawaban dari beberapa partisipan, maka peneliti melakukan\npenyaringan peserta yang sesuai dengan kriteria tertentu. Apabila telah\nmelakukan penyaringan, maka peneliti akan melakukan konfirmasi dan\nmenginformasikan jadwal pengujian .\n4)   Mempersiapkan Bahan Pengujian\nKategori umum yang dibutuhkan dalam mengembangkan pengujian dan yang\nharus dipersiapkan selama berlangsungnya pengujian dapat meliputi aspek\nberikut :\na)   Orientation Script\nOrientation Script  merupakan alat komunikasi untuk dibacakan kata demi kata\nkepada peserta.  Orientation Script  akan menggambarkan proses pengujian.\nProses pengujian yang dimaksud adalah terkait apa yang akan dilakukan\npeserta , menekankan bahwa pengujian ini adalah pengujian produk bukan\npengujian peserta. Pada umumnya  orientation script  mencantumkan\nperkenalan, menjelaskan mengapa peserta melakukan pengujian tersebut,\npenjelasan aturan pengujian, penjelasan terkait apa yang diharapkan dari\npeserta, meyakinkan peserta bahwa pengujian tersebut adalah pengujian\nproduk bukan pengujian peserta, menjelaskan persyaratan yang dapat dan tidak\ndapat dilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n26                 Institut Teknologi Del\nb)   Background Questionnaire\nKuesioner ini akan memberikan pemahaman kepada pengguna , bahwa\npengujian dilakukan akan membantu peneliti dalam memahami perilaku dan\nkinerja dari prototipe yang telah dibuat. Pertanyaan yang terdapat dalam\nkuesioner ini adalah pertanyaan yang mengungkapkan pengalaman, sikap, dan\npreferensi partisipan pada bidang yang mungkin mempengaruhi kinerja.\nKuesioner ini biasanya diisi sebelum melakukan pengujian. Berbeda dengan\nScreening questionnaire,  background questionnaire  digunakan untuk\nmengidentifikasi peserta terkait pengalaman peserta sebelumnya dalam\nmelakukan pengujian atau penggunaan produk yang sama, usia , jenis kelamin\ndan berbagai aspek lainnya yang berkaitan dengan latar belakang pribad\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi"
+  },
+  "created_at": "2026-08-17T23:10:48.045272",
+  "updated_at": "2026-08-17T23:10:48.045285"
+}

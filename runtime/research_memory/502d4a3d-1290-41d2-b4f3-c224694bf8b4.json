@@ -1,0 +1,540 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa topik penelitian yang relevan dengan computer vision?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\ndalam penelitian\ntugas akhir. Adapun tahapan dalam comparative study adalah:\n1.   Memilih topik dan mendefinisikan tujuan penelitian peneliti\nTopik penelitian bisa diinspirasi dari kondisi yang ada dalam kehidupan\nnyata. Kemudian, penentuan tujuan menjadi sangat penting dalam studi\nperbandingan untuk memastikan apakah fokusnya adalah pada pola,\nperbedaan, atau dampak tertentu yang ingin diselidiki.\n2.   Tinjauan Literatur\nMembaca dan meninjau literatur dapat memperluas pemahaman tentang\ntopik penelitian yang sedang diselidiki. Tahap ini juga membantu peneliti\nmemperoleh pemahaman yang lebih mendalam tentang teori-teori yang\nmendasari dan konteks yang relevan dengan topik penelitian tersebut.\n3.   Memilih entitas yang akan dibandingkan\nPemilihan entitas yang akan dibandingkan harus didasarkan pada\nkarakteristik yang penting dan relevan dengan tujuan penelitian.\n4.   Menentukan indikator perbandingan\nIndikator perbandingan merupakan instrumen yang digunakan untuk\nmenilai atau membandingkan dua entitas, konsep, atau fenomena. Indikator\nperbandingan membantu dalam mengevaluasi perbedaan atau kesamaan\nantara subjek yang sedang dibandingkan.\n5.   Melakukan perbandingan\nData akan dikumpulkan dari entitas yang telah ditentukan, kemudian\ndibandingkan berdasarkan indikator yang telah ditetapkan sebelumnya.\n6.   Interpretasi hasil\nInterpretasi hasil dilakukan dengan menganalisis hasil perbandingan untuk\nmengenali pola-pola kesamaan dan perbedaan yang muncul ketika entitas\ndibandingkan.\n7.   Kesimpulan\n26\nInstitut Teknologi Del\nKesimpulan disampaikan dengan menggabungkan temuan utama yang telah\ndiidentifikasi, kemudian menjelaskan konsekuensi hasil penelitian terhadap\ntujuan studi dan lingkup yang lebih besar.\n2.13  User-Centered Design\nUser-Centered Design  merupakan pendekatan dalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perha\n\nalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perhatian  pada  calon  pengguna  spesifik,  seperti\nmempertimbangkan faktor jenis kelamin atau rentang usia, dalam proses desain\n[13].\nTujuan utama pendekatan UCD adalah menciptakan produk yang mudah\ndigunakan, efektif dan memberikan pengalaman positif bagi pengguna. Contoh\npenerapan UCD dapat ditemukan dalam desain antarmuka pengguna (UI) perangkat\nlunak ataupun  mobile , dimana prototipe awal dari sebuah produk diuji dengan\npengguna yang sebenarnya untuk memastikan bahwa antarmuka mudah dipahami\ndan digunakan. Pada pengembagan  frontend learning management system berbasis\nmobile  untuk Infinite Learning ini menggunakan metode  User-Centered Design\nkarena selama perancangan dan pengembangannya memiliki calon  user  yang\nspesifik seperti usia, kategori dan kemampuan calon  user  dalam menggunakan\nteknologi.\n27                                     Institut Teknologi Del\nBAB III\nANALISIS DAN DESAIN\nPada bab ini penulis akan menjelaskan tentang hasil analisis kebutuhan\npenelitian, terdapat penjelasan mengenai hasil analisis kebutuhan dalam konteks\npenelitian ini. Analisis tersebut akan menjadi dasar untuk membangun model\nanalisis yang sesuai. Tujuan dari tahap analisis ini adalah untuk memahami kondisi\ndan gambaran umum dari bidang yang akan diterapkan dalam topik penelitian.\nProses ini akan membantu dalam menentukan proses bisnis yang akan\ndiimplementasikan, berdasarkan hasil analisis proses bisnis dan analisis sistem\nyang telah dilakukan.\n3.1 Analisis\nPada sub bab ini akan menjelaskan analisis pemilihan 3  Learning Management\nSystem , analisis indikator  Learning Management System , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi"
+    }
+  ],
+  "last_query": "Apa topik penelitian yang relevan dengan computer vision?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\ndalam penelitian\ntugas akhir. Adapun tahapan dalam comparative study adalah:\n1.   Memilih topik dan mendefinisikan tujuan penelitian peneliti\nTopik penelitian bisa diinspirasi dari kondisi yang ada dalam kehidupan\nnyata. Kemudian, penentuan tujuan menjadi sangat penting dalam studi\nperbandingan untuk memastikan apakah fokusnya adalah pada pola,\nperbedaan, atau dampak tertentu yang ingin diselidiki.\n2.   Tinjauan Literatur\nMembaca dan meninjau literatur dapat memperluas pemahaman tentang\ntopik penelitian yang sedang diselidiki. Tahap ini juga membantu peneliti\nmemperoleh pemahaman yang lebih mendalam tentang teori-teori yang\nmendasari dan konteks yang relevan dengan topik penelitian tersebut.\n3.   Memilih entitas yang akan dibandingkan\nPemilihan entitas yang akan dibandingkan harus didasarkan pada\nkarakteristik yang penting dan relevan dengan tujuan penelitian.\n4.   Menentukan indikator perbandingan\nIndikator perbandingan merupakan instrumen yang digunakan untuk\nmenilai atau membandingkan dua entitas, konsep, atau fenomena. Indikator\nperbandingan membantu dalam mengevaluasi perbedaan atau kesamaan\nantara subjek yang sedang dibandingkan.\n5.   Melakukan perbandingan\nData akan dikumpulkan dari entitas yang telah ditentukan, kemudian\ndibandingkan berdasarkan indikator yang telah ditetapkan sebelumnya.\n6.   Interpretasi hasil\nInterpretasi hasil dilakukan dengan menganalisis hasil perbandingan untuk\nmengenali pola-pola kesamaan dan perbedaan yang muncul ketika entitas\ndibandingkan.\n7.   Kesimpulan\n26\nInstitut Teknologi Del\nKesimpulan disampaikan dengan menggabungkan temuan utama yang telah\ndiidentifikasi, kemudian menjelaskan konsekuensi hasil penelitian terhadap\ntujuan studi dan lingkup yang lebih besar.\n2.13  User-Centered Design\nUser-Centered Design  merupakan pendekatan dalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perha\n\nalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perhatian  pada  calon  pengguna  spesifik,  seperti\nmempertimbangkan faktor jenis kelamin atau rentang usia, dalam proses desain\n[13].\nTujuan utama pendekatan UCD adalah menciptakan produk yang mudah\ndigunakan, efektif dan memberikan pengalaman positif bagi pengguna. Contoh\npenerapan UCD dapat ditemukan dalam desain antarmuka pengguna (UI) perangkat\nlunak ataupun  mobile , dimana prototipe awal dari sebuah produk diuji dengan\npengguna yang sebenarnya untuk memastikan bahwa antarmuka mudah dipahami\ndan digunakan. Pada pengembagan  frontend learning management system berbasis\nmobile  untuk Infinite Learning ini menggunakan metode  User-Centered Design\nkarena selama perancangan dan pengembangannya memiliki calon  user  yang\nspesifik seperti usia, kategori dan kemampuan calon  user  dalam menggunakan\nteknologi.\n27                                     Institut Teknologi Del\nBAB III\nANALISIS DAN DESAIN\nPada bab ini penulis akan menjelaskan tentang hasil analisis kebutuhan\npenelitian, terdapat penjelasan mengenai hasil analisis kebutuhan dalam konteks\npenelitian ini. Analisis tersebut akan menjadi dasar untuk membangun model\nanalisis yang sesuai. Tujuan dari tahap analisis ini adalah untuk memahami kondisi\ndan gambaran umum dari bidang yang akan diterapkan dalam topik penelitian.\nProses ini akan membantu dalam menentukan proses bisnis yang akan\ndiimplementasikan, berdasarkan hasil analisis proses bisnis dan analisis sistem\nyang telah dilakukan.\n3.1 Analisis\nPada sub bab ini akan menjelaskan analisis pemilihan 3  Learning Management\nSystem , analisis indikator  Learning Management System , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi",
+  "summary": "",
+  "topics": [
+    "Apa topik penelitian yang relevan dengan computer vision?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=' dalam penelitian\\ntugas akhir. Adapun tahapan dalam comparative study adalah:\\n1.   Memilih topik dan mendefinisikan tujuan penelitian peneliti\\nTopik penelitian bisa diinspirasi dari kondisi yang ada dalam kehidupan\\nnyata. Kemudian, penentuan tujuan menjadi sangat penting dalam studi\\nperbandingan untuk memastikan apakah fokusnya adalah pada pola,\\nperbedaan, atau dampak tertentu yang ingin diselidiki.\\n2.   Tinjauan Literatur\\nMembaca dan meninjau literatur dapat memperluas pemahaman tentang\\ntopik penelitian yang sedang diselidiki. Tahap ini juga membantu peneliti\\nmemperoleh pemahaman yang lebih mendalam tentang teori-teori yang\\nmendasari dan konteks yang relevan dengan topik penelitian tersebut.\\n3.   Memilih entitas yang akan dibandingkan\\nPemilihan entitas yang akan dibandingkan harus didasarkan pada\\nkarakteristik yang penting dan relevan dengan tujuan penelitian.\\n4.   Menentukan indikator perbandingan\\nIndikator perbandingan merupakan instrumen yang digunakan untuk\\nmenilai atau membandingkan dua entitas, konsep, atau fenomena. Indikator\\nperbandingan membantu dalam mengevaluasi perbedaan atau kesamaan\\nantara subjek yang sedang dibandingkan.\\n5.   Melakukan perbandingan\\nData akan dikumpulkan dari entitas yang telah ditentukan, kemudian\\ndibandingkan berdasarkan indikator yang telah ditetapkan sebelumnya.\\n6.   Interpretasi hasil\\nInterpretasi hasil dilakukan dengan menganalisis hasil perbandingan untuk\\nmengenali pola-pola kesamaan dan perbedaan yang muncul ketika entitas\\ndibandingkan.\\n7.   Kesimpulan\\n26\\nInstitut Teknologi Del\\nKesimpulan disampaikan dengan menggabungkan temuan utama yang telah\\ndiidentifikasi, kemudian menjelaskan konsekuensi hasil penelitian terhadap\\ntujuan studi dan lingkup yang lebih besar.\\n2.13  User-Centered Design\\nUser-Centered Design  merupakan pendekatan dalam proses desain yang yang\\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\\nmengutamakan  perha', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='alam proses desain yang yang\\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\\nmengutamakan  perhatian  pada  calon  pengguna  spesifik,  seperti\\nmempertimbangkan faktor jenis kelamin atau rentang usia, dalam proses desain\\n[13].\\nTujuan utama pendekatan UCD adalah menciptakan produk yang mudah\\ndigunakan, efektif dan memberikan pengalaman positif bagi pengguna. Contoh\\npenerapan UCD dapat ditemukan dalam desain antarmuka pengguna (UI) perangkat\\nlunak ataupun  mobile , dimana prototipe awal dari sebuah produk diuji dengan\\npengguna yang sebenarnya untuk memastikan bahwa antarmuka mudah dipahami\\ndan digunakan. Pada pengembagan  frontend learning management system berbasis\\nmobile  untuk Infinite Learning ini menggunakan metode  User-Centered Design\\nkarena selama perancangan dan pengembangannya memiliki calon  user  yang\\nspesifik seperti usia, kategori dan kemampuan calon  user  dalam menggunakan\\nteknologi.\\n27                                     Institut Teknologi Del\\nBAB III\\nANALISIS DAN DESAIN\\nPada bab ini penulis akan menjelaskan tentang hasil analisis kebutuhan\\npenelitian, terdapat penjelasan mengenai hasil analisis kebutuhan dalam konteks\\npenelitian ini. Analisis tersebut akan menjadi dasar untuk membangun model\\nanalisis yang sesuai. Tujuan dari tahap analisis ini adalah untuk memahami kondisi\\ndan gambaran umum dari bidang yang akan diterapkan dalam topik penelitian.\\nProses ini akan membantu dalam menentukan proses bisnis yang akan\\ndiimplementasikan, berdasarkan hasil analisis proses bisnis dan analisis sistem\\nyang telah dilakukan.\\n3.1 Analisis\\nPada sub bab ini akan menjelaskan analisis pemilihan 3  Learning Management\\nSystem , analisis indikator  Learning Management System , dan analisis kebutuhan\\npengguna yaitu  specify the context of use, specify user and organizational\\nrequirement.\\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\\noleh ', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='m , dan analisis kebutuhan\\npengguna yaitu  specify the context of use, specify user and organizational\\nrequirement.\\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\\nmembandingkan dan membedakan suatu objek atau ide.\\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\\ncontext of use, Specify user and organizational requirement, product design\\nsolution and evaluate .\\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\\n1.   Pengumpulan Informasi\\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\\n28\\nInstitut Teknologi Del\\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\\nseperti kebiasaan pengguna\\n2.   Analisis\\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\\nmenggunakan produk serupa.\\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\\nuser and organizational requirement  pada pengembangan aplikasi  Learning\\nManagement System  berbasis  mobile\\na.   Specify the context of use\\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\\nkegiatan mentor dan  mentee  menggunakan banyak  learning\\nmanagement system  sejenis selama pelaksanaan Studi Independen.\\nb.   Specify user and organi', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=' user interface.\\nUntuk hasil  research question  bersama mentor dapat dilihat dari pada Gambar\\n3. 2 dan Gambar 3.3\\nGambar 3. 2  Research Question   Mentee\\n37\\nInstitut Teknologi Del\\nGambar 3. 3  Research Question Mentor\\n3.4 Specify  User  and Organizational Requirement\\nSub bab ini akan menjelaskan tahapan dari  specify user and organizational\\nrequirement .  Tujuan  dari  dilaksanakannya  tahapan  ini  adalah  untuk\\nmengidentifikasi dan dan mendefinisikan secara jelas kebutuhan pengguna dan\\norganisasi yang akan dipenuhi oleh solusi yang sedang dikembangkan. Selain itu\\ntahapan ini juga dilakukan untuk mengidentifikasi siapa pengguna akhir dari sistem\\nyang sedang dikembangkan juga menentukan preferensi, kebutuhan fungsional dan\\nnonfungsional pengguna. Sub bab ini akan melakukan identifikasi karakteristik\\npengguna, identifikasi pengguna dan identifikasi kebutuhan pengguna untuk\\nmemastikan pengembangan aplikasi sudah relevan dengan kebutuhan dan solusi\\ndari masalah yang sedang dialami oleh pengguna.\\n3.4.1 Identifikasi Karakteristik Pengguna\\nPada bagian ini dilakukan identifikasi karakteristik pengguna dari calon pengguna\\naplikasi  learning management system , dengan:\\na.   Usia\\nPengguna dikelompokkan berdasarkan rentang usia dari (19 - 23\\ntahun), (23 - 33 tahun) dalam penggunaan aplikasi  learning management\\nsystem . Tujuannya adalah untuk menyesuaikan perancangan desain\\n38\\nInstitut Teknologi Del\\nantarmuka yang relevan, sesuai kebutuhan, karakteristik dan kemampuan\\npengguna di rentang kelompok usia.\\nb.   Kategori\\nPengguna yang menggunakan aplikasi  learning management system\\nadalah dari kalangan mahasiswa dan karyawan yang menjadi seorang\\nmentor. Tujuan dari pembagian kategori ini adalah untuk penyesuaian\\ntampilan antar muka dan kesesuaian fungsi dari kebutuhan tiap - tiap\\npengguna.\\nc.   Kemampuan Teknologi\\nPengguna  dikelompokkan  kedalam  keterampilan  teknologi\\npengguna. Tujuan dari pengelompokkan ini adalah untuk mengatur\\ntampilan antarmuka, fitur dan memaksimalkan apl', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='gguna.\\nc.   Kemampuan Teknologi\\nPengguna  dikelompokkan  kedalam  keterampilan  teknologi\\npengguna. Tujuan dari pengelompokkan ini adalah untuk mengatur\\ntampilan antarmuka, fitur dan memaksimalkan aplikasi ini kedepannya\\ndapat memiliki  user experience  yang baik untuk pengguna.\\n3.4.2 Identifikasi Pengguna\\nAnalisis kebutuhan pengguna adalah proses mendalam untuk memahami\\nkebutuhan, harapan, dan preferensi pengguna yang akan menjadi dasar dalam\\npengembangan produk atau sistem. Tujuannya adalah untuk memastikan bahwa\\ndesain akhir memenuhi kebutuhan pengguna secara efektif dan memberikan\\npengalaman pengguna yang memuaskan. Dalam rangka penelitian ini, data telah\\ndikumpulkan melalui pelaksanaan wawancara langsung dengan adanya  research\\nquestion , yang bertujuan untuk mendapatkan pemahaman yang mendalam\\nmengenai kebutuhan pengguna.\\nKegiatan wawancara dilakukan bersama dengan pihak Infinite Learning,\\ndengan tujuan untuk merinci dan mengidentifikasi berbagai kebutuhan yang\\ndiinginkan oleh pengguna. Berdasarkan data yang telah dikumpulkan melalui\\ntahapan identifikasi karakteristik pengguna dan observasi lapangan dengan calon\\npengguna, informasi tersebut akan dibuat kedalam bentuk  user  persona sebagai\\ngambaran dari profil pengguna, kebutuhan, kendala yang dihadapi, serta\\npengalaman dalam menggunakan teknologi dan menghadapi masalah.  User  persona\\nini akan dilihat empat sudut pandang yaitu mentor dan  mentee\\n39\\nInstitut Teknologi Del\\nA.   Mentor\\nPada bagian ini akan menerapkan identifikasi dua  user  persona yang digunakan\\nuntuk mengenali kebutuhan mentor selaku pengguna internal. Perancangan  user\\npersona akan dijelaskan pada Gambar 3. 4 dan 3. 5.\\nGambar 3. 4  User  Persona Calon Pengguna - Mentor 1\\nGambar 3. 5  User  Persona Calon Pengguna - Mentor 2\\n40\\nInstitut Teknologi Del\\nB.   Mentee\\nPada bagian ini akan menerapkan identifikasi dua  user  persona yang digunakan\\nuntuk mengenali kebutuhan  mentee  selaku pengguna internal. Perancangan  user\\npersona akan dijelaskan pad', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "research_goal": "Apa topik penelitian yang relevan dengan computer vision?",
+    "current_question": "Apa topik penelitian yang relevan dengan computer vision?",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa topik penelitian yang relevan dengan computer vision?"
+      }
+    ],
+    "discovery_topic": "computer vision",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1007",
+        "title": "DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI",
+        "author": "Marbun, Gomgom Jhonatan",
+        "year": "2021",
+        "abstract": "Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-970",
+        "title": "DETEKSI DAN KLASIFIKASI HEWAN DI HUTAN DENGAN  METODE CNN MENGGUNAKAN KAMERA BERBASIS  MIKROKONTROLER RASPBERRY PI",
+        "author": "SIHITE, RONALDO V.S",
+        "year": "2021",
+        "abstract": "Pengelolahan hutan yang baik dilakukan untuk menjaga kelestarian flora dan fauna, \r\nmonitoring hutan merupakan kegiatan yang dilakukan dalam pencegahan \r\nkerusakan hutan secara langsung tanpa mengambil banyak waktu dalam mengambil \r\ntindakan pada skala hutan yang besar, salah satu masalah yang sering terjadi di \r\nhutan akibat dampak ulah manusia seperti perburuan hewan liar. Perancangan dan \r\nimplementasi sistem monitoring hutan menggunakan kamera merupakan sistem \r\nyang dirancang agar dapat mendeteksi dan mengklasifikasikan hewan, antara lain \r\ntupai, anjing hutan, kucing hutan pada alam liar, dengan teknologi computer vision, \r\nmemanfaatkan metode convolutional neural network dengan subsistem arsitektur \r\nYolov3 dan Yolov3-tiny sebagai alternatif, uji coba dilakukan dengan beberapa \r\nscenario dalam mendeteksi dan mengklasifikasikan hewan, hewan dapat dideteksi \r\ndengan baik hingga jarak 110cm dari kamera, tingkat akurasi mendeteksi cukup \r\nbaik dari scenario yang dilakukan menghasilkan persentasi deteksi objek hewan \r\n92,5% untuk Yolov3 dan 46 % untuk Yolov3-tiny yang telah dibandingkan, dapat \r\ndisimpulkan bahwa yolov3 lebih baik dalam mendeteksi objek.\r\nKata Kunci: Yolov3, Yolov3-tiny, Convolutional Neural Network, Computer Vision",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-793",
+        "title": "IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED",
+        "author": "PANJAITAN, IWAN",
+        "year": "2020",
+        "abstract": "Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Untuk mendapatkan dimensi spesifik pada ROI dilakukan dengan kalibrasi posisi, sudut, serta spesifikasi kamera yang digunakan. Sistem akan dimulai dengan melakukan deteksi kendaraan menggunakan algoritma Viola-Jones dan output/hasil deteksi akan diteruskan pada sistem tracking. Kendaraan yang terdeteksi akan di-tracking dengan menerapkan centroid tracking algorithm. Algoritma tersebut melakukan asosiasi terhadap objek hasil deteksi dengan menghitung Euclidean distance antara objek pada current frame 〖(f〗_t)  dengan objek pada next frame 〖(f〗_(t+1)). Sedangkan parameter-parameter pendukung, seperti jarak ROI ataupun jumlah frame selama melintasi ROI, akan digunakan untuk melakukan perhitungan akhir yaitu estimasi kecepatan kendaraan. Penghitungan kecepatan kendaraan digunakan prinsip kecepatan kendaraan secara sederhana yaitu jarak tempuh dibagi dengan waktu tempuh. Hasil dari penelitian ini menunjukkan bahwa metode yang dipilih memiliki akurasi yang dapat diterima dengan standar perhitungan kecepatan kendaraan pada umumnya. Apabila pengukuran kecepatan dibandingkan dengan menggunakan speed gun memiliki nilai ketidakpastiaan [-0.55, +0.55] km/jam. Adapun error dan akurasi ini sangat bergantung pada akurasi dari sistem deteksi Viola-Jones. \r\n\r\nKata Kunci: Centroid Tracking, Kecepatan, Sistem Deteksi.",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binarization  pada  citra  tulisan  tangan.  Tahap  selanjutnya  adalah \r\npendeteksian teks dengan menggunakan algoritma canny edge detection. Selain itu \r\ndilakukan  pendekatan  seperti  word  segmentation.  Kemudian  dilakukan \r\npembangunan  model  menggunakan  Convolutional  Neural  Network  dengan \r\narsitektur LeNet.  Model terbaik yang dihasilkan adalah model  uppercase  dengan \r\nrata-rata  akurasi  pengenalan  tulisan  sebesar  0,7778.  Tahap  akhir  yang  diperoleh \r\nadalah teks yang diubah dalam format editable text seperti .docx. \r\nKata kunci: \r\nPengenalan Teks Tulisan Tangan, Convolutional Neural Network, LeNet",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1471",
+        "title": "DESAIN ALAT PENCACAH SAMPAH MATERIAL 3D PRINTER DENGAN METODE AXIOMATIC HOUSE OF QUALITY (AHOQ)",
+        "author": "Siahaan, Sintong Joshua",
+        "year": "2021",
+        "abstract": "Perkembangan teknologi di bidang percetakan dengan salah satu inovasinya yaitu 3D printer. Dalam pengoperasiannya 3D printer membutuhkan filamen untuk dapat mencetak format file yang telah didesain di PC (Personal Computer) tau perangkat lain yang mendukung. Dalam penggunaannya sisa filamen dan hasil percetakan 3D printer  yang sudah tidak digunakan lagi sering kali dibuang begitu saja, sedangkan berdasarkan material penyusunnya filamen ini sendiri kebanyakan terbuat dari material yang sulit diurai oleh alam dan berpotensi menjadi limbah yang merugikan. Penelitian ini bertujuan untuk merancang alat pencacah sampah material 3D printer yang aman dan praktis dengan metode Axiomatic House of Quality (AHOQ) demi memudahkan pengguna dalam melakukan daur ulang sampah material printer 3D menjadi filament kembali. Berdasarkan beberapa langkah penelitian yang telah ditentukan, didapatkan desain dan spesifikasi dari alat pencacah. Pencacah sampah material 3D printer dirancang dengan penutup pada saluran input material sebagai fungsi keamanan dan mengurangi kebisingan. Sistem kerja alat ialah alat pencacah menjadikan gerak mekanik sepeda menjadi sumber daya gerak pisau pencacah, dengan arti alat akan beroperasi selama pedal sepeda digerakkan dan dengan kata lain tidak memiliki tombol on/off.",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-494",
+        "title": "Design and Implementation of Secure Communication between HMI and Controller on SCADA Delineation Plant Using Raspberry Pi",
+        "author": "Manurung, Epelin",
+        "year": "2015",
+        "abstract": "Industri teknologi informasi sudah banyak menghasilkan produk berupa sistem, aplikasi, perangkat automation dan sebagainya  yang digunakan untuk membantu mempermudah pekerjaan manusia. SCADA merupakan salah satu produk industri teknologi informasi yang memiliki fungsi mengumpulkan, mengelola dan mendistribusikan data secara otomatis. SCADA saat ini telah banyak digunakan secara luas pada industri seperti pertambangan, kereta api, pabrik-pabrik, kelistrikan dan sebagainya.\r\nKonsep sistem SCADA mengacu pada sistem monitoring dan control field computer atau sub sistem kompleks yang tersebar pada daerah luas secara otomatis dengan melakukan pengumpulan pengolahan dan pendistribusian data. Keadaan perangkat di lapangan seperti field computer, sensor, valve atau pump ditampilkan di HMI (Human Machine Interface) menggunakan protokol khusus yaitu modbus, sehingga meyakinkan industri SCADA bahwa jalur komunikasinya aman. Keyakinan atas keamannya sistem SCADA secara fisik, membuat industri SCADA tidak melakukan pengamanan jalur komunikasi data SCADA. Tipe jalur komunikasi data SCADA saat ini adalah plaintext sehingga memungkinkan untuk dapat dibaca oleh pihak luar. Celah keamanan sistem SCADA membuat jalur komunikasi data SCADA tidak aman sepenuhnya.\r\nPada tugas akhir ini akan dilakukan teknik pengamanan jalur komunikasi data SCADA yaitu shh tunneling dan enkripsi-deskripsi. Dengan dua teknik pengaman tersebut, jalur komunikasi data SCADA akan lebih aman dari sebelum nya.\r\nKata kunci : SCADA, Jalur Komunikasi data, aman, shh tunneling, enkripsi-deskripsi, plaintexts",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-990",
+        "title": "DETEKSI TINGKAT KEMATANGAN KUE COOKIES  BERBASIS PENGOLAHAN CITRA",
+        "author": "SIAHAAN, FERNANDO SEPTIAN",
+        "year": "2021",
+        "abstract": "Pada umumnya pemasakan kue cookies masih menggunakan sistem secara \r\nmanual. Salah satu penentu kualitas pemasakan kue cookies adalah warna \r\nkematangan. Penelitian ini dilakukan untuk mendeteksi kematangan kue cookies\r\ndengan menggunakan pengolahan Image Processing menggunakan metode warna\r\nHSV (Hue Saturation Value). Sistem ini menggunakan microcontroller Arduino\r\ndan minicomputer Raspberry Pi yang terintegrasi dengan kamera Raspberry Pi\r\nsebagai alat pendeteksi. Pengolahan citra digital menggunakan metode warna HSV \r\nyang menjadi indikator dalam proses pendeteksian kematangan secara real time. \r\nSebelum melakukan pendeteksian kematangan, akan dilakukan pre-processing\r\npada sampel objek. Tahapan pre-processing terdiri atas Gaussian Blur, Erosion, \r\nDilation. Hasil dari pre-processing akan dilanjutkan pada tahap penentu nilai HSV \r\nmenggunakan image color picker atau menggunakan modul penentu nilai. Nilai hsv \r\ntersebut akan digunakan untuk segmentasi pada kue cookies dengan nilai range dari \r\nHSV setiap kondisi level kematangan yang siap untuk diimplementasikan. pada\r\npengimplementasian akan menampilkan label pada daerah yang telah dideteksi\r\nsetiap kondisi kematangannya secara real time. Dari keseluruhan data percobaan \r\npada setiap kondisi kematangan, kondisi level satu dan level dua mendapatkan nilai \r\nkeberhasilan yang tinggi, yaitu 90,56 % dan 89,13 %. Namun tidak pada kondisi\r\nlevel tiga yaitu 45,45%. Setelah objek mendeteksi kondisi level tiga maka serial \r\ncommunication antara raspberry dan Arduino servo akan mematikan knop kompor \r\nagar proses pemasakan berhenti.\r\nKata kunci: RGB, HSV, Raspberry Pi, Cookies",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-466",
+        "title": "Evaluasi Performansi HIDS dengan Menggunakan OSSEC",
+        "author": "Sinaga, Rendi Manuel Halason",
+        "year": "2015",
+        "abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapat mengakses informasi. Hal ini mengakibatkan semakin banyak serangan yang akan terjadi pada jaringan komputer sehingga untuk mengatasi dampat dari serangan terserbut dibutuhkan keamanan(Security) pada server agar data dan informasi pada server tersebut tidak dapat diketahui ataupun dimanipulasi oleh intrudres (orang yang ingin merusak data pada server tersebut). Salah satu cara atau metode yang dapat dilakukan untuk menjaga keamanan jaringan adalah HIDS (Host Intrusion Detection System). HIDS adalah sebuah sistem pengawasan terhadap aktifitas sebuah host dalam suatu jaringan dan memantau apakah ada serangan ataupun penyusupan ke dalam host (Server atau personal computer).\r\nPada tugas akhir, penulis melakukan evaluasi terhadap performasi HIDS dengan melakukan pengujian terhadap sebuah server dengan menentukan environment dalam bentuk service yang akan disediakan pada server tersebut. Service yang akan disediakan seperti dns, ftp, http, ssh, smtp, mysql, telnet, samba, dan postgresql. Service tersebut akan dibuat vulnerble sehingga dapat dilakukan pengujian dengan melakukan serangan terhadap sever. Melalu serangan inilah dapat dievaluasi adalah respone time, konsumsi memori dan konsumsi CPU. Hasil dari tugas akhit ini adalah aplikasi OSSEC dapat mendeteksi beberapa serangan seperti dnsenum, port scanning, ssh buteforce attack, ftp bruteforce attack, vsftpd_234_backdoor, telnet bruteforce attack dan smb enumshares secara akurat dan realtime dengan menggunakan resource yang sedikit seperti penggunaan memori dann cpu namn OSSEC tidak dapat mendeteksi bebrapa jenis serangan seperti SQL injection dan what web.",
+        "has_pdf": false
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": " dalam penelitian\ntugas akhir. Adapun tahapan dalam comparative study adalah:\n1.   Memilih topik dan mendefinisikan tujuan penelitian peneliti\nTopik penelitian bisa diinspirasi dari kondisi yang ada dalam kehidupan\nnyata. Kemudian, penentuan tujuan menjadi sangat penting dalam studi\nperbandingan untuk memastikan apakah fokusnya adalah pada pola,\nperbedaan, atau dampak tertentu yang ingin diselidiki.\n2.   Tinjauan Literatur\nMembaca dan meninjau literatur dapat memperluas pemahaman tentang\ntopik penelitian yang sedang diselidiki. Tahap ini juga membantu peneliti\nmemperoleh pemahaman yang lebih mendalam tentang teori-teori yang\nmendasari dan konteks yang relevan dengan topik penelitian tersebut.\n3.   Memilih entitas yang akan dibandingkan\nPemilihan entitas yang akan dibandingkan harus didasarkan pada\nkarakteristik yang penting dan relevan dengan tujuan penelitian.\n4.   Menentukan indikator perbandingan\nIndikator perbandingan merupakan instrumen yang digunakan untuk\nmenilai atau membandingkan dua entitas, konsep, atau fenomena. Indikator\nperbandingan membantu dalam mengevaluasi perbedaan atau kesamaan\nantara subjek yang sedang dibandingkan.\n5.   Melakukan perbandingan\nData akan dikumpulkan dari entitas yang telah ditentukan, kemudian\ndibandingkan berdasarkan indikator yang telah ditetapkan sebelumnya.\n6.   Interpretasi hasil\nInterpretasi hasil dilakukan dengan menganalisis hasil perbandingan untuk\nmengenali pola-pola kesamaan dan perbedaan yang muncul ketika entitas\ndibandingkan.\n7.   Kesimpulan\n26\nInstitut Teknologi Del\nKesimpulan disampaikan dengan menggabungkan temuan utama yang telah\ndiidentifikasi, kemudian menjelaskan konsekuensi hasil penelitian terhadap\ntujuan studi dan lingkup yang lebih besar.\n2.13  User-Centered Design\nUser-Centered Design  merupakan pendekatan dalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perha",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "alam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perhatian  pada  calon  pengguna  spesifik,  seperti\nmempertimbangkan faktor jenis kelamin atau rentang usia, dalam proses desain\n[13].\nTujuan utama pendekatan UCD adalah menciptakan produk yang mudah\ndigunakan, efektif dan memberikan pengalaman positif bagi pengguna. Contoh\npenerapan UCD dapat ditemukan dalam desain antarmuka pengguna (UI) perangkat\nlunak ataupun  mobile , dimana prototipe awal dari sebuah produk diuji dengan\npengguna yang sebenarnya untuk memastikan bahwa antarmuka mudah dipahami\ndan digunakan. Pada pengembagan  frontend learning management system berbasis\nmobile  untuk Infinite Learning ini menggunakan metode  User-Centered Design\nkarena selama perancangan dan pengembangannya memiliki calon  user  yang\nspesifik seperti usia, kategori dan kemampuan calon  user  dalam menggunakan\nteknologi.\n27                                     Institut Teknologi Del\nBAB III\nANALISIS DAN DESAIN\nPada bab ini penulis akan menjelaskan tentang hasil analisis kebutuhan\npenelitian, terdapat penjelasan mengenai hasil analisis kebutuhan dalam konteks\npenelitian ini. Analisis tersebut akan menjadi dasar untuk membangun model\nanalisis yang sesuai. Tujuan dari tahap analisis ini adalah untuk memahami kondisi\ndan gambaran umum dari bidang yang akan diterapkan dalam topik penelitian.\nProses ini akan membantu dalam menentukan proses bisnis yang akan\ndiimplementasikan, berdasarkan hasil analisis proses bisnis dan analisis sistem\nyang telah dilakukan.\n3.1 Analisis\nPada sub bab ini akan menjelaskan analisis pemilihan 3  Learning Management\nSystem , analisis indikator  Learning Management System , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh ",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "m , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": " user interface.\nUntuk hasil  research question  bersama mentor dapat dilihat dari pada Gambar\n3. 2 dan Gambar 3.3\nGambar 3. 2  Research Question   Mentee\n37\nInstitut Teknologi Del\nGambar 3. 3  Research Question Mentor\n3.4 Specify  User  and Organizational Requirement\nSub bab ini akan menjelaskan tahapan dari  specify user and organizational\nrequirement .  Tujuan  dari  dilaksanakannya  tahapan  ini  adalah  untuk\nmengidentifikasi dan dan mendefinisikan secara jelas kebutuhan pengguna dan\norganisasi yang akan dipenuhi oleh solusi yang sedang dikembangkan. Selain itu\ntahapan ini juga dilakukan untuk mengidentifikasi siapa pengguna akhir dari sistem\nyang sedang dikembangkan juga menentukan preferensi, kebutuhan fungsional dan\nnonfungsional pengguna. Sub bab ini akan melakukan identifikasi karakteristik\npengguna, identifikasi pengguna dan identifikasi kebutuhan pengguna untuk\nmemastikan pengembangan aplikasi sudah relevan dengan kebutuhan dan solusi\ndari masalah yang sedang dialami oleh pengguna.\n3.4.1 Identifikasi Karakteristik Pengguna\nPada bagian ini dilakukan identifikasi karakteristik pengguna dari calon pengguna\naplikasi  learning management system , dengan:\na.   Usia\nPengguna dikelompokkan berdasarkan rentang usia dari (19 - 23\ntahun), (23 - 33 tahun) dalam penggunaan aplikasi  learning management\nsystem . Tujuannya adalah untuk menyesuaikan perancangan desain\n38\nInstitut Teknologi Del\nantarmuka yang relevan, sesuai kebutuhan, karakteristik dan kemampuan\npengguna di rentang kelompok usia.\nb.   Kategori\nPengguna yang menggunakan aplikasi  learning management system\nadalah dari kalangan mahasiswa dan karyawan yang menjadi seorang\nmentor. Tujuan dari pembagian kategori ini adalah untuk penyesuaian\ntampilan antar muka dan kesesuaian fungsi dari kebutuhan tiap - tiap\npengguna.\nc.   Kemampuan Teknologi\nPengguna  dikelompokkan  kedalam  keterampilan  teknologi\npengguna. Tujuan dari pengelompokkan ini adalah untuk mengatur\ntampilan antarmuka, fitur dan memaksimalkan apl",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "gguna.\nc.   Kemampuan Teknologi\nPengguna  dikelompokkan  kedalam  keterampilan  teknologi\npengguna. Tujuan dari pengelompokkan ini adalah untuk mengatur\ntampilan antarmuka, fitur dan memaksimalkan aplikasi ini kedepannya\ndapat memiliki  user experience  yang baik untuk pengguna.\n3.4.2 Identifikasi Pengguna\nAnalisis kebutuhan pengguna adalah proses mendalam untuk memahami\nkebutuhan, harapan, dan preferensi pengguna yang akan menjadi dasar dalam\npengembangan produk atau sistem. Tujuannya adalah untuk memastikan bahwa\ndesain akhir memenuhi kebutuhan pengguna secara efektif dan memberikan\npengalaman pengguna yang memuaskan. Dalam rangka penelitian ini, data telah\ndikumpulkan melalui pelaksanaan wawancara langsung dengan adanya  research\nquestion , yang bertujuan untuk mendapatkan pemahaman yang mendalam\nmengenai kebutuhan pengguna.\nKegiatan wawancara dilakukan bersama dengan pihak Infinite Learning,\ndengan tujuan untuk merinci dan mengidentifikasi berbagai kebutuhan yang\ndiinginkan oleh pengguna. Berdasarkan data yang telah dikumpulkan melalui\ntahapan identifikasi karakteristik pengguna dan observasi lapangan dengan calon\npengguna, informasi tersebut akan dibuat kedalam bentuk  user  persona sebagai\ngambaran dari profil pengguna, kebutuhan, kendala yang dihadapi, serta\npengalaman dalam menggunakan teknologi dan menghadapi masalah.  User  persona\nini akan dilihat empat sudut pandang yaitu mentor dan  mentee\n39\nInstitut Teknologi Del\nA.   Mentor\nPada bagian ini akan menerapkan identifikasi dua  user  persona yang digunakan\nuntuk mengenali kebutuhan mentor selaku pengguna internal. Perancangan  user\npersona akan dijelaskan pada Gambar 3. 4 dan 3. 5.\nGambar 3. 4  User  Persona Calon Pengguna - Mentor 1\nGambar 3. 5  User  Persona Calon Pengguna - Mentor 2\n40\nInstitut Teknologi Del\nB.   Mentee\nPada bagian ini akan menerapkan identifikasi dua  user  persona yang digunakan\nuntuk mengenali kebutuhan  mentee  selaku pengguna internal. Perancangan  user\npersona akan dijelaskan pad",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\ndalam penelitian\ntugas akhir. Adapun tahapan dalam comparative study adalah:\n1.   Memilih topik dan mendefinisikan tujuan penelitian peneliti\nTopik penelitian bisa diinspirasi dari kondisi yang ada dalam kehidupan\nnyata. Kemudian, penentuan tujuan menjadi sangat penting dalam studi\nperbandingan untuk memastikan apakah fokusnya adalah pada pola,\nperbedaan, atau dampak tertentu yang ingin diselidiki.\n2.   Tinjauan Literatur\nMembaca dan meninjau literatur dapat memperluas pemahaman tentang\ntopik penelitian yang sedang diselidiki. Tahap ini juga membantu peneliti\nmemperoleh pemahaman yang lebih mendalam tentang teori-teori yang\nmendasari dan konteks yang relevan dengan topik penelitian tersebut.\n3.   Memilih entitas yang akan dibandingkan\nPemilihan entitas yang akan dibandingkan harus didasarkan pada\nkarakteristik yang penting dan relevan dengan tujuan penelitian.\n4.   Menentukan indikator perbandingan\nIndikator perbandingan merupakan instrumen yang digunakan untuk\nmenilai atau membandingkan dua entitas, konsep, atau fenomena. Indikator\nperbandingan membantu dalam mengevaluasi perbedaan atau kesamaan\nantara subjek yang sedang dibandingkan.\n5.   Melakukan perbandingan\nData akan dikumpulkan dari entitas yang telah ditentukan, kemudian\ndibandingkan berdasarkan indikator yang telah ditetapkan sebelumnya.\n6.   Interpretasi hasil\nInterpretasi hasil dilakukan dengan menganalisis hasil perbandingan untuk\nmengenali pola-pola kesamaan dan perbedaan yang muncul ketika entitas\ndibandingkan.\n7.   Kesimpulan\n26\nInstitut Teknologi Del\nKesimpulan disampaikan dengan menggabungkan temuan utama yang telah\ndiidentifikasi, kemudian menjelaskan konsekuensi hasil penelitian terhadap\ntujuan studi dan lingkup yang lebih besar.\n2.13  User-Centered Design\nUser-Centered Design  merupakan pendekatan dalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perha\n\nalam proses desain yang yang\nberfokus pada kebutuhan, keinginan, dan keterbatasan pengguna akhir sepanjang\nsetiap tahap proses desain.  User-Centered Design  adalah pendekatan yang\nmengutamakan  perhatian  pada  calon  pengguna  spesifik,  seperti\nmempertimbangkan faktor jenis kelamin atau rentang usia, dalam proses desain\n[13].\nTujuan utama pendekatan UCD adalah menciptakan produk yang mudah\ndigunakan, efektif dan memberikan pengalaman positif bagi pengguna. Contoh\npenerapan UCD dapat ditemukan dalam desain antarmuka pengguna (UI) perangkat\nlunak ataupun  mobile , dimana prototipe awal dari sebuah produk diuji dengan\npengguna yang sebenarnya untuk memastikan bahwa antarmuka mudah dipahami\ndan digunakan. Pada pengembagan  frontend learning management system berbasis\nmobile  untuk Infinite Learning ini menggunakan metode  User-Centered Design\nkarena selama perancangan dan pengembangannya memiliki calon  user  yang\nspesifik seperti usia, kategori dan kemampuan calon  user  dalam menggunakan\nteknologi.\n27                                     Institut Teknologi Del\nBAB III\nANALISIS DAN DESAIN\nPada bab ini penulis akan menjelaskan tentang hasil analisis kebutuhan\npenelitian, terdapat penjelasan mengenai hasil analisis kebutuhan dalam konteks\npenelitian ini. Analisis tersebut akan menjadi dasar untuk membangun model\nanalisis yang sesuai. Tujuan dari tahap analisis ini adalah untuk memahami kondisi\ndan gambaran umum dari bidang yang akan diterapkan dalam topik penelitian.\nProses ini akan membantu dalam menentukan proses bisnis yang akan\ndiimplementasikan, berdasarkan hasil analisis proses bisnis dan analisis sistem\nyang telah dilakukan.\n3.1 Analisis\nPada sub bab ini akan menjelaskan analisis pemilihan 3  Learning Management\nSystem , analisis indikator  Learning Management System , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi"
+  },
+  "created_at": "2026-08-17T22:41:16.115827",
+  "updated_at": "2026-08-17T22:41:16.115858"
+}

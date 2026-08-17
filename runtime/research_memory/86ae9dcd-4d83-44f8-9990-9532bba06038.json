@@ -1,0 +1,107 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa saja penelitian computer vision yang tersedia di repository?"
+    },
+    {
+      "role": "assistant",
+      "content": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+    }
+  ],
+  "last_query": "Apa saja penelitian computer vision yang tersedia di repository?",
+  "last_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository.",
+  "summary": "",
+  "topics": [
+    "Apa saja penelitian computer vision yang tersedia di repository?"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "research_goal": "Apa saja penelitian computer vision yang tersedia di repository?",
+    "current_question": "Apa saja penelitian computer vision yang tersedia di repository?",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa saja penelitian computer vision yang tersedia di repository?"
+      }
+    ],
+    "discovery_topic": "computer vision",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1007",
+        "title": "DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI",
+        "author": "Marbun, Gomgom Jhonatan",
+        "year": "2021",
+        "abstract": "Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-970",
+        "title": "DETEKSI DAN KLASIFIKASI HEWAN DI HUTAN DENGAN  METODE CNN MENGGUNAKAN KAMERA BERBASIS  MIKROKONTROLER RASPBERRY PI",
+        "author": "SIHITE, RONALDO V.S",
+        "year": "2021",
+        "abstract": "Pengelolahan hutan yang baik dilakukan untuk menjaga kelestarian flora dan fauna, \r\nmonitoring hutan merupakan kegiatan yang dilakukan dalam pencegahan \r\nkerusakan hutan secara langsung tanpa mengambil banyak waktu dalam mengambil \r\ntindakan pada skala hutan yang besar, salah satu masalah yang sering terjadi di \r\nhutan akibat dampak ulah manusia seperti perburuan hewan liar. Perancangan dan \r\nimplementasi sistem monitoring hutan menggunakan kamera merupakan sistem \r\nyang dirancang agar dapat mendeteksi dan mengklasifikasikan hewan, antara lain \r\ntupai, anjing hutan, kucing hutan pada alam liar, dengan teknologi computer vision, \r\nmemanfaatkan metode convolutional neural network dengan subsistem arsitektur \r\nYolov3 dan Yolov3-tiny sebagai alternatif, uji coba dilakukan dengan beberapa \r\nscenario dalam mendeteksi dan mengklasifikasikan hewan, hewan dapat dideteksi \r\ndengan baik hingga jarak 110cm dari kamera, tingkat akurasi mendeteksi cukup \r\nbaik dari scenario yang dilakukan menghasilkan persentasi deteksi objek hewan \r\n92,5% untuk Yolov3 dan 46 % untuk Yolov3-tiny yang telah dibandingkan, dapat \r\ndisimpulkan bahwa yolov3 lebih baik dalam mendeteksi objek.\r\nKata Kunci: Yolov3, Yolo",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-793",
+        "title": "IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED",
+        "author": "PANJAITAN, IWAN",
+        "year": "2020",
+        "abstract": "Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Untuk mendapatkan dimensi spesifik pada ROI dilakukan dengan kalibrasi posisi, sudut, serta spesifikasi kamera yang digunakan. Sistem akan dimulai dengan melakukan deteksi kendaraan menggunakan algoritma Viola-Jones dan output/hasil deteksi akan diteruskan pada sistem tracking. Kendaraan yang terdetek",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1471",
+        "title": "DESAIN ALAT PENCACAH SAMPAH MATERIAL 3D PRINTER DENGAN METODE AXIOMATIC HOUSE OF QUALITY (AHOQ)",
+        "author": "Siahaan, Sintong Joshua",
+        "year": "2021",
+        "abstract": "Perkembangan teknologi di bidang percetakan dengan salah satu inovasinya yaitu 3D printer. Dalam pengoperasiannya 3D printer membutuhkan filamen untuk dapat mencetak format file yang telah didesain di PC (Personal Computer) tau perangkat lain yang mendukung. Dalam penggunaannya sisa filamen dan hasil percetakan 3D printer  yang sudah tidak digunakan lagi sering kali dibuang begitu saja, sedangkan berdasarkan material penyusunnya filamen ini sendiri kebanyakan terbuat dari material yang sulit diurai oleh alam dan berpotensi menjadi limbah yang merugikan. Penelitian ini bertujuan untuk merancang alat pencacah sampah material 3D printer yang aman dan praktis dengan metode Axiomatic House of Quality (AHOQ) demi memudahkan pengguna dalam melakukan daur ulang sampah material printer 3D menjadi filament kembali. Berdasarkan beberapa langkah penelitian yang telah ditentukan, didapatkan desain dan spesifikasi dari alat pencacah. Pencacah sampah material 3D printer dirancang dengan penutup pada saluran input material sebagai fungsi keamanan dan mengurangi kebisingan. Sistem kerja alat ialah alat pencacah menjadikan gerak mekanik sepeda menjadi sumber daya gerak pisau pencacah, dengan arti al",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-494",
+        "title": "Design and Implementation of Secure Communication between HMI and Controller on SCADA Delineation Plant Using Raspberry Pi",
+        "author": "Manurung, Epelin",
+        "year": "2015",
+        "abstract": "Industri teknologi informasi sudah banyak menghasilkan produk berupa sistem, aplikasi, perangkat automation dan sebagainya  yang digunakan untuk membantu mempermudah pekerjaan manusia. SCADA merupakan salah satu produk industri teknologi informasi yang memiliki fungsi mengumpulkan, mengelola dan mendistribusikan data secara otomatis. SCADA saat ini telah banyak digunakan secara luas pada industri seperti pertambangan, kereta api, pabrik-pabrik, kelistrikan dan sebagainya.\r\nKonsep sistem SCADA mengacu pada sistem monitoring dan control field computer atau sub sistem kompleks yang tersebar pada daerah luas secara otomatis dengan melakukan pengumpulan pengolahan dan pendistribusian data. Keadaan perangkat di lapangan seperti field computer, sensor, valve atau pump ditampilkan di HMI (Human Machine Interface) menggunakan protokol khusus yaitu modbus, sehingga meyakinkan industri SCADA bahwa jalur komunikasinya aman. Keyakinan atas keamannya sistem SCADA secara fisik, membuat industri SCADA tidak melakukan pengamanan jalur komunikasi data SCADA. Tipe jalur komunikasi data SCADA saat ini adalah plaintext sehingga memungkinkan untuk dapat dibaca oleh pihak luar. Celah keamanan sistem SCAD",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-990",
+        "title": "DETEKSI TINGKAT KEMATANGAN KUE COOKIES  BERBASIS PENGOLAHAN CITRA",
+        "author": "SIAHAAN, FERNANDO SEPTIAN",
+        "year": "2021",
+        "abstract": "Pada umumnya pemasakan kue cookies masih menggunakan sistem secara \r\nmanual. Salah satu penentu kualitas pemasakan kue cookies adalah warna \r\nkematangan. Penelitian ini dilakukan untuk mendeteksi kematangan kue cookies\r\ndengan menggunakan pengolahan Image Processing menggunakan metode warna\r\nHSV (Hue Saturation Value). Sistem ini menggunakan microcontroller Arduino\r\ndan minicomputer Raspberry Pi yang terintegrasi dengan kamera Raspberry Pi\r\nsebagai alat pendeteksi. Pengolahan citra digital menggunakan metode warna HSV \r\nyang menjadi indikator dalam proses pendeteksian kematangan secara real time. \r\nSebelum melakukan pendeteksian kematangan, akan dilakukan pre-processing\r\npada sampel objek. Tahapan pre-processing terdiri atas Gaussian Blur, Erosion, \r\nDilation. Hasil dari pre-processing akan dilanjutkan pada tahap penentu nilai HSV \r\nmenggunakan image color picker atau menggunakan modul penentu nilai. Nilai hsv \r\ntersebut akan digunakan untuk segmentasi pada kue cookies dengan nilai range dari \r\nHSV setiap kondisi level kematangan yang siap untuk diimplementasikan. pada\r\npengimplementasian akan menampilkan label pada daerah yang telah dideteksi\r\nsetiap kondisi kematangannya secara r",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-466",
+        "title": "Evaluasi Performansi HIDS dengan Menggunakan OSSEC",
+        "author": "Sinaga, Rendi Manuel Halason",
+        "year": "2015",
+        "abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapat mengakses informasi. Hal ini mengakibatkan semakin banyak serangan yang akan terjadi pada jaringan komputer sehingga untuk mengatasi dampat dari serangan terserbut dibutuhkan keamanan(Security) pada server agar data dan informasi pada server tersebut tidak dapat diketahui ataupun dimanipulasi oleh intrudres (orang yang ingin merusak data pada server tersebut). Salah satu cara atau metode yang dapat dilakukan untuk menjaga keamanan jaringan adalah HIDS (Host Intrusion Detection System). HIDS adalah sebuah sistem pengawasan terhadap aktifitas sebuah host dalam suatu jaringan dan memantau apakah ada serangan ataupun penyusupan ke dalam host (Server atau personal computer).\r\nPada tugas akhir, penulis melakukan evaluasi terhadap performasi HIDS dengan melakukan pengujian terhadap sebuah server dengan menentukan environment dalam bentuk service yang akan disediakan pada server tersebut. Service yang akan disediakan seperti dns, ftp, http, ssh, smtp, mysql, telnet",
+        "has_pdf": false
+      }
+    ],
+    "current_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+  },
+  "created_at": "2026-08-15T21:08:39.773452",
+  "updated_at": "2026-08-15T21:08:39.773464"
+}

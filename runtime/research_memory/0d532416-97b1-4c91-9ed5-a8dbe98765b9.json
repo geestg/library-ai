@@ -1,0 +1,521 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "PLC OMRON CPM2A dan Arduino Mega 2560"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\nIntegrasi Motor  Servo  Pemisah dengan Arduino Mega\nGambar 3.11.   Motor  Servo  Pemisah\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\ntelah direalisasikan.\nGambar 3.12.  Sudut Putar  Servo  Pemisah\n19\nInstitut Teknologi Del\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\nkanan apabila obyek tersebut adalah cangkang.\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\nGambar 3.13.  Programmable Logic Controller (PLC)\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\n20\nInstitut Teknologi Del\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\nconverter .\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\nsoftware . Menggunakan fa"
+    }
+  ],
+  "last_query": "PLC OMRON CPM2A dan Arduino Mega 2560",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\nIntegrasi Motor  Servo  Pemisah dengan Arduino Mega\nGambar 3.11.   Motor  Servo  Pemisah\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\ntelah direalisasikan.\nGambar 3.12.  Sudut Putar  Servo  Pemisah\n19\nInstitut Teknologi Del\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\nkanan apabila obyek tersebut adalah cangkang.\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\nGambar 3.13.  Programmable Logic Controller (PLC)\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\n20\nInstitut Teknologi Del\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\nconverter .\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\nsoftware . Menggunakan fa",
+  "summary": "",
+  "topics": [
+    "PLC OMRON CPM2A dan Arduino Mega 2560"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='123456789-624', title='123456789-624', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='.......................................................... 7\\n2.4.   Arduino Mega 2560  .................................................................................................. 8\\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\\n3.3.1.   Definisi Sistem  ................................................................................................ 10\\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\\nx   Institut Teknologi Del\\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\\n4.1.1.   Metode Pengumpulan Data  ........................', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='HUTAGAOL, PUTRA OLOAN', email='', orcid='', metadata={})], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='.......................................................... 7\\n2.4.   Arduino Mega 2560  .................................................................................................. 8\\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\\n3.3.1.   Definisi Sistem  ................................................................................................ 10\\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\\nx   Institut Teknologi Del\\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\\n4.1.1.   Metode Pengumpulan Data  ........................', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='123456789-624', title='123456789-624', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='Integrasi Motor  Servo  Pemisah dengan Arduino Mega\\nGambar 3.11.   Motor  Servo  Pemisah\\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\\ntelah direalisasikan.\\nGambar 3.12.  Sudut Putar  Servo  Pemisah\\n19\\nInstitut Teknologi Del\\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\\nkanan apabila obyek tersebut adalah cangkang.\\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\\nGambar 3.13.  Programmable Logic Controller (PLC)\\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\\n20\\nInstitut Teknologi Del\\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\\nconverter .\\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\\nsoftware . Menggunakan fa', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='HUTAGAOL, PUTRA OLOAN', email='', orcid='', metadata={})], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='Integrasi Motor  Servo  Pemisah dengan Arduino Mega\\nGambar 3.11.   Motor  Servo  Pemisah\\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\\ntelah direalisasikan.\\nGambar 3.12.  Sudut Putar  Servo  Pemisah\\n19\\nInstitut Teknologi Del\\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\\nkanan apabila obyek tersebut adalah cangkang.\\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\\nGambar 3.13.  Programmable Logic Controller (PLC)\\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\\n20\\nInstitut Teknologi Del\\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\\nconverter .\\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\\nsoftware . Menggunakan fa', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='HUTAGAOL, PUTRA OLOAN', email='', orcid='', metadata={})], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='g Tegangan Beroperasi  20.4 – 26.4 V DC\\nKonsumsi Daya  20 W (maksimum)\\nArus Masuk  20 A (maksimum)\\nBahasa Pemrograman  Ladder diagram\\nKapasitias I/O  60 pin\\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\\n8\\nInstitut Teknologi Del\\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\\ndisimulasi tanpa harus terhubung dengan PLC.\\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\\n(Sumber : https://industrial.omron.eu/)\\n2.4.   Arduino Mega 2560\\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\\nmenggerakkan motor untuk menyortir kemiri.\\nGambar 2.6.  Arduino Mega 2560\\n(Sumber : http://www.alselectro.com/)\\n9\\nInstitut Teknologi Del\\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\\n10  Institut Teknologi Del\\nBAB 3\\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\\n3.1.   Ruang Lingkup Penelitian\\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa pen', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [],
+    "sources": [
+      {
+        "document": {
+          "document_id": "123456789-624",
+          "title": "123456789-624",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-624",
+        "document_title": "123456789-624",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": ".......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "HUTAGAOL, PUTRA OLOAN",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "HUTAGAOL, PUTRA OLOAN"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "HUTAGAOL, PUTRA OLOAN",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "HUTAGAOL, PUTRA OLOAN"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": ".......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "123456789-624",
+          "title": "123456789-624",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-624",
+        "document_title": "123456789-624",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "Integrasi Motor  Servo  Pemisah dengan Arduino Mega\nGambar 3.11.   Motor  Servo  Pemisah\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\ntelah direalisasikan.\nGambar 3.12.  Sudut Putar  Servo  Pemisah\n19\nInstitut Teknologi Del\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\nkanan apabila obyek tersebut adalah cangkang.\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\nGambar 3.13.  Programmable Logic Controller (PLC)\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\n20\nInstitut Teknologi Del\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\nconverter .\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\nsoftware . Menggunakan fa",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "HUTAGAOL, PUTRA OLOAN",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "HUTAGAOL, PUTRA OLOAN"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "HUTAGAOL, PUTRA OLOAN",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "HUTAGAOL, PUTRA OLOAN"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "Integrasi Motor  Servo  Pemisah dengan Arduino Mega\nGambar 3.11.   Motor  Servo  Pemisah\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\ntelah direalisasikan.\nGambar 3.12.  Sudut Putar  Servo  Pemisah\n19\nInstitut Teknologi Del\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\nkanan apabila obyek tersebut adalah cangkang.\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\nGambar 3.13.  Programmable Logic Controller (PLC)\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\n20\nInstitut Teknologi Del\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\nconverter .\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\nsoftware . Menggunakan fa",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "HUTAGAOL, PUTRA OLOAN",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "HUTAGAOL, PUTRA OLOAN"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE LOGIC CONTROLLER (PLC)",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "HUTAGAOL, PUTRA OLOAN",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "HUTAGAOL, PUTRA OLOAN"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "g Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\n.......................................................... 7\n2.4.   Arduino Mega 2560  .................................................................................................. 8\nBAB 3 METODE PENELITIAN DAN PERANCANGAN SISTEM  ............................... 10\n3.1.   Ruang Lingkup Penelitian  ....................................................................................... 10\n3.2.   Tempat dan Waktu Penelitian  ................................................................................. 10\n3.3.   Tinjauan Desain Sistem Secara Umum  ................................................................... 10\n3.3.1.   Definisi Sistem  ................................................................................................ 10\n3.3.2.   Deskripsi Sistem  ............................................................................................. 11\n3.4.   Integrasi Desain ke Penyortir Biji Kemiri  ............................................................... 12\n3.4.1.   Integrasi Motor  Servo  Penahan Kemiri dengan Arduino Mega  ...................... 14\nx   Institut Teknologi Del\n3.4.2.   Integrasi Motor  Servo  Penyortir Serpihan dengan Arduino Mega  .................. 15\n3.4.3.   Integrasi  Mini Conveyor  .................................................................................. 16\n3.4.4.   Integrasi Motor  Servo  Penyortir Warna dan Massa dengan Arduio Mega  ..... 17\n3.4.5.   Integrasi Motor  Servo  Pemisah dengan Arduino Mega  .................................. 18\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino  ....................................................... 19\n3.4.7.   Implementasi Perangkat Lunak PLC menggunakan CX- Programmer  ........... 22\nBAB 4 HASIL DAN PEMBAHASAN  ................................................................................. 28\n4.1   Pengujian PLC OMRON CPM2A  .......................................................................... 28\n4.1.1.   Metode Pengumpulan Data  ........................\n\nIntegrasi Motor  Servo  Pemisah dengan Arduino Mega\nGambar 3.11.   Motor  Servo  Pemisah\nPada Gambar 3.11, motor  servo  pemisah cangkang dan biji bercangkang\ntelah direalisasikan.\nGambar 3.12.  Sudut Putar  Servo  Pemisah\n19\nInstitut Teknologi Del\nMotor  servo  ini akan bergerak apabila motor  servo  penyortir warna dan\nmassa sebelumnya bergerak 70º ke kiri dan motor  servo  ini akan tetap pada posisi\n0º apabila obyek tersebut adalah biji bercangkang. Dan akan bergerak 90º ke\nkanan apabila obyek tersebut adalah cangkang.\n3.4.6.   Integrasi  Servo  dengan PLC dan Arduino\nGambar 3.13.  Programmable Logic Controller (PLC)\nPada Gambar 3.13, PLC digunakan untuk mengatur pergerakan motor\nservo  berdasarkan perintah yang diberikan oleh arduino. Data perintah\npergerakan motor  servo  akan melalui  port   output  PLC sebelum sampai ke motor\nservo.  Aktif dan tidak aktifnya output yang bergantung pada nilai input yang\ndiberikan. Nilai yang akan dihasilkan berasal dari input berupa logika yang diatur\npada  ladder   diagram. Ladder   diagram  merupakan bahasa pemrograman di dalam\nPLC yang berbentuk barisan tangga. Nilai  input  yang digunakan berupa warna\ndan massa hasil dari pengolahan pada Arduino, sedangkan pada bagian output\nakan dihubungkan ke masing – masing  servo  yang sesuai dengan fungsi pada\nsetiap subsistem. PLC tidak dapat langsung mengolah nilai dari hasil pembacaan\n20\nInstitut Teknologi Del\nsensor dikarenakan sensor yang digunakan tidak kompatibel dan membutuhkan\nconverter .\nPenerapan PLC pada penyortiran biji kemiri adalah memanfaatkan PLC\nuntuk digunakan sebagai sistem pengendali otomatis pada motor  servo .\nImplementasi PLC OMRON CPM2A dapat dilihat pada Gambar 3.14.\nGambar 3.14.  Desain Skematik PLC dan Arduino Mega 2560\nMasing-masing motor  servo  dikendalikan oleh PLC OMRON CPM2A,\ndimana pergerakan motor  servo  telah di  setting  menggunakan Arduino. Hal ini\ndapat direalisasikan karena PLC ini memiliki fasilitas  hardware  maupun\nsoftware . Menggunakan fa"
+  },
+  "created_at": "2026-08-17T21:06:07.977398",
+  "updated_at": "2026-08-17T21:06:07.977418"
+}

@@ -1,0 +1,109 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?"
+    },
+    {
+      "role": "assistant",
+      "content": "AI cukup luas. Untuk mempersempit arah penelitian, kamu bisa mempertimbangkan:\n\n- AI untuk pendidikan atau kampus\n- Computer Vision\n- NLP atau LLM\n- AI untuk biologi\n- AI untuk penelitian atau akademik\n- bidang AI lain yang sesuai minatmu\n\nPilih satu arah yang paling menarik, lalu kita bisa lanjut mencari penelitian yang relevan dari repository."
+    }
+  ],
+  "last_query": "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?",
+  "last_answer": "AI cukup luas. Untuk mempersempit arah penelitian, kamu bisa mempertimbangkan:\n\n- AI untuk pendidikan atau kampus\n- Computer Vision\n- NLP atau LLM\n- AI untuk biologi\n- AI untuk penelitian atau akademik\n- bidang AI lain yang sesuai minatmu\n\nPilih satu arah yang paling menarik, lalu kita bisa lanjut mencari penelitian yang relevan dari repository.",
+  "summary": "",
+  "topics": [
+    "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "ai",
+    "research_goal": "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?",
+    "current_question": "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?",
+    "keywords": [
+      "ai"
+    ],
+    "research_direction": "ai",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa research gap yang dapat ditemukan dari dokumen repository terkait sistem informasi?"
+      }
+    ],
+    "discovery_topic": "ai",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-753",
+        "title": "AI BASED MOVING FLAG ON CTF SCENARIO",
+        "author": "Tua M, Anggiat Maruli",
+        "year": "2020",
+        "abstract": "Keamanan data menjadi salah satu aspek krusial bagi setiap instansi, secara khusus instansi yang sebagian besar proses bisnisnya dilakukan secara online. Melakukan penetration test sebelum dan sesudah sistem release dapat membantu mengurangi kemungkinan terjadinya hal tersebut. Penelitian ini bertujuan untuk membuat sebuah media hands on training yaitu penetration test lab, sebagai media untuk membantu memahami bagiamana mengamankan sebuah sistem lebih baik melalui perspektif dari seorang penyerang melalui penetration test. Penetration test lab akan menerapkan dua challenges, untuk mendapatkan akses pada sistem, dan mendapatkan flag pada sistem, sebagai bagian dari sebuah skenario CTF. Untuk itu, penetration test lab ini akan menjalankan sebuah website yang didesain vulnerable dengan vulnerability yang ditentukan melalui OWASP risk rating methodology. Pada penetration test lab ini juga diterapkan sebuah algoritma untuk mengamankan flag di dalamnya dengan menggunakan konsep moving target defense. Penggunaan konsep moving target defense adalah untuk memberikan sebuah mekanisme pengamanan data untuk mencegah data pada sistem dapat diambil oleh penyerang. Hasil dari penelitian ini adalah sebuah penetration test lab yang menjalankan sebuah vulnerable website untuk diserang dan mendapatkan akses terhadap sistem, juga sebuah algoritma reactive machines AI yang menjadi perwujudan konsep moving target defense untuk mengamankan flag pada sistem tersebut dengan cara memindahkan flag secara terus menerus. Penelitian ini juga akan menghasilkan sebuah Proof of Concept, yaitu sebuah manual dalam menyelesaikan challenge pada skenario CTF yang telah dibuat sebagai bukti challenge yang dibuat adalah valid.\r\n\r\nKata kunci : penetration test, moving target defense, CTF, vulnerability, flag\r\n ",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-54",
+        "title": "Analisis Algoritma Levensthein Distance dan Algoritma Hamming Distance pada Fitur Autocorrect dalam Pencarian Data",
+        "author": "Sihombing, Yulianty",
+        "year": "2017",
+        "abstract": "Dalam melakukan pencarian, user akan menerima hasil yang tidak sesuai dengan yang diinginkan jika user memasukkan kata yang salah pada mesin pencari. Terdapat sebuah fitur yang diterapkan pada aplikasi yang berguna untuk menghasilkan prediksi kata dan juga melakukan pengkoreksian kata ketika melakukan pencarian yaitu fitur autocorrect. Dengan adanya fitur tersebut, pengguna akan semakin lebih mudah dan cepat ketika melakukan pencarian. Dalam menerapkan fitur autocorrect untuk sebuah aplikasi dapat menggunakan banyak algoritma, seperti Hamming Distance, Levensthein Distance, Damerau, Jaro Winkler Distance, Booyer Moore dan lainnya. Setiap dari algoritma tersebut memiliki cara kerja yang berbeda-beda untuk menghasilkan pencarian data. \r\n\r\nUntuk Tugas Akhir ini penulis akan menggunakan algoritma Levenshtein distance dan juga algoritma Hamming Distance sebagai penerapan fitur autocorrect untuk mesin pencarian. Data yang akan digunakan adalah kumpulan tipe mobil. Tujuan dari tugas akhir ini adalah melakukan analisa dan perbandingan terhadap Algoritma Levensthein Distance dan Algoritma Hamming Distance sebagai fitur autocorrect dalam melakukan pencarian data dengan cara menganalisis hasil yang diperoleh dari penerapan yaitu running time, memori usage dan keakuratan pencarian.\r\n\r\nHasil yang diperoleh dari penelitian ini adalah dalam hal pemakaian memori dan running time Algoritma Hamming Distance jauh lebih baik dari pada Levenshtein Distance sedangkan dalam hal akurasi algoritma Levenshtein lebih baik dari pada Hamming Distance.\r\n\r\nKata kunci : Autocorrect, Levenshtein Distance, Hamming Distance, Running time, memori usage",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-1578",
+        "title": "ANALISIS DAN IMPLEMENTASI ZERO TRUST NETWORK ACCES PADA WEB APPLICATION DAN LEARNING MANAGEMENT SYSTEM",
+        "author": "Manurung, Frengky Soritua",
+        "year": "2024",
+        "abstract": "Di era digital yang semakin canggih, universitas dan lembaga pendidikan\r\nmengandalkan jaringan komputer untuk mendukung operasional sehari-hari.\r\nNamun, pendekatan tradisional dalam mengelola keamanan jaringan memiliki\r\nkelemahan signifikan dalam menghadapi ancaman siber yang semakin kompleks.\r\nZero Trust Network Access (ZTNA) muncul sebagai solusi untuk mengatasi\r\nkelemahan ini dengan menolak asumsi bahwa entitas dalam jaringan yang telah\r\ndiberikan akses dapat dipercaya sepenuhnya. ZTNA mengharuskan setiap\r\npermintaan akses untuk dievaluasi secara individual dengan penerapan Multi-factor\r\nAuthentication (MFA) dan analisis risiko sebelum persetujuan diberikan. Dalam\r\nkonteks pendidikan tinggi, penerapan ZTNA menjadi penting untuk melindungi\r\ndata akademik dan operasional pendidikan. Studi ini menganalisis dan merancang\r\narsitektur ZTNA yang sesuai untuk lingkungan pendidikan tinggi, termasuk\r\npemilihan teknologi, konfigurasi perangkat, dan penetapan kebijakan akses\r\nberbasis ZTNA. Implementasi ZTNA di lingkungan pendidikan tinggi memberikan\r\nmanfaat besar dalam meningkatkan keamanan jaringan, menjaga integritas, dan\r\nkerahasiaan data. Studi kasus pada aplikasi Moodle menunjukkan bagaimana\r\nZTNA dapat mengidentifikasi celah keamanan dan memberikan solusi efektif untuk\r\nmemastikan akses hanya diberikan kepada pihak yang berwenang, serta mencegah\r\npihak yang tidak berwenang mengakses atau memanipulasi entitas dalam jaringan\r\n\r\nKata Kunci: Zero Trust Network Access, Multi-Factor Authentication, Learning\r\nManagement System, Keamanan Data, Moodle.",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-114",
+        "title": "Analisis dan Penggunaan Test Case Generator \"Randy\"",
+        "author": "Gultom, Elsa",
+        "year": "2012",
+        "abstract": "Software Testing adalah suatu kegiatan yang dilakukan pada sebuah software yang bertujuan untuk meyakinkan bahwa software tersebut bekerjasama sesuai yang ada dan berusaha untuk menemukan adanya error pada perangkat lunak tersebut. Dalam kegiatan software testing, test case yang merupakan masukan pada suatu software dapat dibangkitkan secara manual maupun otomatis dengan tool yang dinamakan Test Case Generator.\r\nTest Case Generator \"Randy\" adalah suatu Test Case Generator yang dibangun dengan bahasa pemrograman C. Test Case Generator \"Randy\" termasuk dalam Test Case Generator yang dibangun menggunakan pendekatan Random-oriented test case generator. Tool ini dapat menghasilkan test case untuk berbagai bahasa pemrograman.\r\nTest Case Generator \"Randy\" dijalankan pada terminal ubuntu. Test Case Generator \"Randy\" ini terdiri dari beberapa folder yang berisi file forms, place, Readme. Untuk menggunakan Test Case Generator \"Randy\" penguji harus menggunakan rule dan parameter yang sudah ditentukan pada tool ini. Rules dan calon test cases untuk suatu program tertentu dimasukkan pada file place. Untuk menguji kebenaran test cases yang dihasilkan oleh Test Case Generator \"Randy\", penulis juga melakukan pengujian dengan tiga buah program. \r\nDari seluruh tahapan yang dilakukan dalam tugas Akhir ini disimpulkan bawhwa Test Case Generator \"Randy\" dapat digunakan untuk menghasilkan test cases untuk beberpa bahasa pemrograman seperti bahasa pemrograman C dan Java. Penulis telah mengetahui rules yang terdapat dalam Test case generator \"Randy\" dan menggunakan pada studi kasus dengan beberapa program. Penulis juga telah menghasilkan dokumen user Manual untuk tool ini. Saran untuk pengembangan Test Case Generator \"Randy\"  adalah peningkatan kemapuan pengacakan sehingga mempermudah pembuatan file place yang dibutuhkan dalam menghasilkan test cases.\r\nKata Kunci: test case, forms, rule, place",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-1038",
+        "title": "ANALISIS DAN PERANCANGAN APLIKASI  E-MARKETPLACE PARIWISATA (STUDI KASUS: PARIWISATA DI KAWASAN DANAU TOBA)",
+        "author": "SITORUS, ANITA P.K",
+        "year": "2020",
+        "abstract": "Pariwisata di kawasan Danau Toba memiliki potensi yang sangat besar, hal ini didukung oleh keberagaman objek wisata dan kebudayaan masyarakat setempat yang masih terjaga hingga saat ini. Namun potensi tersebut tidak disertai oleh publikasi yang maksimal sehingga kemudahan akses informasi bagi wisatawan belum tersebar luas. Sistem e-marketplace pariwisata adalah solusi yang ditawarkan untuk mempublikasikan potensi pariwisata serta menjadi media untuk mempromosikan barang atau jasa yang disediakan oleh bisnis lokal untuk menjangkau lebih banyak wisatawan. Salah satu permasalahan dalam pengembangan software berbasis objek adalah bagaimana mendapatkan desain yang berkualitas (low coupling dan high cohesion). Design pattern adalah solusi yang dapat dipergunakan kembali untuk menyelesaikan masalah umum dan berulang yang ditemui pada desain software. Gang of Four (GoF) merupakan design pattern yang ditujukan untuk software berbasis objek, pattern ini terdiri atas 23 pattern dengan cakupan permasalahan spesifik. Sebagai bagian dari eksperimen penelitian, perancangan sistem e-marketplace dilakukan dengan menerapkan GoF design pattern, kemudian dilakukan evaluasi menggunakan metrik CBO dan LCOM untuk mengetahui pengaruh design pattern terhadap kualitas desain dari rancangan yang dihasilkan. Berdasarkan evaluasi yang telah dilakukan, terlihat bahwa rancangan aplikasi yang telah dihasilkan low coupling dan low cohesion. \r\n\r\nKata kunci: Pariwisata, rancangan, design pattern GoF, coupling dan cohesion",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-834",
+        "title": "ANALISIS DIMENSI KUALITAS LAYANAN HUTAN WISATA MATA KUCING DENGAN PENDEKATAN GUEST EXPERIENCE DAN SERVICE BLUEPRINT",
+        "author": "Siagian, Novia Kristina",
+        "year": "2021",
+        "abstract": "Hutan Wisata Mata Kucing (HWMK) merupakan objek destinasi wisata agro dan ecotourism yang sudah berdiri sejak tahun 1999. Keadaan hutan masih alami; udara yang sejuk; fasilitas wisata yang tersedia seperti danau, kolam berenang, kebun binatang merupakan potensi unggulan yang dimiliki HWMK. Namun, hal ini tidak sebanding dengan wisatawan yang berkunjung ke HWMK dimana dari data jumlah pengunjung tahun 2017-2020 diperoleh bahwa pada tahun 2019 terjadi penurunan jumlah wisatawan dari tahun sebelumnya yang berkunjung ke HWMK sebesar 11%. Oleh karena itu diperlukan suatu strategi untuk mengembangkan HWMK. Pada penelitian ini dilakukan  pemeringkatan melalui pendekatan guest experience untuk mengetahui aspek yang perlu diperbaiki atau dikembangkan. Selain itu, dilakukan juga perancangan service design dengan membuat service blueprint dan Focus Group Discussion (FGD) untuk menentukan ususlan strategi pengembangan yang tepat. Data pada penelitian ini terdiri atas data primer dan data sekunder. Data primer diperoleh melalui wawancara, observasi, dan kuesioner kepada pengunjung dan pengelola HWMK sementara data sekunder dengan menggunakan studi literatur. Kuesioner dibagikan kepada 110 responden berdasarkan keenam dimensi guest experience yaitu kenyamanan, edukasi, hedonis, hal baru, keamanan, dan keindahan. Berdasarkan analisis, diperoleh dimensi terendah pada guest experience adalah dimensi hal baru dengan nilai rata-rata indeks yaitu 288 sehingga perlu dilakukan perbaikan. Selain itu dilakukan juga perancangan service design dengan service blueprint yang terdiri atas 5 komponen yaitu bukti fisik, aksi pengunjung, aksi pengunjung yang terlihat, aksi pengunjung yang tidak terlihat, dan proses pendukung. Perancangan service blueprint dapat membantu pengunjung melakukan kegiatan wisata. Hasil penelitian ini adanya usulan strategi pengembangan HWMK yang menjadi masukan kepada pengelola yaitu pada dimensi hal baru dapat dilakukan penyediaan jasa foto dengan pencetakan foto, menjual cendera mata khas HWMK kepada pengunjung, membuat museum khusus cagar alam budaya berupa elemen hewan-hewan, interaksi dengan hewan tetapi dengan pengawasan pawang, membuka toko souvenir, membangun view di Bukit Satu dan Bukit Empat, standarisasi kepada petugas-petugas di HWMK, dan semenisasi jalan setapak.\r\nKata Kunci : Hutan Wisata Mata Kucing, Guest Experience, Service Blueprint, Focus Group Discussion.",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-694",
+        "title": "ANALISIS FAKTOR-FAKTOR YANG MEMPENGARUHI KEMAUAN MEMBAYAR (WILLINGNESS-TO-PAY) PAKET PERJALANAN WISATA ROHANI KE KAWASAN DANAU TOBA",
+        "author": "Silaen, Dewi Juliyanti",
+        "year": "2020",
+        "abstract": "Pengembangan pariwisata akan memberikan dampak positif bagi pembangunan ekonomi suatu negara. Pariwisata dapat menciptakan dan meningkatkan kesempatan kerja, meningkatkan pendapatan masyarakat, sebagai akibat multiplier effect yang terjadi dari pengeluaran wisatawan, meningkatkan penerimaan pajak pemerintah dan retribusi daerah, meningkatkan pendapatan nasional atau Gross Domestic Bruto (GDP), mendorong peningkatan investasi dari sektor industri pariwisata dan sektor ekonomi lainya, serta memperkuat neraca pembayaran. Penelitian ini bertujuan untuk menentukan sejauh manakah WTP yang ditawarkan paket perjalanan wisata rohani ke Kawasan Danau Toba. Sehingga diharapkan daya tarik khususnya terhadap objek wisata rohani ke Kawasan Danau Toba terus meningkat dan pendapatan destinasi wisata khususnya wisata rohani di Kawasan Danau Toba meningkat. Analisis Kemauan membayar paket perjalanan wisata rohani ke Kawasan Danau Toba menggunakan metode Contingent Valuation Method (CVM) untuk mengetahui nilai WTP dan analisis regresi linear berganda untuk mengetahui faktor-faktor yang mempengaruhi kemauan membayar paket perjalanan wisata rohani ke Kawasan Danau Toba. Adapun jumlah responden pada penelitian ini yaitu 140 responden dengan memberikan kuesioner secara online kepada responden yang berminat terhadap paket wisata rohani ke Kawasan Danau Toba. Berdasarkan hasil analisis, didapat bahwa rata-rata WTP yaitu Rp2.108.571,43. Sedangkan nilai mode adalah Rp2.000.000,00. Faktor-faktor yang mempengaruhi WTP adalah pendidikan dan pendapatan.\r\nKata kunci: Willingness-to-Pay, Regresi, CVM, Gross Domestic Bruto (GDP)",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-829",
+        "title": "ANALISIS KEPUASAN PELANGGAN CAFE DI KABUPATEN TAPANULI UTARA DENGAN METODE SERVICE QUALITY (SERVQUAL) DAN IMPORTANCE PERFORMANCE ANALYSIS (IPA)",
+        "author": "Simbolon, Vin Vinela",
+        "year": "2021",
+        "abstract": "Saat ini di Kabupaten Tapanuli Utara pertumbuhan cafe mengalami peningkatan yang menyebabkan persaingan semakin ketat. Cafe yang menjadi objek penelitian ini termasuk populer dan dikenal masyarakat maka untuk bertahan dalam persaingan pemilik cafe perlu memahami kebutuhan pelanggan, mengetahui tingkat kepuasan pelanggan, dan melakukan perbaikan pelayanan terutama saat terjadi ketidakpuasan pelanggan. Kualitas pelayanan yang baik akan menjadi tolak ukur dari kepuasan pelanggan. Untuk mendapatkan kepercayaan pelanggan, maka sebuah perusahaan atau unit bisnis perlu memperhatikan kepuasan pelanggannya. Tujuan dari penelitian ini yaitu menganalisis kepuasan pelanggan cafe di Kabupaten Tapanuli Utara untuk melakukan perbaikan dan peningkatan pelayanan pada cafe. Metode yang digunakan dalam penelitian ini adalah Service Quality (Servqual), Customer Satisfaction Index (CSI), dan Importance Performance Analysis (IPA). Berdasarkan hasil pengolahan data dari 300 responden menunjukkan bahwa seluruh nilai gap Servqual bernilai negatif di setiap cafe dengan persentase terbesar pada Brew Brother Coffee yaitu dimensi bentuk fisik (tangible) dengan nilai 31%, pada Gorga Resto & Coffee yaitu dimensi daya tanggap (responsiveness) dengan nilai 26%, dan pada Parkopi yaitu dimensi bentuk fisik (tangible) dengan nilai 28%. Nilai CSI untuk cafe secara keseluruhan diperoleh nilai sebesar 77,61% yang berada pada kategori puas. Kemudian berdasarkan metode Customer Satisfaction Index (CSI) untuk masing-masing cafe diperoleh nilai untuk Brew Brother Coffee sebesar 75,93% yang berada pada kategori puas, untuk Gorga Resto & Coffee sebesar 77,72% yang berada pada kategori puas, dan untuk Parkopi sebesar 79,20% yang berada pada kategori puas. Kemudian berdasarkan hasil pengolahan IPA indikator yang menjadi prioritas perbaikan di Brew Brother Coffee yaitu 7 indikator, di Gorga Resto & Coffee yaitu 6 indikator, dan di Parkopi yaitu 3 indikator. Indikator yang menjadi prioritas utama dijadikan sebagai acuan dalam membuat rekomendasi alternatif kebijakan dalam memperbaiki dan meningkatkan kualitas pelayanan untuk meningkatkan kepuasan pelanggan cafe di Kabupaten Tapanuli Utara.\r\n\r\nKata kunci: Cafe, Kepuasan pelanggan, Servqual, CSI, IPA",
+        "has_pdf": true
+      }
+    ],
+    "sources": [],
+    "current_answer": "AI cukup luas. Untuk mempersempit arah penelitian, kamu bisa mempertimbangkan:\n\n- AI untuk pendidikan atau kampus\n- Computer Vision\n- NLP atau LLM\n- AI untuk biologi\n- AI untuk penelitian atau akademik\n- bidang AI lain yang sesuai minatmu\n\nPilih satu arah yang paling menarik, lalu kita bisa lanjut mencari penelitian yang relevan dari repository.",
+    "research_gap": "AI cukup luas. Untuk mempersempit arah penelitian, kamu bisa mempertimbangkan:\n\n- AI untuk pendidikan atau kampus\n- Computer Vision\n- NLP atau LLM\n- AI untuk biologi\n- AI untuk penelitian atau akademik\n- bidang AI lain yang sesuai minatmu\n\nPilih satu arah yang paling menarik, lalu kita bisa lanjut mencari penelitian yang relevan dari repository."
+  },
+  "created_at": "2026-08-17T22:52:58.329376",
+  "updated_at": "2026-08-17T22:52:58.329393"
+}

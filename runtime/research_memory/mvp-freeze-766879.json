@@ -1,0 +1,616 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa metode penelitian yang digunakan?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m"
+    }
+  ],
+  "last_query": "Apa metode penelitian yang digunakan?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m",
+  "summary": "",
+  "topics": [
+    "Apa metode penelitian yang digunakan?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='m , dan analisis kebutuhan\\npengguna yaitu  specify the context of use, specify user and organizational\\nrequirement.\\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\\nmembandingkan dan membedakan suatu objek atau ide.\\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\\ncontext of use, Specify user and organizational requirement, product design\\nsolution and evaluate .\\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\\n1.   Pengumpulan Informasi\\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\\n28\\nInstitut Teknologi Del\\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\\nseperti kebiasaan pengguna\\n2.   Analisis\\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\\nmenggunakan produk serupa.\\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\\nuser and organizational requirement  pada pengembangan aplikasi  Learning\\nManagement System  berbasis  mobile\\na.   Specify the context of use\\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\\nkegiatan mentor dan  mentee  menggunakan banyak  learning\\nmanagement system  sejenis selama pelaksanaan Studi Independen.\\nb.   Specify user and organi', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ologi Del\\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\\nsaja.\\n●   Background questionnaire\\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\\nmenjadi bahan pertimbangan hasil pengujian.\\n●   Data collection instruments\\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\\nakan diajukan :\\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\\ntersedia.\\n-   Kritik dan saran partisipan selama melakukan pengujian.\\n●   Pre-test questionnaire\\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\\nmetode pengujian yang sesuai.\\n●   Prototypes or Products to Test\\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\\n67                 Institut Teknologi Del\\n●   Post-test questionnaire\\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\\nadalah pertanyaan yang akan diajukan untuk m', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='123456789-1312', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ologi Del\\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\\nsaja.\\n●   Background questionnaire\\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\\nmenjadi bahan pertimbangan hasil pengujian.\\n●   Data collection instruments\\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\\nakan diajukan :\\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\\ntersedia.\\n-   Kritik dan saran partisipan selama melakukan pengujian.\\n●   Pre-test questionnaire\\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\\nmetode pengujian yang sesuai.\\n●   Prototypes or Products to Test\\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\\n67                 Institut Teknologi Del\\n●   Post-test questionnaire\\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\\nadalah pertanyaan yang akan diajukan untuk m', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='0310fa0d4a5c42f79858f2ddbc48b936', title='INVESTIGASI DAMPAK VALUE CO- CREATION DAN PEMASARAN DIGITAL TERHADAP KEPUASAN PELANGGAN (STUDI KASUS: UMKM CAFE HOLLYWOOD)', file_path='delbot_platform/repository_data/pdf/0310fa0d4a5c42f79858f2ddbc48b936.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='Silalahi, Yeshinta A', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='han data dan analisis data\\nPada tahap ini, data dari kuesioner dan wawancara diproses menggunakan\\nmetode SEM-PLS. Tahap ini mendukung pencapaian tujuan penelitian dengan\\nmemodelkan hubungan kompleks antara variabel yang ada. Dengan\\nmenggunakan SEM-PLS, peneliti dapat mengidentifikasi dan menganalisis\\nhubungan, termasuk pengaruh langsung dan tidak langsung antar variabel.\\nh.   Kesimpulan dan Saran\\nTahap akhir penelitian melibatkan penyampaian kesimpulan dari hasil analisis\\ndata serta memberikan saran berupa rekomendasi untuk promosi inovasi digital\\nbagi UMKM.\\n3.2 Jenis Penelitian\\nPenelitian ini menggunakan metode kuantitatif, yaitu pendekatan penelitian\\nyang memanfaatkan angka dan statistik untuk mengumpulkan dan menganalisis\\ndata guna memahami hubungan antar variabel (Millena & Jesi, 2021).\\n3.3 Lokasi dan Waktu Penelitian\\nPenelitian melakukan penyebaran kuesioner kepada pelanggan UMKM dan\\npengusaha UMKM. Penelitian ini dimulai pada bulan Januari 2024 sampai bulan\\nJuni 2024. Jadwal yang sudah disusun dapat berubah dengan adanya situasi yang\\nterjadi pada saat melakukan penelitian. Tabel 3.1 di bawah adalah waktu\\npelaksanaan penelitian yang membutuhkan waktu pengerjaan sampai dengan\\nselesai sesuai dengan rincian sebagai berikut:\\n22\\nInstitut Teknologi Del\\nTabel 3.1 Waktu Pelaksanaan Penelitian\\nKegiatan\\nJadwal Kegiatan\\nJanuari  Februari  Maret  April  Mei  Juni\\nIII  IV  I   II III IV  I  II III IV  I  II III IV  I  II III IV  I   II\\nBab I (Pendahuluan)\\nRevisi BAB I\\nStudi Literatur\\nBAB II (Dasar Teori)\\nRevisi BAB II\\nBAB III (Metodologi)\\nRevisi BAB III\\nPengumpulan Data\\nPengolahan Data\\nBAB IV (Data dan\\nAnalisis)\\nRevisi BAB IV\\nBAB V (Hasil dan\\nPembahasan)\\nBAB VI (Kesimpulan\\ndan Saran)\\nRevisi Dokumen\\n3.4 Sumber Data\\nPenelitian ini menggunakan data kuantitatif yang diperoleh dari sumber data primer\\ndan sekunder.\\n1.   Data Primer\\nData primer adalah data yang diperoleh secara langsung dari hasil pengamatan,\\nkuesioner, dan wawancara. Dalam penelitian ini, data primer dikumpulkan\\n', metadata={'page_start': 2, 'page_end': 42, 'section': '2024'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='ANALISIS PENGAMBILAN KEPUTUSAN PENENTUAN LOKASI CABANG TOKO ABC DI KABUPATEN TOBA MENGGUNAKAN METODE HYBRID MCDM', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='Sormin, Esti Purwati', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ekatan yang lebih komprehensif dengan mempertimbangkan pilihan kriteria\\ndan subkriteria berdasarkan pernyataan responden serta studi literatur.\\n3.   Penelitian penentuan lokasi ABC memberikan media  template   Microsoft Excel\\nyang mempermudah pengguna dalam mengetahui solusi yang sesuai dengan\\nyang diinginkan.\\n28      Institut Teknologi Del\\nBAB III\\nMETODOLOGI PENELITIAN\\n3.1   Lokasi dan Waktu Penelitian\\nPenelitian dilakukan di Kabupaten Toba, Sumatera Utara khususnya pada 3\\nkecamatan yaitu Kecamatan Balige, Laguboti dan Porsea. Pelaksanaan penelitian\\ndimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei\\nlapangan, wawancara, serta pengisian penilaian oleh pengambil keputusan serta\\nevaluasi terhadap data yang telah diperoleh.\\n3.2   Jenis dan Sumber Data\\nPada penelitian dilakukan kegiatan untuk mendapatkan data dan informasi\\nyang dibutuhkan untuk penyelesaian pada penelitian. Sumber data pada penelitian\\ndapat diperoleh melalui data primer dan data sekunder. Data primer merupakan data\\nyang dikumpulkan untuk memenuhi kebutuhan penelitian yang dilakukan dengan\\nmetode survei, wawancara atau pengamatan langsung. Data primer pada penelitian\\ndiperoleh dengan beberapa teknik adalah sebagai berikut:\\n1.   Survei langsung ke lapangan merupakan pengumpulan data secara langsung\\nberinteraksi dengan narasumber atau objek penelitian di lokasi. Peneliti\\nmengumpulkan data jumlah pesaing di lokasi dan lokasi yang strategis secara\\nlangsung ke lapangan. Peneliti dapat mengamati secara real-time kondisi\\ngeografis, mendapatkan data aktual, dan berinteraksi langsung dengan\\nlingkungan sekitar.\\n2.   Wawancara merupakan metode pengumpulan data dengan mengajukan\\npertanyaan kepada narasumber atau responden. Data yang diperoleh dari\\nwawancara adalah permasalahan yang terjadi, harga tanah dan harga sewa.\\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\\nyang diperol', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "research_goal": "Apa metode penelitian yang digunakan?",
+    "current_question": "Apa metode penelitian yang digunakan?",
+    "keywords": [],
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa metode penelitian yang digunakan?"
+      }
+    ],
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1007",
+        "title": "DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI",
+        "author": "Marbun, Gomgom Jhonatan",
+        "year": "2021",
+        "abstract": "Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-970",
+        "title": "DETEKSI DAN KLASIFIKASI HEWAN DI HUTAN DENGAN  METODE CNN MENGGUNAKAN KAMERA BERBASIS  MIKROKONTROLER RASPBERRY PI",
+        "author": "SIHITE, RONALDO V.S",
+        "year": "2021",
+        "abstract": "Pengelolahan hutan yang baik dilakukan untuk menjaga kelestarian flora dan fauna, \r\nmonitoring hutan merupakan kegiatan yang dilakukan dalam pencegahan \r\nkerusakan hutan secara langsung tanpa mengambil banyak waktu dalam mengambil \r\ntindakan pada skala hutan yang besar, salah satu masalah yang sering terjadi di \r\nhutan akibat dampak ulah manusia seperti perburuan hewan liar. Perancangan dan \r\nimplementasi sistem monitoring hutan menggunakan kamera merupakan sistem \r\nyang dirancang agar dapat mendeteksi dan mengklasifikasikan hewan, antara lain \r\ntupai, anjing hutan, kucing hutan pada alam liar, dengan teknologi computer vision, \r\nmemanfaatkan metode convolutional neural network dengan subsistem arsitektur \r\nYolov3 dan Yolov3-tiny sebagai alternatif, uji coba dilakukan dengan beberapa \r\nscenario dalam mendeteksi dan mengklasifikasikan hewan, hewan dapat dideteksi \r\ndengan baik hingga jarak 110cm dari kamera, tingkat akurasi mendeteksi cukup \r\nbaik dari scenario yang dilakukan menghasilkan persentasi deteksi objek hewan \r\n92,5% untuk Yolov3 dan 46 % untuk Yolov3-tiny yang telah dibandingkan, dapat \r\ndisimpulkan bahwa yolov3 lebih baik dalam mendeteksi objek.\r\nKata Kunci: Yolov3, Yolo",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-793",
+        "title": "IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED",
+        "author": "PANJAITAN, IWAN",
+        "year": "2020",
+        "abstract": "Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Untuk mendapatkan dimensi spesifik pada ROI dilakukan dengan kalibrasi posisi, sudut, serta spesifikasi kamera yang digunakan. Sistem akan dimulai dengan melakukan deteksi kendaraan menggunakan algoritma Viola-Jones dan output/hasil deteksi akan diteruskan pada sistem tracking. Kendaraan yang terdetek",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1471",
+        "title": "DESAIN ALAT PENCACAH SAMPAH MATERIAL 3D PRINTER DENGAN METODE AXIOMATIC HOUSE OF QUALITY (AHOQ)",
+        "author": "Siahaan, Sintong Joshua",
+        "year": "2021",
+        "abstract": "Perkembangan teknologi di bidang percetakan dengan salah satu inovasinya yaitu 3D printer. Dalam pengoperasiannya 3D printer membutuhkan filamen untuk dapat mencetak format file yang telah didesain di PC (Personal Computer) tau perangkat lain yang mendukung. Dalam penggunaannya sisa filamen dan hasil percetakan 3D printer  yang sudah tidak digunakan lagi sering kali dibuang begitu saja, sedangkan berdasarkan material penyusunnya filamen ini sendiri kebanyakan terbuat dari material yang sulit diurai oleh alam dan berpotensi menjadi limbah yang merugikan. Penelitian ini bertujuan untuk merancang alat pencacah sampah material 3D printer yang aman dan praktis dengan metode Axiomatic House of Quality (AHOQ) demi memudahkan pengguna dalam melakukan daur ulang sampah material printer 3D menjadi filament kembali. Berdasarkan beberapa langkah penelitian yang telah ditentukan, didapatkan desain dan spesifikasi dari alat pencacah. Pencacah sampah material 3D printer dirancang dengan penutup pada saluran input material sebagai fungsi keamanan dan mengurangi kebisingan. Sistem kerja alat ialah alat pencacah menjadikan gerak mekanik sepeda menjadi sumber daya gerak pisau pencacah, dengan arti al",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-494",
+        "title": "Design and Implementation of Secure Communication between HMI and Controller on SCADA Delineation Plant Using Raspberry Pi",
+        "author": "Manurung, Epelin",
+        "year": "2015",
+        "abstract": "Industri teknologi informasi sudah banyak menghasilkan produk berupa sistem, aplikasi, perangkat automation dan sebagainya  yang digunakan untuk membantu mempermudah pekerjaan manusia. SCADA merupakan salah satu produk industri teknologi informasi yang memiliki fungsi mengumpulkan, mengelola dan mendistribusikan data secara otomatis. SCADA saat ini telah banyak digunakan secara luas pada industri seperti pertambangan, kereta api, pabrik-pabrik, kelistrikan dan sebagainya.\r\nKonsep sistem SCADA mengacu pada sistem monitoring dan control field computer atau sub sistem kompleks yang tersebar pada daerah luas secara otomatis dengan melakukan pengumpulan pengolahan dan pendistribusian data. Keadaan perangkat di lapangan seperti field computer, sensor, valve atau pump ditampilkan di HMI (Human Machine Interface) menggunakan protokol khusus yaitu modbus, sehingga meyakinkan industri SCADA bahwa jalur komunikasinya aman. Keyakinan atas keamannya sistem SCADA secara fisik, membuat industri SCADA tidak melakukan pengamanan jalur komunikasi data SCADA. Tipe jalur komunikasi data SCADA saat ini adalah plaintext sehingga memungkinkan untuk dapat dibaca oleh pihak luar. Celah keamanan sistem SCAD",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-990",
+        "title": "DETEKSI TINGKAT KEMATANGAN KUE COOKIES  BERBASIS PENGOLAHAN CITRA",
+        "author": "SIAHAAN, FERNANDO SEPTIAN",
+        "year": "2021",
+        "abstract": "Pada umumnya pemasakan kue cookies masih menggunakan sistem secara \r\nmanual. Salah satu penentu kualitas pemasakan kue cookies adalah warna \r\nkematangan. Penelitian ini dilakukan untuk mendeteksi kematangan kue cookies\r\ndengan menggunakan pengolahan Image Processing menggunakan metode warna\r\nHSV (Hue Saturation Value). Sistem ini menggunakan microcontroller Arduino\r\ndan minicomputer Raspberry Pi yang terintegrasi dengan kamera Raspberry Pi\r\nsebagai alat pendeteksi. Pengolahan citra digital menggunakan metode warna HSV \r\nyang menjadi indikator dalam proses pendeteksian kematangan secara real time. \r\nSebelum melakukan pendeteksian kematangan, akan dilakukan pre-processing\r\npada sampel objek. Tahapan pre-processing terdiri atas Gaussian Blur, Erosion, \r\nDilation. Hasil dari pre-processing akan dilanjutkan pada tahap penentu nilai HSV \r\nmenggunakan image color picker atau menggunakan modul penentu nilai. Nilai hsv \r\ntersebut akan digunakan untuk segmentasi pada kue cookies dengan nilai range dari \r\nHSV setiap kondisi level kematangan yang siap untuk diimplementasikan. pada\r\npengimplementasian akan menampilkan label pada daerah yang telah dideteksi\r\nsetiap kondisi kematangannya secara r",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-466",
+        "title": "Evaluasi Performansi HIDS dengan Menggunakan OSSEC",
+        "author": "Sinaga, Rendi Manuel Halason",
+        "year": "2015",
+        "abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapat mengakses informasi. Hal ini mengakibatkan semakin banyak serangan yang akan terjadi pada jaringan komputer sehingga untuk mengatasi dampat dari serangan terserbut dibutuhkan keamanan(Security) pada server agar data dan informasi pada server tersebut tidak dapat diketahui ataupun dimanipulasi oleh intrudres (orang yang ingin merusak data pada server tersebut). Salah satu cara atau metode yang dapat dilakukan untuk menjaga keamanan jaringan adalah HIDS (Host Intrusion Detection System). HIDS adalah sebuah sistem pengawasan terhadap aktifitas sebuah host dalam suatu jaringan dan memantau apakah ada serangan ataupun penyusupan ke dalam host (Server atau personal computer).\r\nPada tugas akhir, penulis melakukan evaluasi terhadap performasi HIDS dengan melakukan pengujian terhadap sebuah server dengan menentukan environment dalam bentuk service yang akan disediakan pada server tersebut. Service yang akan disediakan seperti dns, ftp, http, ssh, smtp, mysql, telnet",
+        "has_pdf": false
+      }
+    ],
+    "discovery_topic": "",
+    "sources": [
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "m , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "123456789-1312",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-1312",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0310fa0d4a5c42f79858f2ddbc48b936",
+          "title": "INVESTIGASI DAMPAK VALUE CO- CREATION DAN PEMASARAN DIGITAL TERHADAP KEPUASAN PELANGGAN (STUDI KASUS: UMKM CAFE HOLLYWOOD)",
+          "file_path": "delbot_platform/repository_data/pdf/0310fa0d4a5c42f79858f2ddbc48b936.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "Silalahi, Yeshinta A",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "Silalahi, Yeshinta A"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0310fa0d4a5c42f79858f2ddbc48b936",
+        "document_title": "INVESTIGASI DAMPAK VALUE CO- CREATION DAN PEMASARAN DIGITAL TERHADAP KEPUASAN PELANGGAN (STUDI KASUS: UMKM CAFE HOLLYWOOD)",
+        "file_path": "delbot_platform/repository_data/pdf/0310fa0d4a5c42f79858f2ddbc48b936.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "Silalahi, Yeshinta A",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "Silalahi, Yeshinta A"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "han data dan analisis data\nPada tahap ini, data dari kuesioner dan wawancara diproses menggunakan\nmetode SEM-PLS. Tahap ini mendukung pencapaian tujuan penelitian dengan\nmemodelkan hubungan kompleks antara variabel yang ada. Dengan\nmenggunakan SEM-PLS, peneliti dapat mengidentifikasi dan menganalisis\nhubungan, termasuk pengaruh langsung dan tidak langsung antar variabel.\nh.   Kesimpulan dan Saran\nTahap akhir penelitian melibatkan penyampaian kesimpulan dari hasil analisis\ndata serta memberikan saran berupa rekomendasi untuk promosi inovasi digital\nbagi UMKM.\n3.2 Jenis Penelitian\nPenelitian ini menggunakan metode kuantitatif, yaitu pendekatan penelitian\nyang memanfaatkan angka dan statistik untuk mengumpulkan dan menganalisis\ndata guna memahami hubungan antar variabel (Millena & Jesi, 2021).\n3.3 Lokasi dan Waktu Penelitian\nPenelitian melakukan penyebaran kuesioner kepada pelanggan UMKM dan\npengusaha UMKM. Penelitian ini dimulai pada bulan Januari 2024 sampai bulan\nJuni 2024. Jadwal yang sudah disusun dapat berubah dengan adanya situasi yang\nterjadi pada saat melakukan penelitian. Tabel 3.1 di bawah adalah waktu\npelaksanaan penelitian yang membutuhkan waktu pengerjaan sampai dengan\nselesai sesuai dengan rincian sebagai berikut:\n22\nInstitut Teknologi Del\nTabel 3.1 Waktu Pelaksanaan Penelitian\nKegiatan\nJadwal Kegiatan\nJanuari  Februari  Maret  April  Mei  Juni\nIII  IV  I   II III IV  I  II III IV  I  II III IV  I  II III IV  I   II\nBab I (Pendahuluan)\nRevisi BAB I\nStudi Literatur\nBAB II (Dasar Teori)\nRevisi BAB II\nBAB III (Metodologi)\nRevisi BAB III\nPengumpulan Data\nPengolahan Data\nBAB IV (Data dan\nAnalisis)\nRevisi BAB IV\nBAB V (Hasil dan\nPembahasan)\nBAB VI (Kesimpulan\ndan Saran)\nRevisi Dokumen\n3.4 Sumber Data\nPenelitian ini menggunakan data kuantitatif yang diperoleh dari sumber data primer\ndan sekunder.\n1.   Data Primer\nData primer adalah data yang diperoleh secara langsung dari hasil pengamatan,\nkuesioner, dan wawancara. Dalam penelitian ini, data primer dikumpulkan\n",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 42,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "ANALISIS PENGAMBILAN KEPUTUSAN PENENTUAN LOKASI CABANG TOKO ABC DI KABUPATEN TOBA MENGGUNAKAN METODE HYBRID MCDM",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "Sormin, Esti Purwati",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "Sormin, Esti Purwati"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "ANALISIS PENGAMBILAN KEPUTUSAN PENENTUAN LOKASI CABANG TOKO ABC DI KABUPATEN TOBA MENGGUNAKAN METODE HYBRID MCDM",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "Sormin, Esti Purwati",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "Sormin, Esti Purwati"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ekatan yang lebih komprehensif dengan mempertimbangkan pilihan kriteria\ndan subkriteria berdasarkan pernyataan responden serta studi literatur.\n3.   Penelitian penentuan lokasi ABC memberikan media  template   Microsoft Excel\nyang mempermudah pengguna dalam mengetahui solusi yang sesuai dengan\nyang diinginkan.\n28      Institut Teknologi Del\nBAB III\nMETODOLOGI PENELITIAN\n3.1   Lokasi dan Waktu Penelitian\nPenelitian dilakukan di Kabupaten Toba, Sumatera Utara khususnya pada 3\nkecamatan yaitu Kecamatan Balige, Laguboti dan Porsea. Pelaksanaan penelitian\ndimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei\nlapangan, wawancara, serta pengisian penilaian oleh pengambil keputusan serta\nevaluasi terhadap data yang telah diperoleh.\n3.2   Jenis dan Sumber Data\nPada penelitian dilakukan kegiatan untuk mendapatkan data dan informasi\nyang dibutuhkan untuk penyelesaian pada penelitian. Sumber data pada penelitian\ndapat diperoleh melalui data primer dan data sekunder. Data primer merupakan data\nyang dikumpulkan untuk memenuhi kebutuhan penelitian yang dilakukan dengan\nmetode survei, wawancara atau pengamatan langsung. Data primer pada penelitian\ndiperoleh dengan beberapa teknik adalah sebagai berikut:\n1.   Survei langsung ke lapangan merupakan pengumpulan data secara langsung\nberinteraksi dengan narasumber atau objek penelitian di lokasi. Peneliti\nmengumpulkan data jumlah pesaing di lokasi dan lokasi yang strategis secara\nlangsung ke lapangan. Peneliti dapat mengamati secara real-time kondisi\ngeografis, mendapatkan data aktual, dan berinteraksi langsung dengan\nlingkungan sekitar.\n2.   Wawancara merupakan metode pengumpulan data dengan mengajukan\npertanyaan kepada narasumber atau responden. Data yang diperoleh dari\nwawancara adalah permasalahan yang terjadi, harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperol",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\nm , dan analisis kebutuhan\npengguna yaitu  specify the context of use, specify user and organizational\nrequirement.\nSebelum melakukan analisis perbandingan dengan indikator yang sudah ditentukan\noleh peneliti, analisis perbandingan ini dilakukan menggunakan metode\ncomparative study .  Comparative study  adalah kegiatan dalam membandingkan dua\natau lebih suatu kondisi, kejadian, kegiatan atau hal lain dalam memeriksa,\nmembandingkan dan membedakan suatu objek atau ide.\nMetode penelitian yang digunakan oleh penulis untuk membangun aplikasi adalah\nmetode  (UCD) User Centered Design  dalam perancangan aplikasi  Learning\nManagement System  berbasis  mobile .  User-Centered Design (UCD)  adalah\npendekatan dalam desain produk dan pengembangan yang menempatkan  user\nsebagai fokus utama. Tahapan penelitian dari metode UCD adalah  Specify the\ncontext of use, Specify user and organizational requirement, product design\nsolution and evaluate .\nAdapun langkah - langkah utama dalam pendekatan UCD adalah sebagai berikut\n1.   Pengumpulan Informasi\nMelakukan pengumpulan informasi pada tahap awal yaitu dengan\nunderstand users  untuk memahami siapa  user  dari produk tersebut dengan\n28\nInstitut Teknologi Del\nmelibatkan penelitian mendalam tentang karakteristik pengguna potensial,\nseperti kebiasaan pengguna\n2.   Analisis\nPada saat melakukan analisis penulis dapat melakukan define  user  needs,\nyaitu memahami  user  dengan mencari tahu apa yang  user  inginkan dan\nbutuhkan dari produk, serta masalah atau tantangan yang dialami saat\nmenggunakan produk serupa.\nAnalisis adalah tahapan dalam proses  Specify the context of use  dan  Specify\nuser and organizational requirement  pada pengembangan aplikasi  Learning\nManagement System  berbasis  mobile\na.   Specify the context of use\nPada tahap ini penulis melakukan wawancara terhadap  user  tentang\nkegiatan mentor dan  mentee  menggunakan banyak  learning\nmanagement system  sejenis selama pelaksanaan Studi Independen.\nb.   Specify user and organi\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m\n\nologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m"
+  },
+  "created_at": "2026-08-17T22:05:37.392207",
+  "updated_at": "2026-08-17T22:05:37.392222"
+}

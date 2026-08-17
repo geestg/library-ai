@@ -37,6 +37,7 @@ class ResearchResponse(BaseModel):
     documents: int
     retrieved: int
     session_id: str
+    research_state: dict = {}
 
 
 _application: ResearchAnswerApplication | None = None
@@ -167,4 +168,5 @@ async def research_answer(
             else 0
         ),
         session_id=response.session_id,
+        research_state=response.research_state or {},
     )

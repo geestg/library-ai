@@ -1,0 +1,540 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa penelitian computer vision yang terdapat dalam repository?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 3]\nDocument ID: 123456789-793\nTitle: IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED\nAuthor: PANJAITAN, IWAN\nYear: 2020\nHas PDF: False\nAbstract: Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Un\n\n[Candidate 4]\nDocument ID: 123456789-299\nTitle: PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN\nAuthor: Manurung, Tommy Harlis\nYear: 2018\nHas PDF: False\nAbstract: Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  ca\n\n[Candidate 1]\nDocument ID: 123456789-1007\nTitle: DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI\nAuthor: Marbun, Gomgom Jhonatan\nYear: 2021\nHas PDF: False\nAbstract: Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny"
+    }
+  ],
+  "last_query": "Apa penelitian computer vision yang terdapat dalam repository?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 3]\nDocument ID: 123456789-793\nTitle: IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED\nAuthor: PANJAITAN, IWAN\nYear: 2020\nHas PDF: False\nAbstract: Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Un\n\n[Candidate 4]\nDocument ID: 123456789-299\nTitle: PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN\nAuthor: Manurung, Tommy Harlis\nYear: 2018\nHas PDF: False\nAbstract: Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  ca\n\n[Candidate 1]\nDocument ID: 123456789-1007\nTitle: DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI\nAuthor: Marbun, Gomgom Jhonatan\nYear: 2021\nHas PDF: False\nAbstract: Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+  "summary": "",
+  "topics": [
+    "Apa penelitian computer vision yang terdapat dalam repository?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='n output berupa biji kemiri dan cangkang kemiri.\\n2\\nInstitut Teknologi Del\\n1.2.   Rumusan Masalah\\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\\npenelitian ini adalah:\\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\\nefisien.\\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\\n1.3.   Tujuan\\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\\nmotor DC.\\n1.4.   Manfaat\\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\\notomatis.\\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\\nAkhir II.\\n3  Institut Teknologi Del\\nBAB 2\\nLANDASAN TEORI\\n2.1.   SolidWorks\\nGambar 2.1 . Tampilan Aplikasi SolidWorks\\n(Sumber : https://editablefiles.com/)\\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\\nberkurang,  time market  dari benda pun dapat dipercepat.\\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\\n3.2.   Tempat dan Waktu Penelitian\\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\\n3.3.   Tinjauan Desain Sistem Secara Umum\\n3.3.1.   Definisi Sistem\\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\\n11\\nInstitut Teknologi Del\\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\\nSistem Sensor  Pengukuran Pengguna Obyek\\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='I KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\\nberhubungan dengan penelitian yang dilakukan.\\n7\\nInstitut Teknologi Del\\nc.   BAB III METODOLOGI PENELITIAN\\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\\ndata serta kerangka penelitian yang dilakukan.\\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\\ne.   BAB V ANALISIS & PEMBAHASAN\\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\\nmetode  hybrid  MCDM.\\nd.   BAB VI KESIMPULAN DAN SARAN\\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\\ntoko ABC.\\n3.   Bagian Akhir\\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\\npenelitian.\\n8     Institut Teknologi Del\\nBAB II\\nTINJAUAN PUSTAKA\\n2.1   Pengambilan Keputusan\\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\\nuntuk mengambil ', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='0ff47c59f90b4881a36395bcb4dd508b', title='0ff47c59f90b4881a36395bcb4dd508b', file_path='delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='-Waterman dalamfungsi PenyejajaranSekuen.\\nInput\\nFileBLOSUMdalamfiledengan ekstensi*.blsm\\nOutput\\nSebuah hashtable yangmenyimpan semua nilai darikombinasi simbol protein.\\n4.2.3.4 PenyejajaranSekuen\\nuser dan data protein yang dibaca dari database dan dibandingkan menggunakan\\nalgoritma Smith-Watermanyang dikombinasikan dengan data BLOSUM.Proses lebih\\ndetail darialgoritmaSmith-Watermandapat dilihat padalampiran4.\\nInput\\nSekuen proteindarimasukanusersekuenproteindaridatabasedandataBLOSUM\\nOutput\\nintormafika\\n4.2.3.5PengurutanNilaiOptimal\\nPengurutanNilaiOptimal merupakan fungsi untuk mengurutkan sequence alignment\\nberdasarkan nilai optimal.\\nInput\\nSejumlah pasangan sekuen protein dengan nilai optimalnya,danbelum terurut.\\nOutput\\nSejumlahpasangan sekuen protein yang telah diurutkan mulai dari sekuen protein yang\\nmemiliki nilai paling tinggi.\\nPoliteknik Informatika Del\\nTugasAkhirDiploma3,Hal.50dari 126\\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\\n4.2.3.6TampilkanHasilSekuen\\nkepada user.\\nInput\\nPasangansekuenproteinyangtelahterurut\\nOutput\\nPasangan sekuen protein yang ditampilkan di layar.\\n4.2.3.7 SimpanHasilSekuen\\nSimpanHasilSekuenmerupakan fungsi untuk menyimpan hasil sequence alignment\\nkedalamfile.psw.\\nInput\\nPasangansekuenproteinyangtelahterurut\\nOutput\\npoliteknik\\nPasangan sekuen protein yang disimpan dalam file psw.\\n4.2.3.8 BukaHasilSekuen\\nBukaHasilSekuenmerupakan fungsi untukmembaca file.psw yang disimpan dan\\nmenampilkannyadi layaruser.\\nInput\\nOutput\\nTampilan isifilehasil sekuendarifile*.psw.\\n4.2.4 PenggunaanJava\\ndapat digunakan untuk melakukan implementasi aplikasi.Salah satunya adalah bahasa\\npemrograman Perl pada sistem operasi Linux,bahasa ini dianggap cukup mendukung\\ndalamimplementasi karenamenyediakanmoduleSmith-Watermanuntukalignment.\\nNamun,pada Tugas Akhir ini implementasi dilakukan dengan metode berbasis objek，\\nyaitudenganmenggunakanplatformJava untukmembangunobjek-objekyangreusable\\nPoliteknikInformatika Del\\nTugas Akhir Diploma3,Hal.51 dari126\\nSequenceAlignmentMeng', metadata={'page_start': 1, 'page_end': 128, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0ff47c59f90b4881a36395bcb4dd508b', title='0ff47c59f90b4881a36395bcb4dd508b', file_path='delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='logy Laboratory),http://\\nwww.embl.org\\n3.GenBank\\n(National\\nCenter\\nBiotechnology\\nInformation),\\nhttp://\\nwww.ncbi.nlm.nih.gov\\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\\n5.PIR(ProteinInformationResource),http://pir.georgetown.edu\\npoliteknik\\ninformatika\\nPoliteknikInformatikaDel\\nTugas AkhirDiploma3,Hal.39dari126\\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\\nBabIV\\nPelaksanaan\\nBabpelaksanaan berisi hasil pemikiran tentangpenerapan Algoritma Smith-Waterman\\nuntukmelakukan alignmentpada sequenceprotein,danuraian mengenai spesifikasi dan\\ndesain aplikasi yang dibangun serta proses-proses yang terdapat pada aplikasi.\\n4.1AnalisisPerangkatLunak\\nHal-halyangakan dijelaskanpada subbabiniadalah desain use case,skenario use case,\\nmengenai bagaimana perangkat lunak dibangun,termasuk metode pengembangan\\nperangkat lunak, deskripsi umum dan skenario penggunaan perangkat lunak.\\n4.1.1 Use Case\\ndijelaskanpada subbabberikutnya.\\nBaca Sekuen polieknik\\nrormatik\\nBaca Data\\nLoad File\\n<<inciude>\\nO\\nLakukan Alignment\\nssincludes\\nAktor\\nBaca File HasilSekuen\\nTampikan Hasil Sekuen\\ns-include>-\\nSimpanFileHasilSekuen\\nGambar7Use Case\\nPoliteknikInformatikaDel\\nTugasAkhirDiploma3,Hal.40 dari 126\\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\\n4.1.1.1SkenarioUse CasepadaBaca Sekuen\\ninpnf\\nBacaSekuen\\nNo.Usecase\\nSequenceAlignment-UC001\\nDeskripsi Use Case\\nUser dapat membaca sekuen\\nAktor\\nUser:yang membaca sekuen\\nTrigger\\nUser\\nKondisi Awal\\nGUI menampilkan halamanuntuk sequence alignment.\\nSkenario Normal\\nAksi-Aktor\\nReaksi Sistem\\n1.\\nUsermelakukan load file dengan\\n2.Aplikasi membaca isi file sequence\\nmenentukan pathfileyangberisi\\nalignmentyangdisimpan\\nsequenceyang akan dibaca.\\nAplikasi menampilkan isi file\\nkepada user melalui aplikasi\\nKondisi AkhirSkenario Normal:\\nUser dapatmembaca isifile sequence alignment yang disimpan.\\nSkenarioAbnormal-1\\nAksi-Aktor\\nReaksi Sistem\\n1:\\nUsermenentukanpathfileyang\\n3.Aplikasimenampilkan tampilan\\nberisi sequence yang akan\\npolitekritama\\ndibaca/ditampilkan', metadata={'page_start': 1, 'page_end': 128, 'section': 'Introduction'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "research_goal": "Apa penelitian computer vision yang terdapat dalam repository?",
+    "current_question": "Apa penelitian computer vision yang terdapat dalam repository?",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa penelitian computer vision yang terdapat dalam repository?"
+      }
+    ],
+    "discovery_topic": "computer vision",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1007",
+        "title": "DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI",
+        "author": "Marbun, Gomgom Jhonatan",
+        "year": "2021",
+        "abstract": "Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-970",
+        "title": "DETEKSI DAN KLASIFIKASI HEWAN DI HUTAN DENGAN  METODE CNN MENGGUNAKAN KAMERA BERBASIS  MIKROKONTROLER RASPBERRY PI",
+        "author": "SIHITE, RONALDO V.S",
+        "year": "2021",
+        "abstract": "Pengelolahan hutan yang baik dilakukan untuk menjaga kelestarian flora dan fauna, \r\nmonitoring hutan merupakan kegiatan yang dilakukan dalam pencegahan \r\nkerusakan hutan secara langsung tanpa mengambil banyak waktu dalam mengambil \r\ntindakan pada skala hutan yang besar, salah satu masalah yang sering terjadi di \r\nhutan akibat dampak ulah manusia seperti perburuan hewan liar. Perancangan dan \r\nimplementasi sistem monitoring hutan menggunakan kamera merupakan sistem \r\nyang dirancang agar dapat mendeteksi dan mengklasifikasikan hewan, antara lain \r\ntupai, anjing hutan, kucing hutan pada alam liar, dengan teknologi computer vision, \r\nmemanfaatkan metode convolutional neural network dengan subsistem arsitektur \r\nYolov3 dan Yolov3-tiny sebagai alternatif, uji coba dilakukan dengan beberapa \r\nscenario dalam mendeteksi dan mengklasifikasikan hewan, hewan dapat dideteksi \r\ndengan baik hingga jarak 110cm dari kamera, tingkat akurasi mendeteksi cukup \r\nbaik dari scenario yang dilakukan menghasilkan persentasi deteksi objek hewan \r\n92,5% untuk Yolov3 dan 46 % untuk Yolov3-tiny yang telah dibandingkan, dapat \r\ndisimpulkan bahwa yolov3 lebih baik dalam mendeteksi objek.\r\nKata Kunci: Yolov3, Yolo",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-793",
+        "title": "IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED",
+        "author": "PANJAITAN, IWAN",
+        "year": "2020",
+        "abstract": "Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Untuk mendapatkan dimensi spesifik pada ROI dilakukan dengan kalibrasi posisi, sudut, serta spesifikasi kamera yang digunakan. Sistem akan dimulai dengan melakukan deteksi kendaraan menggunakan algoritma Viola-Jones dan output/hasil deteksi akan diteruskan pada sistem tracking. Kendaraan yang terdetek",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1471",
+        "title": "DESAIN ALAT PENCACAH SAMPAH MATERIAL 3D PRINTER DENGAN METODE AXIOMATIC HOUSE OF QUALITY (AHOQ)",
+        "author": "Siahaan, Sintong Joshua",
+        "year": "2021",
+        "abstract": "Perkembangan teknologi di bidang percetakan dengan salah satu inovasinya yaitu 3D printer. Dalam pengoperasiannya 3D printer membutuhkan filamen untuk dapat mencetak format file yang telah didesain di PC (Personal Computer) tau perangkat lain yang mendukung. Dalam penggunaannya sisa filamen dan hasil percetakan 3D printer  yang sudah tidak digunakan lagi sering kali dibuang begitu saja, sedangkan berdasarkan material penyusunnya filamen ini sendiri kebanyakan terbuat dari material yang sulit diurai oleh alam dan berpotensi menjadi limbah yang merugikan. Penelitian ini bertujuan untuk merancang alat pencacah sampah material 3D printer yang aman dan praktis dengan metode Axiomatic House of Quality (AHOQ) demi memudahkan pengguna dalam melakukan daur ulang sampah material printer 3D menjadi filament kembali. Berdasarkan beberapa langkah penelitian yang telah ditentukan, didapatkan desain dan spesifikasi dari alat pencacah. Pencacah sampah material 3D printer dirancang dengan penutup pada saluran input material sebagai fungsi keamanan dan mengurangi kebisingan. Sistem kerja alat ialah alat pencacah menjadikan gerak mekanik sepeda menjadi sumber daya gerak pisau pencacah, dengan arti al",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-494",
+        "title": "Design and Implementation of Secure Communication between HMI and Controller on SCADA Delineation Plant Using Raspberry Pi",
+        "author": "Manurung, Epelin",
+        "year": "2015",
+        "abstract": "Industri teknologi informasi sudah banyak menghasilkan produk berupa sistem, aplikasi, perangkat automation dan sebagainya  yang digunakan untuk membantu mempermudah pekerjaan manusia. SCADA merupakan salah satu produk industri teknologi informasi yang memiliki fungsi mengumpulkan, mengelola dan mendistribusikan data secara otomatis. SCADA saat ini telah banyak digunakan secara luas pada industri seperti pertambangan, kereta api, pabrik-pabrik, kelistrikan dan sebagainya.\r\nKonsep sistem SCADA mengacu pada sistem monitoring dan control field computer atau sub sistem kompleks yang tersebar pada daerah luas secara otomatis dengan melakukan pengumpulan pengolahan dan pendistribusian data. Keadaan perangkat di lapangan seperti field computer, sensor, valve atau pump ditampilkan di HMI (Human Machine Interface) menggunakan protokol khusus yaitu modbus, sehingga meyakinkan industri SCADA bahwa jalur komunikasinya aman. Keyakinan atas keamannya sistem SCADA secara fisik, membuat industri SCADA tidak melakukan pengamanan jalur komunikasi data SCADA. Tipe jalur komunikasi data SCADA saat ini adalah plaintext sehingga memungkinkan untuk dapat dibaca oleh pihak luar. Celah keamanan sistem SCAD",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-990",
+        "title": "DETEKSI TINGKAT KEMATANGAN KUE COOKIES  BERBASIS PENGOLAHAN CITRA",
+        "author": "SIAHAAN, FERNANDO SEPTIAN",
+        "year": "2021",
+        "abstract": "Pada umumnya pemasakan kue cookies masih menggunakan sistem secara \r\nmanual. Salah satu penentu kualitas pemasakan kue cookies adalah warna \r\nkematangan. Penelitian ini dilakukan untuk mendeteksi kematangan kue cookies\r\ndengan menggunakan pengolahan Image Processing menggunakan metode warna\r\nHSV (Hue Saturation Value). Sistem ini menggunakan microcontroller Arduino\r\ndan minicomputer Raspberry Pi yang terintegrasi dengan kamera Raspberry Pi\r\nsebagai alat pendeteksi. Pengolahan citra digital menggunakan metode warna HSV \r\nyang menjadi indikator dalam proses pendeteksian kematangan secara real time. \r\nSebelum melakukan pendeteksian kematangan, akan dilakukan pre-processing\r\npada sampel objek. Tahapan pre-processing terdiri atas Gaussian Blur, Erosion, \r\nDilation. Hasil dari pre-processing akan dilanjutkan pada tahap penentu nilai HSV \r\nmenggunakan image color picker atau menggunakan modul penentu nilai. Nilai hsv \r\ntersebut akan digunakan untuk segmentasi pada kue cookies dengan nilai range dari \r\nHSV setiap kondisi level kematangan yang siap untuk diimplementasikan. pada\r\npengimplementasian akan menampilkan label pada daerah yang telah dideteksi\r\nsetiap kondisi kematangannya secara r",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-466",
+        "title": "Evaluasi Performansi HIDS dengan Menggunakan OSSEC",
+        "author": "Sinaga, Rendi Manuel Halason",
+        "year": "2015",
+        "abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapat mengakses informasi. Hal ini mengakibatkan semakin banyak serangan yang akan terjadi pada jaringan komputer sehingga untuk mengatasi dampat dari serangan terserbut dibutuhkan keamanan(Security) pada server agar data dan informasi pada server tersebut tidak dapat diketahui ataupun dimanipulasi oleh intrudres (orang yang ingin merusak data pada server tersebut). Salah satu cara atau metode yang dapat dilakukan untuk menjaga keamanan jaringan adalah HIDS (Host Intrusion Detection System). HIDS adalah sebuah sistem pengawasan terhadap aktifitas sebuah host dalam suatu jaringan dan memantau apakah ada serangan ataupun penyusupan ke dalam host (Server atau personal computer).\r\nPada tugas akhir, penulis melakukan evaluasi terhadap performasi HIDS dengan melakukan pengujian terhadap sebuah server dengan menentukan environment dalam bentuk service yang akan disediakan pada server tersebut. Service yang akan disediakan seperti dns, ftp, http, ssh, smtp, mysql, telnet",
+        "has_pdf": false
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "n output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\n3.2.   Tempat dan Waktu Penelitian\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\n3.3.   Tinjauan Desain Sistem Secara Umum\n3.3.1.   Definisi Sistem\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\n11\nInstitut Teknologi Del\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\nSistem Sensor  Pengukuran Pengguna Obyek\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "I KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil ",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+          "title": "0ff47c59f90b4881a36395bcb4dd508b",
+          "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+        "document_title": "0ff47c59f90b4881a36395bcb4dd508b",
+        "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "-Waterman dalamfungsi PenyejajaranSekuen.\nInput\nFileBLOSUMdalamfiledengan ekstensi*.blsm\nOutput\nSebuah hashtable yangmenyimpan semua nilai darikombinasi simbol protein.\n4.2.3.4 PenyejajaranSekuen\nuser dan data protein yang dibaca dari database dan dibandingkan menggunakan\nalgoritma Smith-Watermanyang dikombinasikan dengan data BLOSUM.Proses lebih\ndetail darialgoritmaSmith-Watermandapat dilihat padalampiran4.\nInput\nSekuen proteindarimasukanusersekuenproteindaridatabasedandataBLOSUM\nOutput\nintormafika\n4.2.3.5PengurutanNilaiOptimal\nPengurutanNilaiOptimal merupakan fungsi untuk mengurutkan sequence alignment\nberdasarkan nilai optimal.\nInput\nSejumlah pasangan sekuen protein dengan nilai optimalnya,danbelum terurut.\nOutput\nSejumlahpasangan sekuen protein yang telah diurutkan mulai dari sekuen protein yang\nmemiliki nilai paling tinggi.\nPoliteknik Informatika Del\nTugasAkhirDiploma3,Hal.50dari 126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\n4.2.3.6TampilkanHasilSekuen\nkepada user.\nInput\nPasangansekuenproteinyangtelahterurut\nOutput\nPasangan sekuen protein yang ditampilkan di layar.\n4.2.3.7 SimpanHasilSekuen\nSimpanHasilSekuenmerupakan fungsi untuk menyimpan hasil sequence alignment\nkedalamfile.psw.\nInput\nPasangansekuenproteinyangtelahterurut\nOutput\npoliteknik\nPasangan sekuen protein yang disimpan dalam file psw.\n4.2.3.8 BukaHasilSekuen\nBukaHasilSekuenmerupakan fungsi untukmembaca file.psw yang disimpan dan\nmenampilkannyadi layaruser.\nInput\nOutput\nTampilan isifilehasil sekuendarifile*.psw.\n4.2.4 PenggunaanJava\ndapat digunakan untuk melakukan implementasi aplikasi.Salah satunya adalah bahasa\npemrograman Perl pada sistem operasi Linux,bahasa ini dianggap cukup mendukung\ndalamimplementasi karenamenyediakanmoduleSmith-Watermanuntukalignment.\nNamun,pada Tugas Akhir ini implementasi dilakukan dengan metode berbasis objek，\nyaitudenganmenggunakanplatformJava untukmembangunobjek-objekyangreusable\nPoliteknikInformatika Del\nTugas Akhir Diploma3,Hal.51 dari126\nSequenceAlignmentMeng",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 128,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+          "title": "0ff47c59f90b4881a36395bcb4dd508b",
+          "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+        "document_title": "0ff47c59f90b4881a36395bcb4dd508b",
+        "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "logy Laboratory),http://\nwww.embl.org\n3.GenBank\n(National\nCenter\nBiotechnology\nInformation),\nhttp://\nwww.ncbi.nlm.nih.gov\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\n5.PIR(ProteinInformationResource),http://pir.georgetown.edu\npoliteknik\ninformatika\nPoliteknikInformatikaDel\nTugas AkhirDiploma3,Hal.39dari126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\nBabIV\nPelaksanaan\nBabpelaksanaan berisi hasil pemikiran tentangpenerapan Algoritma Smith-Waterman\nuntukmelakukan alignmentpada sequenceprotein,danuraian mengenai spesifikasi dan\ndesain aplikasi yang dibangun serta proses-proses yang terdapat pada aplikasi.\n4.1AnalisisPerangkatLunak\nHal-halyangakan dijelaskanpada subbabiniadalah desain use case,skenario use case,\nmengenai bagaimana perangkat lunak dibangun,termasuk metode pengembangan\nperangkat lunak, deskripsi umum dan skenario penggunaan perangkat lunak.\n4.1.1 Use Case\ndijelaskanpada subbabberikutnya.\nBaca Sekuen polieknik\nrormatik\nBaca Data\nLoad File\n<<inciude>\nO\nLakukan Alignment\nssincludes\nAktor\nBaca File HasilSekuen\nTampikan Hasil Sekuen\ns-include>-\nSimpanFileHasilSekuen\nGambar7Use Case\nPoliteknikInformatikaDel\nTugasAkhirDiploma3,Hal.40 dari 126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\n4.1.1.1SkenarioUse CasepadaBaca Sekuen\ninpnf\nBacaSekuen\nNo.Usecase\nSequenceAlignment-UC001\nDeskripsi Use Case\nUser dapat membaca sekuen\nAktor\nUser:yang membaca sekuen\nTrigger\nUser\nKondisi Awal\nGUI menampilkan halamanuntuk sequence alignment.\nSkenario Normal\nAksi-Aktor\nReaksi Sistem\n1.\nUsermelakukan load file dengan\n2.Aplikasi membaca isi file sequence\nmenentukan pathfileyangberisi\nalignmentyangdisimpan\nsequenceyang akan dibaca.\nAplikasi menampilkan isi file\nkepada user melalui aplikasi\nKondisi AkhirSkenario Normal:\nUser dapatmembaca isifile sequence alignment yang disimpan.\nSkenarioAbnormal-1\nAksi-Aktor\nReaksi Sistem\n1:\nUsermenentukanpathfileyang\n3.Aplikasimenampilkan tampilan\nberisi sequence yang akan\npolitekritama\ndibaca/ditampilkan",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 128,
+          "section": "Introduction"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 3]\nDocument ID: 123456789-793\nTitle: IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED\nAuthor: PANJAITAN, IWAN\nYear: 2020\nHas PDF: False\nAbstract: Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Un\n\n[Candidate 4]\nDocument ID: 123456789-299\nTitle: PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN\nAuthor: Manurung, Tommy Harlis\nYear: 2018\nHas PDF: False\nAbstract: Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  ca\n\n[Candidate 1]\nDocument ID: 123456789-1007\nTitle: DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI\nAuthor: Marbun, Gomgom Jhonatan\nYear: 2021\nHas PDF: False\nAbstract: Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny"
+  },
+  "created_at": "2026-08-16T20:49:40.940826",
+  "updated_at": "2026-08-16T20:49:40.940847"
+}

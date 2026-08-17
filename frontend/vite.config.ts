@@ -6,22 +6,22 @@ export default defineConfig({
     server: {
         proxy: {
             "/api/repository": {
-                target: "http://127.0.0.1:8002",
+                target: "http://127.0.0.1:8200",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },
             "/api/documents": {
-                target: "http://127.0.0.1:8002",
+                target: "http://127.0.0.1:8200",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },
             "/api/research": {
-                target: "http://127.0.0.1:8002",
+                target: "http://127.0.0.1:8100",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },
             "/api/retrieval": {
-                target: "http://127.0.0.1:8002",
+                target: "http://127.0.0.1:8200",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },

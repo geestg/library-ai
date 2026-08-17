@@ -1,0 +1,485 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa penelitian yang relevan dengan computer vision?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada\n\ng Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen"
+    },
+    {
+      "role": "user",
+      "content": "Apa penelitian yang relevan dengan computer vision?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada\n\ng Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen"
+    }
+  ],
+  "last_query": "Apa penelitian yang relevan dengan computer vision?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada\n\ng Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen",
+  "summary": "",
+  "topics": [
+    "Apa penelitian yang relevan dengan computer vision?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='engambilan keputusan.\\n2.   Manfaat Bagi Perguruan Tinggi\\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\\nsebagai syarat dalam kelulusan di bidang akademik.\\n3.   Manfaat Bagi Peneliti\\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\\n6\\nInstitut Teknologi Del\\n4.   Manfaat Bagi Peneliti Selanjutnya\\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\\n1.5   Batasan Masalah\\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\\nABC.\\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\\ndari studi literatur dan wawancara dengan pihak toko ABC.\\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\\nimplementasikan oleh toko ABC.\\n1.6   Sistematika Penulisan\\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\\ndan akhir.\\n1.   Bagian Awal\\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\\n2.   Bagian Isi\\na.   BAB I PENDAHULUAN\\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\\nb.   BAB II KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambil', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='n output berupa biji kemiri dan cangkang kemiri.\\n2\\nInstitut Teknologi Del\\n1.2.   Rumusan Masalah\\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\\npenelitian ini adalah:\\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\\nefisien.\\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\\n1.3.   Tujuan\\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\\nmotor DC.\\n1.4.   Manfaat\\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\\notomatis.\\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\\nAkhir II.\\n3  Institut Teknologi Del\\nBAB 2\\nLANDASAN TEORI\\n2.1.   SolidWorks\\nGambar 2.1 . Tampilan Aplikasi SolidWorks\\n(Sumber : https://editablefiles.com/)\\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\\nberkurang,  time market  dari benda pun dapat dipercepat.\\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='g Tegangan Beroperasi  20.4 – 26.4 V DC\\nKonsumsi Daya  20 W (maksimum)\\nArus Masuk  20 A (maksimum)\\nBahasa Pemrograman  Ladder diagram\\nKapasitias I/O  60 pin\\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\\n8\\nInstitut Teknologi Del\\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\\ndisimulasi tanpa harus terhubung dengan PLC.\\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\\n(Sumber : https://industrial.omron.eu/)\\n2.4.   Arduino Mega 2560\\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\\nmenggerakkan motor untuk menyortir kemiri.\\nGambar 2.6.  Arduino Mega 2560\\n(Sumber : http://www.alselectro.com/)\\n9\\nInstitut Teknologi Del\\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\\n10  Institut Teknologi Del\\nBAB 3\\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\\n3.1.   Ruang Lingkup Penelitian\\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa pen', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ekatan yang lebih komprehensif dengan mempertimbangkan pilihan kriteria\\ndan subkriteria berdasarkan pernyataan responden serta studi literatur.\\n3.   Penelitian penentuan lokasi ABC memberikan media  template   Microsoft Excel\\nyang mempermudah pengguna dalam mengetahui solusi yang sesuai dengan\\nyang diinginkan.\\n28      Institut Teknologi Del\\nBAB III\\nMETODOLOGI PENELITIAN\\n3.1   Lokasi dan Waktu Penelitian\\nPenelitian dilakukan di Kabupaten Toba, Sumatera Utara khususnya pada 3\\nkecamatan yaitu Kecamatan Balige, Laguboti dan Porsea. Pelaksanaan penelitian\\ndimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei\\nlapangan, wawancara, serta pengisian penilaian oleh pengambil keputusan serta\\nevaluasi terhadap data yang telah diperoleh.\\n3.2   Jenis dan Sumber Data\\nPada penelitian dilakukan kegiatan untuk mendapatkan data dan informasi\\nyang dibutuhkan untuk penyelesaian pada penelitian. Sumber data pada penelitian\\ndapat diperoleh melalui data primer dan data sekunder. Data primer merupakan data\\nyang dikumpulkan untuk memenuhi kebutuhan penelitian yang dilakukan dengan\\nmetode survei, wawancara atau pengamatan langsung. Data primer pada penelitian\\ndiperoleh dengan beberapa teknik adalah sebagai berikut:\\n1.   Survei langsung ke lapangan merupakan pengumpulan data secara langsung\\nberinteraksi dengan narasumber atau objek penelitian di lokasi. Peneliti\\nmengumpulkan data jumlah pesaing di lokasi dan lokasi yang strategis secara\\nlangsung ke lapangan. Peneliti dapat mengamati secara real-time kondisi\\ngeografis, mendapatkan data aktual, dan berinteraksi langsung dengan\\nlingkungan sekitar.\\n2.   Wawancara merupakan metode pengumpulan data dengan mengajukan\\npertanyaan kepada narasumber atau responden. Data yang diperoleh dari\\nwawancara adalah permasalahan yang terjadi, harga tanah dan harga sewa.\\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\\nyang diperol', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='........................ 4\\n1.3  Tujuan Penelitian ...................................................................................... 5\\n1.4  Manfaat Penelitian .................................................................................... 5\\n1.5  Batasan Masalah ....................................................................................... 6\\n1.6  Sistematika Penulisan ............................................................................... 6\\nBAB II TINJAUAN PUSTAKA ........................................................................... 8\\n2.1  Pengambilan Keputusan ........................................................................... 8\\n2.2  Multiple Criteria Decision Making  (MCDM) .......................................... 9\\n2.3  Analytical Hierarchy Process  (AHP) ..................................................... 12\\n2.4  Technique for Order Preference by Similarity to Ideal Solution  (TOPSIS)\\n16\\n2.5  Kriteria Penentuan Lokasi Usaha ........................................................... 19\\n2.6  Penelitian Terdahulu ............................................................................... 23\\n2.6.1  Kebaruan Penelitian Dengan Penelitian Terdahulu ......................... 27\\nBAB III METODOLOGI PENELITIAN ......................................................... 28\\n3.1  Lokasi dan Waktu Penelitian .................................................................. 28\\nxi     Institut Teknologi Del\\n3.2  Jenis dan Sumber Data ........................................................................... 28\\n3.3  Metode Pengumpulan Data .................................................................... 29\\n3.4  Metode Pengolahan dan Analisis Data ................................................... 29\\n3.5  Kerangka Penelitian................................................................................ 30\\nBAB IV PENGUMPULAN DAN PENGOLAHAN DATA.............................. 34\\n4.1  Perusahaan Toko ABC ...........................', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "research_goal": "Apa penelitian yang relevan dengan computer vision?",
+    "current_question": "Apa penelitian yang relevan dengan computer vision?",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa penelitian yang relevan dengan computer vision?"
+      },
+      {
+        "event": "research_turn",
+        "value": "Apa penelitian yang relevan dengan computer vision?"
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "engambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "n output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "g Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ekatan yang lebih komprehensif dengan mempertimbangkan pilihan kriteria\ndan subkriteria berdasarkan pernyataan responden serta studi literatur.\n3.   Penelitian penentuan lokasi ABC memberikan media  template   Microsoft Excel\nyang mempermudah pengguna dalam mengetahui solusi yang sesuai dengan\nyang diinginkan.\n28      Institut Teknologi Del\nBAB III\nMETODOLOGI PENELITIAN\n3.1   Lokasi dan Waktu Penelitian\nPenelitian dilakukan di Kabupaten Toba, Sumatera Utara khususnya pada 3\nkecamatan yaitu Kecamatan Balige, Laguboti dan Porsea. Pelaksanaan penelitian\ndimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei\nlapangan, wawancara, serta pengisian penilaian oleh pengambil keputusan serta\nevaluasi terhadap data yang telah diperoleh.\n3.2   Jenis dan Sumber Data\nPada penelitian dilakukan kegiatan untuk mendapatkan data dan informasi\nyang dibutuhkan untuk penyelesaian pada penelitian. Sumber data pada penelitian\ndapat diperoleh melalui data primer dan data sekunder. Data primer merupakan data\nyang dikumpulkan untuk memenuhi kebutuhan penelitian yang dilakukan dengan\nmetode survei, wawancara atau pengamatan langsung. Data primer pada penelitian\ndiperoleh dengan beberapa teknik adalah sebagai berikut:\n1.   Survei langsung ke lapangan merupakan pengumpulan data secara langsung\nberinteraksi dengan narasumber atau objek penelitian di lokasi. Peneliti\nmengumpulkan data jumlah pesaing di lokasi dan lokasi yang strategis secara\nlangsung ke lapangan. Peneliti dapat mengamati secara real-time kondisi\ngeografis, mendapatkan data aktual, dan berinteraksi langsung dengan\nlingkungan sekitar.\n2.   Wawancara merupakan metode pengumpulan data dengan mengajukan\npertanyaan kepada narasumber atau responden. Data yang diperoleh dari\nwawancara adalah permasalahan yang terjadi, harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperol",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "........................ 4\n1.3  Tujuan Penelitian ...................................................................................... 5\n1.4  Manfaat Penelitian .................................................................................... 5\n1.5  Batasan Masalah ....................................................................................... 6\n1.6  Sistematika Penulisan ............................................................................... 6\nBAB II TINJAUAN PUSTAKA ........................................................................... 8\n2.1  Pengambilan Keputusan ........................................................................... 8\n2.2  Multiple Criteria Decision Making  (MCDM) .......................................... 9\n2.3  Analytical Hierarchy Process  (AHP) ..................................................... 12\n2.4  Technique for Order Preference by Similarity to Ideal Solution  (TOPSIS)\n16\n2.5  Kriteria Penentuan Lokasi Usaha ........................................................... 19\n2.6  Penelitian Terdahulu ............................................................................... 23\n2.6.1  Kebaruan Penelitian Dengan Penelitian Terdahulu ......................... 27\nBAB III METODOLOGI PENELITIAN ......................................................... 28\n3.1  Lokasi dan Waktu Penelitian .................................................................. 28\nxi     Institut Teknologi Del\n3.2  Jenis dan Sumber Data ........................................................................... 28\n3.3  Metode Pengumpulan Data .................................................................... 29\n3.4  Metode Pengolahan dan Analisis Data ................................................... 29\n3.5  Kerangka Penelitian................................................................................ 30\nBAB IV PENGUMPULAN DAN PENGOLAHAN DATA.............................. 34\n4.1  Perusahaan Toko ABC ...........................",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada\n\ng Tegangan Beroperasi  20.4 – 26.4 V DC\nKonsumsi Daya  20 W (maksimum)\nArus Masuk  20 A (maksimum)\nBahasa Pemrograman  Ladder diagram\nKapasitias I/O  60 pin\nSebelum PLC dijalankan, terlebih dahulu programnya disimulasikan pada CX-\nProgrammer. CX-Programmer merupakan  software  khusus untuk memprogram PLC\nbuatan OMRON [9]. CX Programmer ini sendiri merupakan salah satu  software  bagian\n8\nInstitut Teknologi Del\ndari CX-One. CX-Programmer dapat memprogram aneka PLC buatan omron dan dapat\ndisimulasi tanpa harus terhubung dengan PLC.\nGambar 2.5.  Tampilan Aplikasi CX-Programmer\n(Sumber : https://industrial.omron.eu/)\n2.4.   Arduino Mega 2560\nArduino Mega 2560 berfungsi untuk menjalankan algoritma  fuzzy-logic . Dengan\ninput  dari subsistem pendeteksian warna dan massa dan  output  untuk subsistem\npenggerak motor. Arduino Mega 2560 digunakan untuk memberi instruksi dalam\nmenggerakkan motor untuk menyortir kemiri.\nGambar 2.6.  Arduino Mega 2560\n(Sumber : http://www.alselectro.com/)\n9\nInstitut Teknologi Del\nArduino Mega 2560 adalah sebuah   microcontroller  yang menggunakan\nAtmega 2560 yang memiliki 54 pin IO digital 15 dapat digunakan sebagai  output\nPWM, 16  input  analog, 4 UART ( port  serial perangkat keras), osilator kristal 16\nMHz, koneksi USB, header ICSP, dan tombol  reset  [10]. Ini berisi semua yang\ndibutuhkan untuk mendukung  microcontroller ; cukup menghubungkan ke\ncomputer  dengan kabel USB atau nyalakan dengan adaptor AC-ke-DC atau baterai\nuntuk memulai. Papan 2560 Mega kompatibel dengan sebagian besar perisai yang\ndirancang untuk Uno dan papan  Duemilanove  atau  Diecimila .\n10  Institut Teknologi Del\nBAB 3\nMETODE PENELITIAN DAN PERANCANGAN SISTEM\n3.1.   Ruang Lingkup Penelitian\nRuang lingkup merupakan hal yang penting untuk ditentukan sebelum memulai\ntahap pembahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa pen"
+  },
+  "created_at": "2026-08-14T01:23:51.090743",
+  "updated_at": "2026-08-14T01:27:47.789917"
+}

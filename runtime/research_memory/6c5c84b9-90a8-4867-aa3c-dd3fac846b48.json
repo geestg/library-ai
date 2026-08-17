@@ -1,0 +1,28 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "test backend contract"
+    },
+    {
+      "role": "assistant",
+      "content": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+    }
+  ],
+  "last_query": "test backend contract",
+  "last_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository.",
+  "summary": "",
+  "topics": [
+    "test backend contract"
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "keywords": [],
+    "current_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+  },
+  "created_at": "2026-08-17T22:33:34.336736",
+  "updated_at": "2026-08-17T22:33:34.336747"
+}

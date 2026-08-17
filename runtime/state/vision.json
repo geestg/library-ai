@@ -6,7 +6,7 @@
         "delbot_platform.ai.runtime.vision"
     ],
     "workdir": "/workspace/delbot",
-    "pid": 131950,
+    "pid": 22131,
     "running": true,
     "host": "0.0.0.0",
     "port": 8104

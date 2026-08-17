@@ -1,0 +1,481 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa saja topik penelitian yang dapat ditemukan dalam repository?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn yang ditemukan dalam penelitian ini.\n3.6   Penentuan Sampel\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\n30\nInstitut Teknologi Del\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\nsebuah perwakilan populasi yang disebut sampel.\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\nsendiri.\n3.7   Pengolahan dan Analisis Data\nMetode pengolahan data yang digunakan pada penelitian ini adalah met"
+    },
+    {
+      "role": "user",
+      "content": "Apa saja topik penelitian yang dapat ditemukan dalam repository?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn yang ditemukan dalam penelitian ini.\n3.6   Penentuan Sampel\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\n30\nInstitut Teknologi Del\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\nsebuah perwakilan populasi yang disebut sampel.\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\nsendiri.\n3.7   Pengolahan dan Analisis Data\nMetode pengolahan data yang digunakan pada penelitian ini adalah met"
+    }
+  ],
+  "last_query": "Apa saja topik penelitian yang dapat ditemukan dalam repository?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn yang ditemukan dalam penelitian ini.\n3.6   Penentuan Sampel\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\n30\nInstitut Teknologi Del\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\nsebuah perwakilan populasi yang disebut sampel.\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\nsendiri.\n3.7   Pengolahan dan Analisis Data\nMetode pengolahan data yang digunakan pada penelitian ini adalah met",
+  "summary": "",
+  "topics": [
+    "Apa saja topik penelitian yang dapat ditemukan dalam repository?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='I KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\\nberhubungan dengan penelitian yang dilakukan.\\n7\\nInstitut Teknologi Del\\nc.   BAB III METODOLOGI PENELITIAN\\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\\ndata serta kerangka penelitian yang dilakukan.\\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\\ne.   BAB V ANALISIS & PEMBAHASAN\\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\\nmetode  hybrid  MCDM.\\nd.   BAB VI KESIMPULAN DAN SARAN\\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\\ntoko ABC.\\n3.   Bagian Akhir\\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\\npenelitian.\\n8     Institut Teknologi Del\\nBAB II\\nTINJAUAN PUSTAKA\\n2.1   Pengambilan Keputusan\\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\\nuntuk mengambil ', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='engambilan keputusan.\\n2.   Manfaat Bagi Perguruan Tinggi\\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\\nsebagai syarat dalam kelulusan di bidang akademik.\\n3.   Manfaat Bagi Peneliti\\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\\n6\\nInstitut Teknologi Del\\n4.   Manfaat Bagi Peneliti Selanjutnya\\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\\n1.5   Batasan Masalah\\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\\nABC.\\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\\ndari studi literatur dan wawancara dengan pihak toko ABC.\\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\\nimplementasikan oleh toko ABC.\\n1.6   Sistematika Penulisan\\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\\ndan akhir.\\n1.   Bagian Awal\\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\\n2.   Bagian Isi\\na.   BAB I PENDAHULUAN\\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\\nb.   BAB II KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambil', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='0091138c6d4f4efcb854a974665ef945', title='0091138c6d4f4efcb854a974665ef945', file_path='delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=40, chunk_id='', score=0.0, text='n yang ditemukan dalam penelitian ini.\\n3.6   Penentuan Sampel\\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\\n30\\nInstitut Teknologi Del\\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\\nsebuah perwakilan populasi yang disebut sampel.\\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\\nsendiri.\\n3.7   Pengolahan dan Analisis Data\\nMetode pengolahan data yang digunakan pada penelitian ini adalah met', metadata={'page_start': 40, 'page_end': 65, 'section': 'METODOLOGI PENELITIAN'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\\n3.2.   Tempat dan Waktu Penelitian\\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\\n3.3.   Tinjauan Desain Sistem Secara Umum\\n3.3.1.   Definisi Sistem\\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\\n11\\nInstitut Teknologi Del\\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\\nSistem Sensor  Pengukuran Pengguna Obyek\\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0091138c6d4f4efcb854a974665ef945', title='0091138c6d4f4efcb854a974665ef945', file_path='delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=40, chunk_id='', score=0.0, text='3.1   Kerangka Penelitian\\nPada penelitian ini, tahapan pengerjaan yang dilakukan dalam perumusan\\nstrategi pemasaran kacang sihobuk dapat dilihat pada bagan berikut:\\nGambar 4. Alur Penelitian\\nMulai\\nIdentifikasi Masalah\\nPerumusan Masalah\\nTujuan Penelitian\\nPengumpulan Data:  Data Primer:  1. Observasi Internal & Eksternal  2. Kuisioner bobot dan peringkat faktor  internal & ekternal  Data Sekunder:   1. BPS dan PUSDATIN  2. Dinas Koperasi dan UKM   3. Dinas Perindustrian dan Perdagangan\\nStudi Literatur\\nPengolahan dan Analisis Data:\\nMatriks IFE dan EFE\\nMatriks IE  Matriks SWOT\\nKesimpulan dan Saran\\nSelesai\\n27\\nInstitut Teknologi Del\\n3.2   Lokasi dan Waktu Penelitian\\nPenelitian ini dilakukan pada usaha dagang kacang sihobuk yang berada di\\nKecamatan Sipoholon Kabupaten Tapanuli Utara. Pemilihan lokasi penelitian\\ndilakukan dengan beberapa pertimbangan bahwa kacang sihobuk merupakan oleh-\\noleh khas dari kabupaten Tapanuli Utara yang memiliki potensi besar untuk\\ndikembangkan. Kegiatan penelitian dilakukan mulai Januari-Juni 2019.\\n3.3   Jenis dan Sumber Data\\n3.3.1   Jenis Data\\nPenelitian ini merupakan penelitian lapangan, karena data yang dibutuhkan\\ndiperoleh dari hasil pengamatan langsung ke tempat usaha kacang sihobuk.\\nPengumpulan data merupakan hal yang penting dalam metode ilmiah dan proses\\nuntuk memperoleh apa yang dibutuhkan dalam penelitian. Adapun data yang\\ndigunakan dalam penelitian ini adalah data kualitatif, kuantitatif, internal dan\\neksternal.\\na.   Data Kualitatif\\nData kualitatif adalah data yang tidak berbentuk angka, dan disajikan\\ndalam bentuk verbal. Data kualitatif dalam penelitian ini adalah gambaran\\numum usaha. Gambaran umum usaha dimulai dari sejarah berdirinya, visi\\ndan misi, struktur organisasi, letak geografis serta keadaan sarana dan\\nprasarana usaha.\\nb.   Data Kuantitatif\\nData kuantitatif adalah data yang berbentuk angka. Data kuantitatif terdiri\\ndari dua kelompok, pertama data diskrit merupakan data yang diperoleh\\nmelalui hasil proses perhitungan dan ked', metadata={'page_start': 40, 'page_end': 65, 'section': 'METODOLOGI PENELITIAN'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "research_goal": "Apa saja topik penelitian yang dapat ditemukan dalam repository?",
+    "current_question": "Apa saja topik penelitian yang dapat ditemukan dalam repository?",
+    "keywords": [],
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa saja topik penelitian yang dapat ditemukan dalam repository?"
+      },
+      {
+        "event": "research_turn",
+        "value": "Apa saja topik penelitian yang dapat ditemukan dalam repository?"
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "I KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil ",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "engambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0091138c6d4f4efcb854a974665ef945",
+          "title": "0091138c6d4f4efcb854a974665ef945",
+          "file_path": "delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0091138c6d4f4efcb854a974665ef945",
+        "document_title": "0091138c6d4f4efcb854a974665ef945",
+        "file_path": "delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 40,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "n yang ditemukan dalam penelitian ini.\n3.6   Penentuan Sampel\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\n30\nInstitut Teknologi Del\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\nsebuah perwakilan populasi yang disebut sampel.\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\nsendiri.\n3.7   Pengolahan dan Analisis Data\nMetode pengolahan data yang digunakan pada penelitian ini adalah met",
+        "metadata": {
+          "page_start": 40,
+          "page_end": 65,
+          "section": "METODOLOGI PENELITIAN"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\n3.2.   Tempat dan Waktu Penelitian\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\n3.3.   Tinjauan Desain Sistem Secara Umum\n3.3.1.   Definisi Sistem\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\n11\nInstitut Teknologi Del\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\nSistem Sensor  Pengukuran Pengguna Obyek\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0091138c6d4f4efcb854a974665ef945",
+          "title": "0091138c6d4f4efcb854a974665ef945",
+          "file_path": "delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0091138c6d4f4efcb854a974665ef945",
+        "document_title": "0091138c6d4f4efcb854a974665ef945",
+        "file_path": "delbot_platform/repository_data/pdf/0091138c6d4f4efcb854a974665ef945.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 40,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "3.1   Kerangka Penelitian\nPada penelitian ini, tahapan pengerjaan yang dilakukan dalam perumusan\nstrategi pemasaran kacang sihobuk dapat dilihat pada bagan berikut:\nGambar 4. Alur Penelitian\nMulai\nIdentifikasi Masalah\nPerumusan Masalah\nTujuan Penelitian\nPengumpulan Data:  Data Primer:  1. Observasi Internal & Eksternal  2. Kuisioner bobot dan peringkat faktor  internal & ekternal  Data Sekunder:   1. BPS dan PUSDATIN  2. Dinas Koperasi dan UKM   3. Dinas Perindustrian dan Perdagangan\nStudi Literatur\nPengolahan dan Analisis Data:\nMatriks IFE dan EFE\nMatriks IE  Matriks SWOT\nKesimpulan dan Saran\nSelesai\n27\nInstitut Teknologi Del\n3.2   Lokasi dan Waktu Penelitian\nPenelitian ini dilakukan pada usaha dagang kacang sihobuk yang berada di\nKecamatan Sipoholon Kabupaten Tapanuli Utara. Pemilihan lokasi penelitian\ndilakukan dengan beberapa pertimbangan bahwa kacang sihobuk merupakan oleh-\noleh khas dari kabupaten Tapanuli Utara yang memiliki potensi besar untuk\ndikembangkan. Kegiatan penelitian dilakukan mulai Januari-Juni 2019.\n3.3   Jenis dan Sumber Data\n3.3.1   Jenis Data\nPenelitian ini merupakan penelitian lapangan, karena data yang dibutuhkan\ndiperoleh dari hasil pengamatan langsung ke tempat usaha kacang sihobuk.\nPengumpulan data merupakan hal yang penting dalam metode ilmiah dan proses\nuntuk memperoleh apa yang dibutuhkan dalam penelitian. Adapun data yang\ndigunakan dalam penelitian ini adalah data kualitatif, kuantitatif, internal dan\neksternal.\na.   Data Kualitatif\nData kualitatif adalah data yang tidak berbentuk angka, dan disajikan\ndalam bentuk verbal. Data kualitatif dalam penelitian ini adalah gambaran\numum usaha. Gambaran umum usaha dimulai dari sejarah berdirinya, visi\ndan misi, struktur organisasi, letak geografis serta keadaan sarana dan\nprasarana usaha.\nb.   Data Kuantitatif\nData kuantitatif adalah data yang berbentuk angka. Data kuantitatif terdiri\ndari dua kelompok, pertama data diskrit merupakan data yang diperoleh\nmelalui hasil proses perhitungan dan ked",
+        "metadata": {
+          "page_start": 40,
+          "page_end": 65,
+          "section": "METODOLOGI PENELITIAN"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\nengambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil\n\nn yang ditemukan dalam penelitian ini.\n3.6   Penentuan Sampel\nMenurut Augusty T. Ferdinand (2006) populasi adalah gabungan dari seluruh\nelemen yang berbentuk peristiwa, hal atau orang yang memiliki karakteristik yang\nserupa yang menjadi pusat perhatian seorang peneliti karena dipandang sebagai\n30\nInstitut Teknologi Del\nsebuah semesta penelitian. Sedangkan sampel adalah subset dari populasi, terdiri\ndari beberapa anggota populasi. Subset ini diambil karena dalam banyak kasus tidak\nmungkin kita meneliti seluruh anggota populasi, oleh karena itu kita membentuk\nsebuah perwakilan populasi yang disebut sampel.\nSampel penelitian ini terdiri dari pengusaha dagang kacang sihobuk,\npemerintah terkait dan konsumen. Sampel ini dibagi dua karena jenis data yang\ndibutuhkan berbeda. Pertama, digunakan untuk memvalidasi faktor-faktor internal\ndan eksternal yang diperoleh dari pengusaha kacang sihobuk. Kedua, digunakan\nuntuk mendapatkan data bobot dan rating melalui pembagian kuisioner.\nDalam memvalidasi informasi terkait faktor internal industri rumah tangga\nkacang sihobuk dilakukan wawancara kepada staff Dinas Koperasi dan UKM\ntepatnya pada divisi UKM. Validasi faktor internal dilakukan wawancara pada 100\norang konsumen yang sudah pernah membeli kacang sihobuk. Pemilihan sampel\nkuisioner pembobotan dan peratingan faktor internal dan eksternal dilakukan\ndengan metode  purposive sampling  atau yang dikatakan peneliti menentukan secara\nsengaja dimana sampel yang dianggap dapat memberikan informasi yang\ndibutuhkan dalam penelitian ini. Pemilihan sampel ini dilakukan atas kriteria\npengusaha yang mengolah dan memasarkan produknya sendiri. Berdasarakan data\npemilik usaha kacang sihobuk yang diperoleh dari Dinas Perindustrian dan\nPerdagangan yang disesuaikan dengan data konkret dilapangan, terdapat 20 (dua\npuluh) pengusaha kacang sihobuk yang memproduksi dan memasarkan produknya\nsendiri.\n3.7   Pengolahan dan Analisis Data\nMetode pengolahan data yang digunakan pada penelitian ini adalah met"
+  },
+  "created_at": "2026-08-16T23:06:49.039942",
+  "updated_at": "2026-08-16T23:06:49.194427"
+}

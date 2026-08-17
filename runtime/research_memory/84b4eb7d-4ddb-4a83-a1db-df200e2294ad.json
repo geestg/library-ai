@@ -1,0 +1,540 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?"
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\ntur\nPada tahap studi literatur peneliti melakukan studi literatur dengan membaca\nreferensi seperti buku, jurnal atau internet yang serupa dengan penelitian. Tahap\nstudi literatur bertujuan untuk mempelajari riset dan teori-teori terdahulu yang\nmenyerupai penelitian dengan tujuan menguatkan analisis.\nc.   Identifikasi Masalah\nTahap identifikasi masalah merupakan tahap peninjauan terhadap masalah yang\ntelah ditemukan. Masalah dirincikan secara rinci dan detail serta memetakan\nkesenjangan yang terdapat pada masalah.\nd.   Perumusan Masalah dan Tujuan\nTahap perumusan masalah dan tujuan merupakan rincian permasalahan\npenelitian serta tujuan penelitian dengan menganalisis literatur, observasi, dan\nwawancara yang dilakukan.\ne.   Penentuan Kriteria dan Subkriteria\nPenentuan kriteria dan subkriteria dalam pengambilan keputusan melibatkan\nidentifikasi faktor-faktor utama yang digunakan untuk mengevaluasi alternatif.\nKriteria sebagai aspek utama yang perlu dipertimbangkan dan subkriteria\nsebagai elemen yang lebih spesifik. Penentuan kriteria dan subkriteria\nditentukan berdasarkan studi literatur dan wawancara dengan narasumber.\nf.   Pengumpulan Data\nPengumpulan data adalah tahap mengumpulkan data yang diperlukan untuk\nmenjawab pertanyaan penelitian. Data yang diperlukan pada penelitian\nmelibatkan identifikasi dan pengukuran kriteria serta subkriteria yang relevan.\nPerbandingan penilaian antara kriteria dan subkriteria berasal dari pengambil\nkeputusan.\ng.   Penyusunan Struktur Hierarki\nPenyusunan struktur hierarki dalam pemodelan masalah memiliki tujuan dalam\nmendukung proses pengambilan keputusan. Setiap kriteria keputusan dapat\n32\nInstitut Teknologi Del\nditempatkan pada tingkatan yang sesuai, memungkinkan pengambil keputusan\nuntuk memahami hubungan hierarkis antara berbagai aspek yang relevan.\nStruktur hierarki membantu dalam mengidentifikasi kriteria yang paling\nberpengaruh terhadap tujuan utama, sehingga memperkuat landasan untuk\npengambilan keputusan yang lebih terinformasi\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\n, harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperoleh merupakan data utama dalam memahami perspektif terhadap\nberbagai aspek kriteria dan sub-kriteria yang digunakan dalam memilih\nalternatif.\n29\nInstitut Teknologi Del\nData sekunder diperoleh melalui studi literatur, dokumen, serta data statistik\nyang relevan dengan topik penelitian. Data sekunder pada penelitian adalah data\njumlah penduduk, pendidikan, pekerjaan dan pendapatan penduduk di Kabupaten\nToba yang bersumber dari BPS Toba. Pengumpulan data jarak melalui  google map s\ndilakukan dengan mengakses informasi jarak tempuh antara dua lokasi seperti jarak\nlokasi alternatif ke  supplier  dan jarak lokasi alternatif ke pesaing.\n3.3   Metode Pengumpulan Data\nPada tahapan pengumpulan data, peneliti menggunakan data yang berbasis\npada analisis multi-sumber dengan menerapkan strategi yang beragam dan\nkomprehensif. Sumber data pada penelitian adalah Badan Pusat Statistik (BPS)\nuntuk mendapatkan informasi demografi, ekonomi, dan sosial yang kuat dan\nterpercaya dan  google maps  untuk mengukur jarak dari dua lokasi.\nPengumpulan data dilakukan wawancara dengan pengambil keputusan\nterkait masalah penelitian. Wawancara membantu memperoleh pemahaman yang\nmendalam tentang pandangan, kebutuhan, dan perspektif orang-orang yang\nmemiliki pengaruh langsung terhadap masalah yang sedang diteliti. Pengumpulan\ndata juga dilakukan dengan menggunakan teknik survei  langsung ke lokasi untuk\nmengumpulkan data secara langsung dari lapangan.\n3.4   Metode Pengolahan dan Analisis Data\nPengolahan dan analisis data penelitian menggunakan pendekatan  hybrid\nMCDM yang menggabungkan metode AHP ( Analytic Hierarchy Process ) dan\nTOPSIS ( Technique for Order Preference by Similarity to Ideal Solution ).\nPengolahan data dimulai dengan menerapkan metode AHP untuk menentukan\nbobot dari setiap kriteria dan su"
+    }
+  ],
+  "last_query": "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\ntur\nPada tahap studi literatur peneliti melakukan studi literatur dengan membaca\nreferensi seperti buku, jurnal atau internet yang serupa dengan penelitian. Tahap\nstudi literatur bertujuan untuk mempelajari riset dan teori-teori terdahulu yang\nmenyerupai penelitian dengan tujuan menguatkan analisis.\nc.   Identifikasi Masalah\nTahap identifikasi masalah merupakan tahap peninjauan terhadap masalah yang\ntelah ditemukan. Masalah dirincikan secara rinci dan detail serta memetakan\nkesenjangan yang terdapat pada masalah.\nd.   Perumusan Masalah dan Tujuan\nTahap perumusan masalah dan tujuan merupakan rincian permasalahan\npenelitian serta tujuan penelitian dengan menganalisis literatur, observasi, dan\nwawancara yang dilakukan.\ne.   Penentuan Kriteria dan Subkriteria\nPenentuan kriteria dan subkriteria dalam pengambilan keputusan melibatkan\nidentifikasi faktor-faktor utama yang digunakan untuk mengevaluasi alternatif.\nKriteria sebagai aspek utama yang perlu dipertimbangkan dan subkriteria\nsebagai elemen yang lebih spesifik. Penentuan kriteria dan subkriteria\nditentukan berdasarkan studi literatur dan wawancara dengan narasumber.\nf.   Pengumpulan Data\nPengumpulan data adalah tahap mengumpulkan data yang diperlukan untuk\nmenjawab pertanyaan penelitian. Data yang diperlukan pada penelitian\nmelibatkan identifikasi dan pengukuran kriteria serta subkriteria yang relevan.\nPerbandingan penilaian antara kriteria dan subkriteria berasal dari pengambil\nkeputusan.\ng.   Penyusunan Struktur Hierarki\nPenyusunan struktur hierarki dalam pemodelan masalah memiliki tujuan dalam\nmendukung proses pengambilan keputusan. Setiap kriteria keputusan dapat\n32\nInstitut Teknologi Del\nditempatkan pada tingkatan yang sesuai, memungkinkan pengambil keputusan\nuntuk memahami hubungan hierarkis antara berbagai aspek yang relevan.\nStruktur hierarki membantu dalam mengidentifikasi kriteria yang paling\nberpengaruh terhadap tujuan utama, sehingga memperkuat landasan untuk\npengambilan keputusan yang lebih terinformasi\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\n, harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperoleh merupakan data utama dalam memahami perspektif terhadap\nberbagai aspek kriteria dan sub-kriteria yang digunakan dalam memilih\nalternatif.\n29\nInstitut Teknologi Del\nData sekunder diperoleh melalui studi literatur, dokumen, serta data statistik\nyang relevan dengan topik penelitian. Data sekunder pada penelitian adalah data\njumlah penduduk, pendidikan, pekerjaan dan pendapatan penduduk di Kabupaten\nToba yang bersumber dari BPS Toba. Pengumpulan data jarak melalui  google map s\ndilakukan dengan mengakses informasi jarak tempuh antara dua lokasi seperti jarak\nlokasi alternatif ke  supplier  dan jarak lokasi alternatif ke pesaing.\n3.3   Metode Pengumpulan Data\nPada tahapan pengumpulan data, peneliti menggunakan data yang berbasis\npada analisis multi-sumber dengan menerapkan strategi yang beragam dan\nkomprehensif. Sumber data pada penelitian adalah Badan Pusat Statistik (BPS)\nuntuk mendapatkan informasi demografi, ekonomi, dan sosial yang kuat dan\nterpercaya dan  google maps  untuk mengukur jarak dari dua lokasi.\nPengumpulan data dilakukan wawancara dengan pengambil keputusan\nterkait masalah penelitian. Wawancara membantu memperoleh pemahaman yang\nmendalam tentang pandangan, kebutuhan, dan perspektif orang-orang yang\nmemiliki pengaruh langsung terhadap masalah yang sedang diteliti. Pengumpulan\ndata juga dilakukan dengan menggunakan teknik survei  langsung ke lokasi untuk\nmengumpulkan data secara langsung dari lapangan.\n3.4   Metode Pengolahan dan Analisis Data\nPengolahan dan analisis data penelitian menggunakan pendekatan  hybrid\nMCDM yang menggabungkan metode AHP ( Analytic Hierarchy Process ) dan\nTOPSIS ( Technique for Order Preference by Similarity to Ideal Solution ).\nPengolahan data dimulai dengan menerapkan metode AHP untuk menentukan\nbobot dari setiap kriteria dan su",
+  "summary": "",
+  "topics": [
+    "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='tur\\nPada tahap studi literatur peneliti melakukan studi literatur dengan membaca\\nreferensi seperti buku, jurnal atau internet yang serupa dengan penelitian. Tahap\\nstudi literatur bertujuan untuk mempelajari riset dan teori-teori terdahulu yang\\nmenyerupai penelitian dengan tujuan menguatkan analisis.\\nc.   Identifikasi Masalah\\nTahap identifikasi masalah merupakan tahap peninjauan terhadap masalah yang\\ntelah ditemukan. Masalah dirincikan secara rinci dan detail serta memetakan\\nkesenjangan yang terdapat pada masalah.\\nd.   Perumusan Masalah dan Tujuan\\nTahap perumusan masalah dan tujuan merupakan rincian permasalahan\\npenelitian serta tujuan penelitian dengan menganalisis literatur, observasi, dan\\nwawancara yang dilakukan.\\ne.   Penentuan Kriteria dan Subkriteria\\nPenentuan kriteria dan subkriteria dalam pengambilan keputusan melibatkan\\nidentifikasi faktor-faktor utama yang digunakan untuk mengevaluasi alternatif.\\nKriteria sebagai aspek utama yang perlu dipertimbangkan dan subkriteria\\nsebagai elemen yang lebih spesifik. Penentuan kriteria dan subkriteria\\nditentukan berdasarkan studi literatur dan wawancara dengan narasumber.\\nf.   Pengumpulan Data\\nPengumpulan data adalah tahap mengumpulkan data yang diperlukan untuk\\nmenjawab pertanyaan penelitian. Data yang diperlukan pada penelitian\\nmelibatkan identifikasi dan pengukuran kriteria serta subkriteria yang relevan.\\nPerbandingan penilaian antara kriteria dan subkriteria berasal dari pengambil\\nkeputusan.\\ng.   Penyusunan Struktur Hierarki\\nPenyusunan struktur hierarki dalam pemodelan masalah memiliki tujuan dalam\\nmendukung proses pengambilan keputusan. Setiap kriteria keputusan dapat\\n32\\nInstitut Teknologi Del\\nditempatkan pada tingkatan yang sesuai, memungkinkan pengambil keputusan\\nuntuk memahami hubungan hierarkis antara berbagai aspek yang relevan.\\nStruktur hierarki membantu dalam mengidentifikasi kriteria yang paling\\nberpengaruh terhadap tujuan utama, sehingga memperkuat landasan untuk\\npengambilan keputusan yang lebih terinformasi', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='I KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\\nberhubungan dengan penelitian yang dilakukan.\\n7\\nInstitut Teknologi Del\\nc.   BAB III METODOLOGI PENELITIAN\\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\\ndata serta kerangka penelitian yang dilakukan.\\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\\ne.   BAB V ANALISIS & PEMBAHASAN\\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\\nmetode  hybrid  MCDM.\\nd.   BAB VI KESIMPULAN DAN SARAN\\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\\ntoko ABC.\\n3.   Bagian Akhir\\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\\npenelitian.\\n8     Institut Teknologi Del\\nBAB II\\nTINJAUAN PUSTAKA\\n2.1   Pengambilan Keputusan\\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\\nuntuk mengambil ', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='123456789-624', title='123456789-624', file_path='/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='/workspace/delbot/delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\\n3.2.   Tempat dan Waktu Penelitian\\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\\n3.3.   Tinjauan Desain Sistem Secara Umum\\n3.3.1.   Definisi Sistem\\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\\n11\\nInstitut Teknologi Del\\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\\nSistem Sensor  Pengukuran Pengguna Obyek\\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\\n3.2.   Tempat dan Waktu Penelitian\\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\\n3.3.   Tinjauan Desain Sistem Secara Umum\\n3.3.1.   Definisi Sistem\\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\\n11\\nInstitut Teknologi Del\\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\\nSistem Sensor  Pengukuran Pengguna Obyek\\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=', harga tanah dan harga sewa.\\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\\nyang diperoleh merupakan data utama dalam memahami perspektif terhadap\\nberbagai aspek kriteria dan sub-kriteria yang digunakan dalam memilih\\nalternatif.\\n29\\nInstitut Teknologi Del\\nData sekunder diperoleh melalui studi literatur, dokumen, serta data statistik\\nyang relevan dengan topik penelitian. Data sekunder pada penelitian adalah data\\njumlah penduduk, pendidikan, pekerjaan dan pendapatan penduduk di Kabupaten\\nToba yang bersumber dari BPS Toba. Pengumpulan data jarak melalui  google map s\\ndilakukan dengan mengakses informasi jarak tempuh antara dua lokasi seperti jarak\\nlokasi alternatif ke  supplier  dan jarak lokasi alternatif ke pesaing.\\n3.3   Metode Pengumpulan Data\\nPada tahapan pengumpulan data, peneliti menggunakan data yang berbasis\\npada analisis multi-sumber dengan menerapkan strategi yang beragam dan\\nkomprehensif. Sumber data pada penelitian adalah Badan Pusat Statistik (BPS)\\nuntuk mendapatkan informasi demografi, ekonomi, dan sosial yang kuat dan\\nterpercaya dan  google maps  untuk mengukur jarak dari dua lokasi.\\nPengumpulan data dilakukan wawancara dengan pengambil keputusan\\nterkait masalah penelitian. Wawancara membantu memperoleh pemahaman yang\\nmendalam tentang pandangan, kebutuhan, dan perspektif orang-orang yang\\nmemiliki pengaruh langsung terhadap masalah yang sedang diteliti. Pengumpulan\\ndata juga dilakukan dengan menggunakan teknik survei  langsung ke lokasi untuk\\nmengumpulkan data secara langsung dari lapangan.\\n3.4   Metode Pengolahan dan Analisis Data\\nPengolahan dan analisis data penelitian menggunakan pendekatan  hybrid\\nMCDM yang menggabungkan metode AHP ( Analytic Hierarchy Process ) dan\\nTOPSIS ( Technique for Order Preference by Similarity to Ideal Solution ).\\nPengolahan data dimulai dengan menerapkan metode AHP untuk menentukan\\nbobot dari setiap kriteria dan su', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "computer vision",
+    "research_goal": "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?",
+    "current_question": "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?",
+    "keywords": [
+      "computer vision"
+    ],
+    "research_direction": "computer vision",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Berdasarkan repository, apa metode yang digunakan dalam penelitian computer vision?"
+      }
+    ],
+    "discovery_topic": "computer vision",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1007",
+        "title": "DETEKSI DAN KLASIFIKASI HAMA DENGAN METODE  CNN BERBASIS RASPBERRY PI",
+        "author": "Marbun, Gomgom Jhonatan",
+        "year": "2021",
+        "abstract": "Semakin sedikitnya lahan yang dapat digunakan untuk melakukan kegiatan \r\npertanian, hidroponik merupakan salah satu pilihan yang dapat digunakan untuk \r\nmenjalankan kegiatan pertanian baik dalam skala rumahan ataupun besar. Salah \r\nsatu permasalahan yang paling mempengaruhi kualitas dari hasil pertanian adalah \r\nhama. Dalam skripsi ini dilakukan pembuatan sistem yang mampu mendeteksi \r\nhama (ulat). Dengan teknologi computer vision dan dengan memanfaatkan metode \r\nConvolutional Neural Network (CNN) dengan subsistem YOLOV3 dan \r\nYOLOV3_tiny sebagai alternatif, hama dapat dideteksi dengan baik dari jarak 10 \r\ncm. Tingkat akurasi deteksi cukup baik meskipun menghasilkan FPS yang cukup \r\nrendah.\r\nKata kunci:\r\nComputer Vision, Convolutional Neural Network, YOLOV3, \r\nYOLOV3_tiny",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-970",
+        "title": "DETEKSI DAN KLASIFIKASI HEWAN DI HUTAN DENGAN  METODE CNN MENGGUNAKAN KAMERA BERBASIS  MIKROKONTROLER RASPBERRY PI",
+        "author": "SIHITE, RONALDO V.S",
+        "year": "2021",
+        "abstract": "Pengelolahan hutan yang baik dilakukan untuk menjaga kelestarian flora dan fauna, \r\nmonitoring hutan merupakan kegiatan yang dilakukan dalam pencegahan \r\nkerusakan hutan secara langsung tanpa mengambil banyak waktu dalam mengambil \r\ntindakan pada skala hutan yang besar, salah satu masalah yang sering terjadi di \r\nhutan akibat dampak ulah manusia seperti perburuan hewan liar. Perancangan dan \r\nimplementasi sistem monitoring hutan menggunakan kamera merupakan sistem \r\nyang dirancang agar dapat mendeteksi dan mengklasifikasikan hewan, antara lain \r\ntupai, anjing hutan, kucing hutan pada alam liar, dengan teknologi computer vision, \r\nmemanfaatkan metode convolutional neural network dengan subsistem arsitektur \r\nYolov3 dan Yolov3-tiny sebagai alternatif, uji coba dilakukan dengan beberapa \r\nscenario dalam mendeteksi dan mengklasifikasikan hewan, hewan dapat dideteksi \r\ndengan baik hingga jarak 110cm dari kamera, tingkat akurasi mendeteksi cukup \r\nbaik dari scenario yang dilakukan menghasilkan persentasi deteksi objek hewan \r\n92,5% untuk Yolov3 dan 46 % untuk Yolov3-tiny yang telah dibandingkan, dapat \r\ndisimpulkan bahwa yolov3 lebih baik dalam mendeteksi objek.\r\nKata Kunci: Yolov3, Yolo",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-793",
+        "title": "IMPLEMENTATION OF CENTROID TRACKING ALGORITHM TO ESTIMATE CAR SPEED",
+        "author": "PANJAITAN, IWAN",
+        "year": "2020",
+        "abstract": "Dewasa ini pemantauan lalu-lintas jalan raya menjadi komponen penting yang diperlukan untuk menciptakan lalu-lintas yang tertib dan nyaman. Pengawasan lalu-lintas ini dapat memberikan informasi terhadap parameter-parameter seperti jumlah kendaraan yang melintas, kepadatan lalu lintas, kecepatan kendaraann dan lainnya. Dikarenakan salah satu penyebab terbesar kecelakaan dijalan ialah kecepatan dalam berkendara, sehingga banyak penelitian dilakukan untuk dapat mendeteksi kecepatan kendaraan. Dalam membantu peningkatan kinerja petugas dalam melakukan pengawasan terhadap batas kecepatan berkendara  digunakan pemanfaatan teknologi/ilmu pengolahan citra digital atau computer vision. Adapun metode yang digunakan dalam melakukan deteksi kendaraan ialah dengan menganalisa paramater pendukung saat kendaraan melintas daerah Region of Interest (ROI) yang telah di-set dengan dimensi yang spesifik. Untuk mendapatkan dimensi spesifik pada ROI dilakukan dengan kalibrasi posisi, sudut, serta spesifikasi kamera yang digunakan. Sistem akan dimulai dengan melakukan deteksi kendaraan menggunakan algoritma Viola-Jones dan output/hasil deteksi akan diteruskan pada sistem tracking. Kendaraan yang terdetek",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1471",
+        "title": "DESAIN ALAT PENCACAH SAMPAH MATERIAL 3D PRINTER DENGAN METODE AXIOMATIC HOUSE OF QUALITY (AHOQ)",
+        "author": "Siahaan, Sintong Joshua",
+        "year": "2021",
+        "abstract": "Perkembangan teknologi di bidang percetakan dengan salah satu inovasinya yaitu 3D printer. Dalam pengoperasiannya 3D printer membutuhkan filamen untuk dapat mencetak format file yang telah didesain di PC (Personal Computer) tau perangkat lain yang mendukung. Dalam penggunaannya sisa filamen dan hasil percetakan 3D printer  yang sudah tidak digunakan lagi sering kali dibuang begitu saja, sedangkan berdasarkan material penyusunnya filamen ini sendiri kebanyakan terbuat dari material yang sulit diurai oleh alam dan berpotensi menjadi limbah yang merugikan. Penelitian ini bertujuan untuk merancang alat pencacah sampah material 3D printer yang aman dan praktis dengan metode Axiomatic House of Quality (AHOQ) demi memudahkan pengguna dalam melakukan daur ulang sampah material printer 3D menjadi filament kembali. Berdasarkan beberapa langkah penelitian yang telah ditentukan, didapatkan desain dan spesifikasi dari alat pencacah. Pencacah sampah material 3D printer dirancang dengan penutup pada saluran input material sebagai fungsi keamanan dan mengurangi kebisingan. Sistem kerja alat ialah alat pencacah menjadikan gerak mekanik sepeda menjadi sumber daya gerak pisau pencacah, dengan arti al",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-494",
+        "title": "Design and Implementation of Secure Communication between HMI and Controller on SCADA Delineation Plant Using Raspberry Pi",
+        "author": "Manurung, Epelin",
+        "year": "2015",
+        "abstract": "Industri teknologi informasi sudah banyak menghasilkan produk berupa sistem, aplikasi, perangkat automation dan sebagainya  yang digunakan untuk membantu mempermudah pekerjaan manusia. SCADA merupakan salah satu produk industri teknologi informasi yang memiliki fungsi mengumpulkan, mengelola dan mendistribusikan data secara otomatis. SCADA saat ini telah banyak digunakan secara luas pada industri seperti pertambangan, kereta api, pabrik-pabrik, kelistrikan dan sebagainya.\r\nKonsep sistem SCADA mengacu pada sistem monitoring dan control field computer atau sub sistem kompleks yang tersebar pada daerah luas secara otomatis dengan melakukan pengumpulan pengolahan dan pendistribusian data. Keadaan perangkat di lapangan seperti field computer, sensor, valve atau pump ditampilkan di HMI (Human Machine Interface) menggunakan protokol khusus yaitu modbus, sehingga meyakinkan industri SCADA bahwa jalur komunikasinya aman. Keyakinan atas keamannya sistem SCADA secara fisik, membuat industri SCADA tidak melakukan pengamanan jalur komunikasi data SCADA. Tipe jalur komunikasi data SCADA saat ini adalah plaintext sehingga memungkinkan untuk dapat dibaca oleh pihak luar. Celah keamanan sistem SCAD",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-990",
+        "title": "DETEKSI TINGKAT KEMATANGAN KUE COOKIES  BERBASIS PENGOLAHAN CITRA",
+        "author": "SIAHAAN, FERNANDO SEPTIAN",
+        "year": "2021",
+        "abstract": "Pada umumnya pemasakan kue cookies masih menggunakan sistem secara \r\nmanual. Salah satu penentu kualitas pemasakan kue cookies adalah warna \r\nkematangan. Penelitian ini dilakukan untuk mendeteksi kematangan kue cookies\r\ndengan menggunakan pengolahan Image Processing menggunakan metode warna\r\nHSV (Hue Saturation Value). Sistem ini menggunakan microcontroller Arduino\r\ndan minicomputer Raspberry Pi yang terintegrasi dengan kamera Raspberry Pi\r\nsebagai alat pendeteksi. Pengolahan citra digital menggunakan metode warna HSV \r\nyang menjadi indikator dalam proses pendeteksian kematangan secara real time. \r\nSebelum melakukan pendeteksian kematangan, akan dilakukan pre-processing\r\npada sampel objek. Tahapan pre-processing terdiri atas Gaussian Blur, Erosion, \r\nDilation. Hasil dari pre-processing akan dilanjutkan pada tahap penentu nilai HSV \r\nmenggunakan image color picker atau menggunakan modul penentu nilai. Nilai hsv \r\ntersebut akan digunakan untuk segmentasi pada kue cookies dengan nilai range dari \r\nHSV setiap kondisi level kematangan yang siap untuk diimplementasikan. pada\r\npengimplementasian akan menampilkan label pada daerah yang telah dideteksi\r\nsetiap kondisi kematangannya secara r",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-466",
+        "title": "Evaluasi Performansi HIDS dengan Menggunakan OSSEC",
+        "author": "Sinaga, Rendi Manuel Halason",
+        "year": "2015",
+        "abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapat mengakses informasi. Hal ini mengakibatkan semakin banyak serangan yang akan terjadi pada jaringan komputer sehingga untuk mengatasi dampat dari serangan terserbut dibutuhkan keamanan(Security) pada server agar data dan informasi pada server tersebut tidak dapat diketahui ataupun dimanipulasi oleh intrudres (orang yang ingin merusak data pada server tersebut). Salah satu cara atau metode yang dapat dilakukan untuk menjaga keamanan jaringan adalah HIDS (Host Intrusion Detection System). HIDS adalah sebuah sistem pengawasan terhadap aktifitas sebuah host dalam suatu jaringan dan memantau apakah ada serangan ataupun penyusupan ke dalam host (Server atau personal computer).\r\nPada tugas akhir, penulis melakukan evaluasi terhadap performasi HIDS dengan melakukan pengujian terhadap sebuah server dengan menentukan environment dalam bentuk service yang akan disediakan pada server tersebut. Service yang akan disediakan seperti dns, ftp, http, ssh, smtp, mysql, telnet",
+        "has_pdf": false
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "tur\nPada tahap studi literatur peneliti melakukan studi literatur dengan membaca\nreferensi seperti buku, jurnal atau internet yang serupa dengan penelitian. Tahap\nstudi literatur bertujuan untuk mempelajari riset dan teori-teori terdahulu yang\nmenyerupai penelitian dengan tujuan menguatkan analisis.\nc.   Identifikasi Masalah\nTahap identifikasi masalah merupakan tahap peninjauan terhadap masalah yang\ntelah ditemukan. Masalah dirincikan secara rinci dan detail serta memetakan\nkesenjangan yang terdapat pada masalah.\nd.   Perumusan Masalah dan Tujuan\nTahap perumusan masalah dan tujuan merupakan rincian permasalahan\npenelitian serta tujuan penelitian dengan menganalisis literatur, observasi, dan\nwawancara yang dilakukan.\ne.   Penentuan Kriteria dan Subkriteria\nPenentuan kriteria dan subkriteria dalam pengambilan keputusan melibatkan\nidentifikasi faktor-faktor utama yang digunakan untuk mengevaluasi alternatif.\nKriteria sebagai aspek utama yang perlu dipertimbangkan dan subkriteria\nsebagai elemen yang lebih spesifik. Penentuan kriteria dan subkriteria\nditentukan berdasarkan studi literatur dan wawancara dengan narasumber.\nf.   Pengumpulan Data\nPengumpulan data adalah tahap mengumpulkan data yang diperlukan untuk\nmenjawab pertanyaan penelitian. Data yang diperlukan pada penelitian\nmelibatkan identifikasi dan pengukuran kriteria serta subkriteria yang relevan.\nPerbandingan penilaian antara kriteria dan subkriteria berasal dari pengambil\nkeputusan.\ng.   Penyusunan Struktur Hierarki\nPenyusunan struktur hierarki dalam pemodelan masalah memiliki tujuan dalam\nmendukung proses pengambilan keputusan. Setiap kriteria keputusan dapat\n32\nInstitut Teknologi Del\nditempatkan pada tingkatan yang sesuai, memungkinkan pengambil keputusan\nuntuk memahami hubungan hierarkis antara berbagai aspek yang relevan.\nStruktur hierarki membantu dalam mengidentifikasi kriteria yang paling\nberpengaruh terhadap tujuan utama, sehingga memperkuat landasan untuk\npengambilan keputusan yang lebih terinformasi",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "I KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil ",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "123456789-624",
+          "title": "123456789-624",
+          "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "123456789-624",
+        "document_title": "123456789-624",
+        "file_path": "/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "/workspace/delbot/delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\n3.2.   Tempat dan Waktu Penelitian\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\n3.3.   Tinjauan Desain Sistem Secara Umum\n3.3.1.   Definisi Sistem\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\n11\nInstitut Teknologi Del\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\nSistem Sensor  Pengukuran Pengguna Obyek\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\n3.2.   Tempat dan Waktu Penelitian\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\n3.3.   Tinjauan Desain Sistem Secara Umum\n3.3.1.   Definisi Sistem\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\n11\nInstitut Teknologi Del\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\nSistem Sensor  Pengukuran Pengguna Obyek\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": ", harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperoleh merupakan data utama dalam memahami perspektif terhadap\nberbagai aspek kriteria dan sub-kriteria yang digunakan dalam memilih\nalternatif.\n29\nInstitut Teknologi Del\nData sekunder diperoleh melalui studi literatur, dokumen, serta data statistik\nyang relevan dengan topik penelitian. Data sekunder pada penelitian adalah data\njumlah penduduk, pendidikan, pekerjaan dan pendapatan penduduk di Kabupaten\nToba yang bersumber dari BPS Toba. Pengumpulan data jarak melalui  google map s\ndilakukan dengan mengakses informasi jarak tempuh antara dua lokasi seperti jarak\nlokasi alternatif ke  supplier  dan jarak lokasi alternatif ke pesaing.\n3.3   Metode Pengumpulan Data\nPada tahapan pengumpulan data, peneliti menggunakan data yang berbasis\npada analisis multi-sumber dengan menerapkan strategi yang beragam dan\nkomprehensif. Sumber data pada penelitian adalah Badan Pusat Statistik (BPS)\nuntuk mendapatkan informasi demografi, ekonomi, dan sosial yang kuat dan\nterpercaya dan  google maps  untuk mengukur jarak dari dua lokasi.\nPengumpulan data dilakukan wawancara dengan pengambil keputusan\nterkait masalah penelitian. Wawancara membantu memperoleh pemahaman yang\nmendalam tentang pandangan, kebutuhan, dan perspektif orang-orang yang\nmemiliki pengaruh langsung terhadap masalah yang sedang diteliti. Pengumpulan\ndata juga dilakukan dengan menggunakan teknik survei  langsung ke lokasi untuk\nmengumpulkan data secara langsung dari lapangan.\n3.4   Metode Pengolahan dan Analisis Data\nPengolahan dan analisis data penelitian menggunakan pendekatan  hybrid\nMCDM yang menggabungkan metode AHP ( Analytic Hierarchy Process ) dan\nTOPSIS ( Technique for Order Preference by Similarity to Ideal Solution ).\nPengolahan data dimulai dengan menerapkan metode AHP untuk menentukan\nbobot dari setiap kriteria dan su",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\ntur\nPada tahap studi literatur peneliti melakukan studi literatur dengan membaca\nreferensi seperti buku, jurnal atau internet yang serupa dengan penelitian. Tahap\nstudi literatur bertujuan untuk mempelajari riset dan teori-teori terdahulu yang\nmenyerupai penelitian dengan tujuan menguatkan analisis.\nc.   Identifikasi Masalah\nTahap identifikasi masalah merupakan tahap peninjauan terhadap masalah yang\ntelah ditemukan. Masalah dirincikan secara rinci dan detail serta memetakan\nkesenjangan yang terdapat pada masalah.\nd.   Perumusan Masalah dan Tujuan\nTahap perumusan masalah dan tujuan merupakan rincian permasalahan\npenelitian serta tujuan penelitian dengan menganalisis literatur, observasi, dan\nwawancara yang dilakukan.\ne.   Penentuan Kriteria dan Subkriteria\nPenentuan kriteria dan subkriteria dalam pengambilan keputusan melibatkan\nidentifikasi faktor-faktor utama yang digunakan untuk mengevaluasi alternatif.\nKriteria sebagai aspek utama yang perlu dipertimbangkan dan subkriteria\nsebagai elemen yang lebih spesifik. Penentuan kriteria dan subkriteria\nditentukan berdasarkan studi literatur dan wawancara dengan narasumber.\nf.   Pengumpulan Data\nPengumpulan data adalah tahap mengumpulkan data yang diperlukan untuk\nmenjawab pertanyaan penelitian. Data yang diperlukan pada penelitian\nmelibatkan identifikasi dan pengukuran kriteria serta subkriteria yang relevan.\nPerbandingan penilaian antara kriteria dan subkriteria berasal dari pengambil\nkeputusan.\ng.   Penyusunan Struktur Hierarki\nPenyusunan struktur hierarki dalam pemodelan masalah memiliki tujuan dalam\nmendukung proses pengambilan keputusan. Setiap kriteria keputusan dapat\n32\nInstitut Teknologi Del\nditempatkan pada tingkatan yang sesuai, memungkinkan pengambil keputusan\nuntuk memahami hubungan hierarkis antara berbagai aspek yang relevan.\nStruktur hierarki membantu dalam mengidentifikasi kriteria yang paling\nberpengaruh terhadap tujuan utama, sehingga memperkuat landasan untuk\npengambilan keputusan yang lebih terinformasi\n\nI KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil\n\n, harga tanah dan harga sewa.\n3.   Pengumpulan data melalui kuesioner bertujuan untuk mendapatkan penilaian\nperbandingan antar kriteria dan subkriteria terhadap alternatif. Data penilaian\nyang diperoleh merupakan data utama dalam memahami perspektif terhadap\nberbagai aspek kriteria dan sub-kriteria yang digunakan dalam memilih\nalternatif.\n29\nInstitut Teknologi Del\nData sekunder diperoleh melalui studi literatur, dokumen, serta data statistik\nyang relevan dengan topik penelitian. Data sekunder pada penelitian adalah data\njumlah penduduk, pendidikan, pekerjaan dan pendapatan penduduk di Kabupaten\nToba yang bersumber dari BPS Toba. Pengumpulan data jarak melalui  google map s\ndilakukan dengan mengakses informasi jarak tempuh antara dua lokasi seperti jarak\nlokasi alternatif ke  supplier  dan jarak lokasi alternatif ke pesaing.\n3.3   Metode Pengumpulan Data\nPada tahapan pengumpulan data, peneliti menggunakan data yang berbasis\npada analisis multi-sumber dengan menerapkan strategi yang beragam dan\nkomprehensif. Sumber data pada penelitian adalah Badan Pusat Statistik (BPS)\nuntuk mendapatkan informasi demografi, ekonomi, dan sosial yang kuat dan\nterpercaya dan  google maps  untuk mengukur jarak dari dua lokasi.\nPengumpulan data dilakukan wawancara dengan pengambil keputusan\nterkait masalah penelitian. Wawancara membantu memperoleh pemahaman yang\nmendalam tentang pandangan, kebutuhan, dan perspektif orang-orang yang\nmemiliki pengaruh langsung terhadap masalah yang sedang diteliti. Pengumpulan\ndata juga dilakukan dengan menggunakan teknik survei  langsung ke lokasi untuk\nmengumpulkan data secara langsung dari lapangan.\n3.4   Metode Pengolahan dan Analisis Data\nPengolahan dan analisis data penelitian menggunakan pendekatan  hybrid\nMCDM yang menggabungkan metode AHP ( Analytic Hierarchy Process ) dan\nTOPSIS ( Technique for Order Preference by Similarity to Ideal Solution ).\nPengolahan data dimulai dengan menerapkan metode AHP untuk menentukan\nbobot dari setiap kriteria dan su"
+  },
+  "created_at": "2026-08-17T17:36:32.607533",
+  "updated_at": "2026-08-17T17:36:32.607547"
+}

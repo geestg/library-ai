@@ -1,0 +1,107 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+    },
+    {
+      "role": "assistant",
+      "content": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+    }
+  ],
+  "last_query": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+  "last_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository.",
+  "summary": "",
+  "topics": [
+    "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+  ],
+  "keywords": [],
+  "sources": [],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "artificial intelligence",
+    "research_goal": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+    "current_question": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+    "keywords": [
+      "artificial intelligence"
+    ],
+    "research_direction": "artificial intelligence",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+      }
+    ],
+    "discovery_topic": "artificial intelligence",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1310",
+        "title": "ANALISIS, PERANCANGAN DAN PENGUJIAN APLIKASI PROCTORING DELPROCTOR DENGAN AUTOMATED PROCTORING STUDI KASUS INSTITUT TEKNOLOGI DEL",
+        "author": "MANIK, EASY DESTINI",
+        "year": "2022",
+        "abstract": "DelProctor merupakan aplikasi pengawasan ujian yang dirancang menggunakan\r\nAIPS (artificial intelligence based proctoring system) dengan automated\r\nproctoring. DelProctor dirancang dengan kriteria kasus Institut Teknologi Del\r\nsebagai sarana solusi pengawasan ujian secara online. Tujuan penelitian ini adalah\r\nmerancang aplikasi DelProctor yang didasari atas kasus Institut Teknologi Del\r\ndimana hasil rancangan kemudian akan diimplementasikan oleh rekan tugas akhir\r\npada TA-03A-2021/2022.\r\nDalam penelitian ini proses perancangan menggunakan metode domain\r\nengineering, dimana terdapat model domain exam online dengan proctoring yang\r\ndigunakan untuk mengetahui conceptual class yang dibutuhkan pada domain\r\nproctoring. Conceptual class digunakan untuk mencari tahu fitur serta fungsi apa\r\nsaja yang berada pada sistem proctoring yang kemudian disesuaikan dengan\r\nkebutuhan pada Institut Teknologi Del dengan cara melakukan survey pembagian\r\nkuesioner kepada pihak yang mengawasi proses ujian di IT Del. Melalui hasil\r\ntersebut maka ditemukan yang menjadi fitur utama aplikasi proctoring yaitu\r\nrecording, application lock, face recognition, detection, plugin moodle dan video\r\nsurveillance. Setel",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1096",
+        "title": "EMBEDDING FROM LANGUAGE MODELS REPRESENTATIONS BASED BIDIRECTIONAL LONG SHORT-TERM MEMORY MODEL FOR INDONESIAN NAMED ENTITY RECOGNITION",
+        "author": "TAMBUNAN, FIVIN SADESLA",
+        "year": "2021",
+        "abstract": "Pengenalan entitas bernama (Named Entity Recognition atau NER) merupakan\r\nsalah satu bentuk pemrosesan bahasa alami (Natural Language Processing atau\r\nNLP), subbidang kecerdasan buatan (Artificial Intelligence atau AI). Penelitian\r\nterkini menunjukkan bahwa model pengenalan entitas bernama untuk Bahasa\r\nIndonesia sudah mampu mengenali beberapa entitas, namun masih terdapat ruang\r\npengembangan atas model dari aspek performa. Salah satu bentuk pengembangan\r\nyang dimaksud adalah pembangunan model pengenalan entitas bernama dengan\r\nmemanfaatkan konteks relasi antar-kata dalam kalimat dan dapat menangani katakata out of vocabulary. Untuk menyelesaikan masalah ini, penulis mengajukan\r\nrepresentasi Embeddings from Language Model (ELMo). Pra-pemrosesan teks\r\nseperti text expansion, lowercasing, BIO Annotation dan feature extraction berbasis\r\nELMo diterapkan pada teks sebelum melalui proses pembangunan model NER\r\nberbasis Bidirectional Long Short-Term Memory (BiLSTM). BiLSTM diajukan\r\nuntuk memodelkan informasi hubungan semantik antar kata dan informasi semantik\r\nantara kata dan label entitas bernamanya. Berdasarkan hasil eksperimen, model\r\nNER dengan pendekatan yang diajukan dalam peneliti",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-62",
+        "title": "Kajian Chatbot Berbasis  Artificial Intelligence Markup Language (AIML) Menggunakan Program O",
+        "author": "Sibarani, Sylphany",
+        "year": "2017",
+        "abstract": "Abstrak\r\nChatbot merupakan salah satu penerapan dari kecerdasan buatan (Artificial Intelligence) yang memungkinkan manusia untuk dapat berkomunukasi dengan komputer dengan menggunakan bahasa sehari-hari melalui media tulisan. Chatbot ini dibangun dengan menggunakan Artificial Intelligence Markup Language (AIML) yang digunakan untuk menyusun pengetahuan chatbot agar dapat merespon masukan user dengan tepat. AIML berisi sekumpulan pattern yang digunakan sebagai tempat pengetahuan (knowlegde base) chatbot dan template sebagai pemberi response dari masukan user. Setiap pattern dan template digunakan oleh chatbot untuk mencari jawaban yang tepat untuk setiap pertanyaan yang diberikan oleh user. File AIML dibangun berdasarkan data yang telah diperoleh dari hasil interview dengan siswa siswi SMA yang ada di sekitar Toba Samosir. Data tersebut dibagi menjadi 80% data training dan 20% data testing yang digunakan untuk menguji kemampuan chatbot dalam memberikan response atas pertanyaan user. Untuk menerjemahkan dan menjalankan AIML tersebut, dibutuhkan sebuah interpreter yang berfungsi sebagai penghubung antara AIML dan chatbot. Interpreter yang dimaksud adalah Program O. Program O merupakan",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-570",
+        "title": "KAJIAN PENERAPAN METODE BEHAVIORAL CLONING PADA ARTIFICIAL INTELLIGENCE DALAM SELF-DRIVING CAR SIMULATOR",
+        "author": "MANURUNG, WILLY YUNUS S",
+        "year": "2019",
+        "abstract": "Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya. Bermacam metode yang dipasangkan kedalam AI untuk dapat melakukan self-driving car, salah satu metodenya adalah imitation learning. Imitation learning adalah sebuah metode belajar yang didapatkan dengan meniru/mengimitasi tindakan yang dilakukan dalam pembelajaran.\r\nBehavioral cloning adalah salah satu jenis imitation learning yang merupakan sebuah metode dimana akan menangkap perilaku yang dilakukan sebelumnya dan memproduksi kedalam program komputer. Untuk menerapkan metode ini dibutuhkan data sebagai bahan pembelajaran program tersebut. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan keyboard yang digunakan sebagai controller. Setelah dilakukan simulasi, data tersebut akan diterapkan preprocessing seperti data cleaning dan beberapa augmentasi seperti resize, rotate, fli",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-735",
+        "title": "Penerapan Metode Reinforcement Learning pada Artificial Intelligence dalam Carla Car Simulator",
+        "author": "Tambunan, Veronika",
+        "year": "2020",
+        "abstract": "Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya dan dapat beradaptasi dengan lingkungannya. Reinforcement learning merupakan salah satu jenis machine learning dimana agen mempelajari sesuatu hal dengan melakukan aksi tertentu dan melihat hasil dari aksi tersebut dan berusaha untuk memaksimalkan hadiah yang diterima melalui interaksi dengan lingkungan berupa hadiah bernilai negative atau positif. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan menggunakan sensor RGB kemudian dilakukan preprocessing menggunakan metode image process yang hanya mengambil gambar pada setiap tensor 3D yang berupa nilai piksel. Setelah itu dilakukan eksperimen pemodelan dan beberapa model yang digunakan untuk eksperimen simulasi. Adapun model digunakan menggunakan algoritma Convolutional Neural Network (CNN) dengan model arsitektur NVIDIA. Dari",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1446",
+        "title": "PERANCANGAN DAN PEMBANGUNAN SISI KLIEN ULOSPEDIA PADA WEBSITE DITENUN",
+        "author": "TAMBUNAN, FERDINAND PARTAHI JAYA",
+        "year": "2023",
+        "abstract": "Ulos merupakan warisan budaya tak benda yang perlu dilestarikan. Namun, pada\r\nsaat ini sebagian besar masyarakat, khususnya masyarakat batak, kurang\r\nmengetahui dan peduli dengan ulos. DiTenun merupakan salah satu pelestari kain\r\ntenun ulos yang menggunakan teknologi Artificial Intelligence (AI), namun pada\r\nwebsite DiTenun tidak ditemukan informasi lengkap mengenai ulos, seperti asal\r\nulos, makna ulos, sejarah ulos, dan foto ulos. Oleh karena itu, pada penelitian ini\r\ndilakukan perancangan dan pembangunan Ulospedia yang akan menjadi bagian dari\r\nwebsite DiTenun. Metode yang digunakan pada perancangan adalah Design\r\nThinking, yang terdiri dari lima tahap yang non-linier, yaitu empathize, define,\r\nideate, prototype, dan test. Penelitian ini melalui empat kali iterasi sampai\r\nmenghasilkan antarmuka yang memiliki usability terbaik. Dari iterasi terakhir\r\ndiperoleh high fidelity design yang digunakan untuk proses implementasi website\r\nmenggunakan framework Vue.js.\r\n\r\nKata kunci: Ulos, Design Thinking, Iterasi, Website,Vue.js",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1652",
+        "title": "SISTEM DETEKSI KERUSAKAN JALAN ASPAL BERBASIS SINGLE SHOT MULTIBOX DETECTOR (SSD)",
+        "author": "NAIBAHO, TALENTA",
+        "year": "2024",
+        "abstract": "Pendataan kerusakan jalan masih dilakukan secara manual yaitu dengan\r\npengambilan video jalan terlebih dahulu, setelah itu dilakukan pendataan melalui\r\nvideo yang telah diambil, dan juga pendataan secara langsung ke jalan. Hal\r\ntersebut membutuhkan waktu dan tenaga yang banyak sehingga mengakibatkan\r\nketerlambatan dalam melakukan perbaikan jalan. Banyak hal yang terjadi jika\r\njalan rusak, seperti terjadi kemacetan lalu lintas, kecelakaan, serta kurangnya\r\nkenyamanan pengendara saat berkendara. Oleh karena itu, penelitian ini bertujuan\r\nuntuk mengembangkan sebuah sistem yang mampu mendeteksi kerusakan jalan\r\nmenggunakan teknologi Artificial Intelligence (AI). Algoritma yang digunakan\r\ndalam mendeteksi objek yaitu Single Shot Multibox Detector (SSD). Sistem ini\r\ndirancang untuk mendeteksi dan mengklasifikasikan kerusakan jalan yang terdiri\r\ndari sepuluh jenis yaitu lubang, alur, bergelombang, ambles, jembul, retak pinggir,\r\npelepasan butir, retak buaya, retak melintang, dan retak memanjang. Sistem ini\r\nmenggunakan kamera Logitech C920 untuk akuisisi gambar dan sensor GPS Neo\r\n6M untuk menentukan lokasi kerusakan. Hasil penelitian menunjukkan bahwa\r\nsistem yang dikembangkan berhasil m",
+        "has_pdf": false
+      }
+    ],
+    "current_answer": "Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository."
+  },
+  "created_at": "2026-08-15T21:08:39.671538",
+  "updated_at": "2026-08-15T21:08:39.671556"
+}

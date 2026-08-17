@@ -1,0 +1,540 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+    },
+    {
+      "role": "assistant",
+      "content": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 6]\nDocument ID: 123456789-735\nTitle: Penerapan Metode Reinforcement Learning pada Artificial Intelligence dalam Carla Car Simulator\nAuthor: Tambunan, Veronika\nYear: 2020\nHas PDF: False\nAbstract: Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya dan dapat beradaptasi dengan lingkungannya. Reinforcement learning merupakan salah satu jenis machine learning dimana agen mempelajari sesuatu hal dengan melakukan aksi tertentu dan melihat hasil dari aksi tersebut dan berusaha untuk memaksimalkan hadiah yang diterima melalui interaksi dengan lingkungan berupa hadiah bernilai negative atau positif. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan menggunakan sensor RGB kemudian dilakukan preprocessing menggunakan metode image proc\n\nn\nberbeda dengan matrix yang menggunakan BLOSUM50.Padakasus di atas,ditemukan\nbanyak kemungkinan sekuen yang dibandingkan pada perhitungan versi yang pertama,\nnamunmenggunakan versi yang kedua inihanya ditemukan satu sekuen untuk dihitung\noptimal alignment nya.\n3.4ToolsuntukImplementasi\nPada tahap implementasi pembangunan aplikasimenggunakan platform Java.Penelitian\npada bidang bioteknologi biasanya menggunakan metode prosedural, dengan\nakhir ini,sequence alignment dimplementasikan denganmetode berbasisobjek dengan\nplatformJava,karenaJava identik denganpembangunan aplikasi berbasis objek.\n3.5GenBank\nGenBank(GeneticSequenceData Bank)merupakan repository sequence geneticyang\ndiakui di seluruh dunia.File GenBank memiliki informasi yang berhubungan dengan\nSequence data,yangmencakup identifiers sepertinama gen danklasifikasiphylogenetic.\nFile GenBank juga mencakup tabel yang menyimpulkan fakta mengenai sequence dan\ntranslasiprotein.\nGenBank juga merupakan database urutan kode genetik yang dimiliki NIH National\nInstitutes of Health) di U.S.,koleksi beranotasi dari semua urutan DNA yang tersedia\nyang terdiri dari 55.000 spesies berdasarkan urutan informasi dari pemiliknya.Data\nGenBank dapat diakses dengan integrasiNCBI dalam sistem pencarian informasi,yang\nmengintegrasikan data dari DNA utama dan database urutan protein dengan taxonomy\n（sistem klasifikasi tumbuhan dan hewan),genome,mapping, dan informasi struktur\nprotein,ditambah daftar biomedicalmelalui PubMed (Layanan library medicine pada\nNCBI).\nPoliteknikInformatikaDel\nTugasAkhirDiploma3,Hal.38dari126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\nTerdapatbeberapa GenBankyangmenjadi sumber data sequenceproteindiantaranya:\n1.DDBJ(DNADataBankofJapan),http://www.ddbj.nig.ac.jp\n2.EMBL Nucleotide DB (European Molecular Biology Laboratory),http://\nwww.embl.org\n3.GenBank\n(National\nCenter\nBiotechnology\nInformation),\nhttp://\nwww.ncbi.nlm.nih.gov\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\n5.\n\n[Candidate 1]\nDocument ID: 123456789-1310\nTitle: ANALISIS, PERANCANGAN DAN PENGUJIAN APLIKASI PROCTORING DELPROCTOR DENGAN AUTOMATED PROCTORING STUDI KASUS INSTITUT TEKNOLOGI DEL\nAuthor: MANIK, EASY DESTINI\nYear: 2022\nHas PDF: False\nAbstract: DelProctor merupakan aplikasi pengawasan ujian yang dirancang menggunakan\r\nAIPS (artificial intelligence based proctoring system) dengan automated\r\nproctoring. DelProctor dirancang dengan kriteria kasus Institut Teknologi Del\r\nsebagai sarana solusi pengawasan ujian secara online. Tujuan penelitian ini adalah\r\nmerancang aplikasi DelProctor yang didasari atas kasus Institut Teknologi Del\r\ndimana hasil rancangan kemudian akan diimplementasikan oleh rekan tugas akhir\r\npada TA-03A-2021/2022.\r\nDalam penelitian ini proses perancangan menggunakan metode domain\r\nengineering, dimana terdapat model domain exam online dengan proctoring yang\r\ndigunakan untuk mengetahui conceptual class yang dibutuhkan pada domain\r\nproctoring. Conceptual class digunakan untuk mencari tahu fitur serta fungsi apa\r\nsaja yang berada pada sistem proctoring yang kemudian disesuaikan dengan\r\nkebutuhan pada Institut Teknologi"
+    }
+  ],
+  "last_query": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+  "last_answer": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 6]\nDocument ID: 123456789-735\nTitle: Penerapan Metode Reinforcement Learning pada Artificial Intelligence dalam Carla Car Simulator\nAuthor: Tambunan, Veronika\nYear: 2020\nHas PDF: False\nAbstract: Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya dan dapat beradaptasi dengan lingkungannya. Reinforcement learning merupakan salah satu jenis machine learning dimana agen mempelajari sesuatu hal dengan melakukan aksi tertentu dan melihat hasil dari aksi tersebut dan berusaha untuk memaksimalkan hadiah yang diterima melalui interaksi dengan lingkungan berupa hadiah bernilai negative atau positif. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan menggunakan sensor RGB kemudian dilakukan preprocessing menggunakan metode image proc\n\nn\nberbeda dengan matrix yang menggunakan BLOSUM50.Padakasus di atas,ditemukan\nbanyak kemungkinan sekuen yang dibandingkan pada perhitungan versi yang pertama,\nnamunmenggunakan versi yang kedua inihanya ditemukan satu sekuen untuk dihitung\noptimal alignment nya.\n3.4ToolsuntukImplementasi\nPada tahap implementasi pembangunan aplikasimenggunakan platform Java.Penelitian\npada bidang bioteknologi biasanya menggunakan metode prosedural, dengan\nakhir ini,sequence alignment dimplementasikan denganmetode berbasisobjek dengan\nplatformJava,karenaJava identik denganpembangunan aplikasi berbasis objek.\n3.5GenBank\nGenBank(GeneticSequenceData Bank)merupakan repository sequence geneticyang\ndiakui di seluruh dunia.File GenBank memiliki informasi yang berhubungan dengan\nSequence data,yangmencakup identifiers sepertinama gen danklasifikasiphylogenetic.\nFile GenBank juga mencakup tabel yang menyimpulkan fakta mengenai sequence dan\ntranslasiprotein.\nGenBank juga merupakan database urutan kode genetik yang dimiliki NIH National\nInstitutes of Health) di U.S.,koleksi beranotasi dari semua urutan DNA yang tersedia\nyang terdiri dari 55.000 spesies berdasarkan urutan informasi dari pemiliknya.Data\nGenBank dapat diakses dengan integrasiNCBI dalam sistem pencarian informasi,yang\nmengintegrasikan data dari DNA utama dan database urutan protein dengan taxonomy\n（sistem klasifikasi tumbuhan dan hewan),genome,mapping, dan informasi struktur\nprotein,ditambah daftar biomedicalmelalui PubMed (Layanan library medicine pada\nNCBI).\nPoliteknikInformatikaDel\nTugasAkhirDiploma3,Hal.38dari126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\nTerdapatbeberapa GenBankyangmenjadi sumber data sequenceproteindiantaranya:\n1.DDBJ(DNADataBankofJapan),http://www.ddbj.nig.ac.jp\n2.EMBL Nucleotide DB (European Molecular Biology Laboratory),http://\nwww.embl.org\n3.GenBank\n(National\nCenter\nBiotechnology\nInformation),\nhttp://\nwww.ncbi.nlm.nih.gov\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\n5.\n\n[Candidate 1]\nDocument ID: 123456789-1310\nTitle: ANALISIS, PERANCANGAN DAN PENGUJIAN APLIKASI PROCTORING DELPROCTOR DENGAN AUTOMATED PROCTORING STUDI KASUS INSTITUT TEKNOLOGI DEL\nAuthor: MANIK, EASY DESTINI\nYear: 2022\nHas PDF: False\nAbstract: DelProctor merupakan aplikasi pengawasan ujian yang dirancang menggunakan\r\nAIPS (artificial intelligence based proctoring system) dengan automated\r\nproctoring. DelProctor dirancang dengan kriteria kasus Institut Teknologi Del\r\nsebagai sarana solusi pengawasan ujian secara online. Tujuan penelitian ini adalah\r\nmerancang aplikasi DelProctor yang didasari atas kasus Institut Teknologi Del\r\ndimana hasil rancangan kemudian akan diimplementasikan oleh rekan tugas akhir\r\npada TA-03A-2021/2022.\r\nDalam penelitian ini proses perancangan menggunakan metode domain\r\nengineering, dimana terdapat model domain exam online dengan proctoring yang\r\ndigunakan untuk mengetahui conceptual class yang dibutuhkan pada domain\r\nproctoring. Conceptual class digunakan untuk mencari tahu fitur serta fungsi apa\r\nsaja yang berada pada sistem proctoring yang kemudian disesuaikan dengan\r\nkebutuhan pada Institut Teknologi",
+  "summary": "",
+  "topics": [
+    "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='n output berupa biji kemiri dan cangkang kemiri.\\n2\\nInstitut Teknologi Del\\n1.2.   Rumusan Masalah\\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\\npenelitian ini adalah:\\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\\nefisien.\\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\\n1.3.   Tujuan\\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\\nmotor DC.\\n1.4.   Manfaat\\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\\notomatis.\\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\\nAkhir II.\\n3  Institut Teknologi Del\\nBAB 2\\nLANDASAN TEORI\\n2.1.   SolidWorks\\nGambar 2.1 . Tampilan Aplikasi SolidWorks\\n(Sumber : https://editablefiles.com/)\\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\\nberkurang,  time market  dari benda pun dapat dipercepat.\\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='I KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\\nberhubungan dengan penelitian yang dilakukan.\\n7\\nInstitut Teknologi Del\\nc.   BAB III METODOLOGI PENELITIAN\\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\\ndata serta kerangka penelitian yang dilakukan.\\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\\ne.   BAB V ANALISIS & PEMBAHASAN\\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\\nmetode  hybrid  MCDM.\\nd.   BAB VI KESIMPULAN DAN SARAN\\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\\ntoko ABC.\\n3.   Bagian Akhir\\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\\npenelitian.\\n8     Institut Teknologi Del\\nBAB II\\nTINJAUAN PUSTAKA\\n2.1   Pengambilan Keputusan\\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\\nuntuk mengambil ', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})",
+    "Citation(document=Document(document_id='0ff47c59f90b4881a36395bcb4dd508b', title='0ff47c59f90b4881a36395bcb4dd508b', file_path='delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='n\\nberbeda dengan matrix yang menggunakan BLOSUM50.Padakasus di atas,ditemukan\\nbanyak kemungkinan sekuen yang dibandingkan pada perhitungan versi yang pertama,\\nnamunmenggunakan versi yang kedua inihanya ditemukan satu sekuen untuk dihitung\\noptimal alignment nya.\\n3.4ToolsuntukImplementasi\\nPada tahap implementasi pembangunan aplikasimenggunakan platform Java.Penelitian\\npada bidang bioteknologi biasanya menggunakan metode prosedural, dengan\\nakhir ini,sequence alignment dimplementasikan denganmetode berbasisobjek dengan\\nplatformJava,karenaJava identik denganpembangunan aplikasi berbasis objek.\\n3.5GenBank\\nGenBank(GeneticSequenceData Bank)merupakan repository sequence geneticyang\\ndiakui di seluruh dunia.File GenBank memiliki informasi yang berhubungan dengan\\nSequence data,yangmencakup identifiers sepertinama gen danklasifikasiphylogenetic.\\nFile GenBank juga mencakup tabel yang menyimpulkan fakta mengenai sequence dan\\ntranslasiprotein.\\nGenBank juga merupakan database urutan kode genetik yang dimiliki NIH National\\nInstitutes of Health) di U.S.,koleksi beranotasi dari semua urutan DNA yang tersedia\\nyang terdiri dari 55.000 spesies berdasarkan urutan informasi dari pemiliknya.Data\\nGenBank dapat diakses dengan integrasiNCBI dalam sistem pencarian informasi,yang\\nmengintegrasikan data dari DNA utama dan database urutan protein dengan taxonomy\\n（sistem klasifikasi tumbuhan dan hewan),genome,mapping, dan informasi struktur\\nprotein,ditambah daftar biomedicalmelalui PubMed (Layanan library medicine pada\\nNCBI).\\nPoliteknikInformatikaDel\\nTugasAkhirDiploma3,Hal.38dari126\\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\\nTerdapatbeberapa GenBankyangmenjadi sumber data sequenceproteindiantaranya:\\n1.DDBJ(DNADataBankofJapan),http://www.ddbj.nig.ac.jp\\n2.EMBL Nucleotide DB (European Molecular Biology Laboratory),http://\\nwww.embl.org\\n3.GenBank\\n(National\\nCenter\\nBiotechnology\\nInformation),\\nhttp://\\nwww.ncbi.nlm.nih.gov\\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\\n5.', metadata={'page_start': 1, 'page_end': 128, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='0087b57cdff943ca8b4aca6f5f80e304', title='0087b57cdff943ca8b4aca6f5f80e304', file_path='delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\\n3.2.   Tempat dan Waktu Penelitian\\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\\n3.3.   Tinjauan Desain Sistem Secara Umum\\n3.3.1.   Definisi Sistem\\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\\n11\\nInstitut Teknologi Del\\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\\nSistem Sensor  Pengukuran Pengguna Obyek\\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p', metadata={'page_start': 1, 'page_end': 58, 'section': 'Introduction'})",
+    "Citation(document=Document(document_id='01877a38ed37473e952b4fb7c589eaa6', title='01877a38ed37473e952b4fb7c589eaa6', file_path='delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='engambilan keputusan.\\n2.   Manfaat Bagi Perguruan Tinggi\\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\\nsebagai syarat dalam kelulusan di bidang akademik.\\n3.   Manfaat Bagi Peneliti\\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\\n6\\nInstitut Teknologi Del\\n4.   Manfaat Bagi Peneliti Selanjutnya\\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\\n1.5   Batasan Masalah\\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\\nABC.\\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\\ndari studi literatur dan wawancara dengan pihak toko ABC.\\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\\nimplementasikan oleh toko ABC.\\n1.6   Sistematika Penulisan\\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\\ndan akhir.\\n1.   Bagian Awal\\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\\n2.   Bagian Isi\\na.   BAB I PENDAHULUAN\\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\\nb.   BAB II KAJIAN PUSTAKA\\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\\nkriteria maupun subkriteria dalam pengambil', metadata={'page_start': 2, 'page_end': 133, 'section': '2024'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "topic": "artificial intelligence",
+    "research_goal": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+    "current_question": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia.",
+    "keywords": [
+      "artificial intelligence"
+    ],
+    "research_direction": "artificial intelligence",
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Jelaskan penelitian tentang artificial intelligence berdasarkan repository yang tersedia."
+      }
+    ],
+    "discovery_topic": "artificial intelligence",
+    "discovered_documents": [
+      {
+        "document_id": "123456789-1310",
+        "title": "ANALISIS, PERANCANGAN DAN PENGUJIAN APLIKASI PROCTORING DELPROCTOR DENGAN AUTOMATED PROCTORING STUDI KASUS INSTITUT TEKNOLOGI DEL",
+        "author": "MANIK, EASY DESTINI",
+        "year": "2022",
+        "abstract": "DelProctor merupakan aplikasi pengawasan ujian yang dirancang menggunakan\r\nAIPS (artificial intelligence based proctoring system) dengan automated\r\nproctoring. DelProctor dirancang dengan kriteria kasus Institut Teknologi Del\r\nsebagai sarana solusi pengawasan ujian secara online. Tujuan penelitian ini adalah\r\nmerancang aplikasi DelProctor yang didasari atas kasus Institut Teknologi Del\r\ndimana hasil rancangan kemudian akan diimplementasikan oleh rekan tugas akhir\r\npada TA-03A-2021/2022.\r\nDalam penelitian ini proses perancangan menggunakan metode domain\r\nengineering, dimana terdapat model domain exam online dengan proctoring yang\r\ndigunakan untuk mengetahui conceptual class yang dibutuhkan pada domain\r\nproctoring. Conceptual class digunakan untuk mencari tahu fitur serta fungsi apa\r\nsaja yang berada pada sistem proctoring yang kemudian disesuaikan dengan\r\nkebutuhan pada Institut Teknologi Del dengan cara melakukan survey pembagian\r\nkuesioner kepada pihak yang mengawasi proses ujian di IT Del. Melalui hasil\r\ntersebut maka ditemukan yang menjadi fitur utama aplikasi proctoring yaitu\r\nrecording, application lock, face recognition, detection, plugin moodle dan video\r\nsurveillance. Setel",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1096",
+        "title": "EMBEDDING FROM LANGUAGE MODELS REPRESENTATIONS BASED BIDIRECTIONAL LONG SHORT-TERM MEMORY MODEL FOR INDONESIAN NAMED ENTITY RECOGNITION",
+        "author": "TAMBUNAN, FIVIN SADESLA",
+        "year": "2021",
+        "abstract": "Pengenalan entitas bernama (Named Entity Recognition atau NER) merupakan\r\nsalah satu bentuk pemrosesan bahasa alami (Natural Language Processing atau\r\nNLP), subbidang kecerdasan buatan (Artificial Intelligence atau AI). Penelitian\r\nterkini menunjukkan bahwa model pengenalan entitas bernama untuk Bahasa\r\nIndonesia sudah mampu mengenali beberapa entitas, namun masih terdapat ruang\r\npengembangan atas model dari aspek performa. Salah satu bentuk pengembangan\r\nyang dimaksud adalah pembangunan model pengenalan entitas bernama dengan\r\nmemanfaatkan konteks relasi antar-kata dalam kalimat dan dapat menangani katakata out of vocabulary. Untuk menyelesaikan masalah ini, penulis mengajukan\r\nrepresentasi Embeddings from Language Model (ELMo). Pra-pemrosesan teks\r\nseperti text expansion, lowercasing, BIO Annotation dan feature extraction berbasis\r\nELMo diterapkan pada teks sebelum melalui proses pembangunan model NER\r\nberbasis Bidirectional Long Short-Term Memory (BiLSTM). BiLSTM diajukan\r\nuntuk memodelkan informasi hubungan semantik antar kata dan informasi semantik\r\nantara kata dan label entitas bernamanya. Berdasarkan hasil eksperimen, model\r\nNER dengan pendekatan yang diajukan dalam peneliti",
+        "has_pdf": true
+      },
+      {
+        "document_id": "123456789-62",
+        "title": "Kajian Chatbot Berbasis  Artificial Intelligence Markup Language (AIML) Menggunakan Program O",
+        "author": "Sibarani, Sylphany",
+        "year": "2017",
+        "abstract": "Abstrak\r\nChatbot merupakan salah satu penerapan dari kecerdasan buatan (Artificial Intelligence) yang memungkinkan manusia untuk dapat berkomunukasi dengan komputer dengan menggunakan bahasa sehari-hari melalui media tulisan. Chatbot ini dibangun dengan menggunakan Artificial Intelligence Markup Language (AIML) yang digunakan untuk menyusun pengetahuan chatbot agar dapat merespon masukan user dengan tepat. AIML berisi sekumpulan pattern yang digunakan sebagai tempat pengetahuan (knowlegde base) chatbot dan template sebagai pemberi response dari masukan user. Setiap pattern dan template digunakan oleh chatbot untuk mencari jawaban yang tepat untuk setiap pertanyaan yang diberikan oleh user. File AIML dibangun berdasarkan data yang telah diperoleh dari hasil interview dengan siswa siswi SMA yang ada di sekitar Toba Samosir. Data tersebut dibagi menjadi 80% data training dan 20% data testing yang digunakan untuk menguji kemampuan chatbot dalam memberikan response atas pertanyaan user. Untuk menerjemahkan dan menjalankan AIML tersebut, dibutuhkan sebuah interpreter yang berfungsi sebagai penghubung antara AIML dan chatbot. Interpreter yang dimaksud adalah Program O. Program O merupakan",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-570",
+        "title": "KAJIAN PENERAPAN METODE BEHAVIORAL CLONING PADA ARTIFICIAL INTELLIGENCE DALAM SELF-DRIVING CAR SIMULATOR",
+        "author": "MANURUNG, WILLY YUNUS S",
+        "year": "2019",
+        "abstract": "Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya. Bermacam metode yang dipasangkan kedalam AI untuk dapat melakukan self-driving car, salah satu metodenya adalah imitation learning. Imitation learning adalah sebuah metode belajar yang didapatkan dengan meniru/mengimitasi tindakan yang dilakukan dalam pembelajaran.\r\nBehavioral cloning adalah salah satu jenis imitation learning yang merupakan sebuah metode dimana akan menangkap perilaku yang dilakukan sebelumnya dan memproduksi kedalam program komputer. Untuk menerapkan metode ini dibutuhkan data sebagai bahan pembelajaran program tersebut. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan keyboard yang digunakan sebagai controller. Setelah dilakukan simulasi, data tersebut akan diterapkan preprocessing seperti data cleaning dan beberapa augmentasi seperti resize, rotate, fli",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-299",
+        "title": "PENERAPAN CONVOLUTIONAL NEURAL NETWORK PADA PENGENALAN TEKS TULISAN TANGAN",
+        "author": "Manurung, Tommy Harlis",
+        "year": "2018",
+        "abstract": "Pengenalan teks atau yang sering dikenal dengan  Optical Character Recognition\r\n(OCR)  berkaitan  dengan  artificial  intelligence  dan  computer  vision.  Pengenalan \r\nteks banyak digunakan  pada banyak bidang seperti  perkantoran, perbankan, dan \r\ninstitusi  pendidikan  untuk  mempermudah  pengelolaan  data  yang  ditulis  dengan \r\ntulisan  tangan.  Penelitian  ini  dilakukan  untuk  membangun  sistem  yang  dapat \r\nmendeteksi dan  mengenali  teks  tulisan tangan dan mengubahnya menjadi bentuk \r\neditable text.  Salah satu teknik yang digunakan untuk pengenalan tulisan tangan \r\nadalah  Convolutional  Neural  Network  (CNN).  CNN  digunakan  dalam  membuat \r\nmodel  yang  digunakan  dalam  pengenalan  teks.  Dengan  menggunakan  CNN, \r\ndilakukan tahapan pada beberapa  layer  seperti  convolutional layer, pooling layer, \r\ndan  fully  connected  layer.  Selain  itu  digunakan  algoritma  canny  edge  detection\r\ndalam melakukan pendeteksian  teks tulisan tangan.  Dalam penelitian ini, digunakan \r\ncitra/gambar tulisan tangan sebagai masukan. Proses  pendeteksian teks pada tulisan \r\ntangan  dimulai  dengan  tahap  preprocessing  yaitu  proses  grayscaling,  noise \r\nreduction,  dan  binar",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-735",
+        "title": "Penerapan Metode Reinforcement Learning pada Artificial Intelligence dalam Carla Car Simulator",
+        "author": "Tambunan, Veronika",
+        "year": "2020",
+        "abstract": "Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya dan dapat beradaptasi dengan lingkungannya. Reinforcement learning merupakan salah satu jenis machine learning dimana agen mempelajari sesuatu hal dengan melakukan aksi tertentu dan melihat hasil dari aksi tersebut dan berusaha untuk memaksimalkan hadiah yang diterima melalui interaksi dengan lingkungan berupa hadiah bernilai negative atau positif. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan menggunakan sensor RGB kemudian dilakukan preprocessing menggunakan metode image process yang hanya mengambil gambar pada setiap tensor 3D yang berupa nilai piksel. Setelah itu dilakukan eksperimen pemodelan dan beberapa model yang digunakan untuk eksperimen simulasi. Adapun model digunakan menggunakan algoritma Convolutional Neural Network (CNN) dengan model arsitektur NVIDIA. Dari",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1446",
+        "title": "PERANCANGAN DAN PEMBANGUNAN SISI KLIEN ULOSPEDIA PADA WEBSITE DITENUN",
+        "author": "TAMBUNAN, FERDINAND PARTAHI JAYA",
+        "year": "2023",
+        "abstract": "Ulos merupakan warisan budaya tak benda yang perlu dilestarikan. Namun, pada\r\nsaat ini sebagian besar masyarakat, khususnya masyarakat batak, kurang\r\nmengetahui dan peduli dengan ulos. DiTenun merupakan salah satu pelestari kain\r\ntenun ulos yang menggunakan teknologi Artificial Intelligence (AI), namun pada\r\nwebsite DiTenun tidak ditemukan informasi lengkap mengenai ulos, seperti asal\r\nulos, makna ulos, sejarah ulos, dan foto ulos. Oleh karena itu, pada penelitian ini\r\ndilakukan perancangan dan pembangunan Ulospedia yang akan menjadi bagian dari\r\nwebsite DiTenun. Metode yang digunakan pada perancangan adalah Design\r\nThinking, yang terdiri dari lima tahap yang non-linier, yaitu empathize, define,\r\nideate, prototype, dan test. Penelitian ini melalui empat kali iterasi sampai\r\nmenghasilkan antarmuka yang memiliki usability terbaik. Dari iterasi terakhir\r\ndiperoleh high fidelity design yang digunakan untuk proses implementasi website\r\nmenggunakan framework Vue.js.\r\n\r\nKata kunci: Ulos, Design Thinking, Iterasi, Website,Vue.js",
+        "has_pdf": false
+      },
+      {
+        "document_id": "123456789-1652",
+        "title": "SISTEM DETEKSI KERUSAKAN JALAN ASPAL BERBASIS SINGLE SHOT MULTIBOX DETECTOR (SSD)",
+        "author": "NAIBAHO, TALENTA",
+        "year": "2024",
+        "abstract": "Pendataan kerusakan jalan masih dilakukan secara manual yaitu dengan\r\npengambilan video jalan terlebih dahulu, setelah itu dilakukan pendataan melalui\r\nvideo yang telah diambil, dan juga pendataan secara langsung ke jalan. Hal\r\ntersebut membutuhkan waktu dan tenaga yang banyak sehingga mengakibatkan\r\nketerlambatan dalam melakukan perbaikan jalan. Banyak hal yang terjadi jika\r\njalan rusak, seperti terjadi kemacetan lalu lintas, kecelakaan, serta kurangnya\r\nkenyamanan pengendara saat berkendara. Oleh karena itu, penelitian ini bertujuan\r\nuntuk mengembangkan sebuah sistem yang mampu mendeteksi kerusakan jalan\r\nmenggunakan teknologi Artificial Intelligence (AI). Algoritma yang digunakan\r\ndalam mendeteksi objek yaitu Single Shot Multibox Detector (SSD). Sistem ini\r\ndirancang untuk mendeteksi dan mengklasifikasikan kerusakan jalan yang terdiri\r\ndari sepuluh jenis yaitu lubang, alur, bergelombang, ambles, jembul, retak pinggir,\r\npelepasan butir, retak buaya, retak melintang, dan retak memanjang. Sistem ini\r\nmenggunakan kamera Logitech C920 untuk akuisisi gambar dan sensor GPS Neo\r\n6M untuk menentukan lokasi kerusakan. Hasil penelitian menunjukkan bahwa\r\nsistem yang dikembangkan berhasil m",
+        "has_pdf": false
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "n output berupa biji kemiri dan cangkang kemiri.\n2\nInstitut Teknologi Del\n1.2.   Rumusan Masalah\nBerdasarkan latar belakang yang telah dibuat, maka yang menjadi masalah dalam\npenelitian ini adalah:\n1.   Implementasi desain yang akan dirancang untuk mencapai tujuan yang lebih\nefisien.\n2.   Implementasi sistem kontrol pada PLC terhadap desain yang dirancang.\n1.3.   Tujuan\nAdapun yang menjadi tujuan dalam penelitian ini adalah:\n1.   Merancang Desain Alat Penyortir Biji Kemiri, yang memisahkan serpihan,\ncangkang, biji dan biji bercangkang sehingga dapat disortir satu-persatu.\n2.   Membuat sistem kontrol pada PLC sehingga dapat mengendalikan pergerakan\nmotor DC.\n1.4.   Manfaat\nBerikut adalah beberapa manfaat yang akan didapat dari penelitian ini:\n1.   Memberikan cara bagi masyarakat tentang penyortiran biji kemiri secara\notomatis.\n2.   Menambah pengetahuan penulis mengenai instrumentasi, sistem kendali,\nmekatronika dan untuk memenuhi persyaratan kelulusan mata kuliah Tugas\nAkhir II.\n3  Institut Teknologi Del\nBAB 2\nLANDASAN TEORI\n2.1.   SolidWorks\nGambar 2.1 . Tampilan Aplikasi SolidWorks\n(Sumber : https://editablefiles.com/)\nAplikasi perangkat lunak yang digunakan untuk merancang Desain Alat\nPenyortir Kemiri pada pemodelan 3D adalah SolidWorks. SolidWorks merupakan\naplikasi atau  software  dengan  designer  sebagai  brainware  dan  computer  sebagai\nsoftware  [2]. SolidWorks memiliki aplikasi-aplikasi yang memudahkan dan\nmempercepat pengguna untuk merancang sebuah obyek 2D dan 3D.\nProgram SolidWorks merupakan program  computer  yang berfungsi untuk\nmelakukan analisa kekuatan [3]. Program tersebut dapat membantu untuk mengurangi\nkesalahan dalam membuat desain. Dengan demikian, selain biaya yang dikeluarkan\nberkurang,  time market  dari benda pun dapat dipercepat.\nSemua aktivitas 3D  Printing  kebanyakan menggunakan STL  File . STL  File\nmerupakan format 3D modelling yang membuat 3D Printer melakukan tugasnya\ndengan nyaman dan efektif untuk memotong obyek dari  layer  pada",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "I KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambilan keputusan terkait penentuan\nlokasi cabang baru toko ABC dengan menggunakan metode  Hybrid\nMCDM. Pada bab ini disertakan penelitian-penelitian terdahulu yang\nberhubungan dengan penelitian yang dilakukan.\n7\nInstitut Teknologi Del\nc.   BAB III METODOLOGI PENELITIAN\nBab ini menjelaskan langkah-langkah yang dilakukan dalam melakukan\npenelitian yang terdiri atas penjelasan lokasi dan waktu penelitian, jenis dan\nsumber data, metode pengumpulan data, metode pengolahan dan analisis\ndata serta kerangka penelitian yang dilakukan.\nd.   BAB IV PENGUMPULAN DAN PENGOLAHAN DATA\nBab ini menjelaskan terkait objek penelitian berupa gambaran umum\ntentang objek penelitian yaitu toko ABC dan Kabupaten Toba . Pada bab ini\njuga dijelaskan kriteria, subkriteria serta alternatif yang telah dikumpulkan.\ne.   BAB V ANALISIS & PEMBAHASAN\nBab ini menjelaskan terkait hasil yang diperoleh dari pengolahan data,\nbagaimana penilaian pengambil keputusan terhadap kriteria dan subkriteria,\nalternatif terbaik yang diperoleh, kriteria dan subkriteria yang paling\nmempengaruhi penentuan lokasi yang diinginkan dengan menerapkan\nmetode  hybrid  MCDM.\nd.   BAB VI KESIMPULAN DAN SARAN\nBab ini menguraikan kesimpulan akhir dari penelitian yang telah dilakukan\ndan saran penulisan berupa rekomendasi yang dapat dijadikan acuan oleh\ntoko ABC.\n3.   Bagian Akhir\nPada bagian akhir dari penulisan skripsi terdiri atas daftar pustaka dan lampiran.\nDaftar pustaka merupakan daftar buku dan sumber yang digunakan oleh peneliti\ndalam menyelesaikan penelitian dan lampiran merupakan bagian yang\nmenampilkan data-data yang ditemukan dan diolah selama melakukan\npenelitian.\n8     Institut Teknologi Del\nBAB II\nTINJAUAN PUSTAKA\n2.1   Pengambilan Keputusan\nMenurut Sumaryanto (2011), pengambilan keputusan merupakan proses\nuntuk mengambil ",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+          "title": "0ff47c59f90b4881a36395bcb4dd508b",
+          "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0ff47c59f90b4881a36395bcb4dd508b",
+        "document_title": "0ff47c59f90b4881a36395bcb4dd508b",
+        "file_path": "delbot_platform/repository_data/pdf/0ff47c59f90b4881a36395bcb4dd508b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "n\nberbeda dengan matrix yang menggunakan BLOSUM50.Padakasus di atas,ditemukan\nbanyak kemungkinan sekuen yang dibandingkan pada perhitungan versi yang pertama,\nnamunmenggunakan versi yang kedua inihanya ditemukan satu sekuen untuk dihitung\noptimal alignment nya.\n3.4ToolsuntukImplementasi\nPada tahap implementasi pembangunan aplikasimenggunakan platform Java.Penelitian\npada bidang bioteknologi biasanya menggunakan metode prosedural, dengan\nakhir ini,sequence alignment dimplementasikan denganmetode berbasisobjek dengan\nplatformJava,karenaJava identik denganpembangunan aplikasi berbasis objek.\n3.5GenBank\nGenBank(GeneticSequenceData Bank)merupakan repository sequence geneticyang\ndiakui di seluruh dunia.File GenBank memiliki informasi yang berhubungan dengan\nSequence data,yangmencakup identifiers sepertinama gen danklasifikasiphylogenetic.\nFile GenBank juga mencakup tabel yang menyimpulkan fakta mengenai sequence dan\ntranslasiprotein.\nGenBank juga merupakan database urutan kode genetik yang dimiliki NIH National\nInstitutes of Health) di U.S.,koleksi beranotasi dari semua urutan DNA yang tersedia\nyang terdiri dari 55.000 spesies berdasarkan urutan informasi dari pemiliknya.Data\nGenBank dapat diakses dengan integrasiNCBI dalam sistem pencarian informasi,yang\nmengintegrasikan data dari DNA utama dan database urutan protein dengan taxonomy\n（sistem klasifikasi tumbuhan dan hewan),genome,mapping, dan informasi struktur\nprotein,ditambah daftar biomedicalmelalui PubMed (Layanan library medicine pada\nNCBI).\nPoliteknikInformatikaDel\nTugasAkhirDiploma3,Hal.38dari126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\nTerdapatbeberapa GenBankyangmenjadi sumber data sequenceproteindiantaranya:\n1.DDBJ(DNADataBankofJapan),http://www.ddbj.nig.ac.jp\n2.EMBL Nucleotide DB (European Molecular Biology Laboratory),http://\nwww.embl.org\n3.GenBank\n(National\nCenter\nBiotechnology\nInformation),\nhttp://\nwww.ncbi.nlm.nih.gov\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\n5.",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 128,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+          "title": "0087b57cdff943ca8b4aca6f5f80e304",
+          "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "0087b57cdff943ca8b4aca6f5f80e304",
+        "document_title": "0087b57cdff943ca8b4aca6f5f80e304",
+        "file_path": "delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "bahasan yang lebih mendalam agar penelitian dapat terarah terhadap tujuan\npenelitian. Oleh karena itu perlu dibuat sebuah ruang lingkup penelitian yang akan\nmembatasi sampai dimana atau seluas apa penelitian ini akan dilakukan.\nRuang lingkup dari penelitian berfokus agar Desain yang dibuat dapat\nmemvisualisasikan Alat Penyortir Biji berbasis PLC OMRON CPM2A.\n3.2.   Tempat dan Waktu Penelitian\nTempat penelitian merupakan hal yang dapat mendasari pemilihan, pengolahan\ndan penafsiran suatu data dan keterangan yang berkaitan dengan apa yang menjadi\ntujuan penelitian. Penelitian ini mengambil tempat di Institut Teknologi Del. Lokasi\ntersebut dipilih dengan pertimbangan untuk memudahkan penulis melakukan\nbimbingan dengan pembimbing, menggunakan laboratorium Teknik Elektro sebagai\ntempat untuk mengerjakan Alat Penyortir Biji Kemiri dan mencari informasi yang\nberkaitan dengan penelitian melalui mahasiswa/i yang bersedia memberikan informasi\nyang diperlukan. Sedangkan waktu yang diperlukan dalam pelaksanaan penelitian ini\nadalah sealama 5 bulan, terhitung dari bulan Februari 2019 hingga Juni 2019\n3.3.   Tinjauan Desain Sistem Secara Umum\n3.3.1.   Definisi Sistem\nSistem dari produk “Desain Alat Penyortir Biji Kemiri Berbasis\nProgrammable Logic Controller  (PLC) ”  merupakan keseluruhan subsistem yang\nsaling berintegrasi dan membentuk suatu sistem, dimana subsistem tersebut terdiri\ndari subsistem penahan kemiri, subsistem penyortir serpihan, subsistem  mini\nconveyor , subsistem pendeteksi warna dan massa dan subsistem pemisah biji\n11\nInstitut Teknologi Del\nkemiri. Subsistem berfungsi sebagai penggerak kemiri agar dapat bergerak untuk\nmelalui beberapa tahap penyortiran. Subsistem pendeteksi warna dan massa\nberfungsi sebagai penyortir kemiri berdasarkan warna dan massa.\nBerikut ini  data flow diagram  (DFD) tingkat nol dari sistem:\nSistem Sensor  Pengukuran Pengguna Obyek\nGambar 3. 1.  Data Flow Diagram Tingkat Nol\nPada Gambar 3.1, obyek berupa hasil pemecahan kemiri dari alat p",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 58,
+          "section": "Introduction"
+        }
+      },
+      {
+        "document": {
+          "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+          "title": "01877a38ed37473e952b4fb7c589eaa6",
+          "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "01877a38ed37473e952b4fb7c589eaa6",
+        "document_title": "01877a38ed37473e952b4fb7c589eaa6",
+        "file_path": "delbot_platform/repository_data/pdf/01877a38ed37473e952b4fb7c589eaa6.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "engambilan keputusan.\n2.   Manfaat Bagi Perguruan Tinggi\nPemahaman yang mendalam mengenai ilmu pengetahuan yang berkaitan\ndengan ilmu pengetahuan Manajemen Rekayasa. Menambah informasi dan\nreferensi yang relevan dapat bermanfaat bagi penelitian-penelitian selanjutnya dan\nsebagai syarat dalam kelulusan di bidang akademik.\n3.   Manfaat Bagi Peneliti\nSarana dalam mengaplikasikan ilmu yang telah diperoleh selama\nperkuliahan serta menambah pengalaman dan wawasan dalam menyelesaikan\npermasalahan yang kompleks dalam sebuah organisasi/perusahaan.\n6\nInstitut Teknologi Del\n4.   Manfaat Bagi Peneliti Selanjutnya\nPenelitian ini dapat dijadikan sebagai referensi peneliti selanjutnya yang\nmelakukan penelitian sejenis maupun kegiatan pengembangan penelitian terkait.\n1.5   Batasan Masalah\nBatasan masalah yang terdapat dalam penelitian adalah sebagai berikut:\n1.   Penelitian dilakukan untuk pengambilan keputusan penentuan lokasi cabang\nbaru toko ABC berdasarkan kriteria dan subkriteria yang dibutuhkan oleh toko\nABC.\n2.   Penentuan alternatif lokasi berdasarkan kriteria dan subkiteria yang diperoleh\ndari studi literatur dan wawancara dengan pihak toko ABC.\n3.   Pemecahan masalah dibatasi hanya memberikan usulan yang dapat di\nimplementasikan oleh toko ABC.\n1.6   Sistematika Penulisan\nSistematika penulisan skripsi terdiri atas tiga bagian yaitu bagian awal, isi\ndan akhir.\n1.   Bagian Awal\nBagian awal bertujuan untuk memberikan gambaran kepada pembaca untuk\nmemahami keseluruhan skripsi. Bagian awal terdiri atas kata pengantar, abstrak,\ndaftar isi, daftar tabel, daftar gambar dan daftar lampiran.\n2.   Bagian Isi\na.   BAB I PENDAHULUAN\nBab ini menjelaskan pendahuluan meliputi latar, rumusan masalah, tujuan\npenelitian, manfaat penelitian, batasan masalah serta sistematika penulisan.\nb.   BAB II KAJIAN PUSTAKA\nBab ini menjelaskan landasan teori yang digunakan sebagai dasar keilmuan\nuntuk mendukung topik penelitian. Dasar teori merupakan penjelasan\nkriteria maupun subkriteria dalam pengambil",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 133,
+          "section": "2024"
+        }
+      }
+    ],
+    "current_answer": "Berdasarkan dokumen yang ditemukan:\n\n[Candidate 6]\nDocument ID: 123456789-735\nTitle: Penerapan Metode Reinforcement Learning pada Artificial Intelligence dalam Carla Car Simulator\nAuthor: Tambunan, Veronika\nYear: 2020\nHas PDF: False\nAbstract: Artificial intelligence (AI) adalah studi tentang bagaimana membuat mesin atau program komputer memiliki kecerdasan atau kemampuan untuk melakukan hal yang dapat dilakukan manusia. Penerapan AI saat ini digunakan dalam bermacam hal, salah satunya untuk self-driving car. Untuk dapat melakukan self-driving car, AI yang ditanamkan pada mobil harus diterapkan metode untuk dapat berjalan dijalurnya dan dapat beradaptasi dengan lingkungannya. Reinforcement learning merupakan salah satu jenis machine learning dimana agen mempelajari sesuatu hal dengan melakukan aksi tertentu dan melihat hasil dari aksi tersebut dan berusaha untuk memaksimalkan hadiah yang diterima melalui interaksi dengan lingkungan berupa hadiah bernilai negative atau positif. Pada penelitian ini, data dikumpulkan menggunakan simulator dengan menggunakan sensor RGB kemudian dilakukan preprocessing menggunakan metode image proc\n\nn\nberbeda dengan matrix yang menggunakan BLOSUM50.Padakasus di atas,ditemukan\nbanyak kemungkinan sekuen yang dibandingkan pada perhitungan versi yang pertama,\nnamunmenggunakan versi yang kedua inihanya ditemukan satu sekuen untuk dihitung\noptimal alignment nya.\n3.4ToolsuntukImplementasi\nPada tahap implementasi pembangunan aplikasimenggunakan platform Java.Penelitian\npada bidang bioteknologi biasanya menggunakan metode prosedural, dengan\nakhir ini,sequence alignment dimplementasikan denganmetode berbasisobjek dengan\nplatformJava,karenaJava identik denganpembangunan aplikasi berbasis objek.\n3.5GenBank\nGenBank(GeneticSequenceData Bank)merupakan repository sequence geneticyang\ndiakui di seluruh dunia.File GenBank memiliki informasi yang berhubungan dengan\nSequence data,yangmencakup identifiers sepertinama gen danklasifikasiphylogenetic.\nFile GenBank juga mencakup tabel yang menyimpulkan fakta mengenai sequence dan\ntranslasiprotein.\nGenBank juga merupakan database urutan kode genetik yang dimiliki NIH National\nInstitutes of Health) di U.S.,koleksi beranotasi dari semua urutan DNA yang tersedia\nyang terdiri dari 55.000 spesies berdasarkan urutan informasi dari pemiliknya.Data\nGenBank dapat diakses dengan integrasiNCBI dalam sistem pencarian informasi,yang\nmengintegrasikan data dari DNA utama dan database urutan protein dengan taxonomy\n（sistem klasifikasi tumbuhan dan hewan),genome,mapping, dan informasi struktur\nprotein,ditambah daftar biomedicalmelalui PubMed (Layanan library medicine pada\nNCBI).\nPoliteknikInformatikaDel\nTugasAkhirDiploma3,Hal.38dari126\nSequenceAlignmentMenggunakanAlgoritmaSmith-Waterman\nTerdapatbeberapa GenBankyangmenjadi sumber data sequenceproteindiantaranya:\n1.DDBJ(DNADataBankofJapan),http://www.ddbj.nig.ac.jp\n2.EMBL Nucleotide DB (European Molecular Biology Laboratory),http://\nwww.embl.org\n3.GenBank\n(National\nCenter\nBiotechnology\nInformation),\nhttp://\nwww.ncbi.nlm.nih.gov\n4.UniProtKB(Universal Protein ResourceKnowledgebase),http://www.uniprot.org\n5.\n\n[Candidate 1]\nDocument ID: 123456789-1310\nTitle: ANALISIS, PERANCANGAN DAN PENGUJIAN APLIKASI PROCTORING DELPROCTOR DENGAN AUTOMATED PROCTORING STUDI KASUS INSTITUT TEKNOLOGI DEL\nAuthor: MANIK, EASY DESTINI\nYear: 2022\nHas PDF: False\nAbstract: DelProctor merupakan aplikasi pengawasan ujian yang dirancang menggunakan\r\nAIPS (artificial intelligence based proctoring system) dengan automated\r\nproctoring. DelProctor dirancang dengan kriteria kasus Institut Teknologi Del\r\nsebagai sarana solusi pengawasan ujian secara online. Tujuan penelitian ini adalah\r\nmerancang aplikasi DelProctor yang didasari atas kasus Institut Teknologi Del\r\ndimana hasil rancangan kemudian akan diimplementasikan oleh rekan tugas akhir\r\npada TA-03A-2021/2022.\r\nDalam penelitian ini proses perancangan menggunakan metode domain\r\nengineering, dimana terdapat model domain exam online dengan proctoring yang\r\ndigunakan untuk mengetahui conceptual class yang dibutuhkan pada domain\r\nproctoring. Conceptual class digunakan untuk mencari tahu fitur serta fungsi apa\r\nsaja yang berada pada sistem proctoring yang kemudian disesuaikan dengan\r\nkebutuhan pada Institut Teknologi"
+  },
+  "created_at": "2026-08-16T12:55:55.877126",
+  "updated_at": "2026-08-16T12:55:55.877141"
+}

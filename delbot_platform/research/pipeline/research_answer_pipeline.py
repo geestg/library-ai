@@ -41,7 +41,6 @@ class ResearchAnswerPipeline:
             LLMGenerator()
         )
 
-        self._last_discovery_candidates = []
 
     def _contains_term(
         self,
@@ -221,6 +220,93 @@ class ResearchAnswerPipeline:
     ) -> bool:
 
         text = question.lower().strip()
+
+        academic_evidence_terms = (
+            "apa yang dimaksud",
+            "apa itu",
+            "jelaskan",
+            "bagaimana cara",
+            "bagaimana metode",
+            "metode penelitian",
+            "metodologi penelitian",
+            "pengumpulan data",
+            "analisis data",
+            "hasil penelitian",
+            "tujuan penelitian",
+            "variabel penelitian",
+            "instrumen penelitian",
+            "dataset penelitian",
+            "arsitektur",
+            "algoritma",
+            "model cnn",
+            "computer vision",
+            "machine learning",
+            "deep learning",
+            "artificial intelligence",
+            "kecerdasan buatan",
+            "yolo",
+            "arduino",
+            "raspberry pi",
+            "plc omron",
+        )
+
+        if any(
+            term in text
+            for term in academic_evidence_terms
+        ):
+            return True
+
+        follow_up_evidence_terms = (
+            "keterbatasan",
+            "kelebihan",
+            "kekurangan",
+            "hasilnya",
+            "metodenya",
+            "metode tersebut",
+            "temuan tersebut",
+            "hasil tersebut",
+            "penelitian tersebut",
+            "dokumen tersebut",
+            "hal tersebut",
+        )
+
+        continuation_terms = (
+            "tersebut",
+            "itu",
+            "tadi",
+            "sebelumnya",
+            "yang tadi",
+            "yang dimaksud",
+            "yang kita bahas",
+        )
+
+        has_follow_up_evidence = any(
+            term in text
+            for term in follow_up_evidence_terms
+        )
+
+        has_continuation = any(
+            term in text
+            for term in continuation_terms
+        )
+
+        has_previous_evidence = bool(
+            history
+            or research_state.get("sources")
+            or research_state.get("current_answer")
+        )
+
+        if (
+            has_follow_up_evidence
+            and has_previous_evidence
+            and (
+                has_continuation
+                or "keterbatasan" in text
+                or "kelebihan" in text
+                or "kekurangan" in text
+            )
+        ):
+            return True
 
         metadata_discovery_terms = (
             "apa yang ada",
@@ -532,6 +618,7 @@ class ResearchAnswerPipeline:
         self,
         topic: str,
         limit: int = 8,
+        research_state: dict | None = None,
     ) -> str:
 
         if not topic:
@@ -636,26 +723,10 @@ class ResearchAnswerPipeline:
 
         selected = scored[:limit]
 
-        self._last_discovery_candidates = [
-            {
-                "document_id": item[5],
-                "title": item[1],
-                "author": item[2],
-                "year": item[3],
-                "abstract": item[4][:1200],
-                "has_pdf": item[6],
-            }
-            for item in selected
-        ]
-
         if not selected:
             return ""
 
-        state = getattr(
-            self,
-            "_active_research_state",
-            None,
-        )
+        state = research_state
 
         if isinstance(state, dict):
             state["discovery_topic"] = topic
@@ -776,8 +847,6 @@ class ResearchAnswerPipeline:
             research_turn=research_turn,
         )
 
-        self._active_research_state = research_state
-
         evidence_turn = self._requires_evidence(
             question,
             history,
@@ -795,12 +864,15 @@ class ResearchAnswerPipeline:
 
             discovery_context = (
                 self._build_metadata_discovery_context(
-                    discovery_topic
+                    discovery_topic,
+                    research_state=research_state,
                 )
             )
 
             discovered = list(
-                self._last_discovery_candidates
+                research_state.get(
+                    "discovered_documents"
+                )
                 or []
             )
 
@@ -1034,8 +1106,6 @@ class ResearchAnswerPipeline:
             for signal in thesis_signals
         ):
             research_state["thesis_idea"] = generated
-
-        self._active_research_state = None
 
         return ResearchPipelineResponse(
             answer=generated,

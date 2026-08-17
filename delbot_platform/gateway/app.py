@@ -13,6 +13,9 @@ from delbot_platform.gateway.routers.research import (
 from delbot_platform.api.routers.retrieval import (
     router as retrieval_router,
 )
+from delbot_platform.api.routers.repository import (
+    router as repository_router,
+)
 from delbot_platform.gateway.routers.chat import (
     router as chat_router,
 )
@@ -46,6 +49,10 @@ app.include_router(
 
 app.include_router(
     retrieval_router,
+)
+
+app.include_router(
+    repository_router,
 )
 
 #
