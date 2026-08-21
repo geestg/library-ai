@@ -1,0 +1,169 @@
+
+--- 1. ACTIVE GATEWAY SAFETY ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+delbot    200152  169625  0 09:28 pts/8    00:00:12 python -m delbot_platform.gateway
+
+--- 2. PORT SAFETY ---
+LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=200152,fd=6))         
+
+--- 3. OPENAPI DOWNLOAD ---
+OPENAPI: PASS
+
+--- 4. BATCH INDEX REQUEST SCHEMA ---
+
+========================================================================
+SCHEMA: BatchIndexRequest
+========================================================================
+{
+  "properties": {
+    "limit": {
+      "type": "integer",
+      "title": "Limit",
+      "default": 25
+    }
+  },
+  "type": "object",
+  "title": "BatchIndexRequest"
+}
+
+========================================================================
+SCHEMA: RepositoryScanRequest
+========================================================================
+{
+  "properties": {
+    "path": {
+      "type": "string",
+      "title": "Path"
+    }
+  },
+  "type": "object",
+  "required": [
+    "path"
+  ],
+  "title": "RepositoryScanRequest"
+}
+
+========================================================================
+SCHEMA: RetrievalRequest
+========================================================================
+{
+  "properties": {
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Question"
+    },
+    "top_k": {
+      "type": "integer",
+      "maximum": 20.0,
+      "minimum": 1.0,
+      "title": "Top K",
+      "default": 5
+    }
+  },
+  "type": "object",
+  "required": [
+    "question"
+  ],
+  "title": "RetrievalRequest"
+}
+
+========================================================================
+SCHEMA: ResearchRequest
+========================================================================
+{
+  "properties": {
+    "question": {
+      "type": "string",
+      "title": "Question"
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Session Id"
+    }
+  },
+  "type": "object",
+  "required": [
+    "question"
+  ],
+  "title": "ResearchRequest"
+}
+
+--- 5. INDEX-ALL ROUTE CONTRACT ---
+METHOD: POST
+SUMMARY: Index All
+OPERATION_ID: index_all_documents_index_all_post
+REQUEST_BODY:
+{
+  "content": {
+    "application/json": {
+      "schema": {
+        "$ref": "#/components/schemas/BatchIndexRequest"
+      }
+    }
+  },
+  "required": true
+}
+
+--- 6. REPOSITORY SCAN CONTRACT ---
+METHOD: POST
+SUMMARY: Scan Repository
+OPERATION_ID: scan_repository_repository_scan_post
+REQUEST_BODY:
+{
+  "content": {
+    "application/json": {
+      "schema": {
+        "$ref": "#/components/schemas/RepositoryScanRequest"
+      }
+    }
+  },
+  "required": true
+}
+
+--- 7. INDEXING ROUTER SOURCE ---
+delbot_platform/api/routers/document.py:24:class BatchIndexRequest(BaseModel):
+delbot_platform/api/routers/document.py:36:    "/index-all",
+delbot_platform/api/routers/document.py:39:async def index_all(
+delbot_platform/api/routers/document.py:40:    request: BatchIndexRequest,
+
+--- 8. REPOSITORY SCAN ROUTER SOURCE ---
+delbot_platform/api/routers/repository.py:16:class RepositoryScanRequest(BaseModel):
+delbot_platform/api/routers/repository.py:43:async def scan_repository(request: RepositoryScanRequest):
+
+--- 9. CANARY PDF CANDIDATE ---
+CANARY_PDF=delbot_platform/repository_data/pdf/c2db654e65b64e33a1c09bfe207fc229.pdf
+CANARY_SIZE=583560 bytes
+
+--- 10. CURRENT QDRANT STORAGE ---
+LOCK=PRESENT
+META=PRESENT
+META_SIZE=490 bytes
+COLLECTION_STORAGE=PRESENT
+STORAGE_SIZE=20602880 bytes
+
+--- 11. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 12. MVP ENV CONTRACT ---
+DELBOT_VECTOR_BACKEND=QDRANT_LOCAL
+DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+QDRANT_COLLECTION=delbot_documents
+QDRANT_MODE=local
+QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+
+--- 13. SAFETY DECISION ---
+INDEXING_EXECUTED=NO
+QDRANT_STORAGE_MODIFICATION=NO
+DATA_RESET=NO
+REINDEX=NO
+GATEWAY_RESTART=NO
+
+--- 14. REPORT ---

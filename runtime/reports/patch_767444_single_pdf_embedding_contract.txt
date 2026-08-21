@@ -1,0 +1,217 @@
+PATCH=767.444
+PURPOSE=Validate real chunk -> embedding contract using one MVP PDF
+MODE=READ_ONLY_SINGLE_PDF_EMBEDDING_PREFLIGHT
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+SINGLE_PDF_ONLY=YES
+EXPECTED_CHUNKS=1003
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:03:03
+
+=== TEST PDF ===
+PDF=delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf
+
+=== EMBEDDING IMPLEMENTATION CANDIDATES ===
+delbot_platform/core/lifecycle/service_loader.py
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+delbot_platform/vectors/models.py
+delbot_platform/gateway/app.py
+delbot_platform/gateway/response.py
+delbot_platform/gateway/request.py
+delbot_platform/gateway/runtime/infinity.py
+delbot_platform/gateway/runtime/vllm.py
+delbot_platform/gateway/openai/embedding.py
+delbot_platform/gateway/providers/infinity.py
+delbot_platform/gateway/providers/base.py
+delbot_platform/gateway/providers/vllm.py
+delbot_platform/gateway/mapper/embedding.py
+delbot_platform/gateway/services/gateway.py
+delbot_platform/gateway/routers/embedding.py
+delbot_platform/research/models/embedding_collection.py
+delbot_platform/research/models/embedding.py
+delbot_platform/knowledge/retrieval/qdrant.py
+delbot_platform/knowledge/rag/vector_retriever.py
+delbot_platform/boot/service_boot.py
+delbot_platform/ai/vector_store/base_vector_store.py
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py
+delbot_platform/ai/runtime/infinity.py
+delbot_platform/ai/runtime/embedding.py
+delbot_platform/ai/client/embedding_client.py
+delbot_platform/ai/registry/model_category.py
+delbot_platform/ai/embedding/embedding_builder.py
+delbot_platform/ai/embedding/embedding_request.py
+delbot_platform/ai/embedding/embedding_config.py
+delbot_platform/ai/embedding/base_embedding_provider.py
+delbot_platform/ai/embedding/embedding_result.py
+delbot_platform/ai/embedding/embedding_service.py
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+delbot_platform/launcher/factory.py
+delbot_platform/launcher/infinity.py
+delbot_platform/launcher/ai_runtime.py
+delbot_platform/workflows/__init__.py
+delbot_platform/documents/metadata/chunk_metadata.py
+delbot_platform/documents/metadata/builder/chunk.py
+delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py
+delbot_platform/documents/pipeline/indexing.py
+delbot_platform/documents/pipeline/models/artifact.py
+delbot_platform/documents/models/document_chunk.py
+delbot_platform/documents/embedding/base.py
+delbot_platform/documents/embedding/factory/provider.py
+delbot_platform/documents/embedding/pipeline/pipeline.py
+delbot_platform/documents/embedding/models/__init__.py
+delbot_platform/documents/embedding/models/embedding_vector.py
+delbot_platform/documents/embedding/providers/gateway.py
+delbot_platform/documents/embedding/providers/local.py
+delbot_platform/documents/embedding/mapper/__init__.py
+delbot_platform/documents/embedding/mapper/vector_mapper.py
+
+=== EMBEDDING SYMBOLS ===
+delbot_platform/vectors/models.py|VectorRecord|line=8
+delbot_platform/gateway/response.py|EmbeddingResponse|line=15
+delbot_platform/gateway/request.py|EmbeddingRequest|line=38
+delbot_platform/gateway/runtime/infinity.py|embedding|line=34
+delbot_platform/gateway/runtime/vllm.py|embedding|line=54
+delbot_platform/gateway/openai/embedding.py|EmbeddingData|line=10
+delbot_platform/gateway/openai/embedding.py|EmbeddingResponse|line=20
+delbot_platform/gateway/providers/infinity.py|embedding|line=41
+delbot_platform/gateway/providers/base.py|embedding|line=28
+delbot_platform/gateway/providers/vllm.py|embedding|line=66
+delbot_platform/gateway/mapper/embedding.py|EmbeddingMapper|line=9
+delbot_platform/gateway/services/gateway.py|embedding|line=61
+delbot_platform/gateway/routers/embedding.py|embeddings|line=32
+delbot_platform/research/models/embedding_collection.py|EmbeddingCollection|line=12
+delbot_platform/research/models/embedding.py|Embedding|line=9
+delbot_platform/research/models/embedding.py|is_embedded|line=39
+delbot_platform/knowledge/rag/vector_retriever.py|VectorRetriever|line=11
+delbot_platform/ai/vector_store/base_vector_store.py|BaseVectorStore|line=14
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|QdrantVectorStore|line=14
+delbot_platform/ai/runtime/infinity.py|EmbeddingRequest|line=13
+delbot_platform/ai/runtime/infinity.py|embeddings|line=34
+delbot_platform/ai/runtime/embedding.py|EmbeddingRequest|line=42
+delbot_platform/ai/runtime/embedding.py|embeddings|line=63
+delbot_platform/ai/client/embedding_client.py|EmbeddingClient|line=8
+delbot_platform/ai/client/embedding_client.py|embed|line=24
+delbot_platform/ai/embedding/embedding_builder.py|EmbeddingBuilder|line=14
+delbot_platform/ai/embedding/embedding_request.py|EmbeddingRequest|line=9
+delbot_platform/ai/embedding/embedding_config.py|EmbeddingConfig|line=7
+delbot_platform/ai/embedding/base_embedding_provider.py|BaseEmbeddingProvider|line=14
+delbot_platform/ai/embedding/base_embedding_provider.py|embed_many|line=24
+delbot_platform/ai/embedding/base_embedding_provider.py|embed|line=33
+delbot_platform/ai/embedding/embedding_result.py|EmbeddingResult|line=9
+delbot_platform/ai/embedding/embedding_service.py|EmbeddingService|line=17
+delbot_platform/ai/embedding/embedding_service.py|embed|line=31
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|InfinityEmbeddingProvider|line=14
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|embed_many|line=33
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|embed|line=42
+delbot_platform/documents/pipeline/models/artifact.py|vector_count|line=97
+delbot_platform/documents/models/document_chunk.py|has_embedding|line=91
+delbot_platform/documents/models/document_chunk.py|attach_embedding|line=100
+delbot_platform/documents/embedding/base.py|EmbeddingService|line=16
+delbot_platform/documents/embedding/base.py|embed|line=20
+delbot_platform/documents/embedding/factory/provider.py|EmbeddingProviderFactory|line=20
+delbot_platform/documents/embedding/pipeline/pipeline.py|EmbeddingPipeline|line=20
+delbot_platform/documents/embedding/models/embedding_vector.py|EmbeddingVector|line=14
+delbot_platform/documents/embedding/models/embedding_vector.py|has_vector|line=88
+delbot_platform/documents/embedding/providers/gateway.py|GatewayEmbeddingProvider|line=23
+delbot_platform/documents/embedding/providers/gateway.py|embed|line=37
+delbot_platform/documents/embedding/providers/local.py|LocalEmbeddingProvider|line=18
+delbot_platform/documents/embedding/providers/local.py|embed|line=33
+delbot_platform/documents/embedding/mapper/vector_mapper.py|EmbeddingVectorMapper|line=14
+delbot_platform/documents/embedding/mapper/vector_mapper.py|to_vector_record|line=21
+delbot_platform/documents/embedding/mapper/vector_mapper.py|to_vector_records|line=46
+
+=== CHUNK RESULT ===
+CHUNK_COUNT=1003
+NONEMPTY_CHUNKS=1003
+EMPTY_CHUNKS=0
+
+=== FIRST CHUNKS ===
+CHUNK_1_LENGTH=22
+CHUNK_1_TEXT=INSTITUT TEKNOLOGI DEL
+CHUNK_2_LENGTH=55
+CHUNK_2_TEXT=DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE
+CHUNK_3_LENGTH=22
+CHUNK_3_TEXT=LOGIC CONTROLLER (PLC)
+CHUNK_4_LENGTH=19
+CHUNK_4_TEXT=DOKUMEN TUGAS AKHIR
+CHUNK_5_LENGTH=20
+CHUNK_5_TEXT=PUTRA OLOAN HUTAGAOL
+
+=== EMBEDDING API CANDIDATES ===
+delbot_platform/gateway/runtime/infinity.py:line=41:endpoint="/v1/embeddings",
+delbot_platform/gateway/runtime/vllm.py:line=61:endpoint="/v1/embeddings",
+delbot_platform/gateway/mapper/embedding.py:line=16:embeddings = []
+delbot_platform/gateway/mapper/embedding.py:line=20:embeddings.append(
+delbot_platform/gateway/mapper/embedding.py:line=47:data=embeddings,
+delbot_platform/gateway/routers/embedding.py:line=31:@router.post("/embeddings")
+delbot_platform/gateway/routers/embedding.py:line=32:async def embeddings(
+delbot_platform/research/models/embedding_collection.py:line=14:embeddings: list[Embedding] = field(
+delbot_platform/research/models/embedding_collection.py:line=22:self.embeddings,
+delbot_platform/research/models/embedding_collection.py:line=29:self.embeddings,
+delbot_platform/research/models/embedding_collection.py:line=37:self.embeddings.append(
+delbot_platform/knowledge/rag/vector_retriever.py:line=29:vector = self.embedding.embed(
+delbot_platform/ai/vector_store/base_vector_store.py:line=29:embeddings: EmbeddingCollection,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:line=33:embeddings: EmbeddingCollection,
+delbot_platform/ai/runtime/infinity.py:line=33:@app.post("/embeddings")
+delbot_platform/ai/runtime/infinity.py:line=34:def embeddings(
+delbot_platform/ai/runtime/embedding.py:line=62:@app.post("/v1/embeddings")
+delbot_platform/ai/runtime/embedding.py:line=63:def embeddings(
+delbot_platform/ai/runtime/embedding.py:line=67:vector = model.encode(
+delbot_platform/ai/runtime/embedding.py:line=69:normalize_embeddings=True,
+delbot_platform/ai/client/embedding_client.py:line=20:url = f"http://{host}:{port}/v1/embeddings"
+delbot_platform/ai/client/embedding_client.py:line=24:def embed(
+delbot_platform/ai/embedding/base_embedding_provider.py:line=33:def embed(
+delbot_platform/ai/embedding/embedding_service.py:line=17:class EmbeddingService:
+delbot_platform/ai/embedding/embedding_service.py:line=19:High-level service responsible for generating embeddings.
+delbot_platform/ai/embedding/embedding_service.py:line=31:def embed(
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py:line=42:def embed(
+delbot_platform/documents/embedding/base.py:line=16:class EmbeddingService(ABC):
+delbot_platform/documents/embedding/base.py:line=20:async def embed(
+delbot_platform/documents/embedding/factory/provider.py:line=5:EmbeddingService,
+delbot_platform/documents/embedding/factory/provider.py:line=26:) -> EmbeddingService:
+delbot_platform/documents/embedding/pipeline/pipeline.py:line=40:return await self.provider.embed(
+delbot_platform/documents/embedding/providers/gateway.py:line=16:EmbeddingService,
+delbot_platform/documents/embedding/providers/gateway.py:line=24:EmbeddingService,
+delbot_platform/documents/embedding/providers/gateway.py:line=37:async def embed(
+delbot_platform/documents/embedding/providers/gateway.py:line=52:endpoint="/v1/embeddings",
+delbot_platform/documents/embedding/providers/local.py:line=14:EmbeddingService,
+delbot_platform/documents/embedding/providers/local.py:line=19:EmbeddingService,
+delbot_platform/documents/embedding/providers/local.py:line=33:async def embed(
+delbot_platform/documents/embedding/providers/local.py:line=47:normalize_embeddings=True,
+delbot_platform/documents/embedding/mapper/vector_mapper.py:line=47:embeddings: list[EmbeddingVector],
+delbot_platform/documents/embedding/mapper/vector_mapper.py:line=54:for embedding in embeddings
+
+=== INDEXER EMBEDDING CALLS ===
+LINE=44|CALL=EmbeddingClient|ARGS=0|KEYWORDS=0
+LINE=89|CALL=embed|ARGS=1|KEYWORDS=0
+
+=== DECISION ===
+EMBEDDING_CONTRACT=INDEXER_EMBEDDING_CALL_FOUND
+STATUS=CHUNKS_VALID_EMBEDDING_CONTRACT_FOUND
+NEXT=RUN_INDEXER_EMBEDDING_PREFLIGHT_ONLY
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

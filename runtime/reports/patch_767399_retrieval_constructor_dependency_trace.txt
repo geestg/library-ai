@@ -1,0 +1,94 @@
+PATCH=767.399
+PURPOSE=Trace concrete retrieval runtime constructor arguments into Qdrant dependency and retrieval execution
+MODE=READ_ONLY_AST_RUNTIME_CONSTRUCTOR_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:34:16
+
+=== PATCH 767.399 : EXTRACTED SUMMARY ===
+TARGET_FILES=7
+PARSED_FILES=7
+PARSE_ERRORS=0
+QDRANT_RELATED_CALLS=7
+RETRIEVAL_RELATED_CALLS=10
+CONSTRUCTOR_RELATED_CALLS=3
+INDEX_GATE=DO_NOT_INDEX
+MVP_INDEXING=NOT_EXECUTED
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+
+=== SYMBOL DEFINITIONS ===
+QdrantRepository|FILE=delbot_platform/vectorstore/qdrant/repository.py|LINE=15|TYPE=ClassDef
+QdrantRepository|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=16|TYPE=ClassDef
+QdrantRetriever|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=25|TYPE=ClassDef
+QdrantStore|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=12|TYPE=ClassDef
+QdrantStore|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=10|TYPE=ClassDef
+VectorRetriever|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=11|TYPE=ClassDef
+get_application|FILE=delbot_platform/api/routers/retrieval.py|LINE=25|TYPE=FunctionDef
+get_qdrant_store|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=152|TYPE=FunctionDef
+retrieve|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=50|TYPE=AsyncFunctionDef
+retrieve|FILE=delbot_platform/api/routers/retrieval.py|LINE=39|TYPE=AsyncFunctionDef
+search|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=23|TYPE=FunctionDef
+search|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=133|TYPE=FunctionDef
+search|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=51|TYPE=AsyncFunctionDef
+
+=== CONSTRUCTOR / DEPENDENCY CALLS ===
+delbot_platform/knowledge/retrieval/qdrant.py|43|FUNCTION=_initialize|CLASS=QdrantRetriever|CALL=QdrantRepository|ARGS=[]|KWARGS=[]
+delbot_platform/knowledge/retrieval/qdrant.py|83|FUNCTION=retrieve|CLASS=QdrantRetriever|CALL=self.repository.search|ARGS=[]|KWARGS=['vector=vectors[0].vector', 'limit=limit', 'document_ids=document_ids']
+delbot_platform/vectorstore/qdrant/singleton.py|157|FUNCTION=get_qdrant_store|CLASS=-|CALL=QdrantStore|ARGS=[]|KWARGS=[]
+
+=== QDRANT CALLS ===
+delbot_platform/knowledge/rag/vector_retriever.py|17|FUNCTION=__init__|CALL=get_qdrant_store|ARGS=[]|KWARGS=[]
+delbot_platform/knowledge/retrieval/qdrant.py|43|FUNCTION=_initialize|CALL=QdrantRepository|ARGS=[]|KWARGS=[]
+delbot_platform/vectorstore/qdrant/singleton.py|157|FUNCTION=get_qdrant_store|CALL=QdrantStore|ARGS=[]|KWARGS=[]
+delbot_platform/vectorstore/qdrant/singleton.py|43|FUNCTION=__init__|CALL=QdrantClient|ARGS=[]|KWARGS=['path=path', 'force_disable_check_same_thread=True']
+delbot_platform/vectorstore/qdrant/repository.py|25|FUNCTION=__init__|CALL=get_qdrant_store|ARGS=[]|KWARGS=[]
+delbot_platform/knowledge/vector/qdrant_store.py|17|FUNCTION=__init__|CALL=get_qdrant_store|ARGS=[]|KWARGS=[]
+delbot_platform/knowledge/vector/repository/qdrant.py|25|FUNCTION=__init__|CALL=get_qdrant_store|ARGS=[]|KWARGS=[]
+
+=== RETRIEVAL / SEARCH CALLS ===
+delbot_platform/knowledge/rag/vector_retriever.py|33|FUNCTION=search|CALL=self.store.search|ARGS=[]|KWARGS=['query_vector=vector', 'limit=limit', 'with_payload=True']
+delbot_platform/knowledge/retrieval/qdrant.py|83|FUNCTION=retrieve|CALL=self.repository.search|ARGS=[]|KWARGS=['vector=vectors[0].vector', 'limit=limit', 'document_ids=document_ids']
+delbot_platform/knowledge/retrieval/qdrant.py|99|FUNCTION=retrieve|CALL=retrieved.append|ARGS=['RetrievalResult( id=item.id, score=item.score, content=payload.get( "text", "", ), metadata=metadata, )']|KWARGS=[]
+delbot_platform/knowledge/retrieval/qdrant.py|100|FUNCTION=retrieve|CALL=RetrievalResult|ARGS=[]|KWARGS=['id=item.id', 'score=item.score', 'content=payload.get( "text", "", )', 'metadata=metadata']
+delbot_platform/vectorstore/qdrant/singleton.py|141|FUNCTION=search|CALL=self.client.search|ARGS=[]|KWARGS=['collection_name=collection_name', 'query_vector=query_vector', 'limit=limit']
+delbot_platform/knowledge/vector/repository/qdrant.py|78|FUNCTION=search|CALL=self.store.search|ARGS=[]|KWARGS=['query_vector=vector', 'limit=limit', 'query_filter=query_filter']
+delbot_platform/api/routers/retrieval.py|30|FUNCTION=get_application|CALL=ApplicationFactory.retrieval|ARGS=[]|KWARGS=[]
+delbot_platform/api/routers/retrieval.py|43|FUNCTION=retrieve|CALL=get_application|ARGS=[]|KWARGS=[]
+delbot_platform/api/routers/retrieval.py|69|FUNCTION=retrieve|CALL=RetrievalResponse|ARGS=[]|KWARGS=['context=result.context', 'documents=documents']
+delbot_platform/api/routers/retrieval.py|58|FUNCTION=retrieve|CALL=RetrievalDocument|ARGS=[]|KWARGS=['id=item.id', 'score=float(item.score)', 'content=item.content', 'source=metadata.source', 'section=metadata.section_title', 'page_start=metadata.page_start', 'page_end=metadata.page_end']
+
+=== IMPORTANT ERRORS ONLY ===
+NONE
+
+=== DECISION ===
+STATUS=CONCRETE_RETRIEVAL_AND_QDRANT_CONSTRUCTION_EVIDENCE_FOUND
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_RETRIEVAL_METHOD_TO_COLLECTION_OPERATION
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

@@ -1,0 +1,71 @@
+TRACE_BEGIN
+REAL_QDRANT_CLIENT_DISABLED=YES
+FAKE_QDRANT_CLIENT_INSTALLED=YES
+INDEX_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+
+MODULE_IMPORT_TRACE_BEGIN
+
+IMPORT_TARGET= delbot_platform.vectorstore.qdrant.singleton
+IMPORT_OK= delbot_platform.vectorstore.qdrant.singleton MODULE_FILE= /workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py
+
+IMPORT_TARGET= delbot_platform.knowledge.vector.repository.qdrant
+IMPORT_OK= delbot_platform.knowledge.vector.repository.qdrant MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/vector/repository/qdrant.py
+
+IMPORT_TARGET= delbot_platform.knowledge.vector.qdrant_store
+IMPORT_OK= delbot_platform.knowledge.vector.qdrant_store MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/vector/qdrant_store.py
+
+IMPORT_TARGET= delbot_platform.knowledge.retrieval.qdrant
+IMPORT_OK= delbot_platform.knowledge.retrieval.qdrant MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/retrieval/qdrant.py
+
+IMPORT_TARGET= delbot_platform.knowledge.rag.vector_retriever
+IMPORT_OK= delbot_platform.knowledge.rag.vector_retriever MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/rag/vector_retriever.py
+
+IMPORT_TARGET= delbot_platform.documents.pipeline.indexing
+IMPORT_OK= delbot_platform.documents.pipeline.indexing MODULE_FILE= /workspace/delbot/delbot_platform/documents/pipeline/indexing.py
+
+IMPORT_TARGET= delbot_platform.documents.services.indexing
+IMPORT_OK= delbot_platform.documents.services.indexing MODULE_FILE= /workspace/delbot/delbot_platform/documents/services/indexing.py
+
+IMPORT_TARGET= delbot_platform.application.documents.index
+IMPORT_OK= delbot_platform.application.documents.index MODULE_FILE= /workspace/delbot/delbot_platform/application/documents/index.py
+
+IMPORT_TARGET= delbot_platform.application.factory
+IMPORT_OK= delbot_platform.application.factory MODULE_FILE= /workspace/delbot/delbot_platform/application/factory/__init__.py
+
+IMPORT_TARGET= delbot_platform.api.routers.document
+IMPORT_OK= delbot_platform.api.routers.document MODULE_FILE= /workspace/delbot/delbot_platform/api/routers/document.py
+
+IMPORT_TARGET= delbot_platform.api.routers.retrieval
+IMPORT_OK= delbot_platform.api.routers.retrieval MODULE_FILE= /workspace/delbot/delbot_platform/api/routers/retrieval.py
+
+IMPORT_TARGET= delbot_platform.api.routers.repository
+IMPORT_OK= delbot_platform.api.routers.repository MODULE_FILE= /workspace/delbot/delbot_platform/api/routers/repository.py
+
+IMPORT_TARGET= delbot_platform.gateway.routers.research
+IMPORT_OK= delbot_platform.gateway.routers.research MODULE_FILE= /workspace/delbot/delbot_platform/gateway/routers/research.py
+
+IMPORT_TARGET= delbot_platform.gateway.routers.chat
+IMPORT_OK= delbot_platform.gateway.routers.chat MODULE_FILE= /workspace/delbot/delbot_platform/gateway/routers/chat.py
+
+IMPORT_TARGET= delbot_platform.gateway.routers.embedding
+IMPORT_OK= delbot_platform.gateway.routers.embedding MODULE_FILE= /workspace/delbot/delbot_platform/gateway/routers/embedding.py
+
+IMPORT_TARGET= delbot_platform.gateway.app
+IMPORT_OK= delbot_platform.gateway.app MODULE_FILE= /workspace/delbot/delbot_platform/gateway/app.py
+
+MODULE_IMPORT_TRACE_END
+
+TRACE_RESULT
+FAKE_QDRANT_CONSTRUCTOR_COUNT= 0
+REAL_QDRANT_CLIENT_USED=NO
+INDEX_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+TRACE_END

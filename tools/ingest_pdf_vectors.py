@@ -16,7 +16,7 @@ sys.path.insert(
 
 
 
-from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
 
 from delbot_platform.ai.client.embedding_client import EmbeddingClient
 
@@ -39,7 +39,7 @@ def main():
 
 
 
-    ingestion=PDFIngestion()
+    ingestion=PDFPipeline()
 
     embedder=EmbeddingClient()
 

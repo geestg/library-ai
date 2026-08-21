@@ -1,0 +1,39 @@
+PATCH: 766.905
+TEST: Direct Answer Quality
+DATE: 2026-08-18 08:12:26
+
+PIPELINE: ResearchAnswerPipeline
+ANSWER_METHOD: True
+QUERY_1: Apa yang dimaksud dengan penelitian?
+RESULT_TYPE: ResearchPipelineResponse
+ANSWER_CHARS: 6038
+CITATIONS: 5
+INTERNAL_LABEL_LEAK: False
+GENERIC_COPY_PATTERN: True
+LONG_ANSWER_OVER_2500: True
+ANSWER_TEST: FAIL
+QUERY_2: pengertian penelitian
+RESULT_TYPE: ResearchPipelineResponse
+ANSWER_CHARS: 170
+CITATIONS: 0
+INTERNAL_LABEL_LEAK: False
+GENERIC_COPY_PATTERN: False
+LONG_ANSWER_OVER_2500: False
+ANSWER_TEST: PASS
+QUERY_3: metode penelitian
+RESULT_TYPE: ResearchPipelineResponse
+ANSWER_CHARS: 6040
+CITATIONS: 5
+INTERNAL_LABEL_LEAK: False
+GENERIC_COPY_PATTERN: True
+LONG_ANSWER_OVER_2500: True
+ANSWER_TEST: FAIL
+QUALITY_TEST_COMPLETE
+ANSWER_PREVIEW:
+Berdasarkan dokumen yang ditemukan: di sekitar Toba yaitu Cafe Hollywood dengan mengamati objek penelitian dan melihat perkembangan yang sudah terjadi di sekitar penelitian. b. Studi Literatur Pada tahap ini mencari informasi mengenai bahan kajian materi yang diperlukan dalam menyelesaikan penelitian. Studi literatur bertujuan untuk memberikan landasan teori yang kuat dan mendukung dalam mencari sumber referensi teori yang relevan dengan penelitian. Penulis mengumpulkan informasi-informasi dengan menelusuri sumber yang terpercaya dari jurnal ataupun berupa buku-buku referensi. c. Perumusan Masalah dan Tujuan Masalah Setelah melakukan identifikasi masalah kemudian dilanjut dengan perumusan masalah dan tujuan masalah. Perumusan Masalah dilakukan untuk mengetahui masalah yang akan dibahas dan memberikan pemahaman terhadap isu yang diteliti. Tujuan masalah dari penelitian ini menjelaskan alasan mengapa penelitian perlu dilakukan. d. Penyusunan Kuesioner Setelah penentuan variabel dan indikator pada penelitian, selanjutnya melakukan penyusunan kuesioner dengan tujuan sebagai alat dalam mengumpulkan data yang ingin diolah e. Penyebaran Kuesioner Tahap ini dilakukan penyebaran kuesioner d
+--
+ANSWER_PREVIEW:
+Saya siap membantu. Kalau pembicaraan mulai masuk ke penelitian, kita bisa mempersempit topik dan arah penelitian terlebih dahulu sebelum menggunakan evidence repository.
+--
+ANSWER_PREVIEW:
+Berdasarkan dokumen yang ditemukan: ekatan yang lebih komprehensif dengan mempertimbangkan pilihan kriteria dan subkriteria berdasarkan pernyataan responden serta studi literatur. 3. Penelitian penentuan lokasi ABC memberikan media template Microsoft Excel yang mempermudah pengguna dalam mengetahui solusi yang sesuai dengan yang diinginkan. 28 Institut Teknologi Del BAB III METODOLOGI PENELITIAN 3.1 Lokasi dan Waktu Penelitian Penelitian dilakukan di Kabupaten Toba, Sumatera Utara khususnya pada 3 kecamatan yaitu Kecamatan Balige, Laguboti dan Porsea. Pelaksanaan penelitian dimulai pada bulan Januari hingga Juni 2024. Penelitian dimulai dari tahap survei lapangan, wawancara, serta pengisian penilaian oleh pengambil keputusan serta evaluasi terhadap data yang telah diperoleh. 3.2 Jenis dan Sumber Data Pada penelitian dilakukan kegiatan untuk mendapatkan data dan informasi yang dibutuhkan untuk penyelesaian pada penelitian. Sumber data pada penelitian dapat diperoleh melalui data primer dan data sekunder. Data primer merupakan data yang dikumpulkan untuk memenuhi kebutuhan penelitian yang dilakukan dengan metode survei, wawancara atau pengamatan langsung. Data primer pada penelitian 

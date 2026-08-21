@@ -1,0 +1,99 @@
+PATCH=767.422
+PURPOSE=Read-only validation of MVP indexer execution contract before real indexing
+MODE=READ_ONLY_INDEXER_PREFLIGHT
+SOURCE=delbot_platform/repository_data/pdf
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 03:57:23
+
+=== PDF SOURCE ===
+SOURCE=delbot_platform/repository_data/pdf
+SOURCE_EXISTS=True
+SOURCE_DIRECTORY=True
+PDF_COUNT=188
+ZERO_BYTE_COUNT=0
+UNREADABLE_COUNT=0
+
+=== INDEXERS ===
+INDEXER=tools/ingest_pdf_vectors.py
+EXISTS=True
+MAIN_FUNCTIONS=main
+CLI_ARGPARSE=0
+CLI_TYPER=0
+CLI_CLICK=0
+INDEXER=tools/ingest_metadata_vectors.py
+EXISTS=True
+MAIN_FUNCTIONS=main
+CLI_ARGPARSE=0
+CLI_TYPER=0
+CLI_CLICK=0
+
+=== PATH / INPUT SYMBOLS ===
+tools/ingest_pdf_vectors.py|PDFIngestion,PDF_DIR,Path,ROOT,pdf
+tools/ingest_metadata_vectors.py|Path,ROOT
+
+=== QDRANT STATIC CALLS ===
+tools/ingest_pdf_vectors.py|QdrantStore,create_collection,insert
+tools/ingest_metadata_vectors.py|QdrantStore,create_collection,insert
+
+=== EMBEDDING STATIC CALLS ===
+tools/ingest_pdf_vectors.py|EmbeddingClient,embed
+tools/ingest_metadata_vectors.py|EmbeddingClient,embed
+
+=== DEPENDENCIES ===
+qdrant_client=True
+numpy=True
+pydantic=True
+
+=== PDF PARSER MODULES ===
+pypdf=True
+PyPDF2=False
+fitz=True
+
+=== CONFIG FILES ===
+FOUND=.env.mvp
+
+=== ENV PRESENCE ===
+QDRANT_PATH_PRESENT=False
+QDRANT_COLLECTION_PRESENT=False
+DELBOT_QDRANT_PATH_PRESENT=False
+
+=== WARNINGS ===
+NONE
+
+=== BLOCKERS ===
+NONE
+
+=== FINAL GATE ===
+INDEX_PREFLIGHT_GATE=READY_FOR_INDEXING
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+
+=== ERRORS ===
+NONE

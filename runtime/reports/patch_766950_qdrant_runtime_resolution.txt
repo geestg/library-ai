@@ -1,0 +1,10 @@
+PATCH: 766.950
+PURPOSE: Trace the actual Qdrant configuration used by MVP runtime
+DATE: 2026-08-18 09:39:32
+
+GATEWAY_PID: 200152
+GATEWAY_PORT: 8100
+OBSERVED_QDRANT_COLLECTION: delbot_documents
+OBSERVED_QDRANT_PATH: /workspace/delbot/repository_data/qdrant_local
+ENV_MVP_COLLECTION: delbot_mvp_documents
+RESTART_PERFORMED: NO

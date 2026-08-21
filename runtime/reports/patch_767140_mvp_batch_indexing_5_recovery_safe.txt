@@ -1,0 +1,8 @@
+PATCH: 767.140
+PURPOSE: Continue MVP indexing without terminal interruption ambiguity
+MODE: RECOVERY-SAFE MVP BATCH
+BATCH_LIMIT: 5
+DATE: 2026-08-19 01:28:39
+
+REPORT=runtime/reports/patch_767140_mvp_batch_indexing_5_recovery_safe.txt
+LOG=runtime/reports/patch_767140_mvp_batch_indexing_5_recovery_safe.log

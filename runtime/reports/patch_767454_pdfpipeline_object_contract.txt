@@ -1,0 +1,115 @@
+PATCH=767.454
+PURPOSE=Inspect actual PDFPipeline constructor, attributes and process contract
+MODE=READ_ONLY_SOURCE_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+TARGET=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:11:34
+
+=== SOURCE FILE ===
+EXISTS=True
+PATH=/workspace/delbot/delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+SOURCE_LINES=41
+
+=== PDFPipeline AST ===
+CLASS_FOUND=True
+CLASS_LINE=19
+METHOD=process|LINE=21|ARGS=self,document
+
+=== __init__ SOURCE ===
+INIT_FOUND=False
+PROCESS_FOUND=True
+PROCESS_LINES=19-41
+0019: class PDFPipeline(DocumentPipeline):
+0020: 
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+0035:         indexed.metadata["embedding_requests"] = requests
+0036: 
+0037:         return PipelineResult(
+0038:             source_document=document,
+0039:             indexed_document=indexed,
+0040:             success=True,
+0041:         )
+
+=== ATTRIBUTE ASSIGNMENTS IN __init__ ===
+
+=== DIRECT PIPELINE REFERENCES ===
+self.loader=[]
+self.parser=[]
+self.chunker=[]
+self.embedding=[]
+self.embedding_service=[]
+self.embedding_client=[]
+self.vector_store=[]
+self.process(=[]
+
+=== LIVE IMPORT CONTRACT ===
+MODULE_IMPORT=OK
+CLASS_AVAILABLE=True
+CLASS_NAME=PDFPipeline
+CLASS_MODULE=delbot_platform.document_intelligence.pipeline.pdf_pipeline
+CONSTRUCTOR_SIGNATURE=()
+LIVE_PROCESS_SOURCE_BEGIN
+    def process(
+        self,
+        document: Document,
+    ) -> PipelineResult:
+
+        loaded = PDFLoader().load(document)
+        parsed = PDFParser().parse(loaded)
+
+        chunked = PDFChunker().chunk(parsed)
+        metadata = PDFMetadata().extract(chunked)
+        indexed = PDFIndexer().index(metadata)
+
+        requests = EmbeddingBuilder().build(indexed)
+
+        indexed.metadata["embedding_requests"] = requests
+
+        return PipelineResult(
+            source_document=document,
+            indexed_document=indexed,
+            success=True,
+        )
+LIVE_PROCESS_SOURCE_END
+
+=== DIAGNOSTIC DECISION ===
+ERRORS=0
+WARNINGS=1
+STATUS=PIPELINE_CONTRACT_INSPECTED_WITH_WARNINGS
+
+=== WARNINGS ===
+LIVE_INIT_SOURCE_FAILED=TypeError: module, class, method, function, traceback, frame, or code object was expected, got wrapper_descriptor
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_RESET_DELETE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN

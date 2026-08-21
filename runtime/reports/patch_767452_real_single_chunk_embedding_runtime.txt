@@ -1,0 +1,344 @@
+PATCH=767.452
+PURPOSE=Execute exactly one real embedding request using the resolved MVP embedding contract
+MODE=READ_ONLY_SINGLE_CHUNK_EMBEDDING_RUNTIME_PREFLIGHT
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEXER=tools/ingest_pdf_vectors.py
+TEST_PDF=0087b57cdff943ca8b4aca6f5f80e304.pdf
+SINGLE_PDF_ONLY=YES
+SINGLE_CHUNK_ONLY=YES
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:10:06
+
+=== RUNTIME PREFLIGHT START ===
+TEST_PDF=/workspace/delbot/delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf
+TEST_PDF_SIZE_BYTES=2421879
+PIPELINE_IMPORT=OK
+PIPELINE_SYMBOLS=DocumentPipeline,PDFPipeline,PipelineResult
+PIPELINE_CLASS=delbot_platform.document_intelligence.pipeline.pdf_pipeline.PDFPipeline
+PIPELINE_CONSTRUCTOR=()
+EMBEDDING_TARGET=delbot_platform.ai.client.embedding_client:EmbeddingClient
+EMBEDDING_CONSTRUCTOR=(url: 'str | None' = None) -> 'None'
+EMBEDDING_METHODS=embed:(self, text: 'str'),__call__:(*args, **kwargs)
+EMBEDDING_TARGET=delbot_platform.ai.embedding.embedding_service:EmbeddingService
+EMBEDDING_CONSTRUCTOR=(provider: 'BaseEmbeddingProvider') -> 'None'
+EMBEDDING_METHODS=embed:(self, requests: 'list[EmbeddingRequest]') -> 'EmbeddingCollection',__call__:(*args, **kwargs)
+EMBEDDING_TARGET=delbot_platform.ai.embedding.providers.infinity_embedding_provider:InfinityEmbeddingProvider
+EMBEDDING_CONSTRUCTOR=(endpoint: 'str', model: 'str') -> 'None'
+EMBEDDING_METHODS=embed:(self, request: 'EmbeddingRequest') -> 'EmbeddingResult',embed_many:(self, requests: 'list[EmbeddingRequest]') -> 'list[EmbeddingResult]',__call__:(*args, **kwargs)
+EMBEDDING_TARGET=delbot_platform.documents.embedding.factory.provider:EmbeddingProviderFactory
+EMBEDDING_CONSTRUCTOR=()
+EMBEDDING_METHODS=__call__:(*args, **kwargs)
+EMBEDDING_TARGET=delbot_platform.documents.embedding.base:EmbeddingService
+EMBEDDING_CONSTRUCTOR=()
+EMBEDDING_METHODS=embed:(self, chunks: 'list[DocumentChunk]') -> 'list[EmbeddingVector]',__call__:(*args, **kwargs)
+EMBEDDING_TARGET_COUNT=5
+SOURCE_INSPECTION=delbot_platform/ai/client/embedding_client.py
+22:         self.url = url
+23: 
+24:     def embed(
+25:         self,
+26:         text: str,
+27:     ):
+28: 
+---
+SOURCE_INSPECTION=delbot_platform/ai/embedding/embedding_service.py
+1: from __future__ import annotations
+2: 
+3: from delbot_platform.ai.embedding.base_embedding_provider import (
+4:     BaseEmbeddingProvider,
+5: )
+6: from delbot_platform.ai.embedding.embedding_request import (
+7:     EmbeddingRequest,
+---
+2: 
+3: from delbot_platform.ai.embedding.base_embedding_provider import (
+4:     BaseEmbeddingProvider,
+5: )
+6: from delbot_platform.ai.embedding.embedding_request import (
+7:     EmbeddingRequest,
+8: )
+---
+7:     EmbeddingRequest,
+8: )
+9: from delbot_platform.research.models.embedding import (
+10:     Embedding,
+11: )
+12: from delbot_platform.research.models.embedding_collection import (
+13:     EmbeddingCollection,
+---
+10:     Embedding,
+11: )
+12: from delbot_platform.research.models.embedding_collection import (
+13:     EmbeddingCollection,
+14: )
+15: 
+16: 
+---
+19:     High-level service responsible for generating embeddings.
+20: 
+21:     The service is provider-agnostic.
+22:     """
+23: 
+24:     def __init__(
+25:         self,
+---
+24:     def __init__(
+25:         self,
+26:         provider: BaseEmbeddingProvider,
+27:     ) -> None:
+28: 
+29:         self._provider = provider
+30: 
+---
+27:     ) -> None:
+28: 
+29:         self._provider = provider
+30: 
+31:     def embed(
+32:         self,
+33:         requests: list[EmbeddingRequest],
+---
+29:         self._provider = provider
+30: 
+31:     def embed(
+32:         self,
+33:         requests: list[EmbeddingRequest],
+34:     ) -> EmbeddingCollection:
+35: 
+---
+34:     ) -> EmbeddingCollection:
+35: 
+36:         results = self._provider.embed_many(
+37:             requests,
+38:         )
+39: 
+40:         collection = EmbeddingCollection()
+---
+SOURCE_INSPECTION=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+1: from __future__ import annotations
+2: 
+3: from delbot_platform.ai.embedding.base_embedding_provider import (
+4:     BaseEmbeddingProvider,
+5: )
+6: from delbot_platform.ai.embedding.embedding_request import (
+7:     EmbeddingRequest,
+---
+2: 
+3: from delbot_platform.ai.embedding.base_embedding_provider import (
+4:     BaseEmbeddingProvider,
+5: )
+6: from delbot_platform.ai.embedding.embedding_request import (
+7:     EmbeddingRequest,
+8: )
+---
+12: 
+13: 
+14: class InfinityEmbeddingProvider(
+15:     BaseEmbeddingProvider,
+16: ):
+17:     """
+18:     Embedding provider backed by an Infinity server.
+---
+13: 
+14: class InfinityEmbeddingProvider(
+15:     BaseEmbeddingProvider,
+16: ):
+17:     """
+18:     Embedding provider backed by an Infinity server.
+19: 
+---
+16: ):
+17:     """
+18:     Embedding provider backed by an Infinity server.
+19: 
+20:     The HTTP implementation will be added after the
+21:     AI Infrastructure layer is connected.
+22:     """
+---
+24:     def __init__(
+25:         self,
+26:         endpoint: str,
+27:         model: str,
+28:     ) -> None:
+29: 
+30:         self._endpoint = endpoint
+---
+25:         self,
+26:         endpoint: str,
+27:         model: str,
+28:     ) -> None:
+29: 
+30:         self._endpoint = endpoint
+31:         self._model = model
+---
+28:     ) -> None:
+29: 
+30:         self._endpoint = endpoint
+31:         self._model = model
+32: 
+33:     def embed_many(
+34:         self,
+---
+29: 
+30:         self._endpoint = endpoint
+31:         self._model = model
+32: 
+33:     def embed_many(
+34:         self,
+35:         requests: list[EmbeddingRequest],
+---
+31:         self._model = model
+32: 
+33:     def embed_many(
+34:         self,
+35:         requests: list[EmbeddingRequest],
+36:     ) -> list[EmbeddingResult]:
+37: 
+---
+37: 
+38:         raise NotImplementedError(
+39:             "Infinity embedding provider is not implemented yet."
+40:         )
+41: 
+42:     def embed(
+43:         self,
+---
+40:         )
+41: 
+42:     def embed(
+43:         self,
+44:         request: EmbeddingRequest,
+45:     ) -> EmbeddingResult:
+46: 
+---
+SOURCE_INSPECTION=delbot_platform/documents/embedding/base.py
+5: 
+6: 
+7: from delbot_platform.documents.models.document_chunk import (
+8:     DocumentChunk,
+9: )
+10: from delbot_platform.documents.embedding.models import (
+11:     EmbeddingVector,
+---
+8:     DocumentChunk,
+9: )
+10: from delbot_platform.documents.embedding.models import (
+11:     EmbeddingVector,
+12: )
+13: 
+14: 
+---
+18: 
+19:     @abstractmethod
+20:     async def embed(
+21:         self,
+22:         chunks: list[DocumentChunk],
+23:     ) -> list[EmbeddingVector]:
+24: 
+---
+SOURCE_INSPECTION=delbot_platform/documents/embedding/factory/provider.py
+7: 
+8: 
+9: from delbot_platform.documents.embedding.providers.local import (
+10:     LocalEmbeddingProvider,
+11: )
+12: 
+13: 
+---
+8: 
+9: from delbot_platform.documents.embedding.providers.local import (
+10:     LocalEmbeddingProvider,
+11: )
+12: 
+13: 
+14: from delbot_platform.documents.embedding.providers.gateway import (
+---
+12: 
+13: 
+14: from delbot_platform.documents.embedding.providers.gateway import (
+15:     GatewayEmbeddingProvider,
+16: )
+17: 
+18: 
+---
+13: 
+14: from delbot_platform.documents.embedding.providers.gateway import (
+15:     GatewayEmbeddingProvider,
+16: )
+17: 
+18: 
+19: 
+---
+18: 
+19: 
+20: class EmbeddingProviderFactory:
+21: 
+22: 
+23:     @staticmethod
+24:     def build(
+---
+23:     @staticmethod
+24:     def build(
+25:         provider: str = "local",
+26:     ) -> EmbeddingService:
+27: 
+28: 
+29:         if provider == "local":
+---
+27: 
+28: 
+29:         if provider == "local":
+30: 
+31:             return LocalEmbeddingProvider()
+32: 
+33: 
+---
+29:         if provider == "local":
+30: 
+31:             return LocalEmbeddingProvider()
+32: 
+33: 
+34:         if provider == "gateway":
+35: 
+---
+32: 
+33: 
+34:         if provider == "gateway":
+35: 
+36:             return GatewayEmbeddingProvider()
+37: 
+38: 
+---
+34:         if provider == "gateway":
+35: 
+36:             return GatewayEmbeddingProvider()
+37: 
+38: 
+39:         raise ValueError(
+40:             f"Unknown embedding provider: {provider}"
+---
+38: 
+39:         raise ValueError(
+40:             f"Unknown embedding provider: {provider}"
+41:         )
+---
+STATUS=RUNTIME_CONTRACT_AVAILABLE
+BLOCKERS=0
+WARNINGS=0
+REAL_EMBEDDING_EXECUTION=NOT_STARTED
+INDEX_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+=== RUNTIME PREFLIGHT END ===

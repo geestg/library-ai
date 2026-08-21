@@ -1,0 +1,7 @@
+PATCH: 766.928
+PURPOSE: Diagnose live Qdrant collection mismatch and retrieval-to-answer context path
+DATE: 2026-08-18 09:35:24
+
+COMPILE: PASS
+QDRANT_LOCK_EXPECTED_OWNER: 200152
+QDRANT_LOCK_FILE: EXISTS

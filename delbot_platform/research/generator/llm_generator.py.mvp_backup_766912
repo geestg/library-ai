@@ -1,0 +1,204 @@
+from __future__ import annotations
+
+import re
+
+from delbot_platform.ai.client.llm_client import LLMClient
+
+
+class LLMGenerator:
+    """
+    MVP LLM generator.
+
+    Normal generation is followed by one bounded synthesis-repair pass
+    when the model produces an obviously oversized or context-copying answer.
+    """
+
+    MAX_NORMAL_CHARS = 2500
+    MAX_REPAIR_CHARS = 2200
+
+    def __init__(
+        self,
+    ) -> None:
+
+        self.client = LLMClient()
+
+    def _needs_repair(
+        self,
+        answer: str,
+    ) -> bool:
+
+        text = str(
+            answer or ""
+        ).strip()
+
+        if not text:
+            return True
+
+        if len(text) > self.MAX_NORMAL_CHARS:
+            return True
+
+        generic_prefixes = (
+            "berdasarkan dokumen yang ditemukan:",
+            "berdasarkan dokumen yang ditemukan",
+            "berdasarkan context:",
+            "berdasarkan konteks:",
+        )
+
+        normalized = " ".join(
+            text.lower().split()
+        )
+
+        if any(
+            normalized.startswith(prefix)
+            for prefix in generic_prefixes
+        ):
+            return True
+
+        repeated_source_patterns = (
+            r"\bBAB\s+[IVXLC]+\b",
+            r"\bInstitut Teknologi Del\b",
+            r"\bStudi Literatur\b.*\bPerumusan Masalah\b",
+            r"\bPenyusunan Kuesioner\b.*\bPenyebaran Kuesioner\b",
+        )
+
+        matches = 0
+
+        for pattern in repeated_source_patterns:
+            if re.search(
+                pattern,
+                text,
+                flags=re.IGNORECASE | re.DOTALL,
+            ):
+                matches += 1
+
+        if matches >= 2:
+            return True
+
+        return False
+
+    def _build_repair_messages(
+        self,
+        messages: list[dict],
+        draft: str,
+    ) -> list[dict]:
+
+        repaired = list(messages)
+
+        repaired.append(
+            {
+                "role": "system",
+                "content": (
+                    "ANSWER REPAIR MODE\n\n"
+                    "Jawaban sebelumnya gagal memenuhi format MVP.\n"
+                    "Tulis ulang jawaban menjadi sintesis singkat.\n\n"
+                    "ATURAN WAJIB:\n"
+                    "1. Jawab pertanyaan pengguna secara langsung.\n"
+                    "2. Gunakan hanya informasi yang didukung evidence.\n"
+                    "3. Jangan menyalin kalimat sumber secara berurutan.\n"
+                    "4. Jangan menampilkan daftar isi, nomor halaman, "
+                    "nama bab, navigation text, atau potongan PDF yang "
+                    "tidak diperlukan.\n"
+                    "5. Jangan memulai dengan \"Berdasarkan dokumen yang "
+                    "ditemukan\".\n"
+                    "6. Tulis ulang dengan kata-kata sendiri.\n"
+                    "7. Untuk pertanyaan sederhana, gunakan 1-3 paragraf.\n"
+                    "8. Target 80-250 kata jika pertanyaan sederhana.\n"
+                    "9. Jika evidence tidak cukup untuk menjawab, katakan "
+                    "evidence belum memadai daripada menyalin context.\n"
+                    "10. Output hanya jawaban final untuk pengguna.\n"
+                ),
+            }
+        )
+
+        repaired.append(
+            {
+                "role": "user",
+                "content": (
+                    "Perbaiki draft jawaban berikut.\n\n"
+                    "Jangan mempertahankan potongan teks sumber yang "
+                    "tidak diperlukan.\n"
+                    "Jangan menjelaskan proses perbaikan.\n"
+                    "Berikan hanya jawaban final.\n\n"
+                    "DRAFT:\n"
+                    f"{draft}"
+                ),
+            }
+        )
+
+        return repaired
+
+    def generate(
+        self,
+        messages: list[dict],
+    ) -> str:
+
+        generated = self.client.chat(
+            messages=messages,
+        )
+
+        generated = str(
+            generated or ""
+        ).strip()
+
+        if not self._needs_repair(
+            generated,
+        ):
+            return generated
+
+        repair_messages = (
+            self._build_repair_messages(
+                messages,
+                generated,
+            )
+        )
+
+        repaired = self.client.chat(
+            messages=repair_messages,
+            temperature=0.1,
+            max_tokens=400,
+        )
+
+        repaired = str(
+            repaired or ""
+        ).strip()
+
+        if not repaired:
+            return generated
+
+        if len(repaired) > self.MAX_REPAIR_CHARS:
+            compact_messages = (
+                self._build_repair_messages(
+                    messages,
+                    repaired,
+                )
+            )
+
+            compact_messages.append(
+                {
+                    "role": "system",
+                    "content": (
+                        "FINAL COMPRESSION.\n"
+                        "Ringkas jawaban menjadi maksimal sekitar "
+                        "180 kata.\n"
+                        "Pertahankan hanya informasi yang menjawab "
+                        "pertanyaan pengguna.\n"
+                        "Jangan menyalin context.\n"
+                        "Output hanya jawaban final."
+                    ),
+                }
+            )
+
+            compact = self.client.chat(
+                messages=compact_messages,
+                temperature=0.1,
+                max_tokens=300,
+            )
+
+            compact = str(
+                compact or ""
+            ).strip()
+
+            if compact:
+                repaired = compact
+
+        return repaired

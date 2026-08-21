@@ -1,0 +1,989 @@
+PATCH=767.441
+PURPOSE=Inspect actual PipelineResult from one real MVP PDF
+MODE=READ_ONLY_RESULT_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+SINGLE_PDF_ONLY=YES
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:58:18
+
+=== PDF ===
+PATH=delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf
+SIZE_BYTES=2421879
+
+=== PIPELINE ===
+IMPORT=OK
+CLASS=<class 'delbot_platform.document_intelligence.pipeline.pdf_pipeline.PDFPipeline'>
+INSTANCE_TYPE=PDFPipeline
+
+=== RESULT ===
+RESULT_TYPE=PipelineResult
+RESULT_IS_NONE=False
+
+=== RESULT COUNTS ===
+NONE
+
+=== RESULT FIELD TYPES ===
+NONE
+
+=== RESULT STRUCTURE ===
+{
+  "type": "PipelineResult",
+  "fields": {
+    "source_document": {
+      "type": "PosixPath",
+      "attributes": {}
+    },
+    "indexed_document": {
+      "type": "IndexedDocument",
+      "fields": {
+        "source_document": {
+          "type": "SemanticChunkCollection",
+          "len": 1003,
+          "fields": {
+            "chunks": {
+              "type": "list",
+              "len": 1003,
+              "sample": [
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "SemanticChunk",
+                  "fields": {
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_start": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "page_end": {
+                      "type": "int",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "paragraphs": {
+                      "type": "list",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "heading": {
+                      "type": "NoneType",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "index": {
+          "type": "list",
+          "len": 1003,
+          "sample": [
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 22,
+                  "value": "INSTITUT TEKNOLOGI DEL"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 55,
+                  "value": "DESAIN ALAT PENYORTIR BIJI KEMIRI BERBASIS PROGRAMMABLE"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 22,
+                  "value": "LOGIC CONTROLLER (PLC)"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 19,
+                  "value": "DOKUMEN TUGAS AKHIR"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 20,
+                  "value": "PUTRA OLOAN HUTAGAOL"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 8,
+                  "value": "14S15011"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 39,
+                  "value": "FAKULTAS INFORMATIKA DAN TEKNIK ELEKTRO"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 36,
+                  "value": "PROGRAM STUDI SARJANA TEKNIK ELEKTRO"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 8,
+                  "value": "LAGUBOTI"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            },
+            {
+              "type": "SemanticChunk",
+              "fields": {
+                "text": {
+                  "type": "str",
+                  "len": 12,
+                  "value": "AGUSTUS 2019"
+                },
+                "page_start": {
+                  "type": "int",
+                  "value": 1
+                },
+                "page_end": {
+                  "type": "int",
+                  "value": 1
+                },
+                "paragraphs": {
+                  "type": "list",
+                  "len": 1,
+                  "sample": [
+                    {
+                      "type": "Paragraph",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  ]
+                },
+                "heading": {
+                  "type": "NoneType",
+                  "value": null
+                },
+                "metadata": {
+                  "type": "dict",
+                  "len": 0,
+                  "keys": [],
+                  "sample": {}
+                }
+              }
+            }
+          ]
+        },
+        "metadata": {
+          "type": "dict",
+          "len": 4,
+          "keys": [
+            "'chunk_count'",
+            "'page_start'",
+            "'page_end'",
+            "'embedding_requests'"
+          ],
+          "sample": {
+            "'chunk_count'": {
+              "type": "int",
+              "value": 1003
+            },
+            "'page_start'": {
+              "type": "int",
+              "value": 1
+            },
+            "'page_end'": {
+              "type": "int",
+              "value": 58
+            },
+            "'embedding_requests'": {
+              "type": "list",
+              "len": 1003,
+              "sample": [
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                },
+                {
+                  "type": "EmbeddingRequest",
+                  "fields": {
+                    "id": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "text": {
+                      "type": "str",
+                      "value": "[MAX_DEPTH]"
+                    },
+                    "metadata": {
+                      "type": "dict",
+                      "value": "[MAX_DEPTH]"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "success": {
+      "type": "bool",
+      "value": true
+    }
+  }
+}
+
+=== PIPELINE RESULT SOURCE ===
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from ..indexer.indexed_document import IndexedDocument
+
+
+@dataclass(slots=True)
+class PipelineResult:
+    source_document: str
+    indexed_document: IndexedDocument
+    success: bool
+
+=== BLOCKERS ===
+NONE
+
+=== WARNINGS ===
+NONE
+
+=== ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=PIPELINE_RETURNED_ZERO_CHUNKS
+NEXT=FIX_CHUNK_OUTPUT_BEFORE_INDEXING
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+
+=== INTERNAL ERRORS ===
+NONE

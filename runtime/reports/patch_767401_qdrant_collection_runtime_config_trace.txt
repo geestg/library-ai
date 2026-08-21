@@ -1,0 +1,336 @@
+PATCH=767.401
+PURPOSE=Trace concrete Qdrant collection name and runtime configuration source of truth
+MODE=READ_ONLY_STATIC_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:36:55
+
+=== SCAN SUMMARY ===
+FILES_SCANNED=527
+PARSE_ERRORS=0
+COLLECTION_HITS=62
+CONFIG_HITS=163
+QDRANT_COLLECTION_CALLS=38
+COLLECTION_ASSIGNMENTS=13
+ENV_CONFIGURATION_CANDIDATES=3
+
+=== COLLECTION CONFIGURATION HITS ===
+delbot_platform/ai/embedding/embedding_builder.py|26|COLLECTION|collection = document.index
+delbot_platform/ai/embedding/embedding_service.py|34|COLLECTION|) -> EmbeddingCollection:
+delbot_platform/ai/embedding/embedding_service.py|40|COLLECTION|collection = EmbeddingCollection()
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|26|COLLECTION|collection_name: str,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|COLLECTION|self._collection_name = collection_name
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|15|COLLECTION|) -> SemanticChunkCollection:
+delbot_platform/document_intelligence/models/heading_collection.py|12|COLLECTION|class HeadingCollection:
+delbot_platform/document_intelligence/models/paragraph_collection.py|12|COLLECTION|class ParagraphCollection:
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py|12|COLLECTION|class SemanticChunkCollection:
+delbot_platform/knowledge/hydration/local.py|86|COLLECTION|collection = Collection(
+delbot_platform/knowledge/hydration/local.py|122|COLLECTION|collection=collection,
+delbot_platform/knowledge/models/collection.py|11|COLLECTION|class Collection:
+delbot_platform/knowledge/models/document.py|22|COLLECTION|collection: Collection = field(
+delbot_platform/knowledge/models/document.py|46|COLLECTION|def collection_name(
+delbot_platform/knowledge/models/document.py|250|COLLECTION|"collection_name": self.collection_name,
+delbot_platform/knowledge/models/document.py|280|COLLECTION|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|290|COLLECTION|collection = Collection(
+delbot_platform/knowledge/models/document.py|296|COLLECTION|"collection_name",
+delbot_platform/knowledge/models/document.py|364|COLLECTION|collection=collection,
+delbot_platform/knowledge/models/document_chunk.py|60|COLLECTION|def collection_name(
+delbot_platform/knowledge/models/document_chunk.py|148|COLLECTION|"collection_name": self.document.collection.name,
+delbot_platform/knowledge/rag/vector_retriever.py|19|COLLECTION|self.store.create_collection()
+delbot_platform/knowledge/vector/qdrant_store.py|14|COLLECTION|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/qdrant_store.py|18|COLLECTION|self.collection = collection
+delbot_platform/knowledge/vector/qdrant_store.py|20|COLLECTION|def create_collection(
+delbot_platform/knowledge/vector/qdrant_store.py|25|COLLECTION|self.store.create_collection()
+delbot_platform/knowledge/vector/repository/qdrant.py|22|COLLECTION|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/repository/qdrant.py|26|COLLECTION|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|28|COLLECTION|self.store.create_collection()
+delbot_platform/research/builders/research_result_builder.py|33|COLLECTION|lambda c: c.collection_name,
+delbot_platform/research/models/citation.py|42|COLLECTION|def collection(self) -> Collection:
+delbot_platform/research/models/citation.py|50|COLLECTION|def collection_name(self) -> str:
+delbot_platform/research/models/citation.py|128|COLLECTION|"collection_name": self.collection_name,
+delbot_platform/research/models/embedding_collection.py|12|COLLECTION|class EmbeddingCollection:
+delbot_platform/vectorstore/qdrant/repository.py|28|COLLECTION|self.store.create_collection()
+delbot_platform/vectorstore/qdrant/singleton.py|33|COLLECTION|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|52|COLLECTION|def create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py|54|COLLECTION|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|60|COLLECTION|.get_collections()
+delbot_platform/vectorstore/qdrant/singleton.py|65|COLLECTION|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py|71|COLLECTION|self.client.create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py|72|COLLECTION|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|86|COLLECTION|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|90|COLLECTION|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|96|COLLECTION|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|100|COLLECTION|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|106|COLLECTION|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|116|COLLECTION|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|137|COLLECTION|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|142|COLLECTION|collection_name=collection_name,
+delbot_platform/workspace/models/workspace_metadata.py|11|COLLECTION|active_collection: str = ""
+delbot_platform/workspace/models/workspace_metadata.py|39|COLLECTION|active_collection=data.get(
+tools/audit_qdrant_storage.py|17|COLLECTION|"collection_name",
+tools/audit_qdrant_storage.py|96|COLLECTION|"create_collection",
+tools/audit_qdrant_storage.py|97|COLLECTION|"collection_exists",
+tools/check_qdrant_payload.py|12|COLLECTION|collection_name="delbot_documents",
+tools/ingest_metadata_vectors.py|61|COLLECTION|store.create_collection()
+tools/ingest_pdf_vectors.py|51|COLLECTION|store.create_collection()
+tools/test_qdrant_storage.py|66|COLLECTION|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py|73|COLLECTION|collection_name=collection,
+tools/trace_qdrant_pipeline.py|23|COLLECTION|"create_collection",
+tools/trace_qdrant_pipeline.py|24|COLLECTION|"collection_exists",
+
+=== CONFIGURATION HITS ===
+delbot_platform/ai/embedding/embedding_builder.py|26|CONFIG|collection = document.index
+delbot_platform/ai/embedding/embedding_builder.py|29|CONFIG|collection,
+delbot_platform/ai/embedding/embedding_service.py|12|CONFIG|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/embedding/embedding_service.py|13|CONFIG|EmbeddingCollection,
+delbot_platform/ai/embedding/embedding_service.py|34|CONFIG|) -> EmbeddingCollection:
+delbot_platform/ai/embedding/embedding_service.py|40|CONFIG|collection = EmbeddingCollection()
+delbot_platform/ai/embedding/embedding_service.py|48|CONFIG|collection.add(
+delbot_platform/ai/embedding/embedding_service.py|60|CONFIG|return collection
+delbot_platform/ai/vector_store/base_vector_store.py|9|CONFIG|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/vector_store/base_vector_store.py|10|CONFIG|EmbeddingCollection,
+delbot_platform/ai/vector_store/base_vector_store.py|29|CONFIG|embeddings: EmbeddingCollection,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|9|CONFIG|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|10|CONFIG|EmbeddingCollection,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|26|CONFIG|collection_name: str,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|CONFIG|self._collection_name = collection_name
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|33|CONFIG|embeddings: EmbeddingCollection,
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|6|CONFIG|from ..models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|15|CONFIG|) -> SemanticChunkCollection:
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|49|CONFIG|return SemanticChunkCollection(
+delbot_platform/document_intelligence/metadata/pdf_metadata.py|3|CONFIG|from ..models.semantic_chunk_collection import (
+delbot_platform/document_intelligence/metadata/pdf_metadata.py|4|CONFIG|SemanticChunkCollection,
+delbot_platform/document_intelligence/metadata/pdf_metadata.py|14|CONFIG|document: SemanticChunkCollection,
+delbot_platform/document_intelligence/models/__init__.py|4|CONFIG|from delbot_platform.document_intelligence.models.heading_collection import HeadingCollection
+delbot_platform/document_intelligence/models/__init__.py|10|CONFIG|from delbot_platform.document_intelligence.models.paragraph_collection import ParagraphCollection
+delbot_platform/document_intelligence/models/__init__.py|13|CONFIG|from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/models/__init__.py|20|CONFIG|"HeadingCollection",
+delbot_platform/document_intelligence/models/__init__.py|26|CONFIG|"ParagraphCollection",
+delbot_platform/document_intelligence/models/__init__.py|29|CONFIG|"SemanticChunkCollection",
+delbot_platform/document_intelligence/models/heading_collection.py|12|CONFIG|class HeadingCollection:
+delbot_platform/document_intelligence/models/heading_collection.py|14|CONFIG|Collection of semantic headings.
+delbot_platform/document_intelligence/models/paragraph_collection.py|12|CONFIG|class ParagraphCollection:
+delbot_platform/document_intelligence/models/paragraph_collection.py|14|CONFIG|Collection of semantic paragraphs.
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py|12|CONFIG|class SemanticChunkCollection:
+delbot_platform/knowledge/hydration/local.py|13|CONFIG|Collection,
+delbot_platform/knowledge/hydration/local.py|86|CONFIG|collection = Collection(
+delbot_platform/knowledge/hydration/local.py|87|CONFIG|collection_id="default",
+delbot_platform/knowledge/hydration/local.py|122|CONFIG|collection=collection,
+delbot_platform/knowledge/models/__init__.py|7|CONFIG|from .collection import Collection
+delbot_platform/knowledge/models/__init__.py|19|CONFIG|"Collection",
+delbot_platform/knowledge/models/collection.py|11|CONFIG|class Collection:
+delbot_platform/knowledge/models/collection.py|13|CONFIG|collection_id: str = ""
+delbot_platform/knowledge/models/collection.py|74|CONFIG|"collection_id": self.collection_id,
+delbot_platform/knowledge/models/collection.py|91|CONFIG|) -> "Collection":
+delbot_platform/knowledge/models/collection.py|136|CONFIG|collection_id=data.get(
+delbot_platform/knowledge/models/collection.py|137|CONFIG|"collection_id",
+delbot_platform/knowledge/models/document.py|8|CONFIG|from delbot_platform.knowledge.models.collection import Collection
+delbot_platform/knowledge/models/document.py|22|CONFIG|collection: Collection = field(
+delbot_platform/knowledge/models/document.py|23|CONFIG|default_factory=Collection,
+delbot_platform/knowledge/models/document.py|39|CONFIG|def collection_id(
+delbot_platform/knowledge/models/document.py|43|CONFIG|return self.collection.collection_id
+delbot_platform/knowledge/models/document.py|46|CONFIG|def collection_name(
+delbot_platform/knowledge/models/document.py|50|CONFIG|return self.collection.name
+delbot_platform/knowledge/models/document.py|57|CONFIG|return self.collection.repository
+delbot_platform/knowledge/models/document.py|248|CONFIG|"collection": self.collection.export(),
+delbot_platform/knowledge/models/document.py|249|CONFIG|"collection_id": self.collection_id,
+delbot_platform/knowledge/models/document.py|250|CONFIG|"collection_name": self.collection_name,
+delbot_platform/knowledge/models/document.py|278|CONFIG|if "collection" in data:
+delbot_platform/knowledge/models/document.py|280|CONFIG|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|281|CONFIG|data["collection"],
+delbot_platform/knowledge/models/document.py|290|CONFIG|collection = Collection(
+delbot_platform/knowledge/models/document.py|291|CONFIG|collection_id=data.get(
+delbot_platform/knowledge/models/document.py|292|CONFIG|"collection_id",
+delbot_platform/knowledge/models/document.py|296|CONFIG|"collection_name",
+delbot_platform/knowledge/models/document.py|364|CONFIG|collection=collection,
+delbot_platform/knowledge/models/document_chunk.py|54|CONFIG|def collection_id(
+delbot_platform/knowledge/models/document_chunk.py|57|CONFIG|return self.document.collection.collection_id
+delbot_platform/knowledge/models/document_chunk.py|60|CONFIG|def collection_name(
+delbot_platform/knowledge/models/document_chunk.py|63|CONFIG|return self.document.collection.name
+delbot_platform/knowledge/models/document_chunk.py|69|CONFIG|return self.document.collection.repository.repository_id
+delbot_platform/knowledge/models/document_chunk.py|75|CONFIG|return self.document.collection.repository.name
+delbot_platform/knowledge/models/document_chunk.py|81|CONFIG|return self.document.collection.repository.root_path
+delbot_platform/knowledge/models/document_chunk.py|147|CONFIG|"collection_id": self.document.collection.collection_id,
+delbot_platform/knowledge/models/document_chunk.py|148|CONFIG|"collection_name": self.document.collection.name,
+delbot_platform/knowledge/models/document_chunk.py|149|CONFIG|"repository_id": self.document.collection.repository.repository_id,
+delbot_platform/knowledge/models/document_chunk.py|150|CONFIG|"repository_name": self.document.collection.repository.name,
+delbot_platform/knowledge/models/document_chunk.py|151|CONFIG|"repository_root_path": self.document.collection.repository.root_path,
+delbot_platform/knowledge/models/rag_result.py|30|CONFIG|def collections(
+delbot_platform/knowledge/models/rag_result.py|39|CONFIG|name = chunk.document.collection.name
+delbot_platform/knowledge/models/rag_result.py|50|CONFIG|def collection_ids(
+delbot_platform/knowledge/models/rag_result.py|59|CONFIG|value = chunk.document.collection.collection_id
+delbot_platform/knowledge/models/rag_result.py|244|CONFIG|"collections": self.collections,
+delbot_platform/knowledge/models/rag_result.py|245|CONFIG|"collection_ids": self.collection_ids,
+delbot_platform/knowledge/rag/vector_retriever.py|19|CONFIG|self.store.create_collection()
+delbot_platform/knowledge/vector/qdrant_store.py|14|CONFIG|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/qdrant_store.py|18|CONFIG|self.collection = collection
+delbot_platform/knowledge/vector/qdrant_store.py|20|CONFIG|def create_collection(
+delbot_platform/knowledge/vector/qdrant_store.py|25|CONFIG|self.store.create_collection()
+delbot_platform/knowledge/vector/repository/qdrant.py|22|CONFIG|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/repository/qdrant.py|26|CONFIG|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|28|CONFIG|self.store.create_collection()
+delbot_platform/research/builders/research_result_builder.py|30|CONFIG|collections = self._collect_unique(
+delbot_platform/research/builders/research_result_builder.py|32|CONFIG|lambda c: c.collection_id,
+delbot_platform/research/builders/research_result_builder.py|33|CONFIG|lambda c: c.collection_name,
+delbot_platform/research/builders/research_result_builder.py|70|CONFIG|collections=[
+delbot_platform/research/builders/research_result_builder.py|72|CONFIG|for item in collections
+delbot_platform/research/builders/research_result_builder.py|74|CONFIG|collection_ids=[
+delbot_platform/research/builders/research_result_builder.py|76|CONFIG|for item in collections
+delbot_platform/research/models/citation.py|8|CONFIG|Collection,
+delbot_platform/research/models/citation.py|42|CONFIG|def collection(self) -> Collection:
+delbot_platform/research/models/citation.py|43|CONFIG|return self.document.collection
+delbot_platform/research/models/citation.py|46|CONFIG|def collection_id(self) -> str:
+delbot_platform/research/models/citation.py|47|CONFIG|return self.document.collection.collection_id
+delbot_platform/research/models/citation.py|50|CONFIG|def collection_name(self) -> str:
+delbot_platform/research/models/citation.py|51|CONFIG|return self.document.collection.name
+delbot_platform/research/models/citation.py|127|CONFIG|"collection_id": self.collection_id,
+delbot_platform/research/models/citation.py|128|CONFIG|"collection_name": self.collection_name,
+delbot_platform/research/models/embedding_collection.py|12|CONFIG|class EmbeddingCollection:
+delbot_platform/research/models/research_result.py|32|CONFIG|collections: list[str] = field(
+delbot_platform/research/models/research_result.py|36|CONFIG|collection_ids: list[str] = field(
+delbot_platform/research/models/research_result.py|92|CONFIG|"collections": self.collections,
+delbot_platform/research/models/research_result.py|93|CONFIG|"collection_ids": self.collection_ids,
+delbot_platform/research/models/research_result.py|138|CONFIG|collections=data.get(
+delbot_platform/research/models/research_result.py|139|CONFIG|"collections",
+delbot_platform/research/models/research_result.py|142|CONFIG|collection_ids=data.get(
+delbot_platform/research/models/research_result.py|143|CONFIG|"collection_ids",
+delbot_platform/vectorstore/qdrant/repository.py|28|CONFIG|self.store.create_collection()
+delbot_platform/vectorstore/qdrant/singleton.py|23|CONFIG|"DELBOT_QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py|25|CONFIG|"QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|34|CONFIG|"QDRANT_COLLECTION",
+delbot_platform/vectorstore/qdrant/singleton.py|49|CONFIG|# Collection
+delbot_platform/vectorstore/qdrant/singleton.py|52|CONFIG|def create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py|54|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|58|CONFIG|collections = (
+delbot_platform/vectorstore/qdrant/singleton.py|60|CONFIG|.get_collections()
+delbot_platform/vectorstore/qdrant/singleton.py|61|CONFIG|.collections
+delbot_platform/vectorstore/qdrant/singleton.py|65|CONFIG|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py|66|CONFIG|for c in collections
+delbot_platform/vectorstore/qdrant/singleton.py|71|CONFIG|self.client.create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py|72|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|86|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|90|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|96|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|100|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|106|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|116|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|137|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|142|CONFIG|collection_name=collection_name,
+delbot_platform/workspace/models/workspace_metadata.py|11|CONFIG|active_collection: str = ""
+delbot_platform/workspace/models/workspace_metadata.py|26|CONFIG|"active_collection": self.active_collection,
+delbot_platform/workspace/models/workspace_metadata.py|39|CONFIG|active_collection=data.get(
+delbot_platform/workspace/models/workspace_metadata.py|40|CONFIG|"active_collection",
+tools/architecture/duplicate.py|5|CONFIG|from collections import defaultdict
+tools/architecture/inventory.py|31|CONFIG|"qdrant_storage",
+tools/architecture/ownership.py|5|CONFIG|from collections import defaultdict
+tools/architecture/package_detector.py|5|CONFIG|from collections import defaultdict
+tools/audit_heading_classifier.py|3|CONFIG|from collections import Counter, defaultdict
+tools/audit_qdrant_storage.py|17|CONFIG|"collection_name",
+tools/audit_qdrant_storage.py|18|CONFIG|"collection",
+tools/audit_qdrant_storage.py|96|CONFIG|"create_collection",
+tools/audit_qdrant_storage.py|97|CONFIG|"collection_exists",
+tools/check_qdrant_payload.py|12|CONFIG|collection_name="delbot_documents",
+tools/debug_qdrant_runtime.py|64|CONFIG|print("Collection :", repo.store.collection)
+tools/debug_qdrant_runtime.py|118|CONFIG|print("COLLECTION INFO")
+tools/debug_qdrant_runtime.py|122|CONFIG|print(repo.store.collection_info())
+tools/ingest_metadata_vectors.py|61|CONFIG|store.create_collection()
+tools/ingest_pdf_vectors.py|51|CONFIG|store.create_collection()
+tools/test_ingest.py|20|CONFIG|db.ensure_collection()
+tools/test_qdrant_storage.py|66|CONFIG|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py|70|CONFIG|if client is not None and collection is not None:
+tools/test_qdrant_storage.py|73|CONFIG|collection_name=collection,
+tools/trace_qdrant_pipeline.py|23|CONFIG|"create_collection",
+tools/trace_qdrant_pipeline.py|24|CONFIG|"collection_exists",
+
+=== COLLECTION/QDRANT CALLS ===
+delbot_platform/ai/embedding/embedding_service.py|40|EmbeddingCollection|ARGS=[]|KEYWORDS=[]
+delbot_platform/ai/embedding/embedding_service.py|48|collection.add|ARGS=['Embedding(id=request.id, text=request.text, vector=result.vector, metadata={**request.metadata, **result.metadata})']|KEYWORDS=[]
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|49|SemanticChunkCollection|ARGS=[]|KEYWORDS=['chunks=chunks']
+delbot_platform/documents/pipeline/indexing.py|60|QdrantRepository|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/hydration/local.py|86|Collection|ARGS=[]|KEYWORDS=["collection_id='default'", "name='Default'", 'repository=repository']
+delbot_platform/knowledge/models/document.py|248|self.collection.export|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/models/document.py|280|Collection.from_dict|ARGS=["data['collection']"]|KEYWORDS=[]
+delbot_platform/knowledge/models/document.py|290|Collection|ARGS=[]|KEYWORDS=["collection_id=data.get('collection_id', '')", "name=data.get('collection_name', '')", "repository=Repository(repository_id=data.get('repository_id', ''), name=data.get('repository_name', ''), source=KnowledgeSource(source_id=data.get('source_id', ''), name=data.get('source_name', ''), domain=KnowledgeDomain(domain_id=data.get('domain_id', ''), name=data.get('domain_name', ''))))"]
+delbot_platform/knowledge/rag/pipeline.py|45|QdrantRetriever|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/rag/vector_retriever.py|17|get_qdrant_store|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/rag/vector_retriever.py|19|self.store.create_collection|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/retrieval/qdrant.py|43|QdrantRepository|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/vector/qdrant_store.py|17|get_qdrant_store|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/vector/qdrant_store.py|25|self.store.create_collection|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/vector/repository/qdrant.py|25|get_qdrant_store|ARGS=[]|KEYWORDS=[]
+delbot_platform/knowledge/vector/repository/qdrant.py|28|self.store.create_collection|ARGS=[]|KEYWORDS=[]
+delbot_platform/vectorstore/qdrant/repository.py|25|get_qdrant_store|ARGS=[]|KEYWORDS=[]
+delbot_platform/vectorstore/qdrant/repository.py|28|self.store.create_collection|ARGS=[]|KEYWORDS=[]
+delbot_platform/vectorstore/qdrant/singleton.py|43|QdrantClient|ARGS=[]|KEYWORDS=['path=path', 'force_disable_check_same_thread=True']
+delbot_platform/vectorstore/qdrant/singleton.py|59|self.client.get_collections|ARGS=[]|KEYWORDS=[]
+delbot_platform/vectorstore/qdrant/singleton.py|71|self.client.create_collection|ARGS=[]|KEYWORDS=['collection_name=collection_name', 'vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE)']
+delbot_platform/vectorstore/qdrant/singleton.py|157|QdrantStore|ARGS=[]|KEYWORDS=[]
+tools/batch_ingest_repository.py|35|QdrantRepository|ARGS=[]|KEYWORDS=[]
+tools/check_qdrant_payload.py|4|QdrantClient|ARGS=[]|KEYWORDS=["host='127.0.0.1'", 'port=6333']
+tools/debug_qdrant_runtime.py|60|QdrantRepository|ARGS=[]|KEYWORDS=[]
+tools/debug_qdrant_runtime.py|122|repo.store.collection_info|ARGS=[]|KEYWORDS=[]
+tools/ingest_metadata_vectors.py|57|QdrantStore|ARGS=["'delbot_metadata'"]|KEYWORDS=[]
+tools/ingest_metadata_vectors.py|61|store.create_collection|ARGS=[]|KEYWORDS=[]
+tools/ingest_pdf_vectors.py|46|QdrantStore|ARGS=["'delbot_documents'"]|KEYWORDS=[]
+tools/ingest_pdf_vectors.py|51|store.create_collection|ARGS=[]|KEYWORDS=[]
+tools/test_citation_builder.py|96|QdrantRepository|ARGS=[]|KEYWORDS=[]
+tools/test_ingest.py|17|QdrantIngest|ARGS=[]|KEYWORDS=[]
+tools/test_ingest.py|20|db.ensure_collection|ARGS=[]|KEYWORDS=[]
+tools/test_qdrant_storage.py|55|QdrantRepository|ARGS=[]|KEYWORDS=[]
+tools/test_rag_pipeline.py|121|QdrantRetriever|ARGS=[]|KEYWORDS=[]
+tools/test_retrieval.py|21|QdrantRetriever|ARGS=[]|KEYWORDS=[]
+tools/test_retriever_engine.py|21|QdrantRetriever|ARGS=[]|KEYWORDS=[]
+tools/test_semantic_search.py|61|get_qdrant_store|ARGS=[]|KEYWORDS=[]
+
+=== COLLECTION-RELATED ASSIGNMENTS ===
+delbot_platform/ai/embedding/embedding_builder.py|26|collection|document.index
+delbot_platform/ai/embedding/embedding_service.py|40|collection|EmbeddingCollection()
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|self._collection_name|collection_name
+delbot_platform/knowledge/hydration/local.py|86|collection|Collection(collection_id='default', name='Default', repository=repository)
+delbot_platform/knowledge/models/document.py|280|collection|Collection.from_dict(data['collection'])
+delbot_platform/knowledge/models/document.py|290|collection|Collection(collection_id=data.get('collection_id', ''), name=data.get('collection_name', ''), repository=Repository(repository_id=data.get('repository_id', ''), name=data.get('repository_name', ''), source=KnowledgeSource(source_id=data.get('source_id', ''), name=data.get('source_name', ''), domain=KnowledgeDomain(domain_id=data.get('domain_id', ''), name=data.get('domain_name', '')))))
+delbot_platform/knowledge/vector/qdrant_store.py|18|self.collection|collection
+delbot_platform/knowledge/vector/repository/qdrant.py|26|self.collection|collection
+delbot_platform/research/builders/research_result_builder.py|30|collections|self._collect_unique(citations, lambda c: c.collection_id, lambda c: c.collection_name)
+delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore|QdrantStore
+delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection|os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+delbot_platform/vectorstore/qdrant/singleton.py|58|collections|self.client.get_collections().collections
+tools/test_qdrant_storage.py|66|collection|getattr(store, 'collection_name', None)
+
+=== ENVIRONMENT CONFIGURATION CANDIDATES ===
+delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv|ARGS=["'QDRANT_COLLECTION'", "'delbot_documents'"]
+delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv|ARGS=["'DELBOT_QDRANT_PATH'", "os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local'))"]
+delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv|ARGS=["'QDRANT_PATH'", "str(Path('repository_data') / 'qdrant_local')"]
+
+=== IMPORTANT ERRORS ONLY ===
+NONE
+
+=== DECISION ===
+STATUS=COLLECTION_CONFIGURATION_SOURCE_CANDIDATE_FOUND
+DECISION=DO_NOT_INDEX
+NEXT=VERIFY_RUNTIME_ENV_TO_QDRANT_STORE_MAPPING
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

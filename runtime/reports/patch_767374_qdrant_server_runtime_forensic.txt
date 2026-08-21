@@ -1,0 +1,46 @@
+PATCH=767.374
+PURPOSE=Identify exact Qdrant runtime endpoint and server availability after connection refused
+MODE=READ_ONLY_RUNTIME_FORENSIC
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_QDRANT_WRITE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+DATE=2026-08-21 01:32:51
+
+
+=== SUMMARY EXTRACTION ===
+QDRANT_ENV_KEYS       : ENV_QDRANT_KEYS= []
+TCP 6333             : TCP|127.0.0.1|6333|REFUSED
+TCP 6334             : TCP|127.0.0.1|6334|REFUSED
+DOCKER QDRANT        : tools/pr_5_6_21_mvp_runtime_gate.sh:78:    "qdrant_port_6333":qdrant, tools/pr_5_6_17_mvp_host_runtime_preflight.sh:41:    "qdrant_port": False, tools/pr_5_6_17_mvp_host_runtime_preflight.sh:60:    result["qdrant_port"] = True 
+=== IMPORTANT ERRORS ONLY ===
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6333|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6333|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6334|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6334|REFUSED
+
+=== DECISION ===
+STATUS=QDRANT_SERVER_UNREACHABLE
+DECISION=START_OR_REPAIR_QDRANT_RUNTIME
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+HTTP request            : NO
+Gateway restart         : NO
+Source modified         : NO
+Terminal remains open   : YES
+
+Detailed report          : runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt
+Detailed log             : runtime/reports/patch_767374_qdrant_server_runtime_forensic.log
+Python forensic          : runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log

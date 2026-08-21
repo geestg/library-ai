@@ -78,7 +78,7 @@ class RAGPipeline:
         candidates = [
             RerankResult(
                 id=item.id,
-                score=0.0,
+                score=float(item.score or 0.0),
                 content=item.content,
                 metadata=item.metadata,
             )

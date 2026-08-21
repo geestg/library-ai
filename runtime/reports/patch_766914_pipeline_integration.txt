@@ -1,0 +1,13 @@
+PATCH: 766.914
+TEST: Pipeline Entry Point and Generator Integration Inspection
+DATE: 2026-08-18 08:42:02
+
+PIPELINE: delbot_platform/research/pipeline.py
+GENERATOR: delbot_platform/research/generator/llm_generator.py
+766913_STATUS: test_called_missing_run_method
+766914_ACTION: inspect_actual_pipeline_contract
+766914_ACTION: inspect_generator_integration
+766914_ACTION: identify_real_runtime_entrypoint
+COMPILE_STATUS: REVIEW
+DECISION: DO_NOT_PATCH_YET
+NEXT: USE_REAL_PIPELINE_ENTRYPOINT

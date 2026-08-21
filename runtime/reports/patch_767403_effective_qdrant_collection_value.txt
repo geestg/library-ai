@@ -1,0 +1,81 @@
+PATCH=767.403
+PURPOSE=Resolve effective Qdrant collection value from runtime configuration without Qdrant access
+MODE=READ_ONLY_STATIC_RUNTIME_CONFIG_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=NOT_PRINTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:41:59
+
+=== STATIC COLLECTION TRACE ===
+FILES_SCANNED=5
+PARSE_ERRORS=0
+COLLECTION_HITS=26
+ENV_SOURCE_HITS=0
+COLLECTION_ASSIGNMENTS=0
+QDRANT_CONSTRUCTORS=2
+
+=== ENVIRONMENT COLLECTION VARIABLES ===
+NONE
+
+=== STATIC EVIDENCE ===
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|34|"QDRANT_COLLECTION",
+QDRANT_CONSTRUCTOR|delbot_platform/vectorstore/qdrant/singleton.py|43|self.client = QdrantClient(
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|49|# Collection
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|52|def create_collection(
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|54|collection_name: str = "delbot_documents",
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|58|collections = (
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|60|.get_collections()
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|61|.collections
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|65|c.name == collection_name
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|66|for c in collections
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|71|self.client.create_collection(
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|72|collection_name=collection_name,
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|86|collection_name: str = "delbot_documents",
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|90|collection_name=collection_name,
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|96|collection_name: str = "delbot_documents",
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|100|collection_name=collection_name,
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|106|collection_name: str = "delbot_documents",
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|116|collection_name=collection_name,
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|137|collection_name: str = "delbot_documents",
+COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|142|collection_name=collection_name,
+QDRANT_CONSTRUCTOR|delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+COLLECTION|delbot_platform/vectorstore/qdrant/repository.py|28|self.store.create_collection()
+COLLECTION|delbot_platform/knowledge/vector/qdrant_store.py|14|collection: str = "delbot_documents",
+COLLECTION|delbot_platform/knowledge/vector/qdrant_store.py|18|self.collection = collection
+COLLECTION|delbot_platform/knowledge/vector/qdrant_store.py|20|def create_collection(
+COLLECTION|delbot_platform/knowledge/vector/qdrant_store.py|25|self.store.create_collection()
+COLLECTION|delbot_platform/knowledge/rag/vector_retriever.py|19|self.store.create_collection()
+
+=== PARSE ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=NO_EFFECTIVE_COLLECTION_ENV_VALUE
+DECISION=TRACE_STATIC_DEFAULT_CONFIGURATION
+NEXT=IDENTIFY_STATIC_COLLECTION_DEFAULT
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Secrets printed       : NO
+Terminal              : OPEN

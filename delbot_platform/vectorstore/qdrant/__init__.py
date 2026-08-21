@@ -1,25 +1,18 @@
-from .client import (
-    QdrantVectorStore,
-)
+"""
+Qdrant vector-store package.
 
+The authoritative implementation is QdrantStore in singleton.py.
+QdrantVectorStore is retained only as a compatibility alias for existing
+package consumers during the MVP transition.
+"""
 
-from .repository import (
-    QdrantRepository,
-)
+from .singleton import QdrantStore, get_qdrant_store
 
-
-from .singleton import (
-    get_qdrant_store,
-)
-
-
+QdrantVectorStore = QdrantStore
 
 __all__ = [
-
+    "QdrantStore",
     "QdrantVectorStore",
-
-    "QdrantRepository",
-
     "get_qdrant_store",
-
 ]
+from .repository import QdrantRepository

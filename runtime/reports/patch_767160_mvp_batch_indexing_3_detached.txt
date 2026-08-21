@@ -1,0 +1,6 @@
+PATCH: 767.160
+PURPOSE: Continue MVP indexing using true PDF-to-processed mapping
+MODE: DETACHED RECOVERY-SAFE MVP BATCH
+BATCH_LIMIT: 3
+DATE: 2026-08-19 01:40:15
+

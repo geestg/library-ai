@@ -1,0 +1,591 @@
+PATCH=767.395
+PURPOSE=Trace API router/service construction into knowledge layer and Qdrant singleton
+MODE=READ_ONLY_AST_CALLGRAPH_FORENSIC
+STORAGE=repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:27:08
+
+=== 1. FORENSIC SUMMARY ===
+FILES_SCANNED=577
+FUNCTIONS_SCANNED=991
+API_FUNCTIONS=17
+KNOWLEDGE_FUNCTIONS=383
+QDRANT_FUNCTIONS=8
+CALL_EDGES=3029
+API_TO_QDRANT_PATHS=0
+
+=== 2. EXACT QDRANT FUNCTION OWNERS ===
+delbot_platform.knowledge.rag.vector_retriever.__init__|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=17|CALL=get_qdrant_store
+delbot_platform.knowledge.vector.qdrant_store.__init__|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=17|CALL=get_qdrant_store
+delbot_platform.knowledge.vector.repository.qdrant.__init__|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=25|CALL=get_qdrant_store
+delbot_platform.vectorstore.qdrant.repository.__init__|FILE=delbot_platform/vectorstore/qdrant/repository.py|LINE=25|CALL=get_qdrant_store
+delbot_platform.vectorstore.qdrant.singleton.get_qdrant_store|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=157|CALL=QdrantStore
+tools.ingest_metadata_vectors.main|FILE=tools/ingest_metadata_vectors.py|LINE=57|CALL=QdrantStore
+tools.ingest_pdf_vectors.main|FILE=tools/ingest_pdf_vectors.py|LINE=46|CALL=QdrantStore
+tools.test_semantic_search.main|FILE=tools/test_semantic_search.py|LINE=61|CALL=get_qdrant_store
+
+=== 3. API FUNCTIONS RELEVANT TO RESEARCH / RETRIEVAL ===
+delbot_platform.api.routers.chat.get_application|FILE=delbot_platform/api/routers/chat.py|LINE=26
+delbot_platform.api.routers.chat.chat|FILE=delbot_platform/api/routers/chat.py|LINE=40
+delbot_platform.api.routers.document._load_overlay_document_ids|FILE=delbot_platform/api/routers/document.py|LINE=45
+delbot_platform.api.routers.document._document_id_for_pdf|FILE=delbot_platform/api/routers/document.py|LINE=93
+delbot_platform.api.routers.document._already_processed|FILE=delbot_platform/api/routers/document.py|LINE=108
+delbot_platform.api.routers.document.index_all|FILE=delbot_platform/api/routers/document.py|LINE=125
+delbot_platform.api.routers.repository.scan_repository|FILE=delbot_platform/api/routers/repository.py|LINE=43
+delbot_platform.api.routers.repository.repository_explorer|FILE=delbot_platform/api/routers/repository.py|LINE=79
+delbot_platform.api.routers.research.get_application|FILE=delbot_platform/api/routers/research.py|LINE=27
+delbot_platform.api.routers.research.answer_research|FILE=delbot_platform/api/routers/research.py|LINE=41
+delbot_platform.api.routers.retrieval.get_application|FILE=delbot_platform/api/routers/retrieval.py|LINE=25
+delbot_platform.api.routers.retrieval.retrieve|FILE=delbot_platform/api/routers/retrieval.py|LINE=39
+
+=== 4. API -> KNOWLEDGE CALL EDGES ===
+.backup.document_intelligence_20260805_101417.analyzer.heading_detector.analyze|.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:98|CALL=collection.add|TARGET=delbot_platform.research.models.embedding_collection.add
+.backup.document_intelligence_20260805_101417.builder.default_document_builder.build|.backup/document_intelligence_20260805_101417/builder/default_document_builder.py:21|CALL=Document|TARGET=delbot_platform.knowledge.models.document.Document
+.backup.document_intelligence_20260805_101417.builder.paragraph_builder.build|.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:97|CALL=collection.add|TARGET=delbot_platform.research.models.embedding_collection.add
+.backup.document_intelligence_20260805_101417.builder.paragraph_builder.build|.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:84|CALL=collection.add|TARGET=delbot_platform.research.models.embedding_collection.add
+.backup.document_intelligence_20260805_101417.builder.semantic_chunk_builder._flush|.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:128|CALL=collection.add|TARGET=delbot_platform.research.models.embedding_collection.add
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.citation.builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.context.builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.graph.graph_builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.rag.citation_builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.rag.context_builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.knowledge.rag.pipeline.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.launcher.research_api_launcher.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.research.builders.research_result_builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.research.context.document_context.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.research.prompt_builder.build
+.backup.document_intelligence_20260805_101417.pipeline.builder_stage.process|.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py:26|CALL=self._builder.build|TARGET=delbot_platform.research.rag.context.build
+.backup.document_intelligence_20260805_101417.pipeline.document_pipeline.process|.backup/document_intelligence_20260805_101417/pipeline/document_pipeline.py:28|CALL=stage.process|TARGET=delbot_platform.knowledge.pipeline.knowledge_pipeline.process
+.backup.document_intelligence_20260805_101417.pipeline.document_pipeline.process|.backup/document_intelligence_20260805_101417/pipeline/document_pipeline.py:28|CALL=stage.process|TARGET=delbot_platform.knowledge.services.processing.process
+.backup.document_intelligence_20260805_101417.processor.document_processor.process|.backup/document_intelligence_20260805_101417/processor/document_processor.py:28|CALL=self._loader.load|TARGET=delbot_platform.research.memory.research_memory.load
+.backup.document_intelligence_20260805_101417.processor.document_processor.process|.backup/document_intelligence_20260805_101417/processor/document_processor.py:32|CALL=self._pipeline.process|TARGET=delbot_platform.knowledge.pipeline.knowledge_pipeline.process
+.backup.document_intelligence_20260805_101417.processor.document_processor.process|.backup/document_intelligence_20260805_101417/processor/document_processor.py:32|CALL=self._pipeline.process|TARGET=delbot_platform.knowledge.services.processing.process
+.mvp_backup_766371.pipeline._initialize|.mvp_backup_766371/pipeline.py:45|CALL=QdrantRetriever|TARGET=delbot_platform.knowledge.retrieval.qdrant.QdrantRetriever
+.mvp_backup_766371.pipeline._initialize|.mvp_backup_766371/pipeline.py:48|CALL=GatewayReranker|TARGET=delbot_platform.knowledge.reranking.gateway.GatewayReranker
+.mvp_backup_766371.pipeline._initialize|.mvp_backup_766371/pipeline.py:51|CALL=ContextBuilder|TARGET=delbot_platform.knowledge.context.builder.ContextBuilder
+.mvp_backup_766371.pipeline._initialize|.mvp_backup_766371/pipeline.py:54|CALL=LocalDocumentProvider|TARGET=delbot_platform.knowledge.hydration.LocalDocumentProvider
+.mvp_backup_766371.pipeline._initialize|.mvp_backup_766371/pipeline.py:57|CALL=CitationHydrator|TARGET=delbot_platform.knowledge.hydration.CitationHydrator
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:69|CALL=self._initialize|TARGET=.mvp_backup_766371.qdrant._initialize
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:69|CALL=self._initialize|TARGET=delbot_platform.knowledge.rag.pipeline._initialize
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:69|CALL=self._initialize|TARGET=delbot_platform.knowledge.retrieval.qdrant._initialize
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.citation.builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.context.builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.graph.graph_builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.rag.citation_builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.rag.context_builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.knowledge.rag.pipeline.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.launcher.research_api_launcher.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.research.builders.research_result_builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.research.context.document_context.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.research.prompt_builder.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:92|CALL=self.context_builder.build|TARGET=delbot_platform.research.rag.context.build
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:100|CALL=RAGResponse|TARGET=delbot_platform.knowledge.rag.models.response.RAGResponse
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:71|CALL=self.retriever.retrieve|TARGET=.mvp_backup_766371.base.retrieve
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:71|CALL=self.retriever.retrieve|TARGET=.mvp_backup_766371.qdrant.retrieve
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:71|CALL=self.retriever.retrieve|TARGET=delbot_platform.api.routers.retrieval.retrieve
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:71|CALL=self.retriever.retrieve|TARGET=delbot_platform.knowledge.retrieval.base.retrieve
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:71|CALL=self.retriever.retrieve|TARGET=delbot_platform.knowledge.retrieval.qdrant.retrieve
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:77|CALL=RerankResult|TARGET=delbot_platform.knowledge.reranking.result.RerankResult
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:86|CALL=self.reranker.rerank|TARGET=delbot_platform.knowledge.rerank.reranker.rerank
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:86|CALL=self.reranker.rerank|TARGET=delbot_platform.knowledge.reranking.base.rerank
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:86|CALL=self.reranker.rerank|TARGET=delbot_platform.knowledge.reranking.gateway.rerank
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:86|CALL=self.reranker.rerank|TARGET=delbot_platform.knowledge.reranking.local.rerank
+.mvp_backup_766371.pipeline.build|.mvp_backup_766371/pipeline.py:96|CALL=self.hydrator.hydrate_many|TARGET=delbot_platform.knowledge.hydration.citation.hydrate_many
+.mvp_backup_766371.qdrant._initialize|.mvp_backup_766371/qdrant.py:43|CALL=QdrantRepository|TARGET=delbot_platform.knowledge.vector.repository.qdrant.QdrantRepository
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:56|CALL=self._initialize|TARGET=.mvp_backup_766371.qdrant._initialize
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:56|CALL=self._initialize|TARGET=delbot_platform.knowledge.rag.pipeline._initialize
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:56|CALL=self._initialize|TARGET=delbot_platform.knowledge.retrieval.qdrant._initialize
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.ai.vector_store.base_vector_store.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.ai.vector_store.providers.qdrant_vector_store.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.knowledge.rag.vector_retriever.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.knowledge.vector.repository.base.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.knowledge.vector.repository.memory.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.knowledge.vector.repository.qdrant.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:82|CALL=self.repository.search|TARGET=delbot_platform.vectorstore.qdrant.singleton.search
+.mvp_backup_766371.qdrant.retrieve|.mvp_backup_766371/qdrant.py:98|CALL=RetrievalResult|TARGET=delbot_platform.knowledge.retrieval.result.RetrievalResult
+.mvp_backup_766371.research_answer_pipeline.__init__|.mvp_backup_766371/research_answer_pipeline.py:37|CALL=ResearchPromptBuilder|TARGET=delbot_platform.research.prompt_builder.ResearchPromptBuilder
+.mvp_backup_766371.research_answer_pipeline.__init__|.mvp_backup_766371/research_answer_pipeline.py:41|CALL=LLMGenerator|TARGET=delbot_platform.research.generator.LLMGenerator
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.ai.vector_store.base_vector_store.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.ai.vector_store.providers.qdrant_vector_store.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.knowledge.rag.vector_retriever.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.knowledge.vector.repository.base.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.knowledge.vector.repository.memory.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.knowledge.vector.repository.qdrant.search
+.mvp_backup_766371.research_answer_pipeline._contains_term|.mvp_backup_766371/research_answer_pipeline.py:58|CALL=re.search|TARGET=delbot_platform.vectorstore.qdrant.singleton.search
+.mvp_backup_766371.research_answer_pipeline._is_research_turn|.mvp_backup_766371/research_answer_pipeline.py:178|CALL=self._contains_term|TARGET=.mvp_backup_766371.research_answer_pipeline._contains_term
+.mvp_backup_766371.research_answer_pipeline._is_research_turn|.mvp_backup_766371/research_answer_pipeline.py:178|CALL=self._contains_term|TARGET=.mvp_backup_766378.research_answer_pipeline._contains_term
+.mvp_backup_766371.research_answer_pipeline._is_research_turn|.mvp_backup_766371/research_answer_pipeline.py:178|CALL=self._contains_term|TARGET=delbot_platform.research.pipeline.research_answer_pipeline._contains_term
+.mvp_backup_766371.research_answer_pipeline.get_rag|.mvp_backup_766371/research_answer_pipeline.py:607|CALL=RAGPipeline|TARGET=delbot_platform.knowledge.rag.pipeline.RAGPipeline
+.mvp_backup_766371.research_answer_pipeline.answer|.mvp_backup_766371/research_answer_pipeline.py:626|CALL=self._is_research_turn|TARGET=.mvp_backup_766371.research_answer_pipeline._is_research_turn
+.mvp_backup_766371.research_answer_pipeline.answer|.mvp_backup_766371/research_answer_pipeline.py:626|CALL=self._is_research_turn|TARGET=.mvp_backup_766378.research_answer_pipeline._is_research_turn
+.mvp_backup_766371.research_answer_pipeline.answer|.mvp_backup_766371/research_answer_pipeline.py:626|CALL=self._is_research_turn|TARGET=delbot_platform.research.pipeline.research_answer_pipeline._is_research_turn
+
+=== 5. API -> QDRANT PATHS ===
+
+=== 6. TARGET SOURCE SNIPPETS ===
+--- FILE=delbot_platform/api/app.py ---
+    3: from fastapi import FastAPI
+    4: 
+    5: from delbot_platform.api.routers.chat import (
+    6:     router as chat_router,
+    7: )
+    8: 
+    9: from delbot_platform.api.routers.document import (
+   10:     router as document_router,
+   11: )
+   12: 
+   13: from delbot_platform.api.routers.repository import (
+   14:     router as repository_router,
+   15: )
+   16: 
+   17: from delbot_platform.api.routers.research import (
+   18:     router as research_router,
+   19: )
+   20: 
+   21: from delbot_platform.api.routers.retrieval import (
+   22:     router as retrieval_router,
+   23: )
+   24: 
+   25: 
+   26: app = FastAPI(
+   27:     title="DELBot Research API",
+   28:     version="1.0.0",
+   29: )
+   30: 
+   31: 
+   32: app.include_router(
+   33:     repository_router,
+   34: )
+   35: 
+   36: app.include_router(
+   37:     chat_router,
+   38: )
+   39: 
+   40: app.include_router(
+   41:     document_router,
+   42: )
+   43: 
+   44: app.include_router(
+   45:     research_router,
+   46: )
+   47: 
+   48: app.include_router(
+   49:     retrieval_router,
+   50: )
+   51: 
+   52: 
+   55: 
+   56:     return {
+   57:         "service": "DELBot Research API",
+   58:         "status": "running",
+   59:         "modules": [
+   60:             "repository",
+   61:             "documents",
+   62:             "research",
+   63:         ],
+   64:     }
+   65: 
+--- FILE=delbot_platform/api/main.py ---
+    6: # Modern APIs
+    7: #
+    8: from delbot_platform.api.routers.document import (
+    9:     router as document_router,
+   10: )
+   11: 
+   12: from delbot_platform.api.routers.repository import (
+   13:     router as repository_router,
+   14: )
+   15: 
+   16: from delbot_platform.api.routers.research import (
+   17:     router as research_router,
+   18: )
+   19: 
+   20: app = FastAPI(
+   26: # Modern routes
+   27: #
+   28: app.include_router(
+   29:     repository_router,
+   30: )
+   31: 
+   32: app.include_router(
+   33:     document_router,
+   34: )
+   35: 
+   36: app.include_router(
+   37:     research_router,
+   38: )
+   39: 
+   40: 
+--- FILE=delbot_platform/api/routers/research.py ---
+    3: from uuid import uuid4
+    4: 
+    5: from fastapi import APIRouter
+    6: 
+    7: from delbot_platform.api.schemas.research import (
+    8:     CitationResponse,
+    9:     ResearchAnswerRequest,
+   10:     ResearchAnswerResponse,
+   11: )
+   12: 
+   13: from delbot_platform.application.factory import (
+   16: 
+   17: 
+   18: router = APIRouter(
+   19:     prefix="/api/research",
+   20:     tags=["research"],
+   21: )
+   22: 
+   23: 
+   30: 
+   31:     if _application is None:
+   32:         _application = ApplicationFactory.research()
+   33: 
+   34:     return _application
+   35: 
+   36: 
+   37: @router.post(
+   38:     "/answer",
+   39:     response_model=ResearchAnswerResponse,
+   40: )
+   41: async def answer_research(
+   42:     request: ResearchAnswerRequest,
+   43: ) -> ResearchAnswerResponse:
+   44: 
+   45:     session_id = (
+   46:         request.session_id
+   80:         )
+   81: 
+   82:     return ResearchAnswerResponse(
+   83:         answer=result.answer,
+   84:         citations=citations,
+   85:         session_id=session_id,
+   86:         research_state=result.research_state,
+   87:     )
+--- FILE=delbot_platform/api/routers/retrieval.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from fastapi import APIRouter
+    4: 
+    5: from delbot_platform.api.schemas.retrieval import (
+    6:     RetrievalDocument,
+   14: 
+   15: 
+   16: router = APIRouter(
+   17:     prefix="/retrieval",
+   18:     tags=["retrieval"],
+   19: )
+   33: 
+   34: 
+   35: @router.post(
+   36:     "",
+   37:     response_model=RetrievalResponse,
+   38: )
+--- FILE=delbot_platform/api/routers/repository.py ---
+    3: from pathlib import Path
+    4: 
+    5: from fastapi import APIRouter
+    6: from pydantic import BaseModel
+    7: 
+    8: from delbot_platform.repository.service import RepositoryService
+    9: 
+   10: router = APIRouter(
+   11:     prefix="/repository",
+   12:     tags=["Repository"],
+   13: )
+   14: 
+   15: 
+   16: class RepositoryScanRequest(BaseModel):
+   17:     path: str
+   18: 
+   19: 
+   20: class RepositoryScanResponse(BaseModel):
+   21:     repository: str
+   22:     exists: bool
+   23:     pdf_files: int
+   24:     metadata_files: int
+   26: 
+   27: 
+   28: class RepositoryItemResponse(BaseModel):
+   29:     id: str
+   30:     title: str
+   31:     status: str
+   33: 
+   34: 
+   35: class RepositoryExplorerResponse(BaseModel):
+   36:     total: int
+   37:     pdf_available: int
+   38:     pdf_missing: int
+   39:     items: list[RepositoryItemResponse]
+   40: 
+   41: 
+   42: @router.post("/scan", response_model=RepositoryScanResponse)
+   43: async def scan_repository(request: RepositoryScanRequest):
+   44: 
+   45:     root = Path(request.path)
+   46: 
+   64:                 metadata_files += 1
+   65: 
+   66:     return RepositoryScanResponse(
+   67:         repository=str(root),
+   68:         exists=exists,
+   69:         pdf_files=pdf_files,
+   70:         metadata_files=metadata_files,
+   73: 
+   74: 
+   75: @router.get(
+   76:     "/explorer",
+   77:     response_model=RepositoryExplorerResponse,
+   78: )
+   79: async def repository_explorer():
+   80: 
+   81:     service = RepositoryService()
+   82: 
+   83:     items = service.scan()
+   84: 
+   90:     pdf_missing = len(items) - pdf_available
+   91: 
+   92:     return RepositoryExplorerResponse(
+   93:         total=len(items),
+   94:         pdf_available=pdf_available,
+   95:         pdf_missing=pdf_missing,
+   96:         items=[
+   97:             RepositoryItemResponse(
+   98:                 id=item.id,
+   99:                 title=item.title,
+  100:                 status=item.status.value,
+--- FILE=delbot_platform/knowledge/rag/vector_retriever.py ---
+    2: 
+    3: from delbot_platform.ai.client.embedding_client import EmbeddingClient
+    4: from delbot_platform.knowledge.models import Document
+    5: from delbot_platform.knowledge.models import DocumentChunk
+    6: from delbot_platform.vectorstore.qdrant.singleton import (
+    7:     get_qdrant_store,
+    8: )
+    9: 
+   10: 
+   11: class VectorRetriever:
+   12: 
+   13:     def __init__(
+   14:         self,
+   15:     ) -> None:
+   16: 
+   17:         self.store = get_qdrant_store()
+   18: 
+   19:         self.store.create_collection()
+   20: 
+   21:         self.embedding = EmbeddingClient()
+   22: 
+   23:     def search(
+   24:         self,
+   25:         query: str,
+   26:         limit: int = 10,
+   31:         )
+   32: 
+   33:         results = self.store.search(
+   34:             query_vector=vector,
+   35:             limit=limit,
+   36:             with_payload=True,
+--- FILE=delbot_platform/knowledge/vector/qdrant_store.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from qdrant_client.models import PointStruct
+    4: 
+    5: from delbot_platform.vectorstore.qdrant.singleton import (
+    6:     get_qdrant_store,
+    7: )
+    8: 
+    9: 
+   10: class QdrantStore:
+   11: 
+   12:     def __init__(
+   13:         self,
+   15:     ) -> None:
+   16: 
+   17:         self.store = get_qdrant_store()
+   18:         self.collection = collection
+   19: 
+   20:     def create_collection(
+--- FILE=delbot_platform/knowledge/vector/repository/qdrant.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from qdrant_client.models import PointStruct
+    4: 
+    5: from delbot_platform.knowledge.vector.models.record import (
+    6:     VectorRecord,
+    7: )
+    8: from delbot_platform.knowledge.vector.repository.base import (
+    9:     VectorRepository,
+   10: )
+   11: from delbot_platform.vectorstore.qdrant.singleton import (
+   12:     get_qdrant_store,
+   13: )
+   14: 
+   15: 
+   16: class QdrantRepository(
+   17:     VectorRepository,
+   18: ):
+   19: 
+   20:     def __init__(
+   23:     ) -> None:
+   24: 
+   25:         self.store = get_qdrant_store()
+   26:         self.collection = collection
+   27: 
+   28:         self.store.create_collection()
+   49:         )
+   50: 
+   51:     async def search(
+   52:         self,
+   53:         vector: list[float],
+   54:         limit: int = 5,
+   59: 
+   60:         if document_ids:
+   61:             from qdrant_client.models import (
+   62:                 FieldCondition,
+   63:                 Filter,
+   64:                 MatchAny,
+   76:             )
+   77: 
+   78:         results = self.store.search(
+   79:             query_vector=vector,
+   80:             limit=limit,
+   81:             query_filter=query_filter,
+--- FILE=delbot_platform/vectorstore/qdrant/repository.py ---
+    3: from uuid import NAMESPACE_DNS, uuid5
+    4: 
+    5: from qdrant_client.models import PointStruct
+    6: 
+    7: from delbot_platform.vectorstore.qdrant.singleton import (
+    8:     get_qdrant_store,
+    9: )
+   10: from delbot_platform.vectors import (
+   11:     VectorRecord,
+   13: 
+   14: 
+   15: class QdrantRepository:
+   16: 
+   17:     def __init__(
+   18:         self,
+   23:             store
+   24:             if store is not None
+   25:             else get_qdrant_store()
+   26:         )
+   27: 
+   28:         self.store.create_collection()
+--- FILE=delbot_platform/vectorstore/qdrant/singleton.py ---
+    3: from pathlib import Path
+    4: 
+    5: from qdrant_client import QdrantClient
+    6: from qdrant_client.models import (
+    7:     Distance,
+    8:     VectorParams,
+    9: )
+   10: 
+   11: 
+   12: class QdrantStore:
+   13: 
+   14:     def __init__(
+   15:         self,
+   21:         if path is None:
+   22:             path = os.getenv(
+   23:                 "DELBOT_QDRANT_PATH",
+   24:                 os.getenv(
+   25:                     "QDRANT_PATH",
+   26:                     str(
+   27:                         Path("repository_data")
+   28:                         / "qdrant_local"
+   29:                     ),
+   30:                 ),
+   31:             )
+   32: 
+   33:         self.collection = os.getenv(
+   34:             "QDRANT_COLLECTION",
+   35:             "delbot_documents",
+   36:         )
+   37: 
+   41:         )
+   42: 
+   43:         self.client = QdrantClient(
+   44:             path=path,
+   45:             force_disable_check_same_thread=True,
+   46:         )
+  107:     ) -> None:
+  108: 
+  109:         from qdrant_client.models import (
+  110:             Filter,
+  111:             FieldCondition,
+  112:             MatchValue,
+  128: 
+  129:     # =====================================================
+  130:     # Search
+  131:     # =====================================================
+  132: 
+  133:     def search(
+  134:         self,
+  135:         query_vector,
+  136:         limit: int = 5,
+  139:     ):
+  140: 
+  141:         return self.client.search(
+  142:             collection_name=collection_name,
+  143:             query_vector=query_vector,
+  144:             limit=limit,
+  147: 
+  148: 
+  149: _store: QdrantStore | None = None
+  150: 
+  151: 
+  152: def get_qdrant_store() -> QdrantStore:
+  153: 
+  154:     global _store
+  155: 
+  156:     if _store is None:
+  157:         _store = QdrantStore()
+  158: 
+  159:     return _store
+
+=== 7. IMPORTANT ERRORS ===
+STATIC_FORENSIC_ERRORS=NONE
+
+=== 8. DECISION ===
+STATUS=QDRANT_CALLERS_FOUND_BUT_API_PATH_INCOMPLETE
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_SERVICE_DEPENDENCY_CONSTRUCTION
+INDEX_GATE=DO_NOT_INDEX
+
+=== 9. SAFETY STATE ===
+MVP indexing             : NOT EXECUTED
+MVP collection write     : NO
+MVP collection delete    : NO
+MVP collection reset     : NO
+MVP collection recreate  : NO
+Qdrant start             : NO
+Qdrant stop              : NO
+Docker start             : NO
+Docker restart           : NO
+Gateway restart         : NO
+Source modified          : NO
+Process modified         : NO
+Lock modified            : NO
+Terminal remains open    : YES
+
+=== PATCH 767.395 COMPLETE ===
+READ-ONLY API/KNOWLEDGE CALL-CHAIN FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.

@@ -1,0 +1,251 @@
+
+--- 1. ACTIVE GATEWAY SAFETY ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+delbot    200152  169625  1 09:28 pts/8    00:00:11 python -m delbot_platform.gateway
+
+--- 2. STORAGE LOCK SAFETY ---
+-rw-rw-r-- 1 delbot delbot 13 Aug  2 19:39 repository_data/qdrant_local/.lock
+QDRANT_STORAGE_LOCK: PRESENT
+STORAGE_OPERATION: NONE
+
+--- 3. BACKUP CURRENT FILES ---
+BACKUP: singleton.py.patch_766980.bak
+BACKUP: .env.mvp.patch_766980.bak
+
+--- 4. PATCH SINGLETON SOURCE ---
+SINGLETON_PATCH: APPLIED
+
+--- 5. PATCH COLLECTION DEFAULT CONSUMERS ---
+COLLECTION_DEFAULT: VERIFIED delbot_platform/vectorstore/qdrant/singleton.py
+COLLECTION_DEFAULT: VERIFIED delbot_platform/knowledge/vector/qdrant_store.py
+COLLECTION_DEFAULT: VERIFIED delbot_platform/knowledge/vector/repository/qdrant.py
+
+--- 6. PATCH MVP ENVIRONMENT ---
+ENV_MVP: WRITTEN
+
+--- 7. RESULTING MVP ENV ---
+     1	DELBOT_VECTOR_BACKEND=QDRANT_LOCAL
+     2	DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+     3	QDRANT_COLLECTION=delbot_documents
+     4	QDRANT_MODE=local
+     5	QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+
+--- 8. RESULTING SINGLETON SOURCE ---
+     1	from __future__ import annotations
+     2	
+     3	from pathlib import Path
+     4	
+     5	from qdrant_client import QdrantClient
+     6	from qdrant_client.models import (
+     7	    Distance,
+     8	    VectorParams,
+     9	)
+    10	
+    11	
+    12	class QdrantStore:
+    13	
+    14	    def __init__(
+    15	        self,
+    16	        path: str | None = None,
+    17	    ) -> None:
+    18	
+    19	        import os
+    20	
+    21	        if path is None:
+    22	            path = os.getenv(
+    23	                "DELBOT_QDRANT_PATH",
+    24	                os.getenv(
+    25	                    "QDRANT_PATH",
+    26	                    str(
+    27	                        Path("repository_data")
+    28	                        / "qdrant_local"
+    29	                    ),
+    30	                ),
+    31	            )
+    32	
+    33	        self.collection = os.getenv(
+    34	            "QDRANT_COLLECTION",
+    35	            "delbot_documents",
+    36	        )
+    37	
+    38	        Path(path).mkdir(
+    39	            parents=True,
+    40	            exist_ok=True,
+    41	        )
+    42	
+    43	        self.client = QdrantClient(
+    44	            path=path,
+    45	            force_disable_check_same_thread=True,
+    46	        )
+    47	
+    48	    # =====================================================
+    49	    # Collection
+    50	    # =====================================================
+    51	
+    52	    def create_collection(
+    53	        self,
+    54	        collection_name: str = "delbot_documents",
+    55	        vector_size: int = 1024,
+    56	    ) -> None:
+    57	
+    58	        collections = (
+    59	            self.client
+    60	            .get_collections()
+    61	            .collections
+    62	        )
+    63	
+    64	        exists = any(
+    65	            c.name == collection_name
+    66	            for c in collections
+    67	        )
+    68	
+    69	        if not exists:
+    70	
+    71	            self.client.create_collection(
+    72	                collection_name=collection_name,
+    73	                vectors_config=VectorParams(
+    74	                    size=vector_size,
+    75	                    distance=Distance.COSINE,
+    76	                ),
+    77	            )
+    78	
+    79	    # =====================================================
+    80	    # CRUD
+    81	    # =====================================================
+    82	
+    83	    def upsert(
+    84	        self,
+    85	        points,
+    86	        collection_name: str = "delbot_documents",
+    87	    ) -> None:
+    88	
+    89	        self.client.upsert(
+    90	            collection_name=collection_name,
+    91	            points=points,
+    92	        )
+    93	
+    94	    def count(
+    95	        self,
+    96	        collection_name: str = "delbot_documents",
+    97	    ) -> int:
+    98	
+    99	        return self.client.count(
+   100	            collection_name=collection_name,
+   101	        ).count
+   102	
+   103	    def delete_document(
+   104	        self,
+   105	        document_id: str,
+   106	        collection_name: str = "delbot_documents",
+   107	    ) -> None:
+   108	
+   109	        from qdrant_client.models import (
+   110	            Filter,
+   111	            FieldCondition,
+   112	            MatchValue,
+   113	        )
+   114	
+   115	        self.client.delete(
+   116	            collection_name=collection_name,
+   117	            points_selector=Filter(
+   118	                must=[
+   119	                    FieldCondition(
+   120	                        key="document_id",
+   121	                        match=MatchValue(
+   122	                            value=document_id,
+   123	                        ),
+   124	                    )
+   125	                ]
+   126	            ),
+   127	        )
+   128	
+   129	    # =====================================================
+   130	    # Search
+   131	    # =====================================================
+   132	
+   133	    def search(
+   134	        self,
+   135	        query_vector,
+   136	        limit: int = 5,
+   137	        collection_name: str = "delbot_documents",
+   138	        **kwargs,
+   139	    ):
+   140	
+   141	        return self.client.search(
+   142	            collection_name=collection_name,
+   143	            query_vector=query_vector,
+   144	            limit=limit,
+   145	            **kwargs,
+   146	        )
+   147	
+   148	
+   149	_store: QdrantStore | None = None
+   150	
+   151	
+   152	def get_qdrant_store() -> QdrantStore:
+   153	
+   154	    global _store
+   155	
+   156	    if _store is None:
+   157	        _store = QdrantStore()
+   158	
+   159	    return _store
+
+--- 9. STATIC CONFIG REFERENCE CHECK ---
+delbot_platform/vectorstore/qdrant/singleton.py:23:                "DELBOT_QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py:25:                    "QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py:34:            "QDRANT_COLLECTION",
+delbot_platform/vectorstore/qdrant/singleton.py:35:            "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:54:        collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:86:        collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:96:        collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:106:        collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:137:        collection_name: str = "delbot_documents",
+delbot_platform/knowledge/vector/qdrant_store.py:14:        collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/repository/qdrant.py:22:        collection: str = "delbot_documents",
+.env.mvp:2:DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp:3:QDRANT_COLLECTION=delbot_documents
+.env.mvp:5:QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+
+--- 10. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 11. ENV PARSE CHECK ---
+DELBOT_VECTOR_BACKEND=QDRANT_LOCAL
+DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+QDRANT_COLLECTION=delbot_documents
+QDRANT_MODE=local
+QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+ENV_PARSE: PASS
+
+--- 12. SOURCE CONFIG CONSUMER CHECK ---
+DELBOT_QDRANT_PATH: PASS
+QDRANT_PATH: PASS
+QDRANT_COLLECTION: PASS
+DEFAULT_COLLECTION: PASS
+LOCAL_QDRANT_CLIENT: PASS
+SOURCE_CONFIG_CHECK: PASS
+
+--- 13. STORAGE INTEGRITY CHECK ---
+META_EXISTS: PASS
+META_SIZE: 490 bytes
+COLLECTION_STORAGE_EXISTS: PASS
+STORAGE_SIZE: 20602880 bytes
+
+--- 14. ACTIVE PROCESS STILL RUNNING ---
+ 200152  169625       18:39 python -m delbot_platform.gateway
+
+--- 15. POST-PATCH DECISION ---
+CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+CANONICAL_QDRANT_COLLECTION=delbot_documents
+CANONICAL_VECTOR_SIZE=1024
+CANONICAL_DISTANCE=COSINE
+STORAGE_MODIFICATION=NONE
+DATA_RESET=NO
+REINDEX=NO
+GATEWAY_RESTART=NO
+COMPILE_STATUS=0
+ENV_STATUS=0
+SOURCE_STATUS=0
+
+--- 16. REPORT ---

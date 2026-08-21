@@ -1,0 +1,26 @@
+PATCH=767.364
+PURPOSE=Final read-only lock of Qdrant export chain and MVP repository owner
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 15:31:17
+
+--- EXTRACT SUMMARY ---
+AST_FAILS=0
+VECTORSTORE_IMPORT=IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantStore,get_qdrant_store,QdrantClient
+OWNER_A=OWNER|OWNER_A|class=QdrantRepository|line=16|methods=__init__,insert,search
+OWNER_B=OWNER|OWNER_B|class=QdrantRepository|line=15|methods=__init__,delete_document,save,count
+INDEXER_IMPORT=INDEXER_IMPORT|line=30|module=delbot_platform.vectorstore|name=QdrantRepository
+INDEXER_METHODS=INDEXER_METHOD|line=90|method=save;INDEXER_METHOD|line=104|method=save;
+RETRIEVAL_IMPORT=RETRIEVAL_IMPORT|line=21|module=delbot_platform.knowledge.vector.repository.qdrant|name=QdrantRepository
+RETRIEVAL_METHODS=RETRIEVAL_METHOD|line=83|method=search;
+DELETED_CLIENT=DELETED_CLIENT_IMPORT=EXPECTED_FAIL|ModuleNotFoundError|No module named 'delbot_platform.vectorstore.qdrant.client'

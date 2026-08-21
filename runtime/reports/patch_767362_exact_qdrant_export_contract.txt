@@ -1,0 +1,18 @@
+PATCH=767.362
+PURPOSE=Final read-only contract verification before minimal Qdrant export-chain repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_VECTOR_INIT=delbot_platform/vectorstore/__init__.py
+TARGET_QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+OWNER_B=delbot_platform/vectorstore/qdrant/repository.py
+OWNER_A=delbot_platform/knowledge/vector/repository/qdrant.py
+DATE=2026-08-19 15:28:41
+

@@ -1,0 +1,112 @@
+PATCH=767.442
+PURPOSE=Identify exact PDF loader/parser stage producing zero pages
+MODE=READ_ONLY_SINGLE_PDF_LOADER_PARSER_PREFLIGHT
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+SINGLE_PDF_ONLY=YES
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:59:21
+
+=== SOURCE ===
+PDF_SOURCE=delbot_platform/repository_data/pdf
+PDF_COUNT=188
+TEST_PDF=delbot_platform/repository_data/pdf/0087b57cdff943ca8b4aca6f5f80e304.pdf
+TEST_PDF_SIZE=2421879
+
+=== SOURCE CONTRACT INSPECTION ===
+
+--- delbot_platform/document_intelligence/loader/pdf_loader.py ---
+16:ClassDef:PDFLoader
+18:FunctionDef:load
+CALL line=23 name=PyMuPDFBackend
+CALL line=25 name=backend.open
+CALL line=29 name=LoadedDocument
+
+--- delbot_platform/document_intelligence/loader/document_loader.py ---
+12:ClassDef:DocumentLoader
+15:FunctionDef:load
+
+--- delbot_platform/document_intelligence/loader/loaded_document.py ---
+10:ClassDef:LoadedDocument
+
+--- delbot_platform/document_intelligence/parser/pdf_parser.py ---
+15:ClassDef:PDFParser
+17:FunctionDef:parse
+CALL line=97 name=ParsedDocument
+CALL line=28 name=pdf.load_page
+CALL line=30 name=fitz_page.get_text
+CALL line=87 name=pages.append
+CALL line=88 name=Page
+CALL line=91 name=fitz_page.get_text
+
+--- delbot_platform/document_intelligence/parser/document_parser.py ---
+9:ClassDef:DocumentParser
+11:FunctionDef:parse
+
+--- delbot_platform/document_intelligence/models/parsed_document.py ---
+12:ClassDef:ParsedDocument
+
+--- delbot_platform/document_intelligence/models/page.py ---
+13:ClassDef:Page
+
+--- delbot_platform/document_intelligence/pipeline/pdf_pipeline.py ---
+19:ClassDef:PDFPipeline
+21:FunctionDef:process
+CALL line=26 name=load
+CALL line=27 name=parse
+CALL line=26 name=PDFLoader
+CALL line=27 name=PDFParser
+CALL line=29 name=PDFChunker
+CALL line=30 name=PDFMetadata
+CALL line=31 name=PDFIndexer
+
+=== RUNTIME SINGLE-PDF TEST ===
+PDFLOADER_CLASS=delbot_platform.document_intelligence.loader.pdf_loader.PDFLoader
+PDFLOADER_LOAD_SIGNATURE=(source: 'Path') -> 'LoadedDocument'
+LOADED_OBJECT_TYPE=LoadedDocument
+BACKEND_DOCUMENT_TYPE=Document
+BACKEND_PAGE_COUNT=58
+BACKEND_FIRST_PAGE_TYPE=Page
+BACKEND_FIRST_PAGE_TEXT_LENGTH=294
+PDFPARSER_CLASS=delbot_platform.document_intelligence.parser.pdf_parser.PDFParser
+PDFPARSER_PARSE_SIGNATURE=(document: 'LoadedDocument') -> 'ParsedDocument'
+PARSED_OBJECT_TYPE=ParsedDocument
+PARSED_PAGE_COUNT=58
+PARSED_PAGE_TEXT_LENGTHS=294,401,274,981,1553
+PARSED_PARAGRAPHS_COUNT=0
+PARSED_HEADINGS_COUNT=0
+PARSED_METADATA=NONE
+
+=== STAGE DECISION ===
+STATUS=LOADER_AND_PARSER_VALID
+NEXT=INSPECT_CHUNKER_INPUT_CONTRACT
+
+=== ERRORS ===
+NONE
+
+=== WARNINGS ===
+NONE
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

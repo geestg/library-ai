@@ -1,0 +1,304 @@
+
+===== PDF_METADATA =====
+FILE=delbot_platform/document_intelligence/metadata/pdf_metadata.py
+LINES=43
+
+--- ClassDef PDFMetadata LINES=10-43 ---
+0010: class PDFMetadata(DocumentMetadata):
+0011: 
+0012:     def extract(
+0013:         self,
+0014:         document: SemanticChunkCollection,
+0015:     ) -> MetadataResult:
+0016: 
+0017:         chunks = document.chunks
+0018: 
+0019:         page_start = None
+0020:         page_end = None
+0021: 
+0022:         if chunks:
+0023:             page_start = min(
+0024:                 chunk.page_start
+0025:                 for chunk in chunks
+0026:             )
+0027: 
+0028:             page_end = max(
+0029:                 chunk.page_end
+0030:                 for chunk in chunks
+0031:             )
+0032: 
+0033:         metadata = {
+0034:             "chunk_count": len(chunks),
+0035:             "page_start": page_start,
+0036:             "page_end": page_end,
+0037:         }
+0038: 
+0039:         return MetadataResult(
+0040:             source_document=document,
+0041:             metadata=metadata,
+0042:             sections=chunks,
+0043:         )
+
+--- FunctionDef extract LINES=12-43 ---
+0012:     def extract(
+0013:         self,
+0014:         document: SemanticChunkCollection,
+0015:     ) -> MetadataResult:
+0016: 
+0017:         chunks = document.chunks
+0018: 
+0019:         page_start = None
+0020:         page_end = None
+0021: 
+0022:         if chunks:
+0023:             page_start = min(
+0024:                 chunk.page_start
+0025:                 for chunk in chunks
+0026:             )
+0027: 
+0028:             page_end = max(
+0029:                 chunk.page_end
+0030:                 for chunk in chunks
+0031:             )
+0032: 
+0033:         metadata = {
+0034:             "chunk_count": len(chunks),
+0035:             "page_start": page_start,
+0036:             "page_end": page_end,
+0037:         }
+0038: 
+0039:         return MetadataResult(
+0040:             source_document=document,
+0041:             metadata=metadata,
+0042:             sections=chunks,
+0043:         )
+
+
+===== PDF_INDEXER =====
+FILE=delbot_platform/document_intelligence/indexer/pdf_indexer.py
+LINES=19
+
+--- ClassDef PDFIndexer LINES=8-19 ---
+0008: class PDFIndexer(DocumentIndexer):
+0009: 
+0010:     def index(
+0011:         self,
+0012:         document: MetadataResult,
+0013:     ) -> IndexedDocument:
+0014: 
+0015:         return IndexedDocument(
+0016:             source_document=document.source_document,
+0017:             index=document.sections,
+0018:             metadata=document.metadata,
+0019:         )
+
+--- FunctionDef index LINES=10-19 ---
+0010:     def index(
+0011:         self,
+0012:         document: MetadataResult,
+0013:     ) -> IndexedDocument:
+0014: 
+0015:         return IndexedDocument(
+0016:             source_document=document.source_document,
+0017:             index=document.sections,
+0018:             metadata=document.metadata,
+0019:         )
+
+--- INDEXER RELATED SYMBOLS ---
+0003: from ..metadata.metadata_result import MetadataResult
+0004: from .document_indexer import DocumentIndexer
+0005: from .indexed_document import IndexedDocument
+0008: class PDFIndexer(DocumentIndexer):
+0010:     def index(
+0012:         document: MetadataResult,
+0013:     ) -> IndexedDocument:
+0015:         return IndexedDocument(
+0016:             source_document=document.source_document,
+0017:             index=document.sections,
+0018:             metadata=document.metadata,
+
+===== EMBEDDING_BUILDER =====
+FILE=delbot_platform/ai/embedding/embedding_builder.py
+LINES=58
+
+--- ClassDef EmbeddingBuilder LINES=14-58 ---
+0014: class EmbeddingBuilder:
+0015:     """
+0016:     Convert IndexedDocument into EmbeddingRequest objects.
+0017:     """
+0018: 
+0019:     def build(
+0020:         self,
+0021:         document: IndexedDocument,
+0022:     ) -> list[EmbeddingRequest]:
+0023: 
+0024:         requests: list[EmbeddingRequest] = []
+0025: 
+0026:         collection = document.index
+0027: 
+0028:         for index, chunk in enumerate(
+0029:             collection,
+0030:             start=1,
+0031:         ):
+0032:             requests.append(
+0033:                 self._build_request(
+0034:                     index=index,
+0035:                     chunk=chunk,
+0036:                 )
+0037:             )
+0038: 
+0039:         return requests
+0040: 
+0041:     def _build_request(
+0042:         self,
+0043:         *,
+0044:         index: int,
+0045:         chunk: SemanticChunk,
+0046:     ) -> EmbeddingRequest:
+0047: 
+0048:         return EmbeddingRequest(
+0049:             id=f"chunk-{index:06d}",
+0050:             text=chunk.text,
+0051:             metadata={
+0052:                 "page_start": chunk.page_start,
+0053:                 "page_end": chunk.page_end,
+0054:                 "paragraph_count": len(
+0055:                     chunk.paragraphs,
+0056:                 ),
+0057:             },
+0058:         )
+
+--- FunctionDef build LINES=19-39 ---
+0019:     def build(
+0020:         self,
+0021:         document: IndexedDocument,
+0022:     ) -> list[EmbeddingRequest]:
+0023: 
+0024:         requests: list[EmbeddingRequest] = []
+0025: 
+0026:         collection = document.index
+0027: 
+0028:         for index, chunk in enumerate(
+0029:             collection,
+0030:             start=1,
+0031:         ):
+0032:             requests.append(
+0033:                 self._build_request(
+0034:                     index=index,
+0035:                     chunk=chunk,
+0036:                 )
+0037:             )
+0038: 
+0039:         return requests
+
+--- FunctionDef _build_request LINES=41-58 ---
+0041:     def _build_request(
+0042:         self,
+0043:         *,
+0044:         index: int,
+0045:         chunk: SemanticChunk,
+0046:     ) -> EmbeddingRequest:
+0047: 
+0048:         return EmbeddingRequest(
+0049:             id=f"chunk-{index:06d}",
+0050:             text=chunk.text,
+0051:             metadata={
+0052:                 "page_start": chunk.page_start,
+0053:                 "page_end": chunk.page_end,
+0054:                 "paragraph_count": len(
+0055:                     chunk.paragraphs,
+0056:                 ),
+0057:             },
+0058:         )
+
+--- EMBEDDING RELATED SYMBOLS ---
+0003: from delbot_platform.ai.embedding.embedding_request import (
+0004:     EmbeddingRequest,
+0009: from delbot_platform.document_intelligence.models.semantic_chunk import (
+0014: class EmbeddingBuilder:
+0016:     Convert IndexedDocument into EmbeddingRequest objects.
+0022:     ) -> list[EmbeddingRequest]:
+0024:         requests: list[EmbeddingRequest] = []
+0032:             requests.append(
+0033:                 self._build_request(
+0039:         return requests
+0041:     def _build_request(
+0046:     ) -> EmbeddingRequest:
+0048:         return EmbeddingRequest(
+
+===== PDF_PIPELINE =====
+FILE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+LINES=41
+
+--- ClassDef PDFPipeline LINES=19-41 ---
+0019: class PDFPipeline(DocumentPipeline):
+0020: 
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+0035:         indexed.metadata["embedding_requests"] = requests
+0036: 
+0037:         return PipelineResult(
+0038:             source_document=document,
+0039:             indexed_document=indexed,
+0040:             success=True,
+0041:         )
+
+--- FunctionDef process LINES=21-41 ---
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+0035:         indexed.metadata["embedding_requests"] = requests
+0036: 
+0037:         return PipelineResult(
+0038:             source_document=document,
+0039:             indexed_document=indexed,
+0040:             success=True,
+0041:         )
+
+--- PIPELINE PROCESS BODY ---
+0019: class PDFPipeline(DocumentPipeline):
+0020: 
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+0035:         indexed.metadata["embedding_requests"] = requests
+0036: 
+0037:         return PipelineResult(
+0038:             source_document=document,
+0039:             indexed_document=indexed,
+0040:             success=True,
+0041:         )

@@ -1,0 +1,4 @@
+PATCH: 766.927
+PURPOSE: Verify Qdrant collection, vectors, payloads and retrieval score path
+DATE: 2026-08-18 09:32:29
+

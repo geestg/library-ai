@@ -224,7 +224,13 @@ class ResearchAnswerPipeline:
         academic_evidence_terms = (
             "apa yang dimaksud",
             "apa itu",
+            "pengertian",
+            "definisi",
+            "arti",
+            "makna",
             "jelaskan",
+            "jelaskan pengertian",
+            "jelaskan definisi",
             "bagaimana cara",
             "bagaimana metode",
             "metode penelitian",
@@ -699,6 +705,51 @@ class ResearchAnswerPipeline:
                     score += 1
 
             if score > 0:
+                if score < 1:
+                    continue
+
+                evidence_text = str(
+                    getattr(item, "text", "")
+                    or getattr(item, "page_content", "")
+                    or getattr(item, "content", "")
+                    or getattr(
+                        item,
+                        "metadata",
+                        {},
+                    ).get("text", "")
+                    or ""
+                ).lower()
+
+                priority_terms = (
+                    "pengertian",
+                    "definisi",
+                    "merupakan",
+                    "adalah",
+                    "penelitian adalah",
+                    "penelitian merupakan",
+                    "tujuan penelitian",
+                    "landasan teori",
+                )
+
+                if any(
+                    term in evidence_text
+                    for term in priority_terms
+                ):
+                    score += 3
+
+                blocked_terms = (
+                    "orientation script",
+                    "background questionnaire",
+                    "jadwal pengujian",
+                    "mempersiapkan bahan pengujian",
+                )
+
+                if any(
+                    term in evidence_text
+                    for term in blocked_terms
+                ):
+                    score -= 2
+
                 scored.append(
                     (
                         score,
@@ -721,7 +772,20 @@ class ResearchAnswerPipeline:
             )
         )
 
-        selected = scored[:limit]
+        unique = []
+
+        seen_documents = set()
+
+        for item in scored:
+            document_id = str(item[5])
+
+            if document_id in seen_documents:
+                continue
+
+            seen_documents.add(document_id)
+            unique.append(item)
+
+        selected = unique[:limit]
 
         if not selected:
             return ""
@@ -1072,7 +1136,128 @@ class ResearchAnswerPipeline:
         ):
             generated = await generated
 
-        research_state["current_answer"] = generated
+        # ANSWER_SYNTHESIS_FALLBACK_766918
+        #
+        # RAG evidence is already available at this point.
+        # The previous fallback could accidentally pass internal prompt
+        # fragments back into the repair request. Build a fresh evidence
+        # payload directly from the existing messages instead.
+        synthesis_answer = generated
+
+        def _answer_needs_synthesis_repair(value):
+            if value is None:
+                return True
+
+            try:
+                normalized = str(value).strip().lower()
+            except Exception:
+                return True
+
+            if not normalized:
+                return True
+
+            bad_patterns = (
+                "informasi yang relevan tidak ditemukan",
+                "tidak ditemukan dalam context",
+                "tidak ditemukan dalam konteks",
+                "evidence tidak ditemukan",
+                "evidence tidak tersedia",
+                "relevant information was not found",
+                "not found in the context",
+            )
+
+            return any(pattern in normalized for pattern in bad_patterns)
+
+        if _answer_needs_synthesis_repair(synthesis_answer):
+            clean_evidence_parts = []
+
+            for message in messages:
+                if not isinstance(message, dict):
+                    continue
+
+                role = str(message.get("role", "")).strip().lower()
+                content = message.get("content")
+
+                if role not in ("system", "user"):
+                    continue
+
+                if not isinstance(content, str):
+                    continue
+
+                normalized_content = content.strip()
+
+                if not normalized_content:
+                    continue
+
+                # Only retain messages that actually contain document
+                # evidence. Internal state/prompt instructions are excluded.
+                evidence_markers = (
+                    "DOCUMENT CONTEXT",
+                    "[SOURCE ",
+                    "EVIDENCE DOKUMEN",
+                    "EVIDENCE DOKUMEN YANG WAJIB DIGUNAKAN",
+                )
+
+                if any(
+                    marker in normalized_content
+                    for marker in evidence_markers
+                ):
+                    clean_evidence_parts.append(normalized_content)
+
+            clean_evidence = "\n\n".join(clean_evidence_parts).strip()
+
+            if clean_evidence:
+                # Prevent accidental prompt explosion while keeping enough
+                # evidence for the MVP answer synthesis.
+                clean_evidence = clean_evidence[:24000]
+
+                repair_messages = [
+                    {
+                        "role": "system",
+                        "content": (
+                            "Anda adalah DELBot, AI Research Assistant akademik.\n\n"
+                            "Jawab pertanyaan pengguna hanya berdasarkan evidence "
+                            "dokumen yang diberikan.\n\n"
+                            "Aturan:\n"
+                            "1. Jawab langsung pertanyaan.\n"
+                            "2. Gunakan hanya evidence yang tersedia.\n"
+                            "3. Sintesis evidence dengan kata-kata sendiri.\n"
+                            "4. Jangan menyalin context mentah.\n"
+                            "5. Jangan menyebut context, prompt, atau instruksi internal.\n"
+                            "6. Jangan mengarang fakta.\n"
+                            "7. Jika evidence memang tidak cukup, nyatakan keterbatasannya.\n"
+                            "8. Jika evidence cukup, jangan mengatakan informasi tidak ditemukan.\n"
+                            "9. Untuk pertanyaan sederhana, jawab 1-3 paragraf pendek.\n"
+                            "10. Output hanya jawaban final."
+                        ),
+                    },
+                    {
+                        "role": "user",
+                        "content": (
+                            "PERTANYAAN PENGGUNA:\n"
+                            f"{question}\n\n"
+                            "EVIDENCE DOKUMEN:\n"
+                            f"{clean_evidence}\n\n"
+                            "JAWAB SEKARANG."
+                        ),
+                    },
+                ]
+
+                try:
+                    repaired = self.generator.generate(
+                        repair_messages,
+                    )
+
+                    if inspect.isawaitable(repaired):
+                        repaired = await repaired
+
+                    if not _answer_needs_synthesis_repair(repaired):
+                        synthesis_answer = repaired
+                except Exception:
+                    synthesis_answer = generated
+
+        research_state["current_answer"] = synthesis_answer
+
 
         question_lower = question.lower()
 

@@ -1,0 +1,666 @@
+PATCH=767.424
+PURPOSE=Resolve concrete ModuleNotFoundError in MVP PDF indexer
+MODE=TARGETED_IMPORT_BLOCKER_ANALYSIS
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 03:59:21
+
+=== INDEXER IMPORTS ===
+1:from __future__ import annotations
+4:import sys
+6:from pathlib import Path
+19:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+21:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+23:from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+28:"delbot_platform/repository_data/thesis_files"
+
+=== CONCRETE ERROR REFERENCE ===
+19:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+
+=== EXISTING DOCUMENT-RELATED MODULES ===
+delbot_platform/ai/client/embedding_client.py
+delbot_platform/ai/embedding/base_embedding_provider.py
+delbot_platform/ai/embedding/embedding_builder.py
+delbot_platform/ai/embedding/embedding_config.py
+delbot_platform/ai/embedding/embedding_request.py
+delbot_platform/ai/embedding/embedding_result.py
+delbot_platform/ai/embedding/embedding_service.py
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+delbot_platform/ai/runtime/embedding.py
+delbot_platform/api/routers/document.py
+delbot_platform/api/schemas/document.py
+delbot_platform/application/documents/__init__.py
+delbot_platform/application/documents/index.py
+delbot_platform/application/documents/index_repository.py
+delbot_platform/document_intelligence/__init__.py
+delbot_platform/document_intelligence/backend/__init__.py
+delbot_platform/document_intelligence/backend/backend.py
+delbot_platform/document_intelligence/backend/pdf/__init__.py
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py
+delbot_platform/document_intelligence/chunker/__init__.py
+delbot_platform/document_intelligence/chunker/chunked_document.py
+delbot_platform/document_intelligence/chunker/document_chunker.py
+delbot_platform/document_intelligence/chunker/pdf_chunker.py
+delbot_platform/document_intelligence/indexer/__init__.py
+delbot_platform/document_intelligence/indexer/document_indexer.py
+delbot_platform/document_intelligence/indexer/indexed_document.py
+delbot_platform/document_intelligence/indexer/pdf_indexer.py
+delbot_platform/document_intelligence/loader/__init__.py
+delbot_platform/document_intelligence/loader/document_loader.py
+delbot_platform/document_intelligence/loader/loaded_document.py
+delbot_platform/document_intelligence/loader/pdf_loader.py
+delbot_platform/document_intelligence/mapper/__init__.py
+delbot_platform/document_intelligence/mapper/layout_mapper.py
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py
+delbot_platform/document_intelligence/metadata/__init__.py
+delbot_platform/document_intelligence/metadata/document_metadata.py
+delbot_platform/document_intelligence/metadata/metadata_result.py
+delbot_platform/document_intelligence/metadata/pdf_metadata.py
+delbot_platform/document_intelligence/models/__init__.py
+delbot_platform/document_intelligence/models/block.py
+delbot_platform/document_intelligence/models/bounding_box.py
+delbot_platform/document_intelligence/models/heading.py
+delbot_platform/document_intelligence/models/heading_collection.py
+delbot_platform/document_intelligence/models/heading_level.py
+delbot_platform/document_intelligence/models/layout_statistics.py
+delbot_platform/document_intelligence/models/line.py
+delbot_platform/document_intelligence/models/page.py
+delbot_platform/document_intelligence/models/paragraph.py
+delbot_platform/document_intelligence/models/paragraph_collection.py
+delbot_platform/document_intelligence/models/parsed_document.py
+delbot_platform/document_intelligence/models/semantic_chunk.py
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py
+delbot_platform/document_intelligence/models/span.py
+delbot_platform/document_intelligence/parser/__init__.py
+delbot_platform/document_intelligence/parser/document_parser.py
+delbot_platform/document_intelligence/parser/parsed_document.py
+delbot_platform/document_intelligence/parser/pdf_parser.py
+delbot_platform/document_intelligence/pipeline/__init__.py
+delbot_platform/document_intelligence/pipeline/document_pipeline.py
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+delbot_platform/document_intelligence/pipeline/pipeline_result.py
+delbot_platform/documents/__init__.py
+delbot_platform/documents/chunking/__init__.py
+delbot_platform/documents/chunking/chunk_builder.py
+delbot_platform/documents/chunking/policy/__init__.py
+delbot_platform/documents/chunking/policy/policy.py
+delbot_platform/documents/classification/__init__.py
+delbot_platform/documents/classification/academic_heading.py
+delbot_platform/documents/classification/document_type.py
+delbot_platform/documents/classification/heading.py
+delbot_platform/documents/classification/heading_score.py
+delbot_platform/documents/classification/page_classifier.py
+delbot_platform/documents/classification/page_region.py
+delbot_platform/documents/classification/page_type.py
+delbot_platform/documents/embedding/__init__.py
+delbot_platform/documents/embedding/base.py
+delbot_platform/documents/embedding/factory/__init__.py
+delbot_platform/documents/embedding/factory/provider.py
+delbot_platform/documents/embedding/mapper/__init__.py
+delbot_platform/documents/embedding/mapper/vector_mapper.py
+delbot_platform/documents/embedding/models/__init__.py
+delbot_platform/documents/embedding/models/embedding_vector.py
+delbot_platform/documents/embedding/pipeline/__init__.py
+delbot_platform/documents/embedding/pipeline/pipeline.py
+delbot_platform/documents/embedding/providers/__init__.py
+delbot_platform/documents/embedding/providers/gateway.py
+delbot_platform/documents/embedding/providers/local.py
+delbot_platform/documents/embedding/vector.py
+delbot_platform/documents/extraction/__init__.py
+delbot_platform/documents/extraction/block.py
+delbot_platform/documents/extraction/service.py
+delbot_platform/documents/ingestion/__init__.py
+delbot_platform/documents/ingestion/repository_ingestor.py
+delbot_platform/documents/loader/__init__.py
+delbot_platform/documents/loader/source.py
+delbot_platform/documents/loader/sources/__init__.py
+delbot_platform/documents/loader/sources/local.py
+delbot_platform/documents/metadata/__init__.py
+delbot_platform/documents/metadata/builder/__init__.py
+delbot_platform/documents/metadata/builder/chunk.py
+delbot_platform/documents/metadata/builder/document.py
+delbot_platform/documents/metadata/chunk_metadata.py
+delbot_platform/documents/metadata/document_metadata.py
+delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py
+delbot_platform/documents/metadata/metadata_extractor.py
+delbot_platform/documents/metadata/repository.py
+delbot_platform/documents/models/__init__.py
+delbot_platform/documents/models/block.py
+delbot_platform/documents/models/chunk.py
+delbot_platform/documents/models/citation.py
+delbot_platform/documents/models/document.py
+delbot_platform/documents/models/document_chunk.py
+delbot_platform/documents/models/metadata.py
+delbot_platform/documents/models/page.py
+delbot_platform/documents/parser/__init__.py
+delbot_platform/documents/parser/backend/__init__.py
+delbot_platform/documents/parser/backend/base.py
+delbot_platform/documents/parser/backend/pymupdf.py
+delbot_platform/documents/parser/base.py
+delbot_platform/documents/parser/pdf.py
+
+=== DOCUMENT PACKAGE DIRECTORIES ===
+delbot_platform/ai/embedding
+delbot_platform/ai/embedding/__pycache__
+delbot_platform/ai/embedding/providers
+delbot_platform/ai/embedding/providers/__pycache__
+delbot_platform/application/documents
+delbot_platform/application/documents/__pycache__
+delbot_platform/document_intelligence
+delbot_platform/document_intelligence/__pycache__
+delbot_platform/document_intelligence/backend
+delbot_platform/document_intelligence/backend/__pycache__
+delbot_platform/document_intelligence/backend/pdf
+delbot_platform/document_intelligence/backend/pdf/__pycache__
+delbot_platform/document_intelligence/chunker
+delbot_platform/document_intelligence/chunker/__pycache__
+delbot_platform/document_intelligence/indexer
+delbot_platform/document_intelligence/indexer/__pycache__
+delbot_platform/document_intelligence/loader
+delbot_platform/document_intelligence/loader/__pycache__
+delbot_platform/document_intelligence/mapper
+delbot_platform/document_intelligence/mapper/__pycache__
+delbot_platform/document_intelligence/metadata
+delbot_platform/document_intelligence/metadata/__pycache__
+delbot_platform/document_intelligence/models
+delbot_platform/document_intelligence/models/__pycache__
+delbot_platform/document_intelligence/parser
+delbot_platform/document_intelligence/parser/__pycache__
+delbot_platform/document_intelligence/pipeline
+delbot_platform/document_intelligence/pipeline/__pycache__
+delbot_platform/documents
+delbot_platform/documents/__pycache__
+delbot_platform/documents/chunking
+delbot_platform/documents/chunking/__pycache__
+delbot_platform/documents/chunking/policy
+delbot_platform/documents/chunking/policy/__pycache__
+delbot_platform/documents/classification
+delbot_platform/documents/classification/__pycache__
+delbot_platform/documents/docs
+delbot_platform/documents/embedding
+delbot_platform/documents/embedding/__pycache__
+delbot_platform/documents/embedding/factory
+delbot_platform/documents/embedding/factory/__pycache__
+delbot_platform/documents/embedding/mapper
+delbot_platform/documents/embedding/mapper/__pycache__
+delbot_platform/documents/embedding/models
+delbot_platform/documents/embedding/models/__pycache__
+delbot_platform/documents/embedding/pipeline
+delbot_platform/documents/embedding/pipeline/__pycache__
+delbot_platform/documents/embedding/providers
+delbot_platform/documents/embedding/providers/__pycache__
+delbot_platform/documents/extraction
+delbot_platform/documents/extraction/__pycache__
+delbot_platform/documents/ingestion
+delbot_platform/documents/ingestion/__pycache__
+delbot_platform/documents/loader
+delbot_platform/documents/loader/__pycache__
+delbot_platform/documents/loader/sources
+delbot_platform/documents/loader/sources/__pycache__
+delbot_platform/documents/metadata
+delbot_platform/documents/metadata/__pycache__
+delbot_platform/documents/metadata/builder
+delbot_platform/documents/metadata/builder/__pycache__
+delbot_platform/documents/metadata/mapper
+delbot_platform/documents/metadata/mapper/__pycache__
+delbot_platform/documents/models
+delbot_platform/documents/models/__pycache__
+delbot_platform/documents/parser
+delbot_platform/documents/parser/__pycache__
+delbot_platform/documents/parser/backend
+delbot_platform/documents/parser/backend/__pycache__
+delbot_platform/documents/pipeline
+delbot_platform/documents/pipeline/__pycache__
+delbot_platform/documents/pipeline/models
+delbot_platform/documents/pipeline/models/__pycache__
+delbot_platform/documents/registry
+delbot_platform/documents/registry/__pycache__
+delbot_platform/documents/services
+delbot_platform/documents/services/__pycache__
+delbot_platform/documents/structure
+delbot_platform/documents/structure/__pycache__
+delbot_platform/documents/structure/section
+
+=== CURRENT INDEXER BODY ===
+     1	from __future__ import annotations
+     2	
+     3	
+     4	import sys
+     5	
+     6	from pathlib import Path
+     7	
+     8	
+     9	
+    10	ROOT=Path(__file__).resolve().parent.parent
+    11	
+    12	sys.path.insert(
+    13	    0,
+    14	    str(ROOT)
+    15	)
+    16	
+    17	
+    18	
+    19	from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+    20	
+    21	from delbot_platform.ai.client.embedding_client import EmbeddingClient
+    22	
+    23	from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+    24	
+    25	
+    26	
+    27	PDF_DIR=Path(
+    28	"delbot_platform/repository_data/thesis_files"
+    29	)
+    30	
+    31	
+    32	
+    33	def main():
+    34	
+    35	
+    36	    print("="*60)
+    37	    print("PDF VECTOR INGEST")
+    38	    print("="*60)
+    39	
+    40	
+    41	
+    42	    ingestion=PDFIngestion()
+    43	
+    44	    embedder=EmbeddingClient()
+    45	
+    46	    store=QdrantStore(
+    47	        "delbot_documents"
+    48	    )
+    49	
+    50	
+    51	    store.create_collection()
+    52	
+    53	
+    54	
+    55	    total=0
+    56	
+    57	
+    58	
+    59	    for pdf in PDF_DIR.glob("*.pdf"):
+    60	
+    61	
+    62	        print(
+    63	            "\nPDF:",
+    64	            pdf.name
+    65	        )
+    66	
+    67	
+    68	        result=ingestion.ingest(
+    69	            str(pdf)
+    70	        )
+    71	
+    72	
+    73	
+    74	        chunks=result["chunks"]
+    75	
+    76	
+    77	        if not chunks:
+    78	
+    79	            continue
+    80	
+    81	
+    82	
+    83	        texts=[
+    84	            c["text"]
+    85	            for c in chunks
+    86	        ]
+    87	
+    88	
+    89	        vectors=embedder.embed(
+    90	            texts
+    91	        )
+    92	
+    93	
+    94	
+    95	        payloads=[]
+    96	
+    97	
+    98	        for c in chunks:
+    99	
+   100	
+   101	            payloads.append(
+   102	                {
+   103	                    "type":"pdf",
+   104	
+   105	                    "file":pdf.name,
+   106	
+   107	                    "page":c["page"],
+   108	
+   109	                    "text":c["text"],
+   110	
+   111	                    **c["metadata"]
+   112	                }
+   113	            )
+   114	
+   115	
+   116	
+   117	        inserted=store.insert(
+   118	            vectors,
+   119	            payloads
+   120	        )
+   121	
+   122	
+   123	        total+=inserted
+   124	
+   125	
+   126	        print(
+   127	            "INSERTED:",
+   128	            inserted
+   129	        )
+   130	
+   131	
+   132	
+   133	    print(
+   134	        "\nTOTAL VECTOR:",
+   135	        total
+   136	    )
+   137	
+   138	
+   139	
+   140	if __name__=="__main__":
+   141	
+   142	    main()
+
+=== REFERENCES TO FAILED MODULE ===
+./delbot_platform/document_intelligence/loader/document_loader.py:7:from delbot_platform.document_intelligence.loader.loaded_document import (
+./delbot_platform/document_intelligence/loader/pdf_loader.py:5:from delbot_platform.document_intelligence.backend.pdf.pymupdf_backend import (
+./delbot_platform/document_intelligence/loader/pdf_loader.py:8:from delbot_platform.document_intelligence.loader.document_loader import (
+./delbot_platform/document_intelligence/loader/pdf_loader.py:11:from delbot_platform.document_intelligence.loader.loaded_document import (
+./delbot_platform/document_intelligence/models/span.py:7:from delbot_platform.document_intelligence.models.bounding_box import (
+./delbot_platform/document_intelligence/models/heading.py:5:from delbot_platform.document_intelligence.models.heading_level import (
+./delbot_platform/document_intelligence/models/__init__.py:1:from delbot_platform.document_intelligence.models.block import Block
+./delbot_platform/document_intelligence/models/__init__.py:2:from delbot_platform.document_intelligence.models.bounding_box import BoundingBox
+./delbot_platform/document_intelligence/models/__init__.py:3:from delbot_platform.document_intelligence.models.heading import Heading
+./delbot_platform/document_intelligence/models/__init__.py:4:from delbot_platform.document_intelligence.models.heading_collection import HeadingCollection
+./delbot_platform/document_intelligence/models/__init__.py:5:from delbot_platform.document_intelligence.models.heading_level import HeadingLevel
+./delbot_platform/document_intelligence/models/__init__.py:6:from delbot_platform.document_intelligence.models.layout_statistics import LayoutStatistics
+./delbot_platform/document_intelligence/models/__init__.py:7:from delbot_platform.document_intelligence.models.line import Line
+./delbot_platform/document_intelligence/models/__init__.py:8:from delbot_platform.document_intelligence.models.page import Page
+./delbot_platform/document_intelligence/models/__init__.py:9:from delbot_platform.document_intelligence.models.paragraph import Paragraph
+./delbot_platform/document_intelligence/models/__init__.py:10:from delbot_platform.document_intelligence.models.paragraph_collection import ParagraphCollection
+./delbot_platform/document_intelligence/models/__init__.py:11:from delbot_platform.document_intelligence.models.parsed_document import ParsedDocument
+./delbot_platform/document_intelligence/models/__init__.py:12:from delbot_platform.document_intelligence.models.semantic_chunk import SemanticChunk
+./delbot_platform/document_intelligence/models/__init__.py:13:from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+./delbot_platform/document_intelligence/models/__init__.py:14:from delbot_platform.document_intelligence.models.span import Span
+./delbot_platform/document_intelligence/models/paragraph.py:5:from delbot_platform.document_intelligence.models.heading import (
+./delbot_platform/document_intelligence/models/semantic_chunk.py:6:from delbot_platform.document_intelligence.models.heading import (
+./delbot_platform/document_intelligence/models/semantic_chunk.py:9:from delbot_platform.document_intelligence.models.paragraph import (
+./delbot_platform/document_intelligence/models/block.py:6:from delbot_platform.document_intelligence.models.line import (
+./delbot_platform/document_intelligence/models/semantic_chunk_collection.py:6:from delbot_platform.document_intelligence.models.semantic_chunk import (
+./delbot_platform/document_intelligence/models/heading_collection.py:6:from delbot_platform.document_intelligence.models.heading import (
+./delbot_platform/document_intelligence/models/page.py:7:from delbot_platform.document_intelligence.models.block import (
+./delbot_platform/document_intelligence/models/paragraph_collection.py:6:from delbot_platform.document_intelligence.models.paragraph import (
+./delbot_platform/document_intelligence/models/line.py:6:from delbot_platform.document_intelligence.models.span import (
+./delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py:8:from delbot_platform.document_intelligence.backend.backend import (
+./delbot_platform/document_intelligence/mapper/__init__.py:1:from delbot_platform.document_intelligence.mapper.layout_mapper import (
+./delbot_platform/document_intelligence/mapper/__init__.py:4:from delbot_platform.document_intelligence.mapper.pymupdf_mapper import (
+./delbot_platform/document_intelligence/mapper/layout_mapper.py:7:from delbot_platform.document_intelligence.models.page import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:5:from delbot_platform.document_intelligence.mapper.layout_mapper import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:8:from delbot_platform.document_intelligence.models.block import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:11:from delbot_platform.document_intelligence.models.bounding_box import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:14:from delbot_platform.document_intelligence.models.line import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:17:from delbot_platform.document_intelligence.models.page import (
+./delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:20:from delbot_platform.document_intelligence.models.span import (
+./delbot_platform/knowledge/retrieval/qdrant.py:3:from delbot_platform.documents.models.document_chunk import (
+./delbot_platform/knowledge/retrieval/qdrant.py:6:from delbot_platform.documents.embedding.pipeline.pipeline import (
+./delbot_platform/knowledge/retrieval/qdrant.py:9:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/knowledge/retrieval/qdrant.py:12:from delbot_platform.documents.metadata.mapper.chunk_metadata_mapper import (
+./delbot_platform/knowledge/retrieval/result.py:5:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/knowledge/rag/context_builder.py:3:from delbot_platform.documents.models.document_chunk import (
+./delbot_platform/knowledge/rag/citation_builder.py:6:from delbot_platform.documents.models.document_chunk import (
+./delbot_platform/knowledge/hydration/local.py:5:from delbot_platform.documents.registry.manager import (
+./delbot_platform/knowledge/pipeline/models/artifact.py:6:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/knowledge/pipeline/knowledge_pipeline.py:3:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/knowledge/reranking/result.py:5:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/knowledge/services/processing.py:3:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/ai/embedding/embedding_builder.py:6:from delbot_platform.document_intelligence.indexer.indexed_document import (
+./delbot_platform/ai/embedding/embedding_builder.py:9:from delbot_platform.document_intelligence.models.semantic_chunk import (
+./delbot_platform/workflows/factory/workflow_factory.py:3:from delbot_platform.documents.services import (
+./delbot_platform/workflows/repository/ingestion.py:6:from delbot_platform.documents.services import (
+./delbot_platform/workflows/repository/models/artifact.py:5:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/api/routers/document.py:9:from delbot_platform.documents.pipeline.indexing import (
+./delbot_platform/api/routers/document.py.patch767080.bak:8:from delbot_platform.documents.pipeline.indexing import (
+./delbot_platform/application/documents/index_repository.py:3:from delbot_platform.documents.ingestion import (
+./delbot_platform/application/documents/index.py:5:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/application/documents/index.py:10:from delbot_platform.documents.services import (
+./delbot_platform/documents/loader/sources/__init__.py:1:from delbot_platform.documents.loader.sources.local import (
+./delbot_platform/documents/loader/sources/local.py:5:from delbot_platform.documents.loader.source import (
+./delbot_platform/documents/ingestion/repository_ingestor.py:12:from delbot_platform.documents.pipeline.indexing import (
+./delbot_platform/documents/metadata/__init__.py:1:from delbot_platform.documents.metadata.document_metadata import (
+./delbot_platform/documents/metadata/__init__.py:5:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/documents/metadata/builder/__init__.py:1:from delbot_platform.documents.metadata.builder.document import (
+./delbot_platform/documents/metadata/builder/__init__.py:5:from delbot_platform.documents.metadata.builder.chunk import (
+./delbot_platform/documents/metadata/builder/chunk.py:3:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/documents/metadata/builder/document.py:3:from delbot_platform.documents.metadata.document_metadata import (
+./delbot_platform/documents/metadata/builder/document.py:6:from delbot_platform.documents.metadata.metadata_extractor import (
+./delbot_platform/documents/metadata/builder/document.py:9:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/metadata/repository.py:7:from delbot_platform.documents.metadata.document_metadata import (
+./delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py:6:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/documents/metadata/metadata_extractor.py:5:from delbot_platform.documents.metadata.document_metadata import (
+./delbot_platform/documents/registry/factory.py:3:from delbot_platform.documents.registry.repository import (
+./delbot_platform/documents/registry/factory.py:6:from delbot_platform.documents.registry.memory import (
+./delbot_platform/documents/registry/factory.py:9:from delbot_platform.documents.registry.filesystem import (
+./delbot_platform/documents/registry/__init__.py:1:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/__init__.py:4:from delbot_platform.documents.registry.manager import (
+./delbot_platform/documents/registry/manager.py.bak:5:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/manager.py.bak:8:from delbot_platform.documents.registry.factory import (
+./delbot_platform/documents/registry/manager.py.bak:11:from delbot_platform.documents.registry.repository import (
+./delbot_platform/documents/registry/manager.py:5:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/manager.py:8:from delbot_platform.documents.registry.factory import (
+./delbot_platform/documents/registry/manager.py:11:from delbot_platform.documents.registry.repository import (
+./delbot_platform/documents/registry/repository.py:6:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/memory.py:3:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/memory.py:6:from delbot_platform.documents.registry.repository import (
+./delbot_platform/documents/registry/filesystem.py:7:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/registry/filesystem.py:10:from delbot_platform.documents.registry.repository import (
+./delbot_platform/documents/pipeline/__init__.py:1:from delbot_platform.documents.pipeline.preprocessing import (
+./delbot_platform/documents/pipeline/__init__.py:5:from delbot_platform.documents.pipeline.indexing import (
+./delbot_platform/documents/pipeline/indexing.py:5:from delbot_platform.documents.chunking import (
+./delbot_platform/documents/pipeline/indexing.py:8:from delbot_platform.documents.embedding.pipeline.pipeline import (
+./delbot_platform/documents/pipeline/indexing.py:11:from delbot_platform.documents.embedding.mapper import (
+./delbot_platform/documents/pipeline/indexing.py:14:from delbot_platform.documents.metadata.builder.document import (
+./delbot_platform/documents/pipeline/indexing.py:17:from delbot_platform.documents.metadata.repository import (
+./delbot_platform/documents/pipeline/indexing.py:20:from delbot_platform.documents.pipeline.models import (
+./delbot_platform/documents/pipeline/indexing.py:24:from delbot_platform.documents.pipeline.preprocessing import (
+./delbot_platform/documents/pipeline/indexing.py:27:from delbot_platform.documents.registry.manager import (
+./delbot_platform/documents/pipeline/models/artifact.py:6:from delbot_platform.documents.models.document_chunk import (
+./delbot_platform/documents/pipeline/models/artifact.py:9:from delbot_platform.documents.metadata.document_metadata import (
+./delbot_platform/documents/pipeline/models/artifact.py:12:from delbot_platform.documents.registry.document import (
+./delbot_platform/documents/pipeline/models/artifact.py:15:from delbot_platform.documents.structure.section.section import (
+./delbot_platform/documents/pipeline/models/artifact.py:18:from delbot_platform.documents.embedding.models import (
+./delbot_platform/documents/pipeline/preprocessing.py:3:from delbot_platform.documents.classification.heading import (
+./delbot_platform/documents/pipeline/preprocessing.py:7:from delbot_platform.documents.extraction.service import (
+./delbot_platform/documents/pipeline/preprocessing.py:11:from delbot_platform.documents.models.block import (
+./delbot_platform/documents/pipeline/preprocessing.py:15:from delbot_platform.documents.structure.section.builder import (
+./delbot_platform/documents/pipeline/preprocessing.py:19:from delbot_platform.documents.structure.section.section import (
+./delbot_platform/documents/models/document_chunk.py:5:from delbot_platform.documents.metadata.chunk_metadata import (
+./delbot_platform/documents/models/block.py:6:from delbot_platform.documents.classification.document_type import (
+./delbot_platform/documents/models/document.py:6:from delbot_platform.documents.models.metadata import (
+./delbot_platform/documents/models/document.py:9:from delbot_platform.documents.models.page import (
+./delbot_platform/documents/models/page.py:6:from delbot_platform.documents.models.block import (
+./delbot_platform/documents/extraction/__init__.py:1:from delbot_platform.documents.extraction.service import (
+./delbot_platform/documents/extraction/__init__.py:5:from delbot_platform.documents.extraction.block import (
+./delbot_platform/documents/extraction/block.py:4:from delbot_platform.documents.classification.document_type import (
+./delbot_platform/documents/extraction/block.py:8:from delbot_platform.documents.models.block import (
+
+=== REFERENCES TO DOCUMENT INTELLIGENCE ===
+delbot_platform/document_intelligence/loader/document_loader.py:7:from delbot_platform.document_intelligence.loader.loaded_document import (
+delbot_platform/document_intelligence/loader/pdf_loader.py:5:from delbot_platform.document_intelligence.backend.pdf.pymupdf_backend import (
+delbot_platform/document_intelligence/loader/pdf_loader.py:8:from delbot_platform.document_intelligence.loader.document_loader import (
+delbot_platform/document_intelligence/loader/pdf_loader.py:11:from delbot_platform.document_intelligence.loader.loaded_document import (
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:13:from ..parser import PDFParser
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:27:        parsed = PDFParser().parse(loaded)
+delbot_platform/document_intelligence/models/span.py:7:from delbot_platform.document_intelligence.models.bounding_box import (
+delbot_platform/document_intelligence/models/heading.py:5:from delbot_platform.document_intelligence.models.heading_level import (
+delbot_platform/document_intelligence/models/__init__.py:1:from delbot_platform.document_intelligence.models.block import Block
+delbot_platform/document_intelligence/models/__init__.py:2:from delbot_platform.document_intelligence.models.bounding_box import BoundingBox
+delbot_platform/document_intelligence/models/__init__.py:3:from delbot_platform.document_intelligence.models.heading import Heading
+delbot_platform/document_intelligence/models/__init__.py:4:from delbot_platform.document_intelligence.models.heading_collection import HeadingCollection
+delbot_platform/document_intelligence/models/__init__.py:5:from delbot_platform.document_intelligence.models.heading_level import HeadingLevel
+delbot_platform/document_intelligence/models/__init__.py:6:from delbot_platform.document_intelligence.models.layout_statistics import LayoutStatistics
+delbot_platform/document_intelligence/models/__init__.py:7:from delbot_platform.document_intelligence.models.line import Line
+delbot_platform/document_intelligence/models/__init__.py:8:from delbot_platform.document_intelligence.models.page import Page
+delbot_platform/document_intelligence/models/__init__.py:9:from delbot_platform.document_intelligence.models.paragraph import Paragraph
+delbot_platform/document_intelligence/models/__init__.py:10:from delbot_platform.document_intelligence.models.paragraph_collection import ParagraphCollection
+delbot_platform/document_intelligence/models/__init__.py:11:from delbot_platform.document_intelligence.models.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/models/__init__.py:12:from delbot_platform.document_intelligence.models.semantic_chunk import SemanticChunk
+delbot_platform/document_intelligence/models/__init__.py:13:from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/models/__init__.py:14:from delbot_platform.document_intelligence.models.span import Span
+delbot_platform/document_intelligence/models/paragraph.py:5:from delbot_platform.document_intelligence.models.heading import (
+delbot_platform/document_intelligence/models/semantic_chunk.py:6:from delbot_platform.document_intelligence.models.heading import (
+delbot_platform/document_intelligence/models/semantic_chunk.py:9:from delbot_platform.document_intelligence.models.paragraph import (
+delbot_platform/document_intelligence/models/block.py:6:from delbot_platform.document_intelligence.models.line import (
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:6:from delbot_platform.document_intelligence.models.semantic_chunk import (
+delbot_platform/document_intelligence/models/heading_collection.py:6:from delbot_platform.document_intelligence.models.heading import (
+delbot_platform/document_intelligence/models/page.py:7:from delbot_platform.document_intelligence.models.block import (
+delbot_platform/document_intelligence/models/paragraph_collection.py:6:from delbot_platform.document_intelligence.models.paragraph import (
+delbot_platform/document_intelligence/models/line.py:6:from delbot_platform.document_intelligence.models.span import (
+delbot_platform/document_intelligence/parser/__init__.py:1:from .document_parser import DocumentParser
+delbot_platform/document_intelligence/parser/__init__.py:3:from .pdf_parser import PDFParser
+delbot_platform/document_intelligence/parser/__init__.py:6:    "DocumentParser",
+delbot_platform/document_intelligence/parser/__init__.py:8:    "PDFParser",
+delbot_platform/document_intelligence/parser/pdf_parser.py.bak:6:from .document_parser import DocumentParser
+delbot_platform/document_intelligence/parser/pdf_parser.py.bak:9:class PDFParser(DocumentParser):
+delbot_platform/document_intelligence/parser/pdf_parser.py:12:from .document_parser import DocumentParser
+delbot_platform/document_intelligence/parser/pdf_parser.py:15:class PDFParser(DocumentParser):
+delbot_platform/document_intelligence/parser/document_parser.py:9:class DocumentParser(ABC):
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py:8:from delbot_platform.document_intelligence.backend.backend import (
+delbot_platform/document_intelligence/mapper/__init__.py:1:from delbot_platform.document_intelligence.mapper.layout_mapper import (
+delbot_platform/document_intelligence/mapper/__init__.py:4:from delbot_platform.document_intelligence.mapper.pymupdf_mapper import (
+delbot_platform/document_intelligence/mapper/layout_mapper.py:7:from delbot_platform.document_intelligence.models.page import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:5:from delbot_platform.document_intelligence.mapper.layout_mapper import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:8:from delbot_platform.document_intelligence.models.block import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:11:from delbot_platform.document_intelligence.models.bounding_box import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:14:from delbot_platform.document_intelligence.models.line import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:17:from delbot_platform.document_intelligence.models.page import (
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:20:from delbot_platform.document_intelligence.models.span import (
+delbot_platform/ai/embedding/embedding_builder.py:6:from delbot_platform.document_intelligence.indexer.indexed_document import (
+delbot_platform/ai/embedding/embedding_builder.py:9:from delbot_platform.document_intelligence.models.semantic_chunk import (
+delbot_platform/documents/parser/pdf.py.bak_sprint422:22:    DocumentParser,
+delbot_platform/documents/parser/pdf.py.bak_sprint422:26:class PDFParser(DocumentParser):
+delbot_platform/documents/parser/pdf.py:34:    DocumentParser,
+delbot_platform/documents/parser/pdf.py:38:class PDFParser(DocumentParser):
+delbot_platform/documents/parser/base.py:14:class DocumentParser(ABC):
+tools/pr_5_1br_mvp_final_acceptance_validation.sh:54:    "document_intelligence": true,
+tools/pr_5_1br_mvp_final_acceptance_validation.sh:100:"$ROOT/delbot_platform/document_intelligence" \
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:17:# PDF Parser
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh:215:        "Install missing PDF parser dependency"
+tools/pr_5_1bq_mvp_demo_flow_validation.sh:94:        "document_intelligence_flow": True,
+tools/pr_5_1bq_mvp_demo_flow_validation.sh:116:        "processing_to_document_intelligence": True,
+tools/pr_5_1bq_mvp_demo_flow_validation.sh:172:"${PROJECT_ROOT}/delbot_platform/document_intelligence" \
+tools/pr_5_1bs_mvp_freeze_validation.sh:76:        "document_intelligence": True,
+tools/pr_5_1bs_mvp_freeze_validation.sh:175:/workspace/delbot/delbot_platform/document_intelligence \
+tools/architecture/ownership.py:35:        "document_intelligence",
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:92:        "delbot_platform/document_intelligence"
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:155:    "pdf_to_document_intelligence": checks["pdf_discovery"]
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:228:"$ROOT/delbot_platform/document_intelligence" \
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:70:    "document_intelligence": False,
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:93:    "document_intelligence": [
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:94:        "delbot_platform/document_intelligence"
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:172:        checks["document_intelligence"]
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:247:    "$PROJECT/delbot_platform/document_intelligence" \
+tools/pr_5_1bu_mvp_demo_dataset_validation.sh:328:/workspace/delbot/delbot_platform/document_intelligence \
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh:122:"${PROJECT_ROOT}/delbot_platform/document_intelligence" \
+tools/pr_5_1bt_mvp_smoke_test.sh:66:    "document_intelligence_module": os.path.exists(
+tools/pr_5_1bt_mvp_smoke_test.sh:67:        os.path.join(root, "delbot_platform", "document_intelligence")
+tools/pr_5_1bt_mvp_smoke_test.sh:92:        and checks["document_intelligence_module"]
+tools/pr_5_1bt_mvp_smoke_test.sh:140:/workspace/delbot/delbot_platform/document_intelligence \
+tools/pr_5_1bp_mvp_release_candidate_validation.sh:77:        "document_intelligence": True,
+tools/pr_5_1bp_mvp_release_candidate_validation.sh:130:/workspace/delbot/delbot_platform/document_intelligence \
+
+=== PACKAGE INITIALIZERS ===
+delbot_platform/application/documents/__init__.py
+delbot_platform/application/repository/__init__.py
+delbot_platform/document_intelligence/__init__.py
+delbot_platform/document_intelligence/backend/__init__.py
+delbot_platform/document_intelligence/backend/pdf/__init__.py
+delbot_platform/document_intelligence/chunker/__init__.py
+delbot_platform/document_intelligence/indexer/__init__.py
+delbot_platform/document_intelligence/loader/__init__.py
+delbot_platform/document_intelligence/mapper/__init__.py
+delbot_platform/document_intelligence/metadata/__init__.py
+delbot_platform/document_intelligence/models/__init__.py
+delbot_platform/document_intelligence/parser/__init__.py
+delbot_platform/document_intelligence/pipeline/__init__.py
+delbot_platform/documents/__init__.py
+delbot_platform/documents/chunking/__init__.py
+delbot_platform/documents/chunking/policy/__init__.py
+delbot_platform/documents/classification/__init__.py
+delbot_platform/documents/embedding/__init__.py
+delbot_platform/documents/embedding/factory/__init__.py
+delbot_platform/documents/embedding/mapper/__init__.py
+delbot_platform/documents/embedding/models/__init__.py
+delbot_platform/documents/embedding/pipeline/__init__.py
+delbot_platform/documents/embedding/providers/__init__.py
+delbot_platform/documents/extraction/__init__.py
+delbot_platform/documents/ingestion/__init__.py
+delbot_platform/documents/loader/__init__.py
+delbot_platform/documents/loader/sources/__init__.py
+delbot_platform/documents/metadata/__init__.py
+delbot_platform/documents/metadata/builder/__init__.py
+delbot_platform/documents/models/__init__.py
+delbot_platform/documents/parser/__init__.py
+delbot_platform/documents/parser/backend/__init__.py
+delbot_platform/documents/pipeline/__init__.py
+delbot_platform/documents/pipeline/models/__init__.py
+delbot_platform/documents/registry/__init__.py
+delbot_platform/documents/services/__init__.py
+delbot_platform/documents/structure/__init__.py
+delbot_platform/documents/structure/section/__init__.py
+delbot_platform/knowledge/__init__.py
+delbot_platform/knowledge/citation/__init__.py
+delbot_platform/knowledge/context/__init__.py
+delbot_platform/knowledge/extraction/__init__.py
+delbot_platform/knowledge/graph/__init__.py
+delbot_platform/knowledge/hydration/__init__.py
+delbot_platform/knowledge/models/__init__.py
+delbot_platform/knowledge/pipeline/__init__.py
+delbot_platform/knowledge/pipeline/models/__init__.py
+delbot_platform/knowledge/rag/__init__.py
+delbot_platform/knowledge/rag/llm/__init__.py
+delbot_platform/knowledge/rag/models/__init__.py
+delbot_platform/knowledge/reranking/__init__.py
+delbot_platform/knowledge/retrieval/__init__.py
+delbot_platform/knowledge/services/__init__.py
+delbot_platform/knowledge/vector/__init__.py
+delbot_platform/knowledge/vector/models/__init__.py
+delbot_platform/knowledge/vector/repository/__init__.py
+delbot_platform/repository/__init__.py
+delbot_platform/repository/catalog/__init__.py
+delbot_platform/repository/discovery/__init__.py
+delbot_platform/repository/download/__init__.py
+delbot_platform/repository/ingestion/__init__.py
+delbot_platform/repository/integration/__init__.py
+delbot_platform/repository/manifest/__init__.py
+delbot_platform/repository/models/__init__.py
+delbot_platform/repository/providers/__init__.py
+delbot_platform/repository/resolver/__init__.py
+delbot_platform/vectors/__init__.py
+delbot_platform/vectorstore/__init__.py
+delbot_platform/vectorstore/qdrant/__init__.py
+delbot_platform/workflows/repository/__init__.py
+delbot_platform/workflows/repository/models/__init__.py
+
+=== PYTHON COMPILE BEFORE PATCH ===
+
+=== MODULE DISCOVERY WITHOUT IMPORTING APPLICATION ===
+INDEXER_EXISTS= True
+IMPORT_COUNT= 6
+MODULE_CHECK|delbot_platform.ai.client.embedding_client|FOUND
+MODULE_CHECK|delbot_platform.document.pipeline.ingest_pdf|ERROR|ModuleNotFoundError|No module named 'delbot_platform.document'
+MODULE_CHECK|delbot_platform.knowledge.vector.qdrant_store|FOUND

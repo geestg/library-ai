@@ -1,0 +1,26 @@
+PIPELINE: ResearchAnswerPipeline
+======================================================================
+
+QUERY_1: Apa yang dimaksud dengan penelitian?
+RUNTIME_EXCEPTION: AttributeError
+RUNTIME_ERROR: 'ResearchAnswerPipeline' object has no attribute 'run'
+
+QUERY_2: pengertian penelitian
+RUNTIME_EXCEPTION: AttributeError
+RUNTIME_ERROR: 'ResearchAnswerPipeline' object has no attribute 'run'
+
+QUERY_3: metode penelitian
+RUNTIME_EXCEPTION: AttributeError
+RUNTIME_ERROR: 'ResearchAnswerPipeline' object has no attribute 'run'
+
+
+======================================================================
+RUNTIME QUALITY SUMMARY
+======================================================================
+QUERY_1_QUALITY: FAIL
+QUERY_2_QUALITY: FAIL
+QUERY_3_QUALITY: FAIL
+PASS_COUNT: 0
+FAIL_COUNT: 3
+RUNTIME_ANSWER_QUALITY: FAIL
+RUNTIME_TEST: COMPLETE

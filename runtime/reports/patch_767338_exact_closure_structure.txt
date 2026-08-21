@@ -1,0 +1,28 @@
+PATCH=767.338
+PURPOSE=Exact closure structure analysis before minimal compile fix
+MODE=READ_ONLY
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 14:28:27
+
+PATCH=767.338
+GATEWAY_PID=5136
+TARGET_COMPILE_STATUS=FAIL
+AST_STATUS=PASS
+NONLOCAL_TARGET|line=124|names=found
+FOUND|line=120|column=4|ctx=Store
+FOUND|line=146|column=7|ctx=Load
+FOUND|line=126|column=11|ctx=Load
+FOUND|line=142|column=16|ctx=Store
+
+--- COMPILE ERROR ---
+  File "tools/audit_pdf_mapping.py", line 124
+    nonlocal found
+    ^^^^^^^^^^^^^^
+SyntaxError: no binding for nonlocal 'found' found

@@ -1,0 +1,172 @@
+PATCH=767.389
+PURPOSE=Identify exact local Qdrant constructor caller and runtime entrypoint
+MODE=READ_ONLY_FORENSIC
+STORAGE=repository_data/qdrant_local
+STORAGE_ABS=/workspace/delbot/repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:10:03
+
+=== PYTHON EXTRACTED FORENSIC ===
+QDRANTCLIENT_CONSTRUCTORS=14
+LOCAL_STORAGE_REFERENCES=63
+SINGLETON_USAGE_REFERENCES=30
+RUNTIME_MANAGER_REFERENCES=33
+ENTRYPOINT_REFERENCES=11
+PROCESS_SPAWN_REFERENCES=2
+LOCK_ERROR_REFERENCES=45
+=== KEY PROCESS LINES ===
+QDRANT_LIKE_PROCESS_COUNT=1
+tools/pr_5_6_42_mvp_local_embedding_index.sh:23:DBDIR="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:20:DBDIR="$ROOT/repository_data/qdrant_local"
+tools/pr_5_7_mvp_local_retrieval_engine.sh:21:DBDIR="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37:QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:73:qdrant_path=f"{ROOT}/repository_data/qdrant_local"
+tools/pr_5_6_44_mvp_local_qdrant_index.sh:22:DBDIR="$ROOT/repository_data/qdrant_local"
+tools/pr_5_8_mvp_repository_qa_validation.sh:12:# - repository_data/qdrant_local
+tools/pr_5_9_mvp_repository_chat.sh:20:DBDIR="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_40_mvp_local_embedding_index.sh:23:LOCALDB="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_40_mvp_local_embedding_index.sh:43:local_db=os.path.join(ROOT,"repository_data/qdrant_local")
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:790:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:71:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:211:runtime/research_api.log:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:791:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:72:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:214:runtime/reports/patch_766925_api_entrypoint.log:245:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:792:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:73:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:325:runtime/logs/backend_8001.log:84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:793:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:74:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:329:runtime/research_api.log:103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:794:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:75:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:333:runtime/research_api.log:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:795:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:76:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767380_qdrant_local_lock_owner.log:337:runtime/research_api.log:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:796:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:77:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_766951_qdrant_config_consumer_trace.log:645:QDRANT_IMPORT_OR_RUNTIME_ERROR: RuntimeError Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:797:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:78:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767280_index_pipeline_root_cause.log:571:runtime/reports/patch_766950_qdrant_runtime_resolution.log:740:QDRANT_MODULE_ERROR: RuntimeError Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:798:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.txt:79:runtime/reports/patch_767382_exact_qdrant_pid_storage_owner.log:runtime/reports/patch_767280_mvp_index_pipeline_root_cause.log:804:571:runtime/reports/patch_766950_qdrant_runtime_resolution.log:740:QDRANT_MODULE_ERROR: RuntimeError Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+
+=== PATCH 767.389 SUMMARY ===
+QdrantClient constructors : 14
+Local storage references  : 63
+Singleton usage refs      : 30
+Runtime manager refs      : 33
+Entrypoint refs           : 11
+Process spawn refs        : 2
+Historical lock errors    : 45
+
+=== EXACT PRIMARY SOURCE ===
+    15	        self,
+    16	        path: str | None = None,
+    17	    ) -> None:
+    18	
+    19	        import os
+    20	
+    21	        if path is None:
+    22	            path = os.getenv(
+    23	                "DELBOT_QDRANT_PATH",
+    24	                os.getenv(
+    25	                    "QDRANT_PATH",
+    26	                    str(
+    27	                        Path("repository_data")
+    28	                        / "qdrant_local"
+    29	                    ),
+    30	                ),
+    31	            )
+    32	
+    33	        self.collection = os.getenv(
+    34	            "QDRANT_COLLECTION",
+    35	            "delbot_documents",
+    36	        )
+    37	
+    38	        Path(path).mkdir(
+    39	            parents=True,
+    40	            exist_ok=True,
+    41	        )
+    42	
+    43	        self.client = QdrantClient(
+    44	            path=path,
+    45	            force_disable_check_same_thread=True,
+    46	        )
+    47	
+    48	    # =====================================================
+    49	    # Collection
+    50	    # =====================================================
+    51	
+    52	    def create_collection(
+    53	        self,
+    54	        collection_name: str = "delbot_documents",
+    55	        vector_size: int = 1024,
+    56	    ) -> None:
+    57	
+    58	        collections = (
+    59	            self.client
+    60	            .get_collections()
+    61	            .collections
+    62	        )
+    63	
+    64	        exists = any(
+    65	            c.name == collection_name
+
+=== IMPORTANT ERRORS ONLY ===
+517:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:821:runtime/reports/patch_767380_qdrant_local_lock_owner.log:207:runtime/research_api.log:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+518:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:822:runtime/reports/patch_767380_qdrant_local_lock_owner.log:211:runtime/research_api.log:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+519:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:823:runtime/reports/patch_767380_qdrant_local_lock_owner.log:214:runtime/reports/patch_766925_api_entrypoint.log:245:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+520:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:824:runtime/reports/patch_767380_qdrant_local_lock_owner.log:325:runtime/logs/backend_8001.log:84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+521:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:825:runtime/reports/patch_767380_qdrant_local_lock_owner.log:329:runtime/research_api.log:103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+522:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:826:runtime/reports/patch_767380_qdrant_local_lock_owner.log:333:runtime/research_api.log:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+523:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:827:runtime/reports/patch_767380_qdrant_local_lock_owner.log:337:runtime/research_api.log:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+527:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:831:runtime/reports/patch_767379_docker_daemon_socket_context_forensic.log:90:./runtime/logs/backend_8001.log:84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+528:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:832:runtime/reports/patch_767379_docker_daemon_socket_context_forensic.log:101:./runtime/research_api.log:103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+529:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:833:runtime/reports/patch_767379_docker_daemon_socket_context_forensic.log:112:./runtime/research_api.log:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+530:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:834:runtime/reports/patch_767379_docker_daemon_socket_context_forensic.log:123:./runtime/research_api.log:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+531:runtime/reports/patch_767385_qdrant_owner_runtime_creator.log:835:runtime/reports/patch_767379_docker_daemon_socket_context_forensic.log:173:./runtime/reports/patch_766925_api_entrypoint.log:245:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+584:3:Traceback (most recent call last):
+591:10:Traceback (most recent call last):
+600:19:Traceback (most recent call last):
+629:84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+651:103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+655:107:Traceback (most recent call last):
+662:114:Traceback (most recent call last):
+671:123:Traceback (most recent call last):
+700:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+704:192:Traceback (most recent call last):
+711:199:Traceback (most recent call last):
+720:208:Traceback (most recent call last):
+749:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+
+=== DECISION ===
+STATUS=LOCAL_QDRANT_CALLER_EVIDENCE_CONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_PRIMARY_CALLER_TO_PROCESS_ENTRYPOINT
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+Qdrant start            : NO
+Qdrant stop             : NO
+Docker start            : NO
+Docker restart          : NO
+Gateway restart         : NO
+Source modified         : NO
+Process modified        : NO
+Lock modified           : NO
+Terminal remains open   : YES
+
+=== PATCH 767.389 COMPLETE ===
+READ-ONLY EXACT CALLER / ENTRYPOINT FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.
+Detailed report : runtime/reports/patch_767389_qdrant_exact_caller_entrypoint.txt
+Detailed log    : runtime/reports/patch_767389_qdrant_exact_caller_entrypoint.log
+Python forensic : runtime/reports/patch_767389_qdrant_exact_caller_entrypoint.python.log

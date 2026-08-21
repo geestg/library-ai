@@ -1,0 +1,344 @@
+PATCH=767.436
+PURPOSE=Pinpoint exact PDF -> chunk -> embedding -> vector accumulation blocker
+MODE=READ_ONLY_TARGETED_DIAGNOSIS
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEXER=tools/ingest_pdf_vectors.py
+PIPELINE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:52:19
+
+=== PREVIOUS 767.435 RESULT ===
+
+=== TARGET FILES ===
+tools/ingest_pdf_vectors.py
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+delbot_platform/document_intelligence/pipeline/document_pipeline.py
+delbot_platform/document_intelligence/pipeline/pipeline_result.py
+delbot_platform/document_intelligence/chunker/pdf_chunker.py
+delbot_platform/document_intelligence/chunker/document_chunker.py
+delbot_platform/document_intelligence/chunker/chunked_document.py
+delbot_platform/document_intelligence/loader/pdf_loader.py
+delbot_platform/document_intelligence/parser/pdf_parser.py
+
+=== TARGETED AST CALLS ===
+tools/ingest_pdf_vectors.py:line=42:PDFPipeline
+tools/ingest_pdf_vectors.py:line=44:EmbeddingClient
+tools/ingest_pdf_vectors.py:line=89:embedder.embed
+tools/ingest_pdf_vectors.py:line=101:payloads.append
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=26:PDFLoader.load
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=27:PDFParser.parse
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=29:PDFChunker.chunk
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=33:EmbeddingBuilder.build
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=37:PipelineResult
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=26:PDFLoader
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=27:PDFParser
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=29:PDFChunker
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:line=33:EmbeddingBuilder
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:line=49:SemanticChunkCollection
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:line=38:chunks.append
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:line=39:SemanticChunk
+delbot_platform/document_intelligence/loader/pdf_loader.py:line=29:LoadedDocument
+delbot_platform/document_intelligence/parser/pdf_parser.py:line=97:ParsedDocument
+delbot_platform/document_intelligence/parser/pdf_parser.py:line=28:pdf.load_page
+
+=== TARGETED SOURCE LINES ===
+
+--- tools/ingest_pdf_vectors.py ---
+   17: 
+   18: 
+   19: from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
+   20: 
+   21: from delbot_platform.ai.client.embedding_client import EmbeddingClient
+   22: 
+   23: from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+   24: 
+   25: 
+   35: 
+   36:     print("="*60)
+   37:     print("PDF VECTOR INGEST")
+   38:     print("="*60)
+   39: 
+   40: 
+   41: 
+   42:     ingestion=PDFPipeline()
+   43: 
+   44:     embedder=EmbeddingClient()
+   45: 
+   46:     store=QdrantStore(
+   72: 
+   73: 
+   74:         chunks=result["chunks"]
+   75: 
+   76: 
+   77:         if not chunks:
+   78: 
+   79:             continue
+   82: 
+   83:         texts=[
+   84:             c["text"]
+   85:             for c in chunks
+   86:         ]
+   87: 
+   88: 
+   89:         vectors=embedder.embed(
+   90:             texts
+   91:         )
+   96: 
+   97: 
+   98:         for c in chunks:
+   99: 
+  100: 
+  105:                     "file":pdf.name,
+  106: 
+  107:                     "page":c["page"],
+  108: 
+  109:                     "text":c["text"],
+  110: 
+  111:                     **c["metadata"]
+  116: 
+  117:         inserted=store.insert(
+  118:             vectors,
+  119:             payloads
+  120:         )
+  132: 
+  133:     print(
+  134:         "\nTOTAL VECTOR:",
+  135:         total
+  136:     )
+
+--- delbot_platform/document_intelligence/pipeline/pdf_pipeline.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from ...documents.models.document import Document
+    4: 
+    5: from delbot_platform.ai.embedding.embedding_builder import (
+    6:     EmbeddingBuilder,
+    7: )
+    8: 
+    9: from ..chunker import PDFChunker
+   10: from ..indexer import PDFIndexer
+   11: from ..loader import PDFLoader
+   14: 
+   15: from .document_pipeline import DocumentPipeline
+   16: from .pipeline_result import PipelineResult
+   17: 
+   18: 
+   19: class PDFPipeline(DocumentPipeline):
+   20: 
+   21:     def process(
+   22:         self,
+   23:         document: Document,
+   24:     ) -> PipelineResult:
+   25: 
+   26:         loaded = PDFLoader().load(document)
+   27:         parsed = PDFParser().parse(loaded)
+   28: 
+   29:         chunked = PDFChunker().chunk(parsed)
+   30:         metadata = PDFMetadata().extract(chunked)
+   31:         indexed = PDFIndexer().index(metadata)
+   32: 
+   33:         requests = EmbeddingBuilder().build(indexed)
+   34: 
+   35:         indexed.metadata["embedding_requests"] = requests
+   36: 
+   37:         return PipelineResult(
+   38:             source_document=document,
+   39:             indexed_document=indexed,
+   40:             success=True,
+
+--- delbot_platform/document_intelligence/pipeline/document_pipeline.py ---
+    3: from abc import ABC, abstractmethod
+    4: 
+    5: from ...documents.models.document import Document
+    6: from .pipeline_result import PipelineResult
+    7: 
+    8: 
+   11:     def process(
+   12:         self,
+   13:         document: Document,
+   14:     ) -> PipelineResult:
+   15:         raise NotImplementedError
+
+--- delbot_platform/document_intelligence/pipeline/pipeline_result.py ---
+    7: 
+    8: @dataclass(slots=True)
+    9: class PipelineResult:
+   10:     source_document: str
+   11:     indexed_document: IndexedDocument
+
+--- delbot_platform/document_intelligence/chunker/pdf_chunker.py ---
+   10: class PDFChunker(DocumentChunker):
+   11: 
+   12:     def chunk(
+   13:         self,
+   14:         document: ParsedDocument,
+   15:     ) -> SemanticChunkCollection:
+   16: 
+   17:         chunks = []
+   18: 
+   19:         for page in document.pages:
+   20:             for block in page.blocks:
+   21: 
+   22:                 text = " ".join(
+   23:                     span.text
+   24:                     for line in block.lines
+   25:                     for span in line.spans
+   26:                     if span.text.strip()
+   27:                 ).strip()
+   28: 
+   29:                 if not text:
+   30:                     continue
+   31: 
+   32:                 paragraph = Paragraph(
+   33:                     text=text,
+   34:                     page_number=page.page_number,
+   35:                     heading=None,
+   36:                 )
+   37: 
+   38:                 chunks.append(
+   39:                     SemanticChunk(
+   40:                         text=text,
+   41:                         page_start=page.page_number,
+   42:                         page_end=page.page_number,
+   43:                         paragraphs=[paragraph],
+   44:                         heading=None,
+   48: 
+   49:         return SemanticChunkCollection(
+   50:             chunks=chunks,
+   51:         )
+
+--- delbot_platform/document_intelligence/chunker/document_chunker.py ---
+    4: 
+    5: from ..parser.parsed_document import ParsedDocument
+    6: from .chunked_document import ChunkedDocument
+    7: 
+    8: 
+    9: class DocumentChunker(ABC):
+   10:     @abstractmethod
+   11:     def chunk(
+   12:         self,
+   13:         document: ParsedDocument,
+   14:     ) -> ChunkedDocument:
+   15:         raise NotImplementedError
+
+--- delbot_platform/document_intelligence/chunker/chunked_document.py ---
+    7: 
+    8: @dataclass(slots=True)
+    9: class ChunkedDocument:
+   10:     source_document: ParsedDocument
+   11:     chunks: list
+   12:     metadata: dict
+
+--- delbot_platform/document_intelligence/loader/pdf_loader.py ---
+   23:         backend = PyMuPDFBackend()
+   24: 
+   25:         document = backend.open(
+   26:             source,
+   27:         )
+   29:         return LoadedDocument(
+   30:             source_path=source,
+   31:             backend_document=document,
+   32:         )
+
+--- delbot_platform/document_intelligence/parser/pdf_parser.py ---
+    6: from ..models.bounding_box import BoundingBox
+    7: from ..models.line import Line
+    8: from ..models.page import Page
+    9: from ..models.parsed_document import ParsedDocument
+   10: from ..models.span import Span
+   17:     def parse(
+   18:         self,
+   19:         document: LoadedDocument,
+   20:     ) -> ParsedDocument:
+   21: 
+   22:         pdf = document.backend_document
+   23: 
+   24:         pages = []
+   25: 
+   26:         for page_index in range(len(pdf)):
+   49:                         spans.append(
+   50:                             Span(
+   51:                                 text=span_dict.get("text", ""),
+   52:                                 font_name=span_dict.get("font", ""),
+   53:                                 font_size=float(
+   85:                 )
+   86: 
+   87:             pages.append(
+   88:                 Page(
+   89:                     page_index=page_index,
+   90:                     page_number=page_index + 1,
+   91:                     text=fitz_page.get_text("text"),
+   92:                     blocks=blocks,
+   93:                     metadata={},
+   96: 
+   97:         return ParsedDocument(
+   98:             source_document=document,
+   99:             pages=pages,
+  100:             headings=[],
+  101:             paragraphs=[],
+
+=== STRUCTURAL CHECKS ===
+PIPELINE_HAS_RETURN=True
+PIPELINE_HAS_CHUNK_OPERATION=True
+PIPELINE_HAS_EMBED_OPERATION=True
+INDEXER_HAS_VECTOR_OPERATION=True
+INDEXER_HAS_CHUNK_REFERENCE=True
+INDEXER_HAS_EMBED_REFERENCE=True
+PIPELINE_HAS_CHUNK_REFERENCE=True
+PIPELINE_HAS_EMBED_REFERENCE=True
+
+=== PIPELINE RETURNS ===
+RETURN_LINE=37
+
+=== PIPELINE CHUNK CALLS ===
+LINE=29|CALL=PDFChunker.chunk
+LINE=29|CALL=PDFChunker
+
+=== PIPELINE EMBEDDING CALLS ===
+LINE=33|CALL=EmbeddingBuilder.build
+LINE=33|CALL=EmbeddingBuilder
+
+=== INDEXER VECTOR OPERATIONS ===
+LINE=44|CALL=EmbeddingClient
+LINE=89|CALL=embedder.embed
+
+=== POSSIBLE EMPTY RESULT GUARDS ===
+if\s+not\s+\w+|combined_line=77|if not chunks
+
+=== BLOCKERS ===
+NONE
+
+=== WARNINGS ===
+NONE
+
+=== DECISION ===
+STATUS=ROOT_CAUSE_STRUCTURALLY_NARROWED
+NEXT=RUN_SINGLE_DOCUMENT_PIPELINE_PREFLIGHT
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+
+=== ERRORS ===
+NONE

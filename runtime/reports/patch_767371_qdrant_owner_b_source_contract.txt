@@ -1,0 +1,65 @@
+PATCH=767.371
+PURPOSE=Inspect exact Owner-B Qdrant runtime contract after export-chain repair
+MODE=READ_ONLY_SOURCE_API_FORENSIC
+INDEX_EXECUTION=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_QDRANT_WRITE=NO
+ISOLATED_QDRANT_DELETE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-21 01:28:09
+
+
+=== FORENSIC PYTHON SUMMARY ===
+AST_FAILURES=0
+IMPORT|PASS|delbot_platform.vectorstore.qdrant.repository|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/repository.py
+SYMBOL|PASS|QdrantRepository|type=type
+SYMBOL|MISSING|QdrantStore
+SYMBOL|PASS|get_qdrant_store|type=function
+SYMBOL|MISSING|QdrantClient
+CLASS|delbot_platform.vectorstore.qdrant.repository.QdrantRepository
+CONSTRUCTOR|(store=None) -> 'None'
+METHOD|PASS|__init__|(self, store=None) -> 'None'
+METHOD|PASS|save|(self, vectors: 'list[VectorRecord]') -> 'int'
+METHOD|PASS|count|(self) -> 'int'
+METHOD|PASS|delete_document|(self, document_id: 'str') -> 'None'
+METHOD|MISSING|search
+METHOD|MISSING|insert
+IMPORT|PASS|delbot_platform.vectorstore.qdrant.singleton|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py
+SINGLETON_SYMBOL|PASS|QdrantClient|type=type
+SINGLETON_SYMBOL|PASS|QdrantStore|type=type
+SINGLETON_SYMBOL|PASS|get_qdrant_store|type=function
+GET_QDRANT_STORE_SIGNATURE|() -> 'QdrantStore'
+PACKAGE|PASS|delbot_platform.vectorstore.qdrant|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py
+EXPORT|delbot_platform.vectorstore.qdrant|QdrantRepository|True
+EXPORT|delbot_platform.vectorstore.qdrant|QdrantVectorStore|True
+EXPORT|delbot_platform.vectorstore.qdrant|QdrantStore|True
+EXPORT|delbot_platform.vectorstore.qdrant|get_qdrant_store|True
+PACKAGE|PASS|delbot_platform.vectorstore|file=/workspace/delbot/delbot_platform/vectorstore/__init__.py
+EXPORT|delbot_platform.vectorstore|QdrantRepository|True
+EXPORT|delbot_platform.vectorstore|QdrantVectorStore|True
+EXPORT|delbot_platform.vectorstore|QdrantStore|False
+EXPORT|delbot_platform.vectorstore|get_qdrant_store|False
+QDRANT_CLIENT|PASS|version=UNKNOWN
+QDRANT_CLIENT_SIGNATURE|(location: Optional[str] = None, url: Optional[str] = None, port: Optional[int] = 6333, grpc_port: int = 6334, prefer_grpc: bool = False, https: Optional[bool] = None, api_key: Optional[str] = None, prefix: Optional[str] = None, timeout: Optional[int] = None, host: Optional[str] = None, path: Optional[str] = None, force_disable_check_same_thread: bool = False, grpc_options: Optional[Dict[str, Any]] = None, auth_token_provider: Union[Callable[[], str], Callable[[], Awaitable[str]], NoneType] = None, **kwargs: Any)
+CALLS|delbot_platform/vectorstore/qdrant/repository.py|create_collection,delete_document,upsert,count,delete_document
+CALLS|delbot_platform/vectorstore/qdrant/singleton.py|upsert,search,create_collection,count
+CALLS|delbot_platform/documents/pipeline/indexing.py|save,save
+CALLS|delbot_platform/knowledge/retrieval/qdrant.py|search
+STATUS=PASS
+DECISION=OWNER_B_CONTRACT_VISIBLE
+NEXT_GATE=ISOLATED_RUNTIME_CONNECTION_READ_ONLY
+INDEX_EXECUTION=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_QDRANT_WRITE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO

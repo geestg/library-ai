@@ -1,0 +1,5 @@
+PATCH: 766.925
+PURPOSE: Resolve canonical DELBot HTTP entrypoint and prepare real E2E
+DATE: 2026-08-18 09:28:40
+
+RESULT: GATEWAY 8100 ACTIVE

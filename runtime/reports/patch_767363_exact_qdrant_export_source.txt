@@ -1,0 +1,34 @@
+PATCH=767.363
+PURPOSE=Lock exact Qdrant export source and MVP repository contracts before minimal repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 15:30:03
+
+
+=== FORENSIC RESULT ===
+IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantStore,QdrantVectorStore,get_qdrant_store
+IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+IMPORT|delbot_platform.vectorstore.qdrant.singleton|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+DELETED_CLIENT_IMPORT=EXPECTED_FAIL|ModuleNotFoundError|No module named 'delbot_platform.vectorstore.qdrant.client'
+OWNER_A=PASS|module=delbot_platform.knowledge.vector.repository.qdrant|methods=insert,search
+OWNER_B=PASS|module=delbot_platform.vectorstore.qdrant.repository|methods=count,delete_document,save
+COMPILE_STATUS=PASS
+EXPORT_CHAIN_STATUS=BLOCKED
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+Indexing                 : NOT EXECUTED
+HTTP request             : NOT SENT
+Qdrant write/delete      : NO
+Qdrant reset/recreate    : NO
+Gateway restart          : NO
+Source modified          : NO
+Terminal remains open    : YES

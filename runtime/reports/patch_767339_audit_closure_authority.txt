@@ -1,0 +1,29 @@
+PATCH=767.339
+PURPOSE=Authoritative AST closure/scope trace for audit_pdf_mapping.py nonlocal blocker
+MODE=READ_ONLY
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 14:29:10
+
+--- EXTRACT SUMMARY ---
+GATEWAY_PID=5136
+TARGET_COMPILE=FAIL
+FOUND_NAME|line=120|column=4|ctx=Store
+FOUND_NAME|line=146|column=7|ctx=Load
+FOUND_NAME|line=126|column=11|ctx=Load
+FOUND_NAME|line=142|column=16|ctx=Store
+NONLOCAL|line=124|names=found
+PARSE_ERRORS=0
+AST_STATUS=PASS
+
+COMPILE_ERRORS
+  File "tools/audit_pdf_mapping.py", line 124
+    nonlocal found
+    ^^^^^^^^^^^^^^
+SyntaxError: no binding for nonlocal 'found' found

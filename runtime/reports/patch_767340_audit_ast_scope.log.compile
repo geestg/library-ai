@@ -1,0 +1,4 @@
+  File "tools/audit_pdf_mapping.py", line 124
+    nonlocal found
+    ^^^^^^^^^^^^^^
+SyntaxError: no binding for nonlocal 'found' found

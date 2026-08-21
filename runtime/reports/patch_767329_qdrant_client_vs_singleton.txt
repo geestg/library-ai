@@ -1,0 +1,59 @@
+PATCH=767.329
+PURPOSE=Determine whether vectorstore.qdrant.client is reachable from production indexing graph
+MODE=READ_ONLY
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TOOLS_EXCLUDED=YES
+TESTS_EXCLUDED=YES
+DATE=2026-08-19 14:15:32
+
+PYTHON_TRACE_STATUS=0
+COMPILE_STATUS=PASS
+COMPILE_ERRORS=0
+
+=== PATCH 767.329 SUMMARY ===
+Gateway PID              : 5136
+Parse errors             : 0
+Compile status           : PASS
+Reachable Qdrant owners  : 0
+Reachable QdrantClient   : 0
+Gate status              : BLOCKED
+Indexing                 : NOT EXECUTED
+HTTP request             : NOT SENT
+Qdrant mutation          : NO
+Gateway restart          : NO
+Source modified          : NO
+
+--- EXACT DECISION ---
+REACHABLE_TARGET|delbot_platform.knowledge.vector.qdrant_store|NO
+REACHABLE_TARGET|delbot_platform.knowledge.vector.repository.qdrant|NO
+REACHABLE_TARGET|delbot_platform.vectorstore.qdrant.client|NO
+REACHABLE_TARGET|delbot_platform.vectorstore.qdrant.singleton|NO
+PATH|delbot_platform.vectorstore.qdrant.client|UNREACHABLE
+PATH|delbot_platform.vectorstore.qdrant.singleton|UNREACHABLE
+QDRANTCLIENT|NOT_REACHABLE|module=delbot_platform.vectorstore.qdrant.client|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/client.py|line=29
+QDRANTCLIENT|NOT_REACHABLE|module=delbot_platform.vectorstore.qdrant.singleton|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py|line=43
+STATUS=BLOCKED
+REASON=NO_REACHABLE_DIRECT_QDRANTCLIENT_OWNER
+
+--- IMPORTANT ERRORS ONLY ---
+runtime/reports/patch_767329_qdrant_client_vs_singleton.python.log:PARSE_ERRORS=0
+runtime/reports/patch_767329_qdrant_client_vs_singleton.python.log:STATUS=BLOCKED
+runtime/reports/patch_767329_qdrant_client_vs_singleton.python.log:REASON=NO_REACHABLE_DIRECT_QDRANTCLIENT_OWNER
+
+Detailed report : runtime/reports/patch_767329_qdrant_client_vs_singleton.txt
+Detailed log    : runtime/reports/patch_767329_qdrant_client_vs_singleton.log
+AST trace       : runtime/reports/patch_767329_qdrant_client_vs_singleton.python.log
+Compile log     : runtime/reports/patch_767329_compile.log
+
+=== PATCH 767.329 COMPLETE ===
+READ-ONLY ONLY.
+NO INDEXING.
+NO QDRANT WRITE/DELETE/RESET.
+NO GATEWAY RESTART.
+TERMINAL REMAINS OPEN.

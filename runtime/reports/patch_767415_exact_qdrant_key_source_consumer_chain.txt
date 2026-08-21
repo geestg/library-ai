@@ -1,0 +1,909 @@
+PATCH=767.415
+PURPOSE=Reduce unresolved Qdrant configuration references to active source-to-consumer chains
+MODE=READ_ONLY_TARGETED_AST_TEXT_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:35:38
+
+=== UNRESOLVED KEY SET ===
+COLLECTION_NAME
+DELBOT_QDRANT_PATH
+QDRANT_COLLECTION
+QDRANT_HOST
+QDRANT_LAUNCH_ENV
+QDRANT_LOCAL
+QDRANT_MODE
+QDRANT_PATH
+QDRANT_PORT
+QDRANT_URL
+VECTOR_COLLECTION
+VECTOR_DB_PATH
+
+=== TOP ACTIVE FILE CANDIDATES ===
+61|delbot_platform/vectorstore/qdrant/singleton.py
+48|runtime/research_memory/mvp-766322.json
+42|tools/inspect_embedding_vector.py
+40|runtime/research_memory/mvp-followup-766860.json
+40|runtime/research_memory/mvp-followup-766861.json
+32|runtime/research_memory/mvp-e2e-766878.json
+28|delbot_platform/knowledge/vector/repository/qdrant.py
+25|delbot_platform/knowledge/vector/qdrant_store.py
+24|delbot_platform/documents/pipeline/indexing.py
+23|delbot_platform/knowledge/models/document.py
+23|delbot_platform/vectorstore/qdrant/repository.py
+22|tools/test_qdrant_storage.py
+21|delbot_platform/knowledge/rag/vector_retriever.py
+21|tools/ingest_pdf_vectors.py
+20|delbot_platform/__main__.py
+20|runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json
+20|runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json
+20|runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json
+20|runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json
+20|runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json
+20|runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json
+20|runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json
+20|runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json
+20|runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json
+20|runtime/research_memory/502d4a3d-1290-41d2-b4f3-c224694bf8b4.json
+20|runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json
+20|runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json
+20|runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json
+20|runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json
+20|runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json
+20|runtime/research_memory/6f839760-4d84-431e-8d3a-d7dcdbd13473.json
+20|runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json
+20|runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json
+20|runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json
+20|runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json
+20|runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json
+20|runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json
+20|runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json
+20|runtime/research_memory/a5d2f479-3aed-4688-a863-a37d9abb26ef.json
+20|runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json
+20|runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json
+20|runtime/research_memory/bac8d4d5-5fb4-48ee-87ad-e2959aa45a97.json
+20|runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json
+20|runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json
+20|runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json
+20|runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json
+20|runtime/research_memory/e2e-766504.json
+20|runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json
+20|runtime/research_memory/e807b383-e7a4-4fea-b2e5-382515c37da6.json
+20|runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json
+20|runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json
+20|runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json
+20|runtime/research_memory/git-commit-check.json
+20|runtime/research_memory/mvp-766728.json
+20|runtime/research_memory/mvp-concurrent-1.json
+20|runtime/research_memory/mvp-concurrent-2.json
+20|runtime/research_memory/mvp-continuity-766856.json
+20|runtime/research_memory/mvp-e2e-766755.json
+20|runtime/research_memory/mvp-evidence-766854.json
+20|runtime/research_memory/mvp-evidence-766855.json
+20|runtime/research_memory/mvp-final-934.json
+20|runtime/research_memory/mvp-freeze-766879.json
+20|runtime/research_memory/mvp-owner-check-1.json
+20|runtime/research_memory/mvp-owner-check-2.json
+20|runtime/research_memory/mvp-qdrant-check.json
+20|runtime/research_memory/mvp-smoke-002.json
+20|runtime/research_memory/mvp-trace-766505.json
+20|runtime/research_memory/patch-766926-e2e.json
+20|tools/test_semantic_search.py
+19|tools/ingest_metadata_vectors.py
+19|tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh
+16|delbot_platform/documents/embedding/providers/local.py
+15|tools/debug_qdrant_runtime.py
+14|delbot_platform/gateway/__main__.py
+14|tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh
+13|.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py
+12|delbot_platform/documents/embedding/providers/gateway.py
+12|delbot_platform/research/models/research_result.py
+12|tools/check_qdrant_payload.py
+12|tools/inspect_retriever_api.py
+
+=== QDRANT CONSTRUCTORS ===
+delbot_platform/vectorstore/qdrant/repository.py|25|QDRANT_CONSTRUCTOR|else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py|43|QDRANT_CONSTRUCTOR|self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py|157|QDRANT_CONSTRUCTOR|_store = QdrantStore()
+delbot_platform/knowledge/vector/qdrant_store.py|17|QDRANT_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|25|QDRANT_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|17|QDRANT_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/pipeline.py|45|QDRANT_CONSTRUCTOR|self.retriever = QdrantRetriever()
+delbot_platform/documents/pipeline/indexing.py|104|QDRANT_CONSTRUCTOR|self.vectorstore.save(
+tools/test_retriever_engine.py|21|QDRANT_CONSTRUCTOR|retriever = QdrantRetriever()
+tools/test_semantic_search.py|61|QDRANT_CONSTRUCTOR|store = get_qdrant_store()
+tools/ingest_metadata_vectors.py|57|QDRANT_CONSTRUCTOR|store = QdrantStore(
+tools/ingest_pdf_vectors.py|46|QDRANT_CONSTRUCTOR|store=QdrantStore(
+tools/test_retrieval.py|21|QDRANT_CONSTRUCTOR|retriever = QdrantRetriever()
+tools/check_qdrant_payload.py|4|QDRANT_CONSTRUCTOR|client=QdrantClient(
+tools/test_rag_pipeline.py|121|QDRANT_CONSTRUCTOR|retriever = QdrantRetriever()
+tools/inspect_retriever_api.py|22|QDRANT_CONSTRUCTOR|Retriever = getattr(module, "QdrantRetriever")
+.mvp_backup_766371/pipeline.py|45|QDRANT_CONSTRUCTOR|self.retriever = QdrantRetriever()
+
+=== CONFIG / ENV READS ===
+backup/sprint764_31/config_manager.py|18|ENV_CONFIG_READ|self.settings = ConfigLoader.load(
+backup/sprint764_31/config_manager.py|22|ENV_CONFIG_READ|self.services = ConfigLoader.load(
+backup/sprint764_31/config_manager.py|26|ENV_CONFIG_READ|self.models = ConfigLoader.load(
+backup/sprint764_28/config_manager.py|18|ENV_CONFIG_READ|self.settings = ConfigLoader.load(
+backup/sprint764_28/config_manager.py|22|ENV_CONFIG_READ|self.services = ConfigLoader.load(
+backup/sprint764_28/config_manager.py|26|ENV_CONFIG_READ|self.models = ConfigLoader.load(
+runtime/research_memory/mvp-766728.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|215|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|291|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|310|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|205|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|271|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|300|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|147|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|166|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|232|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|261|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|366|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|442|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|461|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|527|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|546|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|612|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|641|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|717|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|746|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|822|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|851|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|927|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|956|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|1032|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|1061|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|266|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|342|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|371|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|447|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|466|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|532|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|561|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|85|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|104|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|170|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|189|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|255|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|274|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|340|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|359|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|425|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|444|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|93|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|112|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|178|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|197|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|263|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|282|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|348|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|367|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|433|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-e2e-766755.json|452|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/b4c48b3e-796c-4d90-8d28-d496f53b808c.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a495820a-4dbc-4a63-b39f-d17109e7dfbc.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/309d2028-525e-4434-87fd-23d02ebaa718.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|215|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|291|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|310|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/8d9f9957-82e8-4b37-a3c4-f4750f712d1a.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-2.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|100|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|166|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|195|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|271|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|300|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|395|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|461|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766854.json|480|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|73|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|92|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|158|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|187|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|263|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|282|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|348|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|377|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|453|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0d532416-97b1-4c91-9ed5-a8dbe98765b9.json|482|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ed5335e7-baba-4063-aedf-a79901630e6d.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/301aca77-15c4-4343-8982-6dea75fb56f2.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e41a978b-af70-46ae-883a-6cb314a53f36.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1589cf80-1fb0-4b94-9fea-d87a2d9b9b1d.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/59278af0-52db-4fed-be1b-6bbb61beecd8.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|215|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|291|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|310|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/git-commit-check.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-qdrant-check.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|266|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|342|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|371|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|447|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|476|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|552|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|581|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|100|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|166|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|185|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|251|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|270|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|336|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|355|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|421|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/c52785c9-3294-49c7-a4c6-2f040f914e97.json|440|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/1fe5d5c1-1d68-468f-a613-712008332d41.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|262|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|338|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|367|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|443|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|472|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|548|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-freeze-766879.json|577|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ddb51526-e805-478d-92d9-43a025dfdecf.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/32bb66d6-c0f9-4b04-a9a5-13afdd44f4f1.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/84b4eb7d-4ddb-4a83-a1db-df200e2294ad.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/e27e620a-4078-4fbc-b3a2-8059def4c2c8.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|99|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|118|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|184|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|213|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|289|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|394|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|413|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|479|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|498|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|564|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|593|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|669|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|698|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|774|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|803|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|879|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|908|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|984|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766861.json|1013|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-owner-check-1.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/7509e13b-b7b8-435e-9608-18613b5c5907.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|148|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|167|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|233|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|252|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|318|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|337|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|403|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|422|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|488|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-concurrent-1.json|507|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|436|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|512|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|541|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|97|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|116|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|182|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|201|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|267|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|286|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|352|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|371|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|437|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-trace-766505.json|456|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|215|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|291|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|310|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-final-934.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/ef5fad4e-88af-4678-a7fe-6bdfd217f28c.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|77|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|96|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|162|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|181|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|247|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|266|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|332|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|351|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|417|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/9e38fa38-c389-4ec9-b3b5-b7bb3bb10eaa.json|436|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|181|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|257|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|276|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|342|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|371|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|447|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|476|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|552|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/65c3481b-d523-489c-bf38-721cc4d3b296.json|581|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|215|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|291|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|310|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|405|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|481|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/0f16ce3a-0d03-4408-aa8a-384abaa825b3.json|510|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|521|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a6f50a1f-e3ea-4faf-b0f1-e26843856074.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|100|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|166|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|195|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|271|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|300|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|376|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|395|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|461|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/mvp-evidence-766855.json|480|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|152|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|171|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|237|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|256|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|322|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|341|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|407|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|426|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|492|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/6ccecc09-e067-42af-a151-fdca35f908e0.json|511|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a5d2f479-3aed-4688-a863-a37d9abb26ef.json|81|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a5d2f479-3aed-4688-a863-a37d9abb26ef.json|110|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a5d2f479-3aed-4688-a863-a37d9abb26ef.json|186|KEY_REFERENCE|"collection_name": "Default",
+runtime/research_memory/a5d2f479-3aed-4688-a863-a37d9abb26ef.json|215|KEY_REFERENCE|"collection_name": "Default",
+
+=== ASSIGNMENTS ===
+delbot_platform/vectorstore/qdrant/__init__.py|11|ASSIGNMENT|QdrantVectorStore = QdrantStore
+delbot_platform/vectorstore/qdrant/repository.py|47|ASSIGNMENT|first_payload = vectors[0].metadata
+delbot_platform/vectorstore/qdrant/repository.py|62|ASSIGNMENT|payload = vector.metadata
+delbot_platform/vectorstore/qdrant/singleton.py|149|ASSIGNMENT|_store: QdrantStore | None = None
+delbot_platform/vectorstore/qdrant/singleton.py|33|ASSIGNMENT|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|43|ASSIGNMENT|self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py|58|ASSIGNMENT|collections = (
+delbot_platform/vectorstore/qdrant/singleton.py|157|ASSIGNMENT|_store = QdrantStore()
+delbot_platform/vectors/models.py|18|ASSIGNMENT|vector: list[float] | None = None
+delbot_platform/research/models/research_result.py|32|ASSIGNMENT|collections: list[str] = field(
+delbot_platform/research/models/research_result.py|36|ASSIGNMENT|collection_ids: list[str] = field(
+delbot_platform/research/models/embedding.py|22|ASSIGNMENT|vector: list[float] = field(
+delbot_platform/research/builders/research_result_builder.py|30|ASSIGNMENT|collections = self._collect_unique(
+delbot_platform/knowledge/vector/qdrant_store.py|17|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py|18|ASSIGNMENT|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|25|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|26|ASSIGNMENT|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|84|ASSIGNMENT|records: list[VectorRecord] = []
+delbot_platform/knowledge/vector/repository/memory.py|24|ASSIGNMENT|self.records: list[VectorRecord] = []
+delbot_platform/knowledge/retrieval/qdrant.py|77|ASSIGNMENT|vectors = await self.embedding.run(
+delbot_platform/knowledge/retrieval/qdrant.py|43|ASSIGNMENT|self.repository = QdrantRepository()
+delbot_platform/knowledge/rag/vector_retriever.py|17|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|29|ASSIGNMENT|vector = self.embedding.embed(
+delbot_platform/knowledge/rag/pipeline.py|45|ASSIGNMENT|self.retriever = QdrantRetriever()
+delbot_platform/knowledge/hydration/local.py|86|ASSIGNMENT|collection = Collection(
+delbot_platform/knowledge/pipeline/pipeline_context.py|15|ASSIGNMENT|vector_count: int
+delbot_platform/knowledge/models/document_chunk.py|27|ASSIGNMENT|vector_score: float = 0.0
+delbot_platform/knowledge/models/rag_result.py|39|ASSIGNMENT|name = chunk.document.collection.name
+delbot_platform/knowledge/models/rag_result.py|59|ASSIGNMENT|value = chunk.document.collection.collection_id
+delbot_platform/knowledge/models/document.py|22|ASSIGNMENT|collection: Collection = field(
+delbot_platform/knowledge/models/document.py|280|ASSIGNMENT|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|290|ASSIGNMENT|collection = Collection(
+delbot_platform/knowledge/models/collection.py|13|ASSIGNMENT|collection_id: str = ""
+delbot_platform/knowledge/reranking/local.py|51|ASSIGNMENT|vector_score = float(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|ASSIGNMENT|self._collection_name = collection_name
+delbot_platform/ai/runtime/infinity.py|41|ASSIGNMENT|vector = [
+delbot_platform/ai/runtime/embedding.py|67|ASSIGNMENT|vector = model.encode(
+delbot_platform/ai/embedding/embedding_builder.py|26|ASSIGNMENT|collection = document.index
+delbot_platform/ai/embedding/embedding_result.py|16|ASSIGNMENT|vector: list[float]
+delbot_platform/ai/embedding/embedding_service.py|40|ASSIGNMENT|collection = EmbeddingCollection()
+delbot_platform/workspace/models/workspace_metadata.py|11|ASSIGNMENT|active_collection: str = ""
+delbot_platform/documents/pipeline/indexing.py|59|ASSIGNMENT|self.vectorstore = (
+delbot_platform/documents/pipeline/indexing.py|94|ASSIGNMENT|vectors = await self.embedding.run(
+delbot_platform/documents/pipeline/indexing.py|98|ASSIGNMENT|vector_records = (
+delbot_platform/documents/pipeline/models/artifact.py|45|ASSIGNMENT|vectors: list[EmbeddingVector] = field(
+delbot_platform/documents/pipeline/models/index_result.py|21|ASSIGNMENT|vectors: int
+delbot_platform/documents/embedding/models/embedding_vector.py|55|ASSIGNMENT|vector: list[float]
+delbot_platform/documents/embedding/providers/gateway.py|46|ASSIGNMENT|results: list[EmbeddingVector] = []
+delbot_platform/documents/embedding/providers/gateway.py|59|ASSIGNMENT|vector = response["data"][0]["embedding"]
+delbot_platform/documents/embedding/providers/local.py|43|ASSIGNMENT|vectors = await asyncio.to_thread(
+delbot_platform/documents/embedding/providers/local.py|51|ASSIGNMENT|results: list[EmbeddingVector] = []
+tools/test_retriever_engine.py|21|ASSIGNMENT|retriever = QdrantRetriever()
+tools/test_semantic_search.py|50|ASSIGNMENT|vectors = await pipeline.run(
+tools/test_semantic_search.py|59|ASSIGNMENT|query_vector = vectors[0].vector
+tools/test_semantic_search.py|61|ASSIGNMENT|store = get_qdrant_store()
+tools/test_qdrant_storage.py|55|ASSIGNMENT|repository = QdrantRepository()
+tools/test_qdrant_storage.py|66|ASSIGNMENT|collection = getattr(store, "collection_name", None)
+tools/ingest_metadata_vectors.py|57|ASSIGNMENT|store = QdrantStore(
+tools/ingest_metadata_vectors.py|124|ASSIGNMENT|vectors=embedder.embed(
+tools/inspect_embedding_vector.py|40|ASSIGNMENT|vectors = await pipeline.run([chunk])
+tools/inspect_embedding_vector.py|42|ASSIGNMENT|vector = vectors[0]
+tools/inspect_embedding_vector.py|135|ASSIGNMENT|obj = getattr(vector, name)
+tools/inspect_embedding_vector.py|64|ASSIGNMENT|value = getattr(vector, f.name)
+tools/inspect_embedding_vector.py|97|ASSIGNMENT|value = getattr(vector, name)
+tools/inspect_embedding_vector.py|109|ASSIGNMENT|value = getattr(vector, name)
+tools/batch_ingest_repository.py|35|ASSIGNMENT|repository = QdrantRepository()
+tools/ingest_pdf_vectors.py|46|ASSIGNMENT|store=QdrantStore(
+tools/ingest_pdf_vectors.py|89|ASSIGNMENT|vectors=embedder.embed(
+tools/test_vector_schema.py|18|ASSIGNMENT|retriever = VectorRetriever()
+tools/test_ingest.py|17|ASSIGNMENT|db = QdrantIngest()
+tools/debug_qdrant_runtime.py|60|ASSIGNMENT|repo = QdrantRepository()
+tools/test_retrieval.py|21|ASSIGNMENT|retriever = QdrantRetriever()
+tools/check_qdrant_payload.py|4|ASSIGNMENT|client=QdrantClient(
+tools/test_rag_pipeline.py|121|ASSIGNMENT|retriever = QdrantRetriever()
+tools/test_citation_builder.py|81|ASSIGNMENT|vectors = await pipeline.run(
+tools/test_citation_builder.py|96|ASSIGNMENT|repo = QdrantRepository()
+tools/inspect_retriever_api.py|22|ASSIGNMENT|Retriever = getattr(module, "QdrantRetriever")
+.mvp_backup_766371/pipeline.py|45|ASSIGNMENT|self.retriever = QdrantRetriever()
+.mvp_backup_766371/qdrant.py|76|ASSIGNMENT|vectors = await self.embedding.run(
+.mvp_backup_766371/qdrant.py|43|ASSIGNMENT|self.repository = QdrantRepository()
+.mvp_backup_766371/memory.py|24|ASSIGNMENT|self.records: list[VectorRecord] = []
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|44|ASSIGNMENT|collection = SemanticChunkCollection()
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|43|ASSIGNMENT|collection = ParagraphCollection()
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py|76|ASSIGNMENT|collection = HeadingCollection()
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py|106|ASSIGNMENT|document.metadata["heading_collection"] = collection
+
+=== LAUNCH ENV REFERENCES ===
+delbot_platform/config/settings.yaml|5|LAUNCH_ENV_REFERENCE|environment:
+tools/pr_5_1ao_qdrant_vector_commit.sh|157|LAUNCH_ENV_REFERENCE|python3 -m py_compile /workspace/delbot/tools/pr_5_1ao_qdrant_vector_commit.sh 2>/dev/null || true
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh|66|LAUNCH_ENV_REFERENCE|"env_file":str(env),
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh|51|LAUNCH_ENV_REFERENCE|QDRANT_PORT=$(python3 - <<'PY'
+repository_data/report/mvp_repository_statistics.json|7611|LAUNCH_ENV_REFERENCE|"text": "\nEnglish (US). \nPilih key to function as AltGr. The default for the keyboard layout dan pilih \ncompose key: No compose key. Setelah itu pada warning \u201cBy default the \n\n \n \nInstitut Teknologi Del \nTugas Akhir Diploma 3, Hlmn 107 dari 124 \n \nDoor Lock System with Two Factor Auth
+
+=== QDRANT REFERENCES ===
+delbot_platform/vectorstore/qdrant/repository.py|28|QDRANT_CALL|self.store.create_collection()
+delbot_platform/vectorstore/qdrant/repository.py|25|QDRANT_CALL|else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/repository.py|64|QDRANT_CALL|point_id = str(
+delbot_platform/vectorstore/qdrant/repository.py|71|QDRANT_CALL|points.append(
+delbot_platform/vectorstore/qdrant/repository.py|65|QDRANT_CALL|uuid5(
+delbot_platform/vectorstore/qdrant/repository.py|72|QDRANT_CALL|PointStruct(
+delbot_platform/vectorstore/qdrant/singleton.py|33|QDRANT_CALL|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|43|QDRANT_CALL|self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py|64|QDRANT_CALL|exists = any(
+delbot_platform/vectorstore/qdrant/singleton.py|89|QDRANT_CALL|self.client.upsert(
+delbot_platform/vectorstore/qdrant/singleton.py|115|QDRANT_CALL|self.client.delete(
+delbot_platform/vectorstore/qdrant/singleton.py|141|QDRANT_CALL|return self.client.search(
+delbot_platform/vectorstore/qdrant/singleton.py|157|QDRANT_CALL|_store = QdrantStore()
+delbot_platform/vectorstore/qdrant/singleton.py|22|QDRANT_CALL|path = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|59|QDRANT_CALL|self.client
+delbot_platform/vectorstore/qdrant/singleton.py|71|QDRANT_CALL|self.client.create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py|99|QDRANT_CALL|return self.client.count(
+delbot_platform/vectorstore/qdrant/singleton.py|24|QDRANT_CALL|os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|26|QDRANT_CALL|str(
+delbot_platform/vectorstore/qdrant/singleton.py|73|QDRANT_CALL|vectors_config=VectorParams(
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|49|QDRANT_CALL|return SemanticChunkCollection(
+delbot_platform/research/models/research_result.py|111|QDRANT_CALL|return cls(
+delbot_platform/research/models/research_result.py|138|QDRANT_CALL|collections=data.get(
+delbot_platform/research/models/research_result.py|142|QDRANT_CALL|collection_ids=data.get(
+delbot_platform/research/models/embedding.py|34|QDRANT_CALL|return len(
+delbot_platform/research/models/embedding.py|42|QDRANT_CALL|return bool(
+delbot_platform/research/builders/research_result_builder.py|30|QDRANT_CALL|collections = self._collect_unique(
+delbot_platform/research/builders/research_result_builder.py|58|QDRANT_CALL|return ResearchResult(
+delbot_platform/knowledge/vector/qdrant_store.py|17|QDRANT_CALL|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py|25|QDRANT_CALL|self.store.create_collection()
+delbot_platform/knowledge/vector/qdrant_store.py|35|QDRANT_CALL|for index, (vector, payload) in enumerate(
+delbot_platform/knowledge/vector/qdrant_store.py|36|QDRANT_CALL|zip(vectors, payloads)
+delbot_platform/knowledge/vector/qdrant_store.py|39|QDRANT_CALL|document_id = payload.get(
+delbot_platform/knowledge/vector/qdrant_store.py|44|QDRANT_CALL|points.append(
+delbot_platform/knowledge/vector/qdrant_store.py|45|QDRANT_CALL|PointStruct(
+delbot_platform/knowledge/vector/repository/qdrant.py|25|QDRANT_CALL|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|28|QDRANT_CALL|self.store.create_collection()
+delbot_platform/knowledge/vector/repository/qdrant.py|78|QDRANT_CALL|results = self.store.search(
+delbot_platform/knowledge/vector/repository/qdrant.py|39|QDRANT_CALL|points.append(
+delbot_platform/knowledge/vector/repository/qdrant.py|90|QDRANT_CALL|records.append(
+delbot_platform/knowledge/vector/repository/qdrant.py|40|QDRANT_CALL|PointStruct(
+delbot_platform/knowledge/vector/repository/qdrant.py|91|QDRANT_CALL|VectorRecord(
+delbot_platform/knowledge/retrieval/qdrant.py|43|QDRANT_CALL|self.repository = QdrantRepository()
+delbot_platform/knowledge/retrieval/qdrant.py|83|QDRANT_CALL|results = await self.repository.search(
+delbot_platform/knowledge/rag/vector_retriever.py|17|QDRANT_CALL|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|19|QDRANT_CALL|self.store.create_collection()
+delbot_platform/knowledge/rag/vector_retriever.py|33|QDRANT_CALL|results = self.store.search(
+delbot_platform/knowledge/rag/vector_retriever.py|54|QDRANT_CALL|documents.append(
+delbot_platform/knowledge/rag/vector_retriever.py|55|QDRANT_CALL|DocumentChunk(
+delbot_platform/knowledge/rag/pipeline.py|45|QDRANT_CALL|self.retriever = QdrantRetriever()
+delbot_platform/knowledge/hydration/local.py|86|QDRANT_CALL|collection = Collection(
+delbot_platform/knowledge/hydration/local.py|116|QDRANT_CALL|document = Document(
+delbot_platform/knowledge/pipeline/knowledge_pipeline.py|27|QDRANT_CALL|_ = KnowledgePipelineContext(
+delbot_platform/knowledge/models/document_chunk.py|188|QDRANT_CALL|return cls(
+delbot_platform/knowledge/models/document_chunk.py|202|QDRANT_CALL|vector_score=data.get(
+delbot_platform/knowledge/models/document.py|22|QDRANT_CALL|collection: Collection = field(
+delbot_platform/knowledge/models/document.py|351|QDRANT_CALL|return cls(
+delbot_platform/knowledge/models/document.py|248|QDRANT_CALL|"collection": self.collection.export(),
+delbot_platform/knowledge/models/document.py|280|QDRANT_CALL|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|290|QDRANT_CALL|collection = Collection(
+delbot_platform/knowledge/models/document.py|291|QDRANT_CALL|collection_id=data.get(
+delbot_platform/knowledge/models/document.py|295|QDRANT_CALL|name=data.get(
+delbot_platform/knowledge/models/collection.py|135|QDRANT_CALL|return cls(
+delbot_platform/knowledge/models/collection.py|136|QDRANT_CALL|collection_id=data.get(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|36|QDRANT_CALL|raise NotImplementedError(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|46|QDRANT_CALL|raise NotImplementedError(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|55|QDRANT_CALL|raise NotImplementedError(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|63|QDRANT_CALL|raise NotImplementedError(
+delbot_platform/ai/runtime/embedding.py|80|QDRANT_CALL|"embedding": vector.tolist(),
+delbot_platform/ai/embedding/embedding_builder.py|28|QDRANT_CALL|for index, chunk in enumerate(
+delbot_platform/ai/embedding/embedding_result.py|26|QDRANT_CALL|return len(
+delbot_platform/ai/embedding/embedding_service.py|40|QDRANT_CALL|collection = EmbeddingCollection()
+delbot_platform/ai/embedding/embedding_service.py|48|QDRANT_CALL|collection.add(
+delbot_platform/ai/embedding/embedding_service.py|49|QDRANT_CALL|Embedding(
+delbot_platform/workspace/models/workspace_metadata.py|38|QDRANT_CALL|return cls(
+delbot_platform/workspace/models/workspace_metadata.py|39|QDRANT_CALL|active_collection=data.get(
+delbot_platform/documents/ingestion/repository_ingestor.py|88|QDRANT_CALL|results.append(
+delbot_platform/documents/pipeline/indexing.py|60|QDRANT_CALL|QdrantRepository()
+delbot_platform/documents/pipeline/indexing.py|99|QDRANT_CALL|EmbeddingVectorMapper.to_vector_records(
+delbot_platform/documents/pipeline/indexing.py|104|QDRANT_CALL|self.vectorstore.save(
+delbot_platform/documents/pipeline/indexing.py|108|QDRANT_CALL|return DocumentIndexArtifact(
+delbot_platform/documents/pipeline/indexing.py|122|QDRANT_CALL|return DocumentIndexResult(
+delbot_platform/documents/pipeline/models/artifact.py|100|QDRANT_CALL|return len(self.vectors)
+delbot_platform/documents/embedding/models/embedding_vector.py|92|QDRANT_CALL|return bool(self.vector)
+delbot_platform/documents/embedding/models/embedding_vector.py|99|QDRANT_CALL|return len(self.vector)
+delbot_platform/documents/embedding/providers/gateway.py|61|QDRANT_CALL|results.append(
+delbot_platform/documents/embedding/providers/gateway.py|62|QDRANT_CALL|EmbeddingVector(
+delbot_platform/documents/embedding/providers/gateway.py|70|QDRANT_CALL|dimension=len(vector),
+delbot_platform/documents/embedding/providers/local.py|53|QDRANT_CALL|for chunk, vector in zip(
+delbot_platform/documents/embedding/providers/local.py|58|QDRANT_CALL|results.append(
+delbot_platform/documents/embedding/providers/local.py|59|QDRANT_CALL|EmbeddingVector(
+delbot_platform/documents/embedding/providers/local.py|62|QDRANT_CALL|vector=vector.tolist(),
+delbot_platform/documents/embedding/providers/local.py|67|QDRANT_CALL|dimension=len(vector),
+delbot_platform/documents/embedding/mapper/vector_mapper.py|39|QDRANT_CALL|return VectorRecord(
+delbot_platform/documents/embedding/mapper/vector_mapper.py|51|QDRANT_CALL|EmbeddingVectorMapper.to_vector_record(
+tools/test_retriever_engine.py|21|QDRANT_CALL|retriever = QdrantRetriever()
+tools/test_semantic_search.py|61|QDRANT_CALL|store = get_qdrant_store()
+tools/test_semantic_search.py|67|QDRANT_CALL|results = store.search(
+tools/test_semantic_search.py|55|QDRANT_CALL|raise RuntimeError(
+tools/test_qdrant_storage.py|55|QDRANT_CALL|repository = QdrantRepository()
+tools/test_qdrant_storage.py|60|QDRANT_CALL|print("Checking Qdrant")
+tools/test_qdrant_storage.py|66|QDRANT_CALL|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py|101|QDRANT_CALL|print(f"VECTORS     : {summary.vectors}")
+tools/test_qdrant_storage.py|102|QDRANT_CALL|print(f"QDRANT      : {point_count}")
+tools/test_qdrant_storage.py|72|QDRANT_CALL|scroll_result = client.scroll(
+tools/test_qdrant_storage.py|108|QDRANT_CALL|print("QDRANT STORAGE : PASS")
+tools/test_qdrant_storage.py|112|QDRANT_CALL|print("QDRANT STORAGE : FAILED")
+tools/ingest_metadata_vectors.py|36|QDRANT_CALL|print("METADATA VECTOR INGEST")
+tools/ingest_metadata_vectors.py|57|QDRANT_CALL|store = QdrantStore(
+tools/ingest_metadata_vectors.py|61|QDRANT_CALL|store.create_collection()
+tools/ingest_metadata_vectors.py|129|QDRANT_CALL|inserted=store.insert(
+tools/inspect_embedding_vector.py|48|QDRANT_CALL|print(type(vector))
+tools/inspect_embedding_vector.py|54|QDRANT_CALL|print(inspect.signature(type(vector)))
+tools/inspect_embedding_vector.py|61|QDRANT_CALL|if is_dataclass(vector):
+tools/inspect_embedding_vector.py|91|QDRANT_CALL|for name in dir(vector):
+tools/inspect_embedding_vector.py|130|QDRANT_CALL|for name in dir(vector):
+tools/inspect_embedding_vector.py|150|QDRANT_CALL|print(vector)
+tools/inspect_embedding_vector.py|63|QDRANT_CALL|for f in fields(vector):
+tools/inspect_embedding_vector.py|135|QDRANT_CALL|obj = getattr(vector, name)
+tools/inspect_embedding_vector.py|64|QDRANT_CALL|value = getattr(vector, f.name)
+tools/inspect_embedding_vector.py|97|QDRANT_CALL|value = getattr(vector, name)
+tools/inspect_embedding_vector.py|109|QDRANT_CALL|value = getattr(vector, name)
+tools/inspect_embedding_vector.py|142|QDRANT_CALL|print(f"{m:<24}{inspect.signature(getattr(vector,m))}")
+tools/test_document_pipeline.py|79|QDRANT_CALL|print(f"Vector Count    : {len(getattr(artifact, 'vectors', []))}")
+tools/batch_ingest_repository.py|35|QDRANT_CALL|repository = QdrantRepository()
+tools/batch_ingest_repository.py|99|QDRANT_CALL|print(
+tools/batch_ingest_repository.py|71|QDRANT_CALL|print(
+tools/batch_ingest_repository.py|72|QDRANT_CALL|f"Vectors  : {len(artifact.vectors)}"
+tools/ingest_pdf_vectors.py|37|QDRANT_CALL|print("PDF VECTOR INGEST")
+tools/ingest_pdf_vectors.py|46|QDRANT_CALL|store=QdrantStore(
+tools/ingest_pdf_vectors.py|51|QDRANT_CALL|store.create_collection()
+tools/ingest_pdf_vectors.py|133|QDRANT_CALL|print(
+tools/ingest_pdf_vectors.py|117|QDRANT_CALL|inserted=store.insert(
+tools/test_vector_schema.py|18|QDRANT_CALL|retriever = VectorRetriever()
+tools/test_vector_schema.py|50|QDRANT_CALL|print("VECTOR SCORE:")
+tools/test_vector_schema.py|51|QDRANT_CALL|print(chunk.vector_score)
+tools/test_rag_end_to_end.py|19|QDRANT_CALL|Retriever = importlib.import_module(
+tools/test_ingest.py|17|QDRANT_CALL|db = QdrantIngest()
+tools/test_ingest.py|20|QDRANT_CALL|db.ensure_collection()
+tools/debug_qdrant_runtime.py|53|QDRANT_CALL|print("Vectors:", artifact.vector_count)
+tools/debug_qdrant_runtime.py|60|QDRANT_CALL|repo = QdrantRepository()
+tools/debug_qdrant_runtime.py|64|QDRANT_CALL|print("Collection :", repo.store.collection)
+tools/debug_qdrant_runtime.py|118|QDRANT_CALL|print("COLLECTION INFO")
+tools/debug_qdrant_runtime.py|91|QDRANT_CALL|points, _ = repo.store.scroll(
+tools/debug_qdrant_runtime.py|122|QDRANT_CALL|print(repo.store.collection_info())
+tools/audit_qdrant_storage.py|35|QDRANT_CALL|print("QDRANT STORAGE AUDIT")
+tools/test_retrieval.py|21|QDRANT_CALL|retriever = QdrantRetriever()
+tools/test_document_pipeline_batch.py|68|QDRANT_CALL|print(f"VECTORS    : {summary.vectors}")
+tools/check_qdrant_payload.py|4|QDRANT_CALL|client=QdrantClient(
+tools/check_qdrant_payload.py|11|QDRANT_CALL|points,_=client.scroll(
+tools/test_rag_pipeline.py|121|QDRANT_CALL|retriever = QdrantRetriever()
+tools/test_citation_builder.py|96|QDRANT_CALL|repo = QdrantRepository()
+tools/test_citation_builder.py|98|QDRANT_CALL|raw_results = repo.store.search(
+tools/test_citation_builder.py|272|QDRANT_CALL|print("SEARCH QDRANT")
+tools/inspect_retriever_api.py|18|QDRANT_CALL|module = importlib.import_module(
+tools/inspect_retriever_api.py|22|QDRANT_CALL|Retriever = getattr(module, "QdrantRetriever")
+.mvp_backup_766371/pipeline.py|45|QDRANT_CALL|self.retriever = QdrantRetriever()
+.mvp_backup_766371/qdrant.py|43|QDRANT_CALL|self.repository = QdrantRepository()
+.mvp_backup_766371/qdrant.py|82|QDRANT_CALL|results = await self.repository.search(
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|44|QDRANT_CALL|collection = SemanticChunkCollection()
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|128|QDRANT_CALL|collection.add(
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|93|QDRANT_CALL|self._flush(
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|57|QDRANT_CALL|self._flush(
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py|75|QDRANT_CALL|self._flush(
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|43|QDRANT_CALL|collection = ParagraphCollection()
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|97|QDRANT_CALL|collection.add(
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|84|QDRANT_CALL|collection.add(
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py|76|QDRANT_CALL|collection = HeadingCollection()
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py|98|QDRANT_CALL|collection.add(
+
+=== PARSE ERRORS ===
+NONE
+
+=== READ ERRORS ===
+NONE

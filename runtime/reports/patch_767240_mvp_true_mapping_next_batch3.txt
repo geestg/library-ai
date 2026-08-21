@@ -1,0 +1,49 @@
+
+--- 1. GATEWAY PROCESS ---
+5136 python -m delbot_platform.gateway
+GATEWAY_RUNNING=YES
+
+--- 2. GATEWAY HEALTH ---
+HEALTH_HTTP=200
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}GATEWAY_HEALTH=PASS
+
+--- 3. TRUE PDF MAPPING BEFORE BATCH ---
+PDF_TOTAL=188
+TRUE_MATCHED=99
+TRUE_UNPROCESSED=89
+NEXT_TARGETS
+TARGET | 123456789-1600 | 0e47e7c8fe204645bef65ba415ab1303.pdf
+TARGET | 123456789-1524 | 0e8207be782f42e7b4d375fbcf36c5a2.pdf
+TARGET | 123456789-1164 | 0ef71eefa4e749169b11051e205eaa3e.pdf
+
+--- 4. ACTIVE INDEX REQUEST CHECK ---
+ACTIVE_INDEX_REQUEST=NO
+
+--- 5. START NEXT DETACHED BATCH LIMIT=3 ---
+INDEX_REQUEST_STARTED=YES
+CURL_PID=9814
+RESPONSE=/tmp/delbot_767240_index_response.json
+
+--- 6. INITIAL REQUEST STATE ---
+CURL_STATUS=RUNNING
+
+--- 7. GATEWAY AFTER START ---
+5136 python -m delbot_platform.gateway
+
+--- 8. QDRANT STATE ---
+QDRANT_PATH=PRESENT
+65M	/workspace/delbot/repository_data/qdrant_local
+
+--- 9. SAFETY ---
+DATA_RESET=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART_DURING_BATCH=NO
+BATCH_LIMIT=3
+
+--- 10. DECISION ---
+BATCH_DECISION=STARTED_BACKGROUND
+
+--- 11. REPORT ---
+REPORT=runtime/reports/patch_767240_mvp_true_mapping_next_batch3.txt
+LOG=runtime/reports/patch_767240_mvp_true_mapping_next_batch3.log

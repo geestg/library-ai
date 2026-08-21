@@ -1,0 +1,55 @@
+PATCH=767.368
+PURPOSE=Validate real Qdrant runtime connectivity and isolated write path before MVP indexing
+MODE=ISOLATED_RUNTIME_PREFLIGHT
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+MVP_COLLECTION_WRITE=NO
+MVP_DATA_WRITE=NO
+QDRANT_WRITE=ISOLATED_TEST_ONLY
+QDRANT_DELETE=ISOLATED_TEST_ONLY
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_DATA_SCOPE=DEDICATED_PREFLIGHT_COLLECTION_ONLY
+DATE=2026-08-20 02:11:10
+
+
+=== PATCH 767.368 SUMMARY ===
+IMPORT|delbot_platform.vectorstore|PASS|symbols=QdrantRepository,QdrantVectorStore
+IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantRepository,QdrantVectorStore,QdrantStore,get_qdrant_store
+IMPORT|delbot_platform.vectorstore.qdrant.repository|PASS|symbols=QdrantRepository,get_qdrant_store
+IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantStore,QdrantClient,get_qdrant_store
+REPOSITORY_CLASS=<class 'delbot_platform.vectorstore.qdrant.repository.QdrantRepository'>
+REPOSITORY_INIT_SIGNATURE=(self, store=None) -> 'None'
+REPOSITORY_CONSTRUCTOR=PASS|type=QdrantRepository
+REPOSITORY_STORE|type=QdrantStore
+STORE_MODULE=delbot_platform.vectorstore.qdrant.singleton
+STORE_METHODS=upsert,search,count,delete_document
+SINGLETON_SYMBOLS=QdrantStore,QdrantClient,get_qdrant_store
+CLIENT_FOUND|owner=store|attribute=client|type=QdrantClient
+CLIENT_MODULE=qdrant_client.qdrant_client
+QDRANT_REACHABILITY=PASS|collections=1
+QDRANT_COLLECTION_NAMES=delbot_documents
+STATUS=PASS|errors=0|warnings=0
+DECISION=QDRANT_RUNTIME_REACHABLE
+NEXT_GATE=ISOLATED_WRITE_TEST
+INDEX_GATE=DO_NOT_INDEX
+QDRANT_WRITE=NOT_EXECUTED
+QDRANT_DELETE=NOT_EXECUTED
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+
+=== IMPORTANT ERRORS ===
+
+=== SAFETY ===
+INDEXING=NOT_EXECUTED
+MVP_COLLECTION_WRITE=NO
+MVP_DATA_WRITE=NO
+QDRANT_WRITE=NOT_EXECUTED
+QDRANT_DELETE=NOT_EXECUTED
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO

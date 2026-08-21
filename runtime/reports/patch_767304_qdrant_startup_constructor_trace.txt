@@ -1,0 +1,101 @@
+PATCH: 767.304
+PURPOSE: Identify exact Python startup path constructing Qdrant Local client
+MODE: READ-ONLY
+INDEX REQUEST: NO
+QDRANT WRITE: NO
+QDRANT DELETE: NO
+QDRANT RESET: NO
+DATA RESET: NO
+DATE: 2026-08-19 07:49:32
+    10	
+    11	class VectorRetriever:
+    12	
+    13	    def __init__(
+    14	        self,
+    15	    ) -> None:
+    16	
+    17	        self.store = get_qdrant_store()
+    18	
+    19	        self.store.create_collection()
+    20	
+    21	        self.embedding = EmbeddingClient()
+    22	
+    23	    def search(
+    24	        self,
+    25	        query: str,
+    26	        limit: int = 10,
+    27	    ) -> list[DocumentChunk]:
+    28	
+    29	        vector = self.embedding.embed(
+    30	            query,
+    31	        )
+    32	
+    33	        results = self.store.search(
+    34	            query_vector=vector,
+    35	            limit=limit,
+    36	            with_payload=True,
+    37	        )
+    38	
+    39	        documents: list[DocumentChunk] = []
+    40	
+    41	        for item in results:
+    42	
+    43	            payload = item.payload or {}
+    44	
+    45	            text = payload.get(
+    46	                "text",
+    47	                "",
+    48	            )
+    49	
+    50	            document = Document.from_dict(
+    51	                payload,
+    52	            )
+    53	
+    54	            documents.append(
+    55	                DocumentChunk(
+    56	                    chunk_id=str(
+    57	                        payload.get(
+    58	                            "chunk_id",
+    59	                            item.id,
+    60	                        )
+    61	                    ),
+    62	                    document=document,
+    63	                    page=payload.get(
+    64	                        "page",
+    65	                        0,
+    66	                    ),
+    67	                    text=text,
+    68	                    vector_score=float(
+    69	                        item.score,
+    70	                    ),
+    71	                    metadata=payload,
+    72	                )
+    73	            )
+    74	
+    75	        return documents
+
+--- 10. PYTHON IMPORT TRACE WITHOUT CONSTRUCTION ---
+IMPORT_TRACE_BEGIN
+IMPORT_OK= delbot_platform.api.routers.retrieval
+MODULE_FILE= /workspace/delbot/delbot_platform/api/routers/retrieval.py
+IMPORT_OK= delbot_platform.api.routers.document
+MODULE_FILE= /workspace/delbot/delbot_platform/api/routers/document.py
+IMPORT_OK= delbot_platform.documents.services.indexing
+MODULE_FILE= /workspace/delbot/delbot_platform/documents/services/indexing.py
+IMPORT_OK= delbot_platform.knowledge.retrieval.qdrant
+MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/retrieval/qdrant.py
+IMPORT_OK= delbot_platform.knowledge.rag.vector_retriever
+MODULE_FILE= /workspace/delbot/delbot_platform/knowledge/rag/vector_retriever.py
+IMPORT_TRACE_END
+COMPILE_STATUS=0
+
+--- 12. FINAL SAFETY ASSERTION ---
+INDEX_EXECUTED=NO
+EMBEDDING_EXECUTED=NO
+QDRANT_UPSERT=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+COMPILE_STATUS=0
+
+=== PATCH 767.304 COMPLETE ===

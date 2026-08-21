@@ -1,0 +1,778 @@
+PATCH=767.416
+PURPOSE=Correlate concrete Qdrant constructor arguments with config objects and ENV/static sources
+MODE=READ_ONLY_TARGETED_AST_CORRELATION
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:36:30
+
+=== COUNTS ===
+PYTHON_FILES=475
+PARSE_ERRORS=0
+QDRANT_FILES=58
+CONFIG_FILES=96
+QDRANT_CONSTRUCTORS=23
+CONSTRUCTOR_ARGUMENT_NAMES=2
+ASSIGNMENT_LINKS=64
+CONFIG_ACCESS_HITS=38
+IMPORT_EDGES=539
+SAME_MODULE_LINKS=23
+SOURCE_CANDIDATES=42
+
+=== QDRANT CONSTRUCTORS ===
+delbot_platform/vectorstore/qdrant/repository.py:25|get_qdrant_store|ARGS=|KWARGS=
+delbot_platform/vectorstore/qdrant/singleton.py:43|QdrantClient|ARGS=|KWARGS=path=path,force_disable_check_same_thread=True
+delbot_platform/vectorstore/qdrant/singleton.py:157|QdrantStore|ARGS=|KWARGS=
+delbot_platform/knowledge/vector/qdrant_store.py:17|get_qdrant_store|ARGS=|KWARGS=
+delbot_platform/knowledge/vector/repository/qdrant.py:25|get_qdrant_store|ARGS=|KWARGS=
+delbot_platform/knowledge/retrieval/qdrant.py:43|QdrantRepository|ARGS=|KWARGS=
+delbot_platform/knowledge/rag/vector_retriever.py:17|get_qdrant_store|ARGS=|KWARGS=
+delbot_platform/knowledge/rag/pipeline.py:45|QdrantRetriever|ARGS=|KWARGS=
+delbot_platform/documents/pipeline/indexing.py:60|QdrantRepository|ARGS=|KWARGS=
+tools/test_retriever_engine.py:21|QdrantRetriever|ARGS=|KWARGS=
+tools/test_semantic_search.py:61|get_qdrant_store|ARGS=|KWARGS=
+tools/test_qdrant_storage.py:55|QdrantRepository|ARGS=|KWARGS=
+tools/ingest_metadata_vectors.py:57|QdrantStore|ARGS='delbot_metadata'|KWARGS=
+tools/batch_ingest_repository.py:35|QdrantRepository|ARGS=|KWARGS=
+tools/ingest_pdf_vectors.py:46|QdrantStore|ARGS='delbot_documents'|KWARGS=
+tools/test_ingest.py:17|QdrantIngest|ARGS=|KWARGS=
+tools/debug_qdrant_runtime.py:60|QdrantRepository|ARGS=|KWARGS=
+tools/test_retrieval.py:21|QdrantRetriever|ARGS=|KWARGS=
+tools/check_qdrant_payload.py:4|QdrantClient|ARGS=|KWARGS=host='127.0.0.1',port=6333
+tools/test_rag_pipeline.py:121|QdrantRetriever|ARGS=|KWARGS=
+tools/test_citation_builder.py:96|QdrantRepository|ARGS=|KWARGS=
+.mvp_backup_766371/pipeline.py:45|QdrantRetriever|ARGS=|KWARGS=
+.mvp_backup_766371/qdrant.py:43|QdrantRepository|ARGS=|KWARGS=
+
+=== SAME MODULE CONFIG CORRELATION ===
+delbot_platform/vectorstore/qdrant/repository.py:25|CONSTRUCTOR=get_qdrant_store|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/vectorstore/qdrant/singleton.py:43|CONSTRUCTOR=QdrantClient|LOCAL_CONFIG_EVIDENCE=YES
+delbot_platform/vectorstore/qdrant/singleton.py:157|CONSTRUCTOR=QdrantStore|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/knowledge/vector/qdrant_store.py:17|CONSTRUCTOR=get_qdrant_store|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/knowledge/vector/repository/qdrant.py:25|CONSTRUCTOR=get_qdrant_store|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/knowledge/retrieval/qdrant.py:43|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/knowledge/rag/vector_retriever.py:17|CONSTRUCTOR=get_qdrant_store|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/knowledge/rag/pipeline.py:45|CONSTRUCTOR=QdrantRetriever|LOCAL_CONFIG_EVIDENCE=NO
+delbot_platform/documents/pipeline/indexing.py:60|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_retriever_engine.py:21|CONSTRUCTOR=QdrantRetriever|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_semantic_search.py:61|CONSTRUCTOR=get_qdrant_store|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_qdrant_storage.py:55|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+tools/ingest_metadata_vectors.py:57|CONSTRUCTOR=QdrantStore|LOCAL_CONFIG_EVIDENCE=NO
+tools/batch_ingest_repository.py:35|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+tools/ingest_pdf_vectors.py:46|CONSTRUCTOR=QdrantStore|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_ingest.py:17|CONSTRUCTOR=QdrantIngest|LOCAL_CONFIG_EVIDENCE=NO
+tools/debug_qdrant_runtime.py:60|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_retrieval.py:21|CONSTRUCTOR=QdrantRetriever|LOCAL_CONFIG_EVIDENCE=NO
+tools/check_qdrant_payload.py:4|CONSTRUCTOR=QdrantClient|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_rag_pipeline.py:121|CONSTRUCTOR=QdrantRetriever|LOCAL_CONFIG_EVIDENCE=NO
+tools/test_citation_builder.py:96|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+.mvp_backup_766371/pipeline.py:45|CONSTRUCTOR=QdrantRetriever|LOCAL_CONFIG_EVIDENCE=NO
+.mvp_backup_766371/qdrant.py:43|CONSTRUCTOR=QdrantRepository|LOCAL_CONFIG_EVIDENCE=NO
+
+=== ASSIGNMENT LINKS ===
+runtime/reports/patch_767351_qdrant_init_before.py:17|TARGET=__all__|VALUE=['QdrantVectorStore', 'QdrantRepository', 'get_qdrant_store']
+delbot_platform/vectorstore/__init__.py:8|TARGET=__all__|VALUE=['QdrantVectorStore', 'QdrantRepository']
+delbot_platform/vectorstore/qdrant/__init__.py:11|TARGET=QdrantVectorStore|VALUE=QdrantStore
+delbot_platform/vectorstore/qdrant/__init__.py:13|TARGET=__all__|VALUE=['QdrantStore', 'QdrantVectorStore', 'get_qdrant_store']
+delbot_platform/vectorstore/qdrant/repository.py:22|TARGET=self.store|VALUE=store if store is not None else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py:33|TARGET=self.collection|VALUE=os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+delbot_platform/vectorstore/qdrant/singleton.py:43|TARGET=self.client|VALUE=QdrantClient(path=path, force_disable_check_same_thread=True)
+delbot_platform/vectorstore/qdrant/singleton.py:58|TARGET=collections|VALUE=self.client.get_collections().collections
+delbot_platform/vectorstore/qdrant/singleton.py:64|TARGET=exists|VALUE=any((c.name == collection_name for c in collections))
+delbot_platform/vectorstore/qdrant/singleton.py:157|TARGET=_store|VALUE=QdrantStore()
+delbot_platform/vectorstore/qdrant/singleton.py:22|TARGET=path|VALUE=os.getenv('DELBOT_QDRANT_PATH', os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local')))
+delbot_platform/document_intelligence/models/__init__.py:16|TARGET=__all__|VALUE=['Block', 'BoundingBox', 'Heading', 'HeadingCollection', 'HeadingLevel', 'LayoutStatistics', 'Line', 'Page', 'Paragraph', 'ParagraphCollection', 'ParsedDocument', 'SemanticChunk', 
+delbot_platform/research/builders/research_result_builder.py:30|TARGET=collections|VALUE=self._collect_unique(citations, lambda c: c.collection_id, lambda c: c.collection_name)
+delbot_platform/knowledge/vector/qdrant_store.py:17|TARGET=self.store|VALUE=get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py:18|TARGET=self.collection|VALUE=collection
+delbot_platform/knowledge/vector/repository/qdrant.py:25|TARGET=self.store|VALUE=get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py:26|TARGET=self.collection|VALUE=collection
+delbot_platform/knowledge/retrieval/qdrant.py:43|TARGET=self.repository|VALUE=QdrantRepository()
+delbot_platform/knowledge/rag/vector_retriever.py:17|TARGET=self.store|VALUE=get_qdrant_store()
+delbot_platform/knowledge/rag/pipeline.py:45|TARGET=self.retriever|VALUE=QdrantRetriever()
+delbot_platform/knowledge/hydration/local.py:86|TARGET=collection|VALUE=Collection(collection_id='default', name='Default', repository=repository)
+delbot_platform/knowledge/hydration/local.py:116|TARGET=document|VALUE=Document(document_id=record.id, title=title, file_path=str(record.pdf_path), collection=collection, authors=authors)
+delbot_platform/knowledge/models/__init__.py:12|TARGET=__all__|VALUE=['KnowledgeDomain', 'KnowledgeSource', 'KnowledgeEntity', 'KnowledgeRelation', 'Author', 'Repository', 'Collection', 'Document', 'DocumentChunk', 'RAGResult']
+delbot_platform/knowledge/models/rag_result.py:39|TARGET=name|VALUE=chunk.document.collection.name
+delbot_platform/knowledge/models/rag_result.py:59|TARGET=value|VALUE=chunk.document.collection.collection_id
+delbot_platform/knowledge/models/document.py:280|TARGET=collection|VALUE=Collection.from_dict(data['collection'])
+delbot_platform/knowledge/models/document.py:290|TARGET=collection|VALUE=Collection(collection_id=data.get('collection_id', ''), name=data.get('collection_name', ''), repository=Repository(repository_id=data.get('repository_id', ''), name=data.get('repo
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:29|TARGET=self._collection_name|VALUE=collection_name
+delbot_platform/ai/embedding/embedding_service.py:40|TARGET=collection|VALUE=EmbeddingCollection()
+delbot_platform/repository/resolver/dspace_bitstream.py:64|TARGET=path|VALUE=parsed.path
+delbot_platform/repository/resolver/url_normalizer.py:31|TARGET=path|VALUE=parsed.path
+delbot_platform/documents/registry/manager.py:40|TARGET=path|VALUE=Path(pdf_path)
+delbot_platform/documents/pipeline/indexing.py:59|TARGET=self.vectorstore|VALUE=QdrantRepository()
+tools/test_retriever_engine.py:21|TARGET=retriever|VALUE=QdrantRetriever()
+tools/test_semantic_search.py:61|TARGET=store|VALUE=get_qdrant_store()
+tools/test_qdrant_storage.py:55|TARGET=repository|VALUE=QdrantRepository()
+tools/test_qdrant_storage.py:66|TARGET=collection|VALUE=getattr(store, 'collection_name', None)
+tools/test_qdrant_storage.py:72|TARGET=scroll_result|VALUE=client.scroll(collection_name=collection, scroll_filter={'must': [{'key': 'document_id', 'match': {'value': document_id}}]}, with_payload=False, with_vectors=False, limit=100000)
+tools/ingest_metadata_vectors.py:57|TARGET=store|VALUE=QdrantStore('delbot_metadata')
+tools/test_retriever_runtime.py:22|TARGET=candidates|VALUE=[('delbot_platform.knowledge.retrieval.qdrant', ['QdrantRetriever', 'QdrantRetrieval', 'QdrantSearch']), ('delbot_platform.knowledge.retrieval.retriever', ['Retriever', 'KnowledgeR
+tools/audit_rag_llm_integration.py:62|TARGET=path|VALUE=ROOT / file
+tools/batch_ingest_repository.py:35|TARGET=repository|VALUE=QdrantRepository()
+tools/ingest_pdf_vectors.py:46|TARGET=store|VALUE=QdrantStore('delbot_documents')
+tools/test_rag_end_to_end.py:19|TARGET=Retriever|VALUE=importlib.import_module('delbot_platform.knowledge.retrieval.qdrant').QdrantRetriever
+tools/test_ingest.py:17|TARGET=db|VALUE=QdrantIngest()
+tools/debug_qdrant_runtime.py:60|TARGET=repo|VALUE=QdrantRepository()
+tools/audit_qdrant_storage.py:8|TARGET=FILES|VALUE=['delbot_platform/vectorstore/qdrant/client.py', 'delbot_platform/vectorstore/qdrant/repository.py', 'delbot_platform/vectorstore/qdrant/singleton.py', 'delbot_platform/vectorstore
+tools/audit_qdrant_storage.py:16|TARGET=KEYWORDS|VALUE=['collection_name', 'collection', 'host', 'port', 'url', 'QdrantClient', 'upsert', 'scroll', 'search', 'count', 'payload', 'document_id', 'PointStruct', 'except', 'try']
+tools/trace_qdrant_pipeline.py:8|TARGET=FILES|VALUE=[ROOT / 'delbot_platform/documents/pipeline/indexing.py', ROOT / 'delbot_platform/documents/services/indexing.py', ROOT / 'delbot_platform/documents/embedding/pipeline/pipeline.py'
+tools/trace_qdrant_pipeline.py:16|TARGET=TARGET_CALLS|VALUE={'EmbeddingPipeline', 'EmbeddingVectorMapper', 'QdrantVectorStore', 'upsert', 'to_vector_record', 'to_vector_records', 'create_collection', 'collection_exists', 'index'}
+tools/audit_pdf_index_mapping.py:19|TARGET=path|VALUE=META / name
+tools/audit_pdf_index_mapping.py:86|TARGET=path|VALUE=META / name
+tools/test_retrieval.py:21|TARGET=retriever|VALUE=QdrantRetriever()
+tools/check_qdrant_payload.py:4|TARGET=client|VALUE=QdrantClient(host='127.0.0.1', port=6333)
+tools/check_qdrant_payload.py:11|TARGET=|VALUE=client.scroll(collection_name='delbot_documents', limit=10)
+tools/test_rag_pipeline.py:121|TARGET=retriever|VALUE=QdrantRetriever()
+tools/test_citation_builder.py:96|TARGET=repo|VALUE=QdrantRepository()
+tools/inspect_retriever_api.py:18|TARGET=module|VALUE=importlib.import_module('delbot_platform.knowledge.retrieval.qdrant')
+tools/inspect_retriever_api.py:22|TARGET=Retriever|VALUE=getattr(module, 'QdrantRetriever')
+tools/architecture/ownership.py:14|TARGET=path|VALUE=REPORTS / name
+tools/architecture/ownership.py:27|TARGET=candidates|VALUE={'ai', 'api', 'application', 'boot', 'config', 'controller', 'core', 'document_intelligence', 'documents', 'gateway', 'knowledge', 'launcher', 'orchestrator', 'repository', 'resear
+tools/architecture/inventory.py:16|TARGET=EXCLUDED_DIRS|VALUE={'.git', '.venv', '__pycache__', 'node_modules', 'dist', 'build', 'cache', '.mypy_cache', '.pytest_cache', '.ruff_cache', '.idea', '.vscode', 'reports', 'runtime', 'qdrant_storage'
+.mvp_backup_766371/pipeline.py:45|TARGET=self.retriever|VALUE=QdrantRetriever()
+.mvp_backup_766371/qdrant.py:43|TARGET=self.repository|VALUE=QdrantRepository()
+
+=== CONFIG ACCESS ===
+backup/sprint764_31/config_manager.py:18|ConfigLoader.load(config_dir / 'settings.yaml')
+backup/sprint764_31/config_manager.py:22|ConfigLoader.load(config_dir / 'services.yaml')
+backup/sprint764_31/config_manager.py:26|ConfigLoader.load(config_dir / 'models.yaml')
+backup/sprint764_28/config_manager.py:18|ConfigLoader.load(config_dir / 'settings.yaml')
+backup/sprint764_28/config_manager.py:22|ConfigLoader.load(config_dir / 'services.yaml')
+backup/sprint764_28/config_manager.py:26|ConfigLoader.load(config_dir / 'models.yaml')
+runtime/nvm/versions/node/v20.20.2/share/doc/node/lldb_commands.py:125|debugger.HandleCommand('settings set target.source-map ../.. ' + source_dir)
+runtime/nvm/versions/node/v20.20.2/share/doc/node/lldb_commands.py:131|debugger.HandleCommand('settings set target.x86-disassembly-flavor intel')
+delbot_platform/__main__.py:14|ConfigManager()
+delbot_platform/__main__.py:53|print('Config   :', PathManager.CONFIG)
+delbot_platform/vectorstore/qdrant/singleton.py:33|os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+delbot_platform/vectorstore/qdrant/singleton.py:22|os.getenv('DELBOT_QDRANT_PATH', os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local')))
+delbot_platform/vectorstore/qdrant/singleton.py:71|self.client.create_collection(collection_name=collection_name, vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE))
+delbot_platform/vectorstore/qdrant/singleton.py:24|os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local'))
+delbot_platform/core/config_manager.py:18|ConfigLoader.load(config_dir / 'settings.yaml')
+delbot_platform/core/config_manager.py:22|ConfigLoader.load(config_dir / 'services.yaml')
+delbot_platform/core/config_manager.py:26|ConfigLoader.load(config_dir / 'models.yaml')
+delbot_platform/core/lifecycle/service_loader.py:30|ConfigManager()
+delbot_platform/gateway/__main__.py:3|os.environ.setdefault('OMP_NUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:4|os.environ.setdefault('MKL_NUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:5|os.environ.setdefault('OPENBLAS_NUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:6|os.environ.setdefault('NUMEXPR_NUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:7|os.environ.setdefault('VECLIB_MAXIMUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:8|os.environ.setdefault('BLIS_NUM_THREADS', '4')
+delbot_platform/gateway/__main__.py:16|ConfigManager()
+delbot_platform/ai/runtime/chat.py:266|os.getenv('CHAT_HOST', '0.0.0.0')
+delbot_platform/ai/runtime/chat.py:271|int(os.getenv('CHAT_PORT', '8107'))
+delbot_platform/ai/runtime/chat.py:272|os.getenv('CHAT_PORT', '8107')
+delbot_platform/ai/runtime/embedding.py:15|os.getenv('DELBOT_EMBEDDING_MODEL', 'BAAI/bge-m3')
+delbot_platform/ai/runtime/embedding.py:20|os.getenv('DELBOT_EMBEDDING_DEVICE', 'cpu')
+delbot_platform/ai/client/reranker_client.py:17|ConfigManager()
+delbot_platform/ai/client/embedding_client.py:16|ConfigManager()
+delbot_platform/ai/client/llm_client.py:16|ConfigManager()
+delbot_platform/ai/registry/registry.py:32|RegistryLoader.load(config_file)
+delbot_platform/ai/registry/registry.py:60|ModelBackendConfig(dtype=model['dtype'], max_context=model['max_context'], tensor_parallel_size=model['tensor_parallel_size'], gpu_memory_utilization=model['gpu_memory_utilization'])
+delbot_platform/ai/registry/registry.py:67|ModelInfo(name=name, backend=ModelBackend(model['backend']), path=str(PathManager.ROOT / model['path']), runtime=runtime, backend_config=backend_config)
+delbot_platform/workspace/models/workspace_metadata.py:38|cls(active_collection=data.get('active_collection', ''), active_document=data.get('active_document', ''), selected_model=data.get('selected_model', ''), settings=data.get('settings', {}))
+delbot_platform/workspace/models/workspace_metadata.py:51|data.get('settings', {})
+
+=== IMPORT EDGES ===
+backup/sprint764_31/config_manager.py -> delbot_platform.config.loader
+backup/sprint764_31/config_manager.py -> delbot_platform.core.path_manager
+backup/sprint764_28/config_manager.py -> delbot_platform.config.loader
+backup/sprint764_28/config_manager.py -> delbot_platform.core.path_manager
+delbot_platform/__main__.py -> delbot_platform.core.config_manager
+delbot_platform/__main__.py -> delbot_platform.core.path_manager
+delbot_platform/__main__.py -> delbot_platform.core.runtime_manager
+delbot_platform/__main__.py -> delbot_platform.orchestrator.startup
+delbot_platform/vectorstore/qdrant/repository.py -> delbot_platform.vectorstore.qdrant.singleton
+delbot_platform/orchestrator/status.py -> delbot_platform.ai.process.process_registry
+delbot_platform/orchestrator/shutdown.py -> delbot_platform.controller.service_controller
+delbot_platform/orchestrator/shutdown.py -> delbot_platform.core.lifecycle.orchestrator
+delbot_platform/orchestrator/startup.py -> delbot_platform.boot.service_boot
+delbot_platform/orchestrator/startup.py -> delbot_platform.controller.service_controller
+delbot_platform/orchestrator/health.py -> delbot_platform.ai.process.process_registry
+delbot_platform/orchestrator/health.py -> delbot_platform.boot.service_health
+delbot_platform/core/config_manager.py -> delbot_platform.config.loader
+delbot_platform/core/config_manager.py -> delbot_platform.core.path_manager
+delbot_platform/core/runtime_manager.py -> delbot_platform.core.path_manager
+delbot_platform/core/environment.py -> delbot_platform.core.path_manager
+delbot_platform/core/lifecycle/service_loader.py -> delbot_platform.core.config_manager
+delbot_platform/core/lifecycle/service_loader.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.core.lifecycle.service_loader
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.core.lifecycle.service_registry
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.core.lifecycle.service_state
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.core.lifecycle.state_machine
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.launcher.factory
+delbot_platform/core/lifecycle/orchestrator.py -> delbot_platform.launcher.spec
+delbot_platform/document_intelligence/loader/document_loader.py -> delbot_platform.document_intelligence.loader.loaded_document
+delbot_platform/document_intelligence/loader/pdf_loader.py -> delbot_platform.document_intelligence.backend.pdf.pymupdf_backend
+delbot_platform/document_intelligence/loader/pdf_loader.py -> delbot_platform.document_intelligence.loader.document_loader
+delbot_platform/document_intelligence/loader/pdf_loader.py -> delbot_platform.document_intelligence.loader.loaded_document
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py -> delbot_platform.ai.embedding.embedding_builder
+delbot_platform/document_intelligence/models/span.py -> delbot_platform.document_intelligence.models.bounding_box
+delbot_platform/document_intelligence/models/heading.py -> delbot_platform.document_intelligence.models.heading_level
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.block
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.bounding_box
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.heading
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.heading_collection
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.heading_level
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.layout_statistics
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.line
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.page
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.paragraph
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.paragraph_collection
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.parsed_document
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.semantic_chunk
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.semantic_chunk_collection
+delbot_platform/document_intelligence/models/__init__.py -> delbot_platform.document_intelligence.models.span
+delbot_platform/document_intelligence/models/paragraph.py -> delbot_platform.document_intelligence.models.heading
+delbot_platform/document_intelligence/models/semantic_chunk.py -> delbot_platform.document_intelligence.models.heading
+delbot_platform/document_intelligence/models/semantic_chunk.py -> delbot_platform.document_intelligence.models.paragraph
+delbot_platform/document_intelligence/models/block.py -> delbot_platform.document_intelligence.models.line
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py -> delbot_platform.document_intelligence.models.semantic_chunk
+delbot_platform/document_intelligence/models/heading_collection.py -> delbot_platform.document_intelligence.models.heading
+delbot_platform/document_intelligence/models/page.py -> delbot_platform.document_intelligence.models.block
+delbot_platform/document_intelligence/models/paragraph_collection.py -> delbot_platform.document_intelligence.models.paragraph
+delbot_platform/document_intelligence/models/line.py -> delbot_platform.document_intelligence.models.span
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py -> delbot_platform.document_intelligence.backend.backend
+delbot_platform/document_intelligence/mapper/__init__.py -> delbot_platform.document_intelligence.mapper.layout_mapper
+delbot_platform/document_intelligence/mapper/__init__.py -> delbot_platform.document_intelligence.mapper.pymupdf_mapper
+delbot_platform/document_intelligence/mapper/layout_mapper.py -> delbot_platform.document_intelligence.models.page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.mapper.layout_mapper
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.models.block
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.models.bounding_box
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.models.line
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.models.page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py -> delbot_platform.document_intelligence.models.span
+delbot_platform/controller/service_controller.py -> delbot_platform.ai.process.process_manager
+delbot_platform/controller/service_controller.py -> delbot_platform.core.lifecycle.orchestrator
+delbot_platform/gateway/app.py -> delbot_platform.gateway.routers.health
+delbot_platform/gateway/app.py -> delbot_platform.gateway.routers.research
+delbot_platform/gateway/app.py -> delbot_platform.api.routers.retrieval
+delbot_platform/gateway/app.py -> delbot_platform.api.routers.repository
+delbot_platform/gateway/app.py -> delbot_platform.gateway.routers.chat
+delbot_platform/gateway/app.py -> delbot_platform.gateway.routers.embedding
+delbot_platform/gateway/app.py -> delbot_platform.gateway.routers.models
+delbot_platform/gateway/app.py -> delbot_platform.api.routers.document
+delbot_platform/gateway/client.py -> delbot_platform.ai.registry.model_runtime
+delbot_platform/gateway/client.py -> delbot_platform.gateway.exceptions
+delbot_platform/gateway/__main__.py -> delbot_platform.core.config_manager
+delbot_platform/gateway/router.py -> delbot_platform.ai.registry.model_category
+delbot_platform/gateway/router.py -> delbot_platform.ai.registry.registry
+delbot_platform/gateway/runtime/infinity.py -> delbot_platform.ai.registry.model_runtime
+delbot_platform/gateway/runtime/infinity.py -> delbot_platform.gateway.client
+delbot_platform/gateway/runtime/vllm.py -> delbot_platform.ai.registry.model_runtime
+delbot_platform/gateway/runtime/vllm.py -> delbot_platform.gateway.client
+delbot_platform/gateway/providers/factory.py -> delbot_platform.ai.registry.model_backend
+delbot_platform/gateway/providers/factory.py -> delbot_platform.gateway.providers.base
+delbot_platform/gateway/providers/factory.py -> delbot_platform.gateway.providers.infinity
+delbot_platform/gateway/providers/factory.py -> delbot_platform.gateway.providers.local
+delbot_platform/gateway/providers/factory.py -> delbot_platform.gateway.providers.vllm
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.ai.registry.model_category
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.ai.registry.registry
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.gateway.mapper.embedding
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.gateway.providers.base
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.gateway.request
+delbot_platform/gateway/providers/infinity.py -> delbot_platform.gateway.runtime.infinity
+delbot_platform/gateway/providers/base.py -> delbot_platform.gateway.request
+delbot_platform/gateway/providers/base.py -> delbot_platform.gateway.openai.chat
+delbot_platform/gateway/providers/base.py -> delbot_platform.gateway.openai.embedding
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.ai.registry.model_category
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.ai.registry.registry
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.gateway.mapper.chat
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.gateway.mapper.embedding
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.gateway.providers.base
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.gateway.request
+delbot_platform/gateway/providers/vllm.py -> delbot_platform.gateway.runtime.vllm
+delbot_platform/gateway/providers/local.py -> delbot_platform.gateway.providers.base
+delbot_platform/gateway/providers/local.py -> delbot_platform.gateway.request
+delbot_platform/gateway/providers/local.py -> delbot_platform.gateway.response
+delbot_platform/gateway/mapper/chat.py -> delbot_platform.gateway.openai.chat
+delbot_platform/gateway/mapper/embedding.py -> delbot_platform.gateway.openai.embedding
+delbot_platform/gateway/services/gateway.py -> delbot_platform.ai.registry.model_category
+delbot_platform/gateway/services/gateway.py -> delbot_platform.ai.registry.registry
+delbot_platform/gateway/services/gateway.py -> delbot_platform.gateway.providers.factory
+delbot_platform/gateway/services/gateway.py -> delbot_platform.gateway.request
+delbot_platform/gateway/services/gateway.py -> delbot_platform.gateway.response
+delbot_platform/gateway/routers/research.py -> delbot_platform.application.research.answer
+delbot_platform/gateway/routers/chat.py -> delbot_platform.gateway.request
+delbot_platform/gateway/routers/chat.py -> delbot_platform.gateway.services.gateway
+delbot_platform/gateway/routers/models.py -> delbot_platform.ai.registry.registry
+delbot_platform/gateway/routers/embedding.py -> delbot_platform.gateway.services.gateway
+delbot_platform/gateway/routers/embedding.py -> delbot_platform.gateway.request
+delbot_platform/research/generator/llm_generator.py -> delbot_platform.ai.client.llm_client
+delbot_platform/research/pipeline/research_answer_pipeline.py -> delbot_platform.knowledge.rag.pipeline
+delbot_platform/research/pipeline/research_answer_pipeline.py -> delbot_platform.repository.service
+delbot_platform/research/pipeline/research_answer_pipeline.py -> delbot_platform.research.prompt_builder
+delbot_platform/research/models/research_result.py -> delbot_platform.knowledge.models.author
+delbot_platform/research/models/research_result.py -> delbot_platform.research.models.citation
+delbot_platform/research/models/research_pipeline_response.py -> delbot_platform.knowledge.rag.models.response
+delbot_platform/research/models/embedding_collection.py -> delbot_platform.research.models.embedding
+delbot_platform/research/builders/research_result_builder.py -> delbot_platform.knowledge.models.author
+delbot_platform/research/builders/research_result_builder.py -> delbot_platform.research.models.citation
+delbot_platform/research/builders/research_result_builder.py -> delbot_platform.research.models.research_result
+delbot_platform/knowledge/vector/qdrant_store.py -> delbot_platform.vectorstore.qdrant.singleton
+delbot_platform/knowledge/vector/repository/qdrant.py -> delbot_platform.knowledge.vector.models.record
+delbot_platform/knowledge/vector/repository/qdrant.py -> delbot_platform.knowledge.vector.repository.base
+delbot_platform/knowledge/vector/repository/qdrant.py -> delbot_platform.vectorstore.qdrant.singleton
+delbot_platform/knowledge/vector/repository/memory.py -> delbot_platform.knowledge.vector.models.record
+delbot_platform/knowledge/vector/repository/memory.py -> delbot_platform.knowledge.vector.repository.base
+delbot_platform/knowledge/vector/repository/base.py -> delbot_platform.knowledge.vector.models.record
+delbot_platform/knowledge/citation/builder.py -> delbot_platform.knowledge.citation.source
+delbot_platform/knowledge/citation/builder.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/context/builder.py -> delbot_platform.knowledge.retrieval.result
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.documents.embedding.pipeline.pipeline
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.documents.metadata.mapper.chunk_metadata_mapper
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.knowledge.retrieval.base
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.knowledge.retrieval.result
+delbot_platform/knowledge/retrieval/qdrant.py -> delbot_platform.knowledge.vector.repository.qdrant
+delbot_platform/knowledge/retrieval/result.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/knowledge/retrieval/base.py -> delbot_platform.knowledge.retrieval.result
+delbot_platform/knowledge/rag/vector_retriever.py -> delbot_platform.ai.client.embedding_client
+delbot_platform/knowledge/rag/vector_retriever.py -> delbot_platform.vectorstore.qdrant.singleton
+delbot_platform/knowledge/rag/pipeline.py -> delbot_platform.knowledge.context.builder
+delbot_platform/knowledge/rag/pipeline.py -> delbot_platform.knowledge.rag.models.response
+delbot_platform/knowledge/rag/pipeline.py -> delbot_platform.knowledge.reranking.local
+delbot_platform/knowledge/rag/pipeline.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/rag/pipeline.py -> delbot_platform.knowledge.retrieval.qdrant
+delbot_platform/knowledge/rag/context_builder.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/knowledge/rag/citation_builder.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/knowledge/rag/llm/generator.py -> delbot_platform.ai.client.llm_client
+delbot_platform/knowledge/rag/llm/generator.py -> delbot_platform.knowledge.citation.source
+delbot_platform/knowledge/rag/llm/generator.py -> delbot_platform.knowledge.rag.llm.response
+delbot_platform/knowledge/rag/llm/response.py -> delbot_platform.knowledge.citation.source
+delbot_platform/knowledge/rag/models/response.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/rag/models/response.py -> delbot_platform.research.models.citation
+delbot_platform/knowledge/graph/graph_edge.py -> delbot_platform.knowledge.models.knowledge_relation
+delbot_platform/knowledge/graph/__init__.py -> delbot_platform.knowledge.graph.graph_builder
+delbot_platform/knowledge/graph/__init__.py -> delbot_platform.knowledge.graph.graph_edge
+delbot_platform/knowledge/graph/__init__.py -> delbot_platform.knowledge.graph.graph_node
+delbot_platform/knowledge/graph/__init__.py -> delbot_platform.knowledge.graph.knowledge_graph
+delbot_platform/knowledge/graph/knowledge_graph.py -> delbot_platform.knowledge.graph.graph_edge
+delbot_platform/knowledge/graph/knowledge_graph.py -> delbot_platform.knowledge.graph.graph_node
+delbot_platform/knowledge/graph/graph_node.py -> delbot_platform.knowledge.models.knowledge_entity
+delbot_platform/knowledge/graph/graph_builder.py -> delbot_platform.knowledge.graph.graph_edge
+delbot_platform/knowledge/graph/graph_builder.py -> delbot_platform.knowledge.graph.graph_node
+delbot_platform/knowledge/graph/graph_builder.py -> delbot_platform.knowledge.graph.knowledge_graph
+delbot_platform/knowledge/graph/graph_builder.py -> delbot_platform.knowledge.models.knowledge_entity
+delbot_platform/knowledge/graph/graph_builder.py -> delbot_platform.knowledge.models.knowledge_relation
+delbot_platform/knowledge/hydration/citation.py -> delbot_platform.knowledge.hydration.base
+delbot_platform/knowledge/hydration/citation.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/hydration/local.py -> delbot_platform.documents.registry.manager
+delbot_platform/knowledge/hydration/local.py -> delbot_platform.knowledge.hydration.base
+delbot_platform/knowledge/pipeline/__init__.py -> delbot_platform.knowledge.pipeline.knowledge_pipeline
+delbot_platform/knowledge/pipeline/__init__.py -> delbot_platform.knowledge.pipeline.pipeline_context
+delbot_platform/knowledge/pipeline/__init__.py -> delbot_platform.knowledge.pipeline.pipeline_result
+delbot_platform/knowledge/pipeline/knowledge_pipeline.py -> delbot_platform.knowledge.pipeline.pipeline_context
+delbot_platform/knowledge/pipeline/knowledge_pipeline.py -> delbot_platform.knowledge.pipeline.pipeline_result
+delbot_platform/knowledge/models/document_chunk.py -> delbot_platform.knowledge.models.author
+delbot_platform/knowledge/models/document_chunk.py -> delbot_platform.knowledge.models.document
+delbot_platform/knowledge/models/document_chunk.py -> delbot_platform.knowledge.models.knowledge_entity
+delbot_platform/knowledge/models/rag_result.py -> delbot_platform.knowledge.models.document_chunk
+delbot_platform/knowledge/models/rag_result.py -> delbot_platform.research.models.citation
+delbot_platform/knowledge/models/rag_result.py -> delbot_platform.research.models.citation
+delbot_platform/knowledge/models/knowledge_source.py -> delbot_platform.knowledge.models.knowledge_domain
+delbot_platform/knowledge/models/document.py -> delbot_platform.knowledge.models.author
+delbot_platform/knowledge/models/document.py -> delbot_platform.knowledge.models.collection
+delbot_platform/knowledge/models/document.py -> delbot_platform.knowledge.models.knowledge_entity
+delbot_platform/knowledge/models/document.py -> delbot_platform.knowledge.models.knowledge_relation
+delbot_platform/knowledge/models/repository.py -> delbot_platform.knowledge.models.knowledge_source
+delbot_platform/knowledge/models/collection.py -> delbot_platform.knowledge.models.repository
+delbot_platform/knowledge/reranking/gateway.py -> delbot_platform.ai.registry.model_category
+delbot_platform/knowledge/reranking/gateway.py -> delbot_platform.ai.registry.registry
+delbot_platform/knowledge/reranking/gateway.py -> delbot_platform.gateway.client
+delbot_platform/knowledge/reranking/gateway.py -> delbot_platform.knowledge.reranking.base
+delbot_platform/knowledge/reranking/gateway.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/reranking/result.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/knowledge/reranking/base.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/reranking/local.py -> delbot_platform.knowledge.reranking.base
+delbot_platform/knowledge/reranking/local.py -> delbot_platform.knowledge.reranking.result
+delbot_platform/knowledge/extraction/__init__.py -> delbot_platform.knowledge.extraction.extraction_result
+delbot_platform/knowledge/extraction/__init__.py -> delbot_platform.knowledge.extraction.knowledge_extractor
+delbot_platform/knowledge/extraction/knowledge_extractor.py -> delbot_platform.knowledge.extraction.extraction_result
+delbot_platform/knowledge/extraction/knowledge_extractor.py -> delbot_platform.knowledge.models.document_chunk
+delbot_platform/knowledge/extraction/extraction_result.py -> delbot_platform.knowledge.models.knowledge_entity
+delbot_platform/knowledge/extraction/extraction_result.py -> delbot_platform.knowledge.models.knowledge_relation
+delbot_platform/boot/boot_result.py -> delbot_platform.boot.boot_state
+delbot_platform/boot/service_boot.py -> delbot_platform.controller.service_controller
+delbot_platform/boot/service_waiter.py -> delbot_platform.ai.process.process_info
+delbot_platform/ai/vector_store/base_vector_store.py -> delbot_platform.research.models.embedding
+delbot_platform/ai/vector_store/base_vector_store.py -> delbot_platform.research.models.embedding_collection
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py -> delbot_platform.ai.vector_store.base_vector_store
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py -> delbot_platform.research.models.embedding
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py -> delbot_platform.research.models.embedding_collection
+delbot_platform/ai/runtime/fast_chat.py -> delbot_platform.ai.registry.model_category
+delbot_platform/ai/runtime/fast_chat.py -> delbot_platform.ai.runtime.base
+delbot_platform/ai/runtime/ocr.py -> delbot_platform.ai.registry.model_category
+delbot_platform/ai/runtime/ocr.py -> delbot_platform.ai.runtime.base
+delbot_platform/ai/runtime/monitor.py -> delbot_platform.ai.process.process_info
+delbot_platform/ai/runtime/monitor.py -> delbot_platform.ai.process.process_manager
+delbot_platform/ai/runtime/coding.py -> delbot_platform.ai.registry.model_category
+delbot_platform/ai/runtime/coding.py -> delbot_platform.ai.runtime.base
+delbot_platform/ai/runtime/vision.py -> delbot_platform.ai.registry.model_category
+delbot_platform/ai/runtime/vision.py -> delbot_platform.ai.runtime.base
+delbot_platform/ai/runtime/speech.py -> delbot_platform.ai.runtime.base
+delbot_platform/ai/runtime/speech.py -> delbot_platform.ai.registry.model_category
+delbot_platform/ai/runtime/base.py -> delbot_platform.ai.registry.registry
+delbot_platform/ai/client/reranker_client.py -> delbot_platform.core.config_manager
+delbot_platform/ai/client/embedding_client.py -> delbot_platform.core.config_manager
+delbot_platform/ai/client/llm_client.py -> delbot_platform.core.config_manager
+delbot_platform/ai/recovery/recovery.py -> delbot_platform.core.runtime_manager
+delbot_platform/ai/registry/model_info.py -> delbot_platform.ai.registry.model_backend
+delbot_platform/ai/registry/model_info.py -> delbot_platform.ai.registry.model_backend_config
+delbot_platform/ai/registry/model_info.py -> delbot_platform.ai.registry.model_runtime
+delbot_platform/ai/registry/registry.py -> delbot_platform.ai.registry.loader
+delbot_platform/ai/registry/registry.py -> delbot_platform.ai.registry.model_backend
+delbot_platform/ai/registry/registry.py -> delbot_platform.ai.registry.model_backend_config
+delbot_platform/ai/registry/registry.py -> delbot_platform.ai.registry.model_info
+delbot_platform/ai/registry/registry.py -> delbot_platform.ai.registry.model_runtime
+delbot_platform/ai/registry/registry.py -> delbot_platform.core.path_manager
+delbot_platform/ai/process/process_monitor.py -> delbot_platform.ai.process.process_info
+delbot_platform/ai/process/process_registry.py -> delbot_platform.ai.process.process_info
+delbot_platform/ai/process/process_registry.py -> delbot_platform.core.runtime_manager
+delbot_platform/ai/process/process_manager.py -> delbot_platform.ai.process.process_info
+delbot_platform/ai/process/process_manager.py -> delbot_platform.ai.process.process_monitor
+delbot_platform/ai/process/process_manager.py -> delbot_platform.ai.process.process_registry
+delbot_platform/ai/embedding/embedding_builder.py -> delbot_platform.ai.embedding.embedding_request
+delbot_platform/ai/embedding/embedding_builder.py -> delbot_platform.document_intelligence.indexer.indexed_document
+delbot_platform/ai/embedding/embedding_builder.py -> delbot_platform.document_intelligence.models.semantic_chunk
+delbot_platform/ai/embedding/base_embedding_provider.py -> delbot_platform.ai.embedding.embedding_request
+delbot_platform/ai/embedding/base_embedding_provider.py -> delbot_platform.ai.embedding.embedding_result
+delbot_platform/ai/embedding/embedding_service.py -> delbot_platform.ai.embedding.base_embedding_provider
+delbot_platform/ai/embedding/embedding_service.py -> delbot_platform.ai.embedding.embedding_request
+delbot_platform/ai/embedding/embedding_service.py -> delbot_platform.research.models.embedding
+delbot_platform/ai/embedding/embedding_service.py -> delbot_platform.research.models.embedding_collection
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py -> delbot_platform.ai.embedding.base_embedding_provider
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py -> delbot_platform.ai.embedding.embedding_request
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py -> delbot_platform.ai.embedding.embedding_result
+delbot_platform/launcher/factory.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.base
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.ai_runtime
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.gateway_launcher
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.paddleocr
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.research_api_launcher
+delbot_platform/launcher/factory.py -> delbot_platform.launcher.whisper
+delbot_platform/launcher/whisper.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/whisper.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/whisper.py -> delbot_platform.launcher.base
+delbot_platform/launcher/whisper.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/paddleocr.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/paddleocr.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/paddleocr.py -> delbot_platform.launcher.base
+delbot_platform/launcher/paddleocr.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/research_api_launcher.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/research_api_launcher.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/research_api_launcher.py -> delbot_platform.launcher.base
+delbot_platform/launcher/research_api_launcher.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/gateway_launcher.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/gateway_launcher.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/gateway_launcher.py -> delbot_platform.launcher.base
+delbot_platform/launcher/gateway_launcher.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/infinity.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/infinity.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/infinity.py -> delbot_platform.launcher.base
+delbot_platform/launcher/infinity.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/base.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/base.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/vllm.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/vllm.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/vllm.py -> delbot_platform.launcher.base
+delbot_platform/launcher/vllm.py -> delbot_platform.launcher.spec
+delbot_platform/launcher/ai_runtime.py -> delbot_platform.ai.registry.registry
+delbot_platform/launcher/ai_runtime.py -> delbot_platform.core.lifecycle.service_definition
+delbot_platform/launcher/ai_runtime.py -> delbot_platform.core.path_manager
+delbot_platform/launcher/ai_runtime.py -> delbot_platform.launcher.base
+delbot_platform/launcher/ai_runtime.py -> delbot_platform.launcher.spec
+delbot_platform/workflows/factory/workflow_factory.py -> delbot_platform.repository.service
+delbot_platform/workflows/repository/ingestion.py -> delbot_platform.repository.service
+delbot_platform/api/app.py -> delbot_platform.api.routers.chat
+delbot_platform/api/app.py -> delbot_platform.api.routers.document
+delbot_platform/api/app.py -> delbot_platform.api.routers.repository
+delbot_platform/api/app.py -> delbot_platform.api.routers.research
+delbot_platform/api/app.py -> delbot_platform.api.routers.retrieval
+delbot_platform/api/main.py -> delbot_platform.api.routers.document
+delbot_platform/api/main.py -> delbot_platform.api.routers.repository
+delbot_platform/api/main.py -> delbot_platform.api.routers.research
+delbot_platform/api/__main__.py -> delbot_platform.api.main
+delbot_platform/api/routers/retrieval.py -> delbot_platform.api.schemas.retrieval
+delbot_platform/api/routers/document.py -> delbot_platform.documents.pipeline.indexing
+delbot_platform/api/routers/repository.py -> delbot_platform.repository.service
+delbot_platform/api/routers/research.py -> delbot_platform.api.schemas.research
+delbot_platform/api/routers/chat.py -> delbot_platform.api.schemas.chat
+delbot_platform/application/retrieval/answer.py -> delbot_platform.knowledge.rag.pipeline
+delbot_platform/application/retrieval/answer.py -> delbot_platform.knowledge.rag.models.response
+delbot_platform/repository/__init__.py -> delbot_platform.repository.integration.document_loader
+delbot_platform/repository/__init__.py -> delbot_platform.repository.service
+delbot_platform/repository/download/downloader.py -> delbot_platform.repository.download.result
+delbot_platform/repository/models/scan_result.py -> delbot_platform.repository.models.repository_item
+delbot_platform/repository/catalog/adapter.py -> delbot_platform.repository.catalog.models
+delbot_platform/repository/catalog/loader.py -> delbot_platform.repository.catalog.models
+delbot_platform/repository/catalog/builder.py -> delbot_platform.repository.catalog.models
+delbot_platform/workspace/session_manager.py -> delbot_platform.workspace.models
+delbot_platform/workspace/session_manager.py -> delbot_platform.workspace.models
+delbot_platform/workspace/session_manager.py -> delbot_platform.workspace.models
+delbot_platform/workspace/models/workspace_session.py -> delbot_platform.workspace.models.chat_message
+delbot_platform/workspace/models/workspace_session.py -> delbot_platform.workspace.models.workspace_metadata
+delbot_platform/documents/loader/sources/__init__.py -> delbot_platform.documents.loader.sources.local
+delbot_platform/documents/loader/sources/local.py -> delbot_platform.documents.loader.source
+delbot_platform/documents/ingestion/repository_ingestor.py -> delbot_platform.documents.pipeline.indexing
+delbot_platform/documents/metadata/__init__.py -> delbot_platform.documents.metadata.document_metadata
+delbot_platform/documents/metadata/__init__.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/documents/metadata/repository.py -> delbot_platform.documents.metadata.document_metadata
+delbot_platform/documents/metadata/metadata_extractor.py -> delbot_platform.documents.metadata.document_metadata
+delbot_platform/documents/metadata/builder/__init__.py -> delbot_platform.documents.metadata.builder.document
+delbot_platform/documents/metadata/builder/__init__.py -> delbot_platform.documents.metadata.builder.chunk
+delbot_platform/documents/metadata/builder/chunk.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/documents/metadata/builder/document.py -> delbot_platform.documents.metadata.document_metadata
+delbot_platform/documents/metadata/builder/document.py -> delbot_platform.documents.metadata.metadata_extractor
+delbot_platform/documents/metadata/builder/document.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/documents/registry/factory.py -> delbot_platform.documents.registry.repository
+delbot_platform/documents/registry/factory.py -> delbot_platform.documents.registry.memory
+delbot_platform/documents/registry/factory.py -> delbot_platform.documents.registry.filesystem
+delbot_platform/documents/registry/__init__.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/registry/__init__.py -> delbot_platform.documents.registry.manager
+delbot_platform/documents/registry/manager.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/registry/manager.py -> delbot_platform.documents.registry.factory
+delbot_platform/documents/registry/manager.py -> delbot_platform.documents.registry.repository
+delbot_platform/documents/registry/manager.py -> delbot_platform.repository.catalog.loader
+delbot_platform/documents/registry/repository.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/registry/memory.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/registry/memory.py -> delbot_platform.documents.registry.repository
+delbot_platform/documents/registry/filesystem.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/registry/filesystem.py -> delbot_platform.documents.registry.repository
+delbot_platform/documents/pipeline/__init__.py -> delbot_platform.documents.pipeline.preprocessing
+delbot_platform/documents/pipeline/__init__.py -> delbot_platform.documents.pipeline.indexing
+delbot_platform/documents/pipeline/indexing.py -> delbot_platform.documents.embedding.pipeline.pipeline
+delbot_platform/documents/pipeline/indexing.py -> delbot_platform.documents.metadata.builder.document
+delbot_platform/documents/pipeline/indexing.py -> delbot_platform.documents.metadata.repository
+delbot_platform/documents/pipeline/indexing.py -> delbot_platform.documents.pipeline.preprocessing
+delbot_platform/documents/pipeline/indexing.py -> delbot_platform.documents.registry.manager
+delbot_platform/documents/pipeline/preprocessing.py -> delbot_platform.documents.classification.heading
+delbot_platform/documents/pipeline/preprocessing.py -> delbot_platform.documents.extraction.service
+delbot_platform/documents/pipeline/preprocessing.py -> delbot_platform.documents.models.block
+delbot_platform/documents/pipeline/preprocessing.py -> delbot_platform.documents.structure.section.builder
+delbot_platform/documents/pipeline/preprocessing.py -> delbot_platform.documents.structure.section.section
+delbot_platform/documents/pipeline/models/artifact.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/pipeline/models/artifact.py -> delbot_platform.documents.metadata.document_metadata
+delbot_platform/documents/pipeline/models/artifact.py -> delbot_platform.documents.registry.document
+delbot_platform/documents/pipeline/models/artifact.py -> delbot_platform.documents.structure.section.section
+delbot_platform/documents/models/document_chunk.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/documents/models/block.py -> delbot_platform.documents.classification.document_type
+delbot_platform/documents/models/document.py -> delbot_platform.documents.models.metadata
+delbot_platform/documents/models/document.py -> delbot_platform.documents.models.page
+delbot_platform/documents/models/page.py -> delbot_platform.documents.models.block
+delbot_platform/documents/extraction/__init__.py -> delbot_platform.documents.extraction.service
+delbot_platform/documents/extraction/__init__.py -> delbot_platform.documents.extraction.block
+delbot_platform/documents/extraction/block.py -> delbot_platform.documents.classification.document_type
+delbot_platform/documents/extraction/block.py -> delbot_platform.documents.models.block
+delbot_platform/documents/extraction/service.py -> delbot_platform.documents.extraction.block
+delbot_platform/documents/extraction/service.py -> delbot_platform.documents.loader.sources.local
+delbot_platform/documents/extraction/service.py -> delbot_platform.documents.models.block
+delbot_platform/documents/extraction/service.py -> delbot_platform.documents.parser.backend.pymupdf
+delbot_platform/documents/extraction/service.py -> delbot_platform.documents.classification.document_type
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.loader.source
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.loader.sources.local
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.models.document
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.models.metadata
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.models.page
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.parser.backend.base
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.parser.backend.pymupdf
+delbot_platform/documents/parser/pdf.py -> delbot_platform.documents.parser.base
+delbot_platform/documents/parser/base.py -> delbot_platform.documents.loader.source
+delbot_platform/documents/parser/base.py -> delbot_platform.documents.models.document
+delbot_platform/documents/parser/backend/pymupdf.py -> delbot_platform.documents.loader.source
+delbot_platform/documents/parser/backend/pymupdf.py -> delbot_platform.documents.parser.backend.base
+delbot_platform/documents/parser/backend/base.py -> delbot_platform.documents.loader.source
+delbot_platform/documents/classification/heading.py -> delbot_platform.documents.classification.document_type
+delbot_platform/documents/classification/heading.py -> delbot_platform.documents.models.block
+delbot_platform/documents/classification/page_classifier.py -> delbot_platform.documents.classification.page_type
+delbot_platform/documents/services/__init__.py -> delbot_platform.documents.services.indexing
+delbot_platform/documents/services/indexing.py -> delbot_platform.documents.pipeline.indexing
+delbot_platform/documents/structure/section/__init__.py -> delbot_platform.documents.structure.section.builder
+delbot_platform/documents/structure/section/__init__.py -> delbot_platform.documents.structure.section.section
+delbot_platform/documents/structure/section/builder.py -> delbot_platform.documents.classification.document_type
+delbot_platform/documents/structure/section/builder.py -> delbot_platform.documents.models.block
+delbot_platform/documents/structure/section/builder.py -> delbot_platform.documents.structure.section.section
+delbot_platform/documents/structure/section/section.py -> delbot_platform.documents.models.block
+delbot_platform/documents/chunking/__init__.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/chunking/__init__.py -> delbot_platform.documents.chunking.chunk_builder
+delbot_platform/documents/chunking/chunk_builder.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/chunking/chunk_builder.py -> delbot_platform.documents.chunking.policy.policy
+delbot_platform/documents/chunking/chunk_builder.py -> delbot_platform.documents.metadata.builder.chunk
+delbot_platform/documents/chunking/chunk_builder.py -> delbot_platform.documents.structure.section.section
+delbot_platform/documents/embedding/base.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/embedding/factory/provider.py -> delbot_platform.documents.embedding.base
+delbot_platform/documents/embedding/factory/provider.py -> delbot_platform.documents.embedding.providers.local
+delbot_platform/documents/embedding/factory/provider.py -> delbot_platform.documents.embedding.providers.gateway
+delbot_platform/documents/embedding/pipeline/pipeline.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/embedding/pipeline/pipeline.py -> delbot_platform.documents.embedding.factory.provider
+delbot_platform/documents/embedding/models/embedding_vector.py -> delbot_platform.documents.metadata.chunk_metadata
+delbot_platform/documents/embedding/models/embedding_vector.py -> delbot_platform.documents.metadata.mapper.chunk_metadata_mapper
+delbot_platform/documents/embedding/providers/gateway.py -> delbot_platform.ai.registry.model_category
+delbot_platform/documents/embedding/providers/gateway.py -> delbot_platform.ai.registry.registry
+delbot_platform/documents/embedding/providers/gateway.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/embedding/providers/gateway.py -> delbot_platform.documents.embedding.base
+delbot_platform/documents/embedding/providers/gateway.py -> delbot_platform.gateway.client
+delbot_platform/documents/embedding/providers/local.py -> delbot_platform.documents.models.document_chunk
+delbot_platform/documents/embedding/providers/local.py -> delbot_platform.documents.embedding.base
+delbot_platform/documents/embedding/mapper/vector_mapper.py -> delbot_platform.documents.metadata.mapper.chunk_metadata_mapper
+tools/test_retriever_engine.py -> delbot_platform.knowledge.retrieval.qdrant
+tools/test_semantic_search.py -> delbot_platform.documents.embedding.pipeline.pipeline
+tools/test_semantic_search.py -> delbot_platform.documents.models.document_chunk
+tools/test_semantic_search.py -> delbot_platform.vectorstore.qdrant.singleton
+tools/test_qdrant_storage.py -> delbot_platform.documents.pipeline.indexing
+tools/test_qdrant_storage.py -> delbot_platform.repository.integration.document_loader
+tools/ingest_metadata_vectors.py -> delbot_platform.ai.client.embedding_client
+tools/ingest_metadata_vectors.py -> delbot_platform.knowledge.vector.qdrant_store
+tools/test_async_research_pipeline.py -> delbot_platform.application.research.answer
+tools/test_e2e_production_pipeline.py -> delbot_platform.application.research.answer
+tools/inspect_embedding_vector.py -> delbot_platform.documents.models.document_chunk
+tools/inspect_embedding_vector.py -> delbot_platform.documents.embedding.pipeline.pipeline
+tools/test_production_application.py -> delbot_platform.application.research.answer
+tools/test_document_pipeline.py -> delbot_platform.documents.pipeline.indexing
+tools/batch_ingest_repository.py -> delbot_platform.documents.pipeline.indexing
+tools/test_citation_runtime.py -> delbot_platform.documents.models.document_chunk
+tools/test_citation_runtime.py -> delbot_platform.documents.metadata.chunk_metadata
+tools/test_production_fastapi_endpoint.py -> delbot_platform.gateway.routers.research
+tools/test_repository_explorer.py -> delbot_platform.api.routers.repository
+tools/test_pr41b_batch_index.py -> delbot_platform.api.routers.document
+tools/ingest_pdf_vectors.py -> delbot_platform.ai.client.embedding_client
+tools/ingest_pdf_vectors.py -> delbot_platform.knowledge.vector.qdrant_store
+tools/test_vector_schema.py -> delbot_platform.knowledge.rag.vector_retriever
+tools/test_rag_llm_pipeline.py -> delbot_platform.research.pipeline.research_answer_pipeline
+tools/inspect_document_chunk.py -> delbot_platform.documents.models.document_chunk
+tools/debug_qdrant_runtime.py -> delbot_platform.repository.integration.document_loader
+tools/debug_qdrant_runtime.py -> delbot_platform.documents.pipeline.indexing
+tools/test_pr41a_repository_scan_api.py -> delbot_platform.api.routers.repository
+tools/inspect_embedding_pipeline.py -> delbot_platform.documents.embedding.pipeline.pipeline
+tools/test_retrieval.py -> delbot_platform.knowledge.retrieval.qdrant
+tools/test_document_pipeline_batch.py -> delbot_platform.documents.pipeline.indexing
+tools/test_research_engine.py -> delbot_platform.workspace.session_manager
+tools/audit_heading_classifier.py -> delbot_platform.documents.classification.heading
+tools/audit_heading_classifier.py -> delbot_platform.documents.extraction.service
+tools/audit_heading_classifier.py -> delbot_platform.documents.models.block
+tools/test_rag_pipeline.py -> delbot_platform.documents.embedding.pipeline.pipeline
+tools/test_rag_pipeline.py -> delbot_platform.documents.models.document_chunk
+tools/test_rag_pipeline.py -> delbot_platform.knowledge.retrieval.qdrant
+tools/test_rag_pipeline.py -> delbot_platform.documents.models.document_chunk
+tools/test_rag_pipeline.py -> delbot_platform.knowledge.rag.citation_builder
+tools/test_citation_builder.py -> delbot_platform.documents.models.document_chunk
+tools/test_citation_builder.py -> delbot_platform.documents.embedding.pipeline.pipeline
+tools/test_citation_builder.py -> delbot_platform.documents.models.document_chunk
+tools/test_citation_builder.py -> delbot_platform.documents.metadata.mapper.chunk_metadata_mapper
+tools/test_research_router.py -> delbot_platform.gateway.routers.research
+tools/architecture/layer.py -> tools.architecture.graph
+tools/architecture/layer.py -> tools.architecture.models
+tools/architecture/metrics.py -> tools.architecture.graph
+tools/architecture/metrics.py -> tools.architecture.models
+tools/architecture/doctor.py -> tools.architecture.models
+tools/architecture/doctor.py -> tools.architecture.pipeline
+tools/architecture/pipeline.py -> tools.architecture.circular
+tools/architecture/pipeline.py -> tools.architecture.dependency
+tools/architecture/pipeline.py -> tools.architecture.graph
+tools/architecture/pipeline.py -> tools.architecture.graph_filter
+tools/architecture/pipeline.py -> tools.architecture.layer
+tools/architecture/pipeline.py -> tools.architecture.metrics
+tools/architecture/pipeline.py -> tools.architecture.models
+tools/architecture/graph.py -> tools.architecture.models
+tools/architecture/graph.py -> tools.architecture.models
+tools/architecture/models.py -> tools.architecture.graph
+tools/architecture/graph_filter.py -> tools.architecture.graph
+tools/architecture/circular.py -> tools.architecture.graph
+tools/architecture/circular.py -> tools.architecture.models
+tools/architecture/tests/test_layer.py -> tools.architecture.graph
+tools/architecture/tests/test_layer.py -> tools.architecture.layer
+tools/architecture/tests/test_layer.py -> tools.architecture.models
+tools/architecture/tests/test_pipeline.py -> tools.architecture.pipeline
+tools/architecture/tests/test_metrics.py -> tools.architecture.graph
+tools/architecture/tests/test_metrics.py -> tools.architecture.metrics
+tools/architecture/tests/test_metrics.py -> tools.architecture.models
+tools/architecture/tests/test_circular.py -> tools.architecture.circular
+tools/architecture/tests/test_circular.py -> tools.architecture.graph
+tools/architecture/tests/test_circular.py -> tools.architecture.models
+.mvp_backup_766371/pipeline.py -> delbot_platform.knowledge.context.builder
+.mvp_backup_766371/pipeline.py -> delbot_platform.knowledge.rag.models.response
+.mvp_backup_766371/pipeline.py -> delbot_platform.knowledge.reranking.gateway
+.mvp_backup_766371/pipeline.py -> delbot_platform.knowledge.reranking.result
+.mvp_backup_766371/pipeline.py -> delbot_platform.knowledge.retrieval.qdrant
+.mvp_backup_766371/qdrant.py -> delbot_platform.documents.models.document_chunk
+.mvp_backup_766371/qdrant.py -> delbot_platform.documents.embedding.pipeline.pipeline
+.mvp_backup_766371/qdrant.py -> delbot_platform.documents.metadata.chunk_metadata
+.mvp_backup_766371/qdrant.py -> delbot_platform.documents.metadata.mapper.chunk_metadata_mapper
+.mvp_backup_766371/qdrant.py -> delbot_platform.knowledge.retrieval.base
+.mvp_backup_766371/qdrant.py -> delbot_platform.knowledge.retrieval.result
+.mvp_backup_766371/qdrant.py -> delbot_platform.knowledge.vector.repository.qdrant
+.mvp_backup_766371/research_answer_pipeline.py -> delbot_platform.knowledge.rag.pipeline
+.mvp_backup_766371/research_answer_pipeline.py -> delbot_platform.repository.service
+.mvp_backup_766371/research_answer_pipeline.py -> delbot_platform.research.prompt_builder
+.mvp_backup_766371/memory.py -> delbot_platform.knowledge.vector.models.record
+.mvp_backup_766371/memory.py -> delbot_platform.knowledge.vector.repository.base
+.mvp_backup_766371/base.py -> delbot_platform.knowledge.retrieval.result
+.mvp_backup_766378/research_answer_pipeline.py -> delbot_platform.knowledge.rag.pipeline
+.mvp_backup_766378/research_answer_pipeline.py -> delbot_platform.repository.service
+.mvp_backup_766378/research_answer_pipeline.py -> delbot_platform.research.prompt_builder
+
+=== SOURCE CANDIDATES ===
+SCORE=67|FILE=delbot_platform/vectorstore/qdrant/singleton.py|QDRANT_HITS=12|ENV_HITS=6|CONFIG_HITS=1
+SCORE=32|FILE=delbot_platform/gateway/__main__.py|QDRANT_HITS=0|ENV_HITS=6|CONFIG_HITS=2
+SCORE=18|FILE=tools/test_qdrant_storage.py|QDRANT_HITS=6|ENV_HITS=0|CONFIG_HITS=0
+SCORE=15|FILE=tools/test_retriever_runtime.py|QDRANT_HITS=5|ENV_HITS=0|CONFIG_HITS=0
+SCORE=15|FILE=tools/audit_qdrant_storage.py|QDRANT_HITS=5|ENV_HITS=0|CONFIG_HITS=0
+SCORE=12|FILE=tools/test_semantic_search.py|QDRANT_HITS=4|ENV_HITS=0|CONFIG_HITS=0
+SCORE=11|FILE=delbot_platform/ai/runtime/embedding.py|QDRANT_HITS=0|ENV_HITS=2|CONFIG_HITS=1
+SCORE=10|FILE=delbot_platform/core/config_manager.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=10
+SCORE=10|FILE=delbot_platform/ai/runtime/chat.py|QDRANT_HITS=0|ENV_HITS=2|CONFIG_HITS=0
+SCORE=10|FILE=backup/sprint764_31/config_manager.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=10
+SCORE=10|FILE=backup/sprint764_28/config_manager.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=10
+SCORE=9|FILE=tools/test_citation_builder.py|QDRANT_HITS=3|ENV_HITS=0|CONFIG_HITS=0
+SCORE=7|FILE=delbot_platform/ai/registry/registry.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=7
+SCORE=6|FILE=tools/inspect_retriever_api.py|QDRANT_HITS=2|ENV_HITS=0|CONFIG_HITS=0
+SCORE=6|FILE=delbot_platform/core/environment.py|QDRANT_HITS=0|ENV_HITS=1|CONFIG_HITS=1
+SCORE=4|FILE=delbot_platform/workspace/models/workspace_metadata.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=4
+SCORE=4|FILE=delbot_platform/__main__.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=4
+SCORE=3|FILE=tools/architecture/inventory.py|QDRANT_HITS=1|ENV_HITS=0|CONFIG_HITS=0
+SCORE=3|FILE=delbot_platform/documents/embedding/models/embedding_vector.py|QDRANT_HITS=1|ENV_HITS=0|CONFIG_HITS=0
+SCORE=3|FILE=delbot_platform/ai/registry/model_info.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=3
+SCORE=2|FILE=runtime/nvm/versions/node/v20.20.2/share/doc/node/lldb_commands.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/documents/chunking/policy/policy.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/core/lifecycle/service_loader.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/ai/registry/exceptions.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/ai/embedding/embedding_config.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/ai/client/reranker_client.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/ai/client/llm_client.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=2|FILE=delbot_platform/ai/client/embedding_client.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=2
+SCORE=1|FILE=tools/architecture/ownership.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=tools/architecture/duplicate.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/whisper.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/vllm.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/spec.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/research_api_launcher.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/paddleocr.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/infinity.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/gateway_launcher.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/launcher/ai_runtime.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/core/path_manager.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/core/lifecycle/service_definition.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/config/loader.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+SCORE=1|FILE=delbot_platform/ai/registry/model_backend_config.py|QDRANT_HITS=0|ENV_HITS=0|CONFIG_HITS=1
+
+=== PARSE ERRORS ===
+NONE

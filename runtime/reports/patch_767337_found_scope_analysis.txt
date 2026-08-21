@@ -1,0 +1,28 @@
+PATCH=767.337
+PURPOSE=Determine exact Python closure scope of found before minimal compile fix
+MODE=READ_ONLY
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 14:27:59
+
+PATCH=767.337
+GATEWAY_PID=5136
+TARGET_COMPILE_STATUS=FAIL
+FOUND|line=120|column=4|ctx=Store
+FOUND|line=146|column=7|ctx=Load
+FOUND|line=126|column=11|ctx=Load
+FOUND|line=142|column=16|ctx=Store
+NONLOCAL|line=124|names=found
+PARSE_ERRORS=0
+
+COMPILE_ERROR:
+  File "tools/audit_pdf_mapping.py", line 124
+    nonlocal found
+    ^^^^^^^^^^^^^^
+SyntaxError: no binding for nonlocal 'found' found

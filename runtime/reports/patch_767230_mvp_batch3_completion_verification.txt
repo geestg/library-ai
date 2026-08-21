@@ -1,0 +1,70 @@
+
+--- 1. GATEWAY ---
+5136 python -m delbot_platform.gateway
+
+--- 2. GATEWAY HEALTH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+HTTP_STATUS=200 TIME=0.003377s
+
+--- 3. EXISTING CURL BEFORE WAIT ---
+CURL_STATUS=NOT_RUNNING
+
+--- 4. WAIT FOR EXISTING BATCH ---
+WAIT=1 CURL=FINISHED
+
+--- 5. FINAL CURL STATE ---
+CURL_STATUS=FINISHED
+
+--- 6. RESPONSE FILE ---
+RESPONSE_FILE=PRESENT
+RESPONSE_SIZE=58
+RESPONSE_BODY=
+{"success":true,"indexed":3,"skipped":185,"total_pdf":188}
+
+--- 7. HTTP STATUS ---
+HTTP_STATUS_FILE=PRESENT
+HTTP_STATUS=200
+
+--- 8. CURL ERROR LOG ---
+CURL_ERROR_LOG=PRESENT
+nohup: ignoring input
+
+--- 9. GATEWAY AFTER BATCH ---
+5136 python -m delbot_platform.gateway
+
+--- 10. GATEWAY HEALTH AFTER BATCH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+HTTP_STATUS=200 TIME=0.001720s
+
+--- 11. TRUE INVENTORY ---
+PDF_TOTAL=188
+PROCESSED_DIRECTORIES_TOTAL=235
+METADATA_TOTAL=235
+
+--- 12. EXPECTED INVENTORY MOVEMENT ---
+PREVIOUS_TRUE_MATCHED=96
+EXPECTED_BATCH_INDEXED=3
+EXPECTED_TRUE_MATCHED_AFTER=99
+EXPECTED_TRUE_UNPROCESSED_AFTER=89
+
+--- 13. QDRANT STATE ---
+QDRANT_PATH=PRESENT
+65M	/workspace/delbot/repository_data/qdrant_local
+
+--- 14. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 15. SAFETY ---
+NEW_INDEX_REQUEST_BY_THIS_PATCH=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+
+--- 16. FINAL DECISION ---
+INDEX_RESPONSE=PASS
+BATCH_DECISION=COMPLETED
+
+--- 17. REPORT ---
+REPORT=runtime/reports/patch_767230_mvp_batch3_completion_verification.txt
+LOG=runtime/reports/patch_767230_mvp_batch3_completion_verification.log

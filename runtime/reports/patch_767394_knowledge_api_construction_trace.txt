@@ -1,0 +1,511 @@
+PATCH=767.394
+PURPOSE=Trace knowledge-layer construction from API/runtime entrypoints to Qdrant singleton
+MODE=READ_ONLY_AST_FORENSIC
+STORAGE=repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:24:49
+
+=== 1. FORENSIC SUMMARY ===
+FILES_SCANNED=577
+SINGLETON_IMPORTS=5
+QDRANT_CALLS=8
+KNOWLEDGE_CONSTRUCTS=237
+API_ENTRY_CONSTRUCTS=26
+STARTUP_CONSTRUCTS=13
+ENTRYPOINT_FUNCTIONS=118
+CONSTRUCTOR_CONTEXT=60
+
+=== 2. SINGLETON IMPORTERS ===
+delbot_platform/knowledge/rag/vector_retriever.py|6|IMPORT|delbot_platform.vectorstore.qdrant.singleton|get_qdrant_store
+delbot_platform/knowledge/vector/qdrant_store.py|5|IMPORT|delbot_platform.vectorstore.qdrant.singleton|get_qdrant_store
+delbot_platform/knowledge/vector/repository/qdrant.py|11|IMPORT|delbot_platform.vectorstore.qdrant.singleton|get_qdrant_store
+delbot_platform/vectorstore/qdrant/repository.py|7|IMPORT|delbot_platform.vectorstore.qdrant.singleton|get_qdrant_store
+tools/test_semantic_search.py|22|IMPORT|delbot_platform.vectorstore.qdrant.singleton|get_qdrant_store
+
+=== 3. EXACT QDRANT CALLS ===
+delbot_platform/knowledge/rag/vector_retriever.py|17|CALL|get_qdrant_store
+delbot_platform/knowledge/vector/qdrant_store.py|17|CALL|get_qdrant_store
+delbot_platform/knowledge/vector/repository/qdrant.py|25|CALL|get_qdrant_store
+delbot_platform/vectorstore/qdrant/repository.py|25|CALL|get_qdrant_store
+delbot_platform/vectorstore/qdrant/singleton.py|157|CALL|QdrantStore
+tools/ingest_metadata_vectors.py|57|CALL|QdrantStore
+tools/ingest_pdf_vectors.py|46|CALL|QdrantStore
+tools/test_semantic_search.py|61|CALL|get_qdrant_store
+
+=== 4. KNOWLEDGE CONSTRUCTION ===
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|43|CONSTRUCT|ParagraphCollection
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|52|CONSTRUCT|self._build_paragraph_text
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|98|CONSTRUCT|Paragraph
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|85|CONSTRUCT|Paragraph
+.mvp_backup_766371/memory.py|4|IMPORT|delbot_platform.knowledge.vector.models.record|VectorRecord
+.mvp_backup_766371/memory.py|9|IMPORT|delbot_platform.knowledge.vector.repository.base|VectorRepository
+.mvp_backup_766371/pipeline.py|10|IMPORT|delbot_platform.knowledge.rag.models.response|RAGResponse
+.mvp_backup_766371/pipeline.py|19|IMPORT|delbot_platform.knowledge.retrieval.qdrant|QdrantRetriever
+.mvp_backup_766371/pipeline.py|100|CONSTRUCT|RAGResponse
+.mvp_backup_766371/pipeline.py|45|CONSTRUCT|QdrantRetriever
+.mvp_backup_766371/pipeline.py|71|CONSTRUCT|self.retriever.retrieve
+.mvp_backup_766371/qdrant.py|15|IMPORT|delbot_platform.knowledge.retrieval.base|Retriever
+.mvp_backup_766371/qdrant.py|21|IMPORT|delbot_platform.knowledge.vector.repository.qdrant|QdrantRepository
+.mvp_backup_766371/research_answer_pipeline.py|7|IMPORT|delbot_platform.knowledge.rag.pipeline|RAGPipeline
+.mvp_backup_766371/research_answer_pipeline.py|11|IMPORT|delbot_platform.repository.service|RepositoryService
+.mvp_backup_766371/research_answer_pipeline.py|19|IMPORT|delbot_platform.research.models|ResearchPipelineResponse
+.mvp_backup_766371/research_answer_pipeline.py|23|IMPORT|delbot_platform.research.prompt_builder|ResearchPromptBuilder
+.mvp_backup_766371/research_answer_pipeline.py|607|CONSTRUCT|RAGPipeline
+.mvp_backup_766371/research_answer_pipeline.py|754|CONSTRUCT|self.get_rag
+.mvp_backup_766378/research_answer_pipeline.py|7|IMPORT|delbot_platform.knowledge.rag.pipeline|RAGPipeline
+.mvp_backup_766378/research_answer_pipeline.py|11|IMPORT|delbot_platform.repository.service|RepositoryService
+.mvp_backup_766378/research_answer_pipeline.py|19|IMPORT|delbot_platform.research.models|ResearchPipelineResponse
+.mvp_backup_766378/research_answer_pipeline.py|23|IMPORT|delbot_platform.research.prompt_builder|ResearchPromptBuilder
+.mvp_backup_766378/research_answer_pipeline.py|607|CONSTRUCT|RAGPipeline
+.mvp_backup_766378/research_answer_pipeline.py|754|CONSTRUCT|self.get_rag
+delbot_platform/ai/runtime/chat.py|195|CONSTRUCT|paragraph.strip
+delbot_platform/ai/runtime/chat.py|203|CONSTRUCT|paragraph.lower
+delbot_platform/ai/runtime/chat.py|197|CONSTRUCT|paragraph.strip
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|3|IMPORT|delbot_platform.ai.vector_store.base_vector_store|BaseVectorStore
+delbot_platform/api/routers/repository.py|8|IMPORT|delbot_platform.repository.service|RepositoryService
+delbot_platform/api/routers/research.py|7|IMPORT|delbot_platform.api.schemas.research|ResearchAnswerRequest
+delbot_platform/api/routers/research.py|7|IMPORT|delbot_platform.api.schemas.research|ResearchAnswerResponse
+delbot_platform/application/documents/__init__.py|5|IMPORT|index_repository|RepositoryDocumentIndexApplication
+delbot_platform/application/factory/application_factory.py|7|IMPORT|delbot_platform.application.repository|RepositoryIngestionApplication
+delbot_platform/application/factory/application_factory.py|10|IMPORT|delbot_platform.application.research|ResearchAnswerApplication
+delbot_platform/application/repository/ingest.py|3|IMPORT|delbot_platform.repository.models|RepositoryItem
+delbot_platform/application/repository/ingest.py|7|IMPORT|delbot_platform.workflows.repository|RepositoryIngestionWorkflow
+delbot_platform/application/repository/ingest.py|11|IMPORT|delbot_platform.workflows.repository.models|RepositoryIngestionArtifact
+delbot_platform/application/repository/ingest.py|11|IMPORT|delbot_platform.workflows.repository.models|RepositoryIngestionResult
+delbot_platform/application/research/answer.py|3|IMPORT|delbot_platform.research.models|ResearchPipelineResponse
+delbot_platform/application/research/answer.py|7|IMPORT|delbot_platform.research.services|ResearchAnswerService
+delbot_platform/application/retrieval/answer.py|3|IMPORT|delbot_platform.knowledge.rag.pipeline|RAGPipeline
+delbot_platform/application/retrieval/answer.py|7|IMPORT|delbot_platform.knowledge.rag.models.response|RAGResponse
+delbot_platform/application/retrieval/answer.py|36|CONSTRUCT|RAGPipeline
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|32|CONSTRUCT|Paragraph
+delbot_platform/document_intelligence/models/paragraph_collection.py|31|CONSTRUCT|self.paragraphs.append
+delbot_platform/documents/embedding/mapper/__init__.py|1|IMPORT|vector_mapper|EmbeddingVectorMapper
+delbot_platform/documents/embedding/mapper/vector_mapper.py|9|IMPORT|delbot_platform.vectors|VectorRecord
+delbot_platform/documents/embedding/models/__init__.py|1|IMPORT|embedding_vector|EmbeddingVector
+delbot_platform/documents/embedding/vector.py|1|IMPORT|delbot_platform.vectors|VectorRecord
+
+=== 5. API / APP ENTRYPOINTS ===
+delbot_platform/ai/runtime/base.py|32|ENTRY|FastAPI
+delbot_platform/ai/runtime/base.py|129|ENTRY|uvicorn.run
+delbot_platform/ai/runtime/chat.py|12|ENTRY|FastAPI
+delbot_platform/ai/runtime/chat.py|278|ENTRY|uvicorn.run
+delbot_platform/ai/runtime/embedding.py|36|ENTRY|FastAPI
+delbot_platform/ai/runtime/embedding.py|88|ENTRY|uvicorn.run
+delbot_platform/ai/runtime/infinity.py|8|ENTRY|FastAPI
+delbot_platform/ai/runtime/infinity.py|68|ENTRY|uvicorn.run
+delbot_platform/ai/runtime/reranker.py|10|ENTRY|FastAPI
+delbot_platform/ai/runtime/reranker.py|99|ENTRY|uvicorn.run
+delbot_platform/api/__main__.py|10|ENTRY|uvicorn.run
+delbot_platform/api/app.py|26|ENTRY|FastAPI
+delbot_platform/api/main.py|20|ENTRY|FastAPI
+delbot_platform/api/routers/chat.py|17|ENTRY|APIRouter
+delbot_platform/api/routers/document.py|14|ENTRY|APIRouter
+delbot_platform/api/routers/repository.py|10|ENTRY|APIRouter
+delbot_platform/api/routers/research.py|18|ENTRY|APIRouter
+delbot_platform/api/routers/retrieval.py|16|ENTRY|APIRouter
+delbot_platform/gateway/__main__.py|19|ENTRY|uvicorn.run
+delbot_platform/gateway/app.py|33|ENTRY|FastAPI
+delbot_platform/gateway/app.py|91|ENTRY|uvicorn.run
+delbot_platform/gateway/routers/chat.py|12|ENTRY|APIRouter
+delbot_platform/gateway/routers/embedding.py|14|ENTRY|APIRouter
+delbot_platform/gateway/routers/health.py|6|ENTRY|APIRouter
+delbot_platform/gateway/routers/models.py|6|ENTRY|APIRouter
+delbot_platform/gateway/routers/research.py|11|ENTRY|APIRouter
+
+=== 6. STARTUP / INITIALIZATION FUNCTIONS ===
+.backup/document_intelligence_20260805_101417/parser/pdf_document_parser.py|27|FUNCTION|__init__
+.backup/document_intelligence_20260805_101417/pipeline/analyzer_stage.py|16|FUNCTION|__init__
+.backup/document_intelligence_20260805_101417/pipeline/builder_stage.py|16|FUNCTION|__init__
+.backup/document_intelligence_20260805_101417/pipeline/document_pipeline.py|10|FUNCTION|__init__
+.backup/document_intelligence_20260805_101417/pipeline/parser_stage.py|16|FUNCTION|__init__
+.backup/document_intelligence_20260805_101417/processor/document_processor.py|15|FUNCTION|__init__
+.backup/sprint_764_88_20260805_092053/delbot_platform/launcher/ai_runtime.py|36|FUNCTION|__init__
+.mvp_backup_766371/memory.py|20|FUNCTION|__init__
+.mvp_backup_766371/pipeline.py|26|FUNCTION|__init__
+.mvp_backup_766371/pipeline.py|42|FUNCTION|_initialize
+.mvp_backup_766371/qdrant.py|29|FUNCTION|__init__
+.mvp_backup_766371/qdrant.py|38|FUNCTION|_initialize
+.mvp_backup_766371/research_answer_pipeline.py|30|FUNCTION|__init__
+.mvp_backup_766378/research_answer_pipeline.py|30|FUNCTION|__init__
+backup/sprint764_24/embedding_client.py|9|FUNCTION|__init__
+backup/sprint764_24/llm_client.py|10|FUNCTION|__init__
+backup/sprint764_24/reranker_client.py|10|FUNCTION|__init__
+backup/sprint764_28/client/embedding_client.py|9|FUNCTION|__init__
+backup/sprint764_28/client/llm_client.py|10|FUNCTION|__init__
+backup/sprint764_28/client/reranker_client.py|10|FUNCTION|__init__
+backup/sprint764_31/client/embedding_client.py|9|FUNCTION|__init__
+backup/sprint764_31/client/llm_client.py|10|FUNCTION|__init__
+backup/sprint764_31/client/reranker_client.py|10|FUNCTION|__init__
+backup/sprint764_40/chat_client.py|11|FUNCTION|__init__
+backup/sprint764_40/client.py|9|FUNCTION|__init__
+delbot_platform/ai/client/embedding_client.py|10|FUNCTION|__init__
+delbot_platform/ai/client/llm_client.py|10|FUNCTION|__init__
+delbot_platform/ai/client/reranker_client.py|11|FUNCTION|__init__
+delbot_platform/ai/embedding/embedding_service.py|24|FUNCTION|__init__
+delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|24|FUNCTION|__init__
+delbot_platform/ai/http/http_client.py|13|FUNCTION|__init__
+delbot_platform/ai/process/process_manager.py|26|FUNCTION|__init__
+delbot_platform/ai/process/process_registry.py|16|FUNCTION|__init__
+delbot_platform/ai/registry/registry.py|25|FUNCTION|__init__
+delbot_platform/ai/runtime/base.py|24|FUNCTION|__init__
+delbot_platform/ai/runtime/monitor.py|15|FUNCTION|__init__
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|24|FUNCTION|__init__
+delbot_platform/application/documents/index.py|20|FUNCTION|__init__
+delbot_platform/application/documents/index_repository.py|16|FUNCTION|__init__
+delbot_platform/application/repository/ingest.py|26|FUNCTION|__init__
+delbot_platform/application/research/answer.py|17|FUNCTION|__init__
+delbot_platform/application/retrieval/answer.py|25|FUNCTION|__init__
+delbot_platform/boot/service_boot.py|32|FUNCTION|__init__
+delbot_platform/boot/service_health.py|8|FUNCTION|__init__
+delbot_platform/boot/service_waiter.py|13|FUNCTION|__init__
+delbot_platform/controller/service_controller.py|14|FUNCTION|__init__
+delbot_platform/core/lifecycle/orchestrator.py|35|FUNCTION|__init__
+delbot_platform/core/lifecycle/orchestrator.py|78|FUNCTION|definition
+delbot_platform/core/lifecycle/orchestrator.py|87|FUNCTION|definitions
+delbot_platform/core/lifecycle/service_registry.py|14|FUNCTION|__init__
+delbot_platform/documents/chunking/chunk_builder.py|40|FUNCTION|__init__
+delbot_platform/documents/embedding/pipeline/pipeline.py|23|FUNCTION|__init__
+delbot_platform/documents/embedding/providers/gateway.py|30|FUNCTION|__init__
+delbot_platform/documents/embedding/providers/local.py|24|FUNCTION|__init__
+delbot_platform/documents/extraction/service.py|47|FUNCTION|__init__
+delbot_platform/documents/ingestion/repository_ingestor.py|25|FUNCTION|__init__
+delbot_platform/documents/loader/sources/local.py|15|FUNCTION|__init__
+delbot_platform/documents/metadata/builder/document.py|29|FUNCTION|__init__
+delbot_platform/documents/metadata/document_metadata.py|36|FUNCTION|__post_init__
+delbot_platform/documents/metadata/repository.py|17|FUNCTION|__init__
+delbot_platform/documents/parser/backend/pymupdf.py|15|FUNCTION|__init__
+delbot_platform/documents/parser/pdf.py|40|FUNCTION|__init__
+delbot_platform/documents/pipeline/indexing.py|37|FUNCTION|__init__
+delbot_platform/documents/pipeline/preprocessing.py|40|FUNCTION|__init__
+delbot_platform/documents/registry/filesystem.py|19|FUNCTION|__init__
+delbot_platform/documents/registry/manager.py|21|FUNCTION|__init__
+delbot_platform/documents/registry/memory.py|15|FUNCTION|__init__
+delbot_platform/documents/services/indexing.py|16|FUNCTION|__init__
+delbot_platform/gateway/client.py|18|FUNCTION|__init__
+delbot_platform/gateway/providers/infinity.py|26|FUNCTION|__init__
+delbot_platform/gateway/providers/vllm.py|29|FUNCTION|__init__
+delbot_platform/gateway/router.py|13|FUNCTION|__init__
+delbot_platform/gateway/runtime/infinity.py|15|FUNCTION|__init__
+delbot_platform/gateway/runtime/vllm.py|15|FUNCTION|__init__
+delbot_platform/gateway/services/gateway.py|31|FUNCTION|__init__
+delbot_platform/knowledge/hydration/citation.py|13|FUNCTION|__init__
+delbot_platform/knowledge/hydration/local.py|23|FUNCTION|__init__
+delbot_platform/knowledge/rag/llm/generator.py|18|FUNCTION|__init__
+delbot_platform/knowledge/rag/pipeline.py|26|FUNCTION|__init__
+delbot_platform/knowledge/rag/pipeline.py|42|FUNCTION|_initialize
+
+=== 7. CONSTRUCTOR ASSIGNMENTS ===
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|43|ASSIGN|ParagraphCollection
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py|52|ASSIGN|self._build_paragraph_text
+.mvp_backup_766371/pipeline.py|45|ASSIGN|QdrantRetriever
+.mvp_backup_766371/qdrant.py|43|ASSIGN|QdrantRepository
+.mvp_backup_766371/research_answer_pipeline.py|607|ASSIGN|RAGPipeline
+.mvp_backup_766378/research_answer_pipeline.py|607|ASSIGN|RAGPipeline
+delbot_platform/ai/runtime/chat.py|203|ASSIGN|paragraph.lower
+delbot_platform/api/routers/repository.py|81|ASSIGN|RepositoryService
+delbot_platform/application/retrieval/answer.py|36|ASSIGN|RAGPipeline
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|32|ASSIGN|Paragraph
+delbot_platform/documents/ingestion/repository_ingestor.py|52|ASSIGN|self.repository_loader.load_available
+delbot_platform/documents/pipeline/indexing.py|53|ASSIGN|DocumentMetadataRepository
+delbot_platform/documents/pipeline/indexing.py|59|ASSIGN|QdrantRepository
+delbot_platform/documents/pipeline/indexing.py|98|ASSIGN|EmbeddingVectorMapper.to_vector_records
+delbot_platform/documents/registry/manager.py|47|ASSIGN|self.repository.get
+delbot_platform/knowledge/graph/graph_builder.py|27|ASSIGN|KnowledgeGraph
+delbot_platform/knowledge/hydration/local.py|70|ASSIGN|KnowledgeDomain
+delbot_platform/knowledge/hydration/local.py|72|ASSIGN|KnowledgeSource
+delbot_platform/knowledge/hydration/local.py|77|ASSIGN|Repository
+delbot_platform/knowledge/models/collection.py|95|ASSIGN|Repository.from_dict
+delbot_platform/knowledge/models/collection.py|104|ASSIGN|Repository
+delbot_platform/knowledge/models/knowledge_source.py|65|ASSIGN|KnowledgeDomain.from_dict
+delbot_platform/knowledge/models/knowledge_source.py|71|ASSIGN|KnowledgeDomain
+delbot_platform/knowledge/models/repository.py|81|ASSIGN|KnowledgeSource.from_dict
+delbot_platform/knowledge/models/repository.py|91|ASSIGN|KnowledgeSource
+delbot_platform/knowledge/pipeline/knowledge_pipeline.py|27|ASSIGN|KnowledgePipelineContext
+delbot_platform/knowledge/rag/pipeline.py|45|ASSIGN|QdrantRetriever
+delbot_platform/knowledge/retrieval/qdrant.py|43|ASSIGN|QdrantRepository
+delbot_platform/knowledge/services/processing.py|26|ASSIGN|KnowledgePipeline
+delbot_platform/repository/catalog/loader.py|49|ASSIGN|RepositoryCatalog
+delbot_platform/repository/ingestion/dataset_loader.py|76|ASSIGN|RepositoryItem
+delbot_platform/repository/service.py|79|ASSIGN|RepositoryStatus
+delbot_platform/research/pipeline/research_answer_pipeline.py|881|ASSIGN|RAGPipeline
+delbot_platform/workflows/repository/ingestion.py|60|ASSIGN|self.repository.resolve_pdf
+delbot_platform/workflows/repository/ingestion.py|81|ASSIGN|self.knowledge.process
+tools/architecture/filter.py|23|ASSIGN|RepositoryInventory
+tools/architecture/inventory.py|42|ASSIGN|RepositoryInventory
+tools/batch_ingest_repository.py|31|ASSIGN|RepositoryDocumentLoader
+tools/batch_ingest_repository.py|35|ASSIGN|QdrantRepository
+tools/debug_qdrant_runtime.py|35|ASSIGN|RepositoryDocumentLoader
+tools/debug_qdrant_runtime.py|60|ASSIGN|QdrantRepository
+tools/test_citation_builder.py|96|ASSIGN|QdrantRepository
+tools/test_document_pipeline.py|37|ASSIGN|RepositoryDocumentLoader
+tools/test_document_pipeline_batch.py|25|ASSIGN|RepositoryDocumentLoader
+tools/test_pr41a_repository_scan_api.py|20|ASSIGN|RepositoryScanRequest
+tools/test_qdrant_storage.py|30|ASSIGN|RepositoryDocumentLoader
+tools/test_qdrant_storage.py|55|ASSIGN|QdrantRepository
+tools/test_rag.py|20|ASSIGN|RAGService
+tools/test_rag.py|24|ASSIGN|rag.answer
+tools/test_rag_end_to_end.py|48|ASSIGN|Retriever
+
+=== 8. TARGETED FILE CONTENT ===
+--- FILE=delbot_platform/vectorstore/qdrant/singleton.py ---
+    2: 
+    3: from pathlib import Path
+    4: 
+    5: from qdrant_client import QdrantClient
+    6: from qdrant_client.models import (
+    7:     Distance,
+    8:     VectorParams,
+    9: )
+   10: 
+   11: 
+   12: class QdrantStore:
+   13: 
+   14:     def __init__(
+   15:         self,
+   16:         path: str | None = None,
+   20: 
+   21:         if path is None:
+   22:             path = os.getenv(
+   23:                 "DELBOT_QDRANT_PATH",
+   24:                 os.getenv(
+   25:                     "QDRANT_PATH",
+   26:                     str(
+   27:                         Path("repository_data")
+   28:                         / "qdrant_local"
+   29:                     ),
+   30:                 ),
+   31:             )
+   32: 
+   33:         self.collection = os.getenv(
+   34:             "QDRANT_COLLECTION",
+   35:             "delbot_documents",
+   36:         )
+   37: 
+   38:         Path(path).mkdir(
+   40:             exist_ok=True,
+   41:         )
+   42: 
+   43:         self.client = QdrantClient(
+   44:             path=path,
+   45:             force_disable_check_same_thread=True,
+   46:         )
+   47: 
+  106:         collection_name: str = "delbot_documents",
+  107:     ) -> None:
+  108: 
+  109:         from qdrant_client.models import (
+  110:             Filter,
+  111:             FieldCondition,
+  112:             MatchValue,
+  113:         )
+  146:         )
+  147: 
+  148: 
+  149: _store: QdrantStore | None = None
+  150: 
+  151: 
+  152: def get_qdrant_store() -> QdrantStore:
+  153: 
+  154:     global _store
+  155: 
+  156:     if _store is None:
+  157:         _store = QdrantStore()
+  158: 
+  159:     return _store
+--- FILE=delbot_platform/knowledge/rag/vector_retriever.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from delbot_platform.ai.client.embedding_client import EmbeddingClient
+    4: from delbot_platform.knowledge.models import Document
+    5: from delbot_platform.knowledge.models import DocumentChunk
+    6: from delbot_platform.vectorstore.qdrant.singleton import (
+    7:     get_qdrant_store,
+    8: )
+    9: 
+   10: 
+   11: class VectorRetriever:
+   12: 
+   13:     def __init__(
+   14:         self,
+   15:     ) -> None:
+   16: 
+   17:         self.store = get_qdrant_store()
+   18: 
+   19:         self.store.create_collection()
+   20: 
+   21:         self.embedding = EmbeddingClient()
+--- FILE=delbot_platform/knowledge/vector/qdrant_store.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from qdrant_client.models import PointStruct
+    4: 
+    5: from delbot_platform.vectorstore.qdrant.singleton import (
+    6:     get_qdrant_store,
+    7: )
+    8: 
+    9: 
+   10: class QdrantStore:
+   11: 
+   12:     def __init__(
+   13:         self,
+   14:         collection: str = "delbot_documents",
+   15:     ) -> None:
+   16: 
+   17:         self.store = get_qdrant_store()
+   18:         self.collection = collection
+   19: 
+   20:     def create_collection(
+   21:         self,
+--- FILE=delbot_platform/knowledge/vector/repository/qdrant.py ---
+    1: from __future__ import annotations
+    2: 
+    3: from qdrant_client.models import PointStruct
+    4: 
+    5: from delbot_platform.knowledge.vector.models.record import (
+    6:     VectorRecord,
+    7: )
+    8: from delbot_platform.knowledge.vector.repository.base import (
+    9:     VectorRepository,
+   10: )
+   11: from delbot_platform.vectorstore.qdrant.singleton import (
+   12:     get_qdrant_store,
+   13: )
+   14: 
+   15: 
+   16: class QdrantRepository(
+   17:     VectorRepository,
+   18: ):
+   19: 
+   20:     def __init__(
+   22:         collection: str = "delbot_documents",
+   23:     ) -> None:
+   24: 
+   25:         self.store = get_qdrant_store()
+   26:         self.collection = collection
+   27: 
+   28:         self.store.create_collection()
+   29: 
+   58:         query_filter = None
+   59: 
+   60:         if document_ids:
+   61:             from qdrant_client.models import (
+   62:                 FieldCondition,
+   63:                 Filter,
+   64:                 MatchAny,
+   65:             )
+--- FILE=delbot_platform/vectorstore/qdrant/repository.py ---
+    2: 
+    3: from uuid import NAMESPACE_DNS, uuid5
+    4: 
+    5: from qdrant_client.models import PointStruct
+    6: 
+    7: from delbot_platform.vectorstore.qdrant.singleton import (
+    8:     get_qdrant_store,
+    9: )
+   10: from delbot_platform.vectors import (
+   11:     VectorRecord,
+   12: )
+   13: 
+   14: 
+   15: class QdrantRepository:
+   16: 
+   17:     def __init__(
+   18:         self,
+   19:         store=None,
+   22:         self.store = (
+   23:             store
+   24:             if store is not None
+   25:             else get_qdrant_store()
+   26:         )
+   27: 
+   28:         self.store.create_collection()
+   29: 
+--- FILE=delbot_platform/api/app.py ---
+   29: )
+   30: 
+   31: 
+   32: app.include_router(
+   33:     repository_router,
+   34: )
+   35: 
+   36: app.include_router(
+   37:     chat_router,
+   38: )
+   39: 
+   40: app.include_router(
+   41:     document_router,
+   42: )
+   43: 
+   44: app.include_router(
+   45:     research_router,
+   46: )
+   47: 
+   48: app.include_router(
+   49:     retrieval_router,
+   50: )
+   51: 
+   52: 
+--- FILE=delbot_platform/api/main.py ---
+   25: #
+   26: # Modern routes
+   27: #
+   28: app.include_router(
+   29:     repository_router,
+   30: )
+   31: 
+   32: app.include_router(
+   33:     document_router,
+   34: )
+   35: 
+   36: app.include_router(
+   37:     research_router,
+   38: )
+   39: 
+   40: 
+--- FILE=delbot_platform/api/__main__.py ---
+
+=== 9. DECISION ===
+STATUS=QDRANT_SINGLETON_RUNTIME_CHAIN_CONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=IDENTIFY_API_OR_RUNTIME_OBJECT_THAT_CALLS_KNOWLEDGE_LAYER
+INDEX_GATE=DO_NOT_INDEX
+
+=== 10. SAFETY STATE ===
+MVP indexing             : NOT EXECUTED
+MVP collection write     : NO
+MVP collection delete    : NO
+MVP collection reset     : NO
+MVP collection recreate  : NO
+Qdrant start             : NO
+Qdrant stop              : NO
+Docker start             : NO
+Docker restart           : NO
+Gateway restart          : NO
+Source modified          : NO
+Process modified         : NO
+Lock modified            : NO
+Terminal remains open    : YES
+
+=== PATCH 767.394 COMPLETE ===
+READ-ONLY KNOWLEDGE/API CONSTRUCTION FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.
+Detailed report : runtime/reports/patch_767394_knowledge_api_construction_trace.txt
+Detailed log    : runtime/reports/patch_767394_knowledge_api_construction_trace.log
+Python log      : runtime/reports/patch_767394_knowledge_api_construction_trace.python.log

@@ -1,0 +1,56 @@
+PATCH=767.383
+PURPOSE=Inspect exact launch source, parent process, cwd, executable, environment and file descriptors of active local Qdrant PID
+MODE=READ_ONLY_PROCESS_FORENSIC
+PID=7601
+STORAGE=repository_data/qdrant_local
+STORAGE_ABS=/workspace/delbot/repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+DATE=2026-08-21 01:47:52
+
+=== PATCH 767.383 SUMMARY ===
+PID 7601 exists        : NO
+Active command         : UNKNOWN
+PPID                   : UNKNOWN
+Parent command         : UNKNOWN
+Storage                : YES
+Local client construct : PASS
+TCP 6333               : NOT_LISTENING
+TCP 6334               : NOT_LISTENING
+
+=== IMPORTANT ERRORS ONLY ===
+runtime/reports/patch_767383_active_qdrant_7601_launch_config.log:PID_STATE=NOT_FOUND
+
+=== DECISION ===
+STATUS=QDRANT_PID_DISAPPEARED
+DECISION=RECHECK_RUNTIME_BEFORE_INDEXING
+NEXT=NO_INDEXING
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+Qdrant start            : NO
+Qdrant stop             : NO
+Docker start            : NO
+Docker restart          : NO
+Gateway restart         : NO
+Source modified         : NO
+Process modified        : NO
+Lock modified           : NO
+Terminal remains open   : YES

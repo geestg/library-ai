@@ -1,0 +1,216 @@
+PATCH=767.396
+PURPOSE=Trace API dependency construction into retrieval/knowledge/Qdrant runtime chain
+MODE=READ_ONLY_AST_DEPENDENCY_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:30:23
+
+=== EXTRACTED SUMMARY ===
+FILES_SCANNED=433
+PARSE_ERRORS=0
+API_FILES=49
+API_IMPORTS_TARGETED=21
+API_CALLS_TARGETED=32
+API_CONSTRUCTS_TARGETED=18
+FACTORY_CANDIDATES=10
+FASTAPI_DEPENDS=0
+ROUTER_REGISTRATIONS=16
+QDRANT_RUNTIME_CONSTRUCTS=29
+STATUS=API_KNOWLEDGE_RUNTIME_CONSTRUCTION_EVIDENCE_FOUND
+DECISION=TRACE_RETRIEVAL_SERVICE_INTERNAL_CHAIN
+NEXT=TRACE_RETRIEVAL_SERVICE_INTERNAL_CHAIN
+INDEX_GATE=DO_NOT_INDEX
+
+=== API TARGET IMPORTS ===
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|IMPORT=delbot_platform.api.routers.repository.router
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|IMPORT=delbot_platform.api.routers.retrieval.router
+delbot_platform.api.main|FILE=delbot_platform/api/main.py|IMPORT=delbot_platform.api.routers.repository.router
+delbot_platform.api.routers|FILE=delbot_platform/api/routers/__init__.py|IMPORT=repository.router
+delbot_platform.api.routers|FILE=delbot_platform/api/routers/__init__.py|IMPORT=retrieval.router
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|IMPORT=delbot_platform.application.factory.ApplicationFactory
+delbot_platform.api.routers.document|FILE=delbot_platform/api/routers/document.py|IMPORT=delbot_platform.documents.pipeline.indexing.DocumentIndexingPipeline
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|IMPORT=delbot_platform.repository.service.RepositoryService
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|IMPORT=delbot_platform.api.schemas.research.CitationResponse
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|IMPORT=delbot_platform.application.factory.ApplicationFactory
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|IMPORT=delbot_platform.api.schemas.retrieval.RetrievalDocument
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|IMPORT=delbot_platform.api.schemas.retrieval.RetrievalRequest
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|IMPORT=delbot_platform.api.schemas.retrieval.RetrievalResponse
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|IMPORT=delbot_platform.application.factory.ApplicationFactory
+delbot_platform.api.schemas|FILE=delbot_platform/api/schemas/__init__.py|IMPORT=repository.*
+delbot_platform.api.schemas|FILE=delbot_platform/api/schemas/__init__.py|IMPORT=retrieval.*
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|IMPORT=delbot_platform.api.routers.repository.router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|IMPORT=delbot_platform.api.routers.retrieval.router
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|IMPORT=delbot_platform.gateway.services.gateway.GatewayService
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|IMPORT=delbot_platform.gateway.services.gateway.GatewayService
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|IMPORT=delbot_platform.application.research.answer.ResearchAnswerApplication
+
+=== API TARGET CALLS ===
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|LINE=31|CALL=ApplicationFactory.research
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|LINE=49|CALL=get_application
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|LINE=51|CALL=application.execute
+delbot_platform.api.routers.document|FILE=delbot_platform/api/routers/document.py|LINE=171|CALL=DocumentIndexingPipeline
+delbot_platform.api.routers.document|FILE=delbot_platform/api/routers/document.py|LINE=179|CALL=pipeline.index_with_summary
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=66|CALL=RepositoryScanResponse
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=81|CALL=RepositoryService
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=83|CALL=service.scan
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=92|CALL=RepositoryExplorerResponse
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=97|CALL=RepositoryItemResponse
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=32|CALL=ApplicationFactory.research
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=50|CALL=get_application
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=52|CALL=application.execute
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=63|CALL=citations.append
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=64|CALL=CitationResponse
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=30|CALL=ApplicationFactory.retrieval
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=43|CALL=get_application
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=45|CALL=application.execute
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=58|CALL=RetrievalDocument
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=69|CALL=RetrievalResponse
+delbot_platform.gateway.__main__|FILE=delbot_platform/gateway/__main__.py|LINE=17|CALL=cfg.service
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=22|CALL=GatewayService
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=32|CALL=get_service
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=34|CALL=service.chat
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=26|CALL=GatewayService
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=36|CALL=get_service
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=38|CALL=service.embedding
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=51|CALL=ResearchAnswerApplication
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=64|CALL=get_application
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=66|CALL=application.execute
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=134|CALL=citations.append
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=135|CALL=CitationResponse
+
+=== API TARGET CONSTRUCTORS ===
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|LINE=49|CONSTRUCT=get_application
+delbot_platform.api.routers.document|FILE=delbot_platform/api/routers/document.py|LINE=171|CONSTRUCT=DocumentIndexingPipeline
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=66|CONSTRUCT=RepositoryScanResponse
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=81|CONSTRUCT=RepositoryService
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=92|CONSTRUCT=RepositoryExplorerResponse
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=97|CONSTRUCT=RepositoryItemResponse
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=50|CONSTRUCT=get_application
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=64|CONSTRUCT=CitationResponse
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=43|CONSTRUCT=get_application
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=58|CONSTRUCT=RetrievalDocument
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=69|CONSTRUCT=RetrievalResponse
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=22|CONSTRUCT=GatewayService
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=32|CONSTRUCT=get_service
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=26|CONSTRUCT=GatewayService
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=36|CONSTRUCT=get_service
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=51|CONSTRUCT=ResearchAnswerApplication
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=64|CONSTRUCT=get_application
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=135|CONSTRUCT=CitationResponse
+
+=== DEPENDENCY FACTORY CANDIDATES ===
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|FUNCTION=get_application
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|FUNCTION=get_application
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|FUNCTION=get_application
+delbot_platform.application.retrieval.answer|FILE=delbot_platform/application/retrieval/answer.py|FUNCTION=get_pipeline
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|FUNCTION=get_service
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|FUNCTION=get_service
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|FUNCTION=get_application
+delbot_platform.research.pipeline.research_answer_pipeline|FILE=delbot_platform/research/pipeline/research_answer_pipeline.py|FUNCTION=get_rag
+delbot_platform.research.services.answer|FILE=delbot_platform/research/services/answer.py|FUNCTION=get_pipeline
+delbot_platform.vectorstore.qdrant.singleton|FILE=delbot_platform/vectorstore/qdrant/singleton.py|FUNCTION=get_qdrant_store
+
+=== FASTAPI DEPENDENCY / ROUTER EVIDENCE ===
+delbot_platform.ai.embedding.base_embedding_provider|FILE=delbot_platform/ai/embedding/base_embedding_provider.py|LINE=24|OWNER=embed_many|ARG:requests:list[EmbeddingRequest]
+delbot_platform.ai.embedding.base_embedding_provider|FILE=delbot_platform/ai/embedding/base_embedding_provider.py|LINE=33|OWNER=embed|ARG:request:EmbeddingRequest
+delbot_platform.ai.embedding.embedding_service|FILE=delbot_platform/ai/embedding/embedding_service.py|LINE=31|OWNER=embed|ARG:requests:list[EmbeddingRequest]
+delbot_platform.ai.embedding.providers.infinity_embedding_provider|FILE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|LINE=33|OWNER=embed_many|ARG:requests:list[EmbeddingRequest]
+delbot_platform.ai.embedding.providers.infinity_embedding_provider|FILE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py|LINE=42|OWNER=embed|ARG:request:EmbeddingRequest
+delbot_platform.ai.runtime.chat|FILE=delbot_platform/ai/runtime/chat.py|LINE=47|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.ai.runtime.embedding|FILE=delbot_platform/ai/runtime/embedding.py|LINE=63|OWNER=embeddings|ARG:request:EmbeddingRequest
+delbot_platform.ai.runtime.infinity|FILE=delbot_platform/ai/runtime/infinity.py|LINE=34|OWNER=embeddings|ARG:request:EmbeddingRequest
+delbot_platform.ai.runtime.reranker|FILE=delbot_platform/ai/runtime/reranker.py|LINE=42|OWNER=rerank|ARG:request:RerankRequest
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|LINE=32|OWNER=<ROUTER_REGISTRATION>|include_router:repository_router
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|LINE=36|OWNER=<ROUTER_REGISTRATION>|include_router:chat_router
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|LINE=40|OWNER=<ROUTER_REGISTRATION>|include_router:document_router
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|LINE=44|OWNER=<ROUTER_REGISTRATION>|include_router:research_router
+delbot_platform.api.app|FILE=delbot_platform/api/app.py|LINE=48|OWNER=<ROUTER_REGISTRATION>|include_router:retrieval_router
+delbot_platform.api.main|FILE=delbot_platform/api/main.py|LINE=28|OWNER=<ROUTER_REGISTRATION>|include_router:repository_router
+delbot_platform.api.main|FILE=delbot_platform/api/main.py|LINE=32|OWNER=<ROUTER_REGISTRATION>|include_router:document_router
+delbot_platform.api.main|FILE=delbot_platform/api/main.py|LINE=36|OWNER=<ROUTER_REGISTRATION>|include_router:research_router
+delbot_platform.api.routers.chat|FILE=delbot_platform/api/routers/chat.py|LINE=40|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.api.routers.document|FILE=delbot_platform/api/routers/document.py|LINE=125|OWNER=index_all|ARG:request:BatchIndexRequest
+delbot_platform.api.routers.repository|FILE=delbot_platform/api/routers/repository.py|LINE=43|OWNER=scan_repository|ARG:request:RepositoryScanRequest
+delbot_platform.api.routers.research|FILE=delbot_platform/api/routers/research.py|LINE=41|OWNER=answer_research|ARG:request:ResearchAnswerRequest
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=39|OWNER=retrieve|ARG:request:RetrievalRequest
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=42|OWNER=<ROUTER_REGISTRATION>|include_router:health_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=46|OWNER=<ROUTER_REGISTRATION>|include_router:research_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=50|OWNER=<ROUTER_REGISTRATION>|include_router:retrieval_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=54|OWNER=<ROUTER_REGISTRATION>|include_router:repository_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=62|OWNER=<ROUTER_REGISTRATION>|include_router:chat_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=66|OWNER=<ROUTER_REGISTRATION>|include_router:embedding_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=70|OWNER=<ROUTER_REGISTRATION>|include_router:models_router
+delbot_platform.gateway.app|FILE=delbot_platform/gateway/app.py|LINE=74|OWNER=<ROUTER_REGISTRATION>|include_router:document_router
+delbot_platform.gateway.providers.base|FILE=delbot_platform/gateway/providers/base.py|LINE=21|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.providers.base|FILE=delbot_platform/gateway/providers/base.py|LINE=28|OWNER=embedding|ARG:request:EmbeddingRequest
+delbot_platform.gateway.providers.infinity|FILE=delbot_platform/gateway/providers/infinity.py|LINE=32|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.providers.infinity|FILE=delbot_platform/gateway/providers/infinity.py|LINE=41|OWNER=embedding|ARG:request:EmbeddingRequest
+delbot_platform.gateway.providers.local|FILE=delbot_platform/gateway/providers/local.py|LINE=16|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.providers.vllm|FILE=delbot_platform/gateway/providers/vllm.py|LINE=35|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.providers.vllm|FILE=delbot_platform/gateway/providers/vllm.py|LINE=66|OWNER=embedding|ARG:request:EmbeddingRequest
+delbot_platform.gateway.routers.chat|FILE=delbot_platform/gateway/routers/chat.py|LINE=28|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.routers.embedding|FILE=delbot_platform/gateway/routers/embedding.py|LINE=32|OWNER=embeddings|ARG:request:EmbeddingRequest
+delbot_platform.gateway.routers.research|FILE=delbot_platform/gateway/routers/research.py|LINE=60|OWNER=research_answer|ARG:request:ResearchRequest
+delbot_platform.gateway.services.gateway|FILE=delbot_platform/gateway/services/gateway.py|LINE=39|OWNER=chat|ARG:request:ChatRequest
+delbot_platform.gateway.services.gateway|FILE=delbot_platform/gateway/services/gateway.py|LINE=61|OWNER=embedding|ARG:request:EmbeddingRequest
+
+=== RUNTIME QDRANT / RETRIEVAL / KNOWLEDGE CONSTRUCTS ===
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=58|CONSTRUCT=RetrievalDocument
+delbot_platform.api.routers.retrieval|FILE=delbot_platform/api/routers/retrieval.py|LINE=69|CONSTRUCT=RetrievalResponse
+delbot_platform.application.factory.application_factory|FILE=delbot_platform/application/factory/application_factory.py|LINE=42|CONSTRUCT=RetrievalApplication
+delbot_platform.documents.pipeline.indexing|FILE=delbot_platform/documents/pipeline/indexing.py|LINE=60|CONSTRUCT=QdrantRepository
+delbot_platform.knowledge.graph.graph_builder|FILE=delbot_platform/knowledge/graph/graph_builder.py|LINE=27|CONSTRUCT=KnowledgeGraph
+delbot_platform.knowledge.hydration.local|FILE=delbot_platform/knowledge/hydration/local.py|LINE=70|CONSTRUCT=KnowledgeDomain
+delbot_platform.knowledge.hydration.local|FILE=delbot_platform/knowledge/hydration/local.py|LINE=72|CONSTRUCT=KnowledgeSource
+delbot_platform.knowledge.models.collection|FILE=delbot_platform/knowledge/models/collection.py|LINE=113|CONSTRUCT=KnowledgeSource
+delbot_platform.knowledge.models.collection|FILE=delbot_platform/knowledge/models/collection.py|LINE=122|CONSTRUCT=KnowledgeDomain
+delbot_platform.knowledge.models.document|FILE=delbot_platform/knowledge/models/document.py|LINE=308|CONSTRUCT=KnowledgeSource
+delbot_platform.knowledge.models.document|FILE=delbot_platform/knowledge/models/document.py|LINE=317|CONSTRUCT=KnowledgeDomain
+delbot_platform.knowledge.models.knowledge_source|FILE=delbot_platform/knowledge/models/knowledge_source.py|LINE=71|CONSTRUCT=KnowledgeDomain
+delbot_platform.knowledge.models.repository|FILE=delbot_platform/knowledge/models/repository.py|LINE=91|CONSTRUCT=KnowledgeSource
+delbot_platform.knowledge.models.repository|FILE=delbot_platform/knowledge/models/repository.py|LINE=100|CONSTRUCT=KnowledgeDomain
+delbot_platform.knowledge.pipeline.knowledge_pipeline|FILE=delbot_platform/knowledge/pipeline/knowledge_pipeline.py|LINE=27|CONSTRUCT=KnowledgePipelineContext
+delbot_platform.knowledge.pipeline.knowledge_pipeline|FILE=delbot_platform/knowledge/pipeline/knowledge_pipeline.py|LINE=34|CONSTRUCT=KnowledgeArtifact
+delbot_platform.knowledge.pipeline.knowledge_pipeline|FILE=delbot_platform/knowledge/pipeline/knowledge_pipeline.py|LINE=43|CONSTRUCT=KnowledgePipelineResult
+delbot_platform.knowledge.rag.pipeline|FILE=delbot_platform/knowledge/rag/pipeline.py|LINE=45|CONSTRUCT=QdrantRetriever
+delbot_platform.knowledge.rag.vector_retriever|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=17|CONSTRUCT=get_qdrant_store
+delbot_platform.knowledge.retrieval.qdrant|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=43|CONSTRUCT=QdrantRepository
+delbot_platform.knowledge.retrieval.qdrant|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=100|CONSTRUCT=RetrievalResult
+delbot_platform.knowledge.services.processing|FILE=delbot_platform/knowledge/services/processing.py|LINE=27|CONSTRUCT=KnowledgePipeline
+delbot_platform.knowledge.vector.qdrant_store|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=17|CONSTRUCT=get_qdrant_store
+delbot_platform.knowledge.vector.repository.qdrant|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=25|CONSTRUCT=get_qdrant_store
+delbot_platform.vectorstore.qdrant.repository|FILE=delbot_platform/vectorstore/qdrant/repository.py|LINE=25|CONSTRUCT=get_qdrant_store
+delbot_platform.vectorstore.qdrant.singleton|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=43|CONSTRUCT=QdrantClient
+delbot_platform.vectorstore.qdrant.singleton|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=157|CONSTRUCT=QdrantStore
+delbot_platform.workflows.factory.workflow_factory|FILE=delbot_platform/workflows/factory/workflow_factory.py|LINE=35|CONSTRUCT=KnowledgeService
+delbot_platform.workflows.repository.ingestion|FILE=delbot_platform/workflows/repository/ingestion.py|LINE=52|CONSTRUCT=KnowledgeService
+
+=== IMPORTANT ERRORS ONLY ===
+
+=== DECISION ===
+STATUS=API_KNOWLEDGE_RUNTIME_CONSTRUCTION_EVIDENCE_FOUND
+DECISION=TRACE_RETRIEVAL_SERVICE_INTERNAL_CHAIN
+NEXT=TRACE_RETRIEVAL_SERVICE_INTERNAL_CHAIN
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection    : NOT ACCESSED
+Qdrant write         : NO
+Qdrant reset/delete  : NO
+Qdrant start/stop    : NO
+Docker restart       : NO
+Source modification  : NO
+Terminal             : OPEN

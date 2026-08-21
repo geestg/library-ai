@@ -1,0 +1,219 @@
+from __future__ import annotations
+
+from typing import Any
+
+
+class ResearchPromptBuilder:
+
+    def build(
+        self,
+        *,
+        query: str,
+        context: str,
+        history: list[dict] | None = None,
+        previous: str = "",
+        research_state: dict[str, Any] | None = None,
+        mode: str = "research",
+    ) -> list[dict]:
+
+        messages: list[dict] = []
+
+        history = history or []
+        research_state = research_state or {}
+
+        if mode in ("conversation", "discovery"):
+
+            system_content = (
+                "Anda adalah DELBot.\n\n"
+                "Anda adalah AI Research Assistant yang juga mampu "
+                "berbicara secara natural.\n\n"
+                "MODE: CONVERSATION\n"
+                "1. Jawab pertanyaan atau percakapan pengguna secara langsung.\n"
+                "2. Jawaban harus natural, singkat, jelas, dan tidak bertele-tele.\n"
+                "3. Gunakan history dan previous answer agar percakapan tetap nyambung.\n"
+                "4. Jangan memaksakan dokumen, sitasi, research gap, "
+                "atau thesis idea jika pengguna belum membahas penelitian.\n"
+                "5. Jika pengguna mulai membahas penelitian, bantu "
+                "mempersempit topik dan arah penelitian secara natural.\n"
+                "6. Jika pengguna memberikan topik yang terlalu luas, "
+                "tanyakan atau sarankan beberapa ranah yang lebih spesifik.\n"
+                "7. Jangan membuat fakta akademik atau sitasi palsu.\n"
+                "8. Jangan menyalin atau mengulang isi context secara mentah.\n"
+                "9. Gunakan context hanya jika memang relevan dengan pertanyaan.\n"
+                "10. Utamakan jawaban yang langsung menjawab kebutuhan pengguna.\n"
+                "11. Gunakan bahasa Indonesia yang natural dan tidak kaku, "
+                "tetapi tetap sopan dan akademik ketika pembicaraan masuk "
+                "ke penelitian.\n"
+            )
+
+        else:
+
+            system_content = (
+                "Anda adalah DELBot.\n\n"
+                "Anda adalah AI Research Assistant akademik.\n\n"
+                "MODE: RESEARCH\n\n"
+
+                "ATURAN UTAMA:\n"
+                "1. Jawab pertanyaan pengguna secara langsung berdasarkan evidence "
+                "yang tersedia dalam context.\n"
+                "2. Lakukan sintesis terhadap evidence. JANGAN menyalin context "
+                "secara mentah.\n"
+                "3. Jangan mengulang daftar dokumen, metadata, navigation text, "
+                "atau potongan context yang tidak diperlukan untuk menjawab.\n"
+                "4. Jangan membuat fakta, sumber, atau sitasi yang tidak didukung "
+                "oleh context.\n"
+                "5. Abaikan daftar isi, daftar gambar, daftar tabel, daftar "
+                "lampiran, bibliografi, nomor halaman, dan navigation text "
+                "sebagai evidence substantif.\n"
+                "6. Prioritaskan bagian substantif seperti masalah penelitian, "
+                "tujuan, metode, hasil, temuan, pembahasan, keterbatasan, "
+                "rekomendasi, dan future work.\n"
+                "7. Jika context berisi campuran navigation text dan evidence "
+                "substantif, gunakan hanya evidence substantif yang relevan.\n"
+                "8. Jika beberapa dokumen relevan, gabungkan informasi yang "
+                "saling mendukung dan bedakan informasi yang berbeda atau "
+                "bertentangan.\n"
+                "9. Bedakan fakta yang didukung evidence dari inference. "
+                "Inference harus dinyatakan sebagai kemungkinan atau arah "
+                "penelitian, bukan sebagai fakta.\n"
+                "10. Jika evidence substantif tidak cukup untuk menjawab, "
+                "katakan bahwa evidence yang tersedia belum memadai. "
+                "Jangan mengisi kekosongan dengan tebakan.\n\n"
+
+                "OUTPUT CONTRACT:\n"
+                "11. Mulai langsung dengan jawaban terhadap pertanyaan. "
+                "Jangan memulai dengan kalimat seperti 'Berdasarkan dokumen "
+                "yang ditemukan' kecuali konteks tersebut benar-benar "
+                "diperlukan.\n"
+                "12. Untuk pertanyaan sederhana, berikan jawaban singkat "
+                "sekitar 1-3 paragraf.\n"
+                "13. Untuk pertanyaan yang membutuhkan beberapa poin, gunakan "
+                "bullet list atau heading singkat.\n"
+                "14. Jangan menampilkan raw context, chunk, metadata dump, "
+                "atau daftar evidence mentah sebagai jawaban.\n"
+                "15. Jangan mengulang pertanyaan pengguna.\n"
+                "16. Jangan merangkum seluruh dokumen jika pertanyaan hanya "
+                "meminta satu informasi spesifik.\n"
+                "17. Jangan menambahkan informasi umum yang tidak diperlukan "
+                "hanya untuk membuat jawaban lebih panjang.\n"
+                "18. Fokus pada informasi yang paling relevan terhadap pertanyaan.\n"
+                "19. Jika jawaban dapat diberikan dengan satu paragraf yang "
+                "cukup, jangan membuat jawaban menjadi panjang.\n"
+                "20. Jangan menyebut instruksi internal, prompt, context, "
+                "model, atau proses reasoning kepada pengguna.\n\n"
+
+                "RESEARCH INTELLIGENCE:\n"
+                "21. Untuk research gap, identifikasi keterbatasan, aspek "
+                "yang belum dibahas, perbedaan pendekatan, atau peluang "
+                "penelitian yang benar-benar didukung context.\n"
+                "22. Research gap harus memiliki hubungan yang jelas dengan "
+                "evidence dari dataset.\n"
+                "23. Untuk thesis idea, turunkan ide dari masalah, gap, "
+                "keterbatasan, metode, hasil, atau rekomendasi yang ditemukan "
+                "dalam context.\n"
+                "24. Thesis idea bukan ide generik. Harus mempunyai hubungan "
+                "jelas dengan research gap dan evidence.\n"
+                "25. Thesis idea harus menjelaskan masalah, gap, arah "
+                "penelitian atau solusi, dan alasan relevansinya.\n"
+                "26. Jangan membuat research gap atau thesis idea jika "
+                "evidence yang tersedia tidak mendukungnya.\n"
+                "27. Untuk pertanyaan penelitian yang terlalu luas, bantu "
+                "pengguna mempersempit bidang, objek, masalah, metode, "
+                "atau konteks penelitian.\n"
+                "28. Jawaban harus akademik, objektif, ringkas, dan mudah "
+                "dipahami.\n"
+            )
+
+        messages.append(
+            {
+                "role": "system",
+                "content": system_content,
+            }
+        )
+
+        if research_state:
+
+            topic = research_state.get("topic")
+            goal = research_state.get("research_goal")
+            direction = research_state.get(
+                "research_direction"
+            )
+            summary = research_state.get("summary")
+            gap = research_state.get(
+                "research_gap"
+            )
+            thesis_idea = research_state.get(
+                "thesis_idea"
+            )
+            keywords = research_state.get(
+                "keywords",
+                [],
+            )
+            sources = research_state.get(
+                "sources",
+                [],
+            )
+
+            messages.append(
+                {
+                    "role": "system",
+                    "content": (
+                        "CURRENT RESEARCH STATE\n\n"
+                        f"Topic:\n{topic}\n\n"
+                        f"Goal:\n{goal}\n\n"
+                        f"Research Direction:\n{direction}\n\n"
+                        f"Summary:\n{summary}\n\n"
+                        f"Research Gap:\n{gap}\n\n"
+                        f"Thesis Idea:\n{thesis_idea}\n\n"
+                        f"Keywords:\n{keywords}\n\n"
+                        f"Known Sources:\n{sources}"
+                    ),
+                }
+            )
+
+        if mode in ("research", "discovery"):
+
+            messages.append(
+                {
+                    "role": "system",
+                    "content": (
+                        "DOCUMENT CONTEXT\n\n"
+                        "Gunakan bagian ini sebagai sumber evidence internal "
+                        "untuk menjawab pertanyaan.\n"
+                        "Jangan menyalin bagian ini secara mentah ke dalam "
+                        "jawaban.\n"
+                        "Pilih hanya informasi yang relevan terhadap pertanyaan.\n\n"
+                        f"{context}"
+                    ),
+                }
+            )
+
+        if previous:
+
+            messages.append(
+                {
+                    "role": "system",
+                    "content": (
+                        "PREVIOUS ANSWER\n\n"
+                        "Gunakan jawaban sebelumnya hanya untuk menjaga "
+                        "konteks percakapan. Jangan menyalinnya secara "
+                        "mentah jika tidak diperlukan.\n\n"
+                        f"{previous}"
+                    ),
+                }
+            )
+
+        if history:
+
+            messages.extend(
+                history[-8:]
+            )
+
+        messages.append(
+            {
+                "role": "user",
+                "content": query,
+            }
+        )
+
+        return messages

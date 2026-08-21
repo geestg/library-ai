@@ -1,0 +1,28 @@
+PATCH: 767.311
+PURPOSE: Trace actual /documents/index-all runtime path and Qdrant constructor identity
+MODE: READ-ONLY / STATIC + PROCESS + AST ANALYSIS
+INDEX REQUEST: NO
+INDEX EXECUTION: NO
+EMBEDDING EXECUTION: NO
+QDRANT WRITE: NO
+QDRANT DELETE: NO
+QDRANT RESET: NO
+GATEWAY RESTART: NO
+SOURCE MODIFICATION: NO
+DATE: 2026-08-19 08:07:19
+
+GATEWAY_PID=5136
+INDEX_EXECUTED=NO
+INDEX_REQUEST_SENT=NO
+EMBEDDING_EXECUTED=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFIED=NO
+COMPILE_STATUS=0
+REPORT=runtime/reports/patch_767311_index_route_qdrant_identity.txt
+LOG=runtime/reports/patch_767311_index_route_qdrant_identity.log
+PYLOG=runtime/reports/patch_767311_index_route_qdrant_identity.python.log
+COMPILE_LOG=runtime/reports/patch_767311_compile.log

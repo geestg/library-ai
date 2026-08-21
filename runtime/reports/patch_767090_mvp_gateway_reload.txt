@@ -1,0 +1,80 @@
+PATCH: 767.090
+PURPOSE: Reload gateway so MVP index-new-document filter becomes active
+MODE: CONTROLLED GATEWAY RESTART
+DATE: 2026-08-18 10:19:18
+
+
+--- 1. CURRENT GATEWAY ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+delbot    200152  169625  3 09:28 pts/8    00:01:56 python -m delbot_platform.gateway
+
+--- 2. CURRENT PORT ---
+LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=200152,fd=6))         
+
+--- 3. STOP OLD GATEWAY ---
+TERM_SENT=YES
+
+--- 4. WAIT FOR OLD GATEWAY ---
+WAIT=1 OLD_GATEWAY_STILL_RUNNING
+WAIT=2 OLD_GATEWAY_STOPPED
+
+--- 5. PORT RELEASE CHECK ---
+
+--- 6. START NEW GATEWAY ---
+NEW_PID=206866
+GATEWAY_LOG=runtime/logs/gateway_mvp.log
+
+--- 7. WAIT FOR NEW GATEWAY ---
+WAIT=1 GATEWAY_READY=NO
+WAIT=2 GATEWAY_READY=NO
+WAIT=3 GATEWAY_READY=NO
+WAIT=4 GATEWAY_READY=NO
+WAIT=5 GATEWAY_READY=NO
+WAIT=6 GATEWAY_READY=YES HTTP=200
+
+--- 8. GATEWAY HEALTH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+--- 9. NEW ACTIVE PROCESS ---
+206866 python -m delbot_platform.gateway
+
+--- 10. PORT 8100 AFTER RELOAD ---
+LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=206866,fd=6))         
+
+--- 11. ROOT CONTRACT ---
+{"service":"DELBot AI Gateway","version":"2.0.0","status":"running"}
+HTTP_STATUS=200 TIME=0.002885s
+
+--- 12. OPENAPI INDEX ROUTE ---
+INDEX_ROUTE=PRESENT
+METHOD=POST
+OPERATION_ID=index_all_documents_index_all_post
+REQUEST_BODY=PRESENT
+BATCH_SCHEMA={"properties": {"limit": {"type": "integer", "title": "Limit", "default": 25}}, "type": "object", "title": "BatchIndexRequest"}
+
+--- 13. ROUTER PATCH PRESENCE ---
+27:PROCESSED_ROOT = (
+108:def _already_processed(
+113:        PROCESSED_ROOT
+139:    candidates = []
+152:        if _already_processed(
+158:        candidates.append(
+165:        if len(candidates) >= max(
+166:            request.limit,
+175:    for pdf, document_id in candidates:
+
+--- 14. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 15. RELOAD DECISION ---
+OLD_PID=200152
+NEW_PID=206866
+GATEWAY_READY=YES
+QDRANT_RESET=NO
+QDRANT_DELETE=NO
+QDRANT_REINDEX=NO
+DATA_RESET=NO
+RELOAD_DECISION=PASS
+
+--- 16. REPORT ---
+REPORT=runtime/reports/patch_767090_mvp_gateway_reload.txt
+LOG=runtime/reports/patch_767090_mvp_gateway_reload.log

@@ -1,0 +1,16 @@
+PATCH: 767.040
+PURPOSE: Execute first single-document MVP indexing canary
+DATE: 2026-08-18 10:02:41
+
+INDEX_LIMIT=1
+CANARY_RESPONSE=/tmp/delbot_767040_index_response.json
+RETRIEVAL_RESPONSE=/tmp/delbot_767040_retrieval.json
+QDRANT_STORAGE_MODIFICATION=EXPECTED_FOR_CANARY
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+REINDEX=NO
+
+=== PATCH 767.040 COMPLETE ===
+FIRST MVP INDEXING CANARY EXECUTION COMPLETE.
+REPORT: runtime/reports/patch_767040_mvp_first_indexing_canary.txt
+LOG: runtime/reports/patch_767040_mvp_first_indexing_canary.log

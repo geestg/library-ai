@@ -1,0 +1,127 @@
+PATCH: 767.120
+PURPOSE: Determine exact state after interrupted batch indexing request
+MODE: READ-ONLY RECOVERY CHECK
+DATE: 2026-08-18 14:42:10
+
+
+--- 1. GATEWAY PROCESS ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+delbot    206866       1 35 10:19 ?        01:33:16 python -m delbot_platform.gateway
+GATEWAY_PROCESS=ALIVE
+
+--- 2. PORT 8100 ---
+LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=206866,fd=6))         
+
+--- 3. HEALTH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+HTTP_STATUS=200 TIME=0.003388s
+
+--- 4. CURRENT INVENTORY ---
+PDF_TOTAL=188
+PROCESSED_TOTAL=210
+METADATA_TOTAL=210
+
+--- 5. GATEWAY LOG RECENT ACTIVITY ---
+nohup: ignoring input
+INFO:     Started server process [206866]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8100 (Press CTRL+C to quit)
+/workspace/delbot/.venv/lib/python3.10/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12080). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+INFO:     127.0.0.1:51410 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51424 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51436 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51446 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51456 - "GET /health HTTP/1.1" 200 OK
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 36305.08it/s]
+INFO:     127.0.0.1:51460 - "POST /documents/index-all HTTP/1.1" 200 OK
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26359.77it/s]
+INFO:     127.0.0.1:55236 - "POST /retrieval HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54054 - "GET /health HTTP/1.1" 200 OK
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 15733.87it/s]
+INFO:     127.0.0.1:39770 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42568 - "GET /health HTTP/1.1" 200 OK
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 17058.00it/s]
+INFO:     127.0.0.1:43288 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42048 - "GET /health HTTP/1.1" 200 OK
+
+--- 6. BATCH TARGET RESOLUTION ---
+TOTAL_PDFS=188
+PROCESSED=74
+REMAINING=114
+
+--- NEXT 15 REMAINING ---
+REMAINING | 123456789-1047 | 07fcadbe57f84bb49d5dd0b02a727aac.pdf
+REMAINING | 123456789-600 | 0814aca7141f4fdc98dcc86fcbf2656b.pdf
+REMAINING | 123456789-1671 | 085b244f9ccb414388589faea0f4ab9e.pdf
+REMAINING | 123456789-669 | 086af07a05e745008df83fb7e6917601.pdf
+REMAINING | 123456789-371 | 0872b067e8de4d989bde53e84836b112.pdf
+REMAINING | 123456789-775 | 087b4d729c1544e9a90c795c8ee822a1.pdf
+REMAINING | 123456789-589 | 08a1cff48d3c403cbcd11e34d9470a65.pdf
+REMAINING | 123456789-743 | 08ee8fe334c944be8259c53bb21b291e.pdf
+REMAINING | 123456789-1681 | 09d4ac4303b641289275677d302b9cc3.pdf
+REMAINING | 123456789-1247 | 0a7ef0c8a7c54899987569811db8f490.pdf
+REMAINING | 123456789-257 | 0aa199e0de9040108ab025fab950888b.pdf
+REMAINING | 123456789-1335 | 0bad87c525f64ab28570ac752becab15.pdf
+REMAINING | 123456789-1437 | 0bfaa82453dd4398ad01bf78423c55b6.pdf
+REMAINING | 123456789-680 | 0c260cd697e64d2f8e13ad1859e236a7.pdf
+REMAINING | 123456789-1124 | 0d1432b9301646af8280237d57d8a0f9.pdf
+
+--- RECENT PROCESSED TARGETS ---
+PROCESSED | 123456789-262 | 076175700a304c34be23e106d98b7dd8.pdf | 1787064027.258
+PROCESSED | 123456789-233 | 06ca2659d23a4aaa93fb6d09317bb514.pdf | 1787063932.610
+PROCESSED | 123456789-434 | 06aa6364b33b4dc4854ad4a6d20c53c9.pdf | 1787063880.959
+PROCESSED | 123456789-824 | 066ab331ce5e49b0a4411760fa25279e.pdf | 1787063786.905
+PROCESSED | 123456789-225 | 059af22343dd4dc9a6d11a452a34908a.pdf | 1787049561.985
+PROCESSED | 123456789-1332 | 053cca5f3d30412794db8e36f3b11d10.pdf | 1787049434.341
+PROCESSED | 123456789-54 | 0536c14dc0734ef2858998eaf1dfe4fb.pdf | 1787049316.236
+PROCESSED | 123456789-834 | 05266735e81142edabcc624683a32936.pdf | 1787049159.395
+PROCESSED | 123456789-1088 | 05218bcffac34ac0b30749fa161462e1.pdf | 1787048987.617
+PROCESSED | 123456789-1244 | 04d3d193a4e14ab78a8813b965b2f9fb.pdf | 1787048897.968
+PROCESSED | 123456789-493 | 0447d568e8c64eda8d3d937e99f7e022.pdf | 1787048867.106
+PROCESSED | 123456789-431 | 043c8338e39a4f6bb7b02af365d5d0dc.pdf | 1787048773.333
+PROCESSED | 123456789-1580 | 03f8b626d2f544ccaee933f88b3735c6.pdf | 1787048711.687
+PROCESSED | 123456789-1349 | 03aa3a20898241c796d659f0eef4ddad.pdf | 1787048607.740
+PROCESSED | 123456789-1691 | 0310fa0d4a5c42f79858f2ddbc48b936.pdf | 1787048373.585
+
+--- 7. RECENTLY CREATED METADATA ---
+1787064027.2582612410 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-262/metadata.json
+1787063932.6102668830 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-233/metadata.json
+1787063880.9592699610 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-434/metadata.json
+1787063786.9052755670 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-824/metadata.json
+1787049561.9851234390 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-225/metadata.json
+1787049434.3411310470 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1332/metadata.json
+1787049316.2361380860 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-54/metadata.json
+1787049159.3951474350 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-834/metadata.json
+1787048987.6171576740 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1088/metadata.json
+1787048897.9681630170 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1244/metadata.json
+1787048867.1061648570 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-493/metadata.json
+1787048773.3331704460 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-431/metadata.json
+1787048711.6871741200 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1580/metadata.json
+1787048607.7401803160 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1349/metadata.json
+1787048373.5851942730 /workspace/delbot/delbot_platform/repository_data/processed/documents/123456789-1691/metadata.json
+
+--- 8. QDRANT LOCK STATE ---
+QDRANT_PATH=PRESENT
+META=PRESENT
+LOCK=PRESENT
+31M	/workspace/delbot/repository_data/qdrant_local
+
+--- 9. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 10. SAFETY ---
+INDEXING_EXECUTED_BY_THIS_PATCH=NO
+QDRANT_UPSERT_BY_THIS_PATCH=NO
+QDRANT_DELETE=NO
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+
+--- 11. DECISION ---
+RECOVERY_STATUS=READY
+
+--- 12. REPORT ---
+REPORT=runtime/reports/patch_767120_mvp_batch_interrupt_recovery_status.txt
+LOG=runtime/reports/patch_767120_mvp_batch_interrupt_recovery_status.log

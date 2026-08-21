@@ -1,0 +1,415 @@
+PATCH=767.449
+PURPOSE=Inspect exact embedding runtime/provider/model/config contract without executing embedding
+MODE=READ_ONLY_EMBEDDING_RUNTIME_CONTRACT
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEXER=tools/ingest_pdf_vectors.py
+EXPECTED_PDFS=188
+EXPECTED_TEST_CHUNKS=1003
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:08:09
+
+=== TARGET FILE INVENTORY ===
+EXISTS=tools/ingest_pdf_vectors.py
+EXISTS=delbot_platform/ai/client/embedding_client.py
+EXISTS=delbot_platform/ai/embedding/base_embedding_provider.py
+EXISTS=delbot_platform/ai/embedding/embedding_builder.py
+EXISTS=delbot_platform/ai/embedding/embedding_config.py
+EXISTS=delbot_platform/ai/embedding/embedding_request.py
+EXISTS=delbot_platform/ai/embedding/embedding_result.py
+EXISTS=delbot_platform/ai/embedding/embedding_service.py
+EXISTS=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+EXISTS=delbot_platform/ai/runtime/embedding.py
+EXISTS=delbot_platform/documents/embedding/base.py
+EXISTS=delbot_platform/documents/embedding/factory/provider.py
+
+=== TARGET AST / DEFINITIONS ===
+--- FILE=tools/ingest_pdf_vectors.py ---
+BYTES=1713
+DEF=function:main:line=33
+IMPORT=delbot_platform.ai.client.embedding_client:EmbeddingClient
+IMPORT=delbot_platform.knowledge.vector.qdrant_store:QdrantStore
+--- FILE=delbot_platform/ai/client/embedding_client.py ---
+BYTES=1010
+DEF=class:EmbeddingClient:line=8
+DEF=function:__init__:line=10
+DEF=function:embed:line=24
+IMPORT=requests
+--- FILE=delbot_platform/ai/embedding/base_embedding_provider.py ---
+BYTES=981
+DEF=class:BaseEmbeddingProvider:line=14
+DEF=function:embed_many:line=24
+DEF=function:embed:line=33
+IMPORT=delbot_platform.ai.embedding.embedding_request:EmbeddingRequest
+IMPORT=delbot_platform.ai.embedding.embedding_result:EmbeddingResult
+--- FILE=delbot_platform/ai/embedding/embedding_builder.py ---
+BYTES=1348
+DEF=class:EmbeddingBuilder:line=14
+DEF=function:build:line=19
+DEF=function:_build_request:line=41
+IMPORT=delbot_platform.ai.embedding.embedding_request:EmbeddingRequest
+--- FILE=delbot_platform/ai/embedding/embedding_config.py ---
+BYTES=311
+DEF=class:EmbeddingConfig:line=7
+--- FILE=delbot_platform/ai/embedding/embedding_request.py ---
+BYTES=415
+DEF=class:EmbeddingRequest:line=9
+--- FILE=delbot_platform/ai/embedding/embedding_result.py ---
+BYTES=463
+DEF=class:EmbeddingResult:line=9
+DEF=function:dimension:line=23
+--- FILE=delbot_platform/ai/embedding/embedding_service.py ---
+BYTES=1363
+DEF=class:EmbeddingService:line=17
+DEF=function:__init__:line=24
+DEF=function:embed:line=31
+IMPORT=delbot_platform.ai.embedding.base_embedding_provider:BaseEmbeddingProvider
+IMPORT=delbot_platform.ai.embedding.embedding_request:EmbeddingRequest
+IMPORT=delbot_platform.research.models.embedding:Embedding
+IMPORT=delbot_platform.research.models.embedding_collection:EmbeddingCollection
+--- FILE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py ---
+BYTES=1094
+DEF=class:InfinityEmbeddingProvider:line=14
+DEF=function:__init__:line=24
+DEF=function:embed_many:line=33
+DEF=function:embed:line=42
+IMPORT=delbot_platform.ai.embedding.base_embedding_provider:BaseEmbeddingProvider
+IMPORT=delbot_platform.ai.embedding.embedding_request:EmbeddingRequest
+IMPORT=delbot_platform.ai.embedding.embedding_result:EmbeddingResult
+--- FILE=delbot_platform/ai/runtime/embedding.py ---
+BYTES=1449
+DEF=class:EmbeddingRequest:line=42
+DEF=function:health:line=50
+DEF=function:embeddings:line=63
+--- FILE=delbot_platform/documents/embedding/base.py ---
+BYTES=423
+DEF=class:EmbeddingService:line=16
+DEF=function:embed:line=20
+IMPORT=delbot_platform.documents.embedding.models:EmbeddingVector
+--- FILE=delbot_platform/documents/embedding/factory/provider.py ---
+BYTES=699
+DEF=class:EmbeddingProviderFactory:line=20
+DEF=function:build:line=24
+IMPORT=delbot_platform.documents.embedding.base:EmbeddingService
+IMPORT=delbot_platform.documents.embedding.providers.local:LocalEmbeddingProvider
+IMPORT=delbot_platform.documents.embedding.providers.gateway:GatewayEmbeddingProvider
+
+=== INDEXER EMBEDDING CONTRACT ===
+INDEXER_LINE=1:from __future__ import annotations
+INDEXER_LINE=4:import sys
+INDEXER_LINE=6:from pathlib import Path
+INDEXER_LINE=19:from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
+INDEXER_LINE=21:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+INDEXER_LINE=23:from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+INDEXER_LINE=44:embedder=EmbeddingClient()
+INDEXER_LINE=89:vectors=embedder.embed(
+
+=== EMBEDDING PROVIDER CONTRACT ===
+--- PROVIDER_FILE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:from delbot_platform.ai.embedding.base_embedding_provider import (
+PROVIDER_LINE=4:BaseEmbeddingProvider,
+PROVIDER_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+PROVIDER_LINE=7:EmbeddingRequest,
+PROVIDER_LINE=9:from delbot_platform.ai.embedding.embedding_result import (
+PROVIDER_LINE=10:EmbeddingResult,
+PROVIDER_LINE=14:class InfinityEmbeddingProvider(
+PROVIDER_LINE=15:BaseEmbeddingProvider,
+PROVIDER_LINE=18:Embedding provider backed by an Infinity server.
+PROVIDER_LINE=20:The HTTP implementation will be added after the
+PROVIDER_LINE=26:endpoint: str,
+PROVIDER_LINE=27:model: str,
+PROVIDER_LINE=30:self._endpoint = endpoint
+PROVIDER_LINE=31:self._model = model
+PROVIDER_LINE=33:def embed_many(
+PROVIDER_LINE=35:requests: list[EmbeddingRequest],
+PROVIDER_LINE=36:) -> list[EmbeddingResult]:
+PROVIDER_LINE=39:"Infinity embedding provider is not implemented yet."
+PROVIDER_LINE=42:def embed(
+PROVIDER_LINE=44:request: EmbeddingRequest,
+PROVIDER_LINE=45:) -> EmbeddingResult:
+PROVIDER_LINE=47:return self.embed_many(
+--- PROVIDER_FILE=delbot_platform/ai/client/embedding_client.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:import requests
+PROVIDER_LINE=5:from delbot_platform.core.config_manager import ConfigManager
+PROVIDER_LINE=8:class EmbeddingClient:
+PROVIDER_LINE=12:url: str | None = None,
+PROVIDER_LINE=15:if url is None:
+PROVIDER_LINE=16:cfg = ConfigManager()
+PROVIDER_LINE=17:service = cfg.service("embedding")
+PROVIDER_LINE=18:host = service.get("host", "127.0.0.1")
+PROVIDER_LINE=19:port = service["port"]
+PROVIDER_LINE=20:url = f"http://{host}:{port}/v1/embeddings"
+PROVIDER_LINE=22:self.url = url
+PROVIDER_LINE=24:def embed(
+PROVIDER_LINE=29:response = requests.post(
+PROVIDER_LINE=30:self.url,
+PROVIDER_LINE=42:return data["data"][0]["embedding"]
+PROVIDER_LINE=44:if "embedding" in data:
+PROVIDER_LINE=45:return data["embedding"]
+PROVIDER_LINE=48:f"Invalid embedding response: {data}"
+--- PROVIDER_FILE=delbot_platform/ai/embedding/embedding_service.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:from delbot_platform.ai.embedding.base_embedding_provider import (
+PROVIDER_LINE=4:BaseEmbeddingProvider,
+PROVIDER_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+PROVIDER_LINE=7:EmbeddingRequest,
+PROVIDER_LINE=9:from delbot_platform.research.models.embedding import (
+PROVIDER_LINE=10:Embedding,
+PROVIDER_LINE=12:from delbot_platform.research.models.embedding_collection import (
+PROVIDER_LINE=13:EmbeddingCollection,
+PROVIDER_LINE=17:class EmbeddingService:
+PROVIDER_LINE=19:High-level service responsible for generating embeddings.
+PROVIDER_LINE=21:The service is provider-agnostic.
+PROVIDER_LINE=26:provider: BaseEmbeddingProvider,
+PROVIDER_LINE=29:self._provider = provider
+PROVIDER_LINE=31:def embed(
+PROVIDER_LINE=33:requests: list[EmbeddingRequest],
+PROVIDER_LINE=34:) -> EmbeddingCollection:
+PROVIDER_LINE=36:results = self._provider.embed_many(
+PROVIDER_LINE=37:requests,
+PROVIDER_LINE=40:collection = EmbeddingCollection()
+PROVIDER_LINE=43:requests,
+PROVIDER_LINE=49:Embedding(
+--- PROVIDER_FILE=delbot_platform/ai/embedding/base_embedding_provider.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:from abc import ABC
+PROVIDER_LINE=4:from abc import abstractmethod
+PROVIDER_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+PROVIDER_LINE=7:EmbeddingRequest,
+PROVIDER_LINE=9:from delbot_platform.ai.embedding.embedding_result import (
+PROVIDER_LINE=10:EmbeddingResult,
+PROVIDER_LINE=14:class BaseEmbeddingProvider(ABC):
+PROVIDER_LINE=16:Base interface for embedding providers.
+PROVIDER_LINE=18:Providers should optimize batch embedding because
+PROVIDER_LINE=19:embedding models are significantly faster when
+PROVIDER_LINE=24:def embed_many(
+PROVIDER_LINE=26:requests: list[EmbeddingRequest],
+PROVIDER_LINE=27:) -> list[EmbeddingResult]:
+PROVIDER_LINE=29:Embed multiple requests.
+PROVIDER_LINE=33:def embed(
+PROVIDER_LINE=35:request: EmbeddingRequest,
+PROVIDER_LINE=36:) -> EmbeddingResult:
+PROVIDER_LINE=38:Convenience wrapper for single embedding.
+PROVIDER_LINE=41:return self.embed_many(
+--- PROVIDER_FILE=delbot_platform/ai/runtime/embedding.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:import os
+PROVIDER_LINE=5:import uvicorn
+PROVIDER_LINE=6:from fastapi import FastAPI
+PROVIDER_LINE=7:from pydantic import BaseModel
+PROVIDER_LINE=8:from sentence_transformers import SentenceTransformer
+PROVIDER_LINE=12:# Runtime Configuration
+PROVIDER_LINE=15:MODEL_NAME = os.getenv(
+PROVIDER_LINE=16:"DELBOT_EMBEDDING_MODEL",
+PROVIDER_LINE=17:"BAAI/bge-m3",
+PROVIDER_LINE=20:DEVICE = os.getenv(
+PROVIDER_LINE=21:"DELBOT_EMBEDDING_DEVICE",
+PROVIDER_LINE=27:# Load Model
+PROVIDER_LINE=30:model = SentenceTransformer(
+PROVIDER_LINE=31:MODEL_NAME,
+PROVIDER_LINE=37:title="DELBot Embedding Runtime",
+PROVIDER_LINE=42:class EmbeddingRequest(BaseModel):
+PROVIDER_LINE=44:model: str | None = None
+PROVIDER_LINE=54:"category": "embedding",
+PROVIDER_LINE=56:"model": MODEL_NAME,
+PROVIDER_LINE=58:"dimension": model.get_sentence_embedding_dimension(),
+PROVIDER_LINE=62:@app.post("/v1/embeddings")
+PROVIDER_LINE=63:def embeddings(
+PROVIDER_LINE=64:request: EmbeddingRequest,
+PROVIDER_LINE=67:vector = model.encode(
+PROVIDER_LINE=69:normalize_embeddings=True,
+PROVIDER_LINE=75:"model": request.model or MODEL_NAME,
+PROVIDER_LINE=78:"object": "embedding",
+PROVIDER_LINE=80:"embedding": vector.tolist(),
+PROVIDER_LINE=90:host="0.0.0.0",
+PROVIDER_LINE=91:port=8105,
+--- PROVIDER_FILE=delbot_platform/documents/embedding/base.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=3:from abc import ABC
+PROVIDER_LINE=4:from abc import abstractmethod
+PROVIDER_LINE=7:from delbot_platform.documents.models.document_chunk import (
+PROVIDER_LINE=10:from delbot_platform.documents.embedding.models import (
+PROVIDER_LINE=11:EmbeddingVector,
+PROVIDER_LINE=16:class EmbeddingService(ABC):
+PROVIDER_LINE=20:async def embed(
+PROVIDER_LINE=23:) -> list[EmbeddingVector]:
+--- PROVIDER_FILE=delbot_platform/documents/embedding/factory/provider.py ---
+PROVIDER_LINE=1:from __future__ import annotations
+PROVIDER_LINE=4:from delbot_platform.documents.embedding.base import (
+PROVIDER_LINE=5:EmbeddingService,
+PROVIDER_LINE=9:from delbot_platform.documents.embedding.providers.local import (
+PROVIDER_LINE=10:LocalEmbeddingProvider,
+PROVIDER_LINE=14:from delbot_platform.documents.embedding.providers.gateway import (
+PROVIDER_LINE=15:GatewayEmbeddingProvider,
+PROVIDER_LINE=20:class EmbeddingProviderFactory:
+PROVIDER_LINE=25:provider: str = "local",
+PROVIDER_LINE=26:) -> EmbeddingService:
+PROVIDER_LINE=29:if provider == "local":
+PROVIDER_LINE=31:return LocalEmbeddingProvider()
+PROVIDER_LINE=34:if provider == "gateway":
+PROVIDER_LINE=36:return GatewayEmbeddingProvider()
+PROVIDER_LINE=40:f"Unknown embedding provider: {provider}"
+
+=== CONFIG / ENVIRONMENT REFERENCES ===
+CONFIG_REFERENCE=tools/audit_application_entry.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/audit_application_entry.py:3:import ast
+CONFIG_REFERENCE=tools/audit_application_entry.py:4:import inspect
+CONFIG_REFERENCE=tools/audit_application_entry.py:5:import importlib
+CONFIG_REFERENCE=tools/audit_application_entry.py:6:import sys
+CONFIG_REFERENCE=tools/audit_application_entry.py:7:from pathlib import Path
+CONFIG_REFERENCE=tools/audit_application_entry.py:22:mod = importlib.import_module(MODULE)
+CONFIG_REFERENCE=tools/audit_application_entry.py:25:print("IMPORT : PASS")
+CONFIG_REFERENCE=tools/audit_application_entry.py:30:print("IMPORT : FAILED")
+CONFIG_REFERENCE=tools/test_retriever_engine.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/test_retriever_engine.py:3:import asyncio
+CONFIG_REFERENCE=tools/test_retriever_engine.py:4:import sys
+CONFIG_REFERENCE=tools/test_retriever_engine.py:5:from pathlib import Path
+CONFIG_REFERENCE=tools/test_retriever_engine.py:14:from delbot_platform.knowledge.retrieval.qdrant import (
+CONFIG_REFERENCE=tools/test_semantic_search.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/test_semantic_search.py:3:import asyncio
+CONFIG_REFERENCE=tools/test_semantic_search.py:4:import sys
+CONFIG_REFERENCE=tools/test_semantic_search.py:5:import time
+CONFIG_REFERENCE=tools/test_semantic_search.py:6:import uuid
+CONFIG_REFERENCE=tools/test_semantic_search.py:7:from pathlib import Path
+CONFIG_REFERENCE=tools/test_semantic_search.py:14:from qdrant_client.models import Filter
+CONFIG_REFERENCE=tools/test_semantic_search.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import (
+CONFIG_REFERENCE=tools/test_semantic_search.py:17:EmbeddingPipeline,
+CONFIG_REFERENCE=tools/test_semantic_search.py:19:from delbot_platform.documents.models.document_chunk import (
+CONFIG_REFERENCE=tools/test_semantic_search.py:22:from delbot_platform.vectorstore.qdrant.singleton import (
+CONFIG_REFERENCE=tools/test_semantic_search.py:48:pipeline = EmbeddingPipeline()
+CONFIG_REFERENCE=tools/test_semantic_search.py:56:"EmbeddingPipeline menghasilkan 0 vector."
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:3:import asyncio
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:4:import sys
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:5:import time
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:6:from pathlib import Path
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:13:from delbot_platform.documents.pipeline.indexing import (
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:16:from delbot_platform.repository.integration.document_loader import (
+CONFIG_REFERENCE=tools/test_qdrant_storage.py:19:from delbot_platform.vectorstore import (
+CONFIG_REFERENCE=tools/qdrant.yaml:5:host: 127.0.0.1
+CONFIG_REFERENCE=tools/qdrant.yaml:6:http_port: 6333
+CONFIG_REFERENCE=tools/qdrant.yaml:7:grpc_port: 6334
+CONFIG_REFERENCE=tools/audit_pdf_mapping.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/audit_pdf_mapping.py:3:import json
+CONFIG_REFERENCE=tools/audit_pdf_mapping.py:4:from pathlib import Path
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:3:from pathlib import Path
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:4:import ast
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:5:import py_compile
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:12:'''from __future__ import annotations
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:14:from pathlib import Path
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:16:from fastapi import APIRouter
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:17:from pydantic import BaseModel
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:31:class BatchIndexRequest(BaseModel):
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:35:class BatchIndexResponse(BaseModel):
+CONFIG_REFERENCE=tools/patch_pr41b_batch_index_api.py:44:response_model=BatchIndexResponse,
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:4:import sys
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:5:import json
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:6:import uuid
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:8:from pathlib import Path
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:19:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:20:from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:54:embedder = EmbeddingClient()
+CONFIG_REFERENCE=tools/ingest_metadata_vectors.py:124:vectors=embedder.embed(
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:3:from pathlib import Path
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:4:import ast
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:5:import py_compile
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:11:router_code = '''from __future__ import annotations
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:13:from fastapi import APIRouter
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:14:from pydantic import BaseModel
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:16:from delbot_platform.application.research.answer import (
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:26:class ResearchRequest(BaseModel):
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:30:class ResearchResponse(BaseModel):
+CONFIG_REFERENCE=tools/patch_pr40b_research_endpoint.py:43:response_model=ResearchResponse,
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:3:import asyncio
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:4:import inspect
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:5:import sys
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:6:import traceback
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:7:from pathlib import Path
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:23:from delbot_platform.application.research.answer import (
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:28:print("IMPORT : PASS")
+CONFIG_REFERENCE=tools/test_async_research_pipeline.py:33:print("IMPORT : FAILED")
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:3:import asyncio
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:4:import sys
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:5:import traceback
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:6:from pathlib import Path
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:22:from delbot_platform.application.research.answer import (
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:27:print("IMPORT : PASS")
+CONFIG_REFERENCE=tools/test_e2e_production_pipeline.py:31:print("IMPORT : FAILED")
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:3:import ast
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:4:import importlib
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:5:import inspect
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:6:import sys
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:7:from pathlib import Path
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:46:print("2. SEARCH IMPORTS")
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:49:imports = []
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:62:imports.append(file)
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:64:for file in imports:
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:69:print("3. IMPORT TEST")
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:76:"delbot_platform.documents.metadata.models",
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:78:"delbot_platform.documents.metadata.model",
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:82:"delbot_platform.documents.metadata.models.chunk_metadata",
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:84:"delbot_platform.documents.models.chunk_metadata",
+CONFIG_REFERENCE=tools/audit_metadata_runtime.py:92:m = importlib.import_module(module)
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:3:import inspect
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:4:import sys
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:5:from dataclasses import fields, is_dataclass
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:6:from pathlib import Path
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:13:from delbot_platform.documents.models.document_chunk import (
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import (
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:17:EmbeddingPipeline,
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:21:print("BUILD SAMPLE EMBEDDING")
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:27:import asyncio
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:28:import uuid
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:30:pipeline = EmbeddingPipeline()
+CONFIG_REFERENCE=tools/inspect_embedding_vector.py:152:import asyncio
+CONFIG_REFERENCE=tools/audit_citation_model.py:1:from __future__ import annotations
+CONFIG_REFERENCE=tools/audit_citation_model.py:3:import ast
+CONFIG_REFERENCE_COUNT=1268
+
+=== ENV FILE NAMES ONLY ===
+ENV_FILE=.env.mvp
+CONFIG_DIR=runtime
+
+=== STATIC EMBEDDING CONTRACT FLAGS ===
+INDEXER_HAS_EMBED=True
+INDEXER_HAS_PROVIDER=True
+INDEXER_HAS_MODEL_REFERENCE=False
+INDEXER_HAS_ENDPOINT_REFERENCE=True
+INDEXER_HAS_VECTOR_OPERATION=True
+INFINITY_PROVIDER_EXISTS=True
+EMBEDDING_CLIENT_EXISTS=True
+EMBEDDING_SERVICE_EXISTS=True
+EMBEDDING_RUNTIME_EXISTS=True
+
+=== DECISION ===
+STATUS=EMBEDDING_RUNTIME_CONTRACT_IDENTIFIED
+NEXT=RUN_SINGLE_CHUNK_EMBEDDING_PREFLIGHT
+EMBEDDING_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+INDEX_EXECUTION=NO

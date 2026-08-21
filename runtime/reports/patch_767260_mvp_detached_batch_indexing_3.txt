@@ -1,0 +1,48 @@
+
+--- 1. GATEWAY PROCESS ---
+GATEWAY_PID=5136
+UID          PID    PPID  C STIME TTY          TIME CMD
+delbot      5136    4650 21 02:20 pts/2    00:51:54 python -m delbot_platform.gateway
+
+--- 2. GATEWAY HEALTH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+GATEWAY_HEALTH=PASS
+
+--- 3. TRUE PDF INVENTORY BEFORE ---
+PDF_TOTAL=188
+TRUE_MATCHED=188
+TRUE_UNPROCESSED=0
+
+--- 4. NEXT TARGETS ---
+TARGET_COUNT=0
+
+--- 5. ACTIVE INDEX REQUEST CHECK ---
+ACTIVE_INDEX_REQUEST=NO
+
+--- 6. QDRANT BEFORE ---
+69M	/workspace/delbot/repository_data/qdrant_local
+QDRANT_PATH=PRESENT
+
+--- 7. START DETACHED BATCH LIMIT=3 ---
+INDEX_REQUEST_STARTED=NO
+REASON=NO_UNPROCESSED_TARGET
+
+--- 8. REQUEST INITIAL STATE ---
+CURL_STATUS=NOT_STARTED
+
+--- 9. GATEWAY STILL ALIVE ---
+GATEWAY_PID=5136
+
+--- 10. SAFETY ---
+DATA_RESET=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART_DURING_BATCH=NO
+BATCH_LIMIT=3
+
+--- 11. DECISION ---
+BATCH_DECISION=NOT_STARTED
+
+--- 12. REPORT ---
+REPORT=runtime/reports/patch_767260_mvp_detached_batch_indexing_3.txt
+LOG=runtime/reports/patch_767260_mvp_detached_batch_indexing_3.log

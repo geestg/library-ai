@@ -1,0 +1,108 @@
+PATCH=767.456
+PURPOSE=Cleanly resolve actual PDFPipeline inheritance and runtime dependency contract
+MODE=READ_ONLY_DIAGNOSTIC
+MVP_SCOPE=PDF_INDEXING_ONLY
+TARGET=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+PROCESS_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:15:42
+
+=== SOURCE INSPECTION ===
+TARGET_EXISTS=True
+TARGET=/workspace/delbot/delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+SOURCE_LINES=41
+AST_PARSE=OK
+PDFPIPELINE_CLASS_FOUND=True
+PDFPIPELINE_CLASS_LINE=19
+BASE_CLASSES_BEGIN
+BASE=DocumentPipeline
+BASE_CLASSES_END
+METHOD=process|LINE=21|END=41
+INIT_AST_FOUND=False
+PROCESS_AST_FOUND=True
+PROCESS_LINE=21
+PROCESS_END=41
+PROCESS_SOURCE_BEGIN
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+0035:         indexed.metadata["embedding_requests"] = requests
+0036: 
+0037:         return PipelineResult(
+0038:             source_document=document,
+0039:             indexed_document=indexed,
+0040:             success=True,
+0041:         )
+PROCESS_SOURCE_END
+
+=== LIVE MODULE INSPECTION ===
+MODULE_IMPORT=OK
+CLASS_AVAILABLE=True
+CLASS_NAME=PDFPipeline
+CLASS_MODULE=delbot_platform.document_intelligence.pipeline.pdf_pipeline
+CLASS_MRO=(<class 'delbot_platform.document_intelligence.pipeline.pdf_pipeline.PDFPipeline'>, <class 'delbot_platform.document_intelligence.pipeline.document_pipeline.DocumentPipeline'>, <class 'abc.ABC'>, <class 'object'>)
+CONSTRUCTOR_SIGNATURE=()
+
+=== LIVE CLASS DICT ===
+CLASS_ATTR=__abstractmethods__
+CLASS_ATTR=__doc__
+CLASS_ATTR=__module__
+CLASS_ATTR=_abc_impl
+CLASS_ATTR=process
+
+=== SAFE INSTANCE CONSTRUCTION ===
+INSTANCE_CONSTRUCTION=OK
+INSTANCE_TYPE=<class 'delbot_platform.document_intelligence.pipeline.pdf_pipeline.PDFPipeline'>
+INSTANCE_DICT_BEGIN
+INSTANCE_DICT=<empty>
+INSTANCE_DICT_END
+
+=== EXPECTED PIPELINE DEPENDENCY ATTRIBUTES ===
+ATTRIBUTE=loader|EXISTS=False
+ATTRIBUTE=parser|EXISTS=False
+ATTRIBUTE=chunker|EXISTS=False
+ATTRIBUTE=embedding|EXISTS=False
+ATTRIBUTE=embedding_service|EXISTS=False
+ATTRIBUTE=embedding_client|EXISTS=False
+ATTRIBUTE=vector_store|EXISTS=False
+
+=== PROCESS BOUND METHOD ===
+PROCESS_METHOD_EXISTS=True
+PROCESS_METHOD_TYPE=method
+PROCESS_SIGNATURE=(document: 'Document') -> 'PipelineResult'
+
+=== DECISION ===
+ERRORS=0
+WARNINGS=0
+STATUS=CONTRACT_DIAGNOSTIC_COMPLETE
+
+=== SAFETY ===
+PROCESS_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN

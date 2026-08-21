@@ -1,0 +1,25 @@
+PATCH=767.463
+PURPOSE=Read exact source bodies of PDF pipeline indexing stages
+MODE=READ_ONLY_SOURCE_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+TARGET_1=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+TARGET_2=delbot_platform/document_intelligence/metadata/pdf_metadata.py
+TARGET_3=delbot_platform/document_intelligence/indexer/pdf_indexer.py
+TARGET_4=delbot_platform/ai/embedding/embedding_builder.py
+PROCESS_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:24:32
+

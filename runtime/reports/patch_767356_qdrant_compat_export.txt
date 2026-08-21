@@ -1,0 +1,30 @@
+PATCH=767.356
+PURPOSE=Restore minimal legacy QdrantVectorStore package compatibility without restoring deleted client.py
+MODE=MINIMAL_SOURCE_FIX
+TARGET_QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+TARGET_VECTORSTORE_INIT=delbot_platform/vectorstore/__init__.py
+BACKUP_QDRANT_INIT=runtime/reports/qdrant_init.py.pre_767356
+BACKUP_VECTORSTORE_INIT=runtime/reports/vectorstore_init.py.pre_767356
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=YES
+SOURCE_SCOPE=PACKAGE_EXPORT_ONLY
+DATE=2026-08-19 15:13:38
+
+COMPILE_STATUS=PASS
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+COMPILE_STATUS=PASS
+PACKAGE_IMPORT=FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+SINGLETON_IMPORT=PASS
+VECTORSTORE_IMPORT=FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+COMPAT_ALIAS_IDENTITY=UNKNOWN
+DELETED_CLIENT_IMPORT=EXPECTED_FAIL|No module named 'delbot_platform.vectorstore.qdrant.client'
+RUNTIME_STATUS=PASS
+DECISION=QDRANT_COMPAT_EXPORT_RESTORED

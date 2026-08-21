@@ -1,0 +1,64 @@
+PATCH=767.367
+PURPOSE=Verify Owner-B QdrantRepository runtime contract against MVP indexer before any indexing
+MODE=READ_ONLY_RUNTIME_CONTRACT_GATE
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_INDEXER=delbot_platform/documents/pipeline/indexing.py
+TARGET_RETRIEVAL=delbot_platform/knowledge/retrieval/qdrant.py
+OWNER_B=delbot_platform/vectorstore/qdrant/repository.py
+OWNER_A=delbot_platform/knowledge/vector/repository/qdrant.py
+QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+VECTOR_INIT=delbot_platform/vectorstore/__init__.py
+SINGLETON=delbot_platform/vectorstore/qdrant/singleton.py
+DATE=2026-08-20 02:10:23
+
+
+=== FORENSIC SUMMARY ===
+OWNER_B_CLASS|line=15|class=QdrantRepository|bases=
+OWNER_B_METHOD|line=17|name=__init__|signature=def __init__(self, store=None) -> None:
+OWNER_B_METHOD|line=30|name=delete_document|signature=def delete_document(self, document_id: str) -> None:
+OWNER_B_METHOD|line=39|name=save|signature=def save(self, vectors: list[VectorRecord]) -> int:
+OWNER_B_METHOD|line=85|name=count|signature=def count(self) -> int:
+OWNER_A_CLASS|line=16|class=QdrantRepository|bases=VectorRepository
+OWNER_A_METHOD|line=20|name=__init__|signature=def __init__(self, collection: str='delbot_documents') -> None:
+OWNER_A_METHOD|line=30|name=insert|signature=async def insert(self, records: list[VectorRecord]) -> None:
+OWNER_A_METHOD|line=51|name=search|signature=async def search(self, vector: list[float], limit: int=5, document_ids: list[str] | None=None) -> list[VectorRecord]:
+INDEXER_IMPORT|line=30|module=delbot_platform.vectorstore|name=QdrantRepository
+INDEXER_CONSTRUCTOR|line=60|expr=QdrantRepository()|args=0|keywords=
+RETRIEVAL_IMPORT|line=21|module=delbot_platform.knowledge.vector.repository.qdrant|name=QdrantRepository
+RETRIEVAL_CALL|line=83|method=search|expr=self.repository.search(vector=vectors[0].vector, limit=limit, document_ids=document_ids)
+PACKAGE_IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantRepository,QdrantVectorStore,QdrantStore,get_qdrant_store
+PACKAGE_IMPORT|delbot_platform.vectorstore|PASS|symbols=QdrantRepository,QdrantVectorStore
+PACKAGE_IMPORT|delbot_platform.vectorstore.qdrant.repository|PASS|symbols=QdrantRepository,get_qdrant_store
+PACKAGE_IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantStore,QdrantClient,get_qdrant_store
+RUNTIME_CLASS|module=delbot_platform.vectorstore.qdrant.repository|class=QdrantRepository
+RUNTIME_METHOD|__init__|(self, store=None) -> 'None'
+RUNTIME_METHOD|save|(self, vectors: 'list[VectorRecord]') -> 'int'
+RUNTIME_METHOD|count|(self) -> 'int'
+RUNTIME_METHOD|delete_document|(self, document_id: 'str') -> 'None'
+INIT_SIGNATURE=(self, store=None) -> 'None'
+INIT_PARAMETER|name=store|kind=POSITIONAL_OR_KEYWORD|default=None|annotation=<class 'inspect._empty'>
+SAVE_SIGNATURE=(self, vectors: 'list[VectorRecord]') -> 'int'
+OWNER_B_CONTRACT=PASS|required=__init__,save
+STATUS=PASS
+DECISION=OWNER_B_RUNTIME_CONTRACT_CLEAR
+INDEX_GATE=READY_FOR_NEXT_GATE
+
+=== IMPORTANT ERRORS ===
+
+=== SAFETY ===
+INDEXING=NOT_EXECUTED
+HTTP_REQUEST=NOT_SENT
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO

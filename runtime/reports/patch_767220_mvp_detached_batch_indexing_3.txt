@@ -1,0 +1,38 @@
+
+--- 1. GATEWAY PROCESS ---
+5136 python -m delbot_platform.gateway
+GATEWAY_RUNNING=YES
+
+--- 2. GATEWAY HEALTH ---
+HEALTH_HTTP=200
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+GATEWAY_HEALTH=PASS
+
+--- 3. RECOVER GATEWAY IF REQUIRED ---
+
+--- 6. ACTIVE INDEX REQUEST CHECK ---
+ACTIVE_INDEX_REQUEST=NO
+
+--- 7. START DETACHED BATCH LIMIT=3 ---
+INDEX_REQUEST_STARTED=YES
+CURL_PID=8496
+
+--- 8. REQUEST INITIAL STATE ---
+CURL_STATUS=RUNNING
+
+--- 9. GATEWAY STILL ALIVE ---
+5136 python -m delbot_platform.gateway
+
+--- 10. SAFETY ---
+DATA_RESET=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART_DURING_BATCH=NO
+BATCH_LIMIT=3
+
+--- 11. DECISION ---
+BATCH_DECISION=STARTED_BACKGROUND
+
+--- 12. REPORT ---
+REPORT=runtime/reports/patch_767220_mvp_detached_batch_indexing_3.txt
+LOG=runtime/reports/patch_767220_mvp_detached_batch_indexing_3.log

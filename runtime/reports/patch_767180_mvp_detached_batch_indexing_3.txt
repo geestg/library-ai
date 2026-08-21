@@ -1,0 +1,17 @@
+PATCH: 767.180
+PURPOSE: Continue MVP indexing for next 3 truly unprocessed PDFs
+MODE: DETACHED RECOVERY-SAFE MVP BATCH
+BATCH_LIMIT: 3
+DATE: 2026-08-19 02:16:48
+
+
+=== PATCH 767.180 COMPLETE ===
+DETACHED MVP BATCH PROCESS INITIATED.
+BATCH LIMIT: 3
+NO DATA RESET.
+NO QDRANT DELETE.
+NO QDRANT RESET.
+NO GATEWAY RESTART.
+TERMINAL REMAINS AVAILABLE.
+REPORT: runtime/reports/patch_767180_mvp_detached_batch_indexing_3.txt
+LOG: runtime/reports/patch_767180_mvp_detached_batch_indexing_3.log

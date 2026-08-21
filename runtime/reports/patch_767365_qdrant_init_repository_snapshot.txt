@@ -1,0 +1,33 @@
+PATCH=767.365
+PURPOSE=Capture exact current Qdrant export chain and repository contracts before minimal MVP repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_VECTOR_INIT=delbot_platform/vectorstore/__init__.py
+TARGET_QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+TARGET_SINGLETON=delbot_platform/vectorstore/qdrant/singleton.py
+TARGET_REPO_B=delbot_platform/vectorstore/qdrant/repository.py
+TARGET_REPO_A=delbot_platform/knowledge/vector/repository/qdrant.py
+TARGET_INDEXER=delbot_platform/documents/pipeline/indexing.py
+TARGET_RETRIEVAL=delbot_platform/knowledge/retrieval/qdrant.py
+DATE=2026-08-19 15:31:56
+
+COMPILE_STATUS=PASS
+VECTORSTORE_IMPORT=IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantClient,QdrantStore,get_qdrant_store
+DELETED_CLIENT_FILE=ABSENT
+
+INDEX_GATE=BLOCKED
+INDEX_EXECUTION=NO
+QDRANT_WRITE_DELETE=NO
+QDRANT_RESET_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO

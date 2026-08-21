@@ -1,0 +1,135 @@
+PATCH=767.388
+PURPOSE=Trace exact QdrantClient local-storage construction to runtime caller without executing indexing
+MODE=READ_ONLY_SOURCE_RUNTIME_FORENSIC
+STORAGE=repository_data/qdrant_local
+STORAGE_ABS=/workspace/delbot/repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+DATE=2026-08-21 02:05:12
+
+
+=== 13. EXTRACTED SUMMARY ===
+Qdrant client constructors: 47
+Local storage references  : 196
+Runtime references        : 79
+Process evidence          : 0
+Important errors           : 6
+
+=== 14. MOST IMPORTANT SOURCE HITS ===
+31:./runtime/reports/qdrant_client.py.pre_767342:29:        self.client = QdrantClient(
+32:./delbot_platform/vectorstore/qdrant/singleton.py.patch_766980.bak:35:        self.client = QdrantClient(
+33:./delbot_platform/vectorstore/qdrant/singleton.py.bak_765_913:30:        self.client = QdrantClient(
+34:./delbot_platform/vectorstore/qdrant/singleton.py.sprint766307.bak:35:        self.client = QdrantClient(
+35:./delbot_platform/vectorstore/qdrant/singleton.py:43:        self.client = QdrantClient(
+36:./tools/pr_5_6_42_mvp_local_embedding_index.sh:55:    client=QdrantClient(path="$DBDIR")
+37:./tools/pr_5_7_mvp_local_retrieval_engine.sh:57:    client=QdrantClient(path=DB)
+38:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:115:    client=QdrantClient(
+39:./tools/pr_5_9_mvp_repository_chat.sh:59:    client=QdrantClient(path=str(dbdir))
+40:./tools/check_qdrant_payload.py:4:client=QdrantClient(
+41:./tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:89:        client=QdrantClient(
+42:./tools/pr_5_6_mvp_embedding_qdrant_index.sh:147:        qdrant=QdrantClient(
+43:./tools/pr_5_6_40_mvp_local_embedding_index.sh:90:        client=QdrantClient(path=local_db)
+44:./.venv/lib/python3.10/site-packages/qdrant_client/async_qdrant_client.py:35:class AsyncQdrantClient(AsyncQdrantFastembedMixin):
+45:./.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py:26:class QdrantClient(QdrantFastembedMixin):
+46:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:93:client = QdrantClient(":memory:")
+47:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:95:client = QdrantClient(path="path/to/db")  # Persists changes to disk
+48:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:118:client = QdrantClient(":memory:")  # or QdrantClient(path="path/to/db")
+49:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:152:client = QdrantClient(":memory:")  # or QdrantClient(path="path/to/db")
+50:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:167:client = QdrantClient(host="localhost", port=6333)
+51:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:169:client = QdrantClient(url="http://localhost:6333")
+52:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:190:qdrant_client = QdrantClient(
+53:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:274:client = QdrantClient(host="localhost", grpc_port=6334, prefer_grpc=True)
+54:./.venv/lib/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:291:    client = AsyncQdrantClient(url="http://localhost:6333")
+55:./.venv/lib/python3.10/site-packages/fastembed-0.8.0.dist-info/METADATA:293:client = QdrantClient("localhost", port=6333) # For production
+56:./.venv/lib/python3.10/site-packages/fastembed-0.8.0.dist-info/METADATA:294:# client = QdrantClient(":memory:") # For experimentation
+57:./.venv/lib64/python3.10/site-packages/qdrant_client/async_qdrant_client.py:35:class AsyncQdrantClient(AsyncQdrantFastembedMixin):
+58:./.venv/lib64/python3.10/site-packages/qdrant_client/qdrant_client.py:26:class QdrantClient(QdrantFastembedMixin):
+59:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:93:client = QdrantClient(":memory:")
+60:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:95:client = QdrantClient(path="path/to/db")  # Persists changes to disk
+61:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:118:client = QdrantClient(":memory:")  # or QdrantClient(path="path/to/db")
+62:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:152:client = QdrantClient(":memory:")  # or QdrantClient(path="path/to/db")
+63:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:167:client = QdrantClient(host="localhost", port=6333)
+64:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:169:client = QdrantClient(url="http://localhost:6333")
+65:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:190:qdrant_client = QdrantClient(
+66:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:274:client = QdrantClient(host="localhost", grpc_port=6334, prefer_grpc=True)
+67:./.venv/lib64/python3.10/site-packages/qdrant_client-1.10.1.dist-info/METADATA:291:    client = AsyncQdrantClient(url="http://localhost:6333")
+68:./.venv/lib64/python3.10/site-packages/fastembed-0.8.0.dist-info/METADATA:293:client = QdrantClient("localhost", port=6333) # For production
+69:./.venv/lib64/python3.10/site-packages/fastembed-0.8.0.dist-info/METADATA:294:# client = QdrantClient(":memory:") # For experimentation
+72:./delbot_platform/vectorstore/qdrant/singleton.py.patch_766980.bak:23:                "DELBOT_QDRANT_PATH",
+73:./delbot_platform/vectorstore/qdrant/singleton.py.sprint766307.bak:23:                "DELBOT_QDRANT_PATH",
+74:./delbot_platform/vectorstore/qdrant/singleton.py:23:                "DELBOT_QDRANT_PATH",
+75:./delbot_platform/vectorstore/qdrant/singleton.py:25:                    "QDRANT_PATH",
+76:./delbot_platform/repository/download/downloader.py:28:        storage_path: str = "datasets/repository",
+77:./delbot_platform/repository/download/downloader.py:32:            storage_path
+78:./tools/pr_5_6_42_mvp_local_embedding_index.sh:41:    "backend":"QDRANT_LOCAL",
+79:./tools/qdrant.yaml:2:  storage_path: /workspace/delbot/qdrant_storage
+80:./tools/pr_5_16_mvp_export_package.sh:86:    "backend":"QDRANT_LOCAL",
+81:./tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:53:cfg["DELBOT_VECTOR_BACKEND"]="QDRANT_LOCAL"
+82:./tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:55:cfg["QDRANT_PATH"]=str(db)
+83:./tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:64:    "backend":"QDRANT_LOCAL",
+84:./tools/pr_5_21_mvp_repository_statistics.sh:43:    "backend":"QDRANT_LOCAL",
+85:./tools/pr_5_12_mvp_ask_repository.sh:49:backend="QDRANT_LOCAL"
+86:./tools/pr_5_12_mvp_ask_repository.sh:56:        backend=d.get("backend","QDRANT_LOCAL")
+87:./tools/pr_5_7_mvp_local_retrieval_engine.sh:95:    "backend":"QDRANT_LOCAL",
+88:./tools/pr_5_17_mvp_system_report.sh:84:    "backend":"QDRANT_LOCAL",
+89:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37:QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+90:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:42:mkdir -p "$QDRANT_PATH"
+91:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:73:qdrant_path=f"{ROOT}/repository_data/qdrant_local"
+92:./tools/pr_5_20_mvp_release_summary.sh:71:    "backend":"QDRANT_LOCAL",
+
+=== 15. CURRENT PROCESS SUMMARY ===
+    PID    PPID USER     STAT     ELAPSED CMD
+ 166204    3320 delbot   S+         00:00 tee -a runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt
+ 166239  166203 delbot   S+         00:00 awk NR==1 || /qdrant|uvicorn|research_api|backend_8001/
+
+=== 16. IMPORTANT ERRORS ONLY ===
+1612:84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+1639:103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+1655:188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+1671:273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+2724:./.venv/lib/python3.10/site-packages/qdrant_client/local/async_qdrant_local.py:131:                f"Storage folder {self.location} is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead."
+2761:./.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py:126:                f"Storage folder {self.location} is already accessed by another instance of Qdrant client."
+
+=== DECISION ===
+STATUS=LOCAL_QDRANT_CONSTRUCTOR_CONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_EXACT_CONSTRUCTOR_CALLER_AND_PROCESS_ENTRYPOINT
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+Qdrant start            : NO
+Qdrant stop             : NO
+Docker start            : NO
+Docker restart          : NO
+Gateway restart         : NO
+Source modified         : NO
+Process modified        : NO
+Lock modified           : NO
+Terminal remains open   : YES
+
+=== PATCH 767.388 COMPLETE ===
+READ-ONLY SOURCE/RUNTIME FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.
+Detailed report : runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt
+Detailed log    : runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.log
+Python forensic : runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.python.log

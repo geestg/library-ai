@@ -1,0 +1,29 @@
+PATCH: 767.310
+PURPOSE: Determine whether Qdrant construction happens at startup or after request/application construction
+MODE: READ-ONLY
+INDEX REQUEST: NO
+INDEX EXECUTION: NO
+EMBEDDING EXECUTION: NO
+QDRANT WRITE: NO
+QDRANT DELETE: NO
+QDRANT RESET: NO
+DATA RESET: NO
+GATEWAY RESTART: NO
+SOURCE MODIFICATION: NO
+DATE: 2026-08-19 07:57:35
+
+--- 14. FINAL SAFETY ---
+GATEWAY_PID=5136
+INDEX_EXECUTED=NO
+EMBEDDING_EXECUTED=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFIED=NO
+COMPILE_STATUS=0
+REPORT=runtime/reports/patch_767310_qdrant_lock_timeline.txt
+LOG=runtime/reports/patch_767310_qdrant_lock_timeline.log
+PYLOG=runtime/reports/patch_767310_qdrant_lock_timeline.python.log
+COMPILE_LOG=runtime/reports/patch_767310_compile.log

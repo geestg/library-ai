@@ -1,0 +1,224 @@
+=== 1. TARGET SINGLETON ===
+SINGLETON=FOUND
+PATH=delbot_platform/vectorstore/qdrant/singleton.py
+
+=== 2. SINGLETON CONTENT / QDRANT CONSTRUCTOR ===
+     5	from qdrant_client import QdrantClient
+    12	class QdrantStore:
+    14	    def __init__(
+    23	                "DELBOT_QDRANT_PATH",
+    25	                    "QDRANT_PATH",
+    43	        self.client = QdrantClient(
+    52	    def create_collection(
+    60	            .get_collections()
+    71	            self.client.create_collection(
+    83	    def upsert(
+    89	        self.client.upsert(
+   103	    def delete_document(
+   115	        self.client.delete(
+   133	    def search(
+   141	        return self.client.search(
+
+=== 3. IMPORT REFERENCES TO SINGLETON ===
+
+=== 4. CONSTRUCTOR CALL REFERENCES ===
+
+=== 5. LOCAL QDRANT CONFIG REFERENCES ===
+
+=== 6. API / GATEWAY ENTRYPOINT REFERENCES ===
+
+=== 7. PROCESS LAUNCH REFERENCES ===
+
+=== 8. CURRENT PROCESS SNAPSHOT ===
+    PID    PPID USER     STAT     ELAPSED CMD
+     58       1 delbot   Z       15:57:58 [sshd] <defunct>
+     59       1 delbot   Zs      15:57:58 [bash] <defunct>
+    621       1 delbot   Z       15:57:16 [python] <defunct>
+    882      30 root     Ss      01:16:43 sshd: delbot [priv]
+    909     882 delbot   S       01:16:38 sshd: delbot@notty
+    910     909 delbot   Ss      01:16:38 /bin/bash
+    945     910 delbot   Sl      01:16:38 /home/delbot/.vscode-server/code-110a328ea54b42367b803ec53ee0bf52ef26b419 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 910 --on-host=127.0.0.1 --on-port
+   1196     945 delbot   Ssl     01:16:38 /home/delbot/.vscode-server/code-110a328ea54b42367b803ec53ee0bf52ef26b419 --cli-data-dir /home/delbot/.vscode-server/cli agent host
+   1426     945 delbot   S       01:16:37 /bin/bash /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/code-server --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=40229 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-406a1e14-4fc5-424b-99a4-a5c783e800ec
+   1430    1426 delbot   Sl      01:16:37 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/server-main.js --connection-token=remotessh --accept-server-license-terms --agent-host-bridge-port=40229 --agent-host-bridge-host=127.0.0.1 --agent-host-bridge-connection-token=9e7f15cb-c1e7-49f8-b030-88c0f1c4d59c --start-server --enable-remote-auto-shutdown --socket-path=/tmp/code-406a1e14-4fc5-424b-99a4-a5c783e800ec
+   1623    1430 delbot   Sl      01:16:37 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node --dns-result-order=ipv4first /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
+   1635    1196 delbot   S       01:16:36 /bin/bash /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/code-server --socket-path /tmp/code-5438a6c9-2fbb-413f-ac7c-0e6c8f8ce7ec --agent-host-path /tmp/code-08ab63ed-9e22-4738-bcfd-a02365f1d127 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token
+   1639    1430 delbot   Sl      01:16:36 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/bootstrap-fork --type=fileWatcher
+   1640    1635 delbot   Sl      01:16:36 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/server-main.js --socket-path /tmp/code-5438a6c9-2fbb-413f-ac7c-0e6c8f8ce7ec --agent-host-path /tmp/code-08ab63ed-9e22-4738-bcfd-a02365f1d127 --start-server --accept-server-license-terms --enable-remote-auto-shutdown --without-connection-token
+   1845    1640 delbot   Sl      01:16:36 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/bootstrap-fork --type=agentHost --logsPath /home/delbot/.vscode-server/data/logs/20260821T005410 --user-data-dir /home/delbot/.vscode-server/data --telemetry-level all
+   1857    1845 delbot   Sl      01:16:35 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node_modules/@github/copilot-linux-x64/index.js --headless --no-auto-update --log-level info --stdio --no-auto-login
+   2113    1430 delbot   Sl      01:16:30 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/bootstrap-fork --type=ptyHost --logsPath /home/delbot/.vscode-server/data/logs/20260821T005409
+   2168    1623 delbot   Sl      01:16:27 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=1623
+   2169     945 delbot   S       01:16:27 /bin/bash
+   2176    1623 delbot   Sl      01:16:27 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet server
+   2917    2113 delbot   Ss+     01:16:25 /bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+   3186    1623 delbot   Sl      01:16:22 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --cancellationReceive=file:50b263d6a519903eb7aa59e69f643a096361a1b57f --node-ipc --clientProcessId=1623
+   3320    2113 delbot   Ss      01:14:44 /usr/bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+ 166306     910 delbot   S          01:38 sleep 180
+ 166474    3320 delbot   R+         00:00 ps -eo pid,ppid,user,stat,etime,cmd
+ 166475    3320 delbot   S+         00:00 awk NR==1 || /qdrant|uvicorn|research_api|backend_8001|delbot/
+ 166476    3320 delbot   S+         00:00 head -100
+
+=== 9. CURRENT QDRANT-RELATED PORTS ===
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                    
+
+=== 10. PYTHON AST CALL GRAPH ===
+
+=== 11. PYTHON FORENSIC SUMMARY ===
+AST_FORENSIC=START
+TARGET_STATE=FOUND
+PYTHON_FILES=560
+SINGLETON_IMPORT_HITS=5
+IMPORT|FILE=delbot_platform/vectorstore/qdrant/repository.py|LINE=7|TYPE=IMPORT_FROM|MODULE=delbot_platform.vectorstore.qdrant.singleton
+IMPORT|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=5|TYPE=IMPORT_FROM|MODULE=delbot_platform.vectorstore.qdrant.singleton
+IMPORT|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=11|TYPE=IMPORT_FROM|MODULE=delbot_platform.vectorstore.qdrant.singleton
+IMPORT|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=6|TYPE=IMPORT_FROM|MODULE=delbot_platform.vectorstore.qdrant.singleton
+IMPORT|FILE=tools/test_semantic_search.py|LINE=22|TYPE=IMPORT_FROM|MODULE=delbot_platform.vectorstore.qdrant.singleton
+AST_FORENSIC=END
+
+=== 12. HISTORICAL LOCK ERROR ORIGIN ===
+76-  File "/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py", line 30, in __init__
+77-    self.client = QdrantClient(
+78-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+79-    self._client = QdrantLocal(
+80-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+81-    self._load()
+82-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+83-    raise RuntimeError(
+84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+95-  File "/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py", line 35, in __init__
+96-    self.client = QdrantClient(
+97-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+98-    self._client = QdrantLocal(
+99-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+100-    self._load()
+101-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+102-    raise RuntimeError(
+103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+104-INFO:     127.0.0.1:53332 - "GET /health HTTP/1.1" 200 OK
+105-INFO:     127.0.0.1:53348 - "POST /api/research/answer HTTP/1.1" 500 Internal Server Error
+106-ERROR:    Exception in ASGI application
+107-Traceback (most recent call last):
+108-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/portalocker/portalocker.py", line 118, in lock
+109-    LOCKER(file_, flags)
+110-BlockingIOError: [Errno 11] Resource temporarily unavailable
+111-
+112-The above exception was the direct cause of the following exception:
+113-
+114-Traceback (most recent call last):
+115-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 120, in _load
+--
+180-  File "/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py", line 35, in __init__
+181-    self.client = QdrantClient(
+182-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+183-    self._client = QdrantLocal(
+184-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+185-    self._load()
+186-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+187-    raise RuntimeError(
+188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+189-INFO:     127.0.0.1:52622 - "GET /health HTTP/1.1" 200 OK
+190-INFO:     127.0.0.1:52634 - "POST /api/research/answer HTTP/1.1" 500 Internal Server Error
+191-ERROR:    Exception in ASGI application
+192-Traceback (most recent call last):
+193-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/portalocker/portalocker.py", line 118, in lock
+194-    LOCKER(file_, flags)
+195-BlockingIOError: [Errno 11] Resource temporarily unavailable
+196-
+197-The above exception was the direct cause of the following exception:
+198-
+199-Traceback (most recent call last):
+200-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 120, in _load
+--
+265-  File "/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py", line 35, in __init__
+266-    self.client = QdrantClient(
+267-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+268-    self._client = QdrantLocal(
+269-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+270-    self._load()
+271-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+272-    raise RuntimeError(
+273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+274-INFO:     127.0.0.1:51576 - "GET /health HTTP/1.1" 200 OK
+275-INFO:     127.0.0.1:52702 - "GET /health HTTP/1.1" 200 OK
+
+=== 13. IMPORTANT ERRORS ONLY ===
+3:Traceback (most recent call last):
+10:Traceback (most recent call last):
+19:Traceback (most recent call last):
+84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+22:Traceback (most recent call last):
+29:Traceback (most recent call last):
+38:Traceback (most recent call last):
+103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+107:Traceback (most recent call last):
+114:Traceback (most recent call last):
+123:Traceback (most recent call last):
+188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+192:Traceback (most recent call last):
+199:Traceback (most recent call last):
+208:Traceback (most recent call last):
+273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+
+=== PATCH 767.390 EXTRACTED SUMMARY ===
+Singleton file             : YES
+Singleton import hits      : 5
+Local Qdrant config refs   : 0
+Entrypoint refs            : 0
+Process spawn refs         : 0
+Historical lock errors     : 4
+Python AST forensic        : PASS
+
+=== IMPORTANT ERRORS ONLY ===
+188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+192-Traceback (most recent call last):
+199-Traceback (most recent call last):
+273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+3:Traceback (most recent call last):
+10:Traceback (most recent call last):
+19:Traceback (most recent call last):
+84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+22:Traceback (most recent call last):
+29:Traceback (most recent call last):
+38:Traceback (most recent call last):
+103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+107:Traceback (most recent call last):
+114:Traceback (most recent call last):
+123:Traceback (most recent call last):
+188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+192:Traceback (most recent call last):
+199:Traceback (most recent call last):
+208:Traceback (most recent call last):
+273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+
+=== DECISION ===
+STATUS=PRIMARY_SINGLETON_RUNTIME_IMPORT_FOUND
+DECISION=DO_NOT_INDEX
+NEXT=IDENTIFY_IMPORTER_PROCESS_ENTRYPOINT
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing             : NOT EXECUTED
+MVP collection write     : NO
+MVP collection delete    : NO
+MVP collection reset     : NO
+MVP collection recreate  : NO
+Qdrant start             : NO
+Qdrant stop              : NO
+Docker start              : NO
+Docker restart            : NO
+Gateway restart           : NO
+Source modified           : NO
+Process modified          : NO
+Lock modified             : NO
+Terminal remains open     : YES
+
+=== PATCH 767.390 COMPLETE ===
+READ-ONLY CALLER/ENTRYPOINT FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.
+Detailed report : runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt
+Detailed log    : runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.log
+Python forensic : runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.python.log

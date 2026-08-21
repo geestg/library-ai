@@ -1,0 +1,403 @@
+PATCH=767.408
+PURPOSE=Trace ENV source files, dotenv load order, configuration precedence and Qdrant collection resolution
+MODE=READ_ONLY_STATIC_ENV_LOAD_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=NOT_PRINTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:04:35
+
+=== ENV FILES / CONFIGURATION SOURCES ===
+.env.mvp|ENV_FILE
+.env.mvp:2|DELBOT_QDRANT_PATH=<VALUE_PRESENT>
+.env.mvp:3|QDRANT_COLLECTION=<VALUE_PRESENT>
+.env.mvp:4|QDRANT_MODE=<VALUE_PRESENT>
+.env.mvp:5|QDRANT_PATH=<VALUE_PRESENT>
+
+=== DOTENV LOAD CALLS ===
+
+=== QDRANT/COLLECTION ENV ACCESS ===
+delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv(
+                "DELBOT_QDRANT_PATH",
+                os.getenv(
+                    "QDRANT_PATH",
+                    str(
+                        Path("repository_data")
+                        / "qdrant_local"
+               
+delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv(
+                    "QDRANT_PATH",
+                    str(
+                        Path("repository_data")
+                        / "qdrant_local"
+                    ),
+                )
+delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv(
+            "QDRANT_COLLECTION",
+            "delbot_documents",
+        )
+
+=== COLLECTION ASSIGNMENT / CONFIGURATION HITS ===
+.env.mvp|1|TEXT|DELBOT_VECTOR_BACKEND=QDRANT_LOCAL
+.env.mvp|2|TEXT|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp|3|TEXT|QDRANT_COLLECTION=delbot_documents
+.env.mvp|4|TEXT|QDRANT_MODE=local
+.env.mvp|5|TEXT|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+delbot_platform/ai/embedding/embedding_builder.py|26|ASSIGNMENT|collection = document.index
+delbot_platform/ai/embedding/embedding_builder.py|26|TEXT|collection = document.index
+delbot_platform/ai/embedding/embedding_service.py|40|ASSIGNMENT|collection = EmbeddingCollection()
+delbot_platform/ai/embedding/embedding_service.py|40|TEXT|collection = EmbeddingCollection()
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|26|TEXT|collection_name: str,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|ASSIGNMENT|self._collection_name = collection_name
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|TEXT|self._collection_name = collection_name
+delbot_platform/document_intelligence/models/__init__.py|16|ASSIGNMENT|__all__ = [
+    "Block",
+    "BoundingBox",
+    "Heading",
+    "HeadingCollection",
+    "HeadingLevel",
+    "LayoutStatistics",
+    "Line",
+    "Page",
+    "Paragraph",
+    "ParagraphCollection",
+    "ParsedDocument",
+    "SemanticChunk",
+    "SemanticChunkCollection",
+    "Span",
+]
+delbot_platform/documents/pipeline/indexing.py|59|ASSIGNMENT|self.vectorstore = QdrantRepository()
+delbot_platform/knowledge/hydration/local.py|86|ASSIGNMENT|collection = Collection(
+                collection_id="default",
+                name="Default",
+                repository=repository,
+            )
+delbot_platform/knowledge/hydration/local.py|86|TEXT|collection = Collection(
+delbot_platform/knowledge/hydration/local.py|116|ASSIGNMENT|document = Document(
+                document_id=record.id,
+                title=title,
+                file_path=str(
+                    record.pdf_path,
+                ),
+                collection=collection,
+                authors=authors,
+            )
+delbot_platform/knowledge/hydration/local.py|122|TEXT|collection=collection,
+delbot_platform/knowledge/models/__init__.py|12|ASSIGNMENT|__all__ = [
+    "KnowledgeDomain",
+    "KnowledgeSource",
+    "KnowledgeEntity",
+    "KnowledgeRelation",
+    "Author",
+    "Repository",
+    "Collection",
+    "Document",
+    "DocumentChunk",
+    "RAGResult",
+]
+delbot_platform/knowledge/models/document.py|46|TEXT|def collection_name(
+delbot_platform/knowledge/models/document.py|250|TEXT|"collection_name": self.collection_name,
+delbot_platform/knowledge/models/document.py|280|ASSIGNMENT|collection = Collection.from_dict(
+                data["collection"],
+            )
+delbot_platform/knowledge/models/document.py|280|TEXT|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|290|ASSIGNMENT|collection = Collection(
+                collection_id=data.get(
+                    "collection_id",
+                    "",
+                ),
+                name=data.get(
+                    "collection_name",
+                    "",
+                ),
+                repository=Repository(
+                    rep
+delbot_platform/knowledge/models/document.py|290|TEXT|collection = Collection(
+delbot_platform/knowledge/models/document.py|296|TEXT|"collection_name",
+delbot_platform/knowledge/models/document.py|364|TEXT|collection=collection,
+delbot_platform/knowledge/models/document_chunk.py|60|TEXT|def collection_name(
+delbot_platform/knowledge/models/document_chunk.py|148|TEXT|"collection_name": self.document.collection.name,
+delbot_platform/knowledge/models/rag_result.py|39|ASSIGNMENT|name = chunk.document.collection.name
+delbot_platform/knowledge/models/rag_result.py|59|ASSIGNMENT|value = chunk.document.collection.collection_id
+delbot_platform/knowledge/rag/pipeline.py|45|ASSIGNMENT|self.retriever = QdrantRetriever()
+delbot_platform/knowledge/rag/vector_retriever.py|17|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/retrieval/qdrant.py|43|ASSIGNMENT|self.repository = QdrantRepository()
+delbot_platform/knowledge/vector/qdrant_store.py|17|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py|18|ASSIGNMENT|self.collection = collection
+delbot_platform/knowledge/vector/qdrant_store.py|18|TEXT|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|25|ASSIGNMENT|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|26|ASSIGNMENT|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|26|TEXT|self.collection = collection
+delbot_platform/repository_data/metadata/repository_catalog.json|6702|TEXT|"abstract": "This study aims to develop the right strategy in increasing the value of andaliman (Zantoxylum Acanthopodium) in Toba Samosir, Humbang Hasundutan, and Samosir which affects the economies of the relevant Pema
+delbot_platform/repository_data/metadata/repository_catalog.json|6711|TEXT|"abstract": "This study aims to develop the right strategy in increasing the value of andaliman (Zantoxylum Acanthopodium) in Toba Samosir, Humbang Hasundutan, and Samosir which affects the economies of the relevant Pema
+delbot_platform/repository_data/metadata/repository_catalog.json|11346|TEXT|"abstract": "Abstract: \r\nThe role of the tourism sector is increasingly important along with the development of Indonesia's economic structure that leads to the service sector. The business model approach is one of the
+delbot_platform/repository_data/metadata/repository_catalog.json|11355|TEXT|"abstract": "Abstract: \r\nThe role of the tourism sector is increasingly important along with the development of Indonesia's economic structure that leads to the service sector. The business model approach is one of the
+delbot_platform/repository_data/metadata/repository_catalog.json|14239|TEXT|"title": "SISTEM DATA COLLECTION DAN USER INTERFACE BERBASIS WEBSITE PADA INSPEKSI KERUSAKAN JALAN ASPAL",
+delbot_platform/repository_data/metadata/repository_catalog.json|14242|TEXT|"abstract": "Kerusakan jalan aspal merupakan isu kritis yang mempengaruhi keselamatan dan\r\nkenyamanan pengguna jalan. Metode konvensional dalam inspeksi jalan\r\nseringkali memerlukan waktu dan sumber daya yang signifi
+delbot_platform/repository_data/metadata/repository_catalog.json|14248|TEXT|"title": "SISTEM DATA COLLECTION DAN USER INTERFACE BERBASIS WEBSITE PADA INSPEKSI KERUSAKAN JALAN ASPAL",
+delbot_platform/repository_data/metadata/repository_catalog.json|14251|TEXT|"abstract": "Kerusakan jalan aspal merupakan isu kritis yang mempengaruhi keselamatan dan\r\nkenyamanan pengguna jalan. Metode konvensional dalam inspeksi jalan\r\nseringkali memerlukan waktu dan sumber daya yang signifi
+delbot_platform/repository_data/metadata/repository_catalog.json|18547|TEXT|"abstract": "Content management system adalah suatu proses untuk mendukung pembuatan atau penciptaan, pengelolaan, penyebaran, penerbitan, dan penemuan pengetahuan. Pengetahuan mengenai Ulos Batak Toba terdiri dari penge
+delbot_platform/repository_data/metadata/repository_catalog.json|18556|TEXT|"abstract": "Content management system adalah suatu proses untuk mendukung pembuatan atau penciptaan, pengelolaan, penyebaran, penerbitan, dan penemuan pengetahuan. Pengetahuan mengenai Ulos Batak Toba terdiri dari penge
+delbot_platform/repository_data/metadata/repository_catalog.json|21626|TEXT|"abstract": "SIEM is a security technology that implements an event data collection and log management from various devices such as security software, network infrastructure devices, and other applications that run on an
+delbot_platform/repository_data/metadata/repository_catalog.json|21635|TEXT|"abstract": "SIEM is a security technology that implements an event data collection and log management from various devices such as security software, network infrastructure devices, and other applications that run on an
+delbot_platform/repository_data/metadata/skripsi_dataset.json|2774|TEXT|"abstract": "This study aims to develop the right strategy in increasing the value of andaliman (Zantoxylum Acanthopodium) in Toba Samosir, Humbang Hasundutan, and Samosir which affects the economies of the relevant Pema
+delbot_platform/repository_data/metadata/skripsi_dataset.json|4694|TEXT|"abstract": "Abstract: \r\nThe role of the tourism sector is increasingly important along with the development of Indonesia's economic structure that leads to the service sector. The business model approach is one of the
+delbot_platform/repository_data/metadata/skripsi_dataset.json|5891|TEXT|"title": "SISTEM DATA COLLECTION DAN USER INTERFACE BERBASIS WEBSITE PADA INSPEKSI KERUSAKAN JALAN ASPAL",
+delbot_platform/repository_data/metadata/skripsi_dataset.json|5894|TEXT|"abstract": "Kerusakan jalan aspal merupakan isu kritis yang mempengaruhi keselamatan dan\r\nkenyamanan pengguna jalan. Metode konvensional dalam inspeksi jalan\r\nseringkali memerlukan waktu dan sumber daya yang signifi
+delbot_platform/repository_data/metadata/skripsi_dataset.json|7670|TEXT|"abstract": "Content management system adalah suatu proses untuk mendukung pembuatan atau penciptaan, pengelolaan, penyebaran, penerbitan, dan penemuan pengetahuan. Pengetahuan mengenai Ulos Batak Toba terdiri dari penge
+delbot_platform/repository_data/metadata/skripsi_dataset.json|8950|TEXT|"abstract": "SIEM is a security technology that implements an event data collection and log management from various devices such as security software, network infrastructure devices, and other applications that run on an
+delbot_platform/repository_data/qdrant_local/meta.json|1|TEXT|{"collections": {}, "aliases": {}}
+delbot_platform/repository_data/runtime/repository_overlay.json|7619|TEXT|"abstract": "This study aims to develop the right strategy in increasing the value of andaliman (Zantoxylum Acanthopodium) in Toba Samosir, Humbang Hasundutan, and Samosir which affects the economies of the relevant Pema
+delbot_platform/repository_data/runtime/repository_overlay.json|7628|TEXT|"abstract": "This study aims to develop the right strategy in increasing the value of andaliman (Zantoxylum Acanthopodium) in Toba Samosir, Humbang Hasundutan, and Samosir which affects the economies of the relevant Pema
+delbot_platform/repository_data/runtime/repository_overlay.json|12899|TEXT|"abstract": "Abstract: \r\nThe role of the tourism sector is increasingly important along with the development of Indonesia's economic structure that leads to the service sector. The business model approach is one of the
+delbot_platform/repository_data/runtime/repository_overlay.json|12908|TEXT|"abstract": "Abstract: \r\nThe role of the tourism sector is increasingly important along with the development of Indonesia's economic structure that leads to the service sector. The business model approach is one of the
+delbot_platform/repository_data/runtime/repository_overlay.json|16196|TEXT|"title": "SISTEM DATA COLLECTION DAN USER INTERFACE BERBASIS WEBSITE PADA INSPEKSI KERUSAKAN JALAN ASPAL",
+delbot_platform/repository_data/runtime/repository_overlay.json|16199|TEXT|"abstract": "Kerusakan jalan aspal merupakan isu kritis yang mempengaruhi keselamatan dan\r\nkenyamanan pengguna jalan. Metode konvensional dalam inspeksi jalan\r\nseringkali memerlukan waktu dan sumber daya yang signifi
+delbot_platform/repository_data/runtime/repository_overlay.json|16205|TEXT|"title": "SISTEM DATA COLLECTION DAN USER INTERFACE BERBASIS WEBSITE PADA INSPEKSI KERUSAKAN JALAN ASPAL",
+delbot_platform/repository_data/runtime/repository_overlay.json|16208|TEXT|"abstract": "Kerusakan jalan aspal merupakan isu kritis yang mempengaruhi keselamatan dan\r\nkenyamanan pengguna jalan. Metode konvensional dalam inspeksi jalan\r\nseringkali memerlukan waktu dan sumber daya yang signifi
+delbot_platform/repository_data/runtime/repository_overlay.json|21083|TEXT|"abstract": "Content management system adalah suatu proses untuk mendukung pembuatan atau penciptaan, pengelolaan, penyebaran, penerbitan, dan penemuan pengetahuan. Pengetahuan mengenai Ulos Batak Toba terdiri dari penge
+delbot_platform/repository_data/runtime/repository_overlay.json|21092|TEXT|"abstract": "Content management system adalah suatu proses untuk mendukung pembuatan atau penciptaan, pengelolaan, penyebaran, penerbitan, dan penemuan pengetahuan. Pengetahuan mengenai Ulos Batak Toba terdiri dari penge
+delbot_platform/repository_data/runtime/repository_overlay.json|24603|TEXT|"abstract": "SIEM is a security technology that implements an event data collection and log management from various devices such as security software, network infrastructure devices, and other applications that run on an
+delbot_platform/repository_data/runtime/repository_overlay.json|24612|TEXT|"abstract": "SIEM is a security technology that implements an event data collection and log management from various devices such as security software, network infrastructure devices, and other applications that run on an
+delbot_platform/research/builders/research_result_builder.py|30|ASSIGNMENT|collections = self._collect_unique(
+            citations,
+            lambda c: c.collection_id,
+            lambda c: c.collection_name,
+        )
+delbot_platform/research/builders/research_result_builder.py|33|TEXT|lambda c: c.collection_name,
+delbot_platform/research/models/citation.py|50|TEXT|def collection_name(self) -> str:
+delbot_platform/research/models/citation.py|128|TEXT|"collection_name": self.collection_name,
+delbot_platform/vectorstore/__init__.py|8|ASSIGNMENT|__all__ = [
+
+    "QdrantVectorStore",
+
+    "QdrantRepository",
+
+]
+delbot_platform/vectorstore/qdrant/__init__.py|11|ASSIGNMENT|QdrantVectorStore = QdrantStore
+delbot_platform/vectorstore/qdrant/__init__.py|13|ASSIGNMENT|__all__ = [
+    "QdrantStore",
+    "QdrantVectorStore",
+    "get_qdrant_store",
+]
+delbot_platform/vectorstore/qdrant/repository.py|22|ASSIGNMENT|self.store = store
+            if store is not None
+            else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py|22|ASSIGNMENT|path = os.getenv(
+                "DELBOT_QDRANT_PATH",
+                os.getenv(
+                    "QDRANT_PATH",
+                    str(
+                        Path("repository_data")
+                        / "qdrant_local"
+                    ),
+                ),
+            )
+delbot_platform/vectorstore/qdrant/singleton.py|23|TEXT|"DELBOT_QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py|25|TEXT|"QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py|33|ASSIGNMENT|self.collection = os.getenv(
+            "QDRANT_COLLECTION",
+            "delbot_documents",
+        )
+delbot_platform/vectorstore/qdrant/singleton.py|33|TEXT|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|34|TEXT|"QDRANT_COLLECTION",
+delbot_platform/vectorstore/qdrant/singleton.py|43|ASSIGNMENT|self.client = QdrantClient(
+            path=path,
+            force_disable_check_same_thread=True,
+        )
+delbot_platform/vectorstore/qdrant/singleton.py|54|TEXT|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|58|ASSIGNMENT|collections = self.client
+            .get_collections()
+            .collections
+delbot_platform/vectorstore/qdrant/singleton.py|64|ASSIGNMENT|exists = any(
+            c.name == collection_name
+            for c in collections
+        )
+delbot_platform/vectorstore/qdrant/singleton.py|65|TEXT|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py|72|TEXT|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|86|TEXT|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|90|TEXT|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|96|TEXT|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|100|TEXT|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|106|TEXT|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|116|TEXT|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|137|TEXT|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|142|TEXT|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|157|ASSIGNMENT|_store = QdrantStore()
+delbot_platform/workspace/models/workspace_metadata.py|39|TEXT|active_collection=data.get(
+tools/architecture/inventory.py|16|ASSIGNMENT|EXCLUDED_DIRS = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "dist",
+    "build",
+    "cache",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".idea",
+    ".vscode",
+    "reports",
+    "runtime",
+    "qdrant_storage",
+}
+tools/audit_qdrant_storage.py|8|ASSIGNMENT|FILES = [
+    "delbot_platform/vectorstore/qdrant/client.py",
+    "delbot_platform/vectorstore/qdrant/repository.py",
+    "delbot_platform/vectorstore/qdrant/singleton.py",
+    "delbot_platform/vectorstore/__init__.py",
+    "delbot_platform/vectors/vector_record.py",
+]
+tools/audit_qdrant_storage.py|16|ASSIGNMENT|KEYWORDS = [
+    "collection_name",
+    "collection",
+    "host",
+    "port",
+    "url",
+    "QdrantClient",
+    "upsert",
+    "scroll",
+    "search",
+    "count",
+    "payload",
+    "document_id",
+    "PointStruct",
+    "except",
+    "try",
+]
+tools/audit_qdrant_storage.py|17|TEXT|"collection_name",
+tools/batch_ingest_repository.py|35|ASSIGNMENT|repository = QdrantRepository()
+tools/check_qdrant_payload.py|4|ASSIGNMENT|client = QdrantClient(
+    host="127.0.0.1",
+    port=6333
+)
+tools/check_qdrant_payload.py|11|ASSIGNMENT|points,_ = client.scroll(
+    collection_name="delbot_documents",
+    limit=10
+)
+tools/check_qdrant_payload.py|12|TEXT|collection_name="delbot_documents",
+tools/debug_qdrant_runtime.py|60|ASSIGNMENT|repo = QdrantRepository()
+tools/ingest_metadata_vectors.py|57|ASSIGNMENT|store = QdrantStore(
+        "delbot_metadata"
+    )
+tools/ingest_pdf_vectors.py|46|ASSIGNMENT|store = QdrantStore(
+        "delbot_documents"
+    )
+tools/inspect_retriever_api.py|18|ASSIGNMENT|module = importlib.import_module(
+    "delbot_platform.knowledge.retrieval.qdrant"
+)
+tools/inspect_retriever_api.py|22|ASSIGNMENT|Retriever = getattr(module, "QdrantRetriever")
+tools/qdrant.yaml|2|TEXT|storage_path: /workspace/delbot/qdrant_storage
+tools/test_citation_builder.py|96|ASSIGNMENT|repo = QdrantRepository()
+tools/test_ingest.py|17|ASSIGNMENT|db = QdrantIngest()
+tools/test_qdrant_storage.py|55|ASSIGNMENT|repository = QdrantRepository()
+tools/test_qdrant_storage.py|66|ASSIGNMENT|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py|66|TEXT|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py|72|ASSIGNMENT|scroll_result = client.scroll(
+            collection_name=collection,
+            scroll_filter={
+                "must": [
+                    {
+                        "key": "document_id",
+                        "match": {
+                            "value": document_id,
+                        },
+               
+tools/test_qdrant_storage.py|73|TEXT|collection_name=collection,
+tools/test_rag_end_to_end.py|19|ASSIGNMENT|Retriever = importlib.import_module(
+    "delbot_platform.knowledge.retrieval.qdrant"
+).QdrantRetriever
+tools/test_rag_pipeline.py|121|ASSIGNMENT|retriever = QdrantRetriever()
+tools/test_retrieval.py|21|ASSIGNMENT|retriever = QdrantRetriever()
+tools/test_retriever_engine.py|21|ASSIGNMENT|retriever = QdrantRetriever()
+tools/test_retriever_runtime.py|22|ASSIGNMENT|candidates = [
+        (
+            "delbot_platform.knowledge.retrieval.qdrant",
+            [
+                "QdrantRetriever",
+                "QdrantRetrieval",
+                "QdrantSearch",
+            ],
+        ),
+        (
+            "delbot_platform.knowledge.retrieval.retriever",
+            [
+          
+tools/test_semantic_search.py|61|ASSIGNMENT|store = get_qdrant_store()
+tools/trace_qdrant_pipeline.py|8|ASSIGNMENT|FILES = [
+    ROOT / "delbot_platform/documents/pipeline/indexing.py",
+    ROOT / "delbot_platform/documents/services/indexing.py",
+    ROOT / "delbot_platform/documents/embedding/pipeline/pipeline.py",
+    ROOT / "delbot_platform/documents/embedding/mapper/vector_mapper.py",
+    ROOT / "delbot_platform/vectorstore/qdr
+tools/trace_qdrant_pipeline.py|16|ASSIGNMENT|TARGET_CALLS = {
+    "EmbeddingPipeline",
+    "EmbeddingVectorMapper",
+    "QdrantVectorStore",
+    "upsert",
+    "to_vector_record",
+    "to_vector_records",
+    "create_collection",
+    "collection_exists",
+    "index",
+}
+
+=== QDRANT CONSTRUCTORS ===
+delbot_platform/vectorstore/qdrant/singleton.py|43|QdrantClient(
+            path=path,
+            force_disable_check_same_thread=True,
+        )
+delbot_platform/vectorstore/qdrant/singleton.py|157|QdrantStore()
+tools/check_qdrant_payload.py|4|QdrantClient(
+    host="127.0.0.1",
+    port=6333
+)
+tools/ingest_metadata_vectors.py|57|QdrantStore(
+        "delbot_metadata"
+    )
+tools/ingest_pdf_vectors.py|46|QdrantStore(
+        "delbot_documents"
+    )
+
+=== PARSE ERRORS ===
+
+=== EFFECTIVE PRECEDENCE ASSESSMENT ===
+PARSED_FILES=781
+PARSE_ERRORS=0
+DOTENV_LOAD_CALLS=0
+ENV_QDRANT_COLLECTION_ACCESS=3
+COLLECTION_CONFIG_HITS=130
+QDRANT_CONSTRUCTORS=5
+ENV_VARIABLE_NAMES_FOUND=4
+EXPLICIT_COLLECTION_ASSIGNMENTS=54
+ENV_VARIABLE_NAMES=DELBOT_QDRANT_PATH,QDRANT_COLLECTION,QDRANT_PATH,qdrant_local
+STATUS=ENV_ACCESS_CONFIRMED_DOTENV_LOAD_NOT_CONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_EXTERNAL_ENV_SOURCE
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN
+
+Detailed report : runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt
+Python log      : runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.python.log

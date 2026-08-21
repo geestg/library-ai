@@ -1,0 +1,27 @@
+PATCH=767.358
+PURPOSE=Locate authoritative QdrantRepository implementation and exact package export consumers
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+TARGET_VECTORSTORE_INIT=delbot_platform/vectorstore/__init__.py
+TARGET_SINGLETON=delbot_platform/vectorstore/qdrant/singleton.py
+DATE=2026-08-19 15:17:56
+
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+DEFINITION_COUNT=2
+OWNER=MULTIPLE
+STATUS=BLOCKED
+DECISION=DO_NOT_GUESS_OWNER
+QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantStore,QdrantVectorStore,get_qdrant_store
+VECTORSTORE_IMPORT=IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantClient,QdrantStore,get_qdrant_store

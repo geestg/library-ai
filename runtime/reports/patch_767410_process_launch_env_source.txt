@@ -1,0 +1,672 @@
+PATCH=767.410
+PURPOSE=Trace process launch environment source into DELBot configuration and Qdrant collection resolution
+MODE=READ_ONLY_PROCESS_ENV_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:15:01
+
+=== PATCH 767.410 : FORENSIC RESULT ===
+
+FILES_SCANNED=1616
+PARSE_ERRORS=0
+DOTENV_FILES=1
+SERVICE_FILES=0
+LAUNCH_HITS=2612
+ENV_HITS=180
+CONFIG_HITS=404
+SHELL_EXPORT_HITS=0
+ENVIRONMENT_FILE_HITS=0
+CURRENT_QDRANT_ENV_KEYS=0
+PROCESS_LAUNCH_CANDIDATES=2854
+
+=== DOTENV FILES ===
+.env.mvp
+
+=== SYSTEMD / ENVIRONMENT FILE EVIDENCE ===
+NONE
+
+=== SHELL ENVIRONMENT ASSIGNMENTS ===
+NONE
+
+=== QDRANT ENVIRONMENT KEYS CURRENTLY PRESENT ===
+NONE
+
+=== LAUNCH EVIDENCE ===
+cache/huggingface/.agent_harnesses.json|1|{"standardEnvVars": ["AI_AGENT", "AGENT"], "harnesses": {"antigravity": {"prettyLabel": "Antigravity", "docsUrl": "https://antigravity.google", "description": "Agentic development platform from Google built around Gemini.", "envVars": {"ANT
+cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer.json|582496|"▁Python",
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|121|```python
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|145|```python
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|173|```python
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|194|```python
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|247|Additionally, this long document retrieval dataset will be open-sourced to address the current lack of open-source multilingual long text retrieval datasets.
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|248|We believe that this data will be helpful for the open-source community in training document retrieval models.
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/README.md|271|If you have no enough resource to fine-tuning model with long text, the method is useful.
+cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181/tokenizer.json|582489|"▁Python",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|105|"abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapa
+runtime/research_memory/704692ed-d9ce-4ed9-b1bd-4f4d7b98b1c3.json|105|"abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapa
+runtime/research_memory/a00de73d-e0bf-4fa4-9df3-8e938ae06b7a.json|105|"abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapa
+runtime/research_memory/5642c00c-1a6c-4daa-a2e2-6771ec06d0e2.json|105|"abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapa
+runtime/research_memory/502d4a3d-1290-41d2-b4f3-c224694bf8b4.json|105|"abstract": "Pada saat ini perkembangan teknologi komunikasi dan informasi sangat pesat terutama dalam teknologi jaringan komputer. Jaringan komputer adalah sebuah sistem yang didesain untuk dapat berbagi sumber daya, berkomunikasi dan dapa
+runtime/nvm/versions/node/v20.20.2/README.md|67|Binaries, installers, and source tarballs are available at
+runtime/nvm/versions/node/v20.20.2/README.md|122|source and a list of supported platforms.
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|115|* \[[`91a66e671c`](https://github.com/nodejs/node/commit/91a66e671c)] - **build**: test on Python 3.14 (Christian Clauss) [#59983](https://github.com/nodejs/node/pull/59983)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|122|* \[[`91a66e671c`](https://github.com/nodejs/node/commit/91a66e671c)] - **build**: test on Python 3.14 (Christian Clauss) [#59983](https://github.com/nodejs/node/pull/59983)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|184|* \[[`83b9f8ee02`](https://github.com/nodejs/node/commit/83b9f8ee02)] - **tools**: make nodedownload module compatible with Python 3.14 (Lumír 'Frenzy' Balhar) [#58752](https://github.com/nodejs/node/pull/58752)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|268|* \[[`e5b4eee901`](https://github.com/nodejs/node/commit/e5b4eee901)] - **meta**: bump actions/setup-python from 5.6.0 to 6.0.0 (dependabot\[bot]) [#60090](https://github.com/nodejs/node/pull/60090)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|365|* \[[`cdf985071f`](https://github.com/nodejs/node/commit/cdf985071f)] - **lib**: suppress source map lookup exceptions (Chengzhong Wu) [#56299](https://github.com/nodejs/node/pull/56299)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|376|* \[[`2b8449c39a`](https://github.com/nodejs/node/commit/2b8449c39a)] - **meta**: bump actions/setup-python from 5.5.0 to 5.6.0 (dependabot\[bot]) [#58107](https://github.com/nodejs/node/pull/58107)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|378|* \[[`c6a88561f5`](https://github.com/nodejs/node/commit/c6a88561f5)] - **meta**: bump actions/setup-python from 5.4.0 to 5.5.0 (dependabot\[bot]) [#57718](https://github.com/nodejs/node/pull/57718)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|393|* \[[`e949359a56`](https://github.com/nodejs/node/commit/e949359a56)] - **meta**: bump `actions/setup-python` from 5.3.0 to 5.4.0 (dependabot\[bot]) [#56867](https://github.com/nodejs/node/pull/56867)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|672|* \[[`9fda8e29cd`](https://github.com/nodejs/node/commit/9fda8e29cd)] - **doc**: mark `--env-file-if-exists` flag as experimental (Juan José) [#56893](https://github.com/nodejs/node/pull/56893)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|684|* \[[`34221a1d6e`](https://github.com/nodejs/node/commit/34221a1d6e)] - **lib**: allow CJS source map cache to be reclaimed (Chengzhong Wu) [#51711](https://github.com/nodejs/node/pull/51711)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|702|* \[[`dc66632261`](https://github.com/nodejs/node/commit/dc66632261)] - **module**: support 'module.exports' interop export in require(esm) (Guy Bedford) [#54563](https://github.com/nodejs/node/pull/54563)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|722|* \[[`c06ac66356`](https://github.com/nodejs/node/commit/c06ac66356)] - **src**: fix undefined script name in error source (Chengzhong Wu) [#56502](https://github.com/nodejs/node/pull/56502)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|725|* \[[`8af1b53bb8`](https://github.com/nodejs/node/commit/8af1b53bb8)] - **src**: safely remove the last line from dotenv (Shima Ryuhei) [#55982](https://github.com/nodejs/node/pull/55982)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|727|* \[[`b8c89a693e`](https://github.com/nodejs/node/commit/b8c89a693e)] - **src**: add `--env-file-if-exists` flag (Bosco Domingo) [#53060](https://github.com/nodejs/node/pull/53060)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|728|* \[[`9097de073a`](https://github.com/nodejs/node/commit/9097de073a)] - **src**: don't match after `--` in `Dotenv::GetPathFromArgs` (Aviv Keller) [#54237](https://github.com/nodejs/node/pull/54237)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|752|* \[[`82461af6ec`](https://github.com/nodejs/node/commit/82461af6ec)] - **test**: migrate message eval tests from Python to JS (Yiyun Lei) [#50482](https://github.com/nodejs/node/pull/50482)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|766|* \[[`bc8c39bff8`](https://github.com/nodejs/node/commit/bc8c39bff8)] - **tools**: disable unneeded rule ignoring in Python linting (Rich Trott) [#56429](https://github.com/nodejs/node/pull/56429)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|804|* \[[`e89e807522`](https://github.com/nodejs/node/commit/e89e807522)] - **build**: synchronize list of c-ares source files (Richard Lau) [#55445](https://github.com/nodejs/node/pull/55445)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|837|* \[[`a51ef9d829`](https://github.com/nodejs/node/commit/a51ef9d829)] - **doc**: clarify util.aborted resource usage (Kunal Kumar) [#55780](https://github.com/nodejs/node/pull/55780)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|915|* \[[`070aa9d6a5`](https://github.com/nodejs/node/commit/070aa9d6a5)] - **meta**: bump actions/setup-python from 5.2.0 to 5.3.0 (dependabot\[bot]) [#55688](https://github.com/nodejs/node/pull/55688)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|944|* \[[`5c3f18be04`](https://github.com/nodejs/node/commit/5c3f18be04)] - **test**: temporary remove resource check from fs read-write (Rafael Gonzaga) [#56789](https://github.com/nodejs/node/pull/56789)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|993|* \[[`3dceeb8b15`](https://github.com/nodejs/node/commit/3dceeb8b15)] - **tools**: add script to synch c-ares source lists (Richard Lau) [#55445](https://github.com/nodejs/node/pull/55445)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1040|* \[[`09849105fe`](https://github.com/nodejs/node/commit/09849105fe)] - **benchmark**: add dotenv benchmark (Aviv Keller) [#54278](https://github.com/nodejs/node/pull/54278)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1208|* \[[`02b36cbd2d`](https://github.com/nodejs/node/commit/02b36cbd2d)] - **(SEMVER-MINOR)** **lib**: add EventSource Client (Aras Abbasi) [#51575](https://github.com/nodejs/node/pull/51575)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1276|* \[[`92f3447957`](https://github.com/nodejs/node/commit/92f3447957)] - **doc**: add missing EventSource docs to globals (Matthew Aitken) [#55022](https://github.com/nodejs/node/pull/55022)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1319|* \[[`e9fc54804a`](https://github.com/nodejs/node/commit/e9fc54804a)] - **doc**: refresh instructions for building node from source (Liran Tal) [#53768](https://github.com/nodejs/node/pull/53768)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1354|* \[[`02b36cbd2d`](https://github.com/nodejs/node/commit/02b36cbd2d)] - **(SEMVER-MINOR)** **lib**: add EventSource Client (Aras Abbasi) [#51575](https://github.com/nodejs/node/pull/51575)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1358|* \[[`27b06880e1`](https://github.com/nodejs/node/commit/27b06880e1)] - **meta**: bump actions/setup-python from 5.1.1 to 5.2.0 (Rich Trott) [#54691](https://github.com/nodejs/node/pull/54691)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1372|* \[[`a35d980146`](https://github.com/nodejs/node/commit/a35d980146)] - **meta**: bump actions/setup-python from 5.1.0 to 5.1.1 (dependabot\[bot]) [#54165](https://github.com/nodejs/node/pull/54165)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1478|* \[[`d6b9cc3acd`](https://github.com/nodejs/node/commit/d6b9cc3acd)] - **tools**: remove unused python files (Aviv Keller) [#53928](https://github.com/nodejs/node/pull/53928)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1628|* \[[`51ba566171`](https://github.com/nodejs/node/commit/51ba566171)] - **lib**: decorate async stack trace in source maps (Chengzhong Wu) [#53860](https://github.com/nodejs/node/pull/53860)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1699|* \[[`edb75aebd7`](https://github.com/nodejs/node/commit/edb75aebd7)] - **test**: use `PYTHON` executable from env in `assertSnapshot` (Antoine du Hamel) [#53938](https://github.com/nodejs/node/pull/53938)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1702|* \[[`6dc18981ac`](https://github.com/nodejs/node/commit/6dc18981ac)] - **test**: use python3 instead of python in pummel test (Mathis Wiehl) [#53057](https://github.com/nodejs/node/pull/53057)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1795|* \[[`eded0c187b`](https://github.com/nodejs/node/commit/eded0c187b)] - **build**: support python 3.13 (Chengzhong Wu) [#53190](https://github.com/nodejs/node/pull/53190)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1877|* \[[`f325c54c80`](https://github.com/nodejs/node/commit/f325c54c80)] - **meta**: use correct source for workflow in PR (Aviv Keller) [#53490](https://github.com/nodejs/node/pull/53490)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1901|* \[[`840dd092ce`](https://github.com/nodejs/node/commit/840dd092ce)] - **src**: improve node::Dotenv declarations (Tobias Nießen) [#52973](https://github.com/nodejs/node/pull/52973)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1928|* \[[`0381817f1d`](https://github.com/nodejs/node/commit/0381817f1d)] - **test\_runner**: calculate executed lines using source map (Moshe Atlow) [#53315](https://github.com/nodejs/node/pull/53315)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2216|* \[[`743281ab25`](https://github.com/nodejs/node/commit/743281ab25)] - **test\_runner**: support source mapped test locations (Colin Ihrig) [#52010](https://github.com/nodejs/node/pull/52010)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2439|* \[[`72bd2b0d62`](https://github.com/nodejs/node/commit/72bd2b0d62)] - **doc**: fix `--env-file` docs for valid quotes for defining values (Gabriel Bota) [#52157](https://github.com/nodejs/node/pull/52157)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2448|* \[[`0ef2708131`](https://github.com/nodejs/node/commit/0ef2708131)] - **doc**: mention NodeSource in RafaelGSS steward list (Rafael Gonzaga) [#52057](https://github.com/nodejs/node/pull/52057)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2488|* \[[`df330998d9`](https://github.com/nodejs/node/commit/df330998d9)] - **meta**: bump actions/setup-python from 5.0.0 to 5.1.0 (dependabot\[bot]) [#52310](https://github.com/nodejs/node/pull/52310)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2553|* \[[`61e7ae05ef`](https://github.com/nodejs/node/commit/61e7ae05ef)] - **test\_runner**: use source maps when reporting coverage (Moshe Atlow) [#52060](https://github.com/nodejs/node/pull/52060)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2576|* \[[`049cca419e`](https://github.com/nodejs/node/commit/049cca419e)] - _**Revert**_ "**tools**: run `build-windows` workflow only on source changes" (Michaël Zasso) [#52320](https://github.com/nodejs/node/pull/52320)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2577|* \[[`b3dfc62cee`](https://github.com/nodejs/node/commit/b3dfc62cee)] - **tools**: use Python 3.12 in GitHub Actions workflows (Michaël Zasso) [#52301](https://github.com/nodejs/node/pull/52301)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2774|'export const filename = "./test.json";');
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2833|* \[[`2a921966c6`](https://github.com/nodejs/node/commit/2a921966c6)] - **(SEMVER-MINOR)** **src**: do not coerce dotenv paths (Tobias Nießen) [#51425](https://github.com/nodejs/node/pull/51425)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2836|* \[[`fe922f05e4`](https://github.com/nodejs/node/commit/fe922f05e4)] - **(SEMVER-MINOR)** **timers**: export timers.promises (Marco Ippolito) [#51246](https://github.com/nodejs/node/pull/51246)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3063|* \[[`ae6fecbc8d`](https://github.com/nodejs/node/commit/ae6fecbc8d)] - **meta**: bump actions/setup-python from 4.7.1 to 5.0.0 (dependabot\[bot]) [#51335](https://github.com/nodejs/node/pull/51335)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3073|* \[[`c621491aba`](https://github.com/nodejs/node/commit/c621491aba)] - **module**: fix crash when built-in module export a `default` key (Antoine du Hamel) [#51481](https://github.com/nodejs/node/pull/51481)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3076|* \[[`5fc10ca4d6`](https://github.com/nodejs/node/commit/5fc10ca4d6)] - **module**: load source maps in `commonjs` translator (Hiroki Osame) [#51033](https://github.com/nodejs/node/pull/51033)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3104|* \[[`2a921966c6`](https://github.com/nodejs/node/commit/2a921966c6)] - **(SEMVER-MINOR)** **src**: do not coerce dotenv paths (Tobias Nießen) [#51425](https://github.com/nodejs/node/pull/51425)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3200|* \[[`fe922f05e4`](https://github.com/nodejs/node/commit/fe922f05e4)] - **(SEMVER-MINOR)** **timers**: export timers.promises (Marco Ippolito) [#51246](https://github.com/nodejs/node/pull/51246)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3208|* \[[`0fb079bd85`](https://github.com/nodejs/node/commit/0fb079bd85)] - **tools**: run `build-windows` workflow only on source changes (Antoine du Hamel) [#51596](https://github.com/nodejs/node/pull/51596)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3220|* \[[`4372f6a5b8`](https://github.com/nodejs/node/commit/4372f6a5b8)] - **tools**: remove deprecated python api (Alex Yang) [#49731](https://github.com/nodejs/node/pull/49731)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3273|* CVE-2024-22025 - Denial of Service by resource exhaustion in fetch() brotli decoding - (Medium)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3335|* \[[`0a5e9c12cf`](https://github.com/nodejs/node/commit/0a5e9c12cf)] - **build**: fix build with Python 3.12 (Luigi Pinca) [#50582](https://github.com/nodejs/node/pull/50582)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3336|* \[[`ff5713dd43`](https://github.com/nodejs/node/commit/ff5713dd43)] - **build**: support Python 3.12 (Shi Pujin) [#50209](https://github.com/nodejs/node/pull/50209)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3337|* \[[`cfd50f229a`](https://github.com/nodejs/node/commit/cfd50f229a)] - **build**: fix building when there is only python3 (Cheng Zhao) [#48462](https://github.com/nodejs/node/pull/48462)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3348|* \[[`3d82d38336`](https://github.com/nodejs/node/commit/3d82d38336)] - **deps**: escape Python strings correctly (Michaël Zasso) [#50695](https://github.com/nodejs/node/pull/50695)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3356|* \[[`1bd6537c97`](https://github.com/nodejs/node/commit/1bd6537c97)] - **doc**: recommend supported Python versions (Luigi Pinca) [#50407](https://github.com/nodejs/node/pull/50407)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3374|* \[[`39cc013465`](https://github.com/nodejs/node/commit/39cc013465)] - **doc**: update pm documentation to include resource (Ranieri Innocenti Spada) [#50601](https://github.com/nodejs/node/pull/50601)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3413|* \[[`2589a5a566`](https://github.com/nodejs/node/commit/2589a5a566)] - **meta**: bump actions/setup-python from 4.7.0 to 4.7.1 (dependabot\[bot]) [#50510](https://github.com/nodejs/node/pull/50510)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3443|* \[[`6f46d31018`](https://github.com/nodejs/node/commit/6f46d31018)] - **src**: return error --env-file if file is not found (Ardi Nugraha) [#50588](https://github.com/nodejs/node/pull/50588)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3485|* \[[`92a153ecde`](https://github.com/nodejs/node/commit/92a153ecde)] - **test**: migrate message v8 tests from Python to JS (Joshua LeMay) [#50421](https://github.com/nodejs/node/pull/50421)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3613|Previously repeated compilation of the same source code using `vm.Script`
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3645|* \[[`878c0b332e`](https://github.com/nodejs/node/commit/878c0b332e)] - **build**: fix IBM i build with Python 3.9 (Richard Lau) [#48056](https://github.com/nodejs/node/pull/48056)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3772|* \[[`42e49ec381`](https://github.com/nodejs/node/commit/42e49ec381)] - **perf\_hooks**: reduce overhead of new resource timings (Vinicius Lourenço) [#49837](https://github.com/nodejs/node/pull/49837)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3832|* \[[`393fd5b7c9`](https://github.com/nodejs/node/commit/393fd5b7c9)] - **test**: migrate message error tests from Python to JS (Yiyun Lei) [#49721](https://github.com/nodejs/node/pull/49721)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3905|* [CVE-2023-39333](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39333): Code injection via WebAssembly export names (Low)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3914|* \[[`f5c90b2951`](https://github.com/nodejs/node/commit/f5c90b2951)] - **module**: fix code injection through export names (Tobias Nießen) [nodejs-private/node-private#461](https://github.com/nodejs-private/node-private/pull/461)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4060|* \[[`cfbcb1059c`](https://github.com/nodejs/node/commit/cfbcb1059c)] - **src**: fix comment on StreamResource (rogertyang) [#49193](https://github.com/nodejs/node/pull/49193)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4088|* \[[`567afc71b8`](https://github.com/nodejs/node/commit/567afc71b8)] - **test**: avoid copying test source files (Chengzhong Wu) [#49515](https://github.com/nodejs/node/pull/49515)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4092|* \[[`3987094569`](https://github.com/nodejs/node/commit/3987094569)] - **test**: make `test-dotenv-node-options` locale-independent (Livia Medeiros) [#49470](https://github.com/nodejs/node/pull/49470)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4124|* \[[`022f1b70c1`](https://github.com/nodejs/node/commit/022f1b70c1)] - **src**: support multiple `--env-file` declarations (Yagiz Nizipli) [#49542](https://github.com/nodejs/node/pull/49542)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4199|* \[[`022f1b70c1`](https://github.com/nodejs/node/commit/022f1b70c1)] - **src**: support multiple `--env-file` declarations (Yagiz Nizipli) [#49542](https://github.com/nodejs/node/pull/49542)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4203|* \[[`4a094dc7af`](https://github.com/nodejs/node/commit/4a094dc7af)] - **src**: rename IsAnyByteSource to IsAnyBufferSource (Tobias Nießen) [#49346](https://github.com/nodejs/node/pull/49346)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4223|* \[[`48e41569e2`](https://github.com/nodejs/node/commit/48e41569e2)] - **test**: migrate message source map tests from Python to JS (Yiyun Lei) [#49238](https://github.com/nodejs/node/pull/49238)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4280|To initialize your Node.js application with predefined configurations, use the following CLI command: `node --env-file=config.env index.js`.
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4406|* \[[`40103adabd`](https://github.com/nodejs/node/commit/40103adabd)] - **meta**: bump actions/setup-python from 4.6.1 to 4.7.0 (dependabot\[bot]) [#48983](https://github.com/nodejs/node/pull/48983)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4590|* \[[`4398ade426`](https://github.com/nodejs/node/commit/4398ade426)] - **tools**: run fetch\_deps.py with Python 3 (Richard Lau) [#48729](https://github.com/nodejs/node/pull/48729)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4634|Node is adding support to the [explicit resource management](https://github.com/tc39/proposal-explicit-resource-management)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4653|* \[[`40662957b1`](https://github.com/nodejs/node/commit/40662957b1)] - **bootstrap**: simplify initialization of source map handlers (Joyee Cheung) [#48304](https://github.com/nodejs/node/pull/48304)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4686|* \[[`2a403cdad5`](https://github.com/nodejs/node/commit/2a403cdad5)] - **doc**: link to Runtime Keys in export conditions (Jacob Hummer) [#48408](https://github.com/nodejs/node/pull/48408)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4889|* \[[`10ccb2bd81`](https://github.com/nodejs/node/commit/10ccb2bd81)] - **doc**: update SEA source link (Rich Trott) [#48080](https://github.com/nodejs/node/pull/48080)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4913|* \[[`1b87ccdf70`](https://github.com/nodejs/node/commit/1b87ccdf70)] - **meta**: bump actions/setup-python from 4.6.0 to 4.6.1 (dependabot\[bot]) [#48286](https://github.com/nodejs/node/pull/48286)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5043|* \[[`c05c0a2359`](https://github.com/nodejs/node/commit/c05c0a2359)] - **meta**: bump actions/setup-python from 4.5.0 to 4.6.0 (Rich Trott) [#47968](https://github.com/nodejs/node/pull/47968)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5046|* \[[`f7a8094d37`](https://github.com/nodejs/node/commit/f7a8094d37)] - **meta**: bump actions/setup-python from 4.5.0 to 4.6.0 (dependabot\[bot]) [#47806](https://github.com/nodejs/node/pull/47806)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5065|* \[[`190596c189`](https://github.com/nodejs/node/commit/190596c189)] - **src**: register external references for source code (Keyhan Vakil) [#47055](https://github.com/nodejs/node/pull/47055)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5134|* \[[`78c08243df`](https://github.com/nodejs/node/commit/78c08243df)] - **build**: replace Python linter flake8 with ruff (Christian Clauss) [#47519](https://github.com/nodejs/node/pull/47519)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5380|* \[[`9fafb0a090`](https://github.com/nodejs/node/commit/9fafb0a090)] - **(SEMVER-MAJOR)** **async\_hooks**: deprecate the AsyncResource.bind asyncResource property (James M Snell) [#46432](https://github.com/nodejs/node/pull/46432)
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5446|* \[[`5b561d72a6`](https://github.com/nodejs/node/commit/5b561d72a6)] - **build**: sync cares source change (Jiawen Geng) [#47359](https://github.com/nodejs/node/pull/47359)
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|18|=== FORENSIC PYTHON SUMMARY ===
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|93|Source modification   : NO
+runtime/reports/patch_767410_process_launch_env_source.txt|2|PURPOSE=Trace process launch environment source into DELBot configuration and Qdrant collection resolution
+runtime/reports/patch_767100_mvp_new_document_indexing_canary.txt|62|206866 python -m delbot_platform.gateway
+runtime/reports/patch_767328_qdrantclient_owner_forensic.txt|15|PYTHON_TRACE_STATUS=0
+runtime/reports/patch_767309_exact_startup_constructor_chain.txt|11|SOURCE MODIFICATION: NO
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|277|Source modification   : NO
+runtime/reports/patch_767240_mvp_true_mapping_next_batch3.txt|3|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767240_mvp_true_mapping_next_batch3.txt|31|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767130_mvp_batch_indexing_5.txt|10|delbot    206866       1 14 Aug18 ?        02:12:06 python -m delbot_platform.gateway
+runtime/reports/patch_767130_mvp_batch_indexing_5.txt|14|LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=206866,fd=6))
+runtime/reports/patch_767130_mvp_batch_indexing_5.txt|66|delbot    206866       1 17 Aug18 ?        02:40:57 python -m delbot_platform.gateway
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|4|delbot    200152  169625  4 09:28 pts/8    00:01:54 python -m delbot_platform.gateway
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|7|LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=200152,fd=6))
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|47|[SOURCE 1]
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|51|[SOURCE 2]
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|55|[SOURCE 3]
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|59|[SOURCE 4]
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|63|[SOURCE 5]
+runtime/reports/patch_767200_mvp_batch3_completion_verification.txt|3|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767380_qdrant_local_lock_owner.txt|60|Source modified         : NO
+runtime/reports/patch_767336_audit_pdf_mapping_exact_source.txt|2|PURPOSE=Inspect exact closure causing nonlocal compile failure before minimal source fix
+runtime/reports/patch_767336_audit_pdf_mapping_exact_source.txt|20|--- PYTHON TRACE STATUS ---
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|36|621       1 delbot   Z       15:57:16 [python] <defunct>
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|53|2176    1623 delbot   Sl      01:16:27 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet server
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|55|3186    1623 delbot   Sl      01:16:22 /home/delbot/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node /home/delbot/.vscode-server/extensions/ms-python.vscode-pylance-2026.2.108/dist/server.bundle.js --ca
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|59|166475    3320 delbot   S+         00:00 awk NR==1 || /qdrant|uvicorn|research_api|backend_8001|delbot/
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|65|=== 10. PYTHON AST CALL GRAPH ===
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|67|=== 11. PYTHON FORENSIC SUMMARY ===
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|70|PYTHON_FILES=560
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|82|78-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|84|80-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|86|82-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|91|97-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|93|99-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|95|101-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|102|108-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/portalocker/portalocker.py", line 118, in lock
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|104|110-BlockingIOError: [Errno 11] Resource temporarily unavailable
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|109|115-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 120, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|113|182-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|115|184-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|117|186-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|124|193-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/portalocker/portalocker.py", line 118, in lock
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|126|195-BlockingIOError: [Errno 11] Resource temporarily unavailable
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|131|200-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 120, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|135|267-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/qdrant_client.py", line 117, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|137|269-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 66, in __init__
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|139|271-  File "/workspace/delbot/.venv/lib/python3.10/site-packages/qdrant_client/local/qdrant_local.py", line 125, in _load
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|170|Python AST forensic        : PASS
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|211|Source modified           : NO
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|224|Python forensic : runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.python.log
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|4|delbot    200152  169625  1 09:28 pts/8    00:00:11 python -m delbot_platform.gateway
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|15|--- 4. PATCH SINGLETON SOURCE ---
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|33|--- 8. RESULTING SINGLETON SOURCE ---
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|221|--- 12. SOURCE CONFIG CONSUMER CHECK ---
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|236|200152  169625       18:39 python -m delbot_platform.gateway
+runtime/reports/patch_767230_mvp_batch3_completion_verification.txt|3|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767230_mvp_batch3_completion_verification.txt|33|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767327_qdrant_reachability_final.txt|15|PYTHON_TRACE_STATUS=0
+runtime/reports/patch_767370_qdrant_runtime_exact_forensic.txt|19|PYLOG=runtime/reports/patch_767370_qdrant_runtime_exact_forensic.python.log
+runtime/reports/patch_767387_qdrant_local_client_creation_source.txt|2|PURPOSE=Identify exact source files that construct or launch local Qdrant storage
+runtime/reports/patch_767311_index_route_qdrant_identity.txt|11|SOURCE MODIFICATION: NO
+runtime/reports/patch_767311_index_route_qdrant_identity.txt|27|PYLOG=runtime/reports/patch_767311_index_route_qdrant_identity.python.log
+runtime/reports/patch_767400_retrieval_to_qdrant_collection_operation.txt|134|=== COLLECTION OPERATION SOURCE REFERENCES ===
+runtime/reports/patch_767400_retrieval_to_qdrant_collection_operation.txt|176|Source modification   : NO
+runtime/reports/patch_767307_live_gateway_constructor_path.txt|11|SOURCE MODIFICATION: NO
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|23|runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6333|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|24|runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6333|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|25|runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6334|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|26|runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6334|REFUSED
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|41|Source modified         : NO
+runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt|46|Python forensic          : runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log
+runtime/reports/patch_767355_qdrant_legacy_export_context.txt|2|PURPOSE=Determine exact compatibility requirement for QdrantVectorStore before minimal export repair
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|2|PURPOSE=Trace ENV source files, dotenv load order, configuration precedence and Qdrant collection resolution
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|29|=== DOTENV LOAD CALLS ===
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|380|DOTENV_LOAD_CALLS=0
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|387|STATUS=ENV_ACCESS_CONFIRMED_DOTENV_LOAD_NOT_CONFIRMED
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|399|Source modification   : NO
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|403|Python log      : runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.python.log
+runtime/reports/patch_767070_mvp_full_index_inventory_preflight.txt|9|delbot    200152  169625  4 09:28 pts/8    00:01:55 python -m delbot_platform.gateway
+runtime/reports/patch_767070_mvp_full_index_inventory_preflight.txt|12|LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=200152,fd=6))
+runtime/reports/patch_767260_mvp_detached_batch_indexing_3.txt|5|delbot      5136    4650 21 02:20 pts/2    00:51:54 python -m delbot_platform.gateway
+runtime/reports/patch_767333_legacy_export_compile_scope.txt|2|PURPOSE=Identify exact legacy Qdrant export and isolate compile blocker scope
+runtime/reports/patch_767363_exact_qdrant_export_source.txt|2|PURPOSE=Lock exact Qdrant export source and MVP repository contracts before minimal repair
+runtime/reports/patch_767363_exact_qdrant_export_source.txt|33|Source modified          : NO
+runtime/reports/patch_767304_qdrant_startup_constructor_trace.txt|2|PURPOSE: Identify exact Python startup path constructing Qdrant Local client
+runtime/reports/patch_767304_qdrant_startup_constructor_trace.txt|77|--- 10. PYTHON IMPORT TRACE WITHOUT CONSTRUCTION ---
+runtime/reports/patch_767337_found_scope_analysis.txt|2|PURPOSE=Determine exact Python closure scope of found before minimal compile fix
+runtime/reports/patch_767323_gateway_import_graph_qdrant_owner.txt|15|PYTHON_GRAPH_STATUS=0
+runtime/reports/patch_767308_factory_index_qdrant_trace.txt|11|SOURCE MODIFICATION: NO
+runtime/reports/patch_767210_mvp_batch3_wait_final_verification.txt|34|5136 python -m delbot_platform.gateway
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|25|Config source files    : 37
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|35|./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:23:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6333|REFUSED
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|36|./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:24:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6333|REFUSED
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|37|./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:25:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6334|REFUSED
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|38|./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:26:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6334|REFUSED
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|48|Source modified       : NO
+runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt|55|Python forensic        : runtime/reports/patch_767376_qdrant_runtime_config_authoritative.python.log
+runtime/reports/patch_766924_backend_discovery.txt|6|runtime/vision.log:4:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|8|runtime/vision.log:25:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|10|runtime/vision.log:46:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|12|runtime/gateway_mvp.log:5:INFO:     Uvicorn running on http://0.0.0.0:8100 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|13|runtime/gateway_manual_trace.log:4:INFO:     Uvicorn running on http://0.0.0.0:8100 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|14|runtime/logs/chat_8107.log:5:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|15|runtime/logs/backend_8001.log:20:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|16|runtime/logs/backend_8001.log:22:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|17|runtime/logs/chat_8101.log:5:INFO:     Uvicorn running on http://0.0.0.0:8101 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|18|runtime/logs/backend-766289.log:26:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|19|runtime/logs/backend-766289.log:28:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|20|runtime/logs/backend-766289.log:111:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|21|runtime/logs/backend-766289.log:113:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|22|runtime/chat.log:4:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|23|runtime/chat.log:13:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|24|runtime/embedding.log:7:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|25|runtime/embedding.log:307:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|26|runtime/embedding.log:319:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|27|runtime/embedding.log:330:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|30|runtime/ocr.log:22:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|31|runtime/ocr.log:30:INFO:     Uvicorn running on http://0.0.0.0:8109 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|33|runtime/research_api.log:39:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|34|runtime/research_api.log:41:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|35|runtime/research_api.log:124:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|36|runtime/research_api.log:126:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|37|runtime/research_api.log:209:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/reports/patch_766924_backend_discovery.txt|38|runtime/research_api.log:211:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reports/patch_766924_backend_discovery.txt|39|runtime/reranker.log:10:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|40|runtime/reranker.log:277:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|41|runtime/reranker.log:291:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|42|runtime/reranker.log:305:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reports/patch_766924_backend_discovery.txt|91|runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/definitions/definition.js:38:    this.envExport = true
+runtime/reports/patch_766924_backend_discovery.txt|92|runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/definitions/definition.js:79:    const noEnvExport = this.envExport
+runtime/reports/patch_766924_backend_discovery.txt|93|runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/set-envs.js:71:    const { deprecated, envExport = true } = definitions[key] || {}
+runtime/reports/patch_766924_backend_discovery.txt|94|runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/set-envs.js:72:    if (deprecated || envExport === false) {
+runtime/reports/patch_766924_backend_discovery.txt|98|runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:14:var __export = (target, all) => {
+runtime/reports/patch_766924_backend_discovery.txt|204|LISTEN 0      2048         0.0.0.0:8107       0.0.0.0:*    users:(("python",pid=57804,fd=6))
+runtime/reports/patch_766924_backend_discovery.txt|224|3227       1 delbot   Z    Fri Aug 14 09:39:57 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|225|3614       1 delbot   Z    Fri Aug 14 09:40:07 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|227|4045       1 delbot   Z    Fri Aug 14 09:40:29 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|228|4432       1 delbot   Z    Fri Aug 14 09:40:38 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|248|33152       1 delbot   Z    Fri Aug 14 16:40:59 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|251|33742       1 delbot   Z    Fri Aug 14 16:41:06 2026 [python] <defunct>
+runtime/reports/patch_766924_backend_discovery.txt|253|34174       1 delbot   Z    Fri Aug 14 16:41:46 2026 [python] <defunct>
+
+=== CONFIGURATION EVIDENCE ===
+.env.mvp|2|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp|3|QDRANT_COLLECTION=delbot_documents
+.env.mvp|5|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+backup/sprint764_31/config_manager.py|5|class ConfigManager:
+backup/sprint764_28/config_manager.py|5|class ConfigManager:
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|22|SYMBOL|MISSING|QdrantStore
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|35|SINGLETON_SYMBOL|PASS|QdrantStore|type=type
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|37|GET_QDRANT_STORE_SIGNATURE|() -> 'QdrantStore'
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|41|EXPORT|delbot_platform.vectorstore.qdrant|QdrantStore|True
+runtime/reports/patch_767371_qdrant_owner_b_source_contract.txt|46|EXPORT|delbot_platform.vectorstore|QdrantStore|False
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|30|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|40|QdrantStore|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=12|TYPE=ClassDef
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|41|QdrantStore|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=10|TYPE=ClassDef
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|54|delbot_platform/vectorstore/qdrant/singleton.py|157|FUNCTION=get_qdrant_store|CLASS=-|CALL=QdrantStore|ARGS=[]|KWARGS=[]
+runtime/reports/patch_767399_retrieval_constructor_dependency_trace.txt|59|delbot_platform/vectorstore/qdrant/singleton.py|157|FUNCTION=get_qdrant_store|CALL=QdrantStore|ARGS=[]|KWARGS=[]
+runtime/reports/patch_767410_process_launch_env_source.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|166|delbot_platform.vectorstore.qdrant.__init__|IMPORT=singleton.QdrantStore
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|209|delbot_platform.vectorstore.qdrant.singleton|LINE=157|CALL=QdrantStore|TARGET=
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|219|delbot_platform.vectorstore.qdrant.singleton|LINE=157|CALL=QdrantStore
+runtime/reports/patch_767397_retrieval_service_internal_chain.txt|260|delbot_platform.vectorstore.qdrant.singleton|LINE=157|CALL=QdrantStore|TARGET=
+runtime/reports/patch_767000_mvp_runtime_smoke_gate.txt|8|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767000_mvp_runtime_smoke_gate.txt|9|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767240_mvp_true_mapping_next_batch3.txt|34|QDRANT_PATH=PRESENT
+runtime/reports/patch_767130_mvp_batch_indexing_5.txt|32|QDRANT_PATH=PRESENT
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|70|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767060_mvp_canary_target_persistence.txt|71|QDRANT_PATH_EXISTS=True
+runtime/reports/patch_767200_mvp_batch3_completion_verification.txt|45|QDRANT_PATH=PRESENT
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|7|12	class QdrantStore:
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|9|23	                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767390_qdrant_singleton_runtime_entrypoint_trace.txt|10|25	                    "QDRANT_PATH",
+runtime/reports/patch_766951_qdrant_config_consumer_trace.txt|7|ACTIVE_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766951_qdrant_config_consumer_trace.txt|8|ACTIVE_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|28|2	DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|29|3	QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|31|5	QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|45|12	class QdrantStore:
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|55|22	            path = os.getenv(
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|56|23	                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|57|24	                os.getenv(
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|58|25	                    "QDRANT_PATH",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|66|33	        self.collection = os.getenv(
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|67|34	            "QDRANT_COLLECTION",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|182|149	_store: QdrantStore | None = None
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|185|152	def get_qdrant_store() -> QdrantStore:
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|190|157	        _store = QdrantStore()
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|195|delbot_platform/vectorstore/qdrant/singleton.py:23:                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|196|delbot_platform/vectorstore/qdrant/singleton.py:25:                    "QDRANT_PATH",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|197|delbot_platform/vectorstore/qdrant/singleton.py:34:            "QDRANT_COLLECTION",
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|206|.env.mvp:2:DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|207|.env.mvp:3:QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|208|.env.mvp:5:QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|215|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|216|QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|218|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|222|DELBOT_QDRANT_PATH: PASS
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|223|QDRANT_PATH: PASS
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|224|QDRANT_COLLECTION: PASS
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|239|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|240|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767230_mvp_batch3_completion_verification.txt|51|QDRANT_PATH=PRESENT
+runtime/reports/patch_767400_retrieval_to_qdrant_collection_operation.txt|165|STATUS=CONCRETE_QDRANT_COLLECTION_OPERATION_FOUND
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|24|.env.mvp:2|DELBOT_QDRANT_PATH=<VALUE_PRESENT>
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|25|.env.mvp:3|QDRANT_COLLECTION=<VALUE_PRESENT>
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|27|.env.mvp:5|QDRANT_PATH=<VALUE_PRESENT>
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|32|delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|33|"DELBOT_QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|34|os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|35|"QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|40|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|41|"QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|47|delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|48|"QDRANT_COLLECTION",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|54|.env.mvp|2|TEXT|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|55|.env.mvp|3|TEXT|QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|57|.env.mvp|5|TEXT|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|189|delbot_platform/vectorstore/qdrant/__init__.py|11|ASSIGNMENT|QdrantVectorStore = QdrantStore
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|191|"QdrantStore",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|198|delbot_platform/vectorstore/qdrant/singleton.py|22|ASSIGNMENT|path = os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|199|"DELBOT_QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|200|os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|201|"QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|208|delbot_platform/vectorstore/qdrant/singleton.py|23|TEXT|"DELBOT_QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|209|delbot_platform/vectorstore/qdrant/singleton.py|25|TEXT|"QDRANT_PATH",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|210|delbot_platform/vectorstore/qdrant/singleton.py|33|ASSIGNMENT|self.collection = os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|211|"QDRANT_COLLECTION",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|214|delbot_platform/vectorstore/qdrant/singleton.py|33|TEXT|self.collection = os.getenv(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|215|delbot_platform/vectorstore/qdrant/singleton.py|34|TEXT|"QDRANT_COLLECTION",
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|238|delbot_platform/vectorstore/qdrant/singleton.py|157|ASSIGNMENT|_store = QdrantStore()
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|293|tools/ingest_metadata_vectors.py|57|ASSIGNMENT|store = QdrantStore(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|296|tools/ingest_pdf_vectors.py|46|ASSIGNMENT|store = QdrantStore(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|363|delbot_platform/vectorstore/qdrant/singleton.py|157|QdrantStore()
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|368|tools/ingest_metadata_vectors.py|57|QdrantStore(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|371|tools/ingest_pdf_vectors.py|46|QdrantStore(
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|381|ENV_QDRANT_COLLECTION_ACCESS=3
+runtime/reports/patch_767408_env_source_load_order_qdrant_precedence.txt|386|ENV_VARIABLE_NAMES=DELBOT_QDRANT_PATH,QDRANT_COLLECTION,QDRANT_PATH,qdrant_local
+runtime/reports/patch_767070_mvp_full_index_inventory_preflight.txt|72|QDRANT_PATH=PRESENT
+runtime/reports/patch_767260_mvp_detached_batch_indexing_3.txt|24|QDRANT_PATH=PRESENT
+runtime/reports/patch_767363_exact_qdrant_export_source.txt|17|IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantStore,QdrantVectorStore,get_qdrant_store
+runtime/reports/patch_767313_startup_qdrant_ownership.txt|2|PURPOSE=Identify exact startup/import owner of QdrantClient and QdrantStore
+runtime/reports/patch_767210_mvp_batch3_wait_final_verification.txt|58|QDRANT_PATH=PRESENT
+runtime/reports/patch_766990_mvp_runtime_contract.txt|8|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766990_mvp_runtime_contract.txt|9|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|37|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|310|ENV|QDRANT_COLLECTION
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|38|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|316|ENV|QDRANT_PATH
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|39|runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|31|ENV|QDRANT_COLLECTION
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|40|runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|36|ENV|DELBOT_QDRANT_PATH
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|145|runtime/reports/patch_766980_qdrant_config_source_alignment.txt|66|ENV_EXPRESSION|33	        self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|146|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|66|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|COLLECTION|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|147|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|213|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|148|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|310|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection|os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|149|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|315|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv|ARGS=["'QDRANT_COLLECTION'", "'delbot_documents'"]
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|150|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|316|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv|ARGS=["'DELBOT_QDRANT_PATH'", "os.getenv('QDRANT_PATH', str(Path('repository_data') / 'q
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|151|runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|317|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv|ARGS=["'QDRANT_PATH'", "str(Path('repository_data') / 'qdrant_local')"]
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|152|runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|515|ENV_EXPRESSION|33:         self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|153|runtime/reports/patch_767394_knowledge_api_construction_trace.txt|293|ENV_EXPRESSION|33:         self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|154|runtime/reports/patch_767403_effective_qdrant_collection_value.txt|34|ENV_EXPRESSION|COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|155|runtime/reports/patch_767405_qdrant_single_source_of_truth.txt|37|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|156|runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|64|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|path = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|157|runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|66|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|158|runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|69|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|159|runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|285|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|160|runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|31|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|ASSIGN||VALUE=os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|161|runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|36|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|ASSIGN|path|VALUE=os.getenv('DELBOT_QDRANT_PATH', os.getenv('QDRANT_PATH', str(Path('repository_dat
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|162|runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|56|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|163|runtime/reports/patch_767389_qdrant_exact_caller_entrypoint.txt|81|ENV_EXPRESSION|33	        self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|164|runtime/reports/patch_767372_qdrant_owner_b_exact_runtime_contract.txt|136|ENV_EXPRESSION|33	        self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|165|delbot_platform/vectorstore/qdrant/singleton.py|33|ENV_EXPRESSION|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|270|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767406_env_override_precedence_collection_config.txt|273|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|26|QDRANT_COLLECTION_CALLS=38
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|66|delbot_platform/vectorstore/qdrant/singleton.py|33|COLLECTION|self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|211|delbot_platform/vectorstore/qdrant/singleton.py|23|CONFIG|"DELBOT_QDRANT_PATH",
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|212|delbot_platform/vectorstore/qdrant/singleton.py|25|CONFIG|"QDRANT_PATH",
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|213|delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|214|delbot_platform/vectorstore/qdrant/singleton.py|34|CONFIG|"QDRANT_COLLECTION",
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|281|delbot_platform/vectorstore/qdrant/singleton.py|157|QdrantStore|ARGS=[]|KEYWORDS=[]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|286|tools/ingest_metadata_vectors.py|57|QdrantStore|ARGS=["'delbot_metadata'"]|KEYWORDS=[]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|288|tools/ingest_pdf_vectors.py|46|QdrantStore|ARGS=["'delbot_documents'"]|KEYWORDS=[]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|309|delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore|QdrantStore
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|310|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection|os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|315|delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv|ARGS=["'QDRANT_COLLECTION'", "'delbot_documents'"]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|316|delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv|ARGS=["'DELBOT_QDRANT_PATH'", "os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local'))"]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|317|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv|ARGS=["'QDRANT_PATH'", "str(Path('repository_data') / 'qdrant_local')"]
+runtime/reports/patch_767353_qdrant_vectorstore_export_consumer.txt|24|SINGLETON_SYMBOLS=QdrantStore,get_qdrant_store
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|29|API_TO_QDRANT_PATHS=0
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|36|delbot_platform.vectorstore.qdrant.singleton.get_qdrant_store|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=157|CALL=QdrantStore
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|37|tools.ingest_metadata_vectors.main|FILE=tools/ingest_metadata_vectors.py|LINE=57|CALL=QdrantStore
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|38|tools.ingest_pdf_vectors.main|FILE=tools/ingest_pdf_vectors.py|LINE=46|CALL=QdrantStore
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|412|10: class QdrantStore:
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|499|12: class QdrantStore:
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|504|22:             path = os.getenv(
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|505|23:                 "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|506|24:                 os.getenv(
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|507|25:                     "QDRANT_PATH",
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|515|33:         self.collection = os.getenv(
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|516|34:             "QDRANT_COLLECTION",
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|549|149: _store: QdrantStore | None = None
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|552|152: def get_qdrant_store() -> QdrantStore:
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|557|157:         _store = QdrantStore()
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|70|72:./delbot_platform/vectorstore/qdrant/singleton.py.patch_766980.bak:23:                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|71|73:./delbot_platform/vectorstore/qdrant/singleton.py.sprint766307.bak:23:                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|72|74:./delbot_platform/vectorstore/qdrant/singleton.py:23:                "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|73|75:./delbot_platform/vectorstore/qdrant/singleton.py:25:                    "QDRANT_PATH",
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|80|82:./tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:55:cfg["QDRANT_PATH"]=str(db)
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|87|89:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37:QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+runtime/reports/patch_767388_qdrant_client_runtime_caller_trace.txt|88|90:./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:42:mkdir -p "$QDRANT_PATH"
+runtime/reports/patch_767030_mvp_indexing_schema_resolution.txt|157|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767030_mvp_indexing_schema_resolution.txt|158|QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767030_mvp_indexing_schema_resolution.txt|160|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767365_qdrant_init_repository_snapshot.txt|25|SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantClient,QdrantStore,get_qdrant_store
+runtime/reports/patch_767361_qdrant_dual_repository_contract_gate.txt|27|QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantVectorStore,QdrantStore,get_qdrant_store
+runtime/reports/patch_767250_mvp_batch3_wait_final_verification.txt|57|QDRANT_PATH=PRESENT
+runtime/reports/patch_767010_mvp_indexing_contract.txt|10|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767010_mvp_indexing_contract.txt|11|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767000_mvp_api_retrieval_smoke.txt|41|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767000_mvp_api_retrieval_smoke.txt|42|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767409_external_env_source_load_order.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767409_external_env_source_load_order.txt|47|.env.mvp|2|DELBOT_QDRANT_PATH|/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767409_external_env_source_load_order.txt|48|.env.mvp|3|QDRANT_COLLECTION|delbot_documents
+runtime/reports/patch_767409_external_env_source_load_order.txt|49|.env.mvp|5|QDRANT_PATH|/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767409_external_env_source_load_order.txt|50|tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|37|QDRANT_PATH|"$ROOT/repository_data/qdrant_local"
+runtime/reports/patch_767409_external_env_source_load_order.txt|55|.env.mvp|3|QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767409_external_env_source_load_order.txt|66|.env.mvp|2|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767409_external_env_source_load_order.txt|67|.env.mvp|5|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_767409_external_env_source_load_order.txt|71|delbot_platform/vectorstore/qdrant/__init__.py|4|The authoritative implementation is QdrantStore in singleton.py.
+runtime/reports/patch_767409_external_env_source_load_order.txt|73|delbot_platform/vectorstore/qdrant/__init__.py|9|from .singleton import QdrantStore, get_qdrant_store
+runtime/reports/patch_767409_external_env_source_load_order.txt|74|delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore = QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|75|delbot_platform/vectorstore/qdrant/__init__.py|14|"QdrantStore",
+runtime/reports/patch_767409_external_env_source_load_order.txt|81|delbot_platform/vectorstore/qdrant/singleton.py|12|class QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|82|delbot_platform/vectorstore/qdrant/singleton.py|149|_store: QdrantStore | None = None
+runtime/reports/patch_767409_external_env_source_load_order.txt|83|delbot_platform/vectorstore/qdrant/singleton.py|152|def get_qdrant_store() -> QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|84|delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+runtime/reports/patch_767409_external_env_source_load_order.txt|87|delbot_platform/knowledge/vector/qdrant_store.py|10|class QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|109|tools/ingest_metadata_vectors.py|20|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|110|tools/ingest_metadata_vectors.py|57|store = QdrantStore(
+runtime/reports/patch_767409_external_env_source_load_order.txt|119|tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|37|QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+runtime/reports/patch_767409_external_env_source_load_order.txt|123|tools/ingest_pdf_vectors.py|23|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|124|tools/ingest_pdf_vectors.py|46|store=QdrantStore(
+runtime/reports/patch_767409_external_env_source_load_order.txt|238|reports/architecture_inventory.json|5378|"QdrantStore"
+runtime/reports/patch_767409_external_env_source_load_order.txt|259|delbot_platform/vectorstore/qdrant/__init__.py|4|The authoritative implementation is QdrantStore in singleton.py.
+runtime/reports/patch_767409_external_env_source_load_order.txt|260|delbot_platform/vectorstore/qdrant/__init__.py|9|from .singleton import QdrantStore, get_qdrant_store
+runtime/reports/patch_767409_external_env_source_load_order.txt|261|delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore = QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|262|delbot_platform/vectorstore/qdrant/__init__.py|14|"QdrantStore",
+runtime/reports/patch_767409_external_env_source_load_order.txt|266|delbot_platform/vectorstore/qdrant/singleton.py|12|class QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|267|delbot_platform/vectorstore/qdrant/singleton.py|149|_store: QdrantStore | None = None
+runtime/reports/patch_767409_external_env_source_load_order.txt|268|delbot_platform/vectorstore/qdrant/singleton.py|152|def get_qdrant_store() -> QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|269|delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+runtime/reports/patch_767409_external_env_source_load_order.txt|271|delbot_platform/knowledge/vector/qdrant_store.py|10|class QdrantStore:
+runtime/reports/patch_767409_external_env_source_load_order.txt|281|tools/ingest_metadata_vectors.py|20|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|282|tools/ingest_metadata_vectors.py|57|store = QdrantStore(
+runtime/reports/patch_767409_external_env_source_load_order.txt|287|tools/ingest_pdf_vectors.py|23|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+runtime/reports/patch_767409_external_env_source_load_order.txt|288|tools/ingest_pdf_vectors.py|46|store=QdrantStore(
+runtime/reports/patch_767409_external_env_source_load_order.txt|307|reports/architecture_inventory.json|5378|"QdrantStore"
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|44|delbot_platform/vectorstore/qdrant/singleton.py|157|CALL|QdrantStore
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|45|tools/ingest_metadata_vectors.py|57|CALL|QdrantStore
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|46|tools/ingest_pdf_vectors.py|46|CALL|QdrantStore
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|275|12: class QdrantStore:
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|282|22:             path = os.getenv(
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|283|23:                 "DELBOT_QDRANT_PATH",
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|284|24:                 os.getenv(
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|285|25:                     "QDRANT_PATH",
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|293|33:         self.collection = os.getenv(
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|294|34:             "QDRANT_COLLECTION",
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|318|149: _store: QdrantStore | None = None
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|321|152: def get_qdrant_store() -> QdrantStore:
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|326|157:         _store = QdrantStore()
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|361|10: class QdrantStore:
+runtime/reports/patch_766970_qdrant_runtime_alignment.txt|9|CANONICAL_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+runtime/reports/patch_766970_qdrant_runtime_alignment.txt|10|CANONICAL_QDRANT_COLLECTION=delbot_documents
+runtime/reports/patch_767367_qdrant_owner_b_runtime_contract.txt|37|PACKAGE_IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantRepository,QdrantVectorStore,QdrantStore,get_qdrant_store
+runtime/reports/patch_767367_qdrant_owner_b_runtime_contract.txt|40|PACKAGE_IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantStore,QdrantClient,get_qdrant_store
+runtime/reports/patch_767396_service_dependency_construction_trace.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767396_service_dependency_construction_trace.txt|196|delbot_platform.vectorstore.qdrant.singleton|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=157|CONSTRUCT=QdrantStore
+runtime/reports/patch_767392_qdrant_singleton_ast_importer_trace.txt|29|QDRANT_PATH_HITS=0
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.txt|49|runtime/logs/backend_8001.log:75:    _store = QdrantStore()
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.txt|425|./tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37:QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+runtime/reports/patch_767385_qdrant_owner_runtime_creator.txt|668|./runtime/nvm/versions/node/v20.20.2/include/node/common.gypi:566:              'gcc_major': '<!(<(python) -c "import os; import subprocess; CXX=os.environ.get(\'CXX\', \'g++\'); subprocess.run([CXX, \'-dumpversion\'])")'
+runtime/reports/patch_767352_qdrant_init_export_reconstruction.txt|23|SINGLETON_RELEVANT_NAMES=QdrantStore,get_qdrant_store
+runtime/reports/patch_767358_qdrant_repository_owner.txt|25|QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantStore,QdrantVectorStore,get_qdrant_store
+runtime/reports/patch_767358_qdrant_repository_owner.txt|27|SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantClient,QdrantStore,get_qdrant_store
+runtime/reports/patch_767403_effective_qdrant_collection_value.txt|5|QDRANT_COLLECTION_ACCESS=NO
+runtime/reports/patch_767403_effective_qdrant_collection_value.txt|34|COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767403_effective_qdrant_collection_value.txt|35|COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|34|"QDRANT_COLLECTION",
+runtime/reports/patch_767403_effective_qdrant_collection_value.txt|55|QDRANT_CONSTRUCTOR|delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+runtime/reports/patch_767364_final_qdrant_export_chain.txt|19|SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|symbols=QdrantStore,get_qdrant_store,QdrantClient
+
+=== PROCESS LAUNCH CANDIDATE FILES ===
+delbot_platform/ai/runtime/base.py
+delbot_platform/ai/runtime/chat.py
+delbot_platform/ai/runtime/chat.py.bak_765_891
+delbot_platform/ai/runtime/chat.py.bak_765_893
+delbot_platform/ai/runtime/chat.py.sprint766294.bak
+delbot_platform/ai/runtime/embedding.py
+delbot_platform/ai/runtime/infinity.py
+delbot_platform/ai/runtime/reranker.py
+delbot_platform/api/__main__.py
+delbot_platform/core/lifecycle/service_definition.py
+delbot_platform/documents/chunking/chunk_builder.py
+delbot_platform/documents/docs/ADR-0001-document-pipeline.md
+delbot_platform/documents/embedding/models/embedding_vector.py
+delbot_platform/documents/extraction/service.py
+delbot_platform/documents/extraction/service.py.sprint766610.bak
+delbot_platform/documents/loader/__init__.py
+delbot_platform/documents/loader/sources/local.py
+delbot_platform/documents/metadata/builder/document.py
+delbot_platform/documents/metadata/metadata_extractor.py
+delbot_platform/documents/parser/backend/base.py
+delbot_platform/documents/parser/backend/pymupdf.py
+delbot_platform/documents/parser/base.py
+delbot_platform/documents/parser/pdf.py
+delbot_platform/documents/parser/pdf.py.bak_sprint422
+delbot_platform/gateway/__main__.py
+delbot_platform/gateway/__main__.py.mvp_backup_766915
+delbot_platform/gateway/app.py
+delbot_platform/gateway/app.py.mvp_backup_766738
+delbot_platform/gateway/app.py.mvp_backup_766903
+delbot_platform/gateway/routers/research.py
+delbot_platform/gateway/routers/research.py.mvp_backup_766849
+delbot_platform/knowledge/citation/builder.py
+delbot_platform/knowledge/context/builder.py
+delbot_platform/knowledge/hydration/local.py
+delbot_platform/knowledge/models/__init__.py
+delbot_platform/knowledge/models/repository.py
+delbot_platform/knowledge/rag/citation_builder.py
+delbot_platform/knowledge/rag/context_builder.py
+delbot_platform/knowledge/rag/llm/generator.py
+delbot_platform/knowledge/rag/llm/response.py
+delbot_platform/launcher/ai_runtime.py
+delbot_platform/launcher/gateway_launcher.py
+delbot_platform/launcher/infinity.py
+delbot_platform/launcher/paddleocr.py
+delbot_platform/launcher/research_api_launcher.py
+delbot_platform/launcher/vllm.py
+delbot_platform/launcher/whisper.py
+delbot_platform/repository_data/metadata/repository_catalog.json
+delbot_platform/repository_data/metadata/repository_catalog.json.bak_766418
+delbot_platform/repository_data/metadata/repository_catalog.json.bak_766432
+delbot_platform/repository_data/metadata/skripsi_dataset.json
+delbot_platform/repository_data/pdf/06aa6364b33b4dc4854ad4a6d20c53c9.pdf
+delbot_platform/repository_data/pdf/0e47e7c8fe204645bef65ba415ab1303.pdf
+delbot_platform/repository_data/pdf/100affe804a04ad8ab8f1101edf7a345.pdf
+delbot_platform/repository_data/pdf/119b33e4a6c94748bdae63fc8c0dbe32.pdf
+delbot_platform/repository_data/pdf/11d56dd101de4acc99bacb0258b205db.pdf
+delbot_platform/repository_data/pdf/129aa872e7e5445393cd02b3004c29bf.pdf
+delbot_platform/repository_data/pdf/175a1c15da9d47d5b1746f354abc7910.pdf
+delbot_platform/repository_data/pdf/181ba801a91949d8b6bfa62f4e0398f0.pdf
+delbot_platform/repository_data/pdf/1834020a679b4436aab45e19f4725365.pdf
+delbot_platform/repository_data/pdf/197b90ab8ffd4363b3dc0a2cc2bb060b.pdf
+delbot_platform/repository_data/pdf/1ad214b74e404ecb90328eefb55f814d.pdf
+delbot_platform/repository_data/pdf/1d09a87a5e124a4fb1ae7e3267247fd5.pdf
+delbot_platform/repository_data/runtime/repository_overlay.json
+delbot_platform/research/generator/llm_generator.py
+delbot_platform/research/memory/research_memory.py
+delbot_platform/research/models/research_result.py
+delbot_platform/research/pipeline/research_answer_pipeline.py
+delbot_platform/research/pipeline/research_answer_pipeline.py.bak_766315
+delbot_platform/research/pipeline/research_answer_pipeline.py.bak_766317
+delbot_platform/research/pipeline/research_answer_pipeline.py.bak_patch_766917
+delbot_platform/research/pipeline/research_answer_pipeline.py.bak_patch_766918
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766268
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766843
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766863
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766866
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766867
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766868
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766869
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766870
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766871
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766872
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766873
+delbot_platform/research/pipeline/research_answer_pipeline.py.mvp_backup_766906
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766.353.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766294.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766327.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766331.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766350.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766356.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766357.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766359.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766388.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766391.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766483.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766513.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766517.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766694.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766786.bak
+delbot_platform/research/pipeline/research_answer_pipeline.py.sprint766868.bak
+
+=== PARSE / READ ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=DOTENV_PRESENT_BUT_PROCESS_SOURCE_UNCONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_LAUNCHER_OR_SHELL_ENV_SOURCE
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Process modification  : NO
+Terminal              : OPEN

@@ -1,0 +1,5 @@
+PATCH: 767.150
+PURPOSE: Verify interrupted indexing state and calculate true PDF-to-processed mapping
+MODE: READ-ONLY RECOVERY + SAFE STATUS
+DATE: 2026-08-19 01:39:23
+

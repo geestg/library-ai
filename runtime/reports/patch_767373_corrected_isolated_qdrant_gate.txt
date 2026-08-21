@@ -1,0 +1,36 @@
+PATCH=767.373
+PURPOSE=Correct isolated Qdrant runtime lifecycle gate after harness failure in 767.369/767.370
+MODE=ISOLATED_RUNTIME_GATE
+INDEX_EXECUTION=NO
+MVP_COLLECTION=delbot_documents
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_COLLECTION=YES
+ISOLATED_COLLECTION_DELETE=YES
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TERMINAL_EXIT=NO
+DATE=2026-08-21 01:31:06
+
+
+=== PATCH RESULT ===
+STATUS=BLOCKED
+DECISION=ISOLATED_QDRANT_RUNTIME_GATE_FAILED
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection access  : NO
+MVP collection write   : NO
+MVP collection delete  : NO
+MVP collection reset   : NO
+MVP collection recreate: NO
+Isolated collection    : YES
+Isolated cleanup       : CHECK PYLOG
+HTTP request           : NO
+Gateway restart        : NO
+Source modified        : NO
+Terminal remains open  : YES

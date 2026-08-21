@@ -1,0 +1,26 @@
+PATCH=767.353
+PURPOSE=Identify exact consumers of legacy QdrantVectorStore export and reconstruct minimal compatible package export
+MODE=READ_ONLY_FORENSIC
+TARGET=delbot_platform/vectorstore/qdrant/__init__.py
+BACKUP=runtime/reports/qdrant_init.py.pre_767350
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-19 15:10:46
+
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+QDRANTVECTORSTORE_REFS=5
+QDRANTVECTORSTORE_IMPORTS=0
+QDRANTSTORE_REFS=61
+INIT_SYMBOLS=UNKNOWN
+SINGLETON_SYMBOLS=QdrantStore,get_qdrant_store
+PACKAGE_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|PASS|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py
+SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py

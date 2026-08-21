@@ -1,0 +1,22 @@
+AST_TRACE_BEGIN
+CALL=DocumentIndexService FILE=delbot_platform/application/documents/index.py LINE=28
+CALL=ResearchAnswerApplication FILE=delbot_platform/application/factory/application_factory.py LINE=38
+CALL=RetrievalApplication FILE=delbot_platform/application/factory/application_factory.py LINE=42
+CALL=RAGPipeline FILE=delbot_platform/application/retrieval/answer.py LINE=36
+CALL=RepositoryIngestionWorkflow FILE=delbot_platform/workflows/factory/workflow_factory.py LINE=32
+CALL=DocumentIndexService FILE=delbot_platform/workflows/factory/workflow_factory.py LINE=34
+CALL=KnowledgeService FILE=delbot_platform/workflows/factory/workflow_factory.py LINE=35
+CALL=DocumentIndexService FILE=delbot_platform/workflows/repository/ingestion.py LINE=46
+CALL=KnowledgeService FILE=delbot_platform/workflows/repository/ingestion.py LINE=52
+CALL=RAGPipeline FILE=delbot_platform/research/pipeline/research_answer_pipeline.py LINE=881
+CALL=ResearchAnswerApplication FILE=delbot_platform/gateway/routers/research.py LINE=51
+CALL=DocumentIndexingPipeline FILE=delbot_platform/documents/ingestion/repository_ingestor.py LINE=42
+CALL=QdrantRepository FILE=delbot_platform/documents/pipeline/indexing.py LINE=60
+CALL=DocumentIndexingPipeline FILE=delbot_platform/documents/services/indexing.py LINE=20
+CALL=QdrantRetriever FILE=delbot_platform/knowledge/rag/pipeline.py LINE=45
+CALL=QdrantRepository FILE=delbot_platform/knowledge/retrieval/qdrant.py LINE=43
+AST_TRACE_END
+INDEX_EXECUTION=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO

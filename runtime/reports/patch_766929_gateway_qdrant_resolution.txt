@@ -1,0 +1,7 @@
+PATCH: 766.929
+PURPOSE: Resolve live gateway endpoint and canonical Qdrant configuration before MVP patch
+DATE: 2026-08-18 09:36:12
+
+GATEWAY_PID: 200152
+QDRANT_LOCK_OWNER_EXPECTED: 200152
+HTTP_PORTS_PROBED: 8000,8001,8010,8080,9000

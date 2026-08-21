@@ -1,0 +1,838 @@
+PATCH=767.412
+PURPOSE=Identify exact ENV source, load order, launcher propagation and Qdrant configuration consumer
+MODE=READ_ONLY_TARGETED_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:22:54
+
+=== ENV FILES FOUND ===
+.env.mvp
+.env.mvp.patch_766980.bak
+
+=== QDRANT ENV KEYS ===
+.env.mvp:2|ENV_KEY=DELBOT_QDRANT_PATH
+.env.mvp:3|ENV_KEY=QDRANT_COLLECTION
+.env.mvp:4|ENV_KEY=QDRANT_MODE
+.env.mvp:5|ENV_KEY=QDRANT_PATH
+.env.mvp.patch_766980.bak:2|ENV_KEY=QDRANT_COLLECTION
+.env.mvp.patch_766980.bak:3|ENV_KEY=QDRANT_MODE
+.env.mvp.patch_766980.bak:4|ENV_KEY=QDRANT_PATH
+
+=== DOTENV / ENV LOAD LOCATIONS ===
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:66|DOTENV_OR_ENV_LOADER|"env_file":str(env),
+
+=== ENV SOURCE / PROPAGATION ===
+.mvp_backup_766371/research_answer_pipeline.py:767|ENV_SOURCE_OR_PROPAGATION|source = citation.to_dict()
+.mvp_backup_766371/research_answer_pipeline.py:769|ENV_SOURCE_OR_PROPAGATION|source = citation.export()
+.mvp_backup_766371/research_answer_pipeline.py:771|ENV_SOURCE_OR_PROPAGATION|source = citation
+.mvp_backup_766371/research_answer_pipeline.py:773|ENV_SOURCE_OR_PROPAGATION|source = str(citation)
+.mvp_backup_766371/research_answer_pipeline.py:775|ENV_SOURCE_OR_PROPAGATION|if source not in persisted_sources:
+.mvp_backup_766378/research_answer_pipeline.py:772|ENV_SOURCE_OR_PROPAGATION|source = citation.to_dict()
+.mvp_backup_766378/research_answer_pipeline.py:774|ENV_SOURCE_OR_PROPAGATION|source = citation.export()
+.mvp_backup_766378/research_answer_pipeline.py:776|ENV_SOURCE_OR_PROPAGATION|source = citation
+.mvp_backup_766378/research_answer_pipeline.py:778|ENV_SOURCE_OR_PROPAGATION|source = str(citation)
+.mvp_backup_766378/research_answer_pipeline.py:780|ENV_SOURCE_OR_PROPAGATION|if source not in persisted_sources:
+delbot_platform/documents/extraction/service.py:235|ENV_SOURCE_OR_PROPAGATION|source = LocalDocumentSource(
+delbot_platform/documents/parser/pdf.py:74|ENV_SOURCE_OR_PROPAGATION|f"Unsupported source type: {type(source).__name__}"
+delbot_platform/documents/parser/pdf.py:82|ENV_SOURCE_OR_PROPAGATION|source = self._normalize_source(
+delbot_platform/gateway/routers/research.py:87|ENV_SOURCE_OR_PROPAGATION|source = getattr(
+delbot_platform/gateway/routers/research.py:127|ENV_SOURCE_OR_PROPAGATION|if not source and document is not None:
+delbot_platform/gateway/routers/research.py:128|ENV_SOURCE_OR_PROPAGATION|source = getattr(
+delbot_platform/gateway/routers/research.py:140|ENV_SOURCE_OR_PROPAGATION|source or "",
+delbot_platform/knowledge/hydration/local.py:72|ENV_SOURCE_OR_PROPAGATION|source = KnowledgeSource(
+delbot_platform/knowledge/models/repository.py:81|ENV_SOURCE_OR_PROPAGATION|source = KnowledgeSource.from_dict(
+delbot_platform/knowledge/models/repository.py:91|ENV_SOURCE_OR_PROPAGATION|source = KnowledgeSource(
+delbot_platform/knowledge/rag/citation_builder.py:35|ENV_SOURCE_OR_PROPAGATION|source = None
+delbot_platform/knowledge/rag/citation_builder.py:38|ENV_SOURCE_OR_PROPAGATION|source = getattr(
+delbot_platform/knowledge/rag/context_builder.py:33|ENV_SOURCE_OR_PROPAGATION|source = chunk.document_id
+delbot_platform/knowledge/rag/context_builder.py:36|ENV_SOURCE_OR_PROPAGATION|source = metadata.source
+delbot_platform/research/memory/research_memory.py:129|ENV_SOURCE_OR_PROPAGATION|for source in sources:
+delbot_platform/research/memory/research_memory.py:131|ENV_SOURCE_OR_PROPAGATION|if source not in data["sources"]:
+delbot_platform/research/models/research_result.py:84|ENV_SOURCE_OR_PROPAGATION|for source in self.sources
+delbot_platform/research/pipeline/research_answer_pipeline.py:1079|ENV_SOURCE_OR_PROPAGATION|source = citation.to_dict()
+delbot_platform/research/pipeline/research_answer_pipeline.py:1081|ENV_SOURCE_OR_PROPAGATION|source = citation.export()
+delbot_platform/research/pipeline/research_answer_pipeline.py:1083|ENV_SOURCE_OR_PROPAGATION|source = citation
+delbot_platform/research/pipeline/research_answer_pipeline.py:1085|ENV_SOURCE_OR_PROPAGATION|source = str(citation)
+delbot_platform/research/pipeline/research_answer_pipeline.py:1087|ENV_SOURCE_OR_PROPAGATION|if source not in persisted_sources:
+delbot_platform/research/state/research_state.py:48|ENV_SOURCE_OR_PROPAGATION|for source in data.get(
+delbot_platform/research/state/research_state.py:223|ENV_SOURCE_OR_PROPAGATION|for source in self.state["sources"]
+runtime/nvm/versions/node/v20.20.2/share/doc/node/lldb_commands.py:2|ENV_SOURCE_OR_PROPAGATION|# Use of this source code is governed by a BSD-style license that can be
+runtime/nvm/versions/node/v20.20.2/share/doc/node/lldb_commands.py:121|ENV_SOURCE_OR_PROPAGATION|# files. Set up a source map to point to V8's root.
+tools/architecture/graph.py:170|ENV_SOURCE_OR_PROPAGATION|source = module.module
+tools/architecture/graph.py:174|ENV_SOURCE_OR_PROPAGATION|if source == target:
+tools/architecture/graph_filter.py:22|ENV_SOURCE_OR_PROPAGATION|if source not in internal:
+tools/architecture/graph_filter.py:38|ENV_SOURCE_OR_PROPAGATION|for source in sources
+tools/architecture/graph_filter.py:39|ENV_SOURCE_OR_PROPAGATION|if source in internal
+tools/architecture/inventory.py:143|ENV_SOURCE_OR_PROPAGATION|source = path.read_text(
+tools/architecture/layer.py:21|ENV_SOURCE_OR_PROPAGATION|for source in sorted(graph.nodes()):
+tools/architecture/scanner.py:26|ENV_SOURCE_OR_PROPAGATION|source = path.read_text(
+tools/audit/audit_canonical_ownership.sh:25|ENV_SOURCE_OR_PROPAGATION|export PYTHONPATH="$ROOT"
+tools/audit/build_architecture_inventory.sh:16|ENV_SOURCE_OR_PROPAGATION|#   This script NEVER modifies source code.
+tools/audit/run_architecture_audit.sh:23|ENV_SOURCE_OR_PROPAGATION|export PYTHONPATH="$ROOT"
+tools/audit_application_entry.py:36|ENV_SOURCE_OR_PROPAGATION|source = Path(mod.__file__)
+tools/audit_chunk_metadata_mapper.py:67|ENV_SOURCE_OR_PROPAGATION|source = py.read_text(
+tools/audit_qdrant_storage.py:51|ENV_SOURCE_OR_PROPAGATION|source = file.read_text(
+tools/inspect_llm_runtime.py:93|ENV_SOURCE_OR_PROPAGATION|source = py.read_text(
+tools/inspect_retriever_api.py:50|ENV_SOURCE_OR_PROPAGATION|source = py.read_text(
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ab_pdf_chunk_builder_validation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ac_embedding_pipeline_validation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ae_document_indexing_engine_validation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1af_batch_pdf_indexer_preparation.sh:14|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ax_citation_builder_validation.sh:31|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ay_research_answer_pipeline_validation.sh:38|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1ba_research_answer_api_validation.sh:39|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1bb_local_llm_provider_detection.sh:38|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh:32|ENV_SOURCE_OR_PROPAGATION|# - Tidak mengubah source code
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh:48|ENV_SOURCE_OR_PROPAGATION|# - modify source code
+tools/pr_5_1bx_mvp_pdf_repository_locator.sh:19|ENV_SOURCE_OR_PROPAGATION|# - Build source mapping
+tools/pr_5_1by_dataset_source_discovery_deep_scan.sh:127|ENV_SOURCE_OR_PROPAGATION|print("PDF source masih belum ditemukan")
+tools/pr_5_1by_mvp_deep_pdf_source_scan.sh:20|ENV_SOURCE_OR_PROPAGATION|# - Generate source mapping
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:66|ENV_SOURCE_OR_PROPAGATION|"env_file":str(env),
+
+=== PROCESS LAUNCH ===
+.backup/sprint_764_88_20260805_092053/delbot_platform/launcher/ai_runtime.py:66|PROCESS_LAUNCH|"python",
+delbot_platform/ai/process/process_manager.py:34|PROCESS_LAUNCH|process: subprocess.Popen,
+delbot_platform/ai/process/process_manager.py:99|PROCESS_LAUNCH|process = subprocess.Popen(
+delbot_platform/ai/runtime/base.py:9|PROCESS_LAUNCH|import uvicorn
+delbot_platform/ai/runtime/base.py:129|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/ai/runtime/chat.py:8|PROCESS_LAUNCH|import uvicorn
+delbot_platform/ai/runtime/chat.py:278|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/ai/runtime/embedding.py:5|PROCESS_LAUNCH|import uvicorn
+delbot_platform/ai/runtime/embedding.py:88|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/ai/runtime/infinity.py:5|PROCESS_LAUNCH|import uvicorn
+delbot_platform/ai/runtime/infinity.py:68|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/ai/runtime/reranker.py:94|PROCESS_LAUNCH|import uvicorn
+delbot_platform/ai/runtime/reranker.py:99|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/api/__main__.py:3|PROCESS_LAUNCH|import uvicorn
+delbot_platform/api/__main__.py:10|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/core/lifecycle/service_definition.py:25|PROCESS_LAUNCH|- native python process
+delbot_platform/documents/extraction/service.py:45|PROCESS_LAUNCH|) / "lib" / "python3.10" / "site-packages" / "paddleocr"
+delbot_platform/documents/extraction/service.py:71|PROCESS_LAUNCH|/ "python3.10"
+delbot_platform/gateway/__main__.py:10|PROCESS_LAUNCH|import uvicorn
+delbot_platform/gateway/__main__.py:19|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/gateway/app.py:4|PROCESS_LAUNCH|import uvicorn
+delbot_platform/gateway/app.py:91|PROCESS_LAUNCH|uvicorn.run(
+delbot_platform/launcher/ai_runtime.py:67|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/gateway_launcher.py:32|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/infinity.py:34|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/paddleocr.py:34|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/research_api_launcher.py:32|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/vllm.py:34|PROCESS_LAUNCH|"python",
+delbot_platform/launcher/whisper.py:34|PROCESS_LAUNCH|"python",
+delbot_platform/research/state/research_state.py:14|PROCESS_LAUNCH|State internal menggunakan object Python.
+tools/architecture/inventory.py:103|PROCESS_LAUNCH|return "python"
+tools/architecture/inventory.py:336|PROCESS_LAUNCH|Python Files : {total_py}
+tools/architecture/inventory.py:384|PROCESS_LAUNCH|print(f"Python files : {len(inventory.files)}")
+tools/audit/audit_canonical_ownership.sh:9|PROCESS_LAUNCH|# Execute architecture audit as Python packages.
+tools/audit/audit_canonical_ownership.sh:59|PROCESS_LAUNCH|# PYTHON
+tools/audit/audit_canonical_ownership.sh:62|PROCESS_LAUNCH|PYTHON="python"
+tools/audit/audit_canonical_ownership.sh:64|PROCESS_LAUNCH|if [ -x "$ROOT/.venv/bin/python" ]; then
+tools/audit/audit_canonical_ownership.sh:65|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/audit_canonical_ownership.sh:84|PROCESS_LAUNCH|echo "Python"
+tools/audit/audit_canonical_ownership.sh:86|PROCESS_LAUNCH|echo "  $PYTHON"
+tools/audit/audit_canonical_ownership.sh:140|PROCESS_LAUNCH|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/audit_canonical_ownership.sh:167|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit/build_architecture_dependency.sh:35|PROCESS_LAUNCH|# PYTHON
+tools/audit/build_architecture_dependency.sh:38|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_architecture_dependency.sh:39|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_architecture_dependency.sh:41|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_architecture_dependency.sh:97|PROCESS_LAUNCH|echo "Python"
+tools/audit/build_architecture_dependency.sh:99|PROCESS_LAUNCH|echo "    $PYTHON"
+tools/audit/build_architecture_dependency.sh:114|PROCESS_LAUNCH|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/build_architecture_dependency.sh:141|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit/build_architecture_index.sh:31|PROCESS_LAUNCH|# PYTHON
+tools/audit/build_architecture_index.sh:34|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_architecture_index.sh:35|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_architecture_index.sh:37|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_architecture_index.sh:67|PROCESS_LAUNCH|echo "Python     : $PYTHON"
+tools/audit/build_architecture_index.sh:79|PROCESS_LAUNCH|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/build_architecture_index.sh:109|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit/build_architecture_inventory.sh:37|PROCESS_LAUNCH|# PYTHON
+tools/audit/build_architecture_inventory.sh:40|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_architecture_inventory.sh:41|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_architecture_inventory.sh:43|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_architecture_inventory.sh:102|PROCESS_LAUNCH|echo "Python"
+tools/audit/build_architecture_inventory.sh:104|PROCESS_LAUNCH|echo "    $PYTHON"
+tools/audit/build_architecture_inventory.sh:119|PROCESS_LAUNCH|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/build_architecture_inventory.sh:146|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit/build_architecture_ownership.sh:25|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_architecture_ownership.sh:26|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_architecture_ownership.sh:28|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_architecture_ownership.sh:40|PROCESS_LAUNCH|echo "Python     : $PYTHON"
+tools/audit/build_architecture_ownership.sh:47|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_architecture_ownership.sh:62|PROCESS_LAUNCH|"$PYTHON" -m tools.architecture.ownership
+tools/audit/build_duplicate_candidates.sh:25|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_duplicate_candidates.sh:26|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_duplicate_candidates.sh:28|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_duplicate_candidates.sh:37|PROCESS_LAUNCH|echo "Python     : $PYTHON"
+tools/audit/build_duplicate_candidates.sh:44|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_duplicate_candidates.sh:59|PROCESS_LAUNCH|"$PYTHON" -m tools.architecture.duplicate
+tools/audit/build_legacy_package_detector.sh:19|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_legacy_package_detector.sh:20|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_legacy_package_detector.sh:22|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_legacy_package_detector.sh:34|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_legacy_package_detector.sh:47|PROCESS_LAUNCH|"$PYTHON" -m tools.architecture.legacy_package_detector
+tools/audit/build_merge_recommendation.sh:31|PROCESS_LAUNCH|# PYTHON
+tools/audit/build_merge_recommendation.sh:34|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_merge_recommendation.sh:35|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_merge_recommendation.sh:37|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_merge_recommendation.sh:58|PROCESS_LAUNCH|echo "Python     : $PYTHON"
+tools/audit/build_merge_recommendation.sh:82|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_merge_recommendation.sh:114|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit/build_package_detector.sh:8|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_package_detector.sh:9|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_package_detector.sh:11|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_package_detector.sh:23|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_package_detector.sh:33|PROCESS_LAUNCH|"$PYTHON" -m tools.architecture.package_detector
+tools/audit/build_safe_removal_plan.sh:8|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/build_safe_removal_plan.sh:9|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/build_safe_removal_plan.sh:11|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/build_safe_removal_plan.sh:23|PROCESS_LAUNCH|"$PYTHON" -m py_compile "$file" || FAILED=1
+tools/audit/build_safe_removal_plan.sh:36|PROCESS_LAUNCH|"$PYTHON" -m tools.architecture.safe_removal_planner
+tools/audit/run_architecture_audit.sh:61|PROCESS_LAUNCH|# PYTHON
+tools/audit/run_architecture_audit.sh:64|PROCESS_LAUNCH|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/run_architecture_audit.sh:65|PROCESS_LAUNCH|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/run_architecture_audit.sh:67|PROCESS_LAUNCH|PYTHON="python3"
+tools/audit/run_architecture_audit.sh:81|PROCESS_LAUNCH|echo "Python     : $PYTHON"
+tools/audit/run_architecture_audit.sh:105|PROCESS_LAUNCH|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/run_architecture_audit.sh:149|PROCESS_LAUNCH|"$PYTHON" \
+tools/audit_memory.sh:40|PROCESS_LAUNCH|echo "TOP PYTHON"
+tools/audit_memory.sh:50|PROCESS_LAUNCH|| grep python \
+tools/audit_memory_deep.sh:102|PROCESS_LAUNCH|-exec sh -c '
+tools/audit_memory_deep.sh:118|PROCESS_LAUNCH|-exec sh -c '
+tools/audit_memory_deep.sh:134|PROCESS_LAUNCH|-exec sh -c '
+tools/debug/inspect_pymupdf_span.py:13|PROCESS_LAUNCH|print("python inspect_pymupdf_span.py file.pdf")
+tools/pr_5_10_mvp_llm_answer_generator.sh:34|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_11_mvp_citation_builder.sh:34|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_12_mvp_ask_repository.sh:36|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_13_mvp_end_to_end_validation.sh:32|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_14_mvp_demo_query_suite.sh:35|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_15_mvp_final_readiness.sh:30|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_16_mvp_export_package.sh:37|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_17_mvp_system_report.sh:34|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_18_mvp_smoke_test.sh:34|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_19_mvp_release_manifest.sh:34|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh:46|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh:244|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1ab_pdf_chunk_builder_validation.sh:44|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1ab_pdf_chunk_builder_validation.sh:180|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1ac_embedding_pipeline_validation.sh:46|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ac_embedding_pipeline_validation.sh:199|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ac_embedding_pipeline_validation.sh:207|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:43|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:172|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:180|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1ae_document_indexing_engine_validation.sh:41|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ae_document_indexing_engine_validation.sh:264|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ae_document_indexing_engine_validation.sh:272|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1af_batch_pdf_indexer_preparation.sh:43|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1af_batch_pdf_indexer_preparation.sh:170|PROCESS_LAUNCH|python -m py_compile \
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:57|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:241|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:249|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1ah_batch_pdf_index_execution.sh:48|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1ah_batch_pdf_index_execution.sh:146|PROCESS_LAUNCH|python -m compileall \
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:56|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:280|PROCESS_LAUNCH|python -m py_compile \
+tools/pr_5_1aj_vector_insert_validation.sh:45|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1aj_vector_insert_validation.sh:166|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1aj_vector_insert_validation.sh:173|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1ak_repository_pdf_loader.sh:57|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ak_repository_pdf_loader.sh:213|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ak_repository_pdf_loader.sh:219|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:65|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:264|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:270|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1am_repository_pdf_intake_preparation.sh:49|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_1am_repository_pdf_intake_preparation.sh:102|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1am_repository_pdf_intake_preparation.sh 2>/dev/null || true
+tools/pr_5_1an_real_pdf_index_worker.sh:43|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1an_real_pdf_index_worker.sh:226|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1an_real_pdf_index_worker.sh 2>/dev/null || true
+tools/pr_5_1ao_qdrant_vector_commit.sh:48|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1ao_qdrant_vector_commit.sh:157|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1ao_qdrant_vector_commit.sh 2>/dev/null || true
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:48|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:251|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1aq_repository_pdf_dataset_intake.sh:44|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1aq_repository_pdf_dataset_intake.sh:137|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1aq_repository_pdf_dataset_intake.sh 2>/dev/null || true
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh:54|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh:200|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh:208|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1ar_real_pdf_index_worker_execution.sh 2>/dev/null || true
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:45|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:177|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1at_real_pdf_vector_commit.sh:48|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1at_real_pdf_vector_commit.sh:247|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1at_real_pdf_vector_commit.sh:255|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1au_retrieval_engine_validation.sh:44|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1au_retrieval_engine_validation.sh:160|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1av_retrieval_query_execution.sh:43|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1av_retrieval_query_execution.sh:175|PROCESS_LAUNCH|python3 -m py_compile \
+tools/pr_5_1aw_context_builder_validation.sh:41|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1aw_context_builder_validation.sh:164|PROCESS_LAUNCH|python -m py_compile \
+tools/pr_5_1ax_citation_builder_validation.sh:46|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1ax_citation_builder_validation.sh:111|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1ax_citation_builder_validation.sh:117|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1ax_citation_builder_validation.sh 2>/dev/null || true
+tools/pr_5_1ay_research_answer_pipeline_validation.sh:48|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1ay_research_answer_pipeline_validation.sh:127|PROCESS_LAUNCH|python -m compileall \
+tools/pr_5_1az_llm_gateway_answer_integration.sh:48|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1az_llm_gateway_answer_integration.sh:161|PROCESS_LAUNCH|python -m compileall delbot_platform >/dev/null 2>&1 || true
+tools/pr_5_1ba_research_answer_api_validation.sh:55|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1ba_research_answer_api_validation.sh:167|PROCESS_LAUNCH|python3 -m compileall /workspace/delbot >/dev/null 2>&1
+tools/pr_5_1bb_local_llm_provider_detection.sh:55|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bb_local_llm_provider_detection.sh:72|PROCESS_LAUNCH|result = subprocess.run(
+tools/pr_5_1bb_local_llm_provider_detection.sh:84|PROCESS_LAUNCH|result = subprocess.run(
+tools/pr_5_1bb_local_llm_provider_detection.sh:181|PROCESS_LAUNCH|python3 -m py_compile /workspace/delbot/tools/pr_5_1bb_local_llm_provider_detection.sh 2>/dev/null || true
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh:48|PROCESS_LAUNCH|python <<'PY'
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh:167|PROCESS_LAUNCH|python -m compileall -q /workspace/delbot
+tools/pr_5_1bd_vllm_runtime_connector.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bd_vllm_runtime_connector.sh:127|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1be_llm_answer_generation_validation.sh:45|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1be_llm_answer_generation_validation.sh:141|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bf_vllm_runtime_probe.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bf_vllm_runtime_probe.sh:121|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bg_api_answer_flow_validation.sh:46|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bg_api_answer_flow_validation.sh:172|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bh_chat_endpoint_test.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bh_chat_endpoint_test.sh:147|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bi_rag_context_injection_validation.sh:45|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bi_rag_context_injection_validation.sh:129|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bj_retrieval_answer_integration_validation.sh:49|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bj_retrieval_answer_integration_validation.sh:142|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bk_citation_response_validation.sh:49|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bk_citation_response_validation.sh:149|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bl_full_mvp_answer_pipeline_validation.sh:58|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bl_full_mvp_answer_pipeline_validation.sh:222|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:57|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bm_mvp_end_to_end_validation.sh:244|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:65|PROCESS_LAUNCH|python3 <<PYTHON
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:217|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1bn_mvp_functional_scenario_test.sh:225|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh:65|PROCESS_LAUNCH|python3 <<PYTHON
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh:112|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh:119|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bp_mvp_release_candidate_validation.sh:62|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bp_mvp_release_candidate_validation.sh:127|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bq_mvp_demo_flow_validation.sh:70|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bq_mvp_demo_flow_validation.sh:169|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1br_mvp_final_acceptance_validation.sh:97|PROCESS_LAUNCH|python -m compileall \
+tools/pr_5_1bs_mvp_freeze_validation.sh:47|PROCESS_LAUNCH|python3 <<PYTHON
+tools/pr_5_1bs_mvp_freeze_validation.sh:162|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1bs_mvp_freeze_validation.sh:172|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bt_mvp_smoke_test.sh:46|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bt_mvp_smoke_test.sh:137|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bu_mvp_demo_dataset_validation.sh:59|PROCESS_LAUNCH|python3 <<PYTHON
+tools/pr_5_1bu_mvp_demo_dataset_validation.sh:309|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1bu_mvp_demo_dataset_validation.sh:325|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bv_mvp_live_query_validation.sh:50|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bv_mvp_live_query_validation.sh:200|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1bw_mvp_dataset_index_repair.sh:44|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bx_mvp_pdf_repository_locator.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1bx_mvp_pdf_repository_locator.sh:115|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_1by_dataset_source_discovery_deep_scan.sh:25|PROCESS_LAUNCH|python3 <<'PYTHON'
+tools/pr_5_1by_dataset_source_discovery_deep_scan.sh:128|PROCESS_LAUNCH|PYTHON
+tools/pr_5_1by_dataset_source_discovery_deep_scan.sh:136|PROCESS_LAUNCH|python3 -m compileall \
+tools/pr_5_1by_mvp_deep_pdf_source_scan.sh:43|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_20_mvp_release_summary.sh:33|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_21_mvp_repository_statistics.sh:33|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_22_mvp_runtime_information.sh:31|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_22_mvp_runtime_information.sh:74|PROCESS_LAUNCH|"python":runtime["python_version"],
+tools/pr_5_23_mvp_build_information.sh:32|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_23_mvp_build_information.sh:57|PROCESS_LAUNCH|"python":platform.python_version(),
+tools/pr_5_24_mvp_environment_information.sh:30|PROCESS_LAUNCH|ROOT="$ROOT" OUTPUT="$OUTPUT" python3 <<'PY'
+tools/pr_5_24_mvp_environment_information.sh:59|PROCESS_LAUNCH|"python_executable": cmd("which python3"),
+tools/pr_5_24_mvp_environment_information.sh:76|PROCESS_LAUNCH|"python": data["python_version"],
+tools/pr_5_25_mvp_dependency_information.sh:30|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_25_mvp_dependency_information.sh:40|PROCESS_LAUNCH|"uvicorn",
+tools/pr_5_26_mvp_storage_information.sh:31|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_27_mvp_configuration_information.sh:31|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_2_mvp_pdf_repository_mapper.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_3_mvp_pdf_metadata_parser_validation.sh:47|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_4_mvp_pdf_text_extraction_pipeline.sh:43|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_4b_mvp_pdf_text_extraction_fix.sh:41|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_5_mvp_pdf_chunk_builder.sh:42|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:34|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:67|PROCESS_LAUNCH|p = subprocess.run(
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:52|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_11_mvp_docker_host_validation.sh:34|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_11_mvp_docker_host_validation.sh:58|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:34|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:54|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:35|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:45|PROCESS_LAUNCH|p = subprocess.run(
+tools/pr_5_6_14_mvp_docker_host_repair.sh:50|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:40|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:49|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_16_mvp_docker_host_fix.sh:61|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:28|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:47|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_18_mvp_docker_runtime_fix.sh:77|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_18_mvp_docker_runtime_fix.sh:96|PROCESS_LAUNCH|if python3 - <<'PY'
+tools/pr_5_6_18_mvp_docker_runtime_fix.sh:112|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_19_mvp_runtime_preflight.sh:28|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_19_mvp_runtime_preflight.sh:38|PROCESS_LAUNCH|p = subprocess.run(
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh:27|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_20_mvp_docker_daemon_start.sh:28|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_20_mvp_docker_daemon_start.sh:47|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_21_mvp_runtime_gate.sh:28|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_21_mvp_runtime_gate.sh:37|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:28|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:38|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_23_mvp_host_runtime_bootstrap.sh:57|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:39|PROCESS_LAUNCH|python3 - <<PY
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:51|PROCESS_LAUNCH|QDRANT_PORT=$(python3 - <<'PY'
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:72|PROCESS_LAUNCH|python3 - <<PY
+tools/pr_5_6_26_mvp_host_runtime_root_check.sh:49|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_27_mvp_docker_access_repair.sh:79|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:42|PROCESS_LAUNCH|python3 - <<PY
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:55|PROCESS_LAUNCH|PORT_RESULT="$(python3 - <<'PY'
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:78|PROCESS_LAUNCH|python3 - <<PY
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:50|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_31_mvp_fix_docker_group.sh:51|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh:29|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh:35|PROCESS_LAUNCH|r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+tools/pr_5_6_34_mvp_runtime_capability_report.sh:55|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh:29|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh:37|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh:29|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh:39|PROCESS_LAUNCH|r = subprocess.run(
+tools/pr_5_6_37_mvp_host_detection.sh:29|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_37_mvp_host_detection.sh:37|PROCESS_LAUNCH|r=subprocess.run(cmd,shell=True,text=True,capture_output=True)
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:30|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_3_mvp_qdrant_service_repair_check.sh:37|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_3_mvp_qdrant_service_repair_check.sh:98|PROCESS_LAUNCH|subprocess.run(
+tools/pr_5_6_40_mvp_local_embedding_index.sh:35|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_41_mvp_local_embedding_environment.sh:30|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_41_mvp_local_embedding_environment.sh:39|PROCESS_LAUNCH|"python": sys.version.split()[0]
+tools/pr_5_6_41_mvp_local_embedding_environment.sh:59|PROCESS_LAUNCH|subprocess.run(
+tools/pr_5_6_42_mvp_local_embedding_backend_check.sh:29|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_42_mvp_local_embedding_backend_check.sh:52|PROCESS_LAUNCH|"python": platform.python_version(),
+tools/pr_5_6_42_mvp_local_embedding_index.sh:35|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_43_mvp_local_embedding_build.sh:32|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_44_mvp_local_qdrant_index.sh:35|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh:41|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_5_mvp_docker_qdrant_diagnostic.sh:38|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_5_mvp_docker_qdrant_diagnostic.sh:46|PROCESS_LAUNCH|result = subprocess.run(
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh:38|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh:51|PROCESS_LAUNCH|result=subprocess.run(
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:23|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh:33|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh:42|PROCESS_LAUNCH|p = subprocess.run(
+tools/pr_5_6_9_mvp_docker_daemon_recovery.sh:33|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_6_9_mvp_docker_daemon_recovery.sh:42|PROCESS_LAUNCH|p = subprocess.run(
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:49|PROCESS_LAUNCH|python3 <<'PY'
+tools/pr_5_7_mvp_local_retrieval_engine.sh:35|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_8_mvp_repository_qa_validation.sh:45|PROCESS_LAUNCH|python3 <<PY
+tools/pr_5_9_mvp_repository_chat.sh:33|PROCESS_LAUNCH|python3 <<PY
+tools/system/audit_anonymous_memory.sh:13|PROCESS_LAUNCH|exec > >(tee "$REPORT")
+tools/system/audit_anonymous_memory.sh:14|PROCESS_LAUNCH|exec 2>&1
+tools/system/audit_memory_accounting.sh:13|PROCESS_LAUNCH|exec > >(tee "$REPORT")
+tools/system/audit_memory_accounting.sh:14|PROCESS_LAUNCH|exec 2>&1
+tools/system/audit_memory_accounting.sh:55|PROCESS_LAUNCH|-exec sh -c 'echo === {}; cat {}' \; 2>/dev/null
+tools/system/audit_memory_accounting.sh:62|PROCESS_LAUNCH|-exec sh -c 'echo === {}; cat {}' \; 2>/dev/null
+tools/system/audit_process_memory.sh:13|PROCESS_LAUNCH|exec > >(tee "$REPORT")
+tools/system/audit_process_memory.sh:14|PROCESS_LAUNCH|exec 2>&1
+tools/system/audit_system_health.sh:12|PROCESS_LAUNCH|exec > >(tee "$REPORT")
+tools/system/audit_system_health.sh:13|PROCESS_LAUNCH|exec 2>&1
+tools/system/audit_system_health.sh:99|PROCESS_LAUNCH|echo "PYTHON PROCESS"
+tools/system/audit_system_health.sh:102|PROCESS_LAUNCH|pgrep -af python || true
+
+=== QDRANT CONFIG CONSUMERS ===
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:7|QDRANT_CONFIG_CONSUMER|# Qdrant Environment Check
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:14|QDRANT_CONFIG_CONSUMER|OUTPUT="/workspace/delbot/repository_data/mapping/qdrant_environment_check.json"
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:20|QDRANT_CONFIG_CONSUMER|echo "PR-5.6.7 Qdrant Environment Check"
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:67|QDRANT_CONFIG_CONSUMER|"/workspace/delbot/repository_data/mapping/qdrant_environment_check.json",
+
+=== QDRANT RUNTIME CONSTRUCTORS ===
+delbot_platform/knowledge/rag/vector_retriever.py:7|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store,
+delbot_platform/knowledge/rag/vector_retriever.py:17|QDRANT_RUNTIME_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py:6|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store,
+delbot_platform/knowledge/vector/qdrant_store.py:10|QDRANT_RUNTIME_CONSTRUCTOR|class QdrantStore:
+delbot_platform/knowledge/vector/qdrant_store.py:17|QDRANT_RUNTIME_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py:12|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store,
+delbot_platform/knowledge/vector/repository/qdrant.py:25|QDRANT_RUNTIME_CONSTRUCTOR|self.store = get_qdrant_store()
+delbot_platform/vectorstore/qdrant/__init__.py:4|QDRANT_RUNTIME_CONSTRUCTOR|The authoritative implementation is QdrantStore in singleton.py.
+delbot_platform/vectorstore/qdrant/__init__.py:9|QDRANT_RUNTIME_CONSTRUCTOR|from .singleton import QdrantStore, get_qdrant_store
+delbot_platform/vectorstore/qdrant/__init__.py:11|QDRANT_RUNTIME_CONSTRUCTOR|QdrantVectorStore = QdrantStore
+delbot_platform/vectorstore/qdrant/__init__.py:14|QDRANT_RUNTIME_CONSTRUCTOR|"QdrantStore",
+delbot_platform/vectorstore/qdrant/__init__.py:16|QDRANT_RUNTIME_CONSTRUCTOR|"get_qdrant_store",
+delbot_platform/vectorstore/qdrant/repository.py:8|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store,
+delbot_platform/vectorstore/qdrant/repository.py:25|QDRANT_RUNTIME_CONSTRUCTOR|else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py:5|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py:12|QDRANT_RUNTIME_CONSTRUCTOR|class QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py:43|QDRANT_RUNTIME_CONSTRUCTOR|self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py:149|QDRANT_RUNTIME_CONSTRUCTOR|_store: QdrantStore | None = None
+delbot_platform/vectorstore/qdrant/singleton.py:152|QDRANT_RUNTIME_CONSTRUCTOR|def get_qdrant_store() -> QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py:157|QDRANT_RUNTIME_CONSTRUCTOR|_store = QdrantStore()
+tools/audit_qdrant_storage.py:22|QDRANT_RUNTIME_CONSTRUCTOR|"QdrantClient",
+tools/check_qdrant_payload.py:1|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/check_qdrant_payload.py:4|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(
+tools/ingest_metadata_vectors.py:20|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_metadata_vectors.py:57|QDRANT_RUNTIME_CONSTRUCTOR|store = QdrantStore(
+tools/ingest_pdf_vectors.py:23|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_pdf_vectors.py:46|QDRANT_RUNTIME_CONSTRUCTOR|store=QdrantStore(
+tools/pr_5_1ac_embedding_pipeline_validation.sh:139|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ac_embedding_pipeline_validation.sh:141|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:63|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:79|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:81|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:119|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:150|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:158|QDRANT_RUNTIME_CONSTRUCTOR|store=get_qdrant_store()
+tools/pr_5_1aj_vector_insert_validation.sh:105|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1aj_vector_insert_validation.sh:107|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:139|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:147|QDRANT_RUNTIME_CONSTRUCTOR|store=get_qdrant_store()
+tools/pr_5_1an_real_pdf_index_worker.sh:109|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1an_real_pdf_index_worker.sh:111|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:60|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:62|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store = None
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:119|QDRANT_RUNTIME_CONSTRUCTOR|if get_qdrant_store:
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:120|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:101|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:103|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1at_real_pdf_vector_commit.sh:116|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1at_real_pdf_vector_commit.sh:122|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1au_retrieval_engine_validation.sh:93|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1au_retrieval_engine_validation.sh:95|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_1av_retrieval_query_execution.sh:104|QDRANT_RUNTIME_CONSTRUCTOR|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1av_retrieval_query_execution.sh:106|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:61|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:115|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:86|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:89|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(
+tools/pr_5_6_40_mvp_local_embedding_index.sh:80|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_6_40_mvp_local_embedding_index.sh:90|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(path=local_db)
+tools/pr_5_6_42_mvp_local_embedding_index.sh:51|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_6_42_mvp_local_embedding_index.sh:55|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(path="$DBDIR")
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:111|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:147|QDRANT_RUNTIME_CONSTRUCTOR|qdrant=QdrantClient(
+tools/pr_5_7_mvp_local_retrieval_engine.sh:40|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_7_mvp_local_retrieval_engine.sh:57|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(path=DB)
+tools/pr_5_9_mvp_repository_chat.sh:55|QDRANT_RUNTIME_CONSTRUCTOR|from qdrant_client import QdrantClient
+tools/pr_5_9_mvp_repository_chat.sh:59|QDRANT_RUNTIME_CONSTRUCTOR|client=QdrantClient(path=str(dbdir))
+tools/test_semantic_search.py:23|QDRANT_RUNTIME_CONSTRUCTOR|get_qdrant_store,
+tools/test_semantic_search.py:61|QDRANT_RUNTIME_CONSTRUCTOR|store = get_qdrant_store()
+
+=== QDRANT COLLECTION / PATH REFERENCES ===
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:14|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.heading_collection import (
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:15|QDRANT_COLLECTION_OR_PATH|HeadingCollection,
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:32|QDRANT_COLLECTION_OR_PATH|document.metadata["heading_collection"]
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:76|QDRANT_COLLECTION_OR_PATH|collection = HeadingCollection()
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:98|QDRANT_COLLECTION_OR_PATH|collection.add(
+.backup/document_intelligence_20260805_101417/analyzer/heading_detector.py:106|QDRANT_COLLECTION_OR_PATH|document.metadata["heading_collection"] = collection
+.backup/document_intelligence_20260805_101417/analyzer/layout_statistics_analyzer.py:3|QDRANT_COLLECTION_OR_PATH|from collections import Counter
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:11|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.paragraph_collection import (
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:12|QDRANT_COLLECTION_OR_PATH|ParagraphCollection,
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:32|QDRANT_COLLECTION_OR_PATH|ParagraphCollection
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:43|QDRANT_COLLECTION_OR_PATH|collection = ParagraphCollection()
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:84|QDRANT_COLLECTION_OR_PATH|collection.add(
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:97|QDRANT_COLLECTION_OR_PATH|collection.add(
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:106|QDRANT_COLLECTION_OR_PATH|"paragraph_collection"
+.backup/document_intelligence_20260805_101417/builder/paragraph_builder.py:107|QDRANT_COLLECTION_OR_PATH|] = collection
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:12|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.semantic_chunk_collection import (
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:13|QDRANT_COLLECTION_OR_PATH|SemanticChunkCollection,
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:24|QDRANT_COLLECTION_OR_PATH|ParagraphCollection
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:30|QDRANT_COLLECTION_OR_PATH|SemanticChunkCollection
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:41|QDRANT_COLLECTION_OR_PATH|"paragraph_collection"
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:44|QDRANT_COLLECTION_OR_PATH|collection = SemanticChunkCollection()
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:59|QDRANT_COLLECTION_OR_PATH|collection,
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:77|QDRANT_COLLECTION_OR_PATH|collection,
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:95|QDRANT_COLLECTION_OR_PATH|collection,
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:99|QDRANT_COLLECTION_OR_PATH|"semantic_chunk_collection"
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:100|QDRANT_COLLECTION_OR_PATH|] = collection
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:107|QDRANT_COLLECTION_OR_PATH|collection: SemanticChunkCollection,
+.backup/document_intelligence_20260805_101417/builder/semantic_chunk_builder.py:128|QDRANT_COLLECTION_OR_PATH|collection.add(
+delbot_platform/ai/embedding/embedding_builder.py:26|QDRANT_COLLECTION_OR_PATH|collection = document.index
+delbot_platform/ai/embedding/embedding_builder.py:29|QDRANT_COLLECTION_OR_PATH|collection,
+delbot_platform/ai/embedding/embedding_service.py:12|QDRANT_COLLECTION_OR_PATH|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/embedding/embedding_service.py:13|QDRANT_COLLECTION_OR_PATH|EmbeddingCollection,
+delbot_platform/ai/embedding/embedding_service.py:34|QDRANT_COLLECTION_OR_PATH|) -> EmbeddingCollection:
+delbot_platform/ai/embedding/embedding_service.py:40|QDRANT_COLLECTION_OR_PATH|collection = EmbeddingCollection()
+delbot_platform/ai/embedding/embedding_service.py:48|QDRANT_COLLECTION_OR_PATH|collection.add(
+delbot_platform/ai/embedding/embedding_service.py:60|QDRANT_COLLECTION_OR_PATH|return collection
+delbot_platform/ai/vector_store/base_vector_store.py:9|QDRANT_COLLECTION_OR_PATH|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/vector_store/base_vector_store.py:10|QDRANT_COLLECTION_OR_PATH|EmbeddingCollection,
+delbot_platform/ai/vector_store/base_vector_store.py:29|QDRANT_COLLECTION_OR_PATH|embeddings: EmbeddingCollection,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:9|QDRANT_COLLECTION_OR_PATH|from delbot_platform.research.models.embedding_collection import (
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:10|QDRANT_COLLECTION_OR_PATH|EmbeddingCollection,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:26|QDRANT_COLLECTION_OR_PATH|collection_name: str,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:29|QDRANT_COLLECTION_OR_PATH|self._collection_name = collection_name
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py:33|QDRANT_COLLECTION_OR_PATH|embeddings: EmbeddingCollection,
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:6|QDRANT_COLLECTION_OR_PATH|from ..models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:15|QDRANT_COLLECTION_OR_PATH|) -> SemanticChunkCollection:
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:49|QDRANT_COLLECTION_OR_PATH|return SemanticChunkCollection(
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:3|QDRANT_COLLECTION_OR_PATH|from ..models.semantic_chunk_collection import (
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:4|QDRANT_COLLECTION_OR_PATH|SemanticChunkCollection,
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:14|QDRANT_COLLECTION_OR_PATH|document: SemanticChunkCollection,
+delbot_platform/document_intelligence/models/__init__.py:4|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.heading_collection import HeadingCollection
+delbot_platform/document_intelligence/models/__init__.py:10|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.paragraph_collection import ParagraphCollection
+delbot_platform/document_intelligence/models/__init__.py:13|QDRANT_COLLECTION_OR_PATH|from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/models/__init__.py:20|QDRANT_COLLECTION_OR_PATH|"HeadingCollection",
+delbot_platform/document_intelligence/models/__init__.py:26|QDRANT_COLLECTION_OR_PATH|"ParagraphCollection",
+delbot_platform/document_intelligence/models/__init__.py:29|QDRANT_COLLECTION_OR_PATH|"SemanticChunkCollection",
+delbot_platform/document_intelligence/models/heading_collection.py:12|QDRANT_COLLECTION_OR_PATH|class HeadingCollection:
+delbot_platform/document_intelligence/models/heading_collection.py:14|QDRANT_COLLECTION_OR_PATH|Collection of semantic headings.
+delbot_platform/document_intelligence/models/paragraph_collection.py:12|QDRANT_COLLECTION_OR_PATH|class ParagraphCollection:
+delbot_platform/document_intelligence/models/paragraph_collection.py:14|QDRANT_COLLECTION_OR_PATH|Collection of semantic paragraphs.
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:12|QDRANT_COLLECTION_OR_PATH|class SemanticChunkCollection:
+delbot_platform/knowledge/hydration/local.py:13|QDRANT_COLLECTION_OR_PATH|Collection,
+delbot_platform/knowledge/hydration/local.py:86|QDRANT_COLLECTION_OR_PATH|collection = Collection(
+delbot_platform/knowledge/hydration/local.py:87|QDRANT_COLLECTION_OR_PATH|collection_id="default",
+delbot_platform/knowledge/hydration/local.py:122|QDRANT_COLLECTION_OR_PATH|collection=collection,
+delbot_platform/knowledge/models/__init__.py:7|QDRANT_COLLECTION_OR_PATH|from .collection import Collection
+delbot_platform/knowledge/models/__init__.py:19|QDRANT_COLLECTION_OR_PATH|"Collection",
+delbot_platform/knowledge/models/collection.py:11|QDRANT_COLLECTION_OR_PATH|class Collection:
+delbot_platform/knowledge/models/collection.py:13|QDRANT_COLLECTION_OR_PATH|collection_id: str = ""
+delbot_platform/knowledge/models/collection.py:74|QDRANT_COLLECTION_OR_PATH|"collection_id": self.collection_id,
+delbot_platform/knowledge/models/collection.py:91|QDRANT_COLLECTION_OR_PATH|) -> "Collection":
+delbot_platform/knowledge/models/collection.py:136|QDRANT_COLLECTION_OR_PATH|collection_id=data.get(
+delbot_platform/knowledge/models/collection.py:137|QDRANT_COLLECTION_OR_PATH|"collection_id",
+delbot_platform/knowledge/models/document.py:8|QDRANT_COLLECTION_OR_PATH|from delbot_platform.knowledge.models.collection import Collection
+delbot_platform/knowledge/models/document.py:22|QDRANT_COLLECTION_OR_PATH|collection: Collection = field(
+delbot_platform/knowledge/models/document.py:23|QDRANT_COLLECTION_OR_PATH|default_factory=Collection,
+delbot_platform/knowledge/models/document.py:39|QDRANT_COLLECTION_OR_PATH|def collection_id(
+delbot_platform/knowledge/models/document.py:43|QDRANT_COLLECTION_OR_PATH|return self.collection.collection_id
+delbot_platform/knowledge/models/document.py:46|QDRANT_COLLECTION_OR_PATH|def collection_name(
+delbot_platform/knowledge/models/document.py:50|QDRANT_COLLECTION_OR_PATH|return self.collection.name
+delbot_platform/knowledge/models/document.py:57|QDRANT_COLLECTION_OR_PATH|return self.collection.repository
+delbot_platform/knowledge/models/document.py:248|QDRANT_COLLECTION_OR_PATH|"collection": self.collection.export(),
+delbot_platform/knowledge/models/document.py:249|QDRANT_COLLECTION_OR_PATH|"collection_id": self.collection_id,
+delbot_platform/knowledge/models/document.py:250|QDRANT_COLLECTION_OR_PATH|"collection_name": self.collection_name,
+delbot_platform/knowledge/models/document.py:278|QDRANT_COLLECTION_OR_PATH|if "collection" in data:
+delbot_platform/knowledge/models/document.py:280|QDRANT_COLLECTION_OR_PATH|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py:281|QDRANT_COLLECTION_OR_PATH|data["collection"],
+delbot_platform/knowledge/models/document.py:290|QDRANT_COLLECTION_OR_PATH|collection = Collection(
+delbot_platform/knowledge/models/document.py:291|QDRANT_COLLECTION_OR_PATH|collection_id=data.get(
+delbot_platform/knowledge/models/document.py:292|QDRANT_COLLECTION_OR_PATH|"collection_id",
+delbot_platform/knowledge/models/document.py:296|QDRANT_COLLECTION_OR_PATH|"collection_name",
+delbot_platform/knowledge/models/document.py:364|QDRANT_COLLECTION_OR_PATH|collection=collection,
+delbot_platform/knowledge/models/document_chunk.py:54|QDRANT_COLLECTION_OR_PATH|def collection_id(
+delbot_platform/knowledge/models/document_chunk.py:57|QDRANT_COLLECTION_OR_PATH|return self.document.collection.collection_id
+delbot_platform/knowledge/models/document_chunk.py:60|QDRANT_COLLECTION_OR_PATH|def collection_name(
+delbot_platform/knowledge/models/document_chunk.py:63|QDRANT_COLLECTION_OR_PATH|return self.document.collection.name
+delbot_platform/knowledge/models/document_chunk.py:69|QDRANT_COLLECTION_OR_PATH|return self.document.collection.repository.repository_id
+delbot_platform/knowledge/models/document_chunk.py:75|QDRANT_COLLECTION_OR_PATH|return self.document.collection.repository.name
+delbot_platform/knowledge/models/document_chunk.py:81|QDRANT_COLLECTION_OR_PATH|return self.document.collection.repository.root_path
+delbot_platform/knowledge/models/document_chunk.py:147|QDRANT_COLLECTION_OR_PATH|"collection_id": self.document.collection.collection_id,
+delbot_platform/knowledge/models/document_chunk.py:148|QDRANT_COLLECTION_OR_PATH|"collection_name": self.document.collection.name,
+delbot_platform/knowledge/models/document_chunk.py:149|QDRANT_COLLECTION_OR_PATH|"repository_id": self.document.collection.repository.repository_id,
+delbot_platform/knowledge/models/document_chunk.py:150|QDRANT_COLLECTION_OR_PATH|"repository_name": self.document.collection.repository.name,
+delbot_platform/knowledge/models/document_chunk.py:151|QDRANT_COLLECTION_OR_PATH|"repository_root_path": self.document.collection.repository.root_path,
+delbot_platform/knowledge/models/rag_result.py:30|QDRANT_COLLECTION_OR_PATH|def collections(
+delbot_platform/knowledge/models/rag_result.py:39|QDRANT_COLLECTION_OR_PATH|name = chunk.document.collection.name
+delbot_platform/knowledge/models/rag_result.py:50|QDRANT_COLLECTION_OR_PATH|def collection_ids(
+delbot_platform/knowledge/models/rag_result.py:59|QDRANT_COLLECTION_OR_PATH|value = chunk.document.collection.collection_id
+delbot_platform/knowledge/models/rag_result.py:244|QDRANT_COLLECTION_OR_PATH|"collections": self.collections,
+delbot_platform/knowledge/models/rag_result.py:245|QDRANT_COLLECTION_OR_PATH|"collection_ids": self.collection_ids,
+delbot_platform/knowledge/rag/vector_retriever.py:19|QDRANT_COLLECTION_OR_PATH|self.store.create_collection()
+delbot_platform/knowledge/vector/qdrant_store.py:14|QDRANT_COLLECTION_OR_PATH|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/qdrant_store.py:18|QDRANT_COLLECTION_OR_PATH|self.collection = collection
+delbot_platform/knowledge/vector/qdrant_store.py:20|QDRANT_COLLECTION_OR_PATH|def create_collection(
+delbot_platform/knowledge/vector/qdrant_store.py:25|QDRANT_COLLECTION_OR_PATH|self.store.create_collection()
+delbot_platform/knowledge/vector/repository/qdrant.py:22|QDRANT_COLLECTION_OR_PATH|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/repository/qdrant.py:26|QDRANT_COLLECTION_OR_PATH|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py:28|QDRANT_COLLECTION_OR_PATH|self.store.create_collection()
+delbot_platform/research/builders/research_result_builder.py:30|QDRANT_COLLECTION_OR_PATH|collections = self._collect_unique(
+delbot_platform/research/builders/research_result_builder.py:32|QDRANT_COLLECTION_OR_PATH|lambda c: c.collection_id,
+delbot_platform/research/builders/research_result_builder.py:33|QDRANT_COLLECTION_OR_PATH|lambda c: c.collection_name,
+delbot_platform/research/builders/research_result_builder.py:70|QDRANT_COLLECTION_OR_PATH|collections=[
+delbot_platform/research/builders/research_result_builder.py:72|QDRANT_COLLECTION_OR_PATH|for item in collections
+delbot_platform/research/builders/research_result_builder.py:74|QDRANT_COLLECTION_OR_PATH|collection_ids=[
+delbot_platform/research/builders/research_result_builder.py:76|QDRANT_COLLECTION_OR_PATH|for item in collections
+delbot_platform/research/models/citation.py:8|QDRANT_COLLECTION_OR_PATH|Collection,
+delbot_platform/research/models/citation.py:42|QDRANT_COLLECTION_OR_PATH|def collection(self) -> Collection:
+delbot_platform/research/models/citation.py:43|QDRANT_COLLECTION_OR_PATH|return self.document.collection
+delbot_platform/research/models/citation.py:46|QDRANT_COLLECTION_OR_PATH|def collection_id(self) -> str:
+delbot_platform/research/models/citation.py:47|QDRANT_COLLECTION_OR_PATH|return self.document.collection.collection_id
+delbot_platform/research/models/citation.py:50|QDRANT_COLLECTION_OR_PATH|def collection_name(self) -> str:
+delbot_platform/research/models/citation.py:51|QDRANT_COLLECTION_OR_PATH|return self.document.collection.name
+delbot_platform/research/models/citation.py:127|QDRANT_COLLECTION_OR_PATH|"collection_id": self.collection_id,
+delbot_platform/research/models/citation.py:128|QDRANT_COLLECTION_OR_PATH|"collection_name": self.collection_name,
+delbot_platform/research/models/embedding_collection.py:12|QDRANT_COLLECTION_OR_PATH|class EmbeddingCollection:
+delbot_platform/research/models/research_result.py:32|QDRANT_COLLECTION_OR_PATH|collections: list[str] = field(
+delbot_platform/research/models/research_result.py:36|QDRANT_COLLECTION_OR_PATH|collection_ids: list[str] = field(
+delbot_platform/research/models/research_result.py:92|QDRANT_COLLECTION_OR_PATH|"collections": self.collections,
+delbot_platform/research/models/research_result.py:93|QDRANT_COLLECTION_OR_PATH|"collection_ids": self.collection_ids,
+delbot_platform/research/models/research_result.py:138|QDRANT_COLLECTION_OR_PATH|collections=data.get(
+delbot_platform/research/models/research_result.py:139|QDRANT_COLLECTION_OR_PATH|"collections",
+delbot_platform/research/models/research_result.py:142|QDRANT_COLLECTION_OR_PATH|collection_ids=data.get(
+delbot_platform/research/models/research_result.py:143|QDRANT_COLLECTION_OR_PATH|"collection_ids",
+delbot_platform/vectorstore/qdrant/repository.py:28|QDRANT_COLLECTION_OR_PATH|self.store.create_collection()
+delbot_platform/vectorstore/qdrant/singleton.py:23|QDRANT_COLLECTION_OR_PATH|"DELBOT_QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py:25|QDRANT_COLLECTION_OR_PATH|"QDRANT_PATH",
+delbot_platform/vectorstore/qdrant/singleton.py:33|QDRANT_COLLECTION_OR_PATH|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py:34|QDRANT_COLLECTION_OR_PATH|"QDRANT_COLLECTION",
+delbot_platform/vectorstore/qdrant/singleton.py:49|QDRANT_COLLECTION_OR_PATH|# Collection
+delbot_platform/vectorstore/qdrant/singleton.py:52|QDRANT_COLLECTION_OR_PATH|def create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py:54|QDRANT_COLLECTION_OR_PATH|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:58|QDRANT_COLLECTION_OR_PATH|collections = (
+delbot_platform/vectorstore/qdrant/singleton.py:60|QDRANT_COLLECTION_OR_PATH|.get_collections()
+delbot_platform/vectorstore/qdrant/singleton.py:61|QDRANT_COLLECTION_OR_PATH|.collections
+delbot_platform/vectorstore/qdrant/singleton.py:65|QDRANT_COLLECTION_OR_PATH|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py:66|QDRANT_COLLECTION_OR_PATH|for c in collections
+delbot_platform/vectorstore/qdrant/singleton.py:71|QDRANT_COLLECTION_OR_PATH|self.client.create_collection(
+delbot_platform/vectorstore/qdrant/singleton.py:72|QDRANT_COLLECTION_OR_PATH|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py:86|QDRANT_COLLECTION_OR_PATH|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:90|QDRANT_COLLECTION_OR_PATH|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py:96|QDRANT_COLLECTION_OR_PATH|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:100|QDRANT_COLLECTION_OR_PATH|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py:106|QDRANT_COLLECTION_OR_PATH|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:116|QDRANT_COLLECTION_OR_PATH|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py:137|QDRANT_COLLECTION_OR_PATH|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py:142|QDRANT_COLLECTION_OR_PATH|collection_name=collection_name,
+delbot_platform/workspace/models/workspace_metadata.py:11|QDRANT_COLLECTION_OR_PATH|active_collection: str = ""
+delbot_platform/workspace/models/workspace_metadata.py:26|QDRANT_COLLECTION_OR_PATH|"active_collection": self.active_collection,
+delbot_platform/workspace/models/workspace_metadata.py:39|QDRANT_COLLECTION_OR_PATH|active_collection=data.get(
+delbot_platform/workspace/models/workspace_metadata.py:40|QDRANT_COLLECTION_OR_PATH|"active_collection",
+tools/architecture/duplicate.py:5|QDRANT_COLLECTION_OR_PATH|from collections import defaultdict
+tools/architecture/ownership.py:5|QDRANT_COLLECTION_OR_PATH|from collections import defaultdict
+tools/architecture/package_detector.py:5|QDRANT_COLLECTION_OR_PATH|from collections import defaultdict
+tools/audit_heading_classifier.py:3|QDRANT_COLLECTION_OR_PATH|from collections import Counter, defaultdict
+tools/audit_qdrant_storage.py:17|QDRANT_COLLECTION_OR_PATH|"collection_name",
+tools/audit_qdrant_storage.py:18|QDRANT_COLLECTION_OR_PATH|"collection",
+tools/audit_qdrant_storage.py:96|QDRANT_COLLECTION_OR_PATH|"create_collection",
+tools/audit_qdrant_storage.py:97|QDRANT_COLLECTION_OR_PATH|"collection_exists",
+tools/check_qdrant_payload.py:12|QDRANT_COLLECTION_OR_PATH|collection_name="delbot_documents",
+tools/debug_qdrant_runtime.py:64|QDRANT_COLLECTION_OR_PATH|print("Collection :", repo.store.collection)
+tools/debug_qdrant_runtime.py:118|QDRANT_COLLECTION_OR_PATH|print("COLLECTION INFO")
+tools/debug_qdrant_runtime.py:122|QDRANT_COLLECTION_OR_PATH|print(repo.store.collection_info())
+tools/ingest_metadata_vectors.py:61|QDRANT_COLLECTION_OR_PATH|store.create_collection()
+tools/ingest_pdf_vectors.py:51|QDRANT_COLLECTION_OR_PATH|store.create_collection()
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1ab_pdf_chunk_builder_validation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1ac_embedding_pipeline_validation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:74|QDRANT_COLLECTION_OR_PATH|collection = "delbot_documents"
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:96|QDRANT_COLLECTION_OR_PATH|info = client.get_collection(collection)
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:98|QDRANT_COLLECTION_OR_PATH|result["qdrant"]["collection"] = collection
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:99|QDRANT_COLLECTION_OR_PATH|result["qdrant"]["collection_exists"] = True
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:105|QDRANT_COLLECTION_OR_PATH|result["qdrant"]["collection_exists"] = False
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:106|QDRANT_COLLECTION_OR_PATH|result["qdrant"]["collection_error"] = str(e)
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:136|QDRANT_COLLECTION_OR_PATH|result["qdrant"].get("collection_exists", False)
+tools/pr_5_1ae_document_indexing_engine_validation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1af_batch_pdf_indexer_preparation.sh:16|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:20|QDRANT_COLLECTION_OR_PATH|# Qdrant Collection
+tools/pr_5_1ah_batch_pdf_index_execution.sh:31|QDRANT_COLLECTION_OR_PATH|# - Tidak drop collection
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:35|QDRANT_COLLECTION_OR_PATH|# - Tidak drop collection
+tools/pr_5_1ai_real_batch_pdf_indexing.sh:161|QDRANT_COLLECTION_OR_PATH|collection="delbot_documents"
+tools/pr_5_1aj_vector_insert_validation.sh:31|QDRANT_COLLECTION_OR_PATH|# - Tidak overwrite collection
+tools/pr_5_1aj_vector_insert_validation.sh:62|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_1aj_vector_insert_validation.sh:64|QDRANT_COLLECTION_OR_PATH|"collection_exists": False
+tools/pr_5_1aj_vector_insert_validation.sh:112|QDRANT_COLLECTION_OR_PATH|collections = store.client.get_collections()
+tools/pr_5_1aj_vector_insert_validation.sh:116|QDRANT_COLLECTION_OR_PATH|for c in collections.collections
+tools/pr_5_1aj_vector_insert_validation.sh:120|QDRANT_COLLECTION_OR_PATH|result["qdrant"]["collection_exists"] = True
+tools/pr_5_1aj_vector_insert_validation.sh:131|QDRANT_COLLECTION_OR_PATH|and result["qdrant"]["collection_exists"]
+tools/pr_5_1ak_repository_pdf_loader.sh:41|QDRANT_COLLECTION_OR_PATH|# - Tidak membuat collection
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:38|QDRANT_COLLECTION_OR_PATH|# - Tidak reset collection
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh:47|QDRANT_COLLECTION_OR_PATH|# Qdrant collection:
+tools/pr_5_1an_real_pdf_index_worker.sh:34|QDRANT_COLLECTION_OR_PATH|# - Tidak reset collection
+tools/pr_5_1ao_qdrant_vector_commit.sh:37|QDRANT_COLLECTION_OR_PATH|# - Tidak delete collection
+tools/pr_5_1ao_qdrant_vector_commit.sh:98|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh:37|QDRANT_COLLECTION_OR_PATH|# - Tidak delete collection
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh:36|QDRANT_COLLECTION_OR_PATH|# - Tidak menghapus collection
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:34|QDRANT_COLLECTION_OR_PATH|# - Tidak menghapus collection
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:71|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:73|QDRANT_COLLECTION_OR_PATH|"collection_exists": False
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:107|QDRANT_COLLECTION_OR_PATH|collection = "delbot_documents"
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:112|QDRANT_COLLECTION_OR_PATH|collections = client.get_collections()
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:116|QDRANT_COLLECTION_OR_PATH|for item in collections.collections
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:119|QDRANT_COLLECTION_OR_PATH|report["qdrant"]["collection_exists"] = (
+tools/pr_5_1as_qdrant_vector_insert_validation.sh:120|QDRANT_COLLECTION_OR_PATH|collection in names
+tools/pr_5_1at_real_pdf_vector_commit.sh:37|QDRANT_COLLECTION_OR_PATH|# - Tidak delete collection
+tools/pr_5_1at_real_pdf_vector_commit.sh:76|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_1av_retrieval_query_execution.sh:69|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_1av_retrieval_query_execution.sh:116|QDRANT_COLLECTION_OR_PATH|collections = client.get_collections()
+tools/pr_5_1av_retrieval_query_execution.sh:121|QDRANT_COLLECTION_OR_PATH|for c in collections.collections:
+tools/pr_5_1ay_research_answer_pipeline_validation.sh:71|QDRANT_COLLECTION_OR_PATH|"collection": "delbot_documents",
+tools/pr_5_21_mvp_repository_statistics.sh:47|QDRANT_COLLECTION_OR_PATH|"collections":1,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37|QDRANT_COLLECTION_OR_PATH|QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:42|QDRANT_COLLECTION_OR_PATH|mkdir -p "$QDRANT_PATH"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:73|QDRANT_COLLECTION_OR_PATH|qdrant_path=f"{ROOT}/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:78|QDRANT_COLLECTION_OR_PATH|collection="delbot_mvp_documents"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:116|QDRANT_COLLECTION_OR_PATH|path=qdrant_path
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:122|QDRANT_COLLECTION_OR_PATH|for c in client.get_collections().collections
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:126|QDRANT_COLLECTION_OR_PATH|if collection not in existing:
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:128|QDRANT_COLLECTION_OR_PATH|client.create_collection(
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:129|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:194|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:212|QDRANT_COLLECTION_OR_PATH|"collection":
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:213|QDRANT_COLLECTION_OR_PATH|collection,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:219|QDRANT_COLLECTION_OR_PATH|qdrant_path
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:39|QDRANT_COLLECTION_OR_PATH|COLLECTION="delbot_mvp_documents"
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:63|QDRANT_COLLECTION_OR_PATH|collection="delbot_mvp_documents"
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:68|QDRANT_COLLECTION_OR_PATH|"collection":collection,
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:97|QDRANT_COLLECTION_OR_PATH|collections=client.get_collections()
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:177|QDRANT_COLLECTION_OR_PATH|for x in client.get_collections().collections
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:181|QDRANT_COLLECTION_OR_PATH|if collection not in existing:
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:183|QDRANT_COLLECTION_OR_PATH|client.create_collection(
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:184|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:211|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:55|QDRANT_COLLECTION_OR_PATH|cfg["QDRANT_PATH"]=str(db)
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:56|QDRANT_COLLECTION_OR_PATH|cfg["QDRANT_COLLECTION"]="delbot_mvp_documents"
+tools/pr_5_6_3_mvp_qdrant_service_repair_check.sh:17|QDRANT_COLLECTION_OR_PATH|# - delete collection
+tools/pr_5_6_40_mvp_local_embedding_index.sh:48|QDRANT_COLLECTION_OR_PATH|"collection":"delbot_mvp_documents",
+tools/pr_5_6_40_mvp_local_embedding_index.sh:94|QDRANT_COLLECTION_OR_PATH|for c in client.get_collections().collections
+tools/pr_5_6_40_mvp_local_embedding_index.sh:99|QDRANT_COLLECTION_OR_PATH|client.create_collection(
+tools/pr_5_6_40_mvp_local_embedding_index.sh:100|QDRANT_COLLECTION_OR_PATH|collection_name="delbot_mvp_documents",
+tools/pr_5_6_40_mvp_local_embedding_index.sh:142|QDRANT_COLLECTION_OR_PATH|collection_name="delbot_mvp_documents",
+tools/pr_5_6_40_mvp_local_embedding_index.sh:151|QDRANT_COLLECTION_OR_PATH|collection_name="delbot_mvp_documents",
+tools/pr_5_6_42_mvp_local_embedding_index.sh:44|QDRANT_COLLECTION_OR_PATH|"collection":"delbot_mvp_documents",
+tools/pr_5_6_43_mvp_local_embedding_build.sh:40|QDRANT_COLLECTION_OR_PATH|"collection":"delbot_mvp_documents",
+tools/pr_5_6_44_mvp_local_qdrant_index.sh:62|QDRANT_COLLECTION_OR_PATH|"collection":"delbot_mvp_documents",
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh:19|QDRANT_COLLECTION_OR_PATH|# - delete collection
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh:19|QDRANT_COLLECTION_OR_PATH|# - delete collection
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:16|QDRANT_COLLECTION_OR_PATH|# - Qdrant collection
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:24|QDRANT_COLLECTION_OR_PATH|# - delete collection
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:38|QDRANT_COLLECTION_OR_PATH|COLLECTION="delbot_mvp_documents"
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:65|QDRANT_COLLECTION_OR_PATH|collection = "delbot_mvp_documents"
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:156|QDRANT_COLLECTION_OR_PATH|collections=[
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:158|QDRANT_COLLECTION_OR_PATH|for c in qdrant.get_collections().collections
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:162|QDRANT_COLLECTION_OR_PATH|if collection not in collections:
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:164|QDRANT_COLLECTION_OR_PATH|qdrant.create_collection(
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:166|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:268|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:283|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:298|QDRANT_COLLECTION_OR_PATH|"collection":
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:299|QDRANT_COLLECTION_OR_PATH|collection,
+tools/pr_5_7_mvp_local_retrieval_engine.sh:46|QDRANT_COLLECTION_OR_PATH|COLLECTION="delbot_mvp_documents"
+tools/pr_5_7_mvp_local_retrieval_engine.sh:59|QDRANT_COLLECTION_OR_PATH|cols=client.get_collections().collections
+tools/pr_5_7_mvp_local_retrieval_engine.sh:63|QDRANT_COLLECTION_OR_PATH|if COLLECTION in names:
+tools/pr_5_7_mvp_local_retrieval_engine.sh:65|QDRANT_COLLECTION_OR_PATH|info=client.get_collection(COLLECTION)
+tools/pr_5_7_mvp_local_retrieval_engine.sh:80|QDRANT_COLLECTION_OR_PATH|collection_name=COLLECTION,
+tools/pr_5_7_mvp_local_retrieval_engine.sh:96|QDRANT_COLLECTION_OR_PATH|"collection":COLLECTION,
+tools/pr_5_9_mvp_repository_chat.sh:45|QDRANT_COLLECTION_OR_PATH|"collection":"delbot_mvp_documents",
+tools/pr_5_9_mvp_repository_chat.sh:61|QDRANT_COLLECTION_OR_PATH|collection="delbot_mvp_documents"
+tools/pr_5_9_mvp_repository_chat.sh:69|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/test_ingest.py:20|QDRANT_COLLECTION_OR_PATH|db.ensure_collection()
+tools/test_qdrant_storage.py:66|QDRANT_COLLECTION_OR_PATH|collection = getattr(store, "collection_name", None)
+tools/test_qdrant_storage.py:70|QDRANT_COLLECTION_OR_PATH|if client is not None and collection is not None:
+tools/test_qdrant_storage.py:73|QDRANT_COLLECTION_OR_PATH|collection_name=collection,
+tools/trace_qdrant_pipeline.py:23|QDRANT_COLLECTION_OR_PATH|"create_collection",
+tools/trace_qdrant_pipeline.py:24|QDRANT_COLLECTION_OR_PATH|"collection_exists",
+
+=== SAME-FILE CHAIN CANDIDATES ===
+delbot_platform/ai/runtime/chat.py|LAUNCH->ENV
+delbot_platform/ai/runtime/embedding.py|LAUNCH->ENV
+delbot_platform/gateway/__main__.py|LAUNCH->ENV
+delbot_platform/vectorstore/qdrant/singleton.py|ENV->QDRANT
+tools/pr_5_1bb_local_llm_provider_detection.sh|LAUNCH->ENV
+
+=== PARSE ERRORS ===
+NONE
+
+=== READ ERRORS ===
+NONE

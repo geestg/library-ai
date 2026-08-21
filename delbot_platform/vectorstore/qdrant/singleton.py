@@ -16,16 +16,24 @@ class QdrantStore:
         path: str | None = None,
     ) -> None:
 
-        if path is None:
-            import os
+        import os
 
+        if path is None:
             path = os.getenv(
                 "DELBOT_QDRANT_PATH",
-                str(
-                    Path("repository_data")
-                    / "qdrant_local"
+                os.getenv(
+                    "QDRANT_PATH",
+                    str(
+                        Path("repository_data")
+                        / "qdrant_local"
+                    ),
                 ),
             )
+
+        self.collection = os.getenv(
+            "QDRANT_COLLECTION",
+            "delbot_documents",
+        )
 
         Path(path).mkdir(
             parents=True,

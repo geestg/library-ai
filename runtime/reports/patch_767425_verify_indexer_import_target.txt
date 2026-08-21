@@ -1,0 +1,73 @@
+PATCH=767.425
+PURPOSE=Verify exact replacement for broken PDFIngestion import before modifying indexer
+MODE=READ_ONLY_TARGETED_SOURCE_CONTRACT
+SOURCE=delbot_platform/repository_data/pdf
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+APPLICATION_IMPORT=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:00:13
+
+=== INDEXER ===
+PATH=tools/ingest_pdf_vectors.py
+EXISTS=True
+
+=== BROKEN IMPORT ===
+MODULE=delbot_platform.document.pipeline.ingest_pdf
+SYMBOL=PDFIngestion
+ALIAS=NONE
+
+=== INDEXER FUNCTIONS ===
+main
+
+=== INDEXER CALLS RELATED TO INGEST/PIPELINE ===
+LINE=42|CALL=PDFIngestion|SOURCE=PDFIngestion()
+LINE=68|CALL=ingestion.ingest|SOURCE=ingestion.ingest(
+            str(pdf)
+        )
+
+=== PDFINGESTION DEFINITIONS ===
+NONE
+
+=== PDFINGESTION REFERENCES ===
+NONE
+
+=== DOCUMENT INTELLIGENCE CANDIDATE SYMBOLS ===
+FILE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py|LINE=19|NAME=PDFPipeline|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/pipeline/document_pipeline.py|LINE=9|NAME=DocumentPipeline|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/loader/pdf_loader.py|LINE=16|NAME=PDFLoader|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/loader/document_loader.py|LINE=12|NAME=DocumentLoader|TYPE=ClassDef
+
+=== CANDIDATE MODULE PUBLIC SYMBOLS ===
+FILE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py|LINE=19|NAME=PDFPipeline|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/pipeline/document_pipeline.py|LINE=9|NAME=DocumentPipeline|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/loader/pdf_loader.py|LINE=16|NAME=PDFLoader|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/loader/document_loader.py|LINE=12|NAME=DocumentLoader|TYPE=ClassDef
+FILE=delbot_platform/document_intelligence/chunker/pdf_chunker.py|LINE=10|NAME=PDFChunker|TYPE=ClassDef
+
+=== WARNINGS ===
+PDFINGESTION_SYMBOL_NOT_FOUND_IN_DOCUMENT_INTELLIGENCE
+
+=== ERRORS ===
+NONE
+
+=== DECISION ===
+DECISION=PDFINGESTION_MISSING_REPLACEMENT_CANDIDATES_FOUND
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN

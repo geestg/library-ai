@@ -1,0 +1,70 @@
+PATCH=767.432
+PURPOSE=Resolve exact CLI/input contract of validated MVP PDF indexer
+MODE=READ_ONLY_CLI_CONTRACT_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+INDEXER=tools/ingest_pdf_vectors.py
+PDF_SOURCE=delbot_platform/repository_data/pdf
+PDF_COUNT=188
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:49:18
+
+=== INDEXER FILE ===
+PATH=/workspace/delbot/tools/ingest_pdf_vectors.py
+EXISTS=True
+PARSE_OK=True
+
+=== CLI CONTRACT ===
+ARGPARSE_IMPORT=False
+ARGUMENT_PARSER=False
+CONTRACT=DEFAULT_SOURCE
+REASON=source appears to be internally configured
+
+=== ADD_ARGUMENT ===
+NONE
+
+=== CLI INDICATORS ===
+140|if __name__=="__main__":
+
+=== INPUT/PATH VARIABLES ===
+PDF_DIR
+ROOT
+
+=== STATIC PATH VARIABLES ===
+PDF_DIR=call:Path
+
+=== SOURCE REFERENCES ===
+19|from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
+27|PDF_DIR=Path(
+28|"delbot_platform/repository_data/thesis_files"
+59|for pdf in PDF_DIR.glob("*.pdf"):
+
+=== FINAL CONTRACT ===
+COMMAND_READY=True
+COMMAND_REASON=indexer appears to own its source configuration
+
+=== ERRORS ===
+NONE
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

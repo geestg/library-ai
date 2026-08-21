@@ -1,0 +1,353 @@
+=== PROCESS ===
+GATEWAY_PID=NOT_FOUND
+
+=== FILES ===
+FILE=PASS|delbot_platform/vectorstore/qdrant/repository.py|bytes=1649
+FILE=PASS|delbot_platform/vectorstore/qdrant/singleton.py|bytes=3548
+FILE=PASS|delbot_platform/vectorstore/qdrant/__init__.py|bytes=432
+FILE=PASS|delbot_platform/vectorstore/__init__.py|bytes=137
+FILE=PASS|delbot_platform/documents/pipeline/indexing.py|bytes=3684
+FILE=PASS|delbot_platform/knowledge/retrieval/qdrant.py|bytes=2593
+
+=== OWNER-B SOURCE ===
+     1	from __future__ import annotations
+     2	
+     3	from uuid import NAMESPACE_DNS, uuid5
+     4	
+     5	from qdrant_client.models import PointStruct
+     6	
+     7	from delbot_platform.vectorstore.qdrant.singleton import (
+     8	    get_qdrant_store,
+     9	)
+    10	from delbot_platform.vectors import (
+    11	    VectorRecord,
+    12	)
+    13	
+    14	
+    15	class QdrantRepository:
+    16	
+    17	    def __init__(
+    18	        self,
+    19	        store=None,
+    20	    ) -> None:
+    21	
+    22	        self.store = (
+    23	            store
+    24	            if store is not None
+    25	            else get_qdrant_store()
+    26	        )
+    27	
+    28	        self.store.create_collection()
+    29	
+    30	    def delete_document(
+    31	        self,
+    32	        document_id: str,
+    33	    ) -> None:
+    34	
+    35	        self.store.delete_document(
+    36	            document_id,
+    37	        )
+    38	
+    39	    def save(
+    40	        self,
+    41	        vectors: list[VectorRecord],
+    42	    ) -> int:
+    43	
+    44	        if not vectors:
+    45	            return 0
+    46	
+    47	        first_payload = vectors[0].metadata
+    48	
+    49	        document_id = first_payload.get(
+    50	            "document_id",
+    51	        )
+    52	
+    53	        if document_id:
+    54	            self.delete_document(
+    55	                document_id,
+    56	            )
+    57	
+    58	        points: list[PointStruct] = []
+    59	
+    60	        for vector in vectors:
+    61	
+    62	            payload = vector.metadata
+    63	
+    64	            point_id = str(
+    65	                uuid5(
+    66	                    NAMESPACE_DNS,
+    67	                    vector.id,
+    68	                )
+    69	            )
+    70	
+    71	            points.append(
+    72	                PointStruct(
+    73	                    id=point_id,
+    74	                    vector=vector.vector,
+    75	                    payload=payload,
+    76	                )
+    77	            )
+    78	
+    79	        self.store.upsert(
+    80	            points,
+    81	        )
+    82	
+    83	        return len(points)
+    84	
+    85	    def count(
+    86	        self,
+    87	    ) -> int:
+    88	
+    89	        return self.store.count()
+
+=== SINGLETON SOURCE ===
+     1	from __future__ import annotations
+     2	
+     3	from pathlib import Path
+     4	
+     5	from qdrant_client import QdrantClient
+     6	from qdrant_client.models import (
+     7	    Distance,
+     8	    VectorParams,
+     9	)
+    10	
+    11	
+    12	class QdrantStore:
+    13	
+    14	    def __init__(
+    15	        self,
+    16	        path: str | None = None,
+    17	    ) -> None:
+    18	
+    19	        import os
+    20	
+    21	        if path is None:
+    22	            path = os.getenv(
+    23	                "DELBOT_QDRANT_PATH",
+    24	                os.getenv(
+    25	                    "QDRANT_PATH",
+    26	                    str(
+    27	                        Path("repository_data")
+    28	                        / "qdrant_local"
+    29	                    ),
+    30	                ),
+    31	            )
+    32	
+    33	        self.collection = os.getenv(
+    34	            "QDRANT_COLLECTION",
+    35	            "delbot_documents",
+    36	        )
+    37	
+    38	        Path(path).mkdir(
+    39	            parents=True,
+    40	            exist_ok=True,
+    41	        )
+    42	
+    43	        self.client = QdrantClient(
+    44	            path=path,
+    45	            force_disable_check_same_thread=True,
+    46	        )
+    47	
+    48	    # =====================================================
+    49	    # Collection
+    50	    # =====================================================
+    51	
+    52	    def create_collection(
+    53	        self,
+    54	        collection_name: str = "delbot_documents",
+    55	        vector_size: int = 1024,
+    56	    ) -> None:
+    57	
+    58	        collections = (
+    59	            self.client
+    60	            .get_collections()
+    61	            .collections
+    62	        )
+    63	
+    64	        exists = any(
+    65	            c.name == collection_name
+    66	            for c in collections
+    67	        )
+    68	
+    69	        if not exists:
+    70	
+    71	            self.client.create_collection(
+    72	                collection_name=collection_name,
+    73	                vectors_config=VectorParams(
+    74	                    size=vector_size,
+    75	                    distance=Distance.COSINE,
+    76	                ),
+    77	            )
+    78	
+    79	    # =====================================================
+    80	    # CRUD
+    81	    # =====================================================
+    82	
+    83	    def upsert(
+    84	        self,
+    85	        points,
+    86	        collection_name: str = "delbot_documents",
+    87	    ) -> None:
+    88	
+    89	        self.client.upsert(
+    90	            collection_name=collection_name,
+    91	            points=points,
+    92	        )
+    93	
+    94	    def count(
+    95	        self,
+    96	        collection_name: str = "delbot_documents",
+    97	    ) -> int:
+    98	
+    99	        return self.client.count(
+   100	            collection_name=collection_name,
+   101	        ).count
+   102	
+   103	    def delete_document(
+   104	        self,
+   105	        document_id: str,
+   106	        collection_name: str = "delbot_documents",
+   107	    ) -> None:
+   108	
+   109	        from qdrant_client.models import (
+   110	            Filter,
+   111	            FieldCondition,
+   112	            MatchValue,
+   113	        )
+   114	
+   115	        self.client.delete(
+   116	            collection_name=collection_name,
+   117	            points_selector=Filter(
+   118	                must=[
+   119	                    FieldCondition(
+   120	                        key="document_id",
+   121	                        match=MatchValue(
+   122	                            value=document_id,
+   123	                        ),
+   124	                    )
+   125	                ]
+   126	            ),
+   127	        )
+   128	
+   129	    # =====================================================
+   130	    # Search
+   131	    # =====================================================
+   132	
+   133	    def search(
+   134	        self,
+   135	        query_vector,
+   136	        limit: int = 5,
+   137	        collection_name: str = "delbot_documents",
+   138	        **kwargs,
+   139	    ):
+   140	
+   141	        return self.client.search(
+   142	            collection_name=collection_name,
+   143	            query_vector=query_vector,
+   144	            limit=limit,
+   145	            **kwargs,
+   146	        )
+   147	
+   148	
+   149	_store: QdrantStore | None = None
+   150	
+   151	
+   152	def get_qdrant_store() -> QdrantStore:
+   153	
+   154	    global _store
+   155	
+   156	    if _store is None:
+   157	        _store = QdrantStore()
+   158	
+   159	    return _store
+
+=== QDRANT PACKAGE EXPORT ===
+     1	"""
+     2	Qdrant vector-store package.
+     3	
+     4	The authoritative implementation is QdrantStore in singleton.py.
+     5	QdrantVectorStore is retained only as a compatibility alias for existing
+     6	package consumers during the MVP transition.
+     7	"""
+     8	
+     9	from .singleton import QdrantStore, get_qdrant_store
+    10	
+    11	QdrantVectorStore = QdrantStore
+    12	
+    13	__all__ = [
+    14	    "QdrantStore",
+    15	    "QdrantVectorStore",
+    16	    "get_qdrant_store",
+    17	]
+    18	from .repository import QdrantRepository
+
+=== VECTORSTORE EXPORT ===
+     1	from .qdrant import (
+     2	    QdrantVectorStore,
+     3	    QdrantRepository,
+     4	)
+     5	
+     6	
+     7	
+     8	__all__ = [
+     9	
+    10	    "QdrantVectorStore",
+    11	
+    12	    "QdrantRepository",
+    13	
+    14	]
+
+=== INDEXER QDRANT USAGE ===
+31:    QdrantRepository,
+60:            QdrantRepository()
+90:        self.metadata_repository.save(
+104:        self.vectorstore.save(
+125:            pages=artifact.page_count,
+126:            blocks=artifact.block_count,
+127:            sections=artifact.section_count,
+128:            chunks=artifact.chunk_count,
+129:            vectors=artifact.vector_count,
+143:        started = time.perf_counter()
+151:            time.perf_counter()
+
+=== RETRIEVAL QDRANT USAGE ===
+22:    QdrantRepository,
+43:            self.repository = QdrantRepository()
+83:        results = await self.repository.search(
+
+=== PYTHON AST + SIGNATURE ===
+
+=== PYTHON FORENSIC SUMMARY ===
+AST|PASS|delbot_platform/vectorstore/qdrant/repository.py
+AST|PASS|delbot_platform/vectorstore/qdrant/singleton.py
+AST|PASS|delbot_platform/vectorstore/qdrant/__init__.py
+AST|PASS|delbot_platform/vectorstore/__init__.py
+AST|PASS|delbot_platform/documents/pipeline/indexing.py
+AST|PASS|delbot_platform/knowledge/retrieval/qdrant.py
+IMPORT|PASS|delbot_platform.vectorstore.qdrant.repository
+IMPORT|PASS|delbot_platform.vectorstore.qdrant.singleton
+IMPORT|PASS|delbot_platform.vectorstore.qdrant
+IMPORT|PASS|delbot_platform.vectorstore
+QDRANT_REPOSITORY|FOUND
+CLASS_SIGNATURE|(store=None) -> 'None'
+INIT_SIGNATURE|(self, store=None) -> 'None'
+METHOD|save|FOUND|(self, vectors: 'list[VectorRecord]') -> 'int'
+METHOD|count|FOUND|(self) -> 'int'
+METHOD|delete_document|FOUND|(self, document_id: 'str') -> 'None'
+METHOD|search|MISSING
+METHOD|insert|MISSING
+SINGLETON_SYMBOL|QdrantClient|FOUND
+SIGNATURE|QdrantClient|(location: Optional[str] = None, url: Optional[str] = None, port: Optional[int] = 6333, grpc_port: int = 6334, prefer_grpc: bool = False, https: Optional[bool] = None, api_key: Optional[str] = None, prefix: Optional[str] = None, timeout: Optional[int] = None, host: Optional[str] = None, path: Optional[str] = None, force_disable_check_same_thread: bool = False, grpc_options: Optional[Dict[str, Any]] = None, auth_token_provider: Union[Callable[[], str], Callable[[], Awaitable[str]], NoneType] = None, **kwargs: Any)
+SINGLETON_SYMBOL|QdrantStore|FOUND
+SIGNATURE|QdrantStore|(path: 'str | None' = None) -> 'None'
+SINGLETON_SYMBOL|get_qdrant_store|FOUND
+SIGNATURE|get_qdrant_store|() -> 'QdrantStore'
+QDRANT_CLIENT_PACKAGE|PASS|unknown
+QDRANT_CLIENT_SIGNATURE|(location: Optional[str] = None, url: Optional[str] = None, port: Optional[int] = 6333, grpc_port: int = 6334, prefer_grpc: bool = False, https: Optional[bool] = None, api_key: Optional[str] = None, prefix: Optional[str] = None, timeout: Optional[int] = None, host: Optional[str] = None, path: Optional[str] = None, force_disable_check_same_thread: bool = False, grpc_options: Optional[Dict[str, Any]] = None, auth_token_provider: Union[Callable[[], str], Callable[[], Awaitable[str]], NoneType] = None, **kwargs: Any)
+CLIENT_METHOD|create_collection|FOUND|(self, collection_name: str, vectors_config: Union[qdrant_client.http.models.models.VectorParams, Mapping[str, qdrant_client.http.models.models.VectorParams]], sparse_vectors_config: Optional[Mapping[str, qdrant_client.http.models.models.SparseVectorParams]] = None, shard_number: Optional[int] = None, sharding_method: Optional[qdrant_client.http.models.models.ShardingMethod] = None, replication_factor: Optional[int] = None, write_consistency_factor: Optional[int] = None, on_disk_payload: Optional[bool] = None, hnsw_config: Union[qdrant_client.http.models.models.HnswConfigDiff, collections_pb2.HnswConfigDiff, NoneType] = None, optimizers_config: Union[qdrant_client.http.models.models.OptimizersConfigDiff, collections_pb2.OptimizersConfigDiff, NoneType] = None, wal_config: Union[qdrant_client.http.models.models.WalConfigDiff, collections_pb2.WalConfigDiff, NoneType] = None, quantization_config: Union[qdrant_client.http.models.models.ScalarQuantization, qdrant_client.http.models.models.ProductQuantization, qdrant_client.http.models.models.BinaryQuantization, collections_pb2.QuantizationConfig, NoneType] = None, init_from: Union[qdrant_client.http.models.models.InitFrom, str, NoneType] = None, timeout: Optional[int] = None, **kwargs: Any) -> bool
+CLIENT_METHOD|upsert|FOUND|(self, collection_name: str, points: Union[qdrant_client.http.models.models.Batch, List[Union[qdrant_client.http.models.models.PointStruct, points_pb2.PointStruct]]], wait: bool = True, ordering: Optional[qdrant_client.http.models.models.WriteOrdering] = None, shard_key_selector: Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)], List[Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)]]], NoneType] = None, **kwargs: Any) -> qdrant_client.http.models.models.UpdateResult
+CLIENT_METHOD|search|FOUND|(self, collection_name: str, query_vector: Union[Sequence[float], Tuple[str, List[float]], qdrant_client.http.models.models.NamedVector, qdrant_client.http.models.models.NamedSparseVector, numpy.ndarray[Any, numpy.dtype[Union[numpy.bool_, numpy.int8, numpy.int16, numpy.int32, numpy.int64, numpy.uint8, numpy.uint16, numpy.uint32, numpy.uint64, numpy.float16, numpy.float32, numpy.float64, numpy.longdouble]]]], query_filter: Union[qdrant_client.http.models.models.Filter, points_pb2.Filter, NoneType] = None, search_params: Union[qdrant_client.http.models.models.SearchParams, points_pb2.SearchParams, NoneType] = None, limit: int = 10, offset: Optional[int] = None, with_payload: Union[bool, Sequence[str], qdrant_client.http.models.models.PayloadSelectorInclude, qdrant_client.http.models.models.PayloadSelectorExclude, points_pb2.WithPayloadSelector] = True, with_vectors: Union[bool, Sequence[str]] = False, score_threshold: Optional[float] = None, append_payload: bool = True, consistency: Union[Annotated[int, Strict(strict=True)], qdrant_client.http.models.models.ReadConsistencyType, NoneType] = None, shard_key_selector: Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)], List[Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)]]], NoneType] = None, timeout: Optional[int] = None, **kwargs: Any) -> List[qdrant_client.http.models.models.ScoredPoint]
+CLIENT_METHOD|query_points|FOUND|(self, collection_name: str, query: Union[int, str, points_pb2.PointId, List[float], List[List[float]], qdrant_client.http.models.models.SparseVector, qdrant_client.http.models.models.NearestQuery, qdrant_client.http.models.models.RecommendQuery, qdrant_client.http.models.models.DiscoverQuery, qdrant_client.http.models.models.ContextQuery, qdrant_client.http.models.models.OrderByQuery, qdrant_client.http.models.models.FusionQuery, numpy.ndarray[Any, numpy.dtype[Union[numpy.bool_, numpy.int8, numpy.int16, numpy.int32, numpy.int64, numpy.uint8, numpy.uint16, numpy.uint32, numpy.uint64, numpy.float16, numpy.float32, numpy.float64, numpy.longdouble]]], qdrant_client.embed.models.Document, NoneType] = None, using: Optional[str] = None, prefetch: Union[qdrant_client.http.models.models.Prefetch, List[qdrant_client.http.models.models.Prefetch], NoneType] = None, query_filter: Union[qdrant_client.http.models.models.Filter, points_pb2.Filter, NoneType] = None, search_params: Union[qdrant_client.http.models.models.SearchParams, points_pb2.SearchParams, NoneType] = None, limit: int = 10, offset: Optional[int] = None, with_payload: Union[bool, Sequence[str], qdrant_client.http.models.models.PayloadSelectorInclude, qdrant_client.http.models.models.PayloadSelectorExclude, points_pb2.WithPayloadSelector] = True, with_vectors: Union[bool, Sequence[str]] = False, score_threshold: Optional[float] = None, lookup_from: Union[qdrant_client.http.models.models.LookupLocation, points_pb2.LookupLocation, NoneType] = None, consistency: Union[Annotated[int, Strict(strict=True)], qdrant_client.http.models.models.ReadConsistencyType, NoneType] = None, shard_key_selector: Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)], List[Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)]]], NoneType] = None, timeout: Optional[int] = None, **kwargs: Any) -> qdrant_client.http.models.models.QueryResponse
+CLIENT_METHOD|delete|FOUND|(self, collection_name: str, points_selector: Union[List[Union[int, str, points_pb2.PointId]], qdrant_client.http.models.models.Filter, points_pb2.Filter, qdrant_client.http.models.models.PointIdsList, qdrant_client.http.models.models.FilterSelector, points_pb2.PointsSelector], wait: bool = True, ordering: Optional[qdrant_client.http.models.models.WriteOrdering] = None, shard_key_selector: Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)], List[Union[Annotated[int, Strict(strict=True)], Annotated[str, Strict(strict=True)]]], NoneType] = None, **kwargs: Any) -> qdrant_client.http.models.models.UpdateResult
+CLIENT_METHOD|delete_collection|FOUND|(self, collection_name: str, timeout: Optional[int] = None, **kwargs: Any) -> bool
+CLIENT_METHOD|get_collection|FOUND|(self, collection_name: str, **kwargs: Any) -> qdrant_client.http.models.models.CollectionInfo

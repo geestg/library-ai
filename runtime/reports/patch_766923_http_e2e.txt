@@ -1,0 +1,7 @@
+PATCH: 766.923
+RESULT: Real HTTP research entrypoint probe completed
+BACKEND_PORT: NOT_DISCOVERED
+ROUTE: NOT_DISCOVERED
+DATE: 2026-08-18 09:26:47
+
+See full log: runtime/reports/patch_766923_http_e2e.log

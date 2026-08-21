@@ -1,0 +1,95 @@
+=== PATCH 767.398 : EXTRACTED SUMMARY ===
+FILES_SCANNED=88
+PARSE_ERRORS=0
+ROUTER_FOUND=YES
+ROUTER_CALLS=9
+ROUTER_SYMBOLS=2
+ROUTER_IMPORTS=6
+RETRIEVAL_RUNTIME_CANDIDATES=173
+QDRANT_RUNTIME_CANDIDATES=10
+RETRIEVAL_EDGES=46
+FIRST_RUNTIME_ENTRY=delbot_platform.knowledge.rag.vector_retriever.search|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=23|SCORE=7
+QDRANT_DEPENDENCY_EVIDENCE=FOUND
+STATUS=CONCRETE_RUNTIME_OBJECT_AND_QDRANT_EVIDENCE_FOUND
+DECISION=TRACE_OBJECT_CONSTRUCTION_ARGUMENTS
+NEXT=TRACE_OBJECT_CONSTRUCTOR_ARGUMENTS
+INDEX_GATE=DO_NOT_INDEX
+
+=== RETRIEVAL ROUTER IMPORTS ===
+APIRouter -> fastapi.APIRouter
+ApplicationFactory -> delbot_platform.application.factory.ApplicationFactory
+RetrievalDocument -> delbot_platform.api.schemas.retrieval.RetrievalDocument
+RetrievalRequest -> delbot_platform.api.schemas.retrieval.RetrievalRequest
+RetrievalResponse -> delbot_platform.api.schemas.retrieval.RetrievalResponse
+annotations -> __future__.annotations
+
+=== RETRIEVAL ROUTER SYMBOLS ===
+25|FunctionDef|get_application
+39|AsyncFunctionDef|retrieve
+
+=== RETRIEVAL ROUTER CALLS ===
+LINE=16|CALL=APIRouter
+LINE=30|CALL=ApplicationFactory.retrieval
+LINE=35|CALL=router.post
+LINE=43|CALL=get_application
+LINE=45|CALL=application.execute
+LINE=57|CALL=documents.append
+LINE=58|CALL=RetrievalDocument
+LINE=60|CALL=float
+LINE=69|CALL=RetrievalResponse
+
+=== TOP CONCRETE RUNTIME CANDIDATES ===
+SCORE=7|delbot_platform.knowledge.rag.vector_retriever.search|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=23
+SCORE=7|delbot_platform.knowledge.vector.repository.qdrant.search|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=51
+SCORE=6|delbot_platform.knowledge.retrieval.qdrant.retrieve|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=50
+SCORE=5|delbot_platform.knowledge.rag.vector_retriever.__init__|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=13
+SCORE=5|delbot_platform.knowledge.vector.repository.base.search|FILE=delbot_platform/knowledge/vector/repository/base.py|LINE=27
+SCORE=5|delbot_platform.knowledge.vector.repository.memory.search|FILE=delbot_platform/knowledge/vector/repository/memory.py|LINE=40
+SCORE=5|delbot_platform.vectorstore.qdrant.singleton.search|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=133
+SCORE=4|delbot_platform.knowledge.models.rag_result.from_dict|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=257
+SCORE=4|delbot_platform.knowledge.rag.pipeline._initialize|FILE=delbot_platform/knowledge/rag/pipeline.py|LINE=42
+SCORE=4|delbot_platform.knowledge.rag.pipeline.build|FILE=delbot_platform/knowledge/rag/pipeline.py|LINE=62
+SCORE=4|delbot_platform.knowledge.retrieval.qdrant._initialize|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=38
+SCORE=4|delbot_platform.knowledge.vector.qdrant_store.__init__|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=12
+SCORE=4|delbot_platform.knowledge.vector.qdrant_store.create_collection|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=20
+SCORE=4|delbot_platform.knowledge.vector.qdrant_store.insert|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=27
+SCORE=4|delbot_platform.knowledge.vector.repository.qdrant.__init__|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=20
+SCORE=4|delbot_platform.knowledge.vector.repository.qdrant.insert|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=30
+SCORE=3|delbot_platform.knowledge.hydration.base.citation|FILE=delbot_platform/knowledge/hydration/base.py|LINE=12
+SCORE=3|delbot_platform.knowledge.hydration.local.citation|FILE=delbot_platform/knowledge/hydration/local.py|LINE=29
+SCORE=3|delbot_platform.knowledge.models.rag_result.knowledge_sources|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=110
+SCORE=3|delbot_platform.knowledge.models.rag_result.knowledge_source_ids|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=130
+SCORE=3|delbot_platform.knowledge.models.rag_result.knowledge_domains|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=150
+SCORE=3|delbot_platform.knowledge.models.rag_result.knowledge_domain_ids|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=170
+SCORE=3|delbot_platform.knowledge.models.rag_result.export|FILE=delbot_platform/knowledge/models/rag_result.py|LINE=229
+SCORE=3|delbot_platform.knowledge.pipeline.knowledge_pipeline.process|FILE=delbot_platform/knowledge/pipeline/knowledge_pipeline.py|LINE=22
+SCORE=3|delbot_platform.knowledge.rag.llm.generator.generate|FILE=delbot_platform/knowledge/rag/llm/generator.py|LINE=24
+SCORE=3|delbot_platform.knowledge.rag.pipeline.__init__|FILE=delbot_platform/knowledge/rag/pipeline.py|LINE=26
+SCORE=3|delbot_platform.knowledge.retrieval.base.retrieve|FILE=delbot_platform/knowledge/retrieval/base.py|LINE=16
+SCORE=3|delbot_platform.knowledge.retrieval.qdrant.__init__|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=29
+SCORE=3|delbot_platform.knowledge.vector.repository.base.insert|FILE=delbot_platform/knowledge/vector/repository/base.py|LINE=17
+SCORE=3|delbot_platform.knowledge.vector.repository.memory.__init__|FILE=delbot_platform/knowledge/vector/repository/memory.py|LINE=20
+
+=== QDRANT DEPENDENCY FUNCTIONS ===
+delbot_platform.knowledge.rag.pipeline._initialize|FILE=delbot_platform/knowledge/rag/pipeline.py|LINE=42
+delbot_platform.knowledge.rag.vector_retriever.__init__|FILE=delbot_platform/knowledge/rag/vector_retriever.py|LINE=13
+delbot_platform.knowledge.retrieval.qdrant._initialize|FILE=delbot_platform/knowledge/retrieval/qdrant.py|LINE=38
+delbot_platform.knowledge.vector.qdrant_store.__init__|FILE=delbot_platform/knowledge/vector/qdrant_store.py|LINE=12
+delbot_platform.knowledge.vector.repository.qdrant.__init__|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=20
+delbot_platform.knowledge.vector.repository.qdrant.search|FILE=delbot_platform/knowledge/vector/repository/qdrant.py|LINE=51
+delbot_platform.vectorstore.qdrant.repository.__init__|FILE=delbot_platform/vectorstore/qdrant/repository.py|LINE=17
+delbot_platform.vectorstore.qdrant.singleton.__init__|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=14
+delbot_platform.vectorstore.qdrant.singleton.delete_document|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=103
+delbot_platform.vectorstore.qdrant.singleton.get_qdrant_store|FILE=delbot_platform/vectorstore/qdrant/singleton.py|LINE=152
+
+=== IMPORTANT ERRORS ONLY ===
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

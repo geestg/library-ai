@@ -1,0 +1,22 @@
+PATCH: 767.280
+PURPOSE: Diagnose missing chunks and embeddings without changing data
+MODE: READ-ONLY ROOT-CAUSE DIAGNOSTIC
+NO INDEX REQUEST
+NO DATA RESET
+NO QDRANT DELETE
+NO QDRANT RESET
+DATE: 2026-08-19 07:08:44
+
+
+--- 14. SAFETY ---
+INDEX_REQUEST_STARTED=NO
+DATA_RESET=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+
+--- 15. DECISION ---
+DIAGNOSTIC_STATUS=COMPLETE
+NEXT_ACTION=FIX_INDEX_PIPELINE_AFTER_SOURCE_REVIEW
+
+REPORT=runtime/reports/patch_767280_mvp_index_pipeline_root_cause.txt
+LOG=runtime/reports/patch_767280_mvp_index_pipeline_root_cause.log

@@ -1,0 +1,327 @@
+PATCH=767.409
+PURPOSE=Trace external ENV sources, load order and effective Qdrant collection configuration
+MODE=READ_ONLY_STATIC_ENV_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:08:44
+
+=== DISCOVERY SUMMARY ===
+FILES_SCANNED=1396
+PARSE_ERRORS=0
+DOTENV_FILES=2
+DOTENV_LOAD_CALLS=0
+IMPORT_DOTENV_CALLS=0
+ENV_ASSIGNMENTS=4
+RUNTIME_ENV_READS=0
+QDRANT_CONFIG_HITS=191
+QDRANT_CONSTRUCTORS=50
+STATIC_DEFAULT_CANDIDATES=1
+SHELL_EXPORT_HITS=0
+SERVICE_ENV_HITS=0
+DOCKER_ENV_HITS=0
+PROCESS_ENV_KEYS_PRESENT=0
+
+=== ENV FILES ===
+.env.mvp
+.env.mvp.patch_766980.bak
+
+=== DOTENV LOAD CALLS ===
+
+=== AST DOTENV LOAD ORDER ===
+
+=== ENV ASSIGNMENTS / VALUES REDACTED ===
+.env.mvp|2|DELBOT_QDRANT_PATH|/workspace/delbot/repository_data/qdrant_local
+.env.mvp|3|QDRANT_COLLECTION|delbot_documents
+.env.mvp|5|QDRANT_PATH|/workspace/delbot/repository_data/qdrant_local
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|37|QDRANT_PATH|"$ROOT/repository_data/qdrant_local"
+
+=== RUNTIME ENV READS ===
+
+=== STATIC COLLECTION CANDIDATES ===
+.env.mvp|3|QDRANT_COLLECTION=delbot_documents
+
+=== PROCESS ENV PRESENCE ===
+
+=== SHELL EXPORT HITS ===
+
+=== SERVICE ENV HITS ===
+
+=== DOCKER ENV HITS ===
+
+=== QDRANT CONFIG HITS ===
+.env.mvp|2|DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp|5|QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+delbot_platform/vectorstore/__init__.py|2|QdrantVectorStore,
+delbot_platform/vectorstore/__init__.py|10|"QdrantVectorStore",
+delbot_platform/vectorstore/qdrant/__init__.py|2|Qdrant vector-store package.
+delbot_platform/vectorstore/qdrant/__init__.py|4|The authoritative implementation is QdrantStore in singleton.py.
+delbot_platform/vectorstore/qdrant/__init__.py|5|QdrantVectorStore is retained only as a compatibility alias for existing
+delbot_platform/vectorstore/qdrant/__init__.py|9|from .singleton import QdrantStore, get_qdrant_store
+delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore = QdrantStore
+delbot_platform/vectorstore/qdrant/__init__.py|14|"QdrantStore",
+delbot_platform/vectorstore/qdrant/__init__.py|15|"QdrantVectorStore",
+delbot_platform/vectorstore/qdrant/__init__.py|16|"get_qdrant_store",
+delbot_platform/vectorstore/qdrant/repository.py|7|from delbot_platform.vectorstore.qdrant.singleton import (
+delbot_platform/vectorstore/qdrant/repository.py|8|get_qdrant_store,
+delbot_platform/vectorstore/qdrant/repository.py|25|else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py|12|class QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py|149|_store: QdrantStore | None = None
+delbot_platform/vectorstore/qdrant/singleton.py|152|def get_qdrant_store() -> QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+delbot_platform/knowledge/vector/qdrant_store.py|5|from delbot_platform.vectorstore.qdrant.singleton import (
+delbot_platform/knowledge/vector/qdrant_store.py|6|get_qdrant_store,
+delbot_platform/knowledge/vector/qdrant_store.py|10|class QdrantStore:
+delbot_platform/knowledge/vector/qdrant_store.py|17|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|11|from delbot_platform.vectorstore.qdrant.singleton import (
+delbot_platform/knowledge/vector/repository/qdrant.py|12|get_qdrant_store,
+delbot_platform/knowledge/vector/repository/qdrant.py|25|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|6|from delbot_platform.vectorstore.qdrant.singleton import (
+delbot_platform/knowledge/rag/vector_retriever.py|7|get_qdrant_store,
+delbot_platform/knowledge/rag/vector_retriever.py|17|self.store = get_qdrant_store()
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|14|class QdrantVectorStore(
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|18|Vector store backed by Qdrant.
+tools/pr_5_6_42_mvp_local_embedding_index.sh|55|client=QdrantClient(path="$DBDIR")
+tools/test_semantic_search.py|22|from delbot_platform.vectorstore.qdrant.singleton import (
+tools/test_semantic_search.py|23|get_qdrant_store,
+tools/test_semantic_search.py|61|store = get_qdrant_store()
+tools/qdrant.yaml|2|storage_path: /workspace/delbot/qdrant_storage
+tools/pr_5_1ao_qdrant_vector_commit.sh|115|os.path.join(mapping, "qdrant_vector_commit.json"),
+tools/pr_5_1ao_qdrant_vector_commit.sh|125|os.path.join(mapping, "qdrant_vector_commit_summary.json"),
+tools/pr_5_1ao_qdrant_vector_commit.sh|139|os.path.join(mapping, "qdrant_vector_commit_report.json"),
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|63|"vector_store": "Qdrant"
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|101|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|103|store = get_qdrant_store()
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|119|report["qdrant"]["collection_exists"] = (
+tools/ingest_metadata_vectors.py|20|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_metadata_vectors.py|57|store = QdrantStore(
+tools/pr_5_1ay_research_answer_pipeline_validation.sh|70|"vector_store": "Qdrant",
+tools/pr_5_1at_real_pdf_vector_commit.sh|68|"vector_store": "Qdrant"
+tools/pr_5_1at_real_pdf_vector_commit.sh|116|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1at_real_pdf_vector_commit.sh|122|store = get_qdrant_store()
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh|77|"vector_store": "Qdrant"
+tools/pr_5_1ac_embedding_pipeline_validation.sh|139|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ac_embedding_pipeline_validation.sh|141|store = get_qdrant_store()
+tools/pr_5_7_mvp_local_retrieval_engine.sh|57|client=QdrantClient(path=DB)
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|37|QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|73|qdrant_path=f"{ROOT}/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|116|path=qdrant_path
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|219|qdrant_path
+tools/ingest_pdf_vectors.py|23|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_pdf_vectors.py|46|store=QdrantStore(
+tools/pr_5_1av_retrieval_query_execution.sh|104|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1av_retrieval_query_execution.sh|106|store = get_qdrant_store()
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|107|"vector_store":"Qdrant"
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|139|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|147|store=get_qdrant_store()
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|86|"vector_store":"Qdrant"
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|150|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|158|store=get_qdrant_store()
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|60|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|62|get_qdrant_store = None
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|82|"vector_store": "Qdrant"
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|119|if get_qdrant_store:
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|120|store = get_qdrant_store()
+tools/audit_qdrant_storage.py|9|"delbot_platform/vectorstore/qdrant/client.py",
+tools/audit_qdrant_storage.py|10|"delbot_platform/vectorstore/qdrant/repository.py",
+tools/audit_qdrant_storage.py|11|"delbot_platform/vectorstore/qdrant/singleton.py",
+tools/trace_qdrant_pipeline.py|13|ROOT / "delbot_platform/vectorstore/qdrant/client.py",
+tools/trace_qdrant_pipeline.py|19|"QdrantVectorStore",
+tools/pr_5_9_mvp_repository_chat.sh|59|client=QdrantClient(path=str(dbdir))
+tools/pr_5_1au_retrieval_engine_validation.sh|93|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1au_retrieval_engine_validation.sh|95|store = get_qdrant_store()
+tools/pr_5_1aj_vector_insert_validation.sh|105|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1aj_vector_insert_validation.sh|107|store = get_qdrant_store()
+tools/pr_5_1aj_vector_insert_validation.sh|120|result["qdrant"]["collection_exists"] = True
+tools/pr_5_1aj_vector_insert_validation.sh|131|and result["qdrant"]["collection_exists"]
+tools/pr_5_1an_real_pdf_index_worker.sh|109|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1an_real_pdf_index_worker.sh|111|store = get_qdrant_store()
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|79|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|81|store = get_qdrant_store()
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|83|result["qdrant"]["store"] = True
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|84|result["qdrant"]["runtime"] = type(store).__name__
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|89|result["qdrant"]["store"] = False
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|98|result["qdrant"]["collection"] = collection
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|99|result["qdrant"]["collection_exists"] = True
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|105|result["qdrant"]["collection_exists"] = False
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|106|result["qdrant"]["collection_error"] = str(e)
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|136|result["qdrant"].get("collection_exists", False)
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|158|for c in qdrant.get_collections().collections
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|164|qdrant.create_collection(
+tools/pr_5_6_40_mvp_local_embedding_index.sh|43|local_db=os.path.join(ROOT,"repository_data/qdrant_local")
+tools/pr_5_6_40_mvp_local_embedding_index.sh|90|client=QdrantClient(path=local_db)
+reports/merge_recommendation.json|510|"delbot_platform.vectorstore.qdrant.repository"
+reports/merge_recommendation.json|658|"delbot_platform.vectorstore.qdrant.client"
+reports/architecture_index.json|339|"module": "delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+reports/architecture_index.json|340|"path": "delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+reports/architecture_index.json|3154|"path": "delbot_platform/knowledge/retrieval/qdrant.py",
+reports/architecture_index.json|3251|"module": "delbot_platform.knowledge.vector.qdrant_store",
+reports/architecture_index.json|3252|"path": "delbot_platform/knowledge/vector/qdrant_store.py",
+reports/architecture_index.json|3294|"path": "delbot_platform/knowledge/vector/repository/qdrant.py",
+reports/architecture_index.json|3882|"path": "tools/check_qdrant_payload.py",
+reports/architecture_index.json|4819|"module": "delbot_platform.vectorstore.qdrant.__init__",
+reports/architecture_index.json|4820|"path": "delbot_platform/vectorstore/qdrant/__init__.py",
+reports/architecture_index.json|4833|"module": "delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_index.json|4834|"path": "delbot_platform/vectorstore/qdrant/singleton.py",
+reports/architecture_index.json|5953|"module": "delbot_platform.vectorstore.qdrant.client",
+reports/architecture_index.json|5954|"path": "delbot_platform/vectorstore/qdrant/client.py",
+reports/architecture_index.json|5967|"module": "delbot_platform.vectorstore.qdrant.repository",
+reports/architecture_index.json|5968|"path": "delbot_platform/vectorstore/qdrant/repository.py",
+reports/architecture_dependency.json|292|"module": "delbot.delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+reports/architecture_dependency.json|2669|"delbot_platform.vectorstore.qdrant.singleton"
+reports/architecture_dependency.json|2774|"delbot_platform.vectorstore.qdrant.singleton"
+reports/architecture_dependency.json|2813|"module": "delbot.delbot_platform.knowledge.vector.qdrant_store",
+reports/architecture_dependency.json|2816|"delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_dependency.json|2850|"delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_dependency.json|3541|"delbot.delbot_platform.vectorstore.qdrant"
+reports/architecture_dependency.json|3546|"module": "delbot.delbot_platform.vectorstore.qdrant.__init__",
+reports/architecture_dependency.json|3548|"delbot.delbot_platform.vectorstore.qdrant.client",
+reports/architecture_dependency.json|3549|"delbot.delbot_platform.vectorstore.qdrant.repository",
+reports/architecture_dependency.json|3550|"delbot.delbot_platform.vectorstore.qdrant.singleton"
+reports/architecture_dependency.json|3555|"module": "delbot.delbot_platform.vectorstore.qdrant.client",
+reports/architecture_dependency.json|3565|"module": "delbot.delbot_platform.vectorstore.qdrant.repository",
+reports/architecture_dependency.json|3569|"delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_dependency.json|3576|"module": "delbot.delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_dependency.json|3579|"delbot_platform.vectorstore.qdrant.client"
+reports/architecture_dependency.json|3991|"delbot_platform.knowledge.vector.qdrant_store",
+reports/architecture_dependency.json|4005|"delbot_platform.knowledge.vector.qdrant_store",
+reports/architecture_ownership.json|432|"module": "delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+reports/architecture_ownership.json|433|"path": "delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+reports/architecture_ownership.json|4073|"path": "delbot_platform/knowledge/retrieval/qdrant.py",
+reports/architecture_ownership.json|4176|"module": "delbot_platform.knowledge.vector.qdrant_store",
+reports/architecture_ownership.json|4177|"path": "delbot_platform/knowledge/vector/qdrant_store.py",
+reports/architecture_ownership.json|4229|"path": "delbot_platform/knowledge/vector/repository/qdrant.py",
+reports/architecture_ownership.json|5320|"module": "delbot_platform.vectorstore.qdrant.__init__",
+reports/architecture_ownership.json|5321|"path": "delbot_platform/vectorstore/qdrant/__init__.py",
+reports/architecture_ownership.json|5333|"module": "delbot_platform.vectorstore.qdrant.client",
+reports/architecture_ownership.json|5334|"path": "delbot_platform/vectorstore/qdrant/client.py",
+reports/architecture_ownership.json|5346|"module": "delbot_platform.vectorstore.qdrant.repository",
+reports/architecture_ownership.json|5347|"path": "delbot_platform/vectorstore/qdrant/repository.py",
+reports/architecture_ownership.json|5359|"module": "delbot_platform.vectorstore.qdrant.singleton",
+reports/architecture_ownership.json|5360|"path": "delbot_platform/vectorstore/qdrant/singleton.py",
+reports/architecture_ownership.json|5880|"path": "tools/check_qdrant_payload.py",
+reports/safe_removal_plan.json|323|"module": "delbot_platform.ai.vector_store.providers.qdrant_vector_store",
+reports/safe_removal_plan.json|324|"path": "delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+reports/safe_removal_plan.json|2334|"path": "delbot_platform/knowledge/retrieval/qdrant.py",
+reports/safe_removal_plan.json|2403|"module": "delbot_platform.knowledge.vector.qdrant_store",
+reports/safe_removal_plan.json|2404|"path": "delbot_platform/knowledge/vector/qdrant_store.py",
+reports/safe_removal_plan.json|2434|"path": "delbot_platform/knowledge/vector/repository/qdrant.py",
+reports/safe_removal_plan.json|2854|"path": "tools/check_qdrant_payload.py",
+reports/safe_removal_plan.json|3523|"module": "delbot_platform.vectorstore.qdrant.__init__",
+reports/safe_removal_plan.json|3524|"path": "delbot_platform/vectorstore/qdrant/__init__.py",
+reports/safe_removal_plan.json|3533|"module": "delbot_platform.vectorstore.qdrant.singleton",
+reports/safe_removal_plan.json|3534|"path": "delbot_platform/vectorstore/qdrant/singleton.py",
+reports/safe_removal_plan.json|4423|"module": "delbot_platform.vectorstore.qdrant.client",
+reports/safe_removal_plan.json|4424|"path": "delbot_platform/vectorstore/qdrant/client.py",
+reports/safe_removal_plan.json|4433|"module": "delbot_platform.vectorstore.qdrant.repository",
+reports/safe_removal_plan.json|4434|"path": "delbot_platform/vectorstore/qdrant/repository.py",
+reports/architecture_inventory.json|577|"path": "/workspace/delbot/delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+reports/architecture_inventory.json|578|"relative_path": "delbot_platform/ai/vector_store/providers/qdrant_vector_store.py",
+reports/architecture_inventory.json|582|"QdrantVectorStore"
+reports/architecture_inventory.json|5251|"path": "/workspace/delbot/delbot_platform/knowledge/retrieval/qdrant.py",
+reports/architecture_inventory.json|5252|"relative_path": "delbot_platform/knowledge/retrieval/qdrant.py",
+reports/architecture_inventory.json|5373|"path": "/workspace/delbot/delbot_platform/knowledge/vector/qdrant_store.py",
+reports/architecture_inventory.json|5374|"relative_path": "delbot_platform/knowledge/vector/qdrant_store.py",
+reports/architecture_inventory.json|5378|"QdrantStore"
+reports/architecture_inventory.json|5443|"path": "/workspace/delbot/delbot_platform/knowledge/vector/repository/qdrant.py",
+reports/architecture_inventory.json|5444|"relative_path": "delbot_platform/knowledge/vector/repository/qdrant.py",
+reports/architecture_inventory.json|6823|"path": "/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py",
+reports/architecture_inventory.json|6824|"relative_path": "delbot_platform/vectorstore/qdrant/__init__.py",
+reports/architecture_inventory.json|6836|"path": "/workspace/delbot/delbot_platform/vectorstore/qdrant/client.py",
+reports/architecture_inventory.json|6837|"relative_path": "delbot_platform/vectorstore/qdrant/client.py",
+reports/architecture_inventory.json|6841|"QdrantVectorStore"
+reports/architecture_inventory.json|6864|"path": "/workspace/delbot/delbot_platform/vectorstore/qdrant/repository.py",
+reports/architecture_inventory.json|6865|"relative_path": "delbot_platform/vectorstore/qdrant/repository.py",
+reports/architecture_inventory.json|6884|"path": "/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py",
+reports/architecture_inventory.json|6885|"relative_path": "delbot_platform/vectorstore/qdrant/singleton.py",
+reports/architecture_inventory.json|6890|"get_qdrant_store"
+reports/architecture_inventory.json|7595|"path": "/workspace/delbot/tools/check_qdrant_payload.py",
+reports/architecture_inventory.json|7596|"relative_path": "tools/check_qdrant_payload.py",
+reports/duplicate_candidates.json|141|"delbot_platform.vectorstore.qdrant.repository"
+reports/duplicate_candidates.json|149|"delbot_platform/vectorstore/qdrant/repository.py"
+reports/duplicate_candidates.json|381|"delbot_platform.vectorstore.qdrant.client"
+reports/duplicate_candidates.json|386|"delbot_platform/vectorstore/qdrant/client.py"
+
+=== QDRANT CONSTRUCTOR HITS ===
+delbot_platform/vectorstore/qdrant/__init__.py|4|The authoritative implementation is QdrantStore in singleton.py.
+delbot_platform/vectorstore/qdrant/__init__.py|9|from .singleton import QdrantStore, get_qdrant_store
+delbot_platform/vectorstore/qdrant/__init__.py|11|QdrantVectorStore = QdrantStore
+delbot_platform/vectorstore/qdrant/__init__.py|14|"QdrantStore",
+delbot_platform/vectorstore/qdrant/__init__.py|16|"get_qdrant_store",
+delbot_platform/vectorstore/qdrant/repository.py|8|get_qdrant_store,
+delbot_platform/vectorstore/qdrant/repository.py|25|else get_qdrant_store()
+delbot_platform/vectorstore/qdrant/singleton.py|12|class QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py|149|_store: QdrantStore | None = None
+delbot_platform/vectorstore/qdrant/singleton.py|152|def get_qdrant_store() -> QdrantStore:
+delbot_platform/vectorstore/qdrant/singleton.py|157|_store = QdrantStore()
+delbot_platform/knowledge/vector/qdrant_store.py|6|get_qdrant_store,
+delbot_platform/knowledge/vector/qdrant_store.py|10|class QdrantStore:
+delbot_platform/knowledge/vector/qdrant_store.py|17|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|12|get_qdrant_store,
+delbot_platform/knowledge/vector/repository/qdrant.py|25|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|7|get_qdrant_store,
+delbot_platform/knowledge/rag/vector_retriever.py|17|self.store = get_qdrant_store()
+tools/test_semantic_search.py|23|get_qdrant_store,
+tools/test_semantic_search.py|61|store = get_qdrant_store()
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|101|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|103|store = get_qdrant_store()
+tools/ingest_metadata_vectors.py|20|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_metadata_vectors.py|57|store = QdrantStore(
+tools/pr_5_1at_real_pdf_vector_commit.sh|116|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1at_real_pdf_vector_commit.sh|122|store = get_qdrant_store()
+tools/pr_5_1ac_embedding_pipeline_validation.sh|139|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ac_embedding_pipeline_validation.sh|141|store = get_qdrant_store()
+tools/ingest_pdf_vectors.py|23|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+tools/ingest_pdf_vectors.py|46|store=QdrantStore(
+tools/pr_5_1av_retrieval_query_execution.sh|104|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1av_retrieval_query_execution.sh|106|store = get_qdrant_store()
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|139|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|147|store=get_qdrant_store()
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|150|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|158|store=get_qdrant_store()
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|60|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|62|get_qdrant_store = None
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|119|if get_qdrant_store:
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|120|store = get_qdrant_store()
+tools/pr_5_1au_retrieval_engine_validation.sh|93|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1au_retrieval_engine_validation.sh|95|store = get_qdrant_store()
+tools/pr_5_1aj_vector_insert_validation.sh|105|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1aj_vector_insert_validation.sh|107|store = get_qdrant_store()
+tools/pr_5_1an_real_pdf_index_worker.sh|109|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1an_real_pdf_index_worker.sh|111|store = get_qdrant_store()
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|79|from delbot_platform.vectorstore.qdrant.singleton import get_qdrant_store
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|81|store = get_qdrant_store()
+reports/architecture_inventory.json|5378|"QdrantStore"
+reports/architecture_inventory.json|6890|"get_qdrant_store"
+
+=== PARSE ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=STATIC_AND_ENV_CANDIDATES_FOUND_LOAD_ORDER_UNCONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_PROCESS_LAUNCH_ENV_SOURCE
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

@@ -1,0 +1,849 @@
+PATCH=767.427
+PURPOSE=Identify existing PDF document-intelligence API for MVP indexer repair
+MODE=READ_ONLY_TARGETED_SOURCE_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:02:39
+
+=== FILES ===
+PYTHON_FILES=141
+
+=== PARSE ===
+PARSE_ERRORS=0
+
+=== DEFINITIONS ===
+DEFINITION_COUNT=20
+delbot_platform/document_intelligence/chunker/chunked_document.py:9:ClassDef:ChunkedDocument
+delbot_platform/document_intelligence/chunker/document_chunker.py:9:ClassDef:DocumentChunker
+delbot_platform/document_intelligence/chunker/document_chunker.py:11:FunctionDef:chunk
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:10:ClassDef:PDFChunker
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:12:FunctionDef:chunk
+delbot_platform/document_intelligence/indexer/document_indexer.py:9:ClassDef:DocumentIndexer
+delbot_platform/document_intelligence/indexer/document_indexer.py:11:FunctionDef:index
+delbot_platform/document_intelligence/indexer/indexed_document.py:7:ClassDef:IndexedDocument
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:8:ClassDef:PDFIndexer
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:10:FunctionDef:index
+delbot_platform/document_intelligence/loader/pdf_loader.py:16:ClassDef:PDFLoader
+delbot_platform/document_intelligence/metadata/document_metadata.py:9:ClassDef:DocumentMetadata
+delbot_platform/document_intelligence/metadata/metadata_result.py:10:ClassDef:MetadataResult
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:10:ClassDef:PDFMetadata
+delbot_platform/document_intelligence/models/semantic_chunk.py:15:ClassDef:SemanticChunk
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:12:ClassDef:SemanticChunkCollection
+delbot_platform/document_intelligence/pipeline/document_pipeline.py:9:ClassDef:DocumentPipeline
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:19:ClassDef:PDFPipeline
+tools/batch_ingest_parallel.py:31:FunctionDef:process_pdf
+tools/test_citation_builder.py:61:AsyncFunctionDef:build_query_embedding
+
+=== IMPORTS ===
+IMPORT_COUNT=110
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py:8:from delbot_platform.document_intelligence.backend.backend import Backend
+delbot_platform/document_intelligence/chunker/__init__.py:1:from document_chunker import DocumentChunker
+delbot_platform/document_intelligence/chunker/__init__.py:2:from chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/chunker/__init__.py:3:from pdf_chunker import PDFChunker
+delbot_platform/document_intelligence/chunker/chunked_document.py:5:from parser.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/chunker/document_chunker.py:5:from parser.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/chunker/document_chunker.py:6:from chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:4:from models.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:7:from document_chunker import DocumentChunker
+delbot_platform/document_intelligence/indexer/__init__.py:1:from document_indexer import DocumentIndexer
+delbot_platform/document_intelligence/indexer/__init__.py:2:from indexed_document import IndexedDocument
+delbot_platform/document_intelligence/indexer/__init__.py:3:from pdf_indexer import PDFIndexer
+delbot_platform/document_intelligence/indexer/document_indexer.py:6:from indexed_document import IndexedDocument
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:4:from document_indexer import DocumentIndexer
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:5:from indexed_document import IndexedDocument
+delbot_platform/document_intelligence/loader/__init__.py:1:from document_loader import DocumentLoader
+delbot_platform/document_intelligence/loader/__init__.py:2:from loaded_document import LoadedDocument
+delbot_platform/document_intelligence/loader/__init__.py:3:from pdf_loader import PDFLoader
+delbot_platform/document_intelligence/loader/document_loader.py:7:from delbot_platform.document_intelligence.loader.loaded_document import LoadedDocument
+delbot_platform/document_intelligence/loader/pdf_loader.py:5:from delbot_platform.document_intelligence.backend.pdf.pymupdf_backend import PyMuPDFBackend
+delbot_platform/document_intelligence/loader/pdf_loader.py:8:from delbot_platform.document_intelligence.loader.document_loader import DocumentLoader
+delbot_platform/document_intelligence/loader/pdf_loader.py:11:from delbot_platform.document_intelligence.loader.loaded_document import LoadedDocument
+delbot_platform/document_intelligence/mapper/__init__.py:1:from delbot_platform.document_intelligence.mapper.layout_mapper import LayoutMapper
+delbot_platform/document_intelligence/mapper/__init__.py:4:from delbot_platform.document_intelligence.mapper.pymupdf_mapper import PyMuPDFMapper
+delbot_platform/document_intelligence/mapper/layout_mapper.py:7:from delbot_platform.document_intelligence.models.page import Page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:5:from delbot_platform.document_intelligence.mapper.layout_mapper import LayoutMapper
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:8:from delbot_platform.document_intelligence.models.block import Block
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:11:from delbot_platform.document_intelligence.models.bounding_box import BoundingBox
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:14:from delbot_platform.document_intelligence.models.line import Line
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:17:from delbot_platform.document_intelligence.models.page import Page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:20:from delbot_platform.document_intelligence.models.span import Span
+delbot_platform/document_intelligence/metadata/__init__.py:1:from document_metadata import DocumentMetadata
+delbot_platform/document_intelligence/metadata/__init__.py:3:from pdf_metadata import PDFMetadata
+delbot_platform/document_intelligence/metadata/document_metadata.py:5:from chunker.chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/metadata/metadata_result.py:6:from chunker.chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:6:from document_metadata import DocumentMetadata
+delbot_platform/document_intelligence/models/__init__.py:1:from delbot_platform.document_intelligence.models.block import Block
+delbot_platform/document_intelligence/models/__init__.py:2:from delbot_platform.document_intelligence.models.bounding_box import BoundingBox
+delbot_platform/document_intelligence/models/__init__.py:3:from delbot_platform.document_intelligence.models.heading import Heading
+delbot_platform/document_intelligence/models/__init__.py:4:from delbot_platform.document_intelligence.models.heading_collection import HeadingCollection
+delbot_platform/document_intelligence/models/__init__.py:5:from delbot_platform.document_intelligence.models.heading_level import HeadingLevel
+delbot_platform/document_intelligence/models/__init__.py:6:from delbot_platform.document_intelligence.models.layout_statistics import LayoutStatistics
+delbot_platform/document_intelligence/models/__init__.py:7:from delbot_platform.document_intelligence.models.line import Line
+delbot_platform/document_intelligence/models/__init__.py:8:from delbot_platform.document_intelligence.models.page import Page
+delbot_platform/document_intelligence/models/__init__.py:9:from delbot_platform.document_intelligence.models.paragraph import Paragraph
+delbot_platform/document_intelligence/models/__init__.py:10:from delbot_platform.document_intelligence.models.paragraph_collection import ParagraphCollection
+delbot_platform/document_intelligence/models/__init__.py:11:from delbot_platform.document_intelligence.models.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/models/__init__.py:12:from delbot_platform.document_intelligence.models.semantic_chunk import SemanticChunk
+delbot_platform/document_intelligence/models/__init__.py:13:from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/models/__init__.py:14:from delbot_platform.document_intelligence.models.span import Span
+delbot_platform/document_intelligence/models/block.py:6:from delbot_platform.document_intelligence.models.line import Line
+delbot_platform/document_intelligence/models/heading.py:5:from delbot_platform.document_intelligence.models.heading_level import HeadingLevel
+delbot_platform/document_intelligence/models/heading_collection.py:6:from delbot_platform.document_intelligence.models.heading import Heading
+delbot_platform/document_intelligence/models/line.py:6:from delbot_platform.document_intelligence.models.span import Span
+delbot_platform/document_intelligence/models/page.py:7:from delbot_platform.document_intelligence.models.block import Block
+delbot_platform/document_intelligence/models/paragraph.py:5:from delbot_platform.document_intelligence.models.heading import Heading
+delbot_platform/document_intelligence/models/paragraph_collection.py:6:from delbot_platform.document_intelligence.models.paragraph import Paragraph
+delbot_platform/document_intelligence/models/parsed_document.py:7:from loader.loaded_document import LoadedDocument
+delbot_platform/document_intelligence/models/semantic_chunk.py:6:from delbot_platform.document_intelligence.models.heading import Heading
+delbot_platform/document_intelligence/models/semantic_chunk.py:9:from delbot_platform.document_intelligence.models.paragraph import Paragraph
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:6:from delbot_platform.document_intelligence.models.semantic_chunk import SemanticChunk
+delbot_platform/document_intelligence/models/span.py:7:from delbot_platform.document_intelligence.models.bounding_box import BoundingBox
+delbot_platform/document_intelligence/parser/__init__.py:1:from document_parser import DocumentParser
+delbot_platform/document_intelligence/parser/__init__.py:2:from parsed_document import ParsedDocument
+delbot_platform/document_intelligence/parser/__init__.py:3:from pdf_parser import PDFParser
+delbot_platform/document_intelligence/parser/document_parser.py:5:from parsed_document import ParsedDocument
+delbot_platform/document_intelligence/parser/document_parser.py:6:from loader.loaded_document import LoadedDocument
+delbot_platform/document_intelligence/parser/pdf_parser.py:3:from loader.loaded_document import LoadedDocument
+delbot_platform/document_intelligence/parser/pdf_parser.py:9:from models.parsed_document import ParsedDocument
+delbot_platform/document_intelligence/parser/pdf_parser.py:12:from document_parser import DocumentParser
+delbot_platform/document_intelligence/pipeline/__init__.py:1:from document_pipeline import DocumentPipeline
+delbot_platform/document_intelligence/pipeline/__init__.py:2:from pdf_pipeline import PDFPipeline
+delbot_platform/document_intelligence/pipeline/document_pipeline.py:5:from documents.models.document import Document
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:3:from documents.models.document import Document
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:15:from document_pipeline import DocumentPipeline
+delbot_platform/document_intelligence/pipeline/pipeline_result.py:5:from indexer.indexed_document import IndexedDocument
+tools/audit_heading_classifier.py:6:from delbot_platform.documents.classification.heading import HeadingClassifier
+tools/audit_heading_classifier.py:7:from delbot_platform.documents.extraction.service import DocumentExtractionService
+tools/audit_heading_classifier.py:8:from delbot_platform.documents.models.block import Block
+tools/batch_ingest_parallel.py:16:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+tools/batch_ingest_pdf.py:8:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+tools/batch_ingest_repository.py:14:from delbot_platform.documents.pipeline.indexing import DocumentIndexingPipeline
+tools/debug_qdrant_runtime.py:18:from delbot_platform.repository.integration.document_loader import RepositoryDocumentLoader
+tools/debug_qdrant_runtime.py:21:from delbot_platform.documents.pipeline.indexing import DocumentIndexingPipeline
+tools/ingest_pdf_vectors.py:19:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+tools/inspect_document_chunk.py:13:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/inspect_embedding_pipeline.py:13:from delbot_platform.documents.embedding.pipeline.pipeline import EmbeddingPipeline
+tools/inspect_embedding_vector.py:13:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/inspect_embedding_vector.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import EmbeddingPipeline
+tools/test_citation_builder.py:63:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_citation_builder.py:67:from delbot_platform.documents.embedding.pipeline.pipeline import EmbeddingPipeline
+tools/test_citation_builder.py:104:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_citation_builder.py:107:from delbot_platform.documents.metadata.mapper.chunk_metadata_mapper import ChunkMetadataMapper
+tools/test_citation_runtime.py:66:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_citation_runtime.py:67:from delbot_platform.documents.metadata.chunk_metadata import ChunkMetadata
+tools/test_document_pipeline.py:17:from delbot_platform.documents.pipeline.indexing import DocumentIndexingPipeline
+tools/test_document_pipeline_batch.py:14:from delbot_platform.documents.pipeline.indexing import DocumentIndexingPipeline
+tools/test_ingest.py:12:from delbot_platform.document.ingestion.qdrant_ingest import QdrantIngest
+tools/test_pdf_extract.py:15:from delbot_platform.document.pipeline.pdf_loader import PDFLoader
+tools/test_pdf_ingest.py:15:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+tools/test_pdf_ingest_single.py:15:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+tools/test_pdf_ocr.py:16:from delbot_platform.document.pipeline.pdf_loader import PDFLoader
+tools/test_pr41b_batch_index.py:15:from delbot_platform.api.routers.document import BatchIndexRequest,index_all
+tools/test_qdrant_storage.py:13:from delbot_platform.documents.pipeline.indexing import DocumentIndexingPipeline
+tools/test_qdrant_storage.py:16:from delbot_platform.repository.integration.document_loader import RepositoryDocumentLoader
+tools/test_rag_pipeline.py:97:from delbot_platform.documents.embedding.pipeline.pipeline import EmbeddingPipeline
+tools/test_rag_pipeline.py:101:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_rag_pipeline.py:146:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_semantic_search.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import EmbeddingPipeline
+tools/test_semantic_search.py:19:from delbot_platform.documents.models.document_chunk import DocumentChunk
+
+=== CALLABLES ===
+CALLABLE_COUNT=249
+delbot_platform/document_intelligence/backend/backend.py:12:open
+delbot_platform/document_intelligence/backend/backend.py:27:close
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py:15:open
+delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py:25:close
+delbot_platform/document_intelligence/chunker/document_chunker.py:11:chunk
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:12:chunk
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:49:CALL:SemanticChunkCollection
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:39:CALL:SemanticChunk
+delbot_platform/document_intelligence/indexer/document_indexer.py:11:index
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:10:index
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:15:CALL:IndexedDocument
+delbot_platform/document_intelligence/loader/document_loader.py:15:load
+delbot_platform/document_intelligence/loader/pdf_loader.py:18:load
+delbot_platform/document_intelligence/mapper/layout_mapper.py:15:build_page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:27:build_page
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:54:_map_block
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:73:_map_line
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:92:_map_span
+delbot_platform/document_intelligence/metadata/document_metadata.py:11:extract
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:12:extract
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:39:CALL:MetadataResult
+delbot_platform/document_intelligence/models/heading_collection.py:21:__iter__
+delbot_platform/document_intelligence/models/heading_collection.py:24:__len__
+delbot_platform/document_intelligence/models/heading_collection.py:27:add
+delbot_platform/document_intelligence/models/paragraph_collection.py:21:__iter__
+delbot_platform/document_intelligence/models/paragraph_collection.py:24:__len__
+delbot_platform/document_intelligence/models/paragraph_collection.py:27:add
+delbot_platform/document_intelligence/models/semantic_chunk.py:38:paragraph_count
+delbot_platform/document_intelligence/models/semantic_chunk.py:46:character_count
+delbot_platform/document_intelligence/models/semantic_chunk.py:54:word_count
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:18:__iter__
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:25:__len__
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:32:add
+delbot_platform/document_intelligence/parser/document_parser.py:11:parse
+delbot_platform/document_intelligence/parser/pdf_parser.py:17:parse
+delbot_platform/document_intelligence/pipeline/document_pipeline.py:11:process
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:21:process
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:29:CALL:chunk
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:31:CALL:index
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:26:CALL:PDFLoader
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:29:CALL:PDFChunker
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:30:CALL:PDFMetadata
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:31:CALL:PDFIndexer
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:33:CALL:EmbeddingBuilder
+tools/architecture/circular.py:12:__init__
+tools/architecture/circular.py:28:analyze
+tools/architecture/circular.py:55:_initialize
+tools/architecture/circular.py:71:_strong_connect
+tools/architecture/dependency.py:60:write_json
+tools/architecture/dependency.py:91:write_csv
+tools/architecture/dependency.py:126:write_markdown
+tools/architecture/dependency.py:182:main
+tools/architecture/dependency.py:20:analyze
+tools/architecture/doctor.py:15:analyze
+tools/architecture/duplicate.py:64:load_json
+tools/architecture/duplicate.py:76:normalize
+tools/architecture/duplicate.py:94:should_ignore
+tools/architecture/duplicate.py:102:build_groups
+tools/architecture/duplicate.py:123:classify
+tools/architecture/duplicate.py:179:write_json
+tools/architecture/duplicate.py:196:write_csv
+tools/architecture/duplicate.py:234:write_markdown
+tools/architecture/duplicate.py:277:main
+tools/architecture/filter.py:18:filter_python_sources
+tools/architecture/filter.py:44:_is_python_source
+tools/architecture/graph.py:19:has
+tools/architecture/graph.py:26:nodes
+tools/architecture/graph.py:32:edges
+tools/architecture/graph.py:50:dependencies
+tools/architecture/graph.py:62:dependents
+tools/architecture/graph.py:74:neighbors
+tools/architecture/graph.py:85:out_degree
+tools/architecture/graph.py:97:in_degree
+tools/architecture/graph.py:109:is_root
+tools/architecture/graph.py:116:is_leaf
+tools/architecture/graph.py:139:build
+tools/architecture/graph_filter.py:8:internal
+tools/architecture/index.py:15:load_json
+tools/architecture/index.py:29:build_duplicate_lookup
+tools/architecture/index.py:48:build_merge_lookup
+tools/architecture/index.py:66:status_of
+tools/architecture/index.py:94:build
+tools/architecture/index.py:208:write_json
+tools/architecture/index.py:234:write_csv
+tools/architecture/index.py:264:write_markdown
+tools/architecture/index.py:362:main
+tools/architecture/inventory.py:199:write_json
+tools/architecture/inventory.py:243:write_csv
+tools/architecture/inventory.py:298:write_markdown
+tools/architecture/inventory.py:347:main
+tools/architecture/inventory.py:37:build
+tools/architecture/inventory.py:79:_excluded
+tools/architecture/inventory.py:89:_categorize
+tools/architecture/inventory.py:125:scan
+tools/architecture/layer.py:12:analyze
+tools/architecture/legacy_package_detector.py:10:load_json
+tools/architecture/legacy_package_detector.py:19:classify
+tools/architecture/legacy_package_detector.py:67:build
+tools/architecture/legacy_package_detector.py:116:write_json
+tools/architecture/legacy_package_detector.py:130:write_csv
+tools/architecture/legacy_package_detector.py:148:write_markdown
+tools/architecture/legacy_package_detector.py:225:main
+tools/architecture/merge_recommendation.py:15:load_json
+tools/architecture/merge_recommendation.py:29:dependency_score
+tools/architecture/merge_recommendation.py:38:ownership_score
+tools/architecture/merge_recommendation.py:50:recommend
+tools/architecture/merge_recommendation.py:93:build
+tools/architecture/merge_recommendation.py:159:write_json
+tools/architecture/merge_recommendation.py:185:write_csv
+tools/architecture/merge_recommendation.py:247:write_markdown
+tools/architecture/merge_recommendation.py:299:main
+tools/architecture/metrics.py:12:analyze
+tools/architecture/ownership.py:12:load_json
+tools/architecture/ownership.py:23:detect_layer
+tools/architecture/ownership.py:57:detect_component
+tools/architecture/ownership.py:97:main
+tools/architecture/package_detector.py:11:load_json
+tools/architecture/package_detector.py:20:package_name
+tools/architecture/package_detector.py:30:build
+tools/architecture/package_detector.py:107:write_json
+tools/architecture/package_detector.py:121:write_csv
+tools/architecture/package_detector.py:152:write_markdown
+tools/architecture/package_detector.py:189:main
+tools/architecture/pipeline.py:18:analyze
+tools/architecture/resolver.py:9:resolve
+tools/architecture/resolver.py:43:_resolve_base
+tools/architecture/safe_removal_planner.py:10:load_json
+tools/architecture/safe_removal_planner.py:15:classify
+tools/architecture/safe_removal_planner.py:42:build
+tools/architecture/safe_removal_planner.py:78:write_json
+tools/architecture/safe_removal_planner.py:92:write_csv
+tools/architecture/safe_removal_planner.py:110:write_markdown
+tools/architecture/safe_removal_planner.py:177:main
+tools/architecture/scanner.py:13:__init__
+tools/architecture/scanner.py:21:scan
+tools/architecture/tests/test_circular.py:8:build_graph
+tools/architecture/tests/test_circular.py:43:cycles
+tools/architecture/tests/test_circular.py:57:test_no_cycle
+tools/architecture/tests/test_circular.py:70:test_two_node_cycle
+tools/architecture/tests/test_circular.py:84:test_three_node_cycle
+tools/architecture/tests/test_circular.py:99:test_multiple_cycles
+tools/architecture/tests/test_circular.py:116:test_self_loop_ignored
+tools/architecture/tests/test_layer.py:11:build_graph
+tools/architecture/tests/test_layer.py:48:analyze
+tools/architecture/tests/test_layer.py:63:test_valid_dependency
+tools/architecture/tests/test_layer.py:87:test_single_violation
+tools/architecture/tests/test_layer.py:111:test_multiple_violations
+tools/architecture/tests/test_layer.py:136:test_missing_layer_mapping
+tools/architecture/tests/test_layer.py:154:test_unknown_rule
+tools/architecture/tests/test_metrics.py:11:build_graph
+tools/architecture/tests/test_metrics.py:48:metrics
+tools/architecture/tests/test_metrics.py:62:test_linear_graph
+tools/architecture/tests/test_metrics.py:87:test_isolated_node
+tools/architecture/tests/test_metrics.py:104:test_fan_in
+tools/architecture/tests/test_metrics.py:119:test_fan_out
+tools/architecture/tests/test_metrics.py:134:test_mixed_graph
+tools/architecture/tests/test_pipeline.py:8:write
+tools/architecture/tests/test_pipeline.py:27:test_pipeline_without_cycle
+tools/architecture/tests/test_pipeline.py:61:test_pipeline_with_cycle
+tools/architecture/tests/test_pipeline.py:92:test_pipeline_layer_violation
+tools/audit_chunk_metadata_mapper.py:86:visit_Call
+tools/audit_heading_classifier.py:36:iter_pdfs
+tools/audit_heading_classifier.py:40:suspicious
+tools/audit_heading_classifier.py:45:audit_pdf
+tools/audit_heading_classifier.py:84:merge_counter
+tools/audit_heading_classifier.py:88:merge_list
+tools/audit_heading_classifier.py:95:print_section
+tools/audit_heading_classifier.py:109:main
+tools/audit_pdf_index_mapping.py:98:walk
+tools/audit_pdf_mapping.py:122:walk
+tools/audit_pdf_mapping_v2.py:169:walk
+tools/audit_rag_llm_integration.py:32:header
+tools/audit_rag_llm_integration.py:39:walk_calls
+tools/audit_rag_llm_integration.py:43:visit_Call
+tools/batch_ingest_parallel.py:31:process_pdf
+tools/batch_ingest_parallel.py:57:main
+tools/batch_ingest_pdf.py:18:main
+tools/batch_ingest_repository.py:25:main
+tools/batch_ingest_repository.py:33:CALL:DocumentIndexingPipeline
+tools/batch_ingest_repository.py:59:CALL:index
+tools/debug/inspect_pymupdf_span.py:9:main
+tools/debug_qdrant_runtime.py:29:main
+tools/debug_qdrant_runtime.py:46:CALL:DocumentIndexingPipeline
+tools/debug_qdrant_runtime.py:48:CALL:index
+tools/ingest_metadata_vectors.py:33:main
+tools/ingest_metadata_vectors.py:54:CALL:EmbeddingClient
+tools/ingest_metadata_vectors.py:124:CALL:embed
+tools/ingest_pdf_vectors.py:33:main
+tools/ingest_pdf_vectors.py:44:CALL:EmbeddingClient
+tools/ingest_pdf_vectors.py:89:CALL:embed
+tools/inspect_embedding_pipeline.py:93:CALL:EmbeddingPipeline
+tools/inspect_embedding_vector.py:25:main
+tools/inspect_embedding_vector.py:30:CALL:EmbeddingPipeline
+tools/inspect_embedding_vector.py:32:CALL:DocumentChunk
+tools/inspect_retriever_api.py:66:visit_Call
+tools/test_async_research_pipeline.py:15:main
+tools/test_citation_builder.py:17:locate_builder
+tools/test_citation_builder.py:61:build_query_embedding
+tools/test_citation_builder.py:88:perform_search
+tools/test_citation_builder.py:184:invoke_builder
+tools/test_citation_builder.py:229:main
+tools/test_citation_builder.py:71:CALL:DocumentChunk
+tools/test_citation_builder.py:79:CALL:EmbeddingPipeline
+tools/test_citation_builder.py:141:CALL:DocumentChunk
+tools/test_citation_builder.py:266:CALL:build_query_embedding
+tools/test_citation_runtime.py:69:CALL:ChunkMetadata
+tools/test_citation_runtime.py:77:CALL:DocumentChunk
+tools/test_document_pipeline.py:25:print_header
+tools/test_document_pipeline.py:34:main
+tools/test_document_pipeline.py:55:CALL:DocumentIndexingPipeline
+tools/test_document_pipeline.py:59:CALL:index
+tools/test_document_pipeline_batch.py:23:main
+tools/test_document_pipeline_batch.py:36:CALL:DocumentIndexingPipeline
+tools/test_document_pipeline_batch.py:55:CALL:index_with_summary
+tools/test_e2e_production_pipeline.py:14:main
+tools/test_pdf_extract.py:30:CALL:PDFLoader
+tools/test_pdf_ocr.py:28:CALL:PDFLoader
+tools/test_pr41a_repository_scan_api.py:18:main
+tools/test_pr41b_batch_index.py:21:main
+tools/test_pr41b_batch_index.py:23:CALL:index_all
+tools/test_pr41b_batch_index.py:24:CALL:BatchIndexRequest
+tools/test_production_application.py:24:main
+tools/test_production_fastapi_endpoint.py:38:main
+tools/test_qdrant_storage.py:24:main
+tools/test_qdrant_storage.py:45:CALL:DocumentIndexingPipeline
+tools/test_qdrant_storage.py:49:CALL:index_with_summary
+tools/test_rag_end_to_end.py:75:CALL:DocumentChunk
+tools/test_rag_llm_pipeline.py:14:main
+tools/test_rag_pipeline.py:22:banner
+tools/test_rag_pipeline.py:109:CALL:DocumentChunk
+tools/test_rag_pipeline.py:117:CALL:EmbeddingPipeline
+tools/test_rag_pipeline.py:156:CALL:DocumentChunk
+tools/test_repository_explorer.py:16:main
+tools/test_research_engine.py:22:main
+tools/test_research_router.py:17:main
+tools/test_retrieval.py:19:main
+tools/test_retriever_engine.py:19:main
+tools/test_retriever_runtime.py:20:locate_retriever
+tools/test_retriever_runtime.py:71:discover_public_methods
+tools/test_retriever_runtime.py:88:invoke
+tools/test_retriever_runtime.py:161:main
+tools/test_semantic_search.py:29:main
+tools/test_semantic_search.py:37:CALL:DocumentChunk
+tools/test_semantic_search.py:48:CALL:EmbeddingPipeline
+tools/trace_qdrant_pipeline.py:31:__init__
+tools/trace_qdrant_pipeline.py:36:visit_ClassDef
+tools/trace_qdrant_pipeline.py:40:visit_FunctionDef
+tools/trace_qdrant_pipeline.py:44:visit_AsyncFunctionDef
+tools/trace_qdrant_pipeline.py:48:visit_Call
+
+=== TARGETED SOURCE MATCHES ===
+MATCH_COUNT=405
+delbot_platform/document_intelligence/chunker/__init__.py:1:from .document_chunker import DocumentChunker
+delbot_platform/document_intelligence/chunker/__init__.py:2:from .chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/chunker/__init__.py:3:from .pdf_chunker import PDFChunker
+delbot_platform/document_intelligence/chunker/__init__.py:6:"DocumentChunker",
+delbot_platform/document_intelligence/chunker/__init__.py:7:"ChunkedDocument",
+delbot_platform/document_intelligence/chunker/__init__.py:8:"PDFChunker",
+delbot_platform/document_intelligence/chunker/chunked_document.py:9:class ChunkedDocument:
+delbot_platform/document_intelligence/chunker/chunked_document.py:11:chunks: list
+delbot_platform/document_intelligence/chunker/chunked_document.py:12:metadata: dict
+delbot_platform/document_intelligence/chunker/document_chunker.py:6:from .chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/chunker/document_chunker.py:9:class DocumentChunker(ABC):
+delbot_platform/document_intelligence/chunker/document_chunker.py:11:def chunk(
+delbot_platform/document_intelligence/chunker/document_chunker.py:14:) -> ChunkedDocument:
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:5:from ..models.semantic_chunk import SemanticChunk
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:6:from ..models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:7:from .document_chunker import DocumentChunker
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:10:class PDFChunker(DocumentChunker):
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:12:def chunk(
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:15:) -> SemanticChunkCollection:
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:17:chunks = []
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:38:chunks.append(
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:39:SemanticChunk(
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:45:metadata={},
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:49:return SemanticChunkCollection(
+delbot_platform/document_intelligence/chunker/pdf_chunker.py:50:chunks=chunks,
+delbot_platform/document_intelligence/indexer/__init__.py:1:from .document_indexer import DocumentIndexer
+delbot_platform/document_intelligence/indexer/__init__.py:2:from .indexed_document import IndexedDocument
+delbot_platform/document_intelligence/indexer/__init__.py:3:from .pdf_indexer import PDFIndexer
+delbot_platform/document_intelligence/indexer/__init__.py:6:"DocumentIndexer",
+delbot_platform/document_intelligence/indexer/__init__.py:7:"IndexedDocument",
+delbot_platform/document_intelligence/indexer/__init__.py:8:"PDFIndexer",
+delbot_platform/document_intelligence/indexer/document_indexer.py:5:from ..metadata.metadata_result import MetadataResult
+delbot_platform/document_intelligence/indexer/document_indexer.py:6:from .indexed_document import IndexedDocument
+delbot_platform/document_intelligence/indexer/document_indexer.py:9:class DocumentIndexer(ABC):
+delbot_platform/document_intelligence/indexer/document_indexer.py:11:def index(
+delbot_platform/document_intelligence/indexer/document_indexer.py:13:document: MetadataResult,
+delbot_platform/document_intelligence/indexer/document_indexer.py:14:) -> IndexedDocument:
+delbot_platform/document_intelligence/indexer/indexed_document.py:7:class IndexedDocument:
+delbot_platform/document_intelligence/indexer/indexed_document.py:9:index: object
+delbot_platform/document_intelligence/indexer/indexed_document.py:10:metadata: dict
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:3:from ..metadata.metadata_result import MetadataResult
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:4:from .document_indexer import DocumentIndexer
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:5:from .indexed_document import IndexedDocument
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:8:class PDFIndexer(DocumentIndexer):
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:10:def index(
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:12:document: MetadataResult,
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:13:) -> IndexedDocument:
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:15:return IndexedDocument(
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:17:index=document.sections,
+delbot_platform/document_intelligence/indexer/pdf_indexer.py:18:metadata=document.metadata,
+delbot_platform/document_intelligence/loader/__init__.py:3:from .pdf_loader import PDFLoader
+delbot_platform/document_intelligence/loader/loaded_document.py:16:metadata: dict[str, Any] = field(
+delbot_platform/document_intelligence/loader/pdf_loader.py:16:class PDFLoader(DocumentLoader):
+delbot_platform/document_intelligence/mapper/layout_mapper.py:17:page_index: int,
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:29:page_index: int,
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:34:page_index=page_index,
+delbot_platform/document_intelligence/mapper/pymupdf_mapper.py:35:page_number=page_index + 1,
+delbot_platform/document_intelligence/metadata/__init__.py:1:from .document_metadata import DocumentMetadata
+delbot_platform/document_intelligence/metadata/__init__.py:2:from .metadata_result import MetadataResult
+delbot_platform/document_intelligence/metadata/__init__.py:3:from .pdf_metadata import PDFMetadata
+delbot_platform/document_intelligence/metadata/__init__.py:6:"DocumentMetadata",
+delbot_platform/document_intelligence/metadata/__init__.py:7:"MetadataResult",
+delbot_platform/document_intelligence/metadata/__init__.py:8:"PDFMetadata",
+delbot_platform/document_intelligence/metadata/document_metadata.py:5:from ..chunker.chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/metadata/document_metadata.py:6:from .metadata_result import MetadataResult
+delbot_platform/document_intelligence/metadata/document_metadata.py:9:class DocumentMetadata(ABC):
+delbot_platform/document_intelligence/metadata/document_metadata.py:13:document: ChunkedDocument,
+delbot_platform/document_intelligence/metadata/document_metadata.py:14:) -> MetadataResult:
+delbot_platform/document_intelligence/metadata/metadata_result.py:6:from ..chunker.chunked_document import ChunkedDocument
+delbot_platform/document_intelligence/metadata/metadata_result.py:10:class MetadataResult:
+delbot_platform/document_intelligence/metadata/metadata_result.py:11:source_document: ChunkedDocument
+delbot_platform/document_intelligence/metadata/metadata_result.py:12:metadata: dict[str, Any]
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:3:from ..models.semantic_chunk_collection import (
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:4:SemanticChunkCollection,
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:6:from .document_metadata import DocumentMetadata
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:7:from .metadata_result import MetadataResult
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:10:class PDFMetadata(DocumentMetadata):
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:14:document: SemanticChunkCollection,
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:15:) -> MetadataResult:
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:17:chunks = document.chunks
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:22:if chunks:
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:24:chunk.page_start
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:25:for chunk in chunks
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:29:chunk.page_end
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:30:for chunk in chunks
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:33:metadata = {
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:34:"chunk_count": len(chunks),
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:39:return MetadataResult(
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:41:metadata=metadata,
+delbot_platform/document_intelligence/metadata/pdf_metadata.py:42:sections=chunks,
+delbot_platform/document_intelligence/models/__init__.py:12:from delbot_platform.document_intelligence.models.semantic_chunk import SemanticChunk
+delbot_platform/document_intelligence/models/__init__.py:13:from delbot_platform.document_intelligence.models.semantic_chunk_collection import SemanticChunkCollection
+delbot_platform/document_intelligence/models/__init__.py:28:"SemanticChunk",
+delbot_platform/document_intelligence/models/__init__.py:29:"SemanticChunkCollection",
+delbot_platform/document_intelligence/models/heading.py:16:Layout-specific metadata remains inside parser artifacts.
+delbot_platform/document_intelligence/models/page.py:15:page_index: int
+delbot_platform/document_intelligence/models/page.py:25:metadata: dict[str, Any] = field(
+delbot_platform/document_intelligence/models/semantic_chunk.py:15:class SemanticChunk:
+delbot_platform/document_intelligence/models/semantic_chunk.py:17:Represents one semantic chunk that will later be embedded
+delbot_platform/document_intelligence/models/semantic_chunk.py:18:and indexed into the vector database.
+delbot_platform/document_intelligence/models/semantic_chunk.py:33:metadata: dict[str, object] = field(
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:6:from delbot_platform.document_intelligence.models.semantic_chunk import (
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:7:SemanticChunk,
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:12:class SemanticChunkCollection:
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:14:chunks: list[SemanticChunk] = field(
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:22:self.chunks,
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:29:self.chunks,
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:34:chunk: SemanticChunk,
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:36:self.chunks.append(
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py:37:chunk,
+delbot_platform/document_intelligence/models/span.py:27:metadata: dict[str, Any] = field(
+delbot_platform/document_intelligence/parser/parsed_document.py:11:metadata: dict[str, Any] = field(default_factory=dict)
+delbot_platform/document_intelligence/parser/pdf_parser.py:26:for page_index in range(len(pdf)):
+delbot_platform/document_intelligence/parser/pdf_parser.py:28:fitz_page = pdf.load_page(page_index)
+delbot_platform/document_intelligence/parser/pdf_parser.py:89:page_index=page_index,
+delbot_platform/document_intelligence/parser/pdf_parser.py:90:page_number=page_index + 1,
+delbot_platform/document_intelligence/parser/pdf_parser.py:93:metadata={},
+delbot_platform/document_intelligence/pipeline/__init__.py:1:from .document_pipeline import DocumentPipeline
+delbot_platform/document_intelligence/pipeline/__init__.py:2:from .pdf_pipeline import PDFPipeline
+delbot_platform/document_intelligence/pipeline/__init__.py:6:"DocumentPipeline",
+delbot_platform/document_intelligence/pipeline/__init__.py:7:"PDFPipeline",
+delbot_platform/document_intelligence/pipeline/document_pipeline.py:9:class DocumentPipeline(ABC):
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:5:from delbot_platform.ai.embedding.embedding_builder import (
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:6:EmbeddingBuilder,
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:9:from ..chunker import PDFChunker
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:10:from ..indexer import PDFIndexer
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:11:from ..loader import PDFLoader
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:12:from ..metadata import PDFMetadata
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:15:from .document_pipeline import DocumentPipeline
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:19:class PDFPipeline(DocumentPipeline):
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:26:loaded = PDFLoader().load(document)
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:29:chunked = PDFChunker().chunk(parsed)
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:30:metadata = PDFMetadata().extract(chunked)
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:31:indexed = PDFIndexer().index(metadata)
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:33:requests = EmbeddingBuilder().build(indexed)
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:35:indexed.metadata["embedding_requests"] = requests
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:39:indexed_document=indexed,
+delbot_platform/document_intelligence/pipeline/pipeline_result.py:5:from ..indexer.indexed_document import IndexedDocument
+delbot_platform/document_intelligence/pipeline/pipeline_result.py:11:indexed_document: IndexedDocument
+tools/architecture/circular.py:16:self._index = 0
+tools/architecture/circular.py:59:self._index = 0
+tools/architecture/circular.py:76:self._indices[module] = self._index
+tools/architecture/circular.py:77:self._lowlinks[module] = self._index
+tools/architecture/circular.py:79:self._index += 1
+tools/architecture/index.py:210:with (REPORTS / "architecture_index.json").open(
+tools/architecture/index.py:236:with (REPORTS / "architecture_index.csv").open(
+tools/architecture/index.py:282:"# DELBot Architecture Index",
+tools/architecture/index.py:348:(REPORTS / "architecture_index.md").write_text(
+tools/architecture/index.py:374:print("Architecture index generated")
+tools/architecture/package_detector.py:32:index = load_json(
+tools/architecture/package_detector.py:33:"architecture_index.json",
+tools/architecture/package_detector.py:48:for row in index:
+tools/architecture/resolver.py:57:# from delbot_platform.ai.embedding import embedding_request
+tools/architecture/safe_removal_planner.py:44:index = load_json(
+tools/architecture/safe_removal_planner.py:45:"architecture_index.json",
+tools/architecture/safe_removal_planner.py:50:for module in index:
+tools/audit_chunk_metadata_mapper.py:9:print("ChunkMetadataMapper Audit")
+tools/audit_chunk_metadata_mapper.py:14:/ "delbot_platform/documents/metadata/mapper/chunk_metadata_mapper.py"
+tools/audit_chunk_metadata_mapper.py:35:if node.name != "ChunkMetadataMapper":
+tools/audit_chunk_metadata_mapper.py:121:print("Searching default_chunk_id")
+tools/audit_chunk_metadata_mapper.py:139:if "default_chunk_id" in text:
+tools/audit_metadata_runtime.py:15:print("DOCUMENT METADATA AUDIT")
+tools/audit_metadata_runtime.py:20:print("1. SEARCH ChunkMetadata")
+tools/audit_metadata_runtime.py:38:if node.name == "ChunkMetadata":
+tools/audit_metadata_runtime.py:61:if "ChunkMetadata" in text:
+tools/audit_metadata_runtime.py:74:"delbot_platform.documents.metadata",
+tools/audit_metadata_runtime.py:76:"delbot_platform.documents.metadata.models",
+tools/audit_metadata_runtime.py:78:"delbot_platform.documents.metadata.model",
+tools/audit_metadata_runtime.py:80:"delbot_platform.documents.metadata.chunk_metadata",
+tools/audit_metadata_runtime.py:82:"delbot_platform.documents.metadata.models.chunk_metadata",
+tools/audit_metadata_runtime.py:84:"delbot_platform.documents.models.chunk_metadata",
+tools/audit_metadata_runtime.py:97:if "ChunkMetadata" in name:
+tools/audit_metadata_runtime.py:111:for file in ROOT.rglob("*chunk_metadata*.py"):
+tools/audit_metadata_runtime.py:123:for file in ROOT.rglob("*chunk_metadata*.py"):
+tools/audit_pdf_index_mapping.py:9:META = ROOT / "delbot_platform/repository_data/metadata"
+tools/audit_pdf_index_mapping.py:12:"pdf_index.json",
+tools/audit_pdf_mapping.py:8:meta_dir = ROOT / "delbot_platform/repository_data/metadata"
+tools/audit_pdf_mapping_v2.py:8:META = ROOT / "delbot_platform/repository_data/metadata"
+tools/batch_ingest_parallel.py:25:METADATA = (
+tools/batch_ingest_parallel.py:26:"delbot_platform/repository_data/metadata/skripsi_dataset.json"
+tools/batch_ingest_parallel.py:31:def process_pdf(pdf):
+tools/batch_ingest_parallel.py:36:METADATA
+tools/batch_ingest_parallel.py:81:process_pdf,
+tools/batch_ingest_pdf.py:45:for index,pdf in enumerate(pdfs,1):
+tools/batch_ingest_pdf.py:53:f"[{index}/{len(pdfs)}]",
+tools/batch_ingest_repository.py:14:from delbot_platform.documents.pipeline.indexing import (
+tools/batch_ingest_repository.py:15:DocumentIndexingPipeline,
+tools/batch_ingest_repository.py:28:print("DELBot Repository Batch Indexer")
+tools/batch_ingest_repository.py:33:pipeline = DocumentIndexingPipeline()
+tools/batch_ingest_repository.py:41:indexed = 0
+tools/batch_ingest_repository.py:44:for index, document in enumerate(
+tools/batch_ingest_repository.py:53:f"[{index}/{len(documents)}]",
+tools/batch_ingest_repository.py:59:artifact = await pipeline.index(
+tools/batch_ingest_repository.py:68:f"Chunks   : {len(artifact.chunks)}"
+tools/batch_ingest_repository.py:75:indexed += 1
+tools/batch_ingest_repository.py:90:"Indexed Documents :",
+tools/batch_ingest_repository.py:91:indexed,
+tools/build_pdf_index.py:13:"delbot_platform/repository_data/metadata/pdf_index.json"
+tools/build_pdf_index.py:49:"INDEX:",
+tools/debug_qdrant_runtime.py:21:from delbot_platform.documents.pipeline.indexing import (
+tools/debug_qdrant_runtime.py:22:DocumentIndexingPipeline,
+tools/debug_qdrant_runtime.py:43:print("RUN INDEX")
+tools/debug_qdrant_runtime.py:46:pipeline = DocumentIndexingPipeline()
+tools/debug_qdrant_runtime.py:48:artifact = await pipeline.index(
+tools/debug_qdrant_runtime.py:52:print("Chunks :", artifact.chunk_count)
+tools/ingest_metadata_vectors.py:19:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+tools/ingest_metadata_vectors.py:25:"delbot_platform/repository_data/metadata/skripsi_dataset.json"
+tools/ingest_metadata_vectors.py:36:print("METADATA VECTOR INGEST")
+tools/ingest_metadata_vectors.py:54:embedder = EmbeddingClient()
+tools/ingest_metadata_vectors.py:58:"delbot_metadata"
+tools/ingest_metadata_vectors.py:111:"type":"metadata",
+tools/ingest_metadata_vectors.py:124:vectors=embedder.embed(
+tools/ingest_pdf_vectors.py:21:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+tools/ingest_pdf_vectors.py:44:embedder=EmbeddingClient()
+tools/ingest_pdf_vectors.py:74:chunks=result["chunks"]
+tools/ingest_pdf_vectors.py:77:if not chunks:
+tools/ingest_pdf_vectors.py:85:for c in chunks
+tools/ingest_pdf_vectors.py:89:vectors=embedder.embed(
+tools/ingest_pdf_vectors.py:98:for c in chunks:
+tools/ingest_pdf_vectors.py:111:**c["metadata"]
+tools/inspect_document_chunk.py:13:from delbot_platform.documents.models.document_chunk import (
+tools/inspect_document_chunk.py:14:DocumentChunk,
+tools/inspect_document_chunk.py:18:print("DOCUMENT CHUNK")
+tools/inspect_document_chunk.py:23:print(DocumentChunk)
+tools/inspect_document_chunk.py:29:print(inspect.signature(DocumentChunk))
+tools/inspect_document_chunk.py:32:if is_dataclass(DocumentChunk):
+tools/inspect_document_chunk.py:38:for field in fields(DocumentChunk):
+tools/inspect_document_chunk.py:54:print(inspect.getsource(DocumentChunk.__init__))
+tools/inspect_document_chunk.py:68:print(inspect.getsource(DocumentChunk))
+tools/inspect_embedding_pipeline.py:13:from delbot_platform.documents.embedding.pipeline.pipeline import (
+tools/inspect_embedding_pipeline.py:14:EmbeddingPipeline,
+tools/inspect_embedding_pipeline.py:18:print("EMBEDDING PIPELINE")
+tools/inspect_embedding_pipeline.py:23:print(EmbeddingPipeline)
+tools/inspect_embedding_pipeline.py:31:print(inspect.signature(EmbeddingPipeline))
+tools/inspect_embedding_pipeline.py:41:EmbeddingPipeline,
+tools/inspect_embedding_pipeline.py:64:print(inspect.getsource(EmbeddingPipeline.__init__))
+tools/inspect_embedding_pipeline.py:74:print(inspect.getsource(EmbeddingPipeline))
+tools/inspect_embedding_pipeline.py:83:for name, fn in inspect.getmembers(EmbeddingPipeline):
+tools/inspect_embedding_pipeline.py:93:pipe = EmbeddingPipeline()
+tools/inspect_embedding_vector.py:13:from delbot_platform.documents.models.document_chunk import (
+tools/inspect_embedding_vector.py:14:DocumentChunk,
+tools/inspect_embedding_vector.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import (
+tools/inspect_embedding_vector.py:17:EmbeddingPipeline,
+tools/inspect_embedding_vector.py:21:print("BUILD SAMPLE EMBEDDING")
+tools/inspect_embedding_vector.py:30:pipeline = EmbeddingPipeline()
+tools/inspect_embedding_vector.py:32:chunk = DocumentChunk(
+tools/inspect_embedding_vector.py:34:chunk_id=str(uuid.uuid4()),
+tools/inspect_embedding_vector.py:40:vectors = await pipeline.run([chunk])
+tools/inspect_retriever_api.py:96:print("SEARCH EMBEDDING KEYWORD")
+tools/inspect_retriever_api.py:114:if "embedding=" in text:
+tools/patch_pr41a_repository_scan_api.py:33:metadata_files: int
+tools/patch_pr41a_repository_scan_api.py:50:metadata_files = 0
+tools/patch_pr41a_repository_scan_api.py:65:if f.name.lower() == "metadata.json":
+tools/patch_pr41a_repository_scan_api.py:66:metadata_files += 1
+tools/patch_pr41a_repository_scan_api.py:72:metadata_files=metadata_files,
+tools/patch_pr41b_batch_index_api.py:31:class BatchIndexRequest(BaseModel):
+tools/patch_pr41b_batch_index_api.py:35:class BatchIndexResponse(BaseModel):
+tools/patch_pr41b_batch_index_api.py:37:indexed: int
+tools/patch_pr41b_batch_index_api.py:43:"/index-all",
+tools/patch_pr41b_batch_index_api.py:44:response_model=BatchIndexResponse,
+tools/patch_pr41b_batch_index_api.py:46:async def index_all(
+tools/patch_pr41b_batch_index_api.py:47:request: BatchIndexRequest,
+tools/patch_pr41b_batch_index_api.py:54:indexed = min(
+tools/patch_pr41b_batch_index_api.py:60:total - indexed,
+tools/patch_pr41b_batch_index_api.py:67:# Production IndexService
+tools/patch_pr41b_batch_index_api.py:71:return BatchIndexResponse(
+tools/patch_pr41b_batch_index_api.py:73:indexed=indexed,
+tools/patch_pr42c_repository_explorer.py:35:metadata_files: int
+tools/patch_pr42c_repository_explorer.py:68:metadata_files = 0
+tools/patch_pr42c_repository_explorer.py:83:if f.name.lower() == "metadata.json":
+tools/patch_pr42c_repository_explorer.py:84:metadata_files += 1
+tools/patch_pr42c_repository_explorer.py:90:metadata_files=metadata_files,
+tools/patch_pr42d_repository_scan_fix.py:48:pattern = r"status\s*=\s*RepositoryStatus\.METADATA_ONLY"
+tools/patch_pr42d_repository_scan_fix.py:59:item.status = RepositoryStatus.METADATA_ONLY
+tools/pr42d_hotfix_repository_service.py:30:"delbot_platform/repository_data/metadata/"
+tools/test_citation_builder.py:61:async def build_query_embedding():
+tools/test_citation_builder.py:63:from delbot_platform.documents.models.document_chunk import (
+tools/test_citation_builder.py:64:DocumentChunk,
+tools/test_citation_builder.py:67:from delbot_platform.documents.embedding.pipeline.pipeline import (
+tools/test_citation_builder.py:68:EmbeddingPipeline,
+tools/test_citation_builder.py:71:chunk = DocumentChunk(
+tools/test_citation_builder.py:73:chunk_id=str(uuid.uuid4()),
+tools/test_citation_builder.py:79:pipeline = EmbeddingPipeline()
+tools/test_citation_builder.py:82:[chunk],
+tools/test_citation_builder.py:89:embedding,
+tools/test_citation_builder.py:99:query_vector=embedding,
+tools/test_citation_builder.py:104:from delbot_platform.documents.models.document_chunk import (
+tools/test_citation_builder.py:105:DocumentChunk,
+tools/test_citation_builder.py:107:from delbot_platform.documents.metadata.mapper.chunk_metadata_mapper import (
+tools/test_citation_builder.py:108:ChunkMetadataMapper,
+tools/test_citation_builder.py:117:metadata = ChunkMetadataMapper.from_payload(
+tools/test_citation_builder.py:141:chunk = DocumentChunk(
+tools/test_citation_builder.py:148:chunk_id=str(
+tools/test_citation_builder.py:150:"chunk_id",
+tools/test_citation_builder.py:171:metadata=metadata,
+tools/test_citation_builder.py:178:chunk,
+tools/test_citation_builder.py:261:print("BUILD QUERY EMBEDDING")
+tools/test_citation_builder.py:266:embedding = await build_query_embedding()
+tools/test_citation_builder.py:268:print("DIMENSION :", len(embedding))
+tools/test_citation_builder.py:276:embedding,
+tools/test_citation_runtime.py:63:print("BUILD DOCUMENT CHUNK")
+tools/test_citation_runtime.py:66:from delbot_platform.documents.models.document_chunk import DocumentChunk
+tools/test_citation_runtime.py:67:from delbot_platform.documents.metadata.chunk_metadata import ChunkMetadata
+tools/test_citation_runtime.py:69:metadata = ChunkMetadata(
+tools/test_citation_runtime.py:71:chunk_id="chunk-demo",
+tools/test_citation_runtime.py:77:chunk = DocumentChunk(
+tools/test_citation_runtime.py:79:chunk_id=str(uuid.uuid4()),
+tools/test_citation_runtime.py:84:metadata=metadata,
+tools/test_citation_runtime.py:87:chunk.score = 0.987
+tools/test_citation_runtime.py:113:result = builder.build([chunk])
+tools/test_document_pipeline.py:17:from delbot_platform.documents.pipeline.indexing import (
+tools/test_document_pipeline.py:18:DocumentIndexingPipeline,
+tools/test_document_pipeline.py:55:pipeline = DocumentIndexingPipeline()
+tools/test_document_pipeline.py:59:artifact = await pipeline.index(
+tools/test_document_pipeline.py:77:print(f"Chunk Count     : {len(getattr(artifact, 'chunks', []))}")
+tools/test_document_pipeline.py:78:print(f"Embedding Count : {len(getattr(artifact, 'embeddings', []))}")
+tools/test_document_pipeline_batch.py:14:from delbot_platform.documents.pipeline.indexing import (
+tools/test_document_pipeline_batch.py:15:DocumentIndexingPipeline,
+tools/test_document_pipeline_batch.py:36:pipeline = DocumentIndexingPipeline()
+tools/test_document_pipeline_batch.py:43:for index, document in enumerate(documents[:total], start=1):
+tools/test_document_pipeline_batch.py:48:print(f"[{index}/{total}]")
+tools/test_document_pipeline_batch.py:55:artifact, summary = await pipeline.index_with_summary(
+tools/test_document_pipeline_batch.py:67:print(f"CHUNKS     : {summary.chunks}")
+tools/test_pdf_extract.py:16:PDFLoader
+tools/test_pdf_extract.py:30:loader=PDFLoader()
+tools/test_pdf_ocr.py:17:PDFLoader
+tools/test_pdf_ocr.py:28:loader=PDFLoader()
+tools/test_pr41a_repository_scan_api.py:33:print("Metadata   :", res.metadata_files)
+tools/test_pr41b_batch_index.py:16:BatchIndexRequest,
+tools/test_pr41b_batch_index.py:17:index_all,
+tools/test_pr41b_batch_index.py:23:response = await index_all(
+tools/test_pr41b_batch_index.py:24:BatchIndexRequest(
+tools/test_pr41b_batch_index.py:31:print("INDEX RESULT")
+tools/test_pr41b_batch_index.py:34:print("Indexed :", response.indexed)
+tools/test_pr41b_batch_index.py:40:assert response.indexed == 20
+tools/test_qdrant_storage.py:13:from delbot_platform.documents.pipeline.indexing import (
+tools/test_qdrant_storage.py:14:DocumentIndexingPipeline,
+tools/test_qdrant_storage.py:45:pipeline = DocumentIndexingPipeline()
+tools/test_qdrant_storage.py:49:artifact, summary = await pipeline.index_with_summary(
+tools/test_qdrant_storage.py:100:print(f"CHUNKS      : {summary.chunks}")
+tools/test_qdrant_storage.py:106:if point_count == summary.chunks:
+tools/test_qdrant_storage.py:113:print("Chunk Count :", summary.chunks)
+tools/test_rag_end_to_end.py:31:DocumentChunk = importlib.import_module(
+tools/test_rag_end_to_end.py:32:"delbot_platform.documents.models.document_chunk"
+tools/test_rag_end_to_end.py:33:).DocumentChunk
+tools/test_rag_end_to_end.py:69:chunks = []
+tools/test_rag_end_to_end.py:73:meta = r.metadata
+tools/test_rag_end_to_end.py:75:chunk = DocumentChunk(
+tools/test_rag_end_to_end.py:77:chunk_id=meta.chunk_id,
+tools/test_rag_end_to_end.py:83:metadata=meta,
+tools/test_rag_end_to_end.py:87:chunks.append(chunk)
+tools/test_rag_end_to_end.py:96:context = context_builder.build(chunks)
+tools/test_rag_end_to_end.py:110:citations = citation_builder.build(chunks)
+tools/test_rag_end_to_end.py:129:if chunks:
+tools/test_rag_pipeline.py:97:from delbot_platform.documents.embedding.pipeline.pipeline import (
+tools/test_rag_pipeline.py:98:EmbeddingPipeline,
+tools/test_rag_pipeline.py:101:from delbot_platform.documents.models.document_chunk import (
+tools/test_rag_pipeline.py:102:DocumentChunk,
+tools/test_rag_pipeline.py:109:query_chunk = DocumentChunk(
+tools/test_rag_pipeline.py:111:chunk_id=str(uuid.uuid4()),
+tools/test_rag_pipeline.py:117:embedding_pipeline = EmbeddingPipeline()
+tools/test_rag_pipeline.py:141:# Convert RetrievalResult -> DocumentChunk
+tools/test_rag_pipeline.py:144:banner("BUILD DOCUMENT CHUNKS")
+tools/test_rag_pipeline.py:146:from delbot_platform.documents.models.document_chunk import (
+tools/test_rag_pipeline.py:147:DocumentChunk,
+tools/test_rag_pipeline.py:150:chunks = []
+tools/test_rag_pipeline.py:154:meta = item.metadata
+tools/test_rag_pipeline.py:156:chunk = DocumentChunk(
+tools/test_rag_pipeline.py:158:chunk_id=meta.chunk_id,
+tools/test_rag_pipeline.py:164:metadata=meta,
+tools/test_rag_pipeline.py:168:chunks.append(chunk)
+tools/test_rag_pipeline.py:170:print("CHUNKS :", len(chunks))
+tools/test_rag_pipeline.py:211:context = builder.build(chunks)
+tools/test_rag_pipeline.py:242:chunks,
+tools/test_rag_pipeline.py:273:item.metadata.document_id,
+tools/test_retrieval.py:48:print(item.metadata.source)
+tools/test_retrieval.py:53:print(item.metadata.section)
+tools/test_retrieval.py:59:f"{item.metadata.page_start}"
+tools/test_retrieval.py:60:f"-{item.metadata.page_end}"
+tools/test_retriever_engine.py:48:print("DOCUMENT   :", item.metadata.document_id)
+tools/test_retriever_engine.py:49:print("SOURCE     :", item.metadata.source)
+tools/test_retriever_engine.py:50:print("SECTION    :", item.metadata.section)
+tools/test_retriever_engine.py:51:print("PAGE       :", f"{item.metadata.page_start}-{item.metadata.page_end}")
+tools/test_semantic_search.py:16:from delbot_platform.documents.embedding.pipeline.pipeline import (
+tools/test_semantic_search.py:17:EmbeddingPipeline,
+tools/test_semantic_search.py:19:from delbot_platform.documents.models.document_chunk import (
+tools/test_semantic_search.py:20:DocumentChunk,
+tools/test_semantic_search.py:37:chunk = DocumentChunk(
+tools/test_semantic_search.py:39:chunk_id=str(uuid.uuid4()),
+tools/test_semantic_search.py:48:pipeline = EmbeddingPipeline()
+tools/test_semantic_search.py:51:[chunk],
+tools/test_semantic_search.py:56:"EmbeddingPipeline menghasilkan 0 vector."
+tools/test_vector_schema.py:25:for chunk in results:
+tools/test_vector_schema.py:29:exported = chunk.export()
+tools/test_vector_schema.py:36:print(chunk.text[:300])
+tools/test_vector_schema.py:41:print(chunk.source_name)
+tools/test_vector_schema.py:46:print(chunk.page)
+tools/test_vector_schema.py:51:print(chunk.vector_score)
+tools/trace_qdrant_pipeline.py:9:ROOT / "delbot_platform/documents/pipeline/indexing.py",
+tools/trace_qdrant_pipeline.py:10:ROOT / "delbot_platform/documents/services/indexing.py",
+tools/trace_qdrant_pipeline.py:11:ROOT / "delbot_platform/documents/embedding/pipeline/pipeline.py",
+tools/trace_qdrant_pipeline.py:12:ROOT / "delbot_platform/documents/embedding/mapper/vector_mapper.py",
+tools/trace_qdrant_pipeline.py:17:"EmbeddingPipeline",
+tools/trace_qdrant_pipeline.py:18:"EmbeddingVectorMapper",
+tools/trace_qdrant_pipeline.py:25:"index",
+
+=== PIPELINE CANDIDATES ===
+SCORE=12|delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:19:ClassDef:PDFPipeline
+SCORE=8|tools/batch_ingest_parallel.py:31:FunctionDef:process_pdf
+SCORE=7|delbot_platform/document_intelligence/chunker/pdf_chunker.py:10:ClassDef:PDFChunker
+SCORE=7|delbot_platform/document_intelligence/chunker/pdf_chunker.py:12:FunctionDef:chunk
+SCORE=7|delbot_platform/document_intelligence/indexer/pdf_indexer.py:10:FunctionDef:index
+SCORE=7|delbot_platform/document_intelligence/indexer/pdf_indexer.py:8:ClassDef:PDFIndexer
+SCORE=7|delbot_platform/document_intelligence/loader/pdf_loader.py:16:ClassDef:PDFLoader
+SCORE=7|delbot_platform/document_intelligence/metadata/pdf_metadata.py:10:ClassDef:PDFMetadata
+SCORE=7|delbot_platform/document_intelligence/pipeline/document_pipeline.py:9:ClassDef:DocumentPipeline
+SCORE=2|delbot_platform/document_intelligence/chunker/chunked_document.py:9:ClassDef:ChunkedDocument
+SCORE=2|delbot_platform/document_intelligence/chunker/document_chunker.py:11:FunctionDef:chunk
+SCORE=2|delbot_platform/document_intelligence/chunker/document_chunker.py:9:ClassDef:DocumentChunker
+SCORE=2|delbot_platform/document_intelligence/indexer/document_indexer.py:11:FunctionDef:index
+SCORE=2|delbot_platform/document_intelligence/indexer/document_indexer.py:9:ClassDef:DocumentIndexer
+SCORE=2|delbot_platform/document_intelligence/indexer/indexed_document.py:7:ClassDef:IndexedDocument
+SCORE=2|delbot_platform/document_intelligence/metadata/document_metadata.py:9:ClassDef:DocumentMetadata
+SCORE=2|delbot_platform/document_intelligence/metadata/metadata_result.py:10:ClassDef:MetadataResult
+SCORE=2|delbot_platform/document_intelligence/models/semantic_chunk.py:15:ClassDef:SemanticChunk
+SCORE=2|delbot_platform/document_intelligence/models/semantic_chunk_collection.py:12:ClassDef:SemanticChunkCollection
+SCORE=0|tools/test_citation_builder.py:61:AsyncFunctionDef:build_query_embedding
+
+=== DECISION ===
+PIPELINE_API_CANDIDATE=FOUND
+CONTRACT_GATE=READY_FOR_INDEXER_PATCH
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

@@ -1,0 +1,236 @@
+--- FILE=delbot_platform/ai/client/embedding_client.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingClient@8;embed@24
+CALLS=post@29;RuntimeError@47
+IMPORTS=requests
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:import requests
+SOURCE_LINE=5:from delbot_platform.core.config_manager import ConfigManager
+SOURCE_LINE=8:class EmbeddingClient:
+SOURCE_LINE=12:url: str | None = None,
+SOURCE_LINE=15:if url is None:
+SOURCE_LINE=17:service = cfg.service("embedding")
+SOURCE_LINE=18:host = service.get("host", "127.0.0.1")
+SOURCE_LINE=19:port = service["port"]
+SOURCE_LINE=20:url = f"http://{host}:{port}/v1/embeddings"
+SOURCE_LINE=22:self.url = url
+SOURCE_LINE=24:def embed(
+SOURCE_LINE=30:self.url,
+SOURCE_LINE=34:timeout=600,
+SOURCE_LINE=42:return data["data"][0]["embedding"]
+SOURCE_LINE=44:if "embedding" in data:
+SOURCE_LINE=45:return data["embedding"]
+SOURCE_LINE=48:f"Invalid embedding response: {data}"
+--- FILE=delbot_platform/ai/embedding/base_embedding_provider.py ---
+AST_PARSE=OK
+DEFINITIONS=BaseEmbeddingProvider@14;embed_many@24;embed@33
+CALLS=embed_many@41
+IMPORTS=delbot_platform.ai.embedding.embedding_request.EmbeddingRequest;delbot_platform.ai.embedding.embedding_result.EmbeddingResult
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from abc import ABC
+SOURCE_LINE=4:from abc import abstractmethod
+SOURCE_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+SOURCE_LINE=7:EmbeddingRequest,
+SOURCE_LINE=9:from delbot_platform.ai.embedding.embedding_result import (
+SOURCE_LINE=10:EmbeddingResult,
+SOURCE_LINE=14:class BaseEmbeddingProvider(ABC):
+SOURCE_LINE=16:Base interface for embedding providers.
+SOURCE_LINE=18:Providers should optimize batch embedding because
+SOURCE_LINE=19:embedding models are significantly faster when
+SOURCE_LINE=26:requests: list[EmbeddingRequest],
+SOURCE_LINE=27:) -> list[EmbeddingResult]:
+SOURCE_LINE=33:def embed(
+SOURCE_LINE=35:request: EmbeddingRequest,
+SOURCE_LINE=36:) -> EmbeddingResult:
+SOURCE_LINE=38:Convenience wrapper for single embedding.
+--- FILE=delbot_platform/ai/embedding/embedding_service.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingService@17;embed@31
+CALLS=embed_many@36;EmbeddingCollection@40;Embedding@49
+IMPORTS=delbot_platform.ai.embedding.base_embedding_provider.BaseEmbeddingProvider;delbot_platform.ai.embedding.embedding_request.EmbeddingRequest;delbot_platform.research.models.embedding.Embedding;delbot_platform.research.models.embedding_collection.EmbeddingCollection
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from delbot_platform.ai.embedding.base_embedding_provider import (
+SOURCE_LINE=4:BaseEmbeddingProvider,
+SOURCE_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+SOURCE_LINE=7:EmbeddingRequest,
+SOURCE_LINE=9:from delbot_platform.research.models.embedding import (
+SOURCE_LINE=10:Embedding,
+SOURCE_LINE=12:from delbot_platform.research.models.embedding_collection import (
+SOURCE_LINE=13:EmbeddingCollection,
+SOURCE_LINE=17:class EmbeddingService:
+SOURCE_LINE=19:High-level service responsible for generating embeddings.
+SOURCE_LINE=26:provider: BaseEmbeddingProvider,
+SOURCE_LINE=31:def embed(
+SOURCE_LINE=33:requests: list[EmbeddingRequest],
+SOURCE_LINE=34:) -> EmbeddingCollection:
+SOURCE_LINE=40:collection = EmbeddingCollection()
+SOURCE_LINE=49:Embedding(
+--- FILE=delbot_platform/ai/embedding/embedding_builder.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingBuilder@14;_build_request@41
+CALLS=EmbeddingRequest@48;_build_request@33
+IMPORTS=delbot_platform.ai.embedding.embedding_request.EmbeddingRequest
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from delbot_platform.ai.embedding.embedding_request import (
+SOURCE_LINE=4:EmbeddingRequest,
+SOURCE_LINE=6:from delbot_platform.document_intelligence.indexer.indexed_document import (
+SOURCE_LINE=9:from delbot_platform.document_intelligence.models.semantic_chunk import (
+SOURCE_LINE=14:class EmbeddingBuilder:
+SOURCE_LINE=16:Convert IndexedDocument into EmbeddingRequest objects.
+SOURCE_LINE=22:) -> list[EmbeddingRequest]:
+SOURCE_LINE=24:requests: list[EmbeddingRequest] = []
+SOURCE_LINE=46:) -> EmbeddingRequest:
+SOURCE_LINE=48:return EmbeddingRequest(
+--- FILE=delbot_platform/ai/embedding/embedding_config.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingConfig@7
+CALLS=NONE
+IMPORTS=NONE
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from dataclasses import dataclass
+SOURCE_LINE=7:class EmbeddingConfig:
+SOURCE_LINE=9:Configuration for embedding providers.
+SOURCE_LINE=12:base_url: str
+SOURCE_LINE=14:model: str
+SOURCE_LINE=16:timeout: float = 300.0
+SOURCE_LINE=18:api_key: str | None = None
+--- FILE=delbot_platform/ai/embedding/embedding_request.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingRequest@9
+CALLS=NONE
+IMPORTS=NONE
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from dataclasses import dataclass
+SOURCE_LINE=4:from dataclasses import field
+SOURCE_LINE=5:from typing import Any
+SOURCE_LINE=9:class EmbeddingRequest:
+SOURCE_LINE=11:Request sent to an embedding provider.
+--- FILE=delbot_platform/ai/embedding/embedding_result.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingResult@9
+CALLS=NONE
+IMPORTS=NONE
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from dataclasses import dataclass
+SOURCE_LINE=4:from dataclasses import field
+SOURCE_LINE=5:from typing import Any
+SOURCE_LINE=9:class EmbeddingResult:
+SOURCE_LINE=11:Result returned by an embedding provider.
+SOURCE_LINE=23:def dimension(
+--- FILE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py ---
+AST_PARSE=OK
+DEFINITIONS=InfinityEmbeddingProvider@14;embed_many@33;embed@42
+CALLS=embed_many@47
+IMPORTS=delbot_platform.ai.embedding.base_embedding_provider.BaseEmbeddingProvider;delbot_platform.ai.embedding.embedding_request.EmbeddingRequest;delbot_platform.ai.embedding.embedding_result.EmbeddingResult
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from delbot_platform.ai.embedding.base_embedding_provider import (
+SOURCE_LINE=4:BaseEmbeddingProvider,
+SOURCE_LINE=6:from delbot_platform.ai.embedding.embedding_request import (
+SOURCE_LINE=7:EmbeddingRequest,
+SOURCE_LINE=9:from delbot_platform.ai.embedding.embedding_result import (
+SOURCE_LINE=10:EmbeddingResult,
+SOURCE_LINE=14:class InfinityEmbeddingProvider(
+SOURCE_LINE=15:BaseEmbeddingProvider,
+SOURCE_LINE=18:Embedding provider backed by an Infinity server.
+SOURCE_LINE=26:endpoint: str,
+SOURCE_LINE=27:model: str,
+SOURCE_LINE=30:self._endpoint = endpoint
+SOURCE_LINE=31:self._model = model
+SOURCE_LINE=35:requests: list[EmbeddingRequest],
+SOURCE_LINE=36:) -> list[EmbeddingResult]:
+SOURCE_LINE=39:"Infinity embedding provider is not implemented yet."
+SOURCE_LINE=42:def embed(
+SOURCE_LINE=44:request: EmbeddingRequest,
+SOURCE_LINE=45:) -> EmbeddingResult:
+--- FILE=delbot_platform/ai/runtime/embedding.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingRequest@42;embeddings@63
+CALLS=post@62;encode@67;get_sentence_embedding_dimension@58
+IMPORTS=sentence_transformers.SentenceTransformer
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:import os
+SOURCE_LINE=5:import uvicorn
+SOURCE_LINE=6:from fastapi import FastAPI
+SOURCE_LINE=7:from pydantic import BaseModel
+SOURCE_LINE=8:from sentence_transformers import SentenceTransformer
+SOURCE_LINE=15:MODEL_NAME = os.getenv(
+SOURCE_LINE=16:"DELBOT_EMBEDDING_MODEL",
+SOURCE_LINE=21:"DELBOT_EMBEDDING_DEVICE",
+SOURCE_LINE=27:# Load Model
+SOURCE_LINE=30:model = SentenceTransformer(
+SOURCE_LINE=31:MODEL_NAME,
+SOURCE_LINE=37:title="DELBot Embedding Runtime",
+SOURCE_LINE=42:class EmbeddingRequest(BaseModel):
+SOURCE_LINE=44:model: str | None = None
+SOURCE_LINE=54:"category": "embedding",
+SOURCE_LINE=56:"model": MODEL_NAME,
+SOURCE_LINE=58:"dimension": model.get_sentence_embedding_dimension(),
+SOURCE_LINE=62:@app.post("/v1/embeddings")
+SOURCE_LINE=63:def embeddings(
+SOURCE_LINE=64:request: EmbeddingRequest,
+SOURCE_LINE=67:vector = model.encode(
+SOURCE_LINE=69:normalize_embeddings=True,
+SOURCE_LINE=75:"model": request.model or MODEL_NAME,
+SOURCE_LINE=78:"object": "embedding",
+SOURCE_LINE=80:"embedding": vector.tolist(),
+SOURCE_LINE=90:host="0.0.0.0",
+SOURCE_LINE=91:port=8105,
+--- FILE=delbot_platform/documents/embedding/base.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingService@16;embed@20
+CALLS=NONE
+IMPORTS=delbot_platform.documents.embedding.models.EmbeddingVector
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=3:from abc import ABC
+SOURCE_LINE=4:from abc import abstractmethod
+SOURCE_LINE=7:from delbot_platform.documents.models.document_chunk import (
+SOURCE_LINE=10:from delbot_platform.documents.embedding.models import (
+SOURCE_LINE=11:EmbeddingVector,
+SOURCE_LINE=16:class EmbeddingService(ABC):
+SOURCE_LINE=20:async def embed(
+SOURCE_LINE=23:) -> list[EmbeddingVector]:
+--- FILE=delbot_platform/documents/embedding/factory/provider.py ---
+AST_PARSE=OK
+DEFINITIONS=EmbeddingProviderFactory@20
+CALLS=LocalEmbeddingProvider@31;GatewayEmbeddingProvider@36
+IMPORTS=delbot_platform.documents.embedding.base.EmbeddingService;delbot_platform.documents.embedding.providers.local.LocalEmbeddingProvider;delbot_platform.documents.embedding.providers.gateway.GatewayEmbeddingProvider
+SOURCE_LINE=1:from __future__ import annotations
+SOURCE_LINE=4:from delbot_platform.documents.embedding.base import (
+SOURCE_LINE=5:EmbeddingService,
+SOURCE_LINE=9:from delbot_platform.documents.embedding.providers.local import (
+SOURCE_LINE=10:LocalEmbeddingProvider,
+SOURCE_LINE=14:from delbot_platform.documents.embedding.providers.gateway import (
+SOURCE_LINE=15:GatewayEmbeddingProvider,
+SOURCE_LINE=20:class EmbeddingProviderFactory:
+SOURCE_LINE=26:) -> EmbeddingService:
+SOURCE_LINE=31:return LocalEmbeddingProvider()
+SOURCE_LINE=36:return GatewayEmbeddingProvider()
+SOURCE_LINE=40:f"Unknown embedding provider: {provider}"
+--- INDEXER EMBEDDING REFERENCES ---
+INDEXER_AST_PARSE=OK
+INDEXER_LINE=21:from delbot_platform.ai.client.embedding_client import EmbeddingClient
+INDEXER_LINE=23:from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+INDEXER_LINE=37:print("PDF VECTOR INGEST")
+INDEXER_LINE=44:embedder=EmbeddingClient()
+INDEXER_LINE=89:vectors=embedder.embed(
+INDEXER_LINE=118:vectors,
+INDEXER_LINE=134:"\nTOTAL VECTOR:",
+--- ENVIRONMENT CONTRACT NAMES ONLY ---
+ENV_FILE=.env.mvp
+ENV_KEY=.env.mvp:1:DELBOT_VECTOR_BACKEND
+--- CONTRACT DECISION ---
+REQUIRED_EMBEDDING_PROVIDER=YES
+REQUIRED_EMBEDDING_SERVICE=YES
+REQUIRED_EMBEDDING_RUNTIME=YES
+REQUIRED_INDEXER_EMBEDDING_REFERENCE=YES
+STATUS=CONTRACT_TRACE_COMPLETE
+BLOCKERS=0
+WARNINGS=0
+EMBEDDING_EXECUTION=NO
+NETWORK_REQUEST=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

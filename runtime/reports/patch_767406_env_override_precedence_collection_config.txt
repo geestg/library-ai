@@ -1,0 +1,288 @@
+PATCH=767.406
+PURPOSE=Verify Qdrant collection default versus environment override precedence without Qdrant access
+MODE=READ_ONLY_STATIC_CONFIGURATION_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=NOT_PRINTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:53:33
+
+=== PATCH 767.406 : RESULT ===
+FILES_SCANNED=1612
+PARSE_ERRORS=0
+ENV_HITS=4
+STATIC_DEFAULT_HITS=1254
+PRECEDENCE_EXPRESSION_HITS=21
+QDRANT_CONFIG_CONSTRUCTOR_HITS=1696
+ENV_OR_DEFAULT_FORM_HITS=1
+CONFIG_OBJECT_HITS=13
+STATUS=ENV_AND_STATIC_DEFAULT_EVIDENCE_FOUND
+DECISION=DO_NOT_INDEX
+NEXT=CONFIRM_EXACT_PRECEDENCE_AND_EFFECTIVE_VALUE
+INDEX_GATE=DO_NOT_INDEX
+
+=== ENVIRONMENT REFERENCES ===
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|310|ENV|QDRANT_COLLECTION
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|316|ENV|QDRANT_PATH
+runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|31|ENV|QDRANT_COLLECTION
+runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|36|ENV|DELBOT_QDRANT_PATH
+
+=== STATIC DEFAULT REFERENCES ===
+runtime/research_memory/mvp-766728.json|148|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|167|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|233|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|252|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|318|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|337|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|403|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|422|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|488|DEFAULT|Default
+runtime/research_memory/mvp-766728.json|507|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|81|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|110|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|186|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|215|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|291|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|310|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|376|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|405|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|481|DEFAULT|Default
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|510|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|81|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|110|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|186|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|205|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|271|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|300|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|376|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|405|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|481|DEFAULT|Default
+runtime/research_memory/patch-766926-e2e.json|510|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|152|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|171|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|237|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|256|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|322|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|341|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|407|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|426|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|492|DEFAULT|Default
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|511|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|147|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|166|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|232|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|261|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|337|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|366|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|442|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|461|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|527|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|546|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|612|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|641|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|717|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|746|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|822|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|851|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|927|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|956|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|1032|DEFAULT|Default
+runtime/research_memory/mvp-followup-766860.json|1061|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|152|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|171|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|237|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|266|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|342|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|371|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|447|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|466|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|532|DEFAULT|Default
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|561|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|152|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|171|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|237|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|256|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|322|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|341|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|407|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|426|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|492|DEFAULT|Default
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|511|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|85|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|104|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|170|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|189|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|255|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|274|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|340|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|359|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|425|DEFAULT|Default
+runtime/research_memory/e2e-766504.json|444|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|152|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|171|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|237|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|256|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|322|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|341|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|407|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|426|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|492|DEFAULT|Default
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|511|DEFAULT|Default
+
+=== PRECEDENCE EXPRESSIONS ===
+runtime/reports/patch_766980_qdrant_config_source_alignment.txt|66|ENV_EXPRESSION|33	        self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|66|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|COLLECTION|self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|213|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|310|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection|os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|315|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|os.getenv|ARGS=["'QDRANT_COLLECTION'", "'delbot_documents'"]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|316|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|os.getenv|ARGS=["'DELBOT_QDRANT_PATH'", "os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local'))"]
+runtime/reports/patch_767401_qdrant_collection_runtime_config_trace.txt|317|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv|ARGS=["'QDRANT_PATH'", "str(Path('repository_data') / 'qdrant_local')"]
+runtime/reports/patch_767395_api_knowledge_qdrant_call_chain.txt|515|ENV_EXPRESSION|33:         self.collection = os.getenv(
+runtime/reports/patch_767394_knowledge_api_construction_trace.txt|293|ENV_EXPRESSION|33:         self.collection = os.getenv(
+runtime/reports/patch_767403_effective_qdrant_collection_value.txt|34|ENV_EXPRESSION|COLLECTION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767405_qdrant_single_source_of_truth.txt|37|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|64|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|path = os.getenv(
+runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|66|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|24|os.getenv(
+runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|69|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767402_runtime_env_qdrant_mapping_verification.txt|285|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|31|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|ASSIGN||VALUE=os.getenv('QDRANT_COLLECTION', 'delbot_documents')
+runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|36|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|22|ASSIGN|path|VALUE=os.getenv('DELBOT_QDRANT_PATH', os.getenv('QDRANT_PATH', str(Path('repository_data') / 'qdrant_local')))
+runtime/reports/patch_767404_static_qdrant_collection_default_trace.txt|56|ENV_EXPRESSION|delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+runtime/reports/patch_767389_qdrant_exact_caller_entrypoint.txt|81|ENV_EXPRESSION|33	        self.collection = os.getenv(
+runtime/reports/patch_767372_qdrant_owner_b_exact_runtime_contract.txt|136|ENV_EXPRESSION|33	        self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|33|ENV_EXPRESSION|self.collection = os.getenv(
+
+=== QDRANT CONFIG CONSTRUCTORS ===
+runtime/research_memory/mvp-766728.json|148|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|167|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|233|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|252|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|318|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|337|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|403|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|422|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|488|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-766728.json|507|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|81|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|110|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|186|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|215|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|291|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|310|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|376|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|405|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|481|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/d87793f8-2c34-439b-becd-b8cad440b187.json|510|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|81|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|110|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|186|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|205|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|271|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|300|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|376|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|405|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|481|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/patch-766926-e2e.json|510|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|152|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|171|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|237|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|256|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|322|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|341|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|407|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|426|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|492|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/f3fc2dfb-b2da-4259-9fd5-3e711d00df54.json|511|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|147|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|166|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|232|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|261|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|337|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|366|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|442|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|461|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|527|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|546|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|612|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|641|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|717|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|746|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|822|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|851|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|927|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|956|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|1032|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/mvp-followup-766860.json|1061|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|152|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|171|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|237|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|266|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|342|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|371|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|447|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|466|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|532|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/6965b866-dad1-4cc4-930c-519106f9fc70.json|561|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|152|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|171|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|237|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|256|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|322|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|341|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|407|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|426|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|492|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/0eefc650-4431-4491-b525-316dbc5203d0.json|511|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|85|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|104|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|170|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|189|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|255|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|274|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|340|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|359|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|425|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/e2e-766504.json|444|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|152|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|171|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|237|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|256|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|322|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|341|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|407|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|426|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|492|QDRANT_CONFIG|"collection_name": "Default",
+runtime/research_memory/20f5b316-0f88-4ffa-a89d-ab415504615a.json|511|QDRANT_CONFIG|"collection_name": "Default",
+
+=== ENV/DEFAULT FORM ===
+delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+
+=== CONFIG OBJECT REFERENCES ===
+delbot_platform/vectorstore/qdrant/singleton.py|33|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|54|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|58|collections = (
+delbot_platform/vectorstore/qdrant/singleton.py|65|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py|72|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|86|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|90|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|96|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|100|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|106|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|116|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|137|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|142|collection_name=collection_name,
+
+=== PARSE ERRORS ===
+NONE

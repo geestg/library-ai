@@ -121,7 +121,6 @@ for record in catalog:
 
     def walk(obj):
 
-        nonlocal found
 
         if found:
             return

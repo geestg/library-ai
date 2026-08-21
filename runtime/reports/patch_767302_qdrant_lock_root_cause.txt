@@ -1,0 +1,22 @@
+PATCH: 767.302
+PURPOSE: Identify exact Qdrant local-storage lock owner before MVP indexing
+MODE: READ-ONLY
+INDEX REQUEST: NO
+QDRANT WRITE: NO
+QDRANT DELETE: NO
+QDRANT RESET: NO
+DATE: 2026-08-19 07:38:10
+
+
+--- 17. FINAL DIAGNOSTIC ---
+READ_ONLY=YES
+INDEX_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+COMPILE_STATUS=0
+
+============================================================
+EXPECTED ROOT CAUSE UNDER INVESTIGATION:
+QDRANT LOCAL STORAGE IS LOCKED BY ANOTHER CLIENT INSTANCE
+============================================================

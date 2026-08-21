@@ -1,0 +1,156 @@
+PATCH=767.435
+PURPOSE=Identify exact pipeline stage producing zero vectors
+MODE=READ_ONLY_TARGETED_INDEXER_PIPELINE_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEXER=tools/ingest_pdf_vectors.py
+PIPELINE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+APPLICATION_IMPORT=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:51:36
+
+=== FILES ===
+INDEXER_EXISTS=True
+PIPELINE_EXISTS=True
+
+=== INDEXER AST ===
+FUNCTIONS=1
+CLASSES=0
+CALLS=22
+
+=== PIPELINE AST ===
+FUNCTIONS=1
+CLASSES=1
+CALLS=13
+
+=== PIPELINE CLASS ===
+PDFPIPELINE_CLASS=True
+PDFPIPELINE_CALLED_BY_INDEXER=True
+
+=== EMBEDDING CALLS ===
+EmbeddingClient
+embed
+
+=== CHUNK CALLS ===
+NONE
+
+=== QDRANT CALLS ===
+insert
+create_collection
+insert
+
+=== VECTOR ACCUMULATION ===
+NONE
+
+=== INPUT MARKERS ===
+6|Path|from pathlib import Path
+10|Path|ROOT=Path(__file__).resolve().parent.parent
+12|Path|sys.path.insert(
+19|pdf|from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
+27|pdf,Path|PDF_DIR=Path(
+28|repository|"delbot_platform/repository_data/thesis_files"
+37|pdf|print("PDF VECTOR INGEST")
+42|pdf|ingestion=PDFPipeline()
+59|pdf,glob|for pdf in PDF_DIR.glob("*.pdf"):
+63|pdf|"\nPDF:",
+64|pdf|pdf.name
+69|pdf|str(pdf)
+103|pdf|"type":"pdf",
+105|pdf|"file":pdf.name,
+
+=== DOCUMENT / PIPELINE MARKERS ===
+19|PDFPipeline,document|from delbot_platform.document_intelligence.pipeline.pdf_pipeline import PDFPipeline
+42|PDFPipeline|ingestion=PDFPipeline()
+47|document|"delbot_documents"
+95|load|payloads=[]
+101|load|payloads.append(
+107|page|"page":c["page"],
+119|load|payloads
+146|document|from ...documents.models.document import Document
+154|PDFLoader,load|from ..loader import PDFLoader
+156|PDFParser,parse|from ..parser import PDFParser
+158|document|from .document_pipeline import DocumentPipeline
+162|PDFPipeline,document|class PDFPipeline(DocumentPipeline):
+166|document|document: Document,
+169|PDFLoader,load,document|loaded = PDFLoader().load(document)
+170|PDFParser,load,parse|parsed = PDFParser().parse(loaded)
+172|parse|chunked = PDFChunker().chunk(parsed)
+181|document|source_document=document,
+182|document|indexed_document=indexed,
+
+=== CHUNK MARKERS ===
+74|chunk,chunks|chunks=result["chunks"]
+77|chunk,chunks|if not chunks:
+85|chunk,chunks|for c in chunks
+98|chunk,chunks|for c in chunks:
+152|chunk|from ..chunker import PDFChunker
+172|chunk|chunked = PDFChunker().chunk(parsed)
+173|chunk|metadata = PDFMetadata().extract(chunked)
+
+=== EMBEDDING / VECTOR MARKERS ===
+21|embed,embedding|from delbot_platform.ai.client.embedding_client import EmbeddingClient
+23|vector|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+37|vector|print("PDF VECTOR INGEST")
+44|embed,embedding|embedder=EmbeddingClient()
+89|embed,vector,vectors|vectors=embedder.embed(
+118|vector,vectors|vectors,
+134|vector|"\nTOTAL VECTOR:",
+148|embed,embedding|from delbot_platform.ai.embedding.embedding_builder import (
+149|embed,embedding|EmbeddingBuilder,
+176|embed,embedding|requests = EmbeddingBuilder().build(indexed)
+178|embed,embedding|indexed.metadata["embedding_requests"] = requests
+
+=== QDRANT MARKERS ===
+23|Qdrant,qdrant|from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+46|Qdrant,qdrant|store=QdrantStore(
+51|collection|store.create_collection()
+
+=== PIPELINE RESULT HANDLING ===
+47|"delbot_documents"
+68|result=ingestion.ingest(
+74|chunks=result["chunks"]
+77|if not chunks:
+85|for c in chunks
+98|for c in chunks:
+
+=== EMPTY / FILTER MARKERS ===
+77|if not |if not chunks:
+79|continue|continue
+95|=[]|payloads=[]
+
+=== BLOCKERS ===
+NO_CHUNK_OPERATION_VISIBLE_IN_INDEXER
+NO_VECTOR_ACCUMULATION_VISIBLE_IN_INDEXER
+
+=== WARNINGS ===
+NONE
+
+=== ERRORS ===
+NONE
+
+=== DECISION ===
+DECISION=ZERO_VECTOR_STAGE_REQUIRES_TARGETED_FIX
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

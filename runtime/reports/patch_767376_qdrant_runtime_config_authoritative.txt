@@ -1,0 +1,55 @@
+PATCH=767.376
+PURPOSE=Identify authoritative Qdrant runtime configuration and deployment mechanism
+MODE=READ_ONLY_RUNTIME_FORENSIC
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_QDRANT_WRITE=NO
+ISOLATED_QDRANT_DELETE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+CONTAINER_START=NO
+CONTAINER_RECREATE=NO
+SERVICE_START=NO
+DATE=2026-08-21 01:35:22
+
+
+=== SUMMARY EXTRACTION ===
+Docker availability    : AVAILABLE
+Port 6333              : NOT_LISTENING
+Port 6334              : NOT_LISTENING
+Config source files    : 37
+Indexing               : NOT EXECUTED
+
+=== IMPORTANT RESULT ===
+STATUS=QDRANT_RUNTIME_ABSENT_BUT_DOCKER_AVAILABLE
+NEXT=IDENTIFY_QDRANT_COMPOSE_OR_IMAGE_THEN_START_RUNTIME
+
+=== IMPORTANT ERRORS ONLY ===
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:19:TCP 6333             : TCP|127.0.0.1|6333|REFUSED
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:20:TCP 6334             : TCP|127.0.0.1|6334|REFUSED
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:23:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6333|REFUSED
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:24:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6333|REFUSED
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:25:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|127.0.0.1|6334|REFUSED
+./runtime/reports/patch_767374_qdrant_server_runtime_forensic.txt:26:runtime/reports/patch_767374_qdrant_server_runtime_forensic.python.log:TCP|localhost|6334|REFUSED
+
+=== SAFETY STATE ===
+MVP indexing          : NOT EXECUTED
+MVP Qdrant write      : NO
+MVP Qdrant delete     : NO
+MVP Qdrant reset      : NO
+MVP Qdrant recreate   : NO
+HTTP request          : NO
+Gateway restart       : NO
+Source modified       : NO
+Container start       : NO
+Container recreate    : NO
+Terminal remains open : YES
+
+Detailed report        : runtime/reports/patch_767376_qdrant_runtime_config_authoritative.txt
+Detailed log           : runtime/reports/patch_767376_qdrant_runtime_config_authoritative.log
+Python forensic        : runtime/reports/patch_767376_qdrant_runtime_config_authoritative.python.log

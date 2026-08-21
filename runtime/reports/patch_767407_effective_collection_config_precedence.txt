@@ -1,0 +1,104 @@
+PATCH=767.407
+PURPOSE=Verify static default -> environment override -> runtime configuration precedence for Qdrant collection
+MODE=READ_ONLY_STATIC_CONFIGURATION_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=NOT_PRINTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:57:08
+
+=== PATCH 767.407 : EXTRACTED RESULT ===
+FILES_SCANNED=1396
+PARSE_ERRORS=0
+COLLECTION_HITS=1245
+ENV_HITS=26
+DOTENV_HITS=17
+QDRANT_HITS=688
+COLLECTION_ASSIGNMENTS=20
+STATIC_DEFAULT_CANDIDATES=20
+ENV_OVERRIDE_CANDIDATES=0
+QDRANT_RUNTIME_CONSTRUCTORS=8
+
+=== STATIC DEFAULT CANDIDATES ===
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=72|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=90|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=100|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=116|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=142|collection_name=collection_name,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|LINE=29|self._collection_name = collection_name
+tools/test_qdrant_storage.py|LINE=73|collection_name=collection,
+tools/pr_5_7_mvp_local_retrieval_engine.sh|LINE=80|collection_name=COLLECTION,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|LINE=129|collection_name=collection,
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|LINE=194|collection_name=collection,
+tools/pr_5_9_mvp_repository_chat.sh|LINE=69|collection_name=collection,
+tools/check_qdrant_payload.py|LINE=12|collection_name="delbot_documents",
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh|LINE=184|collection_name=collection,
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh|LINE=211|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|LINE=166|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|LINE=268|collection_name=collection,
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|LINE=283|collection_name=collection,
+tools/pr_5_6_40_mvp_local_embedding_index.sh|LINE=100|collection_name="delbot_mvp_documents",
+tools/pr_5_6_40_mvp_local_embedding_index.sh|LINE=142|collection_name="delbot_mvp_documents",
+tools/pr_5_6_40_mvp_local_embedding_index.sh|LINE=151|collection_name="delbot_mvp_documents",
+
+=== ENV OVERRIDE CANDIDATES ===
+
+=== DOTENV / ENV LOADING EVIDENCE ===
+delbot_platform/core/environment.py|LINE=38|os.environ[key] = value
+delbot_platform/gateway/__main__.py|LINE=3|os.environ.setdefault("OMP_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|LINE=4|os.environ.setdefault("MKL_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|LINE=5|os.environ.setdefault("OPENBLAS_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|LINE=6|os.environ.setdefault("NUMEXPR_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|LINE=7|os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|LINE=8|os.environ.setdefault("BLIS_NUM_THREADS", "4")
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh|LINE=39|env=root/".env.mvp"
+tools/pr_5_24_mvp_environment_information.sh|LINE=38|root = pathlib.Path(os.environ["ROOT"])
+tools/pr_5_24_mvp_environment_information.sh|LINE=39|output = pathlib.Path(os.environ["OUTPUT"])
+tools/pr_5_24_mvp_environment_information.sh|LINE=52|venv = os.environ.get("VIRTUAL_ENV", "")
+tools/pr_5_24_mvp_environment_information.sh|LINE=65|"shell": os.environ.get("SHELL"),
+tools/pr_5_22_mvp_runtime_information.sh|LINE=50|"venv":os.environ.get("VIRTUAL_ENV"),
+reports/architecture_index.json|LINE=745|"module": "delbot_platform.core.environment",
+reports/architecture_dependency.json|LINE=638|"module": "delbot.delbot_platform.core.environment",
+reports/architecture_ownership.json|LINE=978|"module": "delbot_platform.core.environment",
+reports/safe_removal_plan.json|LINE=613|"module": "delbot_platform.core.environment",
+
+=== QDRANT RUNTIME CONSTRUCTORS ===
+delbot_platform/vectorstore/qdrant/repository.py|LINE=25|CALL=get_qdrant_store
+delbot_platform/vectorstore/qdrant/singleton.py|LINE=157|CALL=QdrantStore
+delbot_platform/knowledge/vector/qdrant_store.py|LINE=17|CALL=get_qdrant_store
+delbot_platform/knowledge/vector/repository/qdrant.py|LINE=25|CALL=get_qdrant_store
+delbot_platform/knowledge/rag/vector_retriever.py|LINE=17|CALL=get_qdrant_store
+tools/test_semantic_search.py|LINE=61|CALL=get_qdrant_store
+tools/ingest_metadata_vectors.py|LINE=57|CALL=QdrantStore
+tools/ingest_pdf_vectors.py|LINE=46|CALL=QdrantStore
+
+=== PARSE ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=STATIC_DEFAULT_RUNTIME_CHAIN_FOUND_ENV_NOT_CONFIRMED
+DECISION=DO_NOT_INDEX
+NEXT=TRACE_ENV_SOURCE_AND_LOAD_ORDER
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

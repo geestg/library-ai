@@ -1,0 +1,5 @@
+PATCH: 766.920
+TARGET: delbot_platform/research/pipeline/research_answer_pipeline.py
+TEST: Direct ResearchAnswerPipeline synthesis validation
+DATE: 2026-08-18 09:03:45
+

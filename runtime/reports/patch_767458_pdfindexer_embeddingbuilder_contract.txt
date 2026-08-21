@@ -1,0 +1,222 @@
+PATCH=767.458
+PURPOSE=Trace exact PDFIndexer and EmbeddingBuilder contracts used by PDFPipeline.process
+MODE=READ_ONLY_SOURCE_INSPECTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+TARGET=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+PROCESS_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 05:20:51
+
+=== PDFPIPELINE PROCESS CONTRACT ===
+PDFPIPELINE_CLASS=True|LINE=19
+PDFPIPELINE_PROCESS=True|LINE=21|END=41
+PIPELINE_PROCESS_SOURCE:0020: 
+PIPELINE_PROCESS_SOURCE:0021:     def process(
+PIPELINE_PROCESS_SOURCE:0022:         self,
+PIPELINE_PROCESS_SOURCE:0023:         document: Document,
+PIPELINE_PROCESS_SOURCE:0024:     ) -> PipelineResult:
+PIPELINE_PROCESS_SOURCE:0025: 
+PIPELINE_PROCESS_SOURCE:0026:         loaded = PDFLoader().load(document)
+PIPELINE_PROCESS_SOURCE:0027:         parsed = PDFParser().parse(loaded)
+PIPELINE_PROCESS_SOURCE:0028: 
+PIPELINE_PROCESS_SOURCE:0029:         chunked = PDFChunker().chunk(parsed)
+PIPELINE_PROCESS_SOURCE:0030:         metadata = PDFMetadata().extract(chunked)
+PIPELINE_PROCESS_SOURCE:0031:         indexed = PDFIndexer().index(metadata)
+PIPELINE_PROCESS_SOURCE:0032: 
+PIPELINE_PROCESS_SOURCE:0033:         requests = EmbeddingBuilder().build(indexed)
+PIPELINE_PROCESS_SOURCE:0034: 
+PIPELINE_PROCESS_SOURCE:0035:         indexed.metadata["embedding_requests"] = requests
+PIPELINE_PROCESS_SOURCE:0036: 
+PIPELINE_PROCESS_SOURCE:0037:         return PipelineResult(
+PIPELINE_PROCESS_SOURCE:0038:             source_document=document,
+PIPELINE_PROCESS_SOURCE:0039:             indexed_document=indexed,
+PIPELINE_PROCESS_SOURCE:0040:             success=True,
+PIPELINE_PROCESS_SOURCE:0041:         )
+
+=== PIPELINE CALL ORDER ===
+CALL=load@line=26
+CALL=PDFLoader@line=26
+CALL=PDFParser@line=27
+CALL=parse@line=27
+CALL=PDFChunker@line=29
+CALL=chunk@line=29
+CALL=extract@line=30
+CALL=PDFMetadata@line=30
+CALL=index@line=31
+CALL=PDFIndexer@line=31
+CALL=build@line=33
+CALL=EmbeddingBuilder@line=33
+CALL=PipelineResult@line=37
+
+=== FIND EXACT IMPLEMENTATIONS ===
+CANDIDATE_FILE_COUNT=3
+CANDIDATE=delbot_platform/document_intelligence/metadata/pdf_metadata.py
+CANDIDATE=delbot_platform/document_intelligence/indexer/pdf_indexer.py
+CANDIDATE=delbot_platform/ai/embedding/embedding_builder.py
+PDFINDEXER_IMPLEMENTATIONS=1
+EMBEDDINGBUILDER_IMPLEMENTATIONS=1
+PDFMETADATA_IMPLEMENTATIONS=1
+
+=== PDFINDEXER SOURCE ===
+FILE=/workspace/delbot/delbot_platform/document_intelligence/indexer/pdf_indexer.py
+EXISTS=True
+LINES=19
+AST_PARSE=OK
+CLASS=PDFIndexer|FOUND=True|LINE=8|END=19
+METHOD=PDFIndexer.index|LINE=10|END=19|ARGS=self,document
+METHOD_SOURCE=PDFIndexer.index|LINES=9-19
+0009: 
+0010:     def index(
+0011:         self,
+0012:         document: MetadataResult,
+0013:     ) -> IndexedDocument:
+0014: 
+0015:         return IndexedDocument(
+0016:             source_document=document.source_document,
+0017:             index=document.sections,
+0018:             metadata=document.metadata,
+0019:         )
+
+SELF_REFERENCES=PDFIndexer
+
+=== EMBEDDINGBUILDER SOURCE ===
+FILE=/workspace/delbot/delbot_platform/ai/embedding/embedding_builder.py
+EXISTS=True
+LINES=58
+AST_PARSE=OK
+CLASS=EmbeddingBuilder|FOUND=True|LINE=14|END=58
+METHOD=EmbeddingBuilder.build|LINE=19|END=39|ARGS=self,document
+METHOD_SOURCE=EmbeddingBuilder.build|LINES=18-40
+0018: 
+0019:     def build(
+0020:         self,
+0021:         document: IndexedDocument,
+0022:     ) -> list[EmbeddingRequest]:
+0023: 
+0024:         requests: list[EmbeddingRequest] = []
+0025: 
+0026:         collection = document.index
+0027: 
+0028:         for index, chunk in enumerate(
+0029:             collection,
+0030:             start=1,
+0031:         ):
+0032:             requests.append(
+0033:                 self._build_request(
+0034:                     index=index,
+0035:                     chunk=chunk,
+0036:                 )
+0037:             )
+0038: 
+0039:         return requests
+0040: 
+METHOD=EmbeddingBuilder._build_request|LINE=41|END=58|ARGS=self
+
+SELF_REFERENCES=EmbeddingBuilder
+SELF_ATTRIBUTE=_build_request
+
+=== PDFMETADATA SOURCE ===
+FILE=/workspace/delbot/delbot_platform/document_intelligence/metadata/pdf_metadata.py
+EXISTS=True
+LINES=43
+AST_PARSE=OK
+CLASS=PDFMetadata|FOUND=True|LINE=10|END=43
+METHOD=PDFMetadata.extract|LINE=12|END=43|ARGS=self,document
+
+SELF_REFERENCES=PDFMetadata
+
+=== LIVE IMPORT RESOLUTION ===
+PDFPIPELINE_IMPORT=OK
+PDFPIPELINE_CLASS_AVAILABLE=True
+PDFPIPELINE_MRO=(<class 'delbot_platform.document_intelligence.pipeline.pdf_pipeline.PDFPipeline'>, <class 'delbot_platform.document_intelligence.pipeline.document_pipeline.DocumentPipeline'>, <class 'abc.ABC'>, <class 'object'>)
+PDFPIPELINE_SIGNATURE=()
+PDFPIPELINE_INSTANCE=OK
+PDFPIPELINE_INSTANCE_DICT={}
+INSTANCE_ATTRIBUTE_LOADER=False
+INSTANCE_ATTRIBUTE_PARSER=False
+INSTANCE_ATTRIBUTE_CHUNKER=False
+INSTANCE_ATTRIBUTE_EMBEDDING=False
+INSTANCE_ATTRIBUTE_EMBEDDING_SERVICE=False
+INSTANCE_ATTRIBUTE_EMBEDDING_CLIENT=False
+INSTANCE_ATTRIBUTE_VECTOR_STORE=False
+
+=== EMBEDDING / INDEXING CALL DETECTION ===
+EMBEDDING_INDEXING_SOURCE_FILES=52
+SOURCE=backup/sprint764_31/client/embedding_client.py
+SOURCE=backup/sprint764_24/embedding_client.py
+SOURCE=backup/sprint764_28/client/embedding_client.py
+SOURCE=runtime/reports/patch_767424_ingest_pdf_vectors.before.py
+SOURCE=runtime/reports/patch_767351_qdrant_init_before.py
+SOURCE=runtime/reports/patch_767429_ingest_pdf_vectors.before_patch.py
+SOURCE=delbot_platform/vectorstore/__init__.py
+SOURCE=delbot_platform/vectorstore/qdrant/__init__.py
+SOURCE=delbot_platform/vectorstore/qdrant/repository.py
+SOURCE=delbot_platform/vectorstore/qdrant/singleton.py
+SOURCE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+SOURCE=delbot_platform/document_intelligence/indexer/__init__.py
+SOURCE=delbot_platform/document_intelligence/indexer/pdf_indexer.py
+SOURCE=delbot_platform/research/models/embedding.py
+SOURCE=delbot_platform/knowledge/vector/qdrant_store.py
+SOURCE=delbot_platform/knowledge/vector/repository/qdrant.py
+SOURCE=delbot_platform/knowledge/retrieval/qdrant.py
+SOURCE=delbot_platform/knowledge/rag/vector_retriever.py
+SOURCE=delbot_platform/knowledge/rag/pipeline.py
+SOURCE=delbot_platform/ai/vector_store/base_vector_store.py
+SOURCE=delbot_platform/ai/vector_store/providers/qdrant_vector_store.py
+SOURCE=delbot_platform/ai/client/embedding_client.py
+SOURCE=delbot_platform/ai/embedding/embedding_builder.py
+SOURCE=delbot_platform/ai/embedding/base_embedding_provider.py
+SOURCE=delbot_platform/ai/embedding/embedding_service.py
+SOURCE=delbot_platform/ai/embedding/providers/infinity_embedding_provider.py
+SOURCE=delbot_platform/documents/pipeline/indexing.py
+SOURCE=delbot_platform/documents/embedding/base.py
+SOURCE=delbot_platform/documents/embedding/factory/provider.py
+SOURCE=delbot_platform/documents/embedding/models/embedding_vector.py
+SOURCE=delbot_platform/documents/embedding/providers/gateway.py
+SOURCE=delbot_platform/documents/embedding/providers/local.py
+SOURCE=tools/test_retriever_engine.py
+SOURCE=tools/test_semantic_search.py
+SOURCE=tools/test_qdrant_storage.py
+SOURCE=tools/ingest_metadata_vectors.py
+SOURCE=tools/test_retriever_runtime.py
+SOURCE=tools/batch_ingest_repository.py
+SOURCE=tools/ingest_pdf_vectors.py
+SOURCE=tools/test_rag_end_to_end.py
+SOURCE=tools/test_ingest.py
+SOURCE=tools/debug_qdrant_runtime.py
+SOURCE=tools/audit_qdrant_storage.py
+SOURCE=tools/trace_qdrant_pipeline.py
+SOURCE=tools/test_retrieval.py
+SOURCE=tools/check_qdrant_payload.py
+SOURCE=tools/test_rag_pipeline.py
+SOURCE=tools/test_citation_builder.py
+SOURCE=tools/inspect_retriever_api.py
+SOURCE=tools/architecture/inventory.py
+SOURCE=.mvp_backup_766371/pipeline.py
+SOURCE=.mvp_backup_766371/qdrant.py
+
+=== DECISION ===
+ERRORS=0
+WARNINGS=0
+STATUS=CONTRACT_TRACE_COMPLETE
+
+=== SAFETY ===
+PROCESS_EXECUTION=NO
+EMBEDDING_EXECUTION=NO
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+NETWORK_REQUEST=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_RESET_DELETE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN

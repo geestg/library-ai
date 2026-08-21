@@ -1,0 +1,78 @@
+PATCH: 767.100
+PURPOSE: Prove new-document-only indexing after router filter patch
+MODE: SINGLE DOCUMENT CANARY
+DATE: 2026-08-18 10:19:24
+
+
+--- 1. HEALTH BEFORE CANARY ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+HTTP_STATUS=200 TIME=0.001934s
+
+--- 2. CURRENT UNPROCESSED PDF COUNT ---
+PDF_TOTAL=188
+UNPROCESSED_BEFORE=129
+CANARY_EXPECTED_PDF=/workspace/delbot/delbot_platform/repository_data/pdf/0310fa0d4a5c42f79858f2ddbc48b936.pdf
+CANARY_EXPECTED_NAME=0310fa0d4a5c42f79858f2ddbc48b936.pdf
+CANARY_EXPECTED_DOCUMENT_ID=123456789-1691
+CANARY_EXPECTED_SIZE=6555499
+
+--- 3. EXECUTE LIMIT=1 ---
+HTTP_STATUS=200 TIME=80.762844s
+CANARY_START=2026-08-18 10:19:25
+CANARY_END=2026-08-18 10:20:45
+
+--- 4. INDEX RESPONSE ---
+{"success":true,"indexed":1,"skipped":187,"total_pdf":188}
+--- 5. RESPONSE ANALYSIS ---
+RESPONSE_TYPE=dict
+SUCCESS=True
+INDEXED=1
+SKIPPED=187
+TOTAL_PDF=188
+
+--- 6. PROCESSED INVENTORY AFTER ---
+PDF_COUNT_AFTER=188
+PROCESSED_DIRECTORY_COUNT_AFTER=196
+METADATA_COUNT_AFTER=196
+
+--- 7. NEWEST PROCESSED TARGETS ---
+1787048373.5851942730 delbot_platform/repository_data/processed/documents/123456789-1691/metadata.json
+1787047369.2462541360 delbot_platform/repository_data/processed/documents/123456789-624/metadata.json
+1787003845.0758483790 delbot_platform/repository_data/processed/documents/123456789-1426/metadata.json
+1787003826.7498494710 delbot_platform/repository_data/processed/documents/123456789-1312/metadata.json
+1787003812.0428503480 delbot_platform/repository_data/processed/documents/123456789-195/metadata.json
+
+--- 8. RETRIEVAL SMOKE ---
+HTTP_STATUS=200 TIME=7.422312s
+RETRIEVAL_TYPE=dict
+CONTEXT_PRESENT=True
+CONTEXT_LENGTH=6384
+SOURCE_MARKERS=3
+Document: 02c7e6ff056f4b39a09fb6ef119ba52b.pdf
+Section: 11S18010
+Pages: 2-225
+Document: 03197818aab14b70b6dd15ca3188c93a.pdf
+Section: 11420036  Raymond G Saor Simamora  11420062  Angela One Erika
+Pages: 145-243
+Document: 03197818aab14b70b6dd15ca3188c93a.pdf
+Section: 11420036  Raymond G Saor Simamora  11420062  Angela One Erika
+Pages: 145-243
+
+--- 9. GATEWAY STILL ALIVE ---
+206866 python -m delbot_platform.gateway
+
+--- 10. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 11. FINAL CANARY DECISION ---
+INDEXED_VALUE=1
+RETRIEVAL_CONTEXT=YES
+QDRANT_RESET=NO
+QDRANT_DELETE=NO
+DATA_RESET=NO
+GATEWAY_RESTART=YES
+CANARY_DECISION=PASS
+
+--- 12. REPORT ---
+REPORT=runtime/reports/patch_767100_mvp_new_document_indexing_canary.txt
+LOG=runtime/reports/patch_767100_mvp_new_document_indexing_canary.log

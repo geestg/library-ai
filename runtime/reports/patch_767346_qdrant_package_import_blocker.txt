@@ -1,0 +1,49 @@
+PATCH=767.346
+PURPOSE=Identify exact remaining import path to deleted qdrant client.py
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_DELETED=delbot_platform/vectorstore/qdrant/client.py
+DATE=2026-08-19 15:01:37
+
+delbot_platform/vectorstore/qdrant/__init__.py:1:from .client import (
+delbot_platform/vectorstore/qdrant/singleton.py.patch_766980.bak:5:from qdrant_client import QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py.patch_766980.bak:35:        self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py.bak_765_913:5:from qdrant_client import QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py.bak_765_913:30:        self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py.sprint766307.bak:5:from qdrant_client import QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py.sprint766307.bak:35:        self.client = QdrantClient(
+delbot_platform/vectorstore/qdrant/singleton.py:5:from qdrant_client import QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py:43:        self.client = QdrantClient(
+tools/pr_5_6_42_mvp_local_embedding_index.sh:51:    from qdrant_client import QdrantClient
+tools/pr_5_6_42_mvp_local_embedding_index.sh:55:    client=QdrantClient(path="$DBDIR")
+tools/pr_5_7_mvp_local_retrieval_engine.sh:40:from qdrant_client import QdrantClient
+tools/pr_5_7_mvp_local_retrieval_engine.sh:57:    client=QdrantClient(path=DB)
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:61:from qdrant_client import QdrantClient
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:115:    client=QdrantClient(
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh:119:    from qdrant_client import QdrantClient
+tools/audit_qdrant_storage.py:22:    "QdrantClient",
+tools/pr_5_9_mvp_repository_chat.sh:55:    from qdrant_client import QdrantClient
+tools/pr_5_9_mvp_repository_chat.sh:59:    client=QdrantClient(path=str(dbdir))
+tools/check_qdrant_payload.py:1:from qdrant_client import QdrantClient
+tools/check_qdrant_payload.py:4:client=QdrantClient(
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:86:        from qdrant_client import QdrantClient
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:89:        client=QdrantClient(
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh:63:        from qdrant_client import QdrantClient
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:111:        from qdrant_client import QdrantClient
+tools/pr_5_6_mvp_embedding_qdrant_index.sh:147:        qdrant=QdrantClient(
+tools/pr_5_6_40_mvp_local_embedding_index.sh:80:        from qdrant_client import QdrantClient
+tools/pr_5_6_40_mvp_local_embedding_index.sh:90:        client=QdrantClient(path=local_db)
+
+=== FINAL SUMMARY ===
+PACKAGE_IMPORT=FAIL
+SINGLETON_IMPORT=FAIL
+REFERENCE_COUNT=1
+DELETED_CLIENT_SPEC=UNKNOWN
+PLATFORM_COMPILE_STATUS=0

@@ -1,0 +1,82 @@
+from __future__ import annotations
+
+
+from delbot_platform.knowledge.reranking.base import (
+    Reranker,
+)
+
+
+from delbot_platform.knowledge.reranking.result import (
+    RerankResult,
+)
+
+
+
+class LocalReranker(
+    Reranker,
+):
+
+
+    async def rerank(
+        self,
+        query: str,
+        documents: list[RerankResult],
+        limit: int = 5,
+    ) -> list[RerankResult]:
+
+
+        ranked = []
+
+
+        query_terms = set(
+            query.lower().split()
+        )
+
+
+        for document in documents:
+
+
+            content_terms = set(
+                document.content.lower().split()
+            )
+
+
+            overlap = len(
+                query_terms
+                &
+                content_terms
+            )
+
+
+            score = float(
+                overlap
+            )
+
+
+            ranked.append(
+
+                RerankResult(
+
+                    id=document.id,
+
+                    score=score,
+
+                    content=document.content,
+
+                    metadata=document.metadata,
+
+                )
+
+            )
+
+
+        ranked.sort(
+
+            key=lambda item: item.score,
+
+            reverse=True,
+
+        )
+
+
+        return ranked[:limit]

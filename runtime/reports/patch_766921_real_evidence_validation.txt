@@ -1,0 +1,7 @@
+PATCH: 766.921
+TARGET: delbot_platform/research/pipeline/research_answer_pipeline.py
+TEST: Locate real research answer entrypoint and validate evidence path
+DATE: 2026-08-18 09:24:43
+
+NEXT: use discovered real entrypoint for one real-evidence answer test
+STATUS: INSPECTION_COMPLETE

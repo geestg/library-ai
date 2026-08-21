@@ -1,0 +1,26 @@
+PATCH=767.357
+PURPOSE=Determine complete required Qdrant package export chain before final minimal compatibility repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_QDRANT_INIT=delbot_platform/vectorstore/qdrant/__init__.py
+TARGET_VECTORSTORE_INIT=delbot_platform/vectorstore/__init__.py
+TARGET_SINGLETON=delbot_platform/vectorstore/qdrant/singleton.py
+DATE=2026-08-19 15:14:41
+
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+VECTORSTORE_IMPORT=IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+SINGLETON_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant.singleton|PASS|file=/workspace/delbot/delbot_platform/vectorstore/qdrant/singleton.py
+QDRANT_VECTOR_REFS=7
+QDRANT_REPOSITORY_REFS=25
+QDRANT_STORE_REFS=64

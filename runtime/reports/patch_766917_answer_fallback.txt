@@ -1,0 +1,11 @@
+PATCH: 766.917
+TARGET: delbot_platform/research/pipeline/research_answer_pipeline.py
+TEST: Evidence-aware answer synthesis fallback
+DATE: 2026-08-18 08:58:36
+
+PATCH: 766.917
+TARGET: delbot_platform/research/pipeline/research_answer_pipeline.py
+COMPILE_STATUS: 0
+RUNTIME_STATUS: 0
+BACKUP: delbot_platform/research/pipeline/research_answer_pipeline.py.bak_patch_766917
+TIMESTAMP: 2026-08-18 08:58:50

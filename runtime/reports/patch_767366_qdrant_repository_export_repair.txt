@@ -1,0 +1,34 @@
+PATCH=767.366
+PURPOSE=Expose owner-B QdrantRepository through qdrant package export chain
+MODE=MINIMAL_SOURCE_REPAIR
+TARGET=delbot_platform/vectorstore/qdrant/__init__.py
+REPOSITORY=delbot_platform/vectorstore/qdrant/repository.py
+VECTORSTORE_INIT=delbot_platform/vectorstore/__init__.py
+SINGLETON=delbot_platform/vectorstore/qdrant/singleton.py
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=YES
+SOURCE_SCOPE=QDRANT_PACKAGE_EXPORT_ONLY
+AUTO_RESTORE_ON_GATE_FAILURE=YES
+DATE=2026-08-19 15:33:02
+
+GATEWAY_PID=5136
+COMPILE_STATUS=0
+
+=== RESULT ===
+COMPILE_STATUS=0
+PACKAGE_IMPORT=PASS|module=delbot_platform.vectorstore.qdrant|symbol=QdrantRepository
+VECTORSTORE_IMPORT=PASS|module=delbot_platform.vectorstore|symbol=QdrantRepository
+REPOSITORY_IMPORT=PASS|module=delbot_platform.vectorstore.qdrant.repository|symbol=QdrantRepository
+SINGLETON_IMPORT=PASS|module=delbot_platform.vectorstore.qdrant.singleton|symbol=QdrantStore
+DELETED_CLIENT_IMPORT=EXPECTED_FAIL|No module named 'delbot_platform.vectorstore.qdrant.client'
+IMPORT_PROCESS_STATUS=0
+
+STATUS=PASS
+DECISION=QDRANT_EXPORT_CHAIN_REPAIRED
+INDEX_GATE=READY_FOR_NEXT_FORENSIC_GATE

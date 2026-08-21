@@ -1,0 +1,514 @@
+PATCH: 766.924
+BACKEND_PORT: NOT_DISCOVERED
+TARGET_ROUTE: /api/research/answer
+DATE: 2026-08-18 09:27:24
+
+runtime/vision.log:4:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/vision.log:13:Port     : 8104
+runtime/vision.log:25:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/vision.log:34:Port     : 8104
+runtime/vision.log:46:INFO:     Uvicorn running on http://0.0.0.0:8104 (Press CTRL+C to quit)
+runtime/vision.log:55:Port     : 8104
+runtime/gateway_mvp.log:5:INFO:     Uvicorn running on http://0.0.0.0:8100 (Press CTRL+C to quit)
+runtime/gateway_manual_trace.log:4:INFO:     Uvicorn running on http://0.0.0.0:8100 (Press CTRL+C to quit)
+runtime/logs/chat_8107.log:5:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/logs/backend_8001.log:20:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/logs/backend_8001.log:22:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/logs/chat_8101.log:5:INFO:     Uvicorn running on http://0.0.0.0:8101 (Press CTRL+C to quit)
+runtime/logs/backend-766289.log:26:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/logs/backend-766289.log:28:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/logs/backend-766289.log:111:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/logs/backend-766289.log:113:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/chat.log:4:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/chat.log:13:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/embedding.log:7:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/embedding.log:307:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/embedding.log:319:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/embedding.log:330:INFO:     Uvicorn running on http://0.0.0.0:8105 (Press CTRL+C to quit)
+runtime/ocr.log:4:ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8107): address already in use
+runtime/ocr.log:15:Port     : 8107
+runtime/ocr.log:22:INFO:     Uvicorn running on http://0.0.0.0:8107 (Press CTRL+C to quit)
+runtime/ocr.log:30:INFO:     Uvicorn running on http://0.0.0.0:8109 (Press CTRL+C to quit)
+runtime/ocr.log:39:Port     : 8109
+runtime/research_api.log:39:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/research_api.log:41:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/research_api.log:124:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/research_api.log:126:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/research_api.log:209:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+runtime/research_api.log:211:  File "/workspace/delbot/.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+runtime/reranker.log:10:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reranker.log:277:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reranker.log:291:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/reranker.log:305:INFO:     Uvicorn running on http://0.0.0.0:8106 (Press CTRL+C to quit)
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/docs/output/commands/npm-sbom.html:278:  "documentNamespace": "http://spdx.org/spdxdocs/simple-1.0.0-bf81090e-8bbc-459d-bec9-abeb794e096a",
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/docs/content/commands/npm-sbom.md:139:  "documentNamespace": "http://spdx.org/spdxdocs/simple-1.0.0-bf81090e-8bbc-459d-bec9-abeb794e096a",
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/utils/reify-output.js:15:const npmAuditReport = require('npm-audit-report')
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/utils/reify-output.js:26:  const auditReport = auditError(npm, arb.auditReport) ? null : arb.auditReport
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/utils/reify-output.js:107:const printAuditReport = (npm, report) => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/utils/reify-output.js:115:const getAuditReport = (npm, report) => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/utils/explain-eresolve.js:47:const report = (expl, chalk, noColorChalk) => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/lib/commands/audit.js:1:const npmAuditReport = require('npm-audit-report')
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/socks-proxy-agent/dist/index.js:43:    const port = parseInt(url.port, 10) || 1080;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/socks-proxy-agent/dist/index.js:127:                port: typeof port === 'number' ? port : parseInt(port, 10),
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/CHANGELOG.md:774:* [[`7900122337`](https://github.com/nodejs/node-gyp/commit/7900122337)] - deps: pin `request` version range (Refael Ackerman) [#1300](https://github.com/nodejs/node-gyp/pull/1300)
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/CHANGELOG.md:851:* [[`90078ecb17`](https://github.com/nodejs/node-gyp/commit/90078ecb17)] - Define WIN32_LEAN_AND_MEAN conditionally. (Ben Noordhuis) [#824](https://github.com/nodejs/node-gyp/pull/824)
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/win_tool.py:257:            if line and "manifest authoring warning 81010002" not in line:
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/socks/build/common/helpers.js:107:        typeof remoteHost.port === 'number' &&
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/socks/build/common/helpers.js:118:        typeof proxy.port === 'number' &&
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/chalk/source/vendor/supports-color/browser.js:18:const colorSupport = level !== 0 && {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/https-proxy-agent/dist/index.js:59:        const port = this.proxy.port
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/http-proxy-agent/dist/index.js:49:        const port = this.proxy.port
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/http-proxy-agent/dist/index.js:73:            url.port = String(opts.port);
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/hosted-git-info/package.json:26:    "test:coverage": "tap --coverage-report=html",
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/glob/README.md:1114:node current globSync mjs       0m0.680s  180023
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/glob/README.md:1115:node current glob syncStream    0m0.659s  180023
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/glob/README.md:1119:node current glob async mjs     0m0.427s  180023
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/glob/README.md:1120:node current glob stream        0m0.388s  180023
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json:1:{"uChars":[128,165,169,178,184,216,226,235,238,244,248,251,253,258,276,284,300,325,329,334,364,463,465,467,469,471,473,475,477,506,594,610,712,716,730,930,938,962,970,1026,1104,1106,8209,8215,8218,8222,8231,8241,8244,8246,8252,8365,8452,8454,8458,8471,8482,8556,8570,8596,8602,8713,8720,8722,8726,8731,8737,8740,8742,8748,8751,8760,8766,8777,8781,8787,8802,8808,8816,8854,8858,8870,8896,8979,9322,9372,9548,9588,9616,9622,9634,9652,9662,9672,9676,9680,9702,9735,9738,9793,9795,11906,11909,11913,11917,11928,11944,11947,11951,11956,11960,11964,11979,12284,12292,12312,12319,12330,12351,12436,12447,12535,12543,12586,12842,12850,12964,13200,13215,13218,13253,13263,13267,13270,13384,13428,13727,13839,13851,14617,14703,14801,14816,14964,15183,15471,15585,16471,16736,17208,17325,17330,17374,17623,17997,18018,18212,18218,18301,18318,18760,18811,18814,18820,18823,18844,18848,18872,19576,19620,19738,19887,40870,59244,59336,59367,59413,59417,59423,59431,59437,59443,59452,59460,59478,59493,63789,63866,63894,63976,63986,64016,64018,64021,64025,64034,64037,64042,65074,65093,65107,65112,65127,65132,65375,65510,65536],"gbChars":[0,36,38,45,50,81,89,95,96,100,103,104,105,109,126,133,148,172,175,179,208,306,307,308,309,310,311,312,313,341,428,443,544,545,558,741,742,749,750,805,819,820,7922,7924,7925,7927,7934,7943,7944,7945,7950,8062,8148,8149,8152,8164,8174,8236,8240,8262,8264,8374,8380,8381,8384,8388,8390,8392,8393,8394,8396,8401,8406,8416,8419,8424,8437,8439,8445,8482,8485,8496,8521,8603,8936,8946,9046,9050,9063,9066,9076,9092,9100,9108,9111,9113,9131,9162,9164,9218,9219,11329,11331,11334,11336,11346,11361,11363,11366,11370,11372,11375,11389,11682,11686,11687,11692,11694,11714,11716,11723,11725,11730,11736,11982,11989,12102,12336,12348,12350,12384,12393,12395,12397,12510,12553,12851,12962,12973,13738,13823,13919,13933,14080,14298,14585,14698,15583,15847,16318,16434,16438,16481,16729,17102,17122,17315,17320,17402,17418,17859,17909,17911,17915,17916,17936,17939,17961,18664,18703,18814,18962,19043,33469,33470,33471,33484,33485,33490,33497,33501,33505,33513,33520,33536,33550,37845,37921,37948,38029,38038,38064,38065,38066,38069,38075,38076,38078,39108,39109,39113,39114,39115,39116,39265,39394,189000]}
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/npm-audit-report/lib/reporters/detail.js:12:const fullReport = (data, { chalk, summary }) => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/npm-install-checks/lib/index.js:44:      const report = process.report.getReport()
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@sigstore/tuf/dist/appdata.js:29:            const appSupport = path_1.default.join(homedir, 'Library', 'Application Support');
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@pkgjs/parseargs/utils.js:57: * the option argument, like `--port --verbose` when `port` of type:string.
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/semver/internal/constants.js:7:/* istanbul ignore next */ 9007199254740991
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/supports-color/browser.js:18:const colorSupport = level !== 0 && {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/ipv6.js:182:        let port = null;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/ipv6.js:195:            port = result[2];
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/ipv6.js:218:            port = parseInt(port, 10);
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/ipv6.js:221:                port = null;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/ipv6.js:226:            port = null;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/v6/constants.js:3:exports.RE_URL_WITH_PORT = exports.RE_URL = exports.RE_ZONE_STRING = exports.RE_SUBNET_STRING = exports.RE_BAD_ADDRESS = exports.RE_BAD_CHARACTERS = exports.TYPES = exports.SCOPES = exports.GROUPS = exports.BITS = void 0;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/ip-address/dist/v6/constants.js:75:exports.RE_URL_WITH_PORT = new RegExp(/\[([0-9a-f:]+)\]:([0-9]{1,5})/);
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:4:const AuditReport = require('../audit-report.js')
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:268:    this.auditReport = await this.auditReport
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:1045:      this.auditReport = null
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:1068:    this.auditReport = AuditReport.load(tree, options).then(res => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/index.js:35:const AuditReport = require('../audit-report.js')
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/index.js:254:    this.auditReport = await AuditReport.load(tree, options)
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js:27:    this.auditReport = options.auditReport
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/audit-report.js:11:const _getReport = Symbol('getReport')
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/audit-report.js:106:    this.report = await this[_getReport]()
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/arborist/bin/audit.js:7:const printReport = report => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/definitions/definition.js:38:    this.envExport = true
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/definitions/definition.js:79:    const noEnvExport = this.envExport
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/set-envs.js:71:    const { deprecated, envExport = true } = definitions[key] || {}
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/@npmcli/config/lib/set-envs.js:72:    if (deprecated || envExport === false) {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/man/man1/npm-sbom.1:136:  "documentNamespace": "http://spdx.org/spdxdocs/simple-1.0.0-bf81090e-8bbc-459d-bec9-abeb794e096a",
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/CHANGELOG.md:237:* update package manager versions ([#415](https://github.com/nodejs/corepack/issues/415)) ([e8edba7](https://github.com/nodejs/corepack/commit/e8edba771bca6fb10c855c04eee8102ffa792d58))
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/CHANGELOG.md:281:* add support for URL in `"packageManager"` ([#359](https://github.com/nodejs/corepack/issues/359)) ([4a8ce6d](https://github.com/nodejs/corepack/commit/4a8ce6d42f081047a341f36067696346c9f3e1ea))
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:14:var __export = (target, all) => {
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:1110:    9007199254740991;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:3072:      var port = parsedUrl.port;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:3078:      port = parseInt(port) || DEFAULT_PORTS[proto] || 0;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:3906:        const port = url.port != null ? url.port : url.protocol === "https:" ? 443 : 80;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:6735:          port = port || 443;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:6755:          port = port || 80;
+runtime/nvm/versions/node/v20.20.2/lib/node_modules/corepack/dist/lib/corepack.cjs:8612:      if (A.protocol === B.protocol && A.hostname === B.hostname && A.port === B.port) {
+runtime/nvm/versions/node/v20.20.2/README.md:369:  **Matthew Aitken** <<maitken033380023@gmail.com>> (he/him)
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/asn1.h:118:#define B_ASN1_GENERALIZEDTIME 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/crypto.h:470:#define OPENSSL_INIT_ENGINE_AFALG 0x00008000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/crypto.h:474:#define OPENSSL_INIT_NO_ATEXIT 0x00080000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/crypto.h:477:/* FREE: 0x08000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/crypto.h:481:/* FREE: 0x80000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/crypto.h:482:/* Max OPENSSL_INIT flag value is 0x80000000 */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/pkcs7.h:289:#define PKCS7_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/pkcs7.h:305:#define SMIME_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509_vfy.h:455:#define X509_V_FLAG_TRUSTED_FIRST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509_vfy.h:463:#define X509_V_FLAG_PARTIAL_CHAIN 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/cms.h:190:#define CMS_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/cms.h:194:#define CMS_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509v3.h:678:#define EXFLAG_SAN_CRITICAL 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509v3.h:689:#define KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509v3.h:1052:#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509.h:177:#define X509v3_KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm_avx2/include/openssl/x509.h:226:#define X509_EX_V_NETSCAPE_HACK 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/asn1.h:118:#define B_ASN1_GENERALIZEDTIME 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/crypto.h:470:#define OPENSSL_INIT_ENGINE_AFALG 0x00008000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/crypto.h:474:#define OPENSSL_INIT_NO_ATEXIT 0x00080000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/crypto.h:477:/* FREE: 0x08000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/crypto.h:481:/* FREE: 0x80000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/crypto.h:482:/* Max OPENSSL_INIT flag value is 0x80000000 */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/pkcs7.h:289:#define PKCS7_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/pkcs7.h:305:#define SMIME_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509_vfy.h:455:#define X509_V_FLAG_TRUSTED_FIRST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509_vfy.h:463:#define X509_V_FLAG_PARTIAL_CHAIN 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/cms.h:190:#define CMS_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/cms.h:194:#define CMS_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509v3.h:678:#define EXFLAG_SAN_CRITICAL 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509v3.h:689:#define KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509v3.h:1052:#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509.h:177:#define X509v3_KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/asm/include/openssl/x509.h:226:#define X509_EX_V_NETSCAPE_HACK 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/asn1.h:118:#define B_ASN1_GENERALIZEDTIME 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/crypto.h:470:#define OPENSSL_INIT_ENGINE_AFALG 0x00008000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/crypto.h:474:#define OPENSSL_INIT_NO_ATEXIT 0x00080000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/crypto.h:477:/* FREE: 0x08000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/crypto.h:481:/* FREE: 0x80000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/crypto.h:482:/* Max OPENSSL_INIT flag value is 0x80000000 */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/pkcs7.h:289:#define PKCS7_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/pkcs7.h:305:#define SMIME_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509_vfy.h:455:#define X509_V_FLAG_TRUSTED_FIRST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509_vfy.h:463:#define X509_V_FLAG_PARTIAL_CHAIN 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/cms.h:190:#define CMS_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/cms.h:194:#define CMS_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509v3.h:678:#define EXFLAG_SAN_CRITICAL 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509v3.h:689:#define KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509v3.h:1052:#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509.h:177:#define X509v3_KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/solaris-x86-gcc/no-asm/include/openssl/x509.h:226:#define X509_EX_V_NETSCAPE_HACK 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/asn1.h:118:#define B_ASN1_GENERALIZEDTIME 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/crypto.h:470:#define OPENSSL_INIT_ENGINE_AFALG 0x00008000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/crypto.h:474:#define OPENSSL_INIT_NO_ATEXIT 0x00080000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/crypto.h:477:/* FREE: 0x08000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/crypto.h:481:/* FREE: 0x80000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/crypto.h:482:/* Max OPENSSL_INIT flag value is 0x80000000 */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/pkcs7.h:289:#define PKCS7_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/pkcs7.h:305:#define SMIME_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509_vfy.h:455:#define X509_V_FLAG_TRUSTED_FIRST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509_vfy.h:463:#define X509_V_FLAG_PARTIAL_CHAIN 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/cms.h:190:#define CMS_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/cms.h:194:#define CMS_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509v3.h:678:#define EXFLAG_SAN_CRITICAL 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509v3.h:689:#define KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509v3.h:1052:#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509.h:177:#define X509v3_KU_DECIPHER_ONLY 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm_avx2/include/openssl/x509.h:226:#define X509_EX_V_NETSCAPE_HACK 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/asn1.h:118:#define B_ASN1_GENERALIZEDTIME 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/crypto.h:470:#define OPENSSL_INIT_ENGINE_AFALG 0x00008000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/crypto.h:474:#define OPENSSL_INIT_NO_ATEXIT 0x00080000L
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/crypto.h:477:/* FREE: 0x08000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/crypto.h:481:/* FREE: 0x80000000L */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/crypto.h:482:/* Max OPENSSL_INIT flag value is 0x80000000 */
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/pkcs7.h:289:#define PKCS7_REUSE_DIGEST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/pkcs7.h:305:#define SMIME_ASCIICRLF 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/x509_vfy.h:455:#define X509_V_FLAG_TRUSTED_FIRST 0x8000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/x509_vfy.h:463:#define X509_V_FLAG_PARTIAL_CHAIN 0x80000
+runtime/nvm/versions/node/v20.20.2/include/node/openssl/archs/linux-x86_64/asm/include/openssl/cms.h:190:#define CMS_REUSE_DIGEST 0x8000
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                     
+LISTEN 0      511        127.0.0.1:59764      0.0.0.0:*    users:(("MainThread",pid=170972,fd=33))    
+LISTEN 0      511        127.0.0.1:57155      0.0.0.0:*    users:(("MainThread",pid=177095,fd=37))    
+LISTEN 0      128        127.0.0.1:45919      0.0.0.0:*    users:(("code-a5b5009513",pid=83320,fd=9)) 
+LISTEN 0      128        127.0.0.1:42869      0.0.0.0:*    users:(("code-a5b5009513",pid=94,fd=9))    
+LISTEN 0      128        127.0.0.1:41491      0.0.0.0:*    users:(("code-a5b5009513",pid=5326,fd=9))  
+LISTEN 0      128        127.0.0.1:41883      0.0.0.0:*    users:(("code-a5b5009513",pid=175703,fd=9))
+LISTEN 0      128        127.0.0.1:43727      0.0.0.0:*    users:(("code-a5b5009513",pid=127683,fd=9))
+LISTEN 0      128        127.0.0.1:43215      0.0.0.0:*    users:(("code-a5b5009513",pid=37667,fd=9)) 
+LISTEN 0      128        127.0.0.1:43387      0.0.0.0:*    users:(("code-a5b5009513",pid=6887,fd=9))  
+LISTEN 0      128        127.0.0.1:38077      0.0.0.0:*    users:(("code-a5b5009513",pid=344,fd=11))  
+LISTEN 0      511        127.0.0.1:38195      0.0.0.0:*    users:(("MainThread",pid=167432,fd=28))    
+LISTEN 0      128        127.0.0.1:39125      0.0.0.0:*    users:(("code-a5b5009513",pid=97826,fd=9)) 
+LISTEN 0      128        127.0.0.1:39415      0.0.0.0:*    users:(("code-a5b5009513",pid=166965,fd=9))
+LISTEN 0      128        127.0.0.1:33721      0.0.0.0:*    users:(("code-a5b5009513",pid=40350,fd=9)) 
+LISTEN 0      128        127.0.0.1:35017      0.0.0.0:*    users:(("code-a5b5009513",pid=71367,fd=9)) 
+LISTEN 0      128        127.0.0.1:34931      0.0.0.0:*    users:(("code-a5b5009513",pid=169310,fd=9))
+LISTEN 0      128          0.0.0.0:22         0.0.0.0:*                                               
+LISTEN 0      2048         0.0.0.0:8107       0.0.0.0:*    users:(("python",pid=57804,fd=6))          
+LISTEN 0      128             [::]:22            [::]:*                                               
+     59       1 delbot   Z    Fri Aug 14 09:33:28 2026 [sshd] <defunct>
+     60       1 delbot   Zs   Fri Aug 14 09:33:28 2026 [bash] <defunct>
+     94       1 delbot   Sl   Fri Aug 14 09:33:28 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 60 --on-host=127.0.0.1 --on-port
+    344      94 delbot   Ssl  Fri Aug 14 09:33:28 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 --cli-data-dir /home/delbot/.vscode-server/cli agent host
+    574      94 delbot   Z    Fri Aug 14 09:33:29 2026 [bash] <defunct>
+    993       1 delbot   Z    Fri Aug 14 09:33:30 2026 [MainThread] <defunct>
+   1012       1 delbot   Z    Fri Aug 14 09:33:32 2026 [MainThread] <defunct>
+   1018       1 delbot   Z    Fri Aug 14 09:33:32 2026 [MainThread] <defunct>
+   1306      94 delbot   S    Fri Aug 14 09:33:34 2026 /bin/bash
+   1768       1 delbot   Z    Fri Aug 14 09:33:34 2026 [pet] <defunct>
+   2107       1 delbot   Zs   Fri Aug 14 09:33:35 2026 [bash] <defunct>
+   2375       1 delbot   Z    Fri Aug 14 09:33:37 2026 [MainThread] <defunct>
+   2451       1 delbot   Z    Fri Aug 14 09:34:11 2026 [MainThread] <defunct>
+   2463       1 delbot   Zs   Fri Aug 14 09:34:15 2026 [bash] <defunct>
+   2845       1 delbot   Z    Fri Aug 14 09:38:04 2026 [sshd] <defunct>
+   2846       1 delbot   Zs   Fri Aug 14 09:38:04 2026 [bash] <defunct>
+   3048       1 delbot   Z    Fri Aug 14 09:38:10 2026 [sshd] <defunct>
+   3049       1 delbot   Zs   Fri Aug 14 09:38:10 2026 [bash] <defunct>
+   3227       1 delbot   Z    Fri Aug 14 09:39:57 2026 [python] <defunct>
+   3614       1 delbot   Z    Fri Aug 14 09:40:07 2026 [python] <defunct>
+   3615       1 delbot   Z    Fri Aug 14 09:40:07 2026 [VLLM::EngineCor] <defunct>
+   4045       1 delbot   Z    Fri Aug 14 09:40:29 2026 [python] <defunct>
+   4432       1 delbot   Z    Fri Aug 14 09:40:38 2026 [python] <defunct>
+   4433       1 delbot   Z    Fri Aug 14 09:40:38 2026 [VLLM::EngineCor] <defunct>
+   4875       1 delbot   Z    Fri Aug 14 09:40:52 2026 [sshd] <defunct>
+   5291       1 delbot   Z    Fri Aug 14 12:40:35 2026 [sshd] <defunct>
+   5292       1 delbot   Zs   Fri Aug 14 12:40:35 2026 [bash] <defunct>
+   5326       1 delbot   Sl   Fri Aug 14 12:40:35 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 5292 --on-host=127.0.0.1 --on-port
+   5635    5326 delbot   S    Fri Aug 14 12:40:40 2026 /bin/bash
+   5878       1 delbot   Z    Fri Aug 14 12:40:40 2026 [MainThread] <defunct>
+   6086       1 delbot   Z    Fri Aug 14 12:40:40 2026 [pet] <defunct>
+   6487       1 delbot   Zs   Fri Aug 14 12:40:43 2026 [bash] <defunct>
+   6852       1 delbot   Z    Fri Aug 14 12:41:36 2026 [sshd] <defunct>
+   6853       1 delbot   Zs   Fri Aug 14 12:41:36 2026 [bash] <defunct>
+   6887       1 delbot   Sl   Fri Aug 14 12:41:36 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 6853 --on-host=127.0.0.1 --on-port
+   7421       1 delbot   Z    Fri Aug 14 12:41:47 2026 [pet] <defunct>
+   7432    6887 delbot   S    Fri Aug 14 12:41:47 2026 /bin/bash
+   8034       1 delbot   Zs   Fri Aug 14 12:41:50 2026 [bash] <defunct>
+   8322       1 delbot   Z    Fri Aug 14 12:42:55 2026 [MainThread] <defunct>
+   8369       1 delbot   Z    Fri Aug 14 12:43:14 2026 [MainThread] <defunct>
+  32781       1 delbot   Z    Fri Aug 14 16:40:04 2026 [sshd] <defunct>
+  32782       1 delbot   Zs   Fri Aug 14 16:40:04 2026 [bash] <defunct>
+  33152       1 delbot   Z    Fri Aug 14 16:40:59 2026 [python] <defunct>
+  33564       1 delbot   Z    Fri Aug 14 16:41:06 2026 [sshd] <defunct>
+  33565       1 delbot   Zs   Fri Aug 14 16:41:06 2026 [bash] <defunct>
+  33742       1 delbot   Z    Fri Aug 14 16:41:06 2026 [python] <defunct>
+  33743       1 delbot   Z    Fri Aug 14 16:41:06 2026 [VLLM::EngineCor] <defunct>
+  34174       1 delbot   Z    Fri Aug 14 16:41:46 2026 [python] <defunct>
+  34561       1 delbot   Z    Fri Aug 14 16:41:54 2026 [python] <defunct>
+  34562       1 delbot   Z    Fri Aug 14 16:41:54 2026 [VLLM::EngineCor] <defunct>
+  35020       1 delbot   Z    Fri Aug 14 16:44:34 2026 [sshd] <defunct>
+  35336       1 delbot   Z    Sat Aug 15 06:16:51 2026 [sshd] <defunct>
+  35337       1 delbot   Zs   Sat Aug 15 06:16:51 2026 [bash] <defunct>
+  35512       1 delbot   Z    Sat Aug 15 06:17:36 2026 [python] <defunct>
+  35899       1 delbot   Z    Sat Aug 15 06:17:46 2026 [python] <defunct>
+  35900       1 delbot   Z    Sat Aug 15 06:17:46 2026 [VLLM::EngineCor] <defunct>
+  36357       1 delbot   Z    Sat Aug 15 06:18:59 2026 [sshd] <defunct>
+  36358       1 delbot   Zs   Sat Aug 15 06:18:59 2026 [bash] <defunct>
+  36533       1 delbot   Z    Sat Aug 15 06:19:27 2026 [python] <defunct>
+  36920       1 delbot   Z    Sat Aug 15 06:19:36 2026 [python] <defunct>
+  36921       1 delbot   Z    Sat Aug 15 06:19:36 2026 [VLLM::EngineCor] <defunct>
+  37378       1 delbot   Z    Sat Aug 15 06:25:46 2026 [sshd] <defunct>
+  37632       1 delbot   Z    Sat Aug 15 10:31:41 2026 [sshd] <defunct>
+  37633       1 delbot   Zs   Sat Aug 15 10:31:41 2026 [bash] <defunct>
+  37667       1 delbot   Sl   Sat Aug 15 10:31:41 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 37633 --on-host=127.0.0.1 --on-port
+  37918   37667 delbot   Z    Sat Aug 15 10:31:41 2026 [bash] <defunct>
+  38337       1 delbot   Z    Sat Aug 15 10:31:42 2026 [MainThread] <defunct>
+  38356       1 delbot   Z    Sat Aug 15 10:31:45 2026 [MainThread] <defunct>
+  38367       1 delbot   Z    Sat Aug 15 10:31:45 2026 [MainThread] <defunct>
+  38647       1 delbot   Z    Sat Aug 15 10:31:46 2026 [MainThread] <defunct>
+  38656   37667 delbot   S    Sat Aug 15 10:31:46 2026 /bin/bash
+  38689       1 delbot   Z    Sat Aug 15 10:31:46 2026 [pet] <defunct>
+  39447       1 delbot   Zs   Sat Aug 15 10:31:47 2026 [bash] <defunct>
+  39727       1 delbot   Z    Sat Aug 15 10:31:50 2026 [MainThread] <defunct>
+  39907       1 delbot   Z    Sat Aug 15 16:55:16 2026 [sshd] <defunct>
+  39908       1 delbot   Zs   Sat Aug 15 16:55:16 2026 [bash] <defunct>
+  40112       1 delbot   Z    Sat Aug 15 17:57:31 2026 [sshd] <defunct>
+  40113       1 delbot   Zs   Sat Aug 15 17:57:31 2026 [bash] <defunct>
+  40315       1 delbot   Z    Sat Aug 15 18:46:58 2026 [sshd] <defunct>
+  40316       1 delbot   Zs   Sat Aug 15 18:46:59 2026 [bash] <defunct>
+  40350       1 delbot   Sl   Sat Aug 15 18:46:59 2026 /home/delbot/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 command-shell --cli-data-dir /home/delbot/.vscode-server/cli --parent-process-id 40316 --on-host=127.0.0.1 --on-port
+  40595   40350 delbot   Z    Sat Aug 15 18:46:59 2026 [bash] <defunct>
+  41014       1 delbot   Z    Sat Aug 15 18:47:00 2026 [MainThread] <defunct>
+  41033       1 delbot   Z    Sat Aug 15 18:47:03 2026 [MainThread] <defunct>
+  41044       1 delbot   Z    Sat Aug 15 18:47:03 2026 [MainThread] <defunct>
+  41323       1 delbot   Z    Sat Aug 15 18:47:04 2026 [MainThread] <defunct>
+  41335   40350 delbot   S    Sat Aug 15 18:47:04 2026 /bin/bash
+  41772       1 delbot   Z    Sat Aug 15 18:47:05 2026 [pet] <defunct>
+  42122       1 delbot   Ss+  Sat Aug 15 18:47:05 2026 /bin/bash --init-file /home/delbot/.vscode-server/cli/servers/Stable-a5b500951314efd502d07465bd138dfbd714a960/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+  42386       1 delbot   Z    Sat Aug 15 18:47:07 2026 [MainThread] <defunct>
+  42499       1 delbot   Zs   Sat Aug 15 18:47:53 2026 [bash] <defunct>
+  43745       1 delbot   Z    Sat Aug 15 18:50:11 2026 [python] <defunct>
+  44132       1 delbot   Z    Sat Aug 15 18:50:21 2026 [python] <defunct>
+  44133       1 delbot   Z    Sat Aug 15 18:50:21 2026 [VLLM::EngineCor] <defunct>
+  44590       1 delbot   Z    Sat Aug 15 18:51:18 2026 [sshd] <defunct>
+  44591       1 delbot   Zs   Sat Aug 15 18:51:19 2026 [bash] <defunct>
+  44766       1 delbot   Z    Sat Aug 15 18:52:00 2026 [python] <defunct>
+  45153       1 delbot   Z    Sat Aug 15 18:52:10 2026 [python] <defunct>
+  45154       1 delbot   Z    Sat Aug 15 18:52:10 2026 [VLLM::EngineCor] <defunct>
+  45612       1 delbot   Z    Sat Aug 15 18:53:00 2026 [sshd] <defunct>
+  45613       1 delbot   Zs   Sat Aug 15 18:53:00 2026 [bash] <defunct>
+  45977       1 delbot   Z    Sat Aug 15 18:53:38 2026 [python] <defunct>
+  46756       1 delbot   Z    Sat Aug 15 18:53:48 2026 [python] <defunct>
+  46757       1 delbot   Z    Sat Aug 15 18:53:48 2026 [VLLM::EngineCor] <defunct>
+  48561       1 delbot   Z    Sat Aug 15 18:56:15 2026 [sshd] <defunct>
+  57804       1 delbot   Sl   Sat Aug 15 19:27:17 2026 python -m delbot_platform.ai.runtime.chat
+  59791       1 delbot   Z    Sat Aug 15 19:50:00 2026 [python] <defunct>
+  60776       1 delbot   Z    Sat Aug 15 23:48:28 2026 [sshd] <defunct>
+  60777       1 delbot   Zs   Sat Aug 15 23:48:28 2026 [bash] <defunct>
+  60953       1 delbot   Z    Sat Aug 15 23:50:45 2026 [python] <defunct>
+  61340       1 delbot   Z    Sat Aug 15 23:50:53 2026 [python] <defunct>
+  61341       1 delbot   Z    Sat Aug 15 23:50:53 2026 [VLLM::EngineCor] <defunct>
+  61628       1 delbot   Z    Sat Aug 15 23:50:59 2026 [sshd] <defunct>
+  61635       1 delbot   Zs   Sat Aug 15 23:50:59 2026 [bash] <defunct>
+  61974       1 delbot   Z    Sat Aug 15 23:51:26 2026 [python] <defunct>
+  62361       1 delbot   Z    Sat Aug 15 23:51:34 2026 [python] <defunct>
+  62362       1 delbot   Z    Sat Aug 15 23:51:34 2026 [VLLM::EngineCor] <defunct>
+  62819       1 delbot   Z    Sat Aug 15 23:52:25 2026 [sshd] <defunct>
+  63119       1 delbot   Z    Sun Aug 16 02:11:20 2026 [sshd] <defunct>
+  63120       1 delbot   Zs   Sun Aug 16 02:11:20 2026 [bash] <defunct>
+./delbot_platform/gateway/app.py:4:import uvicorn
+./delbot_platform/gateway/app.py:91:    uvicorn.run(
+./delbot_platform/gateway/__main__.py:10:import uvicorn
+./delbot_platform/gateway/__main__.py:19:    uvicorn.run(
+./delbot_platform/gateway/__main__.py:20:        "delbot_platform.gateway.app:app",
+./delbot_platform/ai/runtime/reranker.py:94:import uvicorn
+./delbot_platform/ai/runtime/reranker.py:99:    uvicorn.run(
+./delbot_platform/ai/runtime/chat.py:8:import uvicorn
+./delbot_platform/ai/runtime/chat.py:278:    uvicorn.run(
+./delbot_platform/ai/runtime/infinity.py:5:import uvicorn
+./delbot_platform/ai/runtime/infinity.py:68:    uvicorn.run(
+./delbot_platform/ai/runtime/base.py:9:import uvicorn
+./delbot_platform/ai/runtime/base.py:129:        uvicorn.run(
+./delbot_platform/ai/runtime/embedding.py:5:import uvicorn
+./delbot_platform/ai/runtime/embedding.py:88:    uvicorn.run(
+./delbot_platform/api/__main__.py:3:import uvicorn
+./delbot_platform/api/__main__.py:5:from delbot_platform.api.main import app
+./delbot_platform/api/__main__.py:10:    uvicorn.run(
+./tools/pr_5_25_mvp_dependency_information.sh:40:    "uvicorn",
+./repository_data/report/mvp_dependency_information.json:9:    "uvicorn": true,
+./.venv/lib/python3.10/site-packages/modelscope/server/api_server.py:21:        import uvicorn
+./.venv/lib/python3.10/site-packages/modelscope/server/api_server.py:23:        uvicorn.run(app, host=args.host, port=args.port)
+./.venv/lib/python3.10/site-packages/modelscope/server/api_server.py:54:    import uvicorn
+./.venv/lib/python3.10/site-packages/modelscope/server/api_server.py:59:    uvicorn.run(app, host=args.host, port=args.port)
+./.venv/lib/python3.10/site-packages/socketio/asgi.py:32:        import uvicorn
+./.venv/lib/python3.10/site-packages/socketio/asgi.py:39:        uvicorn.run(app, host='127.0.0.1', port=5000)
+./.venv/lib/python3.10/site-packages/uvicorn/__init__.py:1:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/__init__.py:2:from uvicorn.main import Server, main, run
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py:5:from uvicorn._types import ASGI3Application, ASGIReceiveCallable, ASGISendCallable, Scope
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py:53:                    # See: https://github.com/Kludex/uvicorn/issues/1068
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py:141:        # See https://github.com/Kludex/uvicorn/issues/1068#issuecomment-855371576
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py:4:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py:12:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py:40:        self.logger = logging.getLogger("uvicorn.asgi")
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/asgi2.py:1:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/middleware/wsgi.py:11:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:20:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:28:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:29:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:30:from uvicorn.protocols.utils import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:38:from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:108:            logger=logging.getLogger("uvicorn.error"),
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py:221:        # itself (see https://github.com/Kludex/uvicorn/issues/920)
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:14:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:20:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:21:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:22:from uvicorn.protocols.utils import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:30:from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/wsproto_impl.py:47:        self.logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:20:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:25:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:26:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:27:from uvicorn.protocols.utils import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:35:from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:57:        self.logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py:91:            logger=logging.getLogger("uvicorn.error"),
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/auto.py:15:        from uvicorn.protocols.websockets.wsproto_impl import WSProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/websockets/auto.py:19:    from uvicorn.protocols.websockets.websockets_impl import WebSocketProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/flow_control.py:3:from uvicorn._types import ASGIReceiveCallable, ASGISendCallable, Scope
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:17:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:24:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:25:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:26:from uvicorn.protocols.http.flow_control import CLOSE_HEADER, HIGH_WATER_LIMIT, FlowControl, service_unavailable
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:27:from uvicorn.protocols.utils import get_client_addr, get_local_addr, get_path_with_query_string, get_remote_addr, is_ssl
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:28:from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:59:        self.logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:60:        self.access_logger = logging.getLogger("uvicorn.access")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py:162:            msg = "No supported WebSocket library detected. Please use \"pip install 'uvicorn[standard]'\", or install 'websockets' or 'wsproto' manually."  # noqa: E501
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/auto.py:9:    from uvicorn.protocols.http.h11_impl import H11Protocol
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/auto.py:13:    from uvicorn.protocols.http.httptools_impl import HttpToolsProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:15:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:24:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:25:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:26:from uvicorn.protocols.http.flow_control import CLOSE_HEADER, HIGH_WATER_LIMIT, FlowControl, service_unavailable
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:27:from uvicorn.protocols.utils import get_client_addr, get_local_addr, get_path_with_query_string, get_remote_addr, is_ssl
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:28:from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:55:        self.logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:56:        self.access_logger = logging.getLogger("uvicorn.access")
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py:160:            msg = "No supported WebSocket library detected. Please use \"pip install 'uvicorn[standard]'\", or install 'websockets' or 'wsproto' manually."  # noqa: E501
+./.venv/lib/python3.10/site-packages/uvicorn/protocols/utils.py:7:from uvicorn._types import WWWScope
+./.venv/lib/python3.10/site-packages/uvicorn/loops/auto.py:11:        from uvicorn.loops.asyncio import asyncio_loop_factory as loop_factory
+./.venv/lib/python3.10/site-packages/uvicorn/loops/auto.py:15:        from uvicorn.loops.uvloop import uvloop_loop_factory
+./.venv/lib/python3.10/site-packages/uvicorn/_subprocess.py:15:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:13:from uvicorn._compat import asyncio_run
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:14:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:15:from uvicorn.server import Server
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:18:    "The `uvicorn.workers` module is deprecated. Please use `uvicorn-worker` package instead.\n"
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:19:    "For more details, see https://github.com/Kludex/uvicorn-worker.",
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:35:        logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:40:        logger = logging.getLogger("uvicorn.access")
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:77:        # See: https://github.com/Kludex/uvicorn/issues/894
+./.venv/lib/python3.10/site-packages/uvicorn/workers.py:88:        - https://github.com/Kludex/uvicorn/issues/1116
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:22:from uvicorn._compat import asyncio_run
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:23:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:26:    from uvicorn.protocols.http.h11_impl import H11Protocol
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:27:    from uvicorn.protocols.http.httptools_impl import HttpToolsProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:28:    from uvicorn.protocols.websockets.websockets_impl import WebSocketProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:29:    from uvicorn.protocols.websockets.websockets_sansio_impl import WebSocketsSansIOProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:30:    from uvicorn.protocols.websockets.wsproto_impl import WSProtocol
+./.venv/lib/python3.10/site-packages/uvicorn/server.py:41:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:16:import uvicorn
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:17:from uvicorn._types import ASGIApplication
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:18:from uvicorn.config import (
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:31:from uvicorn.server import Server
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:32:from uvicorn.supervisors import ChangeReload, Multiprocess
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:45:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:52:        "Running uvicorn {version} with {py_implementation} {py_version} on {system}".format(  # noqa: UP032
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:53:            version=uvicorn.__version__,
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:359:    help="Display the uvicorn version and exit.",
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:594:        logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:620:            "uvicorn.main.ServerState is deprecated, use uvicorn.server.ServerState instead.",
+./.venv/lib/python3.10/site-packages/uvicorn/main.py:623:        from uvicorn.server import ServerState
+./.venv/lib/python3.10/site-packages/uvicorn/__main__.py:1:import uvicorn
+./.venv/lib/python3.10/site-packages/uvicorn/__main__.py:4:    uvicorn.main()
+./.venv/lib/python3.10/site-packages/uvicorn/lifespan/off.py:5:from uvicorn import Config
+./.venv/lib/python3.10/site-packages/uvicorn/lifespan/on.py:8:from uvicorn import Config
+./.venv/lib/python3.10/site-packages/uvicorn/lifespan/on.py:9:from uvicorn._types import (
+./.venv/lib/python3.10/site-packages/uvicorn/lifespan/on.py:37:        self.logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/lifespan/on.py:53:        # See https://github.com/Kludex/uvicorn/pull/972
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/multiprocess.py:14:from uvicorn._subprocess import get_subprocess
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/multiprocess.py:15:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/multiprocess.py:23:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/__init__.py:5:from uvicorn.supervisors.basereload import BaseReload
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/__init__.py:6:from uvicorn.supervisors.multiprocess import Multiprocess
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/__init__.py:12:        from uvicorn.supervisors.watchfilesreload import WatchFilesReload as ChangeReload
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/__init__.py:14:        from uvicorn.supervisors.statreload import StatReload as ChangeReload
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/watchfilesreload.py:9:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/watchfilesreload.py:10:from uvicorn.supervisors.basereload import BaseReload
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/statreload.py:8:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/statreload.py:9:from uvicorn.supervisors.basereload import BaseReload
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/statreload.py:11:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/basereload.py:15:from uvicorn._subprocess import get_subprocess
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/basereload.py:16:from uvicorn.config import Config
+./.venv/lib/python3.10/site-packages/uvicorn/supervisors/basereload.py:23:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:19:from uvicorn._compat import iscoroutinefunction
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:20:from uvicorn._types import ASGIApplication
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:21:from uvicorn.importer import ImportFromStringError, import_from_string
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:22:from uvicorn.logging import TRACE_LOG_LEVEL
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:23:from uvicorn.middleware.asgi2 import ASGI2Middleware
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:24:from uvicorn.middleware.message_logger import MessageLoggerMiddleware
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:25:from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:26:from uvicorn.middleware.wsgi import WSGIMiddleware
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:43:    "auto": "uvicorn.protocols.http.auto:AutoHTTPProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:44:    "h11": "uvicorn.protocols.http.h11_impl:H11Protocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:45:    "httptools": "uvicorn.protocols.http.httptools_impl:HttpToolsProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:48:    "auto": "uvicorn.protocols.websockets.auto:AutoWebSocketsProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:50:    "websockets": "uvicorn.protocols.websockets.websockets_impl:WebSocketProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:51:    "websockets-sansio": "uvicorn.protocols.websockets.websockets_sansio_impl:WebSocketsSansIOProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:52:    "wsproto": "uvicorn.protocols.websockets.wsproto_impl:WSProtocol",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:55:    "auto": "uvicorn.lifespan.on:LifespanOn",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:56:    "on": "uvicorn.lifespan.on:LifespanOn",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:57:    "off": "uvicorn.lifespan.off:LifespanOff",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:61:    "auto": "uvicorn.loops.auto:auto_loop_factory",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:62:    "asyncio": "uvicorn.loops.asyncio:asyncio_loop_factory",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:63:    "uvloop": "uvicorn.loops.uvloop:uvloop_loop_factory",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:74:            "()": "uvicorn.logging.DefaultFormatter",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:79:            "()": "uvicorn.logging.AccessFormatter",
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:96:        "uvicorn": {"handlers": ["default"], "level": "INFO", "propagate": False},
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:97:        "uvicorn.error": {"level": "INFO"},
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:98:        "uvicorn.access": {"handlers": ["access"], "level": "INFO", "propagate": False},
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:102:logger = logging.getLogger("uvicorn.error")
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:378:                # Install the PyYAML package or the uvicorn[standard] optional
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:395:            logging.getLogger("uvicorn.error").setLevel(log_level)
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:396:            logging.getLogger("uvicorn.access").setLevel(log_level)
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:397:            logging.getLogger("uvicorn.asgi").setLevel(log_level)
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:399:            logging.getLogger("uvicorn.access").handlers = []
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:400:            logging.getLogger("uvicorn.access").propagate = False
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:421:            [(b"server", b"uvicorn")] + encoded_headers
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:483:            "The `setup_event_loop` method was replaced by `get_loop_factory` in uvicorn 0.36.0.\n"
+./.venv/lib/python3.10/site-packages/uvicorn/config.py:485:            "https://github.com/Kludex/uvicorn/discussions/2706. Thank you, and sorry for the inconvenience."
+./.venv/lib/python3.10/site-packages/pydantic/_internal/_validators.py:80:    """Inspired by uvicorn — dotted paths should include a colon before the final item if that item is not a module.
+./.venv/lib/python3.10/site-packages/huggingface_hub/cli/sandbox.py:206:        "hf sandbox spawn -w /app <sandbox_id> -- uvicorn app:app",
+./.venv/lib/python3.10/site-packages/huggingface_hub/_sandbox.py:863:          is set in every sandbox). E.g. `uvicorn app:app --uds $SBX_PROXY_DIR/8000.sock`.
+./.venv/lib/python3.10/site-packages/transformers/dependency_versions_table.py:86:    "uvicorn": "uvicorn",
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:839:def is_uvicorn_available() -> bool:
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:840:    return _is_package_available("uvicorn")[0]
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:850:    return is_pydantic_available() and is_fastapi_available() and is_uvicorn_available() and is_openai_available()
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:1993:{0} requires the uvicorn library but it was not found in your environment. You can install it with pip:
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:1994:`pip install uvicorn`. Please note that you may need to restart your runtime after installation.
+./.venv/lib/python3.10/site-packages/transformers/utils/import_utils.py:2118:        ("uvicorn", (is_uvicorn_available, UVICORN_IMPORT_ERROR)),
+PORT 8107 : HTTP 200 : {"status":"healthy","model":"qwen3-32b"}
+OPENAPI PORT: 8107
+OPENAPI_TITLE: DELBot Chat Runtime
+OPENAPI_VERSION: 0.1.0
+RESEARCH_ROUTES:
+BACKEND_PORT=NOT_DISCOVERED
+REAL HTTP E2E: SKIPPED
+REASON: DELBot backend exposing /api/research/answer was not discovered.
+COMPILE: PASS

@@ -1,0 +1,65 @@
+
+--- 1. GATEWAY ---
+5136 python -m delbot_platform.gateway
+
+--- 2. GATEWAY HEALTH ---
+{"status":"healthy","gpu":null,"cuda":"13.0","torch":"2.11.0+cu130"}
+HTTP_STATUS=200 TIME=0.003606s
+
+--- 3. BATCH CURL PROCESS ---
+CURL_PID=5257
+CURL_STATUS=RUNNING
+
+--- 4. ACTIVE INDEX REQUESTS ---
+ACTIVE_INDEX_REQUESTS=YES
+   5257    4650 S          01:36 curl -sS --max-time 900 -X POST -H Content-Type: application/json -d {"limit":3} -o /tmp/delbot_767190_index_response.json -w %{http_code} http://127.0.0.1:8100/documents/index-all
+
+--- 5. RESPONSE FILE ---
+RESPONSE_FILE=MISSING_OR_EMPTY
+
+--- 6. HTTP STATUS ---
+HTTP_STATUS_FILE=MISSING_OR_EMPTY
+
+--- 7. CURL ERROR LOG ---
+CURL_ERROR_LOG=PRESENT
+nohup: ignoring input
+
+--- 8. TRUE PDF INVENTORY ---
+PDF_TOTAL=188
+TRUE_MATCHED=94
+TRUE_UNPROCESSED=94
+PROCESSED_DIRECTORIES_TOTAL=230
+NEXT_TARGETS
+TARGET | 123456789-1608 | 0dd6f8e1566e445fbcc49c69c2715c18.pdf
+TARGET | 123456789-1599 | 0ded6e98cd614c2093d9d1e31c19ae5c.pdf
+TARGET | 123456789-1458 | 0dfa36ac26994858919ff033a3e87d5c.pdf
+TARGET | 123456789-796 | 0e036e14b2f841a492108ecbafcfaa8d.pdf
+TARGET | 123456789-1069 | 0e2c422cc8544c488721398908baafe9.pdf
+TARGET | 123456789-1600 | 0e47e7c8fe204645bef65ba415ab1303.pdf
+TARGET | 123456789-1524 | 0e8207be782f42e7b4d375fbcf36c5a2.pdf
+TARGET | 123456789-1164 | 0ef71eefa4e749169b11051e205eaa3e.pdf
+TARGET | 123456789-1177 | 0f5e3d256f9b4ec59651f1ad37a5d0c7.pdf
+TARGET | 123456789-1464 | 0f662ae5ff604af4be27d38ec77d8e51.pdf
+
+--- 9. QDRANT STATE ---
+QDRANT_PATH=PRESENT
+58M	/workspace/delbot/repository_data/qdrant_local
+
+--- 10. GATEWAY LOG INDEX ACTIVITY ---
+
+--- 11. COMPILE CHECK ---
+COMPILE_STATUS=0
+
+--- 12. SAFETY ---
+NEW_INDEX_REQUEST_BY_THIS_PATCH=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+DATA_RESET=NO
+GATEWAY_RESTART=NO
+
+--- 13. DECISION ---
+BATCH_DECISION=STILL_RUNNING
+
+--- 14. REPORT ---
+REPORT=runtime/reports/patch_767200_mvp_batch3_completion_verification.txt
+LOG=runtime/reports/patch_767200_mvp_batch3_completion_verification.log

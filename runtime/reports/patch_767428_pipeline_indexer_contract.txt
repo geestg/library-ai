@@ -1,0 +1,105 @@
+PATCH=767.428
+PURPOSE=Resolve exact existing PDF pipeline API against MVP indexer
+MODE=READ_ONLY_CONTRACT_RESOLUTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:03:28
+
+=== INDEXERS ===
+tools/ingest_pdf_vectors.py
+tools/ingest_metadata_vectors.py
+
+=== BROKEN IMPORT ===
+FOUND=True
+tools/ingest_pdf_vectors.py:19:from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+
+=== PIPELINE DEFINITIONS ===
+CLASS|delbot_platform/document_intelligence/loader/document_loader.py|DocumentLoader|line=12
+CLASS|delbot_platform/document_intelligence/loader/loaded_document.py|LoadedDocument|line=10
+CLASS|delbot_platform/document_intelligence/loader/pdf_loader.py|PDFLoader|line=16
+CLASS|delbot_platform/document_intelligence/chunker/document_chunker.py|DocumentChunker|line=9
+CLASS|delbot_platform/document_intelligence/chunker/pdf_chunker.py|PDFChunker|line=10
+CLASS|delbot_platform/document_intelligence/chunker/chunked_document.py|ChunkedDocument|line=9
+CLASS|delbot_platform/document_intelligence/metadata/pdf_metadata.py|PDFMetadata|line=10
+CLASS|delbot_platform/document_intelligence/metadata/document_metadata.py|DocumentMetadata|line=9
+CLASS|delbot_platform/document_intelligence/pipeline/pdf_pipeline.py|PDFPipeline|line=19
+CLASS|delbot_platform/document_intelligence/pipeline/document_pipeline.py|DocumentPipeline|line=9
+CLASS|delbot_platform/document_intelligence/pipeline/pipeline_result.py|PipelineResult|line=9
+CLASS|delbot_platform/document_intelligence/models/parsed_document.py|ParsedDocument|line=12
+CLASS|delbot_platform/document_intelligence/models/semantic_chunk.py|SemanticChunk|line=15
+CLASS|delbot_platform/document_intelligence/models/semantic_chunk_collection.py|SemanticChunkCollection|line=12
+CLASS|delbot_platform/document_intelligence/parser/parsed_document.py|ParsedDocument|line=8
+CLASS|delbot_platform/document_intelligence/parser/pdf_parser.py|PDFParser|line=15
+CLASS|delbot_platform/document_intelligence/parser/document_parser.py|DocumentParser|line=9
+CLASS|delbot_platform/document_intelligence/indexer/indexed_document.py|IndexedDocument|line=7
+CLASS|delbot_platform/document_intelligence/indexer/document_indexer.py|DocumentIndexer|line=9
+CLASS|delbot_platform/document_intelligence/indexer/pdf_indexer.py|PDFIndexer|line=8
+CLASS|delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py|PyMuPDFBackend|line=13
+CLASS|delbot_platform/document_intelligence/mapper/pymupdf_mapper.py|PyMuPDFMapper|line=25
+
+=== PIPELINE CANDIDATES ===
+SCORE=12|TYPE=CLASS|FILE=delbot_platform/document_intelligence/pipeline/pdf_pipeline.py|NAME=PDFPipeline|LINE=19
+SCORE=9|TYPE=CLASS|FILE=delbot_platform/document_intelligence/pipeline/document_pipeline.py|NAME=DocumentPipeline|LINE=9
+SCORE=9|TYPE=CLASS|FILE=delbot_platform/document_intelligence/metadata/pdf_metadata.py|NAME=PDFMetadata|LINE=10
+SCORE=9|TYPE=CLASS|FILE=delbot_platform/document_intelligence/chunker/pdf_chunker.py|NAME=PDFChunker|LINE=10
+SCORE=7|TYPE=CLASS|FILE=delbot_platform/document_intelligence/pipeline/pipeline_result.py|NAME=PipelineResult|LINE=9
+SCORE=6|TYPE=CLASS|FILE=delbot_platform/document_intelligence/parser/pdf_parser.py|NAME=PDFParser|LINE=15
+SCORE=6|TYPE=CLASS|FILE=delbot_platform/document_intelligence/mapper/pymupdf_mapper.py|NAME=PyMuPDFMapper|LINE=25
+SCORE=6|TYPE=CLASS|FILE=delbot_platform/document_intelligence/loader/pdf_loader.py|NAME=PDFLoader|LINE=16
+SCORE=6|TYPE=CLASS|FILE=delbot_platform/document_intelligence/indexer/pdf_indexer.py|NAME=PDFIndexer|LINE=8
+SCORE=6|TYPE=CLASS|FILE=delbot_platform/document_intelligence/backend/pdf/pymupdf_backend.py|NAME=PyMuPDFBackend|LINE=13
+
+=== INDEXER IMPORTS / CALLS ===
+INDEXER|tools/ingest_pdf_vectors.py
+FROM_IMPORT|tools/ingest_pdf_vectors.py|__future__|annotations|line=1
+IMPORT|tools/ingest_pdf_vectors.py|sys|line=4
+FROM_IMPORT|tools/ingest_pdf_vectors.py|pathlib|Path|line=6
+FROM_IMPORT|tools/ingest_pdf_vectors.py|delbot_platform.document.pipeline.ingest_pdf|PDFIngestion|line=19
+FROM_IMPORT|tools/ingest_pdf_vectors.py|delbot_platform.ai.client.embedding_client|EmbeddingClient|line=21
+FROM_IMPORT|tools/ingest_pdf_vectors.py|delbot_platform.knowledge.vector.qdrant_store|QdrantStore|line=23
+CALL|tools/ingest_pdf_vectors.py|PDFIngestion|line=42
+CALL|tools/ingest_pdf_vectors.py|PDF_DIR.glob|line=59
+CALL|tools/ingest_pdf_vectors.py|ingestion.ingest|line=68
+INDEXER|tools/ingest_metadata_vectors.py
+FROM_IMPORT|tools/ingest_metadata_vectors.py|__future__|annotations|line=1
+IMPORT|tools/ingest_metadata_vectors.py|sys|line=4
+IMPORT|tools/ingest_metadata_vectors.py|json|line=5
+IMPORT|tools/ingest_metadata_vectors.py|uuid|line=6
+FROM_IMPORT|tools/ingest_metadata_vectors.py|pathlib|Path|line=8
+FROM_IMPORT|tools/ingest_metadata_vectors.py|delbot_platform.ai.client.embedding_client|EmbeddingClient|line=19
+FROM_IMPORT|tools/ingest_metadata_vectors.py|delbot_platform.knowledge.vector.qdrant_store|QdrantStore|line=20
+
+=== PARSE ERRORS ===
+NONE
+
+=== ERRORS ===
+NONE
+
+=== WARNINGS ===
+NONE
+
+=== CONTRACT GATE ===
+CONTRACT_GATE=READY_FOR_INDEXER_PATCH
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_ACCESS=NO
+QDRANT_WRITE=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO

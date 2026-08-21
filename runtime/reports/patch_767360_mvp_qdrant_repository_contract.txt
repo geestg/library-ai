@@ -1,0 +1,30 @@
+PATCH=767.360
+PURPOSE=Identify authoritative QdrantRepository contract for MVP indexing and retrieval before minimal repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_MVP_INDEXER=delbot_platform/documents/pipeline/indexing.py
+TARGET_MVP_RETRIEVAL=delbot_platform/knowledge/retrieval/qdrant.py
+TARGET_OWNER_A=delbot_platform/knowledge/vector/repository/qdrant.py
+TARGET_OWNER_B=delbot_platform/vectorstore/qdrant/repository.py
+DATE=2026-08-19 15:26:46
+
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+INDEX_IMPORTS=1
+INDEX_CALLS=3
+RETRIEVAL_IMPORTS=1
+RETRIEVAL_CALLS=1
+OWNER_A=OWNER|OWNER_A|line=16|methods=__init__,insert,search
+OWNER_B=OWNER|OWNER_B|line=15|methods=__init__,delete_document,save,count
+INDEX_SCORE=TERM_SCORE|INDEXER|OWNER_A=0|OWNER_B=7
+RETRIEVAL_SCORE=TERM_SCORE|RETRIEVAL|OWNER_A=2|OWNER_B=2
+PARSE_ERROR_COUNT=0

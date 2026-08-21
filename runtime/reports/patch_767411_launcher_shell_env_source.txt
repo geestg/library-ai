@@ -1,0 +1,601 @@
+PATCH=767.411
+PURPOSE=Trace launcher/shell/startup environment source into effective Qdrant configuration
+MODE=READ_ONLY_LAUNCH_ENV_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=VALUES_REDACTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 03:20:08
+
+=== DISCOVERY ===
+FILES_SCANNED=1437
+DOTENV_FILES=2
+SERVICE_FILES=0
+SHELL_FILES=148
+LAUNCHER_CANDIDATES=60
+PARSE_ERRORS=0
+READ_ERRORS=0
+
+=== ENV FILES ===
+.env.mvp
+.env.mvp.patch_766980.bak
+
+=== QDRANT ENV REFERENCES ===
+.env.mvp.patch_766980.bak:2:QDRANT_COLLECTION=delbot_mvp_documents
+.env.mvp.patch_766980.bak:4:QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp:2:DELBOT_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+.env.mvp:3:QDRANT_COLLECTION=delbot_documents
+.env.mvp:5:QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:55:cfg["QDRANT_PATH"]=str(db)
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh:56:cfg["QDRANT_COLLECTION"]="delbot_mvp_documents"
+tools/pr_5_6_21_mvp_runtime_gate.sh:78:"qdrant_port_6333":qdrant,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:41:"qdrant_port": False,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:60:result["qdrant_port"] = True
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:68:elif not result["qdrant_port"]:
+tools/pr_5_6_19_mvp_runtime_preflight.sh:72:qdrant_port = False
+tools/pr_5_6_19_mvp_runtime_preflight.sh:76:qdrant_port = True
+tools/pr_5_6_19_mvp_runtime_preflight.sh:79:qdrant_port = False
+tools/pr_5_6_19_mvp_runtime_preflight.sh:81:if docker_info["ok"] and qdrant_port:
+tools/pr_5_6_19_mvp_runtime_preflight.sh:96:"qdrant_port_6333": qdrant_port,
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:62:result["qdrant_port"] = True
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:64:result["qdrant_port"] = False
+tools/pr_5_6_29_mvp_host_environment_report.sh:32:qdrant_port=false
+tools/pr_5_6_29_mvp_host_environment_report.sh:52:qdrant_port=true
+tools/pr_5_6_29_mvp_host_environment_report.sh:56:qdrant_port=true
+tools/pr_5_6_29_mvp_host_environment_report.sh:66:if [ "$docker_daemon" = true ] && [ "$qdrant_port" = true ]; then
+tools/pr_5_6_29_mvp_host_environment_report.sh:76:"qdrant_port_6333": $qdrant_port,
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:35:"qdrant_port": False,
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:53:result["qdrant_port"] = True
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:55:result["qdrant_port"] = False
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh:58:if result["qdrant_port"]:
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:48:"qdrant_port_6333": False,
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:71:result["qdrant_port_6333"] = True
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:87:elif not result["qdrant_port_6333"]:
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh:20:QDRANT_PORT="6333"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:37:QDRANT_PATH="$ROOT/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:42:mkdir -p "$QDRANT_PATH"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:73:qdrant_path=f"{ROOT}/repository_data/qdrant_local"
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:116:path=qdrant_path
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh:219:qdrant_path
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:32:QDRANT_PORT=false
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:66:[ "$PORT_RESULT" = "true" ] && QDRANT_PORT=true
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:74:if [ "$DOCKER_DAEMON" = true ] && [ "$QDRANT_PORT" = true ]; then
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:86:"qdrant_port_6333": ${QDRANT_PORT},
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh:95:data["qdrant_port_6333"]=port
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:69:qdrant_port = False
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:73:qdrant_port = True
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:77:if docker_info_ok and qdrant_port:
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:92:"qdrant_port_6333": qdrant_port,
+tools/pr_5_6_24_mvp_runtime_gate.sh:31:QDRANT_PORT=false
+tools/pr_5_6_24_mvp_runtime_gate.sh:43:QDRANT_PORT=true
+tools/pr_5_6_24_mvp_runtime_gate.sh:50:if [ "$DOCKER_DAEMON" = true ] && [ "$QDRANT_PORT" = true ]; then
+tools/pr_5_6_24_mvp_runtime_gate.sh:59:"qdrant_port_6333": $QDRANT_PORT,
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh:145:"qdrant_port_6333":
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:73:"qdrant_port_6333": False,
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:96:result["qdrant_port_6333"]=True
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:102:if result["qdrant_port_6333"]:
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:124:"qdrant_port":result["qdrant_port_6333"],
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:75:"qdrant_port": port_open(6333)
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:96:"qdrant_port":result["qdrant_port"],
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh:41:QDRANT_URL="http://localhost:6333"
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:31:QDRANT_PORT=0
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:51:QDRANT_PORT=$(python3 - <<'PY'
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:68:if [ "$DOCKER_DAEMON" -eq 1 ] && [ "$QDRANT_PORT" -eq 1 ]; then
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:79:"qdrant_port_6333": bool($QDRANT_PORT),
+tools/pr_5_6_21_mvp_runtime_gate.sh:78:"qdrant_port_6333":qdrant,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:41:"qdrant_port": False,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:60:result["qdrant_port"] = True
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh:68:elif not result["qdrant_port"]:
+tools/pr_5_6_19_mvp_runtime_preflight.sh:72:qdrant_port = False
+tools/pr_5_6_19_mvp_runtime_preflight.sh:76:qdrant_port = True
+tools/pr_5_6_19_mvp_runtime_preflight.sh:79:qdrant_port = False
+tools/pr_5_6_19_mvp_runtime_preflight.sh:81:if docker_info["ok"] and qdrant_port:
+tools/pr_5_6_19_mvp_runtime_preflight.sh:96:"qdrant_port_6333": qdrant_port,
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:62:result["qdrant_port"] = True
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh:64:result["qdrant_port"] = False
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:48:"qdrant_port_6333": False,
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:71:result["qdrant_port_6333"] = True
+tools/pr_5_6_12_mvp_host_runtime_summary.sh:87:elif not result["qdrant_port_6333"]:
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh:20:QDRANT_PORT="6333"
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:32:QDRANT_PORT=false
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:66:[ "$PORT_RESULT" = "true" ] && QDRANT_PORT=true
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:74:if [ "$DOCKER_DAEMON" = true ] && [ "$QDRANT_PORT" = true ]; then
+tools/pr_5_6_28_mvp_host_runtime_repair.sh:86:"qdrant_port_6333": ${QDRANT_PORT},
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh:95:data["qdrant_port_6333"]=port
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:69:qdrant_port = False
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:73:qdrant_port = True
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:77:if docker_info_ok and qdrant_port:
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh:92:"qdrant_port_6333": qdrant_port,
+tools/pr_5_6_24_mvp_runtime_gate.sh:31:QDRANT_PORT=false
+tools/pr_5_6_24_mvp_runtime_gate.sh:43:QDRANT_PORT=true
+tools/pr_5_6_24_mvp_runtime_gate.sh:50:if [ "$DOCKER_DAEMON" = true ] && [ "$QDRANT_PORT" = true ]; then
+tools/pr_5_6_24_mvp_runtime_gate.sh:59:"qdrant_port_6333": $QDRANT_PORT,
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh:145:"qdrant_port_6333":
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:73:"qdrant_port_6333": False,
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:96:result["qdrant_port_6333"]=True
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:102:if result["qdrant_port_6333"]:
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh:124:"qdrant_port":result["qdrant_port_6333"],
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:75:"qdrant_port": port_open(6333)
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh:96:"qdrant_port":result["qdrant_port"],
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:31:QDRANT_PORT=0
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:51:QDRANT_PORT=$(python3 - <<'PY'
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:68:if [ "$DOCKER_DAEMON" -eq 1 ] && [ "$QDRANT_PORT" -eq 1 ]; then
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh:79:"qdrant_port_6333": bool($QDRANT_PORT),
+
+=== ENV KEY PRESENCE ===
+DELBOT_QDRANT_PATH|.env.mvp:2
+QDRANT_COLLECTION|.env.mvp.patch_766980.bak:2,.env.mvp:3
+QDRANT_MODE|.env.mvp.patch_766980.bak:3,.env.mvp:4
+QDRANT_PATH|.env.mvp.patch_766980.bak:4,.env.mvp:5
+
+=== PROCESS ENV CANDIDATES ===
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|496|PROCESS_ENV_SOURCE|* \[[`ccc42b69ce`](https://github.com/nodejs/node/commit/ccc42b69ce)] - **doc**: fix env variable name in `util.style...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|702|PROCESS_ENV_SOURCE|* \[[`dc66632261`](https://github.com/nodejs/node/commit/dc66632261)] - **module**: support 'module.exports' interop ...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|739|PROCESS_ENV_SOURCE|* \[[`3bc8d273c2`](https://github.com/nodejs/node/commit/3bc8d273c2)] - **test**: add missing test for env file (Jona...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|868|PROCESS_ENV_SOURCE|* \[[`955690e6cf`](https://github.com/nodejs/node/commit/955690e6cf)] - **doc**: clarify UV\_THREADPOOL\_SIZE env var...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1052|PROCESS_ENV_SOURCE|* \[[`d0e871a706`](https://github.com/nodejs/node/commit/d0e871a706)] - **build,win**: add winget config to set up en...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1111|PROCESS_ENV_SOURCE|* \[[`7d01b6a9c5`](https://github.com/nodejs/node/commit/7d01b6a9c5)] - **src**: cleanup per env handles directly wit...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1699|PROCESS_ENV_SOURCE|* \[[`edb75aebd7`](https://github.com/nodejs/node/commit/edb75aebd7)] - **test**: use `PYTHON` executable from env in...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1721|PROCESS_ENV_SOURCE|* \[[`d6d04279ca`](https://github.com/nodejs/node/commit/d6d04279ca)] - **worker**: allow copied NODE\_OPTIONS in the...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1899|PROCESS_ENV_SOURCE|* \[[`3b79e9c24e`](https://github.com/nodejs/node/commit/3b79e9c24e)] - **src**: fix external module env and kDisable...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|1912|PROCESS_ENV_SOURCE|* \[[`0d69ce3474`](https://github.com/nodejs/node/commit/0d69ce3474)] - **test**: extend env for `test-node-output-er...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2127|PROCESS_ENV_SOURCE|* \[[`cc74bf789f`](https://github.com/nodejs/node/commit/cc74bf789f)] - **test**: fix broken env fuzzer by initializi...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2504|PROCESS_ENV_SOURCE|* \[[`27491e55c1`](https://github.com/nodejs/node/commit/27491e55c1)] - **src**: remove regex usage for env file pars...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2657|PROCESS_ENV_SOURCE|* Use this function to load the `.env` file. If no path is specified, it automatically loads the .env file in the cur...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2658|PROCESS_ENV_SOURCE|* Load a specific .env file by specifying its path. Example: `process.loadEnvFile('./development.env')`.
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2774|PROCESS_ENV_SOURCE|'export const filename = "./test.json";');
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2832|PROCESS_ENV_SOURCE|* \[[`c3c0a3ee5c`](https://github.com/nodejs/node/commit/c3c0a3ee5c)] - **(SEMVER-MINOR)** **src**: support multi-lin...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2836|PROCESS_ENV_SOURCE|* \[[`fe922f05e4`](https://github.com/nodejs/node/commit/fe922f05e4)] - **(SEMVER-MINOR)** **timers**: export timers....
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|2864|PROCESS_ENV_SOURCE|* \[[`58255e73ae`](https://github.com/nodejs/node/commit/58255e73ae)] - **build**: respect the `NODE` env variable in...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3073|PROCESS_ENV_SOURCE|* \[[`c621491aba`](https://github.com/nodejs/node/commit/c621491aba)] - **module**: fix crash when built-in module ex...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3088|PROCESS_ENV_SOURCE|* \[[`f94336f95a`](https://github.com/nodejs/node/commit/f94336f95a)] - **repl**: fix `NO_COLORS` env var is ignored ...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3094|PROCESS_ENV_SOURCE|* \[[`306c1d35e5`](https://github.com/nodejs/node/commit/306c1d35e5)] - **src**: simplify direct queries of env vars ...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3101|PROCESS_ENV_SOURCE|* \[[`c3c0a3ee5c`](https://github.com/nodejs/node/commit/c3c0a3ee5c)] - **(SEMVER-MINOR)** **src**: support multi-lin...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3103|PROCESS_ENV_SOURCE|* \[[`a5afad2a4d`](https://github.com/nodejs/node/commit/a5afad2a4d)] - **src**: terminate correctly double-quote in ...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3200|PROCESS_ENV_SOURCE|* \[[`fe922f05e4`](https://github.com/nodejs/node/commit/fe922f05e4)] - **(SEMVER-MINOR)** **timers**: export timers....
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3309|PROCESS_ENV_SOURCE|* \[[`11b3e470db`](https://github.com/nodejs/node/commit/11b3e470db)] - **(SEMVER-MINOR)** **src**: create per isolat...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3431|PROCESS_ENV_SOURCE|* \[[`11b3e470db`](https://github.com/nodejs/node/commit/11b3e470db)] - **(SEMVER-MINOR)** **src**: create per isolat...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3696|PROCESS_ENV_SOURCE|* \[[`aab045ec4b`](https://github.com/nodejs/node/commit/aab045ec4b)] - **doc**: mention files read before env setup ...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3795|PROCESS_ENV_SOURCE|* \[[`8dd895e574`](https://github.com/nodejs/node/commit/8dd895e574)] - **test**: replace forEach with for..of in tes...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3905|PROCESS_ENV_SOURCE|* [CVE-2023-39333](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39333): Code injection via WebAssembly exp...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|3914|PROCESS_ENV_SOURCE|* \[[`f5c90b2951`](https://github.com/nodejs/node/commit/f5c90b2951)] - **module**: fix code injection through export...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4200|PROCESS_ENV_SOURCE|* \[[`154b1c2115`](https://github.com/nodejs/node/commit/154b1c2115)] - **src**: don't overwrite environment from .en...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4280|PROCESS_ENV_SOURCE|To initialize your Node.js application with predefined configurations, use the following CLI command: `node --env-fil...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4367|PROCESS_ENV_SOURCE|* \[[`9c26c0f296`](https://github.com/nodejs/node/commit/9c26c0f296)] - **doc**: clarify use of process.env in worker...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|4686|PROCESS_ENV_SOURCE|* \[[`2a403cdad5`](https://github.com/nodejs/node/commit/2a403cdad5)] - **doc**: link to Runtime Keys in export condi...
+runtime/nvm/versions/node/v20.20.2/CHANGELOG.md|5216|PROCESS_ENV_SOURCE|* \[[`ba255eda37`](https://github.com/nodejs/node/commit/ba255eda37)] - **src**: fix typo in process.env accessor err...
+delbot_platform/vectorstore/qdrant/singleton.py|22|PROCESS_ENV_SOURCE|path = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|24|PROCESS_ENV_SOURCE|os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|33|PROCESS_ENV_SOURCE|self.collection = os.getenv(
+delbot_platform/core/environment.py|11|PROCESS_ENV_SOURCE|env = {
+delbot_platform/core/environment.py|38|PROCESS_ENV_SOURCE|<REDACTED>
+delbot_platform/core/lifecycle/service_definition.py|71|PROCESS_ENV_SOURCE|environment: dict[str, str] = field(
+delbot_platform/gateway/__main__.py|3|PROCESS_ENV_SOURCE|os.environ.setdefault("OMP_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|4|PROCESS_ENV_SOURCE|os.environ.setdefault("MKL_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|5|PROCESS_ENV_SOURCE|os.environ.setdefault("OPENBLAS_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|6|PROCESS_ENV_SOURCE|os.environ.setdefault("NUMEXPR_NUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|7|PROCESS_ENV_SOURCE|os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "4")
+delbot_platform/gateway/__main__.py|8|PROCESS_ENV_SOURCE|os.environ.setdefault("BLIS_NUM_THREADS", "4")
+delbot_platform/repository_data/runtime/repository_overlay.json|6211|PROCESS_ENV_SOURCE|"abstract": "Knowledge graph merupakan model yang digunakan untuk merepresentasikan knowledge. Knowledge graph mengel...
+delbot_platform/repository_data/runtime/repository_overlay.json|6220|PROCESS_ENV_SOURCE|"abstract": "Knowledge graph merupakan model yang digunakan untuk merepresentasikan knowledge. Knowledge graph mengel...
+delbot_platform/repository_data/runtime/repository_overlay.json|28541|PROCESS_ENV_SOURCE|"abstract": "Kebutuhan panti asuhan terhadap aplikasi terutama pada pengelola data anak asuh merupakan topik utama da...
+delbot_platform/repository_data/runtime/repository_overlay.json|28550|PROCESS_ENV_SOURCE|"abstract": "Kebutuhan panti asuhan terhadap aplikasi terutama pada pengelola data anak asuh merupakan topik utama da...
+delbot_platform/repository_data/metadata/skripsi_dataset.json|2262|PROCESS_ENV_SOURCE|"abstract": "Knowledge graph merupakan model yang digunakan untuk merepresentasikan knowledge. Knowledge graph mengel...
+delbot_platform/repository_data/metadata/skripsi_dataset.json|10382|PROCESS_ENV_SOURCE|"abstract": "Kebutuhan panti asuhan terhadap aplikasi terutama pada pengelola data anak asuh merupakan topik utama da...
+delbot_platform/repository_data/metadata/repository_catalog.json|5458|PROCESS_ENV_SOURCE|"abstract": "Knowledge graph merupakan model yang digunakan untuk merepresentasikan knowledge. Knowledge graph mengel...
+delbot_platform/repository_data/metadata/repository_catalog.json|5467|PROCESS_ENV_SOURCE|"abstract": "Knowledge graph merupakan model yang digunakan untuk merepresentasikan knowledge. Knowledge graph mengel...
+delbot_platform/repository_data/metadata/repository_catalog.json|25058|PROCESS_ENV_SOURCE|"abstract": "Kebutuhan panti asuhan terhadap aplikasi terutama pada pengelola data anak asuh merupakan topik utama da...
+delbot_platform/repository_data/metadata/repository_catalog.json|25067|PROCESS_ENV_SOURCE|"abstract": "Kebutuhan panti asuhan terhadap aplikasi terutama pada pengelola data anak asuh merupakan topik utama da...
+delbot_platform/config/settings.yaml|5|PROCESS_ENV_SOURCE|environment:
+delbot_platform/ai/runtime/chat.py|266|PROCESS_ENV_SOURCE|host = os.getenv(
+delbot_platform/ai/runtime/chat.py|272|PROCESS_ENV_SOURCE|os.getenv(
+delbot_platform/ai/runtime/embedding.py|15|PROCESS_ENV_SOURCE|MODEL_NAME = os.getenv(
+delbot_platform/ai/runtime/embedding.py|20|PROCESS_ENV_SOURCE|DEVICE = os.getenv(
+delbot_platform/launcher/spec.py|24|PROCESS_ENV_SOURCE|environment: dict[str, str] | None = None
+tools/pr_5_1ax_citation_builder_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|48|PROCESS_ENV_SOURCE|env = {}
+tools/pr_5_6_42_mvp_local_embedding_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bj_retrieval_answer_integration_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ao_qdrant_vector_commit.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1br_mvp_final_acceptance_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bi_rag_context_injection_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_16_mvp_export_package.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_16_mvp_export_package.sh|7|PROCESS_ENV_SOURCE|# Export MVP Package
+tools/pr_5_16_mvp_export_package.sh|34|PROCESS_ENV_SOURCE|echo "PR-5.16 Export MVP Package"
+tools/pr_5_1ae_document_indexing_engine_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_42_mvp_local_embedding_backend_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1as_qdrant_vector_insert_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1az_llm_gateway_answer_integration.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1az_llm_gateway_answer_integration.sh|102|PROCESS_ENV_SOURCE|# detect env models
+tools/pr_5_1az_llm_gateway_answer_integration.sh|112|PROCESS_ENV_SOURCE|<REDACTED>
+tools/pr_5_1az_llm_gateway_answer_integration.sh|113|PROCESS_ENV_SOURCE|<REDACTED>
+tools/pr_5_6_38_mvp_docker_api_probe.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ah_batch_pdf_index_execution.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_39_mvp_enable_qdrant_local_mode.sh|66|PROCESS_ENV_SOURCE|"env_file":str(env),
+tools/pr_5_1bv_mvp_live_query_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ay_research_answer_pipeline_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_21_mvp_runtime_gate.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_32_mvp_host_permission_fix.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1aa_pdf_text_extraction_engine_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1at_real_pdf_vector_commit.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_3_mvp_qdrant_service_repair_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bq_mvp_demo_flow_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_26_mvp_host_runtime_root_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ar_real_pdf_index_worker_execution.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_21_mvp_repository_statistics.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_26_mvp_storage_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bs_mvp_freeze_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1by_mvp_deep_pdf_source_scan.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_12_mvp_ask_repository.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_23_mvp_build_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ac_embedding_pipeline_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_19_mvp_runtime_preflight.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bh_chat_endpoint_test.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_4_mvp_pdf_text_extraction_pipeline.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_7_mvp_local_retrieval_engine.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1am_repository_pdf_intake_preparation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_27_mvp_docker_access_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_17_mvp_system_report.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_29_mvp_host_environment_report.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_7_mvp_qdrant_environment_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bn_mvp_functional_scenario_test.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ab_pdf_chunk_builder_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit_memory_deep.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bm_mvp_end_to_end_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bk_citation_response_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1af_batch_pdf_indexer_preparation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_10_mvp_qdrant_local_mode_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_31_mvp_fix_docker_group.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1av_retrieval_query_execution.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1al_real_pdf_index_pipeline_execution.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bl_full_mvp_answer_pipeline_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1by_dataset_source_discovery_deep_scan.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_18_mvp_smoke_test.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_11_mvp_docker_host_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ai_real_batch_pdf_indexing.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_28_mvp_host_runtime_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_30_mvp_host_docker_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_20_mvp_release_summary.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_34_mvp_runtime_capability_report.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_11_mvp_citation_builder.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1aq_repository_pdf_dataset_intake.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_10_mvp_llm_answer_generator.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_13_mvp_end_to_end_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_44_mvp_local_qdrant_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_27_mvp_configuration_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ap_real_pdf_to_qdrant_insert.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit_memory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ag_batch_pdf_indexer_engine.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_41_mvp_local_embedding_environment.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_15_mvp_final_readiness.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_15_mvp_final_readiness.sh|108|PROCESS_ENV_SOURCE|echo "SUCCESS -> PR-5.16 Export MVP Package"
+tools/pr_5_1bd_vllm_runtime_connector.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bd_vllm_runtime_connector.sh|76|PROCESS_ENV_SOURCE|"OPENAI_API_BASE": os.getenv("OPENAI_API_BASE"),
+tools/pr_5_1bd_vllm_runtime_connector.sh|77|PROCESS_ENV_SOURCE|"LLM_PROVIDER": os.getenv("LLM_PROVIDER")
+tools/pr_5_1bw_mvp_dataset_index_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_25_mvp_dependency_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1aw_context_builder_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bb_local_llm_provider_detection.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bb_local_llm_provider_detection.sh|114|PROCESS_ENV_SOURCE|"OPENAI_API_BASE": os.getenv("OPENAI_API_BASE"),
+tools/pr_5_1bb_local_llm_provider_detection.sh|115|PROCESS_ENV_SOURCE|"OLLAMA_HOST": os.getenv("OLLAMA_HOST"),
+tools/pr_5_1bb_local_llm_provider_detection.sh|116|PROCESS_ENV_SOURCE|"LLM_PROVIDER": os.getenv("LLM_PROVIDER")
+tools/pr_5_1bf_vllm_runtime_probe.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bf_vllm_runtime_probe.sh|49|PROCESS_ENV_SOURCE|endpoint = os.getenv(
+tools/pr_5_8_mvp_repository_qa_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_5_mvp_pdf_chunk_builder.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_37_mvp_host_detection.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_9_mvp_repository_chat.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_16_mvp_docker_host_fix.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_3_mvp_pdf_metadata_parser_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit_smaps.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bu_mvp_demo_dataset_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_24_mvp_runtime_gate.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1be_llm_answer_generation_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1be_llm_answer_generation_validation.sh|74|PROCESS_ENV_SOURCE|base = os.getenv(
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bo_mvp_user_acceptance_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bg_api_answer_flow_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1au_retrieval_engine_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_43_mvp_local_embedding_build.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_24_mvp_environment_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_24_mvp_environment_information.sh|38|PROCESS_ENV_SOURCE|root = pathlib.Path(os.environ["ROOT"])
+tools/pr_5_24_mvp_environment_information.sh|39|PROCESS_ENV_SOURCE|output = pathlib.Path(os.environ["OUTPUT"])
+tools/pr_5_24_mvp_environment_information.sh|52|PROCESS_ENV_SOURCE|venv = os.environ.get("VIRTUAL_ENV", "")
+tools/pr_5_24_mvp_environment_information.sh|65|PROCESS_ENV_SOURCE|"shell": os.environ.get("SHELL"),
+tools/pr_5_1aj_vector_insert_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_22_mvp_runtime_information.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_22_mvp_runtime_information.sh|50|PROCESS_ENV_SOURCE|"venv":os.environ.get("VIRTUAL_ENV"),
+tools/pr_5_1bx_mvp_pdf_repository_locator.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_2_mvp_embedding_qdrant_retry.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ak_repository_pdf_loader.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ba_research_answer_api_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1an_real_pdf_index_worker.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_5_mvp_docker_qdrant_diagnostic.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_18_mvp_docker_runtime_fix.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh|96|PROCESS_ENV_SOURCE|env_provider = os.getenv("LLM_PROVIDER")
+tools/pr_5_1bc_llm_gateway_provider_adapter.sh|97|PROCESS_ENV_SOURCE|env_base = os.getenv("OPENAI_API_BASE")
+tools/pr_5_6_14_mvp_docker_host_repair.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_2_mvp_pdf_repository_mapper.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_9_mvp_docker_daemon_recovery.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_19_mvp_release_manifest.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_14_mvp_demo_query_suite.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_23_mvp_host_runtime_bootstrap.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bt_mvp_smoke_test.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1ad_vector_indexing_pipeline_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_mvp_embedding_qdrant_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_4b_mvp_pdf_text_extraction_fix.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_6_40_mvp_local_embedding_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/pr_5_1bp_mvp_release_candidate_validation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/run_architecture_audit.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/run_architecture_audit.sh|23|PROCESS_ENV_SOURCE|export PYTHONPATH="$ROOT"
+tools/audit/build_package_detector.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_duplicate_candidates.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_architecture_index.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_legacy_package_detector.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_architecture_inventory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_safe_removal_plan.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_merge_recommendation.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/audit_canonical_ownership.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/audit_canonical_ownership.sh|25|PROCESS_ENV_SOURCE|export PYTHONPATH="$ROOT"
+tools/audit/build_architecture_ownership.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/repository_pdf_downloader_diff.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/repository_download_audit.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/audit/build_architecture_dependency.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/system/audit_anonymous_memory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/system/audit_memory_accounting.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/system/audit_kernel_memory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/system/audit_process_memory.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+tools/system/audit_system_health.sh|1|PROCESS_ENV_SOURCE|#!/usr/bin/env bash
+repository_data/report/mvp_repository_statistics.json|7611|PROCESS_ENV_SOURCE|"text": "\nEnglish (US). \nPilih key to function as AltGr. The default for the keyboard layout dan pilih \ncompose ke...
+repository_data/report/mvp_repository_statistics.json|41832|PROCESS_ENV_SOURCE|"text": "et, \nmaupun ukuran. \n- SECTION \n: \nBagian dari PE file yang berisi konten \npenting dari file PE itu sen...
+
+=== LAUNCHER ENV CHAIN CANDIDATES ===
+delbot_platform/gateway/__main__.py|10|LAUNCHER_ENV_CHAIN|import uvicorn
+delbot_platform/gateway/__main__.py|19|LAUNCHER_ENV_CHAIN|uvicorn.run(
+delbot_platform/knowledge/models/knowledge_domain.py|21|LAUNCHER_ENV_CHAIN|def export(
+delbot_platform/launcher/research_api_launcher.py|32|LAUNCHER_ENV_CHAIN|"python",
+delbot_platform/launcher/gateway_launcher.py|32|LAUNCHER_ENV_CHAIN|"python",
+delbot_platform/launcher/ai_runtime.py|67|LAUNCHER_ENV_CHAIN|"python",
+delbot_platform/api/__main__.py|3|LAUNCHER_ENV_CHAIN|import uvicorn
+delbot_platform/api/__main__.py|10|LAUNCHER_ENV_CHAIN|uvicorn.run(
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|33|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|37|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|48|LAUNCHER_ENV_CHAIN|env = {}
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|50|LAUNCHER_ENV_CHAIN|env["hostname"] = pathlib.Path("/etc/hostname").read_text().strip() if pathlib.Path("/etc/hostname").exists() else ""
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|52|LAUNCHER_ENV_CHAIN|env["container"] = os.path.exists("/.dockerenv")
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|56|LAUNCHER_ENV_CHAIN|env["systemd_detect_virt"] = out if ok else ""
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|60|LAUNCHER_ENV_CHAIN|env["pid1"] = out
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|64|LAUNCHER_ENV_CHAIN|env["cgroup"] = out[:300]
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|68|LAUNCHER_ENV_CHAIN|env["docker_daemon"] = ok
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|71|LAUNCHER_ENV_CHAIN|"environment": env,
+tools/pr_5_6_35_mvp_runtime_environment_probe.sh|74|LAUNCHER_ENV_CHAIN|if env["container"]
+tools/pr_5_6_21_mvp_runtime_gate.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_21_mvp_runtime_gate.sh|32|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_21_mvp_runtime_gate.sh|37|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_21_mvp_runtime_gate.sh|39|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_21_mvp_runtime_gate.sh|40|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|33|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|47|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|49|LAUNCHER_ENV_CHAIN|stdout=subprocess.DEVNULL,
+tools/pr_5_6_17_mvp_host_runtime_preflight.sh|50|LAUNCHER_ENV_CHAIN|stderr=subprocess.DEVNULL,
+tools/pr_5_6_26_mvp_host_runtime_root_check.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_19_mvp_runtime_preflight.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_19_mvp_runtime_preflight.sh|33|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_19_mvp_runtime_preflight.sh|38|LAUNCHER_ENV_CHAIN|p = subprocess.run(
+tools/pr_5_6_19_mvp_runtime_preflight.sh|40|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_19_mvp_runtime_preflight.sh|41|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh|39|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_10_mvp_docker_runtime_root_cause.sh|67|LAUNCHER_ENV_CHAIN|p = subprocess.run(
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|39|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|54|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|56|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_12_mvp_host_runtime_summary.sh|57|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh|29|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh|42|LAUNCHER_ENV_CHAIN|return subprocess.check_output(
+tools/pr_5_6_1_mvp_qdrant_bootstrap.sh|44|LAUNCHER_ENV_CHAIN|stderr=subprocess.STDOUT
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh|35|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_8_mvp_docker_runtime_probe.sh|42|LAUNCHER_ENV_CHAIN|p = subprocess.run(
+tools/pr_5_6_28_mvp_host_runtime_repair.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_34_mvp_runtime_capability_report.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh|35|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_36_mvp_container_runtime_inventory.sh|39|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|32|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|47|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|49|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_20_mvp_docker_daemon_start.sh|50|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_1bd_vllm_runtime_connector.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh|32|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_33_mvp_host_runtime_capability_check.sh|35|LAUNCHER_ENV_CHAIN|r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+tools/pr_5_1bf_vllm_runtime_probe.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|44|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|49|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|51|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_15_mvp_docker_runtime_gate.sh|52|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_6_24_mvp_runtime_gate.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh|40|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_6_mvp_qdrant_runtime_recovery.sh|51|LAUNCHER_ENV_CHAIN|result=subprocess.run(
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|40|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|45|LAUNCHER_ENV_CHAIN|p = subprocess.run(
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|47|LAUNCHER_ENV_CHAIN|stdout=subprocess.PIPE,
+tools/pr_5_6_13_mvp_host_runtime_full_diagnostic.sh|48|LAUNCHER_ENV_CHAIN|stderr=subprocess.PIPE,
+tools/pr_5_22_mvp_runtime_information.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_22_mvp_runtime_information.sh|74|LAUNCHER_ENV_CHAIN|"python":runtime["python_version"],
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh|30|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_22_mvp_host_runtime_final_check.sh|38|LAUNCHER_ENV_CHAIN|r = subprocess.run(
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh|43|LAUNCHER_ENV_CHAIN|import subprocess
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh|60|LAUNCHER_ENV_CHAIN|return subprocess.check_output(
+tools/pr_5_6_4_mvp_qdrant_runtime_repair.sh|62|LAUNCHER_ENV_CHAIN|stderr=subprocess.STDOUT,
+tools/pr_5_6_18_mvp_docker_runtime_fix.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_25_mvp_host_runtime_final_diagnosis.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/pr_5_6_23_mvp_host_runtime_bootstrap.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/audit/run_architecture_audit.sh|1|LAUNCHER_ENV_CHAIN|#!/usr/bin/env bash
+tools/audit/run_architecture_audit.sh|23|LAUNCHER_ENV_CHAIN|export PYTHONPATH="$ROOT"
+tools/audit/run_architecture_audit.sh|61|LAUNCHER_ENV_CHAIN|# PYTHON
+tools/audit/run_architecture_audit.sh|64|LAUNCHER_ENV_CHAIN|if [[ -x "$ROOT/.venv/bin/python" ]]; then
+tools/audit/run_architecture_audit.sh|65|LAUNCHER_ENV_CHAIN|PYTHON="$ROOT/.venv/bin/python"
+tools/audit/run_architecture_audit.sh|67|LAUNCHER_ENV_CHAIN|PYTHON="python3"
+tools/audit/run_architecture_audit.sh|81|LAUNCHER_ENV_CHAIN|echo "Python     : $PYTHON"
+tools/audit/run_architecture_audit.sh|105|LAUNCHER_ENV_CHAIN|if ! "$PYTHON" -m py_compile "$file"; then
+tools/audit/run_architecture_audit.sh|149|LAUNCHER_ENV_CHAIN|"$PYTHON" \
+.backup/sprint_764_88_20260805_092053/delbot_platform/launcher/ai_runtime.py|66|LAUNCHER_ENV_CHAIN|"python",
+reports/pr215_runtime_health.txt|287|LAUNCHER_ENV_CHAIN|1085337       1 Z    23.8  0.0 [python] <defunct>
+reports/pr215_runtime_health.txt|288|LAUNCHER_ENV_CHAIN|30138       1 Z     2.4  0.0 [python] <defunct>
+reports/pr215_runtime_health.txt|290|LAUNCHER_ENV_CHAIN|1520914       1 Ssl   1.5  0.0 python -m delbot_platform.ai.runtime.embedding
+reports/pr215_runtime_health.txt|292|LAUNCHER_ENV_CHAIN|1521094       1 Ssl   1.3  0.0 python -m delbot_platform.ai.runtime.reranker
+reports/pr215_runtime_health.txt|294|LAUNCHER_ENV_CHAIN|16146       1 Z     0.6  0.0 [python] <defunct>
+reports/pr215_runtime_health.txt|295|LAUNCHER_ENV_CHAIN|1620187 1619280 Sl    0.2  0.0 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df7...
+reports/pr215_runtime_health.txt|298|LAUNCHER_ENV_CHAIN|1518438       1 Ssl   0.1  0.0 python -m delbot_platform.gateway
+reports/pr215_runtime_health.txt|299|LAUNCHER_ENV_CHAIN|1521278       1 Ssl   0.1  0.0 python -m delbot_platform.ai.runtime.vision
+reports/pr215_runtime_health.txt|300|LAUNCHER_ENV_CHAIN|1521291       1 Ss    0.1  0.0 python -m delbot_platform.ai.runtime.ocr
+reports/pr215_runtime_health.txt|301|LAUNCHER_ENV_CHAIN|1521293       1 Ssl   0.1  0.0 python -m delbot_platform.ai.runtime.chat
+reports/pr215_runtime_health.txt|302|LAUNCHER_ENV_CHAIN|1522086       1 Ssl   0.1  0.0 python -m delbot_platform.api
+reports/pr215_runtime_health.txt|344|LAUNCHER_ENV_CHAIN|13526       1 Z     0.0  0.0 [python] <defunct>
+reports/pr215_runtime_health.txt|345|LAUNCHER_ENV_CHAIN|13913       1 Z     0.0  0.0 [python] <defunct>
+reports/pr215_runtime_health.txt|353|LAUNCHER_ENV_CHAIN|1521094       1 Ssl   0.0  1.3 python -m delbot_platform.ai.runtime.reranker
+reports/pr215_runtime_health.txt|354|LAUNCHER_ENV_CHAIN|1518438       1 Ssl   0.0  0.1 python -m delbot_platform.gateway
+reports/pr215_runtime_health.txt|355|LAUNCHER_ENV_CHAIN|1520914       1 Ssl   0.0  1.5 python -m delbot_platform.ai.runtime.embedding
+reports/pr215_runtime_health.txt|356|LAUNCHER_ENV_CHAIN|1620187 1619280 Sl    0.0  0.2 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df7...
+reports/pr215_runtime_health.txt|359|LAUNCHER_ENV_CHAIN|1522086       1 Ssl   0.0  0.1 python -m delbot_platform.api
+reports/pr215_runtime_health.txt|367|LAUNCHER_ENV_CHAIN|1521278       1 Ssl   0.0  0.1 python -m delbot_platform.ai.runtime.vision
+reports/pr215_runtime_health.txt|368|LAUNCHER_ENV_CHAIN|1521291       1 Ss    0.0  0.1 python -m delbot_platform.ai.runtime.ocr
+reports/pr215_runtime_health.txt|369|LAUNCHER_ENV_CHAIN|1521293       1 Ssl   0.0  0.1 python -m delbot_platform.ai.runtime.chat
+reports/pr215_runtime_health.txt|444|LAUNCHER_ENV_CHAIN|13526       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|445|LAUNCHER_ENV_CHAIN|13913       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|450|LAUNCHER_ENV_CHAIN|16146       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|459|LAUNCHER_ENV_CHAIN|30138       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|484|LAUNCHER_ENV_CHAIN|984207       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|501|LAUNCHER_ENV_CHAIN|1005987       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|511|LAUNCHER_ENV_CHAIN|1052770       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|526|LAUNCHER_ENV_CHAIN|1085337       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|667|LAUNCHER_ENV_CHAIN|1334642       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|668|LAUNCHER_ENV_CHAIN|1335197       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|669|LAUNCHER_ENV_CHAIN|1335507       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|670|LAUNCHER_ENV_CHAIN|1336099       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|671|LAUNCHER_ENV_CHAIN|1336372       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|672|LAUNCHER_ENV_CHAIN|1336748       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|673|LAUNCHER_ENV_CHAIN|1337065       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|674|LAUNCHER_ENV_CHAIN|1338078       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|675|LAUNCHER_ENV_CHAIN|1339429       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|694|LAUNCHER_ENV_CHAIN|1368405       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|759|LAUNCHER_ENV_CHAIN|1516916       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|760|LAUNCHER_ENV_CHAIN|1517431       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|761|LAUNCHER_ENV_CHAIN|1518027       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|762|LAUNCHER_ENV_CHAIN|1518231       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|763|LAUNCHER_ENV_CHAIN|1518406       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|764|LAUNCHER_ENV_CHAIN|1518418       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|765|LAUNCHER_ENV_CHAIN|1518423       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|766|LAUNCHER_ENV_CHAIN|1518872       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|767|LAUNCHER_ENV_CHAIN|1518873       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|768|LAUNCHER_ENV_CHAIN|1521311       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|769|LAUNCHER_ENV_CHAIN|1521312       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|770|LAUNCHER_ENV_CHAIN|1522077       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|771|LAUNCHER_ENV_CHAIN|1522079       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|772|LAUNCHER_ENV_CHAIN|1522085       1 Zs   [python] <defunct>
+reports/pr215_runtime_health.txt|826|LAUNCHER_ENV_CHAIN|4028447       1 Z    [python] <defunct>
+reports/pr215_runtime_health.txt|855|LAUNCHER_ENV_CHAIN|Python Runtime
+reports/pr215_runtime_health.txt|870|LAUNCHER_ENV_CHAIN|13526 python
+reports/pr215_runtime_health.txt|871|LAUNCHER_ENV_CHAIN|13913 python
+reports/pr215_runtime_health.txt|872|LAUNCHER_ENV_CHAIN|16146 python
+reports/pr215_runtime_health.txt|873|LAUNCHER_ENV_CHAIN|30138 python
+reports/pr215_runtime_health.txt|876|LAUNCHER_ENV_CHAIN|984207 python
+reports/pr215_runtime_health.txt|877|LAUNCHER_ENV_CHAIN|1005987 python
+reports/pr215_runtime_health.txt|878|LAUNCHER_ENV_CHAIN|1052770 python
+reports/pr215_runtime_health.txt|879|LAUNCHER_ENV_CHAIN|1085337 python
+reports/pr215_runtime_health.txt|880|LAUNCHER_ENV_CHAIN|1334642 python
+reports/pr215_runtime_health.txt|881|LAUNCHER_ENV_CHAIN|1335197 python
+reports/pr215_runtime_health.txt|882|LAUNCHER_ENV_CHAIN|1335507 python
+reports/pr215_runtime_health.txt|883|LAUNCHER_ENV_CHAIN|1336099 python
+reports/pr215_runtime_health.txt|884|LAUNCHER_ENV_CHAIN|1336372 python
+reports/pr215_runtime_health.txt|885|LAUNCHER_ENV_CHAIN|1336748 python
+reports/pr215_runtime_health.txt|886|LAUNCHER_ENV_CHAIN|1337065 python
+reports/pr215_runtime_health.txt|887|LAUNCHER_ENV_CHAIN|1338078 python
+reports/pr215_runtime_health.txt|888|LAUNCHER_ENV_CHAIN|1339429 python
+reports/pr215_runtime_health.txt|889|LAUNCHER_ENV_CHAIN|1368405 python
+reports/pr215_runtime_health.txt|890|LAUNCHER_ENV_CHAIN|1516916 python
+reports/pr215_runtime_health.txt|891|LAUNCHER_ENV_CHAIN|1517431 python
+reports/pr215_runtime_health.txt|892|LAUNCHER_ENV_CHAIN|1518027 python
+reports/pr215_runtime_health.txt|893|LAUNCHER_ENV_CHAIN|1518231 python
+reports/pr215_runtime_health.txt|894|LAUNCHER_ENV_CHAIN|1518406 python
+reports/pr215_runtime_health.txt|895|LAUNCHER_ENV_CHAIN|1518418 python
+reports/pr215_runtime_health.txt|896|LAUNCHER_ENV_CHAIN|1518423 python
+reports/pr215_runtime_health.txt|897|LAUNCHER_ENV_CHAIN|1518438 python -m delbot_platform.gateway
+reports/pr215_runtime_health.txt|898|LAUNCHER_ENV_CHAIN|1518872 python
+reports/pr215_runtime_health.txt|899|LAUNCHER_ENV_CHAIN|1518873 python
+reports/pr215_runtime_health.txt|900|LAUNCHER_ENV_CHAIN|1520914 python -m delbot_platform.ai.runtime.embedding
+reports/pr215_runtime_health.txt|901|LAUNCHER_ENV_CHAIN|1521094 python -m delbot_platform.ai.runtime.reranker
+reports/pr215_runtime_health.txt|902|LAUNCHER_ENV_CHAIN|1521278 python -m delbot_platform.ai.runtime.vision
+reports/pr215_runtime_health.txt|903|LAUNCHER_ENV_CHAIN|1521291 python -m delbot_platform.ai.runtime.ocr
+reports/pr215_runtime_health.txt|904|LAUNCHER_ENV_CHAIN|1521293 python -m delbot_platform.ai.runtime.chat
+reports/pr215_runtime_health.txt|905|LAUNCHER_ENV_CHAIN|1521311 python
+reports/pr215_runtime_health.txt|906|LAUNCHER_ENV_CHAIN|1521312 python
+reports/pr215_runtime_health.txt|907|LAUNCHER_ENV_CHAIN|1522077 python
+reports/pr215_runtime_health.txt|908|LAUNCHER_ENV_CHAIN|1522079 python
+reports/pr215_runtime_health.txt|909|LAUNCHER_ENV_CHAIN|1522085 python
+reports/pr215_runtime_health.txt|910|LAUNCHER_ENV_CHAIN|1522086 python -m delbot_platform.api
+reports/pr215_runtime_health.txt|911|LAUNCHER_ENV_CHAIN|1619346 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet...
+reports/pr215_runtime_health.txt|912|LAUNCHER_ENV_CHAIN|1620187 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/del...
+reports/pr215_runtime_health.txt|913|LAUNCHER_ENV_CHAIN|4028447 python
+reports/pr215_runtime_health.txt|960|LAUNCHER_ENV_CHAIN|1518438 python -m delbot_platform.gateway
+reports/pr215_runtime_health.txt|961|LAUNCHER_ENV_CHAIN|1520914 python -m delbot_platform.ai.runtime.embedding
+reports/pr215_runtime_health.txt|962|LAUNCHER_ENV_CHAIN|1521094 python -m delbot_platform.ai.runtime.reranker
+reports/pr215_runtime_health.txt|963|LAUNCHER_ENV_CHAIN|1521278 python -m delbot_platform.ai.runtime.vision
+reports/pr215_runtime_health.txt|964|LAUNCHER_ENV_CHAIN|1521291 python -m delbot_platform.ai.runtime.ocr
+reports/pr215_runtime_health.txt|965|LAUNCHER_ENV_CHAIN|1521293 python -m delbot_platform.ai.runtime.chat
+reports/pr215_runtime_health.txt|966|LAUNCHER_ENV_CHAIN|1522086 python -m delbot_platform.api
+reports/pr215_runtime_health.txt|981|LAUNCHER_ENV_CHAIN|1619346 /home/delbot/.vscode-server/extensions/ms-python.vscode-python-envs-1.36.0-linux-x64/python-env-tools/bin/pet...
+reports/pr215_runtime_health.txt|984|LAUNCHER_ENV_CHAIN|1620187 /home/delbot/.vscode-server/cli/servers/Stable-e4c7e7b1d6d060162f4aa7f8225271b67ce1df75/server/node /home/del...
+reports/pr215_runtime_health.txt|1024|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8101       0.0.0.0:*    users:(("python",pid=1521293,fd=6))
+reports/pr215_runtime_health.txt|1025|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8100       0.0.0.0:*    users:(("python",pid=1518438,fd=8))
+reports/pr215_runtime_health.txt|1026|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8107       0.0.0.0:*    users:(("python",pid=1521291,fd=6))
+reports/pr215_runtime_health.txt|1027|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8106       0.0.0.0:*    users:(("python",pid=1521094,fd=7))
+reports/pr215_runtime_health.txt|1028|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8105       0.0.0.0:*    users:(("python",pid=1520914,fd=8))
+reports/pr215_runtime_health.txt|1029|LAUNCHER_ENV_CHAIN|LISTEN 0      2048         0.0.0.0:8104       0.0.0.0:*    users:(("python",pid=1521278,fd=6))
+reports/pr215_runtime_health.txt|1033|LAUNCHER_ENV_CHAIN|LISTEN 0      2048       127.0.0.1:8200       0.0.0.0:*    users:(("python",pid=1522086,fd=6))
+
+=== PARSE ERRORS ===
+NONE
+
+=== READ ERRORS ===
+NONE

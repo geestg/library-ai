@@ -1,0 +1,9 @@
+PATCH: 766.918
+TARGET: delbot_platform/research/pipeline/research_answer_pipeline.py
+TEST: Clean evidence answer synthesis repair
+DATE: 2026-08-18 09:01:54
+
+PATCH: 766.918
+RESULT: Clean evidence synthesis fallback installed
+COMPILE: checked
+BACKUP: delbot_platform/research/pipeline/research_answer_pipeline.py.bak_patch_766918

@@ -1,0 +1,64 @@
+PATCH=767.391
+PURPOSE=Identify singleton importer, instance creator and runtime entrypoint
+MODE=READ_ONLY_SOURCE_RUNTIME_FORENSIC
+STORAGE=repository_data/qdrant_local
+STORAGE_ABS=/workspace/delbot/repository_data/qdrant_local
+INDEX_EXECUTION=NO
+MVP_COLLECTION_ACCESS=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:13:09
+
+
+=== PATCH 767.391 : EXTRACTED SUMMARY ===
+Singleton source       : YES
+Singleton import refs  : 0
+Creator/caller refs    : 0
+Entrypoint refs        : 0
+Qdrant config refs     : 0
+Historical lock errors : 0
+
+=== IMPORTANT ERRORS ONLY ===
+
+=== DECISION ===
+STATUS=SINGLETON_EXISTS_BUT_CALL_CHAIN_INCOMPLETE
+DECISION=DO_NOT_INDEX
+NEXT=DEEPER_CALL_CHAIN_FORENSIC_REQUIRED
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+Qdrant start            : NO
+Qdrant stop             : NO
+Docker start            : NO
+Docker restart          : NO
+Gateway restart         : NO
+Source modified         : NO
+Process modified        : NO
+Lock modified           : NO
+Terminal remains open   : YES
+
+=== PATCH 767.391 COMPLETE ===
+READ-ONLY IMPORTER / CALLER / ENTRYPOINT FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.
+Detailed report : runtime/reports/patch_767391_qdrant_singleton_importer_entrypoint.txt
+Detailed log    : runtime/reports/patch_767391_qdrant_singleton_importer_entrypoint.log
+Python forensic : runtime/reports/patch_767391_qdrant_singleton_importer_entrypoint.python.log

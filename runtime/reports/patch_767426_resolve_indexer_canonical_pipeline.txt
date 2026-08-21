@@ -1,0 +1,359 @@
+PATCH=767.426
+PURPOSE=Resolve broken indexer import against canonical MVP document indexing pipeline
+MODE=READ_ONLY_CONTRACT_RESOLUTION
+MVP_SCOPE=PDF_INDEXING_ONLY
+SOURCE=delbot_platform/repository_data/pdf
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+APPLICATION_IMPORT=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN
+DATE=2026-08-21 04:01:33
+
+=== INDEXER ===
+PATH=tools/ingest_pdf_vectors.py
+EXISTS=True
+BROKEN_IMPORT=True
+
+=== INDEXER IMPORTS ===
+delbot_platform.document.pipeline.ingest_pdf.PDFIngestion
+delbot_platform.ai.client.embedding_client.EmbeddingClient
+delbot_platform.knowledge.vector.qdrant_store.QdrantStore
+
+=== INDEXER CLASSES ===
+function:main:33
+
+=== INDEXER CALLS ===
+EmbeddingClient
+PDFIngestion
+QdrantStore
+embed
+ingest
+
+=== CANONICAL SYMBOL HITS ===
+
+[DocumentIndexingPipeline]
+NONE
+
+[DocumentIndexService]
+NONE
+
+[index]
+NONE
+
+[index_with_summary]
+NONE
+
+[LocalDocumentSource]
+NONE
+
+[PDFLoader]
+delbot_platform/document_intelligence/loader/pdf_loader.py:16:class:PDFLoader
+
+[PDFPipeline]
+delbot_platform/document_intelligence/pipeline/pdf_pipeline.py:19:class:PDFPipeline
+
+[PDFDocumentPipeline]
+NONE
+
+=== INDEXER SOURCE CONTEXT ===
+
+---
+0009: 
+0010: ROOT=Path(__file__).resolve().parent.parent
+0011: 
+0012: sys.path.insert(
+0013:     0,
+0014:     str(ROOT)
+0015: )
+0016: 
+0017: 
+0018: 
+0019: from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+0020: 
+0021: from delbot_platform.ai.client.embedding_client import EmbeddingClient
+0022: 
+0023: from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+0024: 
+0025: 
+0026: 
+0027: PDF_DIR=Path(
+0028: "delbot_platform/repository_data/thesis_files"
+0029: )
+
+---
+0018: 
+0019: from delbot_platform.document.pipeline.ingest_pdf import PDFIngestion
+0020: 
+0021: from delbot_platform.ai.client.embedding_client import EmbeddingClient
+0022: 
+0023: from delbot_platform.knowledge.vector.qdrant_store import QdrantStore
+0024: 
+0025: 
+0026: 
+0027: PDF_DIR=Path(
+0028: "delbot_platform/repository_data/thesis_files"
+0029: )
+0030: 
+0031: 
+0032: 
+0033: def main():
+0034: 
+0035: 
+0036:     print("="*60)
+0037:     print("PDF VECTOR INGEST")
+0038:     print("="*60)
+
+---
+0032: 
+0033: def main():
+0034: 
+0035: 
+0036:     print("="*60)
+0037:     print("PDF VECTOR INGEST")
+0038:     print("="*60)
+0039: 
+0040: 
+0041: 
+0042:     ingestion=PDFIngestion()
+0043: 
+0044:     embedder=EmbeddingClient()
+0045: 
+0046:     store=QdrantStore(
+0047:         "delbot_documents"
+0048:     )
+0049: 
+0050: 
+0051:     store.create_collection()
+0052: 
+
+---
+0049: 
+0050: 
+0051:     store.create_collection()
+0052: 
+0053: 
+0054: 
+0055:     total=0
+0056: 
+0057: 
+0058: 
+0059:     for pdf in PDF_DIR.glob("*.pdf"):
+0060: 
+0061: 
+0062:         print(
+0063:             "\nPDF:",
+0064:             pdf.name
+0065:         )
+0066: 
+0067: 
+0068:         result=ingestion.ingest(
+0069:             str(pdf)
+
+---
+0054: 
+0055:     total=0
+0056: 
+0057: 
+0058: 
+0059:     for pdf in PDF_DIR.glob("*.pdf"):
+0060: 
+0061: 
+0062:         print(
+0063:             "\nPDF:",
+0064:             pdf.name
+0065:         )
+0066: 
+0067: 
+0068:         result=ingestion.ingest(
+0069:             str(pdf)
+0070:         )
+0071: 
+0072: 
+0073: 
+0074:         chunks=result["chunks"]
+
+---
+0059:     for pdf in PDF_DIR.glob("*.pdf"):
+0060: 
+0061: 
+0062:         print(
+0063:             "\nPDF:",
+0064:             pdf.name
+0065:         )
+0066: 
+0067: 
+0068:         result=ingestion.ingest(
+0069:             str(pdf)
+0070:         )
+0071: 
+0072: 
+0073: 
+0074:         chunks=result["chunks"]
+0075: 
+0076: 
+0077:         if not chunks:
+0078: 
+0079:             continue
+
+---
+0093: 
+0094: 
+0095:         payloads=[]
+0096: 
+0097: 
+0098:         for c in chunks:
+0099: 
+0100: 
+0101:             payloads.append(
+0102:                 {
+0103:                     "type":"pdf",
+0104: 
+0105:                     "file":pdf.name,
+0106: 
+0107:                     "page":c["page"],
+0108: 
+0109:                     "text":c["text"],
+0110: 
+0111:                     **c["metadata"]
+0112:                 }
+0113:             )
+
+---
+0095:         payloads=[]
+0096: 
+0097: 
+0098:         for c in chunks:
+0099: 
+0100: 
+0101:             payloads.append(
+0102:                 {
+0103:                     "type":"pdf",
+0104: 
+0105:                     "file":pdf.name,
+0106: 
+0107:                     "page":c["page"],
+0108: 
+0109:                     "text":c["text"],
+0110: 
+0111:                     **c["metadata"]
+0112:                 }
+0113:             )
+0114: 
+0115: 
+
+=== CANONICAL PIPELINE SOURCE CONTEXT ===
+
+### delbot_platform/document_intelligence/pipeline/pdf_pipeline.py
+
+---
+0003: from ...documents.models.document import Document
+0004: 
+0005: from delbot_platform.ai.embedding.embedding_builder import (
+0006:     EmbeddingBuilder,
+0007: )
+0008: 
+0009: from ..chunker import PDFChunker
+0010: from ..indexer import PDFIndexer
+0011: from ..loader import PDFLoader
+0012: from ..metadata import PDFMetadata
+0013: from ..parser import PDFParser
+0014: 
+0015: from .document_pipeline import DocumentPipeline
+0016: from .pipeline_result import PipelineResult
+0017: 
+0018: 
+0019: class PDFPipeline(DocumentPipeline):
+
+---
+0011: from ..loader import PDFLoader
+0012: from ..metadata import PDFMetadata
+0013: from ..parser import PDFParser
+0014: 
+0015: from .document_pipeline import DocumentPipeline
+0016: from .pipeline_result import PipelineResult
+0017: 
+0018: 
+0019: class PDFPipeline(DocumentPipeline):
+0020: 
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+
+---
+0018: 
+0019: class PDFPipeline(DocumentPipeline):
+0020: 
+0021:     def process(
+0022:         self,
+0023:         document: Document,
+0024:     ) -> PipelineResult:
+0025: 
+0026:         loaded = PDFLoader().load(document)
+0027:         parsed = PDFParser().parse(loaded)
+0028: 
+0029:         chunked = PDFChunker().chunk(parsed)
+0030:         metadata = PDFMetadata().extract(chunked)
+0031:         indexed = PDFIndexer().index(metadata)
+0032: 
+0033:         requests = EmbeddingBuilder().build(indexed)
+0034: 
+
+### delbot_platform/document_intelligence/loader/pdf_loader.py
+
+---
+0008: from delbot_platform.document_intelligence.loader.document_loader import (
+0009:     DocumentLoader,
+0010: )
+0011: from delbot_platform.document_intelligence.loader.loaded_document import (
+0012:     LoadedDocument,
+0013: )
+0014: 
+0015: 
+0016: class PDFLoader(DocumentLoader):
+0017: 
+0018:     def load(
+0019:         self,
+0020:         source: Path,
+0021:     ) -> LoadedDocument:
+0022: 
+0023:         backend = PyMuPDFBackend()
+0024: 
+
+=== DECISION ===
+CONTRACT_GATE=BLOCKED_NO_CANONICAL_PIPELINE_SYMBOL
+NEXT=DO_NOT_MODIFY_INDEXER
+
+=== ERRORS ===
+NONE
+
+=== WARNINGS ===
+NONE
+
+=== SAFETY ===
+INDEX_EXECUTION=NO
+INDEXER_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+TERMINAL=OPEN

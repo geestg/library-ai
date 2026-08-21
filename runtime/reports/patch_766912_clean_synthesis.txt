@@ -1,0 +1,11 @@
+PATCH: 766.912
+TEST: Clean Synthesis Repair Input
+DATE: 2026-08-18 08:38:59
+
+TARGET: delbot_platform/research/generator/llm_generator.py
+BACKUP: delbot_platform/research/generator/llm_generator.py.mvp_backup_766912
+STRATEGY: clean repair input without previous draft
+STRATEGY: preserve user question + bounded document evidence
+STRATEGY: explicit evidence insufficiency rule
+DECISION: CLEAN_SYNTHESIS_REPAIR_PASS
+NEXT: RUNTIME PIPELINE VALIDATION

@@ -1,0 +1,20 @@
+PATCH=767.370
+PURPOSE=Identify exact runtime failure behind isolated Qdrant gate 767.369
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+MVP_COLLECTION_WRITE=NO
+MVP_COLLECTION_DELETE=NO
+MVP_COLLECTION_RESET=NO
+MVP_COLLECTION_RECREATE=NO
+ISOLATED_WRITE=NO
+ISOLATED_DELETE=NO
+HTTP_REQUEST=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+DATE=2026-08-21 01:26:38
+
+REPORT=runtime/reports/patch_767370_qdrant_runtime_exact_forensic.txt
+LOG=runtime/reports/patch_767370_qdrant_runtime_exact_forensic.log
+PYLOG=runtime/reports/patch_767370_qdrant_runtime_exact_forensic.python.log
+GATEWAY_PID=NOT_FOUND

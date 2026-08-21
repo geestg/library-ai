@@ -1,0 +1,10 @@
+PATCH: 766.940
+PURPOSE: Determine canonical Qdrant collection/path resolution before final MVP patch
+DATE: 2026-08-18 09:38:07
+
+Gateway PID: 200152
+Canonical observed collection: delbot_documents
+Configured .env.mvp collection: delbot_mvp_documents
+Canonical observed Qdrant path: /workspace/delbot/repository_data/qdrant_local
+Report: runtime/reports/patch_766940_qdrant_canonical_resolution.txt
+Log: runtime/reports/patch_766940_qdrant_canonical_resolution.log

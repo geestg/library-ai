@@ -1,0 +1,114 @@
+from __future__ import annotations
+
+
+from delbot_platform.knowledge.reranking.base import (
+    Reranker,
+)
+
+
+from delbot_platform.knowledge.reranking.result import (
+    RerankResult,
+)
+
+
+
+class LocalReranker(
+    Reranker,
+):
+
+
+    async def rerank(
+        self,
+        query: str,
+        documents: list[RerankResult],
+        limit: int = 5,
+    ) -> list[RerankResult]:
+
+
+        ranked = []
+
+
+        query_terms = set(
+            query.lower().split()
+        )
+
+
+        for document in documents:
+
+
+            content_terms = set(
+                document.content.lower().split()
+            )
+
+
+            overlap = len(
+                query_terms
+                &
+                content_terms
+            )
+
+
+            vector_score = float(
+                document.score or 0.0
+            )
+
+            lexical_bonus = min(
+                float(overlap) * 0.02,
+                0.10,
+            )
+
+            definition_bonus = 0.0
+
+            content_lower = (
+                document.content.lower()
+            )
+
+            definition_terms = (
+                "pengertian",
+                "definisi",
+                "penelitian adalah",
+                "penelitian merupakan",
+                "merupakan penelitian",
+                "adalah penelitian",
+            )
+
+            if any(
+                term in content_lower
+                for term in definition_terms
+            ):
+                definition_bonus = 0.12
+
+            score = (
+                vector_score
+                + lexical_bonus
+                + definition_bonus
+            )
+
+
+            ranked.append(
+
+                RerankResult(
+
+                    id=document.id,
+
+                    score=score,
+
+                    content=document.content,
+
+                    metadata=document.metadata,
+
+                )
+
+            )
+
+
+        ranked.sort(
+
+            key=lambda item: item.score,
+
+            reverse=True,
+
+        )
+
+
+        return ranked[:limit]

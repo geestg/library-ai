@@ -1,0 +1,6 @@
+PATCH: 766.926
+PURPOSE: Identify Qdrant local storage lock owner before final HTTP E2E
+DATE: 2026-08-18 09:30:56
+
+RESULT: Qdrant lock RCA + canonical E2E probe completed
+LOG: runtime/reports/patch_766926_qdrant_lock_rca.log

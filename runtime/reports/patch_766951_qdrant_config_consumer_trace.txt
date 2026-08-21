@@ -1,0 +1,10 @@
+PATCH: 766.951
+PURPOSE: Trace actual configuration consumers before canonical MVP Qdrant patch
+DATE: 2026-08-18 09:43:00
+
+ACTIVE_GATEWAY_PID=200152
+ACTIVE_GATEWAY_PORT=8100
+ACTIVE_QDRANT_PATH=/workspace/delbot/repository_data/qdrant_local
+ACTIVE_QDRANT_COLLECTION=delbot_documents
+ENV_MVP_COLLECTION=delbot_mvp_documents
+RESTARTED_GATEWAY=NO

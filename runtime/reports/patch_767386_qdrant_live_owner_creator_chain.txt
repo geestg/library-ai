@@ -1,0 +1,66 @@
+=== PATCH 767.386 SUMMARY ===
+Live candidate PIDs     : NONE
+Parent-chain entries    : 0
+Qdrant source refs      : 0
+Runtime creator refs    : 14
+Error/event lines       : 7
+Port-state lines        : 7
+
+=== LIVE OWNER EVIDENCE ===
+
+=== PARENT CHAIN EVIDENCE ===
+
+=== QDRANT SOURCE EVIDENCE ===
+
+=== RUNTIME CREATOR EVIDENCE ===
+./delbot_platform/ai/runtime/monitor.py:9:    ProcessManager,
+./delbot_platform/ai/runtime/monitor.py:17:        process_manager: ProcessManager,
+./delbot_platform/ai/runtime/reranker.py:94:import uvicorn
+./delbot_platform/ai/runtime/reranker.py:99:    uvicorn.run(
+./delbot_platform/ai/runtime/chat.py:8:import uvicorn
+./delbot_platform/ai/runtime/chat.py:278:    uvicorn.run(
+./delbot_platform/ai/runtime/infinity.py:5:import uvicorn
+./delbot_platform/ai/runtime/infinity.py:68:    uvicorn.run(
+./delbot_platform/ai/runtime/base.py:9:import uvicorn
+./delbot_platform/ai/runtime/base.py:129:        uvicorn.run(
+./delbot_platform/ai/runtime/embedding.py:5:import uvicorn
+./delbot_platform/ai/runtime/embedding.py:88:    uvicorn.run(
+FILE=runtime/logs/backend_8001.log
+FILE=runtime/research_api.log
+
+=== IMPORTANT ERRORS ONLY ===
+./runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/ninja.py:2133:        except subprocess.CalledProcessError:
+./runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/msvs_emulation.py:1198:            raise Exception('"%s" failed with error %d' % (args, popen.returncode))
+./runtime/nvm/versions/node/v20.20.2/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/mac_tool.py:119:        except subprocess.CalledProcessError as e:
+84:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+103:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+188:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+273:RuntimeError: Storage folder repository_data/qdrant_local is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+
+=== DECISION ===
+STATUS=NO_LIVE_QDRANT_CANDIDATE_AT_SCAN_TIME
+DECISION=DO_NOT_INDEX
+NEXT=VERIFY_LOCK_REPRODUCTION_SOURCE_BEFORE_INDEXING
+
+=== SAFETY STATE ===
+MVP indexing            : NOT EXECUTED
+MVP collection write    : NO
+MVP collection delete   : NO
+MVP collection reset    : NO
+MVP collection recreate : NO
+Qdrant start            : NO
+Qdrant stop             : NO
+Docker start            : NO
+Docker restart          : NO
+Gateway restart         : NO
+Source modified         : NO
+Process modified       : NO
+Lock modified           : NO
+Terminal remains open   : YES
+
+=== PATCH 767.386 COMPLETE ===
+READ-ONLY LIVE OWNER / CREATOR FORENSIC ONLY.
+MVP INDEXING NOT EXECUTED.
+NO QDRANT START/STOP/RESET/RECREATE.
+NO DOCKER START/RESTART.
+NO SOURCE/PROCESS/LOCK MODIFICATION.

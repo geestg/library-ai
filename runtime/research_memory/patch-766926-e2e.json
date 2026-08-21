@@ -1,0 +1,549 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?"
+    },
+    {
+      "role": "assistant",
+      "content": "Informasi yang relevan tidak ditemukan dalam context."
+    }
+  ],
+  "last_query": "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?",
+  "last_answer": "Informasi yang relevan tidak ditemukan dalam context.",
+  "summary": "",
+  "topics": [
+    "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?"
+  ],
+  "keywords": [],
+  "sources": [
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text=' dan tingkat kebergunaan prototipe yang terimplementasi saat ini\\nmaka, penelitian ini akan menerapkan pengujian kebergunaan menggunakan\\nmetode  usability testing.  Penelitian ini hanya berfokus pada pengguna akhir dan\\nbukan pengujian dari sisi expert dengan tujuan mendapatkan umpan balik langsung\\ndari pengguna nyata. Hasil yang didapatkan dari pengujian kebergunaan dengan\\n3                                                                                      Institut Teknologi Del\\nmetode ini berupa data kuantitatif yang didapatkan dari kuesioner  System Usability\\nScale  (SUS) dan data kualitatif dari penerapan teknik  Retrospective Think Aloud .\\nSUS mudah digunakan sehingga tidak membutuhkan perhitungan yang rumit\\n(Bangor et all., 2009), SUS tersedia secara gratis , tidak membutuhkan biaya\\ntambahan (Gracia, 2013) dan SUS terbukti valid dan  reliabel  dengan sampel yang\\nkecil (Tullis and Stetson, 2004; Brook, 2013). Jumlah ideal partisipan dalam\\npenelitian ini akan menggunakan 5 partisipan (Nielsen, 2000). Menurut beliau\\npengujian  usability  dengan lima peserta hampir selalu mendekati rasio antara\\nmanfaat dan biaya maksimum pada pengujian  usability . Dalam praktiknya\\npenerapan SUS pada  usability testing  hanya akan mendapatkan hasil data\\nkuantitatif . Oleh karena itu, dibutuhkan sebuah teknik dalam mendapatkan umpan\\nbalik berupa rekomendasi maupun kritik dari pengguna terhadap prototipe yang\\nakan diujikan. Teknik untuk mendapatkan umpan balik pada penelitian ini adalah\\nRetrospective Think Aloud . Teknik ini akan menghasilkan data kualitatif. Data\\nkualitatif yang dimaksud terdiri dari data  think aloud  , data kritik dan saran untuk\\nmemenuhi tujuan utama dari pengujian kebergunaan yaitu umpan balik dari\\npartisipan. Dimana data  think aloud   akan berisi hasil pemikiran partisipan terhadap\\nprototipe yang akan dijadikan sebagai landasan untuk meningkatkan fungsi-fungsi\\npada prototipe. Penerapan RTA akan menjawab kekurangan dari metode SUS\\ndengan memberikan beberapa da', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='03197818aab14b70b6dd15ca3188c93a', title='03197818aab14b70b6dd15ca3188c93a', file_path='delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='da pengembangan desain dan  prototype\\nLearning Management System  berbasis  mobile.\\n2.   Wawancara\\nDalam rangka memperoleh pemahaman yang lebih mendalam mengenai\\nkebutuhan pengguna, penulis juga melakukan wawancara kepada  stakeholder\\njuga untuk mengumpulkan data, fiksasi aplikasi dan memenuhi kebutuhan\\npengguna pada saat menggunakan aplikasi\\n3.   Research Question\\nDalam rangka memperoleh arah dan tujuan bagi penelitian yang sedang\\ndilakukan, penulis juga melakukan tahapan research question untuk\\nmenetapkan fokus pada ruang lingkup penelitian serta memfokuskan untuk\\nmencari solusi sesuai masalah yang terjadi.\\nDalam penelitian ini, dikumpulkan informasi melalui tahap  research  bersama\\nbeberapa mentor dan  mentee  terkait sebuah pernyataan keingintahuan tentang suatu\\nmasalah yang ditemukan oleh beberapa sudut pandang, baik dari pihak mentor dan\\npihak  mentee . Masalah yang diangkat adalah apa kendala yang dialami selama\\nmelakukan proses belajar mengajar berlangsung antara mentor dan  mentee . Banyak\\n36\\nInstitut Teknologi Del\\nnya kendala yang dialami oleh mentor dan  mentee , salah satunya yaitu dalam\\nberkomunikasi. Mentor dan  mentee  melakukan komunikasi melalui media sosial,\\ncontohnya discord, telegram ataupun  whatsapp . Dari hal ini sering sekali informasi\\npenting yang sudah disampaikan sebelumnya oleh mentor tertimbun dengan chat\\natau informasi lain, mengakibatkan.\\nInfinite Learning dipilih sebagai objek penelitian untuk melihat dimana objek\\nmemang membutuhkan sebuah aplikasi  Learning Management System  berbasis\\nmobile  yang dapat menjadi solusi dari kesulitan yang dialami oleh mentor dan\\nmentee  selama pelaksanaan Studi Independen berlangsung. Penelitian ini akan\\nmengembangkan sebuah aplikasi berbasis  mobile  yang berfokus menjadi solusi\\nyang inovatif dari aspek  user interface.\\nUntuk hasil  research question  bersama mentor dapat dilihat dari pada Gambar\\n3. 2 dan Gambar 3.3\\nGambar 3. 2  Research Question   Mentee\\n37\\nInstitut Teknologi Del\\nGambar 3. 3  Resear', metadata={'page_start': 2, 'page_end': 145, 'section': '2024'})",
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='enyajian.\\n2.   Bab 2 merupakan Tinjauan Pustaka , bab ini berisi hasil studi literatur atas dasar\\nteori yang dipelajari untuk mendukung penyelesaian permasalahan pada\\npenelitian.\\n3.   Bab 3 merupakan Analisis, pada bab ini akan dijelaskan  requirement  dan\\nmetode pengujian kebergunaan dalam Tugas Akhir ini yaitu metode  Usability\\nTesting , objek penelitian adalah Aplikasi Information Tourism  Del eGov\\nCenter.\\n4.   Bab 4 merupakan Perancangan, pada bab ini akan dijelaskan persiapan yang\\nakan dilakukan sebelum implementasi. Persiapan yang dimaksud berupa\\nkarakteristik partisipan, kerangka kerja, kuesioner , lingkungan pengujian dan\\nsebagainya.\\n5.   Bab 5 merupakan Implementasi dan Hasil, pada bab ini akan dijelaskan\\nimplementasi dan hasil implementasi apa yang telah dilakukan yang mencakup\\ndesain interface dan evaluasi  usability   menggunakan metode  Usability Testing .\\n8                                                                                      Institut Teknologi Del\\n6.   Bab 6 merupakan Kesimpulan dan Saran, pada bab ini berisi  hasil penelitian\\ndalam bentuk kesimpulan atas hasil penelitian evaluasi usability dan pemberian\\nsaran untuk penelitian-penelitian kedepannya berdasarkan pada pengalaman\\nproses penelitian yang dilakukan.\\nBAB II\\nTINJAUAN PUSTAKA\\nBab ini berisi hasil studi literatur atas dasar teori yang dipelajari untuk mendukung\\npenyelesaian permasalahan pada penelitian dan analisis terkait objek kaji yang akan\\ndigunakan.\\n1.1.Penelitian Sebelumnya\\nPada sub bab ini akan dijelaskan penelitian terkait . Penelitian terkait yang\\ndimaksud adalah penelitian yang berhubungan dengan metode  Usability Testing\\ndan perancangan desain. Penelitian yang berjudul “Evaluasi Usability\\nMenggunakan Metode System Usability Scale (SUS) Dan Discovery Prototyping\\nPada Aplikasi PLN Mobile (Studi Kasus PT. PLN) “  digunakan peneliti sebagai\\nwawasan untuk mengetahui lebih dalam mengenai penerapan metode  usability\\ntesting  menggunakan  System Usability Scale  untuk mendapatk', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='02c7e6ff056f4b39a09fb6ef119ba52b', title='PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER', file_path='delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='NAPITUPULU, N. PRISKILA', email='', orcid='', metadata={})], entities=[], metadata={}), page=2, chunk_id='', score=0.0, text='ologi Del\\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\\nsaja.\\n●   Background questionnaire\\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\\nmenjadi bahan pertimbangan hasil pengujian.\\n●   Data collection instruments\\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\\nakan diajukan :\\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\\ntersedia.\\n-   Kritik dan saran partisipan selama melakukan pengujian.\\n●   Pre-test questionnaire\\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\\nmetode pengujian yang sesuai.\\n●   Prototypes or Products to Test\\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\\n67                 Institut Teknologi Del\\n●   Post-test questionnaire\\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\\nadalah pertanyaan yang akan diajukan untuk m', metadata={'page_start': 2, 'page_end': 225, 'section': '11S18010'})",
+    "Citation(document=Document(document_id='02ec25a2524e40b7b021562ebb0c532a', title='PERENCANAAN BAHAN BAKU UBI KAYU DAN OPTIMASI PRODUKSI KERIPIK DI UMKM KERIPIK CAP RUMAH ADAT MINANG UD REZEKI BARU', file_path='delbot_platform/repository_data/pdf/02ec25a2524e40b7b021562ebb0c532a.pdf', collection=Collection(collection_id='default', name='Default', description='', repository=Repository(repository_id='local', name='Local Repository', root_path='delbot_platform/repository_data/pdf', source=KnowledgeSource(source_id='', name='local', description='', domain=KnowledgeDomain(domain_id='', name='', description='', metadata={}), metadata={}), metadata={}), metadata={}), authors=[Author(author_id='', full_name='Panjaitan, Anggi Retta Natalia', email='', orcid='', metadata={})], entities=[], metadata={}), page=1, chunk_id='', score=0.0, text='menyelesaikan\\nMata Kuliah Tugas Akhir. Selain itu penelitian ini bermanfaat untuk\\nmengembangkan beberapa kemampuan peneliti seperti kemampuan dalam\\nmenganalisis suatu karya ilmiah, kemampuan menganalisa data dan memecahkan\\nmasalah program linear menggunakan metode Simpleks dengan  software  Lindo,\\nkemudian mampu mengaplikasikan metode  demand forecasting  dalam menentukan\\nperkiraan  demand,  serta mampu mengaplikasikan metode EOQ dalam menentukan\\nperencanaan bahan baku.\\n1.4.2   Bagi UD Rezeki Baru\\nPenelitian ini diharapkan mendapatkan hasil untuk menjadi masukan bagi\\nUD Rezeki Baru untuk mendapatkan keuntungan yang maksimal.\\n1.4.3   Bagi Peneliti Selanjutnya\\nPenelitian ini diharapkan dapat dijadikan sebagai sumber informasi berupa\\nreferensi mengenai Perencanaan Bahan Baku dan Optimasi Produksi menggunakan\\nLinear Programming  dengan menggunakan metode Simpleks.\\n1.5   Batasan Masalah\\nDengan mempertimbangkan permasalahan yang dijelaskan dalam latar\\nbelakang sebelumnya, penting untuk menetapkan batasan masalah guna\\nmemastikan penelitian tetap fokus, terarah, dan tidak menyimpang dari ruang\\nlingkup pembahasan. Berikut adalah pembatasan masalah dalam penelitian ini:\\na.   Penelitian ini berfokus pada UD Rezeki Baru untuk bulan Januari 2022 hingga\\nDesember 2022.\\n7\\nInstitut Teknologi Del\\nb.   Penelitian ini berfokus terhadap perencanaan bahan baku dan optimasi\\nproduksi pada UD Rezeki Baru untuk tahun 2023.\\nc.   Optimasi dilakukan berdasarkan data aktual dan data peramalan  demand  serta\\ndata estimasi bahan baku yang digunakan untuk beberapa jenis ukuran keripik.\\nTerdapat 4 jenis ukuran keripik yang akan dioptimasi.\\nd.   Data yang akan digunakan meliputi rentang waktu dari bulan Januari 2022\\nhingga Desember 2022.\\ne.   Biaya pembelian bahan baku dan biaya listrik setiap bulannya dianggap tetap\\ndan tidak mengalami kenaikan.\\n1.6   Sistematika Penulisan\\nSistematika penulisan Tugas Akhir ini adalah sebagai berikut:\\n1.6.1   BAB I Pendahuluan\\nPada bab ini akan membahas tentang latar', metadata={'page_start': 1, 'page_end': 192, 'section': 'Introduction'})"
+  ],
+  "notes": [],
+  "timeline": [],
+  "research_state": {
+    "research_goal": "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?",
+    "current_question": "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?",
+    "keywords": [],
+    "timeline": [
+      {
+        "event": "research_turn",
+        "value": "Apa penelitian yang tersedia dalam repository dan apa fokus utamanya?"
+      }
+    ],
+    "sources": [
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": " dan tingkat kebergunaan prototipe yang terimplementasi saat ini\nmaka, penelitian ini akan menerapkan pengujian kebergunaan menggunakan\nmetode  usability testing.  Penelitian ini hanya berfokus pada pengguna akhir dan\nbukan pengujian dari sisi expert dengan tujuan mendapatkan umpan balik langsung\ndari pengguna nyata. Hasil yang didapatkan dari pengujian kebergunaan dengan\n3                                                                                      Institut Teknologi Del\nmetode ini berupa data kuantitatif yang didapatkan dari kuesioner  System Usability\nScale  (SUS) dan data kualitatif dari penerapan teknik  Retrospective Think Aloud .\nSUS mudah digunakan sehingga tidak membutuhkan perhitungan yang rumit\n(Bangor et all., 2009), SUS tersedia secara gratis , tidak membutuhkan biaya\ntambahan (Gracia, 2013) dan SUS terbukti valid dan  reliabel  dengan sampel yang\nkecil (Tullis and Stetson, 2004; Brook, 2013). Jumlah ideal partisipan dalam\npenelitian ini akan menggunakan 5 partisipan (Nielsen, 2000). Menurut beliau\npengujian  usability  dengan lima peserta hampir selalu mendekati rasio antara\nmanfaat dan biaya maksimum pada pengujian  usability . Dalam praktiknya\npenerapan SUS pada  usability testing  hanya akan mendapatkan hasil data\nkuantitatif . Oleh karena itu, dibutuhkan sebuah teknik dalam mendapatkan umpan\nbalik berupa rekomendasi maupun kritik dari pengguna terhadap prototipe yang\nakan diujikan. Teknik untuk mendapatkan umpan balik pada penelitian ini adalah\nRetrospective Think Aloud . Teknik ini akan menghasilkan data kualitatif. Data\nkualitatif yang dimaksud terdiri dari data  think aloud  , data kritik dan saran untuk\nmemenuhi tujuan utama dari pengujian kebergunaan yaitu umpan balik dari\npartisipan. Dimana data  think aloud   akan berisi hasil pemikiran partisipan terhadap\nprototipe yang akan dijadikan sebagai landasan untuk meningkatkan fungsi-fungsi\npada prototipe. Penerapan RTA akan menjawab kekurangan dari metode SUS\ndengan memberikan beberapa da",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "03197818aab14b70b6dd15ca3188c93a",
+          "title": "03197818aab14b70b6dd15ca3188c93a",
+          "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [],
+          "author_ids": [],
+          "author_names": [],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "03197818aab14b70b6dd15ca3188c93a",
+        "document_title": "03197818aab14b70b6dd15ca3188c93a",
+        "file_path": "delbot_platform/repository_data/pdf/03197818aab14b70b6dd15ca3188c93a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [],
+        "author_ids": [],
+        "author_names": [],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "da pengembangan desain dan  prototype\nLearning Management System  berbasis  mobile.\n2.   Wawancara\nDalam rangka memperoleh pemahaman yang lebih mendalam mengenai\nkebutuhan pengguna, penulis juga melakukan wawancara kepada  stakeholder\njuga untuk mengumpulkan data, fiksasi aplikasi dan memenuhi kebutuhan\npengguna pada saat menggunakan aplikasi\n3.   Research Question\nDalam rangka memperoleh arah dan tujuan bagi penelitian yang sedang\ndilakukan, penulis juga melakukan tahapan research question untuk\nmenetapkan fokus pada ruang lingkup penelitian serta memfokuskan untuk\nmencari solusi sesuai masalah yang terjadi.\nDalam penelitian ini, dikumpulkan informasi melalui tahap  research  bersama\nbeberapa mentor dan  mentee  terkait sebuah pernyataan keingintahuan tentang suatu\nmasalah yang ditemukan oleh beberapa sudut pandang, baik dari pihak mentor dan\npihak  mentee . Masalah yang diangkat adalah apa kendala yang dialami selama\nmelakukan proses belajar mengajar berlangsung antara mentor dan  mentee . Banyak\n36\nInstitut Teknologi Del\nnya kendala yang dialami oleh mentor dan  mentee , salah satunya yaitu dalam\nberkomunikasi. Mentor dan  mentee  melakukan komunikasi melalui media sosial,\ncontohnya discord, telegram ataupun  whatsapp . Dari hal ini sering sekali informasi\npenting yang sudah disampaikan sebelumnya oleh mentor tertimbun dengan chat\natau informasi lain, mengakibatkan.\nInfinite Learning dipilih sebagai objek penelitian untuk melihat dimana objek\nmemang membutuhkan sebuah aplikasi  Learning Management System  berbasis\nmobile  yang dapat menjadi solusi dari kesulitan yang dialami oleh mentor dan\nmentee  selama pelaksanaan Studi Independen berlangsung. Penelitian ini akan\nmengembangkan sebuah aplikasi berbasis  mobile  yang berfokus menjadi solusi\nyang inovatif dari aspek  user interface.\nUntuk hasil  research question  bersama mentor dapat dilihat dari pada Gambar\n3. 2 dan Gambar 3.3\nGambar 3. 2  Research Question   Mentee\n37\nInstitut Teknologi Del\nGambar 3. 3  Resear",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 145,
+          "section": "2024"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "enyajian.\n2.   Bab 2 merupakan Tinjauan Pustaka , bab ini berisi hasil studi literatur atas dasar\nteori yang dipelajari untuk mendukung penyelesaian permasalahan pada\npenelitian.\n3.   Bab 3 merupakan Analisis, pada bab ini akan dijelaskan  requirement  dan\nmetode pengujian kebergunaan dalam Tugas Akhir ini yaitu metode  Usability\nTesting , objek penelitian adalah Aplikasi Information Tourism  Del eGov\nCenter.\n4.   Bab 4 merupakan Perancangan, pada bab ini akan dijelaskan persiapan yang\nakan dilakukan sebelum implementasi. Persiapan yang dimaksud berupa\nkarakteristik partisipan, kerangka kerja, kuesioner , lingkungan pengujian dan\nsebagainya.\n5.   Bab 5 merupakan Implementasi dan Hasil, pada bab ini akan dijelaskan\nimplementasi dan hasil implementasi apa yang telah dilakukan yang mencakup\ndesain interface dan evaluasi  usability   menggunakan metode  Usability Testing .\n8                                                                                      Institut Teknologi Del\n6.   Bab 6 merupakan Kesimpulan dan Saran, pada bab ini berisi  hasil penelitian\ndalam bentuk kesimpulan atas hasil penelitian evaluasi usability dan pemberian\nsaran untuk penelitian-penelitian kedepannya berdasarkan pada pengalaman\nproses penelitian yang dilakukan.\nBAB II\nTINJAUAN PUSTAKA\nBab ini berisi hasil studi literatur atas dasar teori yang dipelajari untuk mendukung\npenyelesaian permasalahan pada penelitian dan analisis terkait objek kaji yang akan\ndigunakan.\n1.1.Penelitian Sebelumnya\nPada sub bab ini akan dijelaskan penelitian terkait . Penelitian terkait yang\ndimaksud adalah penelitian yang berhubungan dengan metode  Usability Testing\ndan perancangan desain. Penelitian yang berjudul “Evaluasi Usability\nMenggunakan Metode System Usability Scale (SUS) Dan Discovery Prototyping\nPada Aplikasi PLN Mobile (Studi Kasus PT. PLN) “  digunakan peneliti sebagai\nwawasan untuk mengetahui lebih dalam mengenai penerapan metode  usability\ntesting  menggunakan  System Usability Scale  untuk mendapatk",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+          "title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+          "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "NAPITUPULU, N. PRISKILA",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "NAPITUPULU, N. PRISKILA"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02c7e6ff056f4b39a09fb6ef119ba52b",
+        "document_title": "PENGUJIAN KEBERGUNAAN DAN PERBAIKAN UI/UX  MENGGUNAKAN METODE USABILITY TESTING DENGAN  TEKNIK RETROSPECTIVE THINK ALOUD PADA  PROTOTIPE APLIKASI MOBILE INFORMATION TOURISM  DEL EGOV CENTER",
+        "file_path": "delbot_platform/repository_data/pdf/02c7e6ff056f4b39a09fb6ef119ba52b.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "NAPITUPULU, N. PRISKILA",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "NAPITUPULU, N. PRISKILA"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 2,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "ologi Del\ndilakukan, meyakinkan pengguna bahwa pengguna dapat bertanya kapan\nsaja.\n●   Background questionnaire\nBackground questionnaire  digunakan untuk mengidentifikasi peserta\nterkait pengalaman peserta sebelumnya dalam melakukan pengujian atau\npenggunaan produk yang sama, usia , jenis kelamin dan berbagai aspek\nlainnya yang berkaitan dengan latar belakang pribadi peserta dan akan\nmenjadi bahan pertimbangan hasil pengujian.\n●   Data collection instruments\nPengumpulan data partisipan pada penelitian ini adalah  Preference Data .\nPengumpulan data dengan kategori  preference  dilakukan dengan teknik\nretrospective think aloud . Teknik ini dilakukan dengan melakukan\nwawancara kepada partisipan. Berikut ini adalah beberapa masukan yang\nakan diajukan :\n-   Masukan yang diberikan partisipan kepada desain yang baru diuji.\n-   Fitur yang diharapkan disediakan oleh prototipe ini, namun belum\ntersedia.\n-   Kritik dan saran partisipan selama melakukan pengujian.\n●   Pre-test questionnaire\nPre-test  pada pengujian ini bertujuan untuk mengetahui metode yang baik\ndigunakan partisipan dalam melakukan pengujian serta pengalaman\npartisipan dalam menggunakan aplikasi sejenis.  Pre-test  dapat dilakukan\ndengan langsung memberikan pertanyaan kepada partisipan terkait apa\nmetode pengujian yang sesuai.\n●   Prototypes or Products to Test\nSetelah mengetahui metode yang baik bagi partisipan, maka peneliti akan\nmemberikan prototipe interaktif yang akan diujikan kepada partisipan.\n67                 Institut Teknologi Del\n●   Post-test questionnaire\nInformasi yang akan di dapatkan dari  post-test questionnaire  adalah\npendapat pengguna terkait kemudahan penggunaan dan seberapa mudah\nproduk dipelajari. Jenis kuesioner yang akan digunakan dalam\nmengumpulkan data adalah kuesioner SUS ( System Usability Scale ).\nKuesioner SUS akan berisi 10 (Brooke, 1996) pertanyaan dengan masing-\nmasing pertanyaan memiliki 5 poin likert sebagai tanggapan. Berikut ini\nadalah pertanyaan yang akan diajukan untuk m",
+        "metadata": {
+          "page_start": 2,
+          "page_end": 225,
+          "section": "11S18010"
+        }
+      },
+      {
+        "document": {
+          "document_id": "02ec25a2524e40b7b021562ebb0c532a",
+          "title": "PERENCANAAN BAHAN BAKU UBI KAYU DAN OPTIMASI PRODUKSI KERIPIK DI UMKM KERIPIK CAP RUMAH ADAT MINANG UD REZEKI BARU",
+          "file_path": "delbot_platform/repository_data/pdf/02ec25a2524e40b7b021562ebb0c532a.pdf",
+          "collection": {
+            "collection_id": "default",
+            "name": "Default",
+            "description": "",
+            "repository": {
+              "repository_id": "local",
+              "name": "Local Repository",
+              "root_path": "delbot_platform/repository_data/pdf",
+              "source": {
+                "source_id": "",
+                "name": "local",
+                "description": "",
+                "domain": {
+                  "domain_id": "",
+                  "name": "",
+                  "description": "",
+                  "metadata": {}
+                },
+                "domain_id": "",
+                "domain_name": "",
+                "metadata": {}
+              },
+              "source_id": "",
+              "source_name": "local",
+              "domain_id": "",
+              "domain_name": "",
+              "metadata": {}
+            },
+            "repository_id": "local",
+            "repository_name": "Local Repository",
+            "source_id": "",
+            "source_name": "local",
+            "domain_id": "",
+            "domain_name": "",
+            "metadata": {}
+          },
+          "collection_id": "default",
+          "collection_name": "Default",
+          "repository_id": "local",
+          "repository_name": "Local Repository",
+          "source_id": "",
+          "source_name": "local",
+          "domain_id": "",
+          "domain_name": "",
+          "authors": [
+            {
+              "author_id": "",
+              "full_name": "Panjaitan, Anggi Retta Natalia",
+              "email": "",
+              "orcid": "",
+              "metadata": {}
+            }
+          ],
+          "author_ids": [],
+          "author_names": [
+            "Panjaitan, Anggi Retta Natalia"
+          ],
+          "entities": [],
+          "relation_ids": [],
+          "relation_types": [],
+          "metadata": {}
+        },
+        "document_id": "02ec25a2524e40b7b021562ebb0c532a",
+        "document_title": "PERENCANAAN BAHAN BAKU UBI KAYU DAN OPTIMASI PRODUKSI KERIPIK DI UMKM KERIPIK CAP RUMAH ADAT MINANG UD REZEKI BARU",
+        "file_path": "delbot_platform/repository_data/pdf/02ec25a2524e40b7b021562ebb0c532a.pdf",
+        "collection_id": "default",
+        "collection_name": "Default",
+        "repository_id": "local",
+        "repository_name": "Local Repository",
+        "repository_root_path": "delbot_platform/repository_data/pdf",
+        "source_id": "",
+        "source_name": "local",
+        "domain_id": "",
+        "domain_name": "",
+        "authors": [
+          {
+            "author_id": "",
+            "full_name": "Panjaitan, Anggi Retta Natalia",
+            "email": "",
+            "orcid": "",
+            "metadata": {}
+          }
+        ],
+        "author_ids": [],
+        "author_names": [
+          "Panjaitan, Anggi Retta Natalia"
+        ],
+        "entities": [],
+        "relation_ids": [],
+        "relation_types": [],
+        "page": 1,
+        "chunk_id": "",
+        "score": 0.0,
+        "text": "menyelesaikan\nMata Kuliah Tugas Akhir. Selain itu penelitian ini bermanfaat untuk\nmengembangkan beberapa kemampuan peneliti seperti kemampuan dalam\nmenganalisis suatu karya ilmiah, kemampuan menganalisa data dan memecahkan\nmasalah program linear menggunakan metode Simpleks dengan  software  Lindo,\nkemudian mampu mengaplikasikan metode  demand forecasting  dalam menentukan\nperkiraan  demand,  serta mampu mengaplikasikan metode EOQ dalam menentukan\nperencanaan bahan baku.\n1.4.2   Bagi UD Rezeki Baru\nPenelitian ini diharapkan mendapatkan hasil untuk menjadi masukan bagi\nUD Rezeki Baru untuk mendapatkan keuntungan yang maksimal.\n1.4.3   Bagi Peneliti Selanjutnya\nPenelitian ini diharapkan dapat dijadikan sebagai sumber informasi berupa\nreferensi mengenai Perencanaan Bahan Baku dan Optimasi Produksi menggunakan\nLinear Programming  dengan menggunakan metode Simpleks.\n1.5   Batasan Masalah\nDengan mempertimbangkan permasalahan yang dijelaskan dalam latar\nbelakang sebelumnya, penting untuk menetapkan batasan masalah guna\nmemastikan penelitian tetap fokus, terarah, dan tidak menyimpang dari ruang\nlingkup pembahasan. Berikut adalah pembatasan masalah dalam penelitian ini:\na.   Penelitian ini berfokus pada UD Rezeki Baru untuk bulan Januari 2022 hingga\nDesember 2022.\n7\nInstitut Teknologi Del\nb.   Penelitian ini berfokus terhadap perencanaan bahan baku dan optimasi\nproduksi pada UD Rezeki Baru untuk tahun 2023.\nc.   Optimasi dilakukan berdasarkan data aktual dan data peramalan  demand  serta\ndata estimasi bahan baku yang digunakan untuk beberapa jenis ukuran keripik.\nTerdapat 4 jenis ukuran keripik yang akan dioptimasi.\nd.   Data yang akan digunakan meliputi rentang waktu dari bulan Januari 2022\nhingga Desember 2022.\ne.   Biaya pembelian bahan baku dan biaya listrik setiap bulannya dianggap tetap\ndan tidak mengalami kenaikan.\n1.6   Sistematika Penulisan\nSistematika penulisan Tugas Akhir ini adalah sebagai berikut:\n1.6.1   BAB I Pendahuluan\nPada bab ini akan membahas tentang latar",
+        "metadata": {
+          "page_start": 1,
+          "page_end": 192,
+          "section": "Introduction"
+        }
+      }
+    ],
+    "current_answer": "Informasi yang relevan tidak ditemukan dalam context."
+  },
+  "created_at": "2026-08-18T09:31:08.108517",
+  "updated_at": "2026-08-18T09:31:08.108543"
+}

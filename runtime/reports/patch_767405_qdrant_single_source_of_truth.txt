@@ -1,0 +1,149 @@
+PATCH=767.405
+PURPOSE=Verify single source of truth for Qdrant collection default and runtime configuration
+MODE=READ_ONLY_STATIC_SOURCE_FORENSIC
+INDEX_EXECUTION=NO
+QDRANT_COLLECTION_ACCESS=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+QDRANT_START=NO
+QDRANT_STOP=NO
+DOCKER_START=NO
+DOCKER_RESTART=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+PROCESS_MODIFICATION=NO
+LOCK_MODIFICATION=NO
+SECRETS=NOT_PRINTED
+INDEX_GATE=DO_NOT_INDEX
+DATE=2026-08-21 02:43:49
+
+=== EXTRACTED SUMMARY ===
+FILES_SCANNED=692
+PARSE_ERRORS=0
+STATIC_ASSIGNMENTS=0
+CONFIG_HITS=45
+ENV_HITS=5
+QDRANT_CONSTRUCTORS=5
+QDRANT_CALLS=17
+SINGLETON_HITS=9
+RETRIEVAL_CALLER_HITS=3
+
+=== STATIC COLLECTION ASSIGNMENTS ===
+NONE
+
+=== CONFIGURATION EVIDENCE ===
+delbot_platform/vectorstore/qdrant/singleton.py|33|CONFIG|self.collection = os.getenv(
+delbot_platform/vectorstore/qdrant/singleton.py|34|CONFIG|"QDRANT_COLLECTION",
+delbot_platform/vectorstore/qdrant/singleton.py|54|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|65|CONFIG|c.name == collection_name
+delbot_platform/vectorstore/qdrant/singleton.py|72|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|86|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|90|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|96|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|100|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|106|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|116|CONFIG|collection_name=collection_name,
+delbot_platform/vectorstore/qdrant/singleton.py|137|CONFIG|collection_name: str = "delbot_documents",
+delbot_platform/vectorstore/qdrant/singleton.py|142|CONFIG|collection_name=collection_name,
+delbot_platform/document_intelligence/chunker/pdf_chunker.py|15|CONFIG|) -> SemanticChunkCollection:
+delbot_platform/document_intelligence/models/semantic_chunk_collection.py|12|CONFIG|class SemanticChunkCollection:
+delbot_platform/document_intelligence/models/heading_collection.py|12|CONFIG|class HeadingCollection:
+delbot_platform/document_intelligence/models/paragraph_collection.py|12|CONFIG|class ParagraphCollection:
+delbot_platform/research/models/citation.py|42|CONFIG|def collection(self) -> Collection:
+delbot_platform/research/models/citation.py|50|CONFIG|def collection_name(self) -> str:
+delbot_platform/research/models/citation.py|128|CONFIG|"collection_name": self.collection_name,
+delbot_platform/research/models/embedding_collection.py|12|CONFIG|class EmbeddingCollection:
+delbot_platform/research/builders/research_result_builder.py|33|CONFIG|lambda c: c.collection_name,
+delbot_platform/knowledge/vector/qdrant_store.py|14|CONFIG|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/qdrant_store.py|18|CONFIG|self.collection = collection
+delbot_platform/knowledge/vector/repository/qdrant.py|22|CONFIG|collection: str = "delbot_documents",
+delbot_platform/knowledge/vector/repository/qdrant.py|26|CONFIG|self.collection = collection
+delbot_platform/knowledge/hydration/local.py|86|CONFIG|collection = Collection(
+delbot_platform/knowledge/hydration/local.py|122|CONFIG|collection=collection,
+delbot_platform/knowledge/models/document_chunk.py|60|CONFIG|def collection_name(
+delbot_platform/knowledge/models/document_chunk.py|148|CONFIG|"collection_name": self.document.collection.name,
+delbot_platform/knowledge/models/document.py|22|CONFIG|collection: Collection = field(
+delbot_platform/knowledge/models/document.py|46|CONFIG|def collection_name(
+delbot_platform/knowledge/models/document.py|250|CONFIG|"collection_name": self.collection_name,
+delbot_platform/knowledge/models/document.py|280|CONFIG|collection = Collection.from_dict(
+delbot_platform/knowledge/models/document.py|290|CONFIG|collection = Collection(
+delbot_platform/knowledge/models/document.py|296|CONFIG|"collection_name",
+delbot_platform/knowledge/models/document.py|364|CONFIG|collection=collection,
+delbot_platform/knowledge/models/collection.py|11|CONFIG|class Collection:
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|26|CONFIG|collection_name: str,
+delbot_platform/ai/vector_store/providers/qdrant_vector_store.py|29|CONFIG|self._collection_name = collection_name
+delbot_platform/ai/embedding/embedding_builder.py|26|CONFIG|collection = document.index
+delbot_platform/ai/embedding/embedding_service.py|34|CONFIG|) -> EmbeddingCollection:
+delbot_platform/ai/embedding/embedding_service.py|40|CONFIG|collection = EmbeddingCollection()
+delbot_platform/workspace/models/workspace_metadata.py|11|CONFIG|active_collection: str = ""
+delbot_platform/workspace/models/workspace_metadata.py|39|CONFIG|active_collection=data.get(
+
+=== ENVIRONMENT EVIDENCE ===
+.env.mvp|1|ENV|DELBOT_VECTOR_BACKEND=<VALUE_PRESENT>
+.env.mvp|2|ENV|DELBOT_QDRANT_PATH=<VALUE_PRESENT>
+.env.mvp|3|ENV|QDRANT_COLLECTION=<VALUE_PRESENT>
+.env.mvp|4|ENV|QDRANT_MODE=<VALUE_PRESENT>
+.env.mvp|5|ENV|QDRANT_PATH=<VALUE_PRESENT>
+
+=== QDRANT CONSTRUCTORS / FACTORIES ===
+delbot_platform/vectorstore/qdrant/singleton.py|157|CONSTRUCTOR_OR_FACTORY|QdrantStore
+delbot_platform/vectorstore/qdrant/repository.py|25|CONSTRUCTOR_OR_FACTORY|get_qdrant_store
+delbot_platform/knowledge/vector/qdrant_store.py|17|CONSTRUCTOR_OR_FACTORY|get_qdrant_store
+delbot_platform/knowledge/vector/repository/qdrant.py|25|CONSTRUCTOR_OR_FACTORY|get_qdrant_store
+delbot_platform/knowledge/rag/vector_retriever.py|17|CONSTRUCTOR_OR_FACTORY|get_qdrant_store
+
+=== SINGLETON EVIDENCE ===
+delbot_platform/vectorstore/qdrant/singleton.py|152|SINGLETON|def get_qdrant_store() -> QdrantStore:
+delbot_platform/vectorstore/qdrant/repository.py|8|SINGLETON|get_qdrant_store,
+delbot_platform/vectorstore/qdrant/repository.py|25|SINGLETON|else get_qdrant_store()
+delbot_platform/knowledge/vector/qdrant_store.py|6|SINGLETON|get_qdrant_store,
+delbot_platform/knowledge/vector/qdrant_store.py|17|SINGLETON|self.store = get_qdrant_store()
+delbot_platform/knowledge/vector/repository/qdrant.py|12|SINGLETON|get_qdrant_store,
+delbot_platform/knowledge/vector/repository/qdrant.py|25|SINGLETON|self.store = get_qdrant_store()
+delbot_platform/knowledge/rag/vector_retriever.py|7|SINGLETON|get_qdrant_store,
+delbot_platform/knowledge/rag/vector_retriever.py|17|SINGLETON|self.store = get_qdrant_store()
+
+=== RETRIEVAL CALLER EVIDENCE ===
+delbot_platform/vectorstore/qdrant/singleton.py|152|FUNCTION|get_qdrant_store
+delbot_platform/vectorstore/qdrant/singleton.py|133|FUNCTION|search
+delbot_platform/knowledge/rag/vector_retriever.py|23|FUNCTION|search
+
+=== QDRANT CALL EVIDENCE ===
+delbot_platform/vectorstore/qdrant/singleton.py|43|CALL|QdrantClient
+delbot_platform/vectorstore/qdrant/singleton.py|141|CALL|search
+delbot_platform/vectorstore/qdrant/singleton.py|157|CALL|QdrantStore
+delbot_platform/vectorstore/qdrant/singleton.py|59|CALL|get_collections
+delbot_platform/vectorstore/qdrant/singleton.py|71|CALL|create_collection
+delbot_platform/vectorstore/qdrant/repository.py|28|CALL|create_collection
+delbot_platform/vectorstore/qdrant/repository.py|25|CALL|get_qdrant_store
+delbot_platform/knowledge/vector/qdrant_store.py|17|CALL|get_qdrant_store
+delbot_platform/knowledge/vector/qdrant_store.py|25|CALL|create_collection
+delbot_platform/knowledge/vector/repository/qdrant.py|25|CALL|get_qdrant_store
+delbot_platform/knowledge/vector/repository/qdrant.py|28|CALL|create_collection
+delbot_platform/knowledge/vector/repository/qdrant.py|78|CALL|search
+delbot_platform/knowledge/rag/vector_retriever.py|17|CALL|get_qdrant_store
+delbot_platform/knowledge/rag/vector_retriever.py|19|CALL|create_collection
+delbot_platform/knowledge/rag/vector_retriever.py|33|CALL|search
+delbot_platform/knowledge/retrieval/qdrant.py|43|CALL|QdrantRepository
+delbot_platform/knowledge/retrieval/qdrant.py|83|CALL|search
+
+=== PARSE / READ ERRORS ===
+NONE
+
+=== DECISION ===
+STATUS=STATIC_DEFAULT_PLUS_ENV_OVERRIDE_CANDIDATE
+DECISION=DO_NOT_INDEX
+NEXT=VERIFY_ENV_OVERRIDE_PRECEDENCE_WITHOUT_QDRANT_ACCESS
+INDEX_GATE=DO_NOT_INDEX
+
+=== SAFETY ===
+MVP indexing          : NOT EXECUTED
+Qdrant collection     : NOT ACCESSED
+Qdrant write          : NO
+Qdrant reset/delete   : NO
+Qdrant start/stop     : NO
+Docker restart        : NO
+Source modification   : NO
+Terminal              : OPEN

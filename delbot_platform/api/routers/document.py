@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from fastapi import APIRouter
@@ -9,15 +10,24 @@ from delbot_platform.documents.pipeline.indexing import (
     DocumentIndexingPipeline,
 )
 
+
 router = APIRouter(
     prefix="/documents",
     tags=["Documents"],
 )
 
+
 PDF_ROOT = (
     Path(__file__).resolve().parents[2]
     / "repository_data"
     / "pdf"
+)
+
+
+PROCESSED_ROOT = (
+    PDF_ROOT.parent
+    / "processed"
+    / "documents"
 )
 
 
@@ -32,6 +42,82 @@ class BatchIndexResponse(BaseModel):
     total_pdf: int
 
 
+def _load_overlay_document_ids() -> dict[str, str]:
+
+    overlay_file = (
+        PDF_ROOT.parent
+        / "runtime"
+        / "repository_overlay.json"
+    )
+
+    overlay_by_pdf: dict[str, str] = {}
+
+    if not overlay_file.exists():
+        return overlay_by_pdf
+
+    try:
+        overlay_data = json.loads(
+            overlay_file.read_text(
+                encoding="utf-8"
+            )
+        )
+    except Exception:
+        return overlay_by_pdf
+
+    if not isinstance(overlay_data, list):
+        return overlay_by_pdf
+
+    for row in overlay_data:
+
+        if not isinstance(row, dict):
+            continue
+
+        pdf_path = str(
+            row.get("pdf_path", "")
+            or ""
+        )
+
+        document_id = str(
+            row.get("document_id", "")
+            or ""
+        )
+
+        if pdf_path and document_id:
+            overlay_by_pdf[
+                Path(pdf_path).name
+            ] = document_id
+
+    return overlay_by_pdf
+
+
+def _document_id_for_pdf(
+    pdf: Path,
+    overlay_by_pdf: dict[str, str],
+) -> str:
+
+    document_id = overlay_by_pdf.get(
+        pdf.name
+    )
+
+    if document_id:
+        return document_id
+
+    return pdf.stem
+
+
+def _already_processed(
+    document_id: str,
+) -> bool:
+
+    metadata_file = (
+        PROCESSED_ROOT
+        / document_id
+        / "metadata.json"
+    )
+
+    return metadata_file.is_file()
+
+
 @router.post(
     "/index-all",
     response_model=BatchIndexResponse,
@@ -40,66 +126,61 @@ async def index_all(
     request: BatchIndexRequest,
 ):
 
-    pdfs = sorted(PDF_ROOT.rglob("*.pdf"))
+    pdfs = sorted(
+        PDF_ROOT.rglob("*.pdf")
+    )
 
     total = len(pdfs)
 
-    pipeline = DocumentIndexingPipeline()
-
-    overlay_file = (
-        PDF_ROOT.parent
-        / "runtime"
-        / "repository_overlay.json"
+    overlay_by_pdf = (
+        _load_overlay_document_ids()
     )
 
-    overlay_by_pdf = {}
+    candidates = []
 
-    if overlay_file.exists():
-        try:
-            import json
+    skipped_existing = 0
 
-            overlay_data = json.loads(
-                overlay_file.read_text(
-                    encoding="utf-8"
-                )
+    for pdf in pdfs:
+
+        document_id = (
+            _document_id_for_pdf(
+                pdf,
+                overlay_by_pdf,
             )
+        )
 
-            if isinstance(overlay_data, list):
-                for row in overlay_data:
-                    if not isinstance(row, dict):
-                        continue
+        if _already_processed(
+            document_id
+        ):
+            skipped_existing += 1
+            continue
 
-                    pdf_path = str(
-                        row.get("pdf_path", "")
-                        or ""
-                    )
+        candidates.append(
+            (
+                pdf,
+                document_id,
+            )
+        )
 
-                    document_id = str(
-                        row.get("document_id", "")
-                        or ""
-                    )
+        if len(candidates) >= max(
+            request.limit,
+            0,
+        ):
+            break
 
-                    if pdf_path and document_id:
-                        overlay_by_pdf[
-                            Path(pdf_path).name
-                        ] = document_id
-
-        except Exception:
-            overlay_by_pdf = {}
+    pipeline = DocumentIndexingPipeline()
 
     indexed = 0
 
-    for pdf in pdfs[: request.limit]:
-
-        document_id = overlay_by_pdf.get(
-            pdf.name
-        )
+    for pdf, document_id in candidates:
 
         try:
+
             await pipeline.index_with_summary(
                 str(pdf),
                 document_id=document_id,
             )
+
             indexed += 1
 
         except Exception:

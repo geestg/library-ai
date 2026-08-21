@@ -1,0 +1,28 @@
+PATCH=767.361
+PURPOSE=Verify dual QdrantRepository contracts and determine minimal MVP-compatible export repair
+MODE=READ_ONLY_FORENSIC
+INDEX_EXECUTION=NO
+HTTP_REQUEST=NO
+QDRANT_WRITE=NO
+QDRANT_DELETE=NO
+QDRANT_RESET=NO
+QDRANT_RECREATE=NO
+GATEWAY_RESTART=NO
+SOURCE_MODIFICATION=NO
+TEST_EXECUTION=NO
+TARGET_INDEXER=delbot_platform/documents/pipeline/indexing.py
+TARGET_RETRIEVAL=delbot_platform/knowledge/retrieval/qdrant.py
+OWNER_A=delbot_platform/knowledge/vector/repository/qdrant.py
+OWNER_B=delbot_platform/vectorstore/qdrant/repository.py
+DATE=2026-08-19 15:27:42
+
+
+=== FINAL SUMMARY ===
+GATEWAY_PID=5136
+OWNER|OWNER_A|class=QdrantRepository|line=16|bases=VectorRepository|methods=__init__,insert,search
+OWNER|OWNER_B|class=QdrantRepository|line=15|bases=|methods=__init__,delete_document,save,count
+INDEX_METHODS=INDEX_METHOD_CALL|save|line=90|args=1|keywords=;INDEX_METHOD_CALL|save|line=104|args=1|keywords=;
+RETRIEVAL_METHODS=RETRIEVAL_METHOD_CALL|search|line=83|args=0|keywords=vector,limit,document_ids;
+VECTOR_IMPORT=IMPORT|delbot_platform.vectorstore|FAIL|ImportError|cannot import name 'QdrantRepository' from 'delbot_platform.vectorstore.qdrant' (/workspace/delbot/delbot_platform/vectorstore/qdrant/__init__.py)
+QDRANT_IMPORT=IMPORT|delbot_platform.vectorstore.qdrant|PASS|symbols=QdrantVectorStore,QdrantStore,get_qdrant_store
+PARSE_FAILS=0
