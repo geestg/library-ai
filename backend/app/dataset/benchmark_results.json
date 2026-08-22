@@ -1,0 +1,36 @@
+{
+  "overall": {
+    "bm25": {
+      "precision_at_5": 0.51,
+      "mrr": 0.62,
+      "latency_ms": 12.4
+    },
+    "dense": {
+      "precision_at_5": 0.62,
+      "mrr": 0.76,
+      "latency_ms": 45.8
+    },
+    "hybrid": {
+      "precision_at_5": 0.88,
+      "mrr": 0.94,
+      "latency_ms": 56.2
+    }
+  },
+  "by_category": {
+    "Exact/Keyword": {
+      "bm25_p5": 0.88,
+      "dense_p5": 0.2,
+      "hybrid_p5": 0.9
+    },
+    "Conceptual/Semantic": {
+      "bm25_p5": 0.11,
+      "dense_p5": 0.85,
+      "hybrid_p5": 0.87
+    },
+    "Mixed": {
+      "bm25_p5": 0.59,
+      "dense_p5": 0.77,
+      "hybrid_p5": 0.87
+    }
+  }
+}

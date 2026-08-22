@@ -14,6 +14,10 @@ class ConversationMessage:
 
     content: str
 
+    citations: list = field(default_factory=list)
+
+    sources: list = field(default_factory=list)
+
 
 # =====================================
 # CONVERSATION SESSION
@@ -34,6 +38,8 @@ class ConversationSession:
         self,
         role: str,
         content: str,
+        citations: list | None = None,
+        sources: list | None = None,
     ):
 
         self.messages.append(
@@ -43,6 +49,10 @@ class ConversationSession:
                 role=role,
 
                 content=content,
+
+                citations=citations or [],
+
+                sources=sources or [],
 
             )
 
@@ -163,6 +173,10 @@ class ConversationSession:
                     "role": message.role,
 
                     "content": message.content,
+
+                    "citations": getattr(message, "citations", []) or [],
+
+                    "sources": getattr(message, "sources", []) or [],
 
                 }
 

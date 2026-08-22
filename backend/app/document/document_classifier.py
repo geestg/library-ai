@@ -18,43 +18,34 @@ DocumentType = Literal[
 # =====================================
 # HELPERS
 # =====================================
-
 def contains_any(
     content: str,
     keywords: list[str]
 ) -> bool:
-
+    
     return any(
-
         keyword in content
-
         for keyword in keywords
-
     )
 
 
 # =====================================
 # DOCUMENT CLASSIFIER
 # =====================================
-
 def classify_document(
     text: str
 ) -> str:
 
     if not text:
-
         return "general"
 
     content = text.lower()
-
     content = content[:50000]
 
     # =================================
     # GUIDEBOOK
     # =================================
-
     guidebook_keywords = [
-
         "guidebook",
         "competition guidebook",
         "technical meeting",
@@ -72,22 +63,18 @@ def classify_document(
         "submission",
         "pengumuman finalis",
         "presentasi dan demo produk"
-
     ]
 
     if contains_any(
         content,
         guidebook_keywords
     ):
-
         return "guidebook"
 
     # =================================
     # THESIS / SKRIPSI
     # =================================
-
     thesis_keywords = [
-
         "skripsi",
         "tesis",
         "disertasi",
@@ -102,22 +89,18 @@ def classify_document(
         "tujuan penelitian",
         "manfaat penelitian",
         "metode penelitian"
-
     ]
 
     if contains_any(
         content,
         thesis_keywords
     ):
-
         return "thesis"
 
     # =================================
     # RESEARCH PAPER
     # =================================
-
     research_keywords = [
-
         "abstract",
         "keywords",
         "introduction",
@@ -129,29 +112,20 @@ def classify_document(
         "conclusion",
         "references",
         "experimental setup"
-
     ]
-
     score = sum(
-
         1
-
         for keyword in research_keywords
-
         if keyword in content
-
     )
 
     if score >= 3:
-
         return "research_paper"
 
     # =================================
     # PROPOSAL
     # =================================
-
     proposal_keywords = [
-
         "latar belakang",
         "tujuan",
         "anggaran",
@@ -161,29 +135,20 @@ def classify_document(
         "proposal penelitian",
         "rancangan solusi",
         "estimasi biaya"
-
     ]
-
     proposal_score = sum(
-
         1
-
         for keyword in proposal_keywords
-
         if keyword in content
-
     )
 
     if proposal_score >= 3:
-
         return "proposal"
 
     # =================================
     # PRESENTATION
     # =================================
-
     presentation_keywords = [
-
         "agenda",
         "thank you",
         "questions",
@@ -191,22 +156,17 @@ def classify_document(
         "overview",
         "presentation",
         "pitch deck"
-
     ]
-
     if contains_any(
         content,
         presentation_keywords
     ):
-
         return "presentation"
 
     # =================================
     # REPORT
     # =================================
-
     report_keywords = [
-
         "laporan",
         "hasil kegiatan",
         "evaluasi kegiatan",
@@ -214,22 +174,17 @@ def classify_document(
         "ringkasan kegiatan",
         "laporan akhir",
         "laporan pelaksanaan"
-
     ]
-
     if contains_any(
         content,
         report_keywords
     ):
-
         return "report"
 
     # =================================
     # CV
     # =================================
-
     cv_keywords = [
-
         "curriculum vitae",
         "riwayat hidup",
         "education",
@@ -237,22 +192,17 @@ def classify_document(
         "skills",
         "experience",
         "certification"
-
     ]
-
     if contains_any(
         content,
         cv_keywords
     ):
-
         return "cv"
 
     # =================================
     # BOOK
     # =================================
-
     book_keywords = [
-
         "chapter 1",
         "chapter 2",
         "chapter 3",
@@ -260,22 +210,18 @@ def classify_document(
         "copyright",
         "publisher",
         "table of contents"
-
     ]
 
     if contains_any(
         content,
         book_keywords
     ):
-
         return "book"
 
     # =================================
     # ASSIGNMENT
     # =================================
-
     assignment_keywords = [
-
         "tugas",
         "assignment",
         "instruksi pengerjaan",
@@ -283,18 +229,35 @@ def classify_document(
         "jawablah pertanyaan",
         "soal nomor",
         "penilaian"
-
     ]
 
     if contains_any(
         content,
         assignment_keywords
     ):
-
         return "assignment"
 
     # =================================
     # DEFAULT
     # =================================
-
     return "general"
+
+
+# =====================================
+# FILE EXTENSION CLASSIFIER
+# =====================================
+def classify_file(filename: str) -> str:
+    filename = (filename or "").lower()
+    if filename.endswith(".pdf"):
+        return "pdf"
+    if filename.endswith((".png", ".jpg", ".jpeg", ".webp", ".bmp")):
+        return "image"
+    if filename.endswith((".docx", ".doc")):
+        return "word"
+    if filename.endswith((".xlsx", ".xls", ".csv")):
+        return "excel"
+    if filename.endswith((".pptx", ".ppt")):
+        return "powerpoint"
+    if filename.endswith(".txt"):
+        return "text"
+    return "unknown"

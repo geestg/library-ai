@@ -1,0 +1,95 @@
+from __future__ import annotations
+
+from typing import List, Optional, Dict
+from rank_bm25 import BM25Okapi
+from app.core.constants import LIBRARY_BOOKS_COLLECTION
+from app.rag.qdrant_client import client
+
+_bm25_index: Optional[BM25Okapi] = None
+_bm25_documents: List[str] = []
+_bm25_payloads: List[dict] = []
+
+
+def normalize_result(payload: dict, score: float) -> dict:
+    return {
+        "payload": payload,
+        "score": score,
+        "title": payload.get("title", ""),
+        "author": payload.get("author", payload.get("penulis", "")),
+        "subject": payload.get("subject", payload.get("subjek", "")),
+        "publisher": payload.get("publisher", payload.get("penerbit", "")),
+        "description": payload.get("description", payload.get("deskripsi", "")),
+        "isbn": payload.get("isbn", ""),
+        "location": payload.get("location", payload.get("lokasi", "")),
+        "year": payload.get("published_at", payload.get("year", "")),
+        "published_at": payload.get("published_at", ""),
+        "classification_number": payload.get("classification_number", ""),
+    }
+
+
+def initialize_bm25():
+    global _bm25_index, _bm25_documents, _bm25_payloads
+
+    try:
+        response = client.scroll(
+            collection_name=LIBRARY_BOOKS_COLLECTION,
+            limit=10000,
+            with_payload=True,
+            with_vectors=False,
+        )
+
+        points = response[0]
+        _bm25_documents = []
+        _bm25_payloads = []
+
+        for point in points:
+            payload = point.payload or {}
+            title = payload.get("title", "")
+            subject = payload.get("subject", payload.get("subjek", ""))
+            author = payload.get("author", payload.get("penulis", ""))
+            description = payload.get("description", payload.get("deskripsi", ""))
+            publisher = payload.get("publisher", payload.get("penerbit", ""))
+
+            text = f"{title} {subject} {author} {description} {publisher}"
+
+            if not text.strip():
+                continue
+
+            _bm25_documents.append(text)
+            _bm25_payloads.append(payload)
+
+        if _bm25_documents:
+            tokenized = [doc.lower().split() for doc in _bm25_documents]
+            _bm25_index = BM25Okapi(tokenized)
+            print(f"[LIBRARY BM25] Initialized with {len(_bm25_documents)} books")
+        else:
+            _bm25_index = None
+            print("[LIBRARY BM25] No books found in collection")
+
+    except Exception as e:
+        print(f"[LIBRARY BM25 ERROR] {e}")
+        _bm25_index = None
+
+
+def bm25_search(query: str, limit: int = 50) -> List[dict]:
+    global _bm25_index
+
+    if _bm25_index is None:
+        initialize_bm25()
+
+    if _bm25_index is None:
+        return []
+
+    tokenized_query = query.lower().strip().split()
+    scores = _bm25_index.get_scores(tokenized_query)
+
+    ranked = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)
+
+    results = []
+    for idx, score in ranked[:limit]:
+        if score <= 0:
+            continue
+        results.append(
+            normalize_result(_bm25_payloads[idx], float(score))
+        )
+    return results

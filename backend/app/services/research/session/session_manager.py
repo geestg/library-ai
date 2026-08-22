@@ -10,26 +10,20 @@ from app.services.research.session.models import (
     WorkspaceState,
 )
 
-
 # =====================================
 # SESSION MANAGER
 # =====================================
-
 class SessionManager:
-
     def __init__(self):
-
         self._sessions: dict[
             str,
             WorkspaceSession,
         ] = {}
-
         self._lock = RLock()
 
     # =====================================
     # CREATE SESSION
     # =====================================
-
     def create(
         self,
         session_id: str | None = None,
@@ -42,7 +36,6 @@ class SessionManager:
         )
 
         if not resolved_session_id:
-
             resolved_session_id = str(
                 uuid4()
             )
@@ -56,13 +49,10 @@ class SessionManager:
             )
 
             if existing_session is not None:
-
                 return existing_session
 
             session = WorkspaceSession(
-
                 session_id=resolved_session_id,
-
                 conversation=(
                     ConversationSession()
                 ),
@@ -78,30 +68,25 @@ class SessionManager:
                 execution=(
                     ExecutionSession()
                 ),
-
             )
 
             self._sessions[
                 resolved_session_id
             ] = session
-
             return session
 
     # =====================================
     # GET SESSION
     # =====================================
-
     def get(
         self,
         session_id: str,
     ) -> WorkspaceSession | None:
 
         if not session_id:
-
             return None
 
         with self._lock:
-
             return self._sessions.get(
                 session_id
             )
@@ -109,7 +94,6 @@ class SessionManager:
     # =====================================
     # GET OR CREATE SESSION
     # =====================================
-
     def get_or_create(
         self,
         session_id: str | None = None,
@@ -122,9 +106,7 @@ class SessionManager:
             )
 
             if normalized_session_id:
-
                 with self._lock:
-
                     existing_session = (
                         self._sessions.get(
                             normalized_session_id
@@ -132,30 +114,25 @@ class SessionManager:
                     )
 
                     if existing_session is not None:
-
                         return existing_session
 
                 return self.create(
                     normalized_session_id
                 )
-
         return self.create()
 
     # =====================================
     # EXISTS
     # =====================================
-
     def exists(
         self,
         session_id: str,
     ) -> bool:
 
         if not session_id:
-
             return False
 
         with self._lock:
-
             return (
                 session_id
                 in self._sessions
@@ -164,18 +141,15 @@ class SessionManager:
     # =====================================
     # DELETE SESSION
     # =====================================
-
     def delete(
         self,
         session_id: str,
     ) -> bool:
 
         if not session_id:
-
             return False
 
         with self._lock:
-
             return (
                 self._sessions.pop(
                     session_id,
@@ -187,7 +161,6 @@ class SessionManager:
     # =====================================
     # RESET SESSION
     # =====================================
-
     def reset(
         self,
         session_id: str,
@@ -200,21 +173,16 @@ class SessionManager:
             )
 
             if session is None:
-
                 return False
 
             session.reset()
-
             return True
 
     # =====================================
     # LIST SESSION IDS
     # =====================================
-
     def list_session_ids(self) -> list[str]:
-
         with self._lock:
-
             return list(
                 self._sessions.keys()
             )
@@ -222,28 +190,44 @@ class SessionManager:
     # =====================================
     # COUNT
     # =====================================
-
     def count(self) -> int:
-
         with self._lock:
-
             return len(
                 self._sessions
             )
 
     # =====================================
-    # CLEAR ALL
+    # LIST SESSIONS SUMMARY (FOR UI HISTORY)
     # =====================================
-
-    def clear(self):
-
+    def list_sessions_summary(self) -> list[dict]:
         with self._lock:
+            summaries = []
+            for s_id, session in self._sessions.items():
+                messages = getattr(session.conversation, "messages", [])
+                first_user_msg = ""
+                for msg in messages:    
+                    role = msg.get("role") if isinstance(msg, dict) else getattr(msg, "role", "")
+                    content = msg.get("content") if isinstance(msg, dict) else getattr(msg, "content", "")
+                    if role == "user" and content:
+                        first_user_msg = str(content).strip()
+                        break
+                title = first_user_msg[:30] + ("..." if len(first_user_msg) > 30 else "") if first_user_msg else "Percakapan Baru"
+                summaries.append({
+                    "session_id": s_id,
+                    "title": title,
+                    "message_count": len(messages),
+                    "created_at": getattr(session, "created_at", None)
+                })
+            return summaries
 
+    # =====================================
+    # CLEAR ALL
+    # ====================================
+    def clear(self):
+        with self._lock:
             self._sessions.clear()
-
 
 # =====================================
 # SHARED SESSION MANAGER
 # =====================================
-
 session_manager = SessionManager()

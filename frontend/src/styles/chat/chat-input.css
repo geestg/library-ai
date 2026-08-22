@@ -3,719 +3,178 @@
 ==================================== */
 
 .floating-input-wrapper {
-
   position: sticky;
-
   bottom: 0;
-
   width: 100%;
-
-  max-width: 1100px;
-
+  max-width: 880px;
   margin: 0 auto;
-
-  padding: 10px 20px 14px;
-
+  padding: 10px 20px 20px;
+  box-sizing: border-box;
   z-index: 50;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(2,6,23,0.98),
-      rgba(2,6,23,0.90),
-      transparent
-    );
+  background: linear-gradient(
+    to top,
+    #ffffff 80%,
+    rgba(255, 255, 255, 0.85) 20%,
+    transparent
+  );
 }
 
 /* ====================================
-   ACTIVE DOCUMENT BAR
+   ACTIVE DOCUMENT BAR & SELECTED FILES
 ==================================== */
 
-.active-document-bar {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 12px;
-}
-
-/* ====================================
-   SELECTED FILES BAR
-==================================== */
-
+.active-document-bar,
 .selected-files-bar {
-
   display: flex;
-
   flex-wrap: wrap;
-
   align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 12px;
-}
-
-.selected-file-pill {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  min-height: 48px;
-
-  padding: 6px 10px 6px 6px;
-
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.06);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  color: white;
-
-  backdrop-filter: blur(20px);
-
-  max-width: 320px;
-}
-
-.selected-file-pill.image {
-
-  padding-left: 6px;
-}
-
-.selected-file-thumb {
-
-  width: 36px;
-
-  height: 36px;
-
-  border-radius: 12px;
-
-  object-fit: cover;
-
-  flex-shrink: 0;
-}
-
-.selected-file-icon {
-
-  width: 36px;
-
-  height: 36px;
-
-  border-radius: 12px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  flex-shrink: 0;
-}
-
-.selected-file-meta {
-
-  display: flex;
-
-  flex-direction: column;
-
-  min-width: 0;
-}
-
-.selected-file-name {
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  line-height: 1.2;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-}
-
-.selected-file-size {
-
-  font-size: 11px;
-
-  color: rgba(255, 255, 255, 0.56);
-}
-
-.selected-file-remove-btn {
-
-  width: 22px;
-
-  height: 22px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  cursor: pointer;
-
-  background: rgba(255, 255, 255, 0.06);
-
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.selected-file-remove-btn:hover {
-
-  background: rgba(255, 255, 255, 0.12);
-
-  color: white;
-}
-
-/* ====================================
-   DOCUMENT PILL
-==================================== */
-
-.active-document-pill {
-
-  display: inline-flex;
-
-  align-items: center;
-
   gap: 8px;
-
-  height: 40px;
-
-  padding:
-    0 12px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-
-  color: white;
-
-  backdrop-filter:
-    blur(20px);
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.active-document-pill:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-
-  border-color:
-    rgba(
-      99,
-      102,
-      241,
-      0.25
-    );
-}
-
-/* ====================================
-   UPLOADING PILL
-==================================== */
-
-.active-document-pill.uploading {
-
-  border-color:
-    rgba(
-      99,
-      102,
-      241,
-      0.25
-    );
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.08
-    );
-}
-
-/* ====================================
-   DOCUMENT NAME
-==================================== */
-
-.active-document-name {
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-
-  max-width: 260px;
-}
-
-/* ====================================
-   UPLOAD STATUS
-==================================== */
-
-.upload-status {
-
-  font-size: 12px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.55
-    );
-}
-
-/* ====================================
-   REMOVE BUTTON
-==================================== */
-
-.document-remove-btn {
-
-  width: 22px;
-
-  height: 22px;
-
-  border: none;
-
-  background: transparent;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.55
-    );
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  cursor: pointer;
-
-  border-radius: 999px;
-
-  flex-shrink: 0;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.document-remove-btn:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.10
-    );
-
-  color: white;
-}
-
-/* ====================================
-   SPINNER
-==================================== */
-
-.spin {
-
-  animation:
-    spin 1s linear infinite;
-}
-
-@keyframes spin {
-
-  from {
-
-    transform:
-      rotate(0deg);
-  }
-
-  to {
-
-    transform:
-      rotate(360deg);
-  }
-}
-
-/* ====================================
-   SMART ACTIONS
-==================================== */
-
-.smart-actions {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
-
   margin-bottom: 10px;
 }
 
-.smart-actions button {
-
-  padding:
-    10px 16px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.05
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.72
-    );
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
+.selected-file-pill,
+.active-document-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 12px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  max-width: 300px;
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 
-.smart-actions button:hover {
+.selected-file-name,
+.active-document-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
 
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.16
-    );
+.upload-status,
+.selected-file-size {
+  font-size: 11px;
+  color: #64748b;
+}
 
-  border-color:
-    rgba(
-      99,
-      102,
-      241,
-      0.28
-    );
-
-  color: white;
+.document-remove-btn,
+.selected-file-remove-btn {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #e2e8f0;
+  color: #475569;
 }
 
 /* ====================================
-   INPUT CONTAINER
+   FLOATING INPUT CONTAINER (MATCHING JSX)
 ==================================== */
 
 .floating-input {
-
   display: flex;
-
   align-items: center;
-
-  gap: 14px;
-
-  padding:
-    16px 18px;
-
-  border-radius: 28px;
-
-  background:
-    rgba(
-      15,
-      23,
-      42,
-      0.88
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  box-shadow:
-    0 24px 60px
-    rgba(
-      0,
-      0,
-      0,
-      0.45
-    );
-
-  backdrop-filter:
-    blur(28px);
+  gap: 12px;
+  padding: 6px 10px 6px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ====================================
-   ATTACH
-==================================== */
+.floating-input:focus-within {
+  border-color: #0f172a;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12);
+}
 
 .modern-attach {
-
-  width: 50px;
-
-  height: 50px;
-
-  border-radius: 18px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  flex-shrink: 0;
-
+  color: #64748b;
   cursor: pointer;
-
-  color: #cbd5e1;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.04
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  transition: 0.2s ease;
+  padding: 4px;
+  transition: color 0.15s ease;
 }
 
 .modern-attach:hover {
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.16
-    );
-
-  color: white;
+  color: #0f172a;
 }
 
-/* ====================================
-   TEXTAREA
-==================================== */
-
 .floating-input textarea {
-
   flex: 1;
-
-  resize: none;
-
   border: none;
-
   outline: none;
-
   background: transparent;
-
-  color: white;
-
-  font-size: 15px;
-
+  resize: none;
   font-family: inherit;
-
-  line-height: 24px;
-
-  min-height: 52px;
-
-  max-height: 180px;
-
-  padding: 14px 0;
-
-  margin: 0;
-
-  overflow-y: auto;
-
-  display: block;
+  font-size: 0.94rem;
+  color: #0f172a;
+  line-height: 1.45;
+  padding: 8px 0;
+  max-height: 140px;
 }
 
 .floating-input textarea::placeholder {
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.34
-    );
-
-  line-height: 24px;
+  color: #94a3b8;
 }
-
-.floating-input textarea::-webkit-scrollbar {
-
-  display: none;
-}
-
-/* ====================================
-   SEND BUTTON
-==================================== */
 
 .send-modern-btn {
-
-  width: 52px;
-
-  height: 52px;
-
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   border: none;
-
-  border-radius: 18px;
-
+  background: #0f172a;
+  color: #ffffff;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  flex-shrink: 0;
-
   cursor: pointer;
-
-  color: white;
-
-  background:
-    linear-gradient(
-      135deg,
-      #6366f1,
-      #4f46e5
-    );
-
-  box-shadow:
-    0 12px 30px
-    rgba(
-      79,
-      70,
-      229,
-      0.35
-    );
-
-  transition: 0.2s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
+  flex-shrink: 0;
 }
 
 .send-modern-btn:hover {
-
-  transform:
-    translateY(-2px);
+  background: #1e293b;
+  transform: scale(1.03);
 }
 
 .send-modern-btn:disabled {
-
-  opacity: 0.5;
-
+  background: #e2e8f0;
+  color: #94a3b8;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* ====================================
-   MOBILE
+   TRUST FOOTER
 ==================================== */
 
-@media (max-width: 768px) {
+.input-trust-footer {
+  text-align: center;
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
-  .floating-input-wrapper {
-
-    width: calc(100% - 20px);
-
-    bottom: 14px;
-  }
-
-  .floating-input {
-
-    padding: 14px;
-  }
-
-  .smart-actions {
-
-    overflow-x: auto;
-
-    flex-wrap: nowrap;
-
-    padding-bottom: 4px;
-  }
-
-  .smart-actions::-webkit-scrollbar {
-
-    display: none;
-  }
-
-  .active-document-name {
-
-    max-width: 140px;
-  }
-
+.input-trust-footer .shield-icon {
+  color: #2563eb;
 }

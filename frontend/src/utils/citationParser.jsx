@@ -74,3 +74,5 @@ export function parseCitations(
   );
 
 }
+
+export const renderCitationText = parseCitations;

@@ -1,0 +1,89 @@
+[
+  {
+    "index": 1,
+    "description": "Context: ekspor data setelah lihat sirkulasi",
+    "query": "Tolong ekspor data itu ke Excel",
+    "history": [
+      {
+        "role": "user",
+        "content": "Tolong tampilkan sirkulasi peminjaman aktif"
+      },
+      {
+        "role": "assistant",
+        "content": "Berikut data sirkulasi..."
+      }
+    ],
+    "expected_tool": "generate_report",
+    "expected_args": {},
+    "tool_selected": "generate_report",
+    "args_selected": {},
+    "json_valid": true,
+    "is_tool_correct": true,
+    "is_args_correct": true,
+    "error_msg": "OK",
+    "raw_llm_response": "{\n  \"tool\": \"generate_report\",\n  \"args\": {}\n}",
+    "prompt_sent": "System: Anda adalah Router Perutean Tool Cerdas untuk DELBot Admin Co-Pilot.\nTugas Anda adalah menganalisis kueri staf perpustakaan dan memutuskan perkakas (tool) mana yang harus dijalankan beserta argumennya.\nGunakan riwayat obrolan sebelumnya di bawah untuk memahami konteks kueri baru jika kueri merujuk ke hal sebelumnya (kata tunjuk seperti 'itu', 'yang tadi', dll.).\n\nRiwayat Obrolan Sebelumnya:\nStaf: Tolong tampilkan sirkulasi peminjaman aktif\nDELBot: Berikut data sirkulasi...\n\nPerkakas yang tersedia:\n1. `query_circulation`: Menampilkan data sirkulasi peminjaman aktif & denda buku.\n2. `query_insights`: Menampilkan statistik tren sirkulasi & kategori populer buku.\n3. `generate_report`: Membuat file Excel sirkulasi peminjaman & denda buku. JANGAN gunakan untuk log/kunjungan pengunjung.\n4. `list_datasets`: Menampilkan daftar file katalog/log di folder data.\n5. `sync_collection`: Sinkronisasi katalog buku baru ke Qdrant. Membutuhkan argumen 'filename' (nama file yang disebutkan).\n6. `analyze_visitor_log`: Menganalisis berkas log pengunjung (kunjungan perpustakaan). Gunakan untuk menganalisis statistik pengunjung, laporan pengunjung bulanan, atau pencarian berkas log pengunjung. Menerima argumen 'filename' (default: 'log_pengunjung_Genap_2026.xlsx') dan argumen opsional 'month' (angka/nama bulan, misal: '1' atau 'januari' untuk filter data bulan tertentu).\n7. `search_visitor`: Mencari riwayat kunjungan anggota perpustakaan secara individu. Membutuhkan argumen 'member_query' (nama atau NIM anggota).\n8. `update_loan_status`: Memperbarui status peminjaman buku (misal: 'Kembali', 'Dipinjam', 'Dipinjam (Terlambat)') dan menyesuaikan denda. Membutuhkan argumen 'loan_id' (ID peminjaman, misal: 'L002') dan 'status' (status baru, misal: 'Kembali'). Argumen opsional: 'denda' (nominal rupiah/angka, misal: 0 atau 5000).\n9. `no_tool`: Tidak memicu perkakas apapun (misal: sapaan umum, obrolan santai, terima kasih).\n\nFormat Output: Anda HANYA boleh mengeluarkan format JSON valid seperti berikut tanpa penjelasan tambahan atau tanda kutip markdown:\n{\n  \"tool\": \"nama_tool\",\n  \"args\": {\"nama_argumen\": \"nilai_argumen\"}\n}\n\nKueri Staf Perpustakaan Baru: \"Tolong ekspor data itu ke Excel\"\nOutput JSON:"
+  },
+  {
+    "index": 2,
+    "description": "Context: cari prodi setelah analisis log",
+    "query": "Sekarang cari yang dari S1 Informatika",
+    "history": [
+      {
+        "role": "user",
+        "content": "Tolong analisis log pengunjung"
+      },
+      {
+        "role": "assistant",
+        "content": "Berikut analisisnya..."
+      }
+    ],
+    "expected_tool": "search_visitor",
+    "expected_args": {
+      "member_query": "ANY"
+    },
+    "tool_selected": "search_visitor",
+    "args_selected": {
+      "member_query": "S1 Informatika"
+    },
+    "json_valid": true,
+    "is_tool_correct": true,
+    "is_args_correct": true,
+    "error_msg": "OK",
+    "raw_llm_response": "{\n  \"tool\": \"search_visitor\",\n  \"args\": {\"member_query\": \"S1 Informatika\"}\n}",
+    "prompt_sent": "System: Anda adalah Router Perutean Tool Cerdas untuk DELBot Admin Co-Pilot.\nTugas Anda adalah menganalisis kueri staf perpustakaan dan memutuskan perkakas (tool) mana yang harus dijalankan beserta argumennya.\nGunakan riwayat obrolan sebelumnya di bawah untuk memahami konteks kueri baru jika kueri merujuk ke hal sebelumnya (kata tunjuk seperti 'itu', 'yang tadi', dll.).\n\nRiwayat Obrolan Sebelumnya:\nStaf: Tolong analisis log pengunjung\nDELBot: Berikut analisisnya...\n\nPerkakas yang tersedia:\n1. `query_circulation`: Menampilkan data sirkulasi peminjaman aktif & denda buku.\n2. `query_insights`: Menampilkan statistik tren sirkulasi & kategori populer buku.\n3. `generate_report`: Membuat file Excel sirkulasi peminjaman & denda buku. JANGAN gunakan untuk log/kunjungan pengunjung.\n4. `list_datasets`: Menampilkan daftar file katalog/log di folder data.\n5. `sync_collection`: Sinkronisasi katalog buku baru ke Qdrant. Membutuhkan argumen 'filename' (nama file yang disebutkan).\n6. `analyze_visitor_log`: Menganalisis berkas log pengunjung (kunjungan perpustakaan). Gunakan untuk menganalisis statistik pengunjung, laporan pengunjung bulanan, atau pencarian berkas log pengunjung. Menerima argumen 'filename' (default: 'log_pengunjung_Genap_2026.xlsx') dan argumen opsional 'month' (angka/nama bulan, misal: '1' atau 'januari' untuk filter data bulan tertentu).\n7. `search_visitor`: Mencari riwayat kunjungan anggota perpustakaan secara individu. Membutuhkan argumen 'member_query' (nama atau NIM anggota).\n8. `update_loan_status`: Memperbarui status peminjaman buku (misal: 'Kembali', 'Dipinjam', 'Dipinjam (Terlambat)') dan menyesuaikan denda. Membutuhkan argumen 'loan_id' (ID peminjaman, misal: 'L002') dan 'status' (status baru, misal: 'Kembali'). Argumen opsional: 'denda' (nominal rupiah/angka, misal: 0 atau 5000).\n9. `no_tool`: Tidak memicu perkakas apapun (misal: sapaan umum, obrolan santai, terima kasih).\n\nFormat Output: Anda HANYA boleh mengeluarkan format JSON valid seperti berikut tanpa penjelasan tambahan atau tanda kutip markdown:\n{\n  \"tool\": \"nama_tool\",\n  \"args\": {\"nama_argumen\": \"nilai_argumen\"}\n}\n\nKueri Staf Perpustakaan Baru: \"Sekarang cari yang dari S1 Informatika\"\nOutput JSON:"
+  },
+  {
+    "index": 3,
+    "description": "Context: 'itu' setelah multi-turn conversation",
+    "query": "Tolong yang itu juga",
+    "history": [
+      {
+        "role": "user",
+        "content": "Tolong tampilkan sirkulasi peminjaman aktif"
+      },
+      {
+        "role": "assistant",
+        "content": "Berikut data sirkulasi..."
+      },
+      {
+        "role": "user",
+        "content": "Tolong buat laporan excel"
+      },
+      {
+        "role": "assistant",
+        "content": "Berikut laporannya..."
+      }
+    ],
+    "expected_tool": "generate_report",
+    "expected_args": {},
+    "tool_selected": "generate_report",
+    "args_selected": {},
+    "json_valid": true,
+    "is_tool_correct": true,
+    "is_args_correct": true,
+    "error_msg": "OK",
+    "raw_llm_response": "{\n  \"tool\": \"generate_report\",\n  \"args\": {}\n}",
+    "prompt_sent": "System: Anda adalah Router Perutean Tool Cerdas untuk DELBot Admin Co-Pilot.\nTugas Anda adalah menganalisis kueri staf perpustakaan dan memutuskan perkakas (tool) mana yang harus dijalankan beserta argumennya.\nGunakan riwayat obrolan sebelumnya di bawah untuk memahami konteks kueri baru jika kueri merujuk ke hal sebelumnya (kata tunjuk seperti 'itu', 'yang tadi', dll.).\n\nRiwayat Obrolan Sebelumnya:\nStaf: Tolong tampilkan sirkulasi peminjaman aktif\nDELBot: Berikut data sirkulasi...\nStaf: Tolong buat laporan excel\nDELBot: Berikut laporannya...\n\nPerkakas yang tersedia:\n1. `query_circulation`: Menampilkan data sirkulasi peminjaman aktif & denda buku.\n2. `query_insights`: Menampilkan statistik tren sirkulasi & kategori populer buku.\n3. `generate_report`: Membuat file Excel sirkulasi peminjaman & denda buku. JANGAN gunakan untuk log/kunjungan pengunjung.\n4. `list_datasets`: Menampilkan daftar file katalog/log di folder data.\n5. `sync_collection`: Sinkronisasi katalog buku baru ke Qdrant. Membutuhkan argumen 'filename' (nama file yang disebutkan).\n6. `analyze_visitor_log`: Menganalisis berkas log pengunjung (kunjungan perpustakaan). Gunakan untuk menganalisis statistik pengunjung, laporan pengunjung bulanan, atau pencarian berkas log pengunjung. Menerima argumen 'filename' (default: 'log_pengunjung_Genap_2026.xlsx') dan argumen opsional 'month' (angka/nama bulan, misal: '1' atau 'januari' untuk filter data bulan tertentu).\n7. `search_visitor`: Mencari riwayat kunjungan anggota perpustakaan secara individu. Membutuhkan argumen 'member_query' (nama atau NIM anggota).\n8. `update_loan_status`: Memperbarui status peminjaman buku (misal: 'Kembali', 'Dipinjam', 'Dipinjam (Terlambat)') dan menyesuaikan denda. Membutuhkan argumen 'loan_id' (ID peminjaman, misal: 'L002') dan 'status' (status baru, misal: 'Kembali'). Argumen opsional: 'denda' (nominal rupiah/angka, misal: 0 atau 5000).\n9. `no_tool`: Tidak memicu perkakas apapun (misal: sapaan umum, obrolan santai, terima kasih).\n\nFormat Output: Anda HANYA boleh mengeluarkan format JSON valid seperti berikut tanpa penjelasan tambahan atau tanda kutip markdown:\n{\n  \"tool\": \"nama_tool\",\n  \"args\": {\"nama_argumen\": \"nilai_argumen\"}\n}\n\nKueri Staf Perpustakaan Baru: \"Tolong yang itu juga\"\nOutput JSON:"
+  }
+]

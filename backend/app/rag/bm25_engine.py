@@ -5,63 +5,47 @@ from app.rag.qdrant_client import (
 )
 
 from app.core.constants import (
-    THESIS_DATASET_COLLECTION
+    USER_DOCUMENT_COLLECTION
 )
 
 # =====================================
 # GLOBAL STORAGE
 # =====================================
-
 documents = []
-
 payload_store = []
-
 bm25 = None
 
 
 # =====================================
 # INITIALIZE BM25
 # =====================================
-
 def initialize_bm25():
-
     global documents
     global payload_store
     global bm25
 
     try:
-
         response = client.scroll(
-
             collection_name=
-            THESIS_DATASET_COLLECTION,
-
+            USER_DOCUMENT_COLLECTION,
             limit=10000,
-
             with_payload=True,
-
             with_vectors=False
         )
 
         points = response[0]
-
         documents = []
-
         payload_store = []
 
         # =============================
         # BUILD DOCUMENTS
         # =============================
-
         for point in points:
-
             payload = point.payload or {}
-
             title = payload.get(
                 "title",
                 ""
             )
-
             abstract = payload.get(
                 "abstract",
                 ""
@@ -79,16 +63,12 @@ def initialize_bm25():
 
             text = f"""
             {title}
-
             {abstract}
-
             {chunk}
-
             {prodi}
             """
 
             if not text.strip():
-
                 continue
 
             documents.append(
@@ -102,33 +82,26 @@ def initialize_bm25():
         # =============================
         # TOKENIZE
         # =============================
-
         tokenized_docs = [
-
             doc.lower().split()
-
             for doc in documents
         ]
 
         # =============================
         # BUILD BM25 INDEX
         # =============================
-
         if len(tokenized_docs) > 0:
-
             bm25 = BM25Okapi(
                 tokenized_docs
             )
 
             print(
                 f"[BM25] Initialized with "
-                f"{len(documents)} thesis documents"
+                f"{len(documents)} user_documents documents"
             )
 
         else:
-
             bm25 = None
-
             print(
                 "[BM25] No thesis documents found"
             )
@@ -138,31 +111,25 @@ def initialize_bm25():
         print(
             f"[BM25 ERROR] {e}"
         )
-
         bm25 = None
 
 
 # =====================================
 # BM25 SEARCH
 # =====================================
-
 def bm25_search(
     query: str,
     limit: int = 10
 ):
-
     global bm25
 
     if bm25 is None:
-
         initialize_bm25()
 
     if bm25 is None:
-
         return []
 
     tokenized_query = (
-
         query
         .lower()
         .strip()
@@ -174,48 +141,34 @@ def bm25_search(
     )
 
     ranked_results = sorted(
-
         enumerate(scores),
-
         key=lambda x: x[1],
-
         reverse=True
     )
 
     results = []
 
     for idx, score in ranked_results[:limit]:
-
         results.append({
-
             "text":
             documents[idx],
-
             "score":
             float(score),
-
             "payload":
             payload_store[idx]
         })
-
     return results
 
 
 # =====================================
 # MANUAL TEST
 # =====================================
-
 if __name__ == "__main__":
-
     initialize_bm25()
-
     results = bm25_search(
-
         "dashboard penerimaan mahasiswa baru",
-
         limit=10
     )
-
     print()
 
     print("=" * 40)
@@ -228,7 +181,6 @@ if __name__ == "__main__":
         results,
         start=1
     ):
-
         payload = result["payload"]
 
         print()

@@ -1,0 +1,316 @@
+[
+  {
+    "id": "E2E-01",
+    "category": "Exact Title Search",
+    "query": "rekomendasi buku An Introduction to Database Systems",
+    "latency_intent_ms": 54.71,
+    "latency_retrieval_ms": 5113.66,
+    "latency_rerank_ms": 1688.76,
+    "latency_llm_ms": 2732.92,
+    "total_latency_ms": 9590.05,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "An introduction to database Systems",
+        "author": "C.J Date",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 9.9553
+      },
+      {
+        "title": "an Introduction to Database Systems: Seventh",
+        "author": "C.J, Date",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 9.7437
+      },
+      {
+        "title": "Database System Concepts",
+        "author": "Abraham Silberschatz",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 6.5844
+      }
+    ],
+    "max_rerank_score": 9.9553,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-02",
+    "category": "Author Search",
+    "query": "cari buku Beginning Java 2 JDK karangan Ivor Horton",
+    "latency_intent_ms": 56.68,
+    "latency_retrieval_ms": 212.42,
+    "latency_rerank_ms": 1249.32,
+    "latency_llm_ms": 1291.32,
+    "total_latency_ms": 2809.75,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "Beginning Java 2 JDK 1.3 Edition",
+        "author": "Ivor Horton",
+        "location": "Lantai 2",
+        "classification": "",
+        "rerank_score": 7.76
+      },
+      {
+        "title": "Java 2 platform",
+        "author": "Jamie Jaworski",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -4.3225
+      },
+      {
+        "title": "Buku Java 2 SE dengan JBuilder",
+        "author": "Wijono, Matius Soesilo",
+        "location": "Lantai NULL",
+        "classification": "",
+        "rerank_score": -6.2923
+      }
+    ],
+    "max_rerank_score": 7.76,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-03",
+    "category": "Academic Course Subject",
+    "query": "rekomendasi buku untuk mata kuliah Struktur Data dan Algoritma",
+    "latency_intent_ms": 4.18,
+    "latency_retrieval_ms": 232.85,
+    "latency_rerank_ms": 1491.21,
+    "latency_llm_ms": 1404.94,
+    "total_latency_ms": 3133.18,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "Data Structures and Algorithm Analysis in Java",
+        "author": "Mark Allen Weiss",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 7.9193
+      },
+      {
+        "title": "Algorithms and data structures: the science o",
+        "author": "Douglas Baldwin, Greg Scragg",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 7.7948
+      },
+      {
+        "title": "Data structures using C and C++",
+        "author": "Yedidyah Langsam Et.Al",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 6.8864
+      }
+    ],
+    "max_rerank_score": 7.9193,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-04",
+    "category": "Bilingual Query Expansion (ID -> EN)",
+    "query": "buku rekayasa perangkat lunak modern",
+    "latency_intent_ms": 13.76,
+    "latency_retrieval_ms": 297.78,
+    "latency_rerank_ms": 1063.96,
+    "latency_llm_ms": 1282.11,
+    "total_latency_ms": 2657.61,
+    "detected_intent": "rag",
+    "top_docs": [
+      {
+        "title": "Software Engineering a Practioner's Approach",
+        "author": "Roger Pressman",
+        "location": "Lantai 2",
+        "classification": "",
+        "rerank_score": 9.271
+      },
+      {
+        "title": "Software Engineering an engineering approach",
+        "author": "James F, Peters",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": 9.0898
+      },
+      {
+        "title": "Software Engineering",
+        "author": "Roger S, Presmann",
+        "location": "Lantai 2, R14/2",
+        "classification": "",
+        "rerank_score": 8.9738
+      }
+    ],
+    "max_rerank_score": 9.271,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-05",
+    "category": "Semantic Alias Search (Fiction)",
+    "query": "cari buku novel Harry Potter and the Sorcerer's Stone",
+    "latency_intent_ms": 4.37,
+    "latency_retrieval_ms": 254.97,
+    "latency_rerank_ms": 2348.99,
+    "latency_llm_ms": 1413.31,
+    "total_latency_ms": 4021.64,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "Harry Potter and the Philosopher's stone",
+        "author": "J.K, Rowling",
+        "location": "Lantai 2",
+        "classification": "",
+        "rerank_score": 7.4088
+      },
+      {
+        "title": "Harry Potter and Philosohpher's stone",
+        "author": "J.K, Rowling",
+        "location": "Lantai 2",
+        "classification": "",
+        "rerank_score": 4.8265
+      },
+      {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "author": "J.K, Rowling",
+        "location": "Lantai 2",
+        "classification": "",
+        "rerank_score": 1.9981
+      }
+    ],
+    "max_rerank_score": 7.4088,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-06",
+    "category": "Anti-Hallucination (Misattributed Author)",
+    "query": "rekomendasi buku java karangan C.J. Date",
+    "latency_intent_ms": 7.4,
+    "latency_retrieval_ms": 1767.41,
+    "latency_rerank_ms": 2600.11,
+    "latency_llm_ms": 1258.73,
+    "total_latency_ms": 5634.59,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "An introduction to database Systems",
+        "author": "C.J Date",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -4.4379
+      },
+      {
+        "title": "Databases, Types, and the Relational Model",
+        "author": "C.J, Date",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -5.1172
+      },
+      {
+        "title": "Logic and Databases : The Roots of Relational",
+        "author": "C.J, Date",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -6.5333
+      }
+    ],
+    "max_rerank_score": -4.4379,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-07",
+    "category": "Out-of-Corpus / Fake Topic",
+    "query": "buku tentang pemrograman quantum teleportation xyz123",
+    "latency_intent_ms": 11.17,
+    "latency_retrieval_ms": 1008.66,
+    "latency_rerank_ms": 2294.86,
+    "latency_llm_ms": 1321.85,
+    "total_latency_ms": 4636.55,
+    "detected_intent": "recommendation",
+    "top_docs": [
+      {
+        "title": "Pemrograman C++-dasar pemrograman berorientasi objek",
+        "author": "R, H Sianipar",
+        "location": "Lantai 1, R17/4",
+        "classification": "",
+        "rerank_score": -4.3911
+      },
+      {
+        "title": "Pemrograman Pascal Bk.1",
+        "author": "Abdul Kadir",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -4.5988
+      },
+      {
+        "title": "Pemrograman Pascal Bk.2",
+        "author": "Abdul Kadir",
+        "location": "Lantai 1",
+        "classification": "",
+        "rerank_score": -4.7221
+      }
+    ],
+    "max_rerank_score": -4.3911,
+    "response_text": "LLM Generation Error: Connection error.",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-08",
+    "category": "FAQ Operating Hours",
+    "query": "jam berapa perpustakaan IT Del buka dan tutup?",
+    "latency_intent_ms": 5.09,
+    "latency_retrieval_ms": 0,
+    "latency_rerank_ms": 0,
+    "latency_llm_ms": 0,
+    "total_latency_ms": 10.67,
+    "detected_intent": "faq",
+    "top_docs": [],
+    "max_rerank_score": -999,
+    "response_text": "Jam Operasional Perpustakaan IT Del:\n• Senin – Jumat: 08.00 – 21.45 WIB\n• Sabtu: 08.00 – 12.00 WIB\n• Minggu & Hari Libur Nasional: Tutup",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-09",
+    "category": "FAQ Circulation Rules",
+    "query": "berapa maksimal buku yang boleh dipinjam mahasiswa dan berapa lama?",
+    "latency_intent_ms": 5.62,
+    "latency_retrieval_ms": 0,
+    "latency_rerank_ms": 0,
+    "latency_llm_ms": 0,
+    "total_latency_ms": 11.42,
+    "detected_intent": "faq",
+    "top_docs": [],
+    "max_rerank_score": -999,
+    "response_text": "Aturan Peminjaman Buku Perpustakaan IT Del:\n• Batas Maksimal Peminjaman: 3 buku untuk mahasiswa.\n• Durasi Peminjaman: Maksimal 1 minggu (7 hari).\n• Prosedur: Pilih buku di rak sesuai nomor klasifikasi, lalu serahkan ke petugas sirkulasi dengan menunjukkan Kartu Mahasiswa (KTM).",
+    "passed": true,
+    "failure_reason": ""
+  },
+  {
+    "id": "E2E-10",
+    "category": "Security & RBAC Admin Block",
+    "query": "generate laporan sirkulasi dan denda buku",
+    "latency_intent_ms": 0.0,
+    "latency_retrieval_ms": 0,
+    "latency_rerank_ms": 0,
+    "latency_llm_ms": 0,
+    "total_latency_ms": 0.0,
+    "detected_intent": "security_block",
+    "top_docs": [],
+    "max_rerank_score": -999,
+    "response_text": "Maaf, tugas administratif perpustakaan hanya dapat diakses oleh pustakawan resmi via CIS.",
+    "passed": true,
+    "failure_reason": ""
+  }
+]

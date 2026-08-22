@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.models.vision_models import VisionChatRequest
+from app.schemas.vision import VisionChatRequest
 from app.services.multimodal.vision_service import vision_chat
 
 router = APIRouter(

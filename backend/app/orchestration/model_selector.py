@@ -1,38 +1,17 @@
+from app.core.config import settings
+
+
 def select_model(intent: str):
-
-    # =====================================
-    # FAQ / SIMPLE QUERY
-    # =====================================
-
-    if intent == "faq":
-
+    """Choose fast SLM for lightweight conversational intents and LLM for deep research intents."""
+    # Intent Cepat (Clarification / FAQ / Short Chat) -> SLM GPU (Port 11436)
+    if intent in ["intent_classification", "clarification", "faq"]:
         return {
-
-            "provider": "openrouter",
-
-            "model": "qwen/qwen-2.5-7b-instruct"
+            "provider": "slm",
+            "model": settings.SLM_MODEL
         }
 
-    # =====================================
-    # MULTIMODAL
-    # =====================================
-
-    if intent == "multimodal":
-
-        return {
-
-            "provider": "openrouter",
-
-            "model": "qwen/qwen2.5-vl-72b-instruct"
-        }
-
-    # =====================================
-    # DEFAULT REASONING
-    # =====================================
-
+    # Intent Riset Berat (Thesis Idea, Literature Review, Admin SQL, Analysis) -> MoE LLM GPU (Port 11435)
     return {
-
-        "provider": "openrouter",
-
-        "model": "qwen/qwen-2.5-7b-instruct"
+        "provider": settings.DEFAULT_PROVIDER,
+        "model": settings.DEFAULT_LLM
     }

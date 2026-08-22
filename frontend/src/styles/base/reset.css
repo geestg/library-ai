@@ -14,6 +14,41 @@
 }
 
 /* ====================================
+   ROOT VARIABLES
+==================================== */
+
+:root {
+  /* Colors - Reference Mockup Theme */
+  --bg-app: #ffffff;           /* Content pane background is white */
+  --bg-panel: #f8f9fa;         /* Sidebar panel background is light grey */
+  --bg-panel-hover: #e9ecef;   /* Hover state background */
+  --bg-input: #ffffff;         /* Search box background */
+  
+  --accent-primary: #3b59f6;   /* Mockup signature blue */
+  --accent-secondary: #4460f6; /* Mockup vibrant blue hover */
+  --accent-light: #eef2ff;      /* Mockup logo light-blue background */
+  
+  /* Text */
+  --text-primary: #1e293b;     /* Slate-800 for bold headers/body text */
+  --text-secondary: #64748b;   /* Slate-500 for secondary descriptions/history */
+  --text-muted: #94a3b8;       /* Slate-400 for placeholders */
+  --text-light: #475569;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #3b59f6, #4460f6);
+  --gradient-light-glow: radial-gradient(circle at top, rgba(59, 89, 246, 0.03), transparent 45%);
+  --gradient-panel: linear-gradient(180deg, #f8f9fa, #f1f3f5);
+  
+  /* Borders & Shadows */
+  --border-subtle: #e9ecef;    /* Light borders between panes */
+  --border-active: #3b59f6;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-panel: none;
+}
+
+/* ====================================
    ROOT
 ==================================== */
 
@@ -31,16 +66,12 @@ body,
 ==================================== */
 
 body {
-
-  background: #020617;
-
-  color: white;
-
-  font-family:
-    Inter,
-    sans-serif;
-
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ====================================

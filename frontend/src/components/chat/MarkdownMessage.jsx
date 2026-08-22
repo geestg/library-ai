@@ -68,153 +68,150 @@ export default function MarkdownMessage({
 }) {
 
   return (
+    <div className="message-content">
+      <ReactMarkdown
+        remarkPlugins={[
+          remarkGfm
+        ]}
+        components={{
 
-    <ReactMarkdown
+          p(props) {
 
-      remarkPlugins={[
-        remarkGfm
-      ]}
+            return (
 
-      components={{
+              <p>
 
-        p(props) {
+                <CitationText
 
-          return (
+                  onCitationClick={
+                    onCitationClick
+                  }
 
-            <p>
+                >
 
-              <CitationText
+                  {
+                    props.children
+                  }
 
-                onCitationClick={
-                  onCitationClick
-                }
+                </CitationText>
 
-              >
+              </p>
 
-                {
-                  props.children
-                }
+            );
 
-              </CitationText>
+          },
 
-            </p>
+          li(props) {
 
-          );
+            return (
 
-        },
+              <li>
 
-        li(props) {
+                <CitationText
 
-          return (
+                  onCitationClick={
+                    onCitationClick
+                  }
 
-            <li>
+                >
 
-              <CitationText
+                  {
+                    props.children
+                  }
 
-                onCitationClick={
-                  onCitationClick
-                }
+                </CitationText>
 
-              >
+              </li>
 
-                {
-                  props.children
-                }
+            );
 
-              </CitationText>
+          },
 
-            </li>
+          td(props) {
 
-          );
+            return (
 
-        },
+              <td>
 
-        td(props) {
+                <CitationText
 
-          return (
+                  onCitationClick={
+                    onCitationClick
+                  }
 
-            <td>
+                >
 
-              <CitationText
+                  {
+                    props.children
+                  }
 
-                onCitationClick={
-                  onCitationClick
-                }
+                </CitationText>
 
-              >
+              </td>
 
-                {
-                  props.children
-                }
+            );
 
-              </CitationText>
+          },
 
-            </td>
+          th(props) {
 
-          );
+            return (
 
-        },
+              <th>
 
-        th(props) {
+                <CitationText
 
-          return (
+                  onCitationClick={
+                    onCitationClick
+                  }
 
-            <th>
+                >
 
-              <CitationText
+                  {
+                    props.children
+                  }
 
-                onCitationClick={
-                  onCitationClick
-                }
+                </CitationText>
 
-              >
+              </th>
 
-                {
-                  props.children
-                }
+            );
 
-              </CitationText>
+          },
 
-            </th>
+          strong(props) {
 
-          );
+            return (
 
-        },
+              <strong>
 
-        strong(props) {
+                <CitationText
 
-          return (
+                  onCitationClick={
+                    onCitationClick
+                  }
 
-            <strong>
+                >
 
-              <CitationText
+                  {
+                    props.children
+                  }
 
-                onCitationClick={
-                  onCitationClick
-                }
+                </CitationText>
 
-              >
+              </strong>
 
-                {
-                  props.children
-                }
+            );
 
-              </CitationText>
+          }
 
-            </strong>
+        }}
 
-          );
+      >
 
-        }
+        {content}
 
-      }}
-
-    >
-
-      {content}
-
-    </ReactMarkdown>
-
+      </ReactMarkdown>
+    </div>
   );
-
 }

@@ -3,1060 +3,300 @@
 ==================================== */
 
 .message {
-
   width: 100%;
-
+  max-width: 880px;
   margin: 0 auto;
 }
 
 /* ====================================
-   USER MESSAGE (separate bubble + attachments)
+   USER MESSAGE (CLEAN & SUBTLE TIMESTAMP BELOW)
 ==================================== */
 
 .message.user {
-
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-end;
+  width: 100%;
+  margin-bottom: 18px;
+}
 
-  gap: 10px;
-
+.user-bubble-wrapper {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
 }
 
-
-/* ====================================
-   USER MESSAGE
-==================================== */
-
-.message.user {
-
-  width: fit-content;
-
-  max-width: 650px;
-
-  margin-left: auto;
-
-  margin-right: 0;
-
-  padding: 20px 24px;
-
-  border-radius: 24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #6366f1
-    );
-
-  color: white;
-
-  box-shadow:
-    0 12px 32px
-    rgba(
-      79,
-      70,
-      229,
-      0.25
-    );
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+.user-bubble-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 75%;
 }
 
-.message.user:hover {
-
-  transform:
-    translateY(-1px);
-
-  box-shadow:
-    0 16px 36px
-    rgba(
-      79,
-      70,
-      229,
-      0.35
-    );
+.message-bubble {
+  padding: 10px 18px;
+  border-radius: 18px 18px 4px 18px;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-/* ====================================
-   ASSISTANT MESSAGE
-==================================== */
-
-.message.assistant {
-
-  width: 100%;
-
-  max-width: 800px;
-
-  margin-left: auto;
-
-  margin-right: auto;
-
-  padding: 40px;
-
-  border-radius: 30px;
-
-  background:
-    rgba(
-      15,
-      23,
-      42,
-      0.78
-    );
-
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  backdrop-filter:
-    blur(20px);
-
-  box-shadow:
-    0 20px 50px
-    rgba(
-      0,
-      0,
-      0,
-      0.35
-    );
-
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.message.assistant:hover {
-
-  border-color:
-    rgba(
-      99,
-      102,
-      241,
-      0.18
-    );
-
-  transform:
-    translateY(-1px);
-}
-
-/* ====================================
-   CONTENT
-==================================== */
-
-.message-content {
-
-  width: 100%;
-
-  overflow-wrap: break-word;
-
+.user-bubble-text {
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1e3a8a;
   word-break: break-word;
 }
 
+.user-bubble-timestamp {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-top: 4px;
+  padding-right: 4px;
+}
+
 /* ====================================
-   ATTACHMENTS (chat user)
+   ASSISTANT MESSAGE (CLEAN WHITE CARD)
 ==================================== */
 
-.message-attachments {
-
+.message.assistant {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 22px;
+}
 
-  flex-wrap: wrap;
-
-  justify-content: flex-end;
-
-  gap: 12px;
-
+.assistant-card-wrapper {
   width: 100%;
 }
 
-/* ====================================
-   IMAGE PREVIEW
-==================================== */
-
-.message-image-preview {
-
-  padding: 0;
-
-  border: none;
-
-  background: transparent;
-
-  border-radius: 24px;
-
-  overflow: hidden;
-
-  cursor: pointer;
-
-  max-width: 500px;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.28);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+.assistant-avatar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.message-image-preview:hover {
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 18px 42px rgba(0,0,0,0.35);
+.assistant-mini-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* ====================================
-   IMAGE
-==================================== */
-
-.message-image {
-
-  display: block;
-
-  width: 100%;
-
-  max-width: 500px;
-
-  max-height: 420px;
-
-  object-fit: cover;
-
-  border-radius: 24px;
+.assistant-title-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* ====================================
-   USER BUBBLE
-==================================== */
-
-.message-bubble {
-
-  width: fit-content;
-
-  max-width: 650px;
-
-  padding: 16px 22px;
-
-  border-radius: 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #6366f1
-    );
-
-  color: white;
-
-  font-size: 15px;
-
-  line-height: 1.7;
-
-  box-shadow:
-    0 10px 24px rgba(79,70,229,0.25);
+.assistant-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
 }
 
-
-/* ====================================
-   USER CONTENT
-==================================== */
-
-.message.user .message-content {
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
+.assistant-time {
+  font-size: 11px;
+  color: #94a3b8;
   font-weight: 500;
 }
 
 /* ====================================
-   ASSISTANT CONTENT
+   MESSAGE CONTENT CARD
 ==================================== */
 
-.message.assistant .message-content {
-
-  font-size: 15px;
-
-  line-height: 1.95;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.88
-    );
-}
-
-/* ====================================
-   DOCUMENT LIST
-==================================== */
-
-.message-document-list {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-bottom: 12px;
-}
-
-.message-attachment-list {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-bottom: 12px;
-}
-
-/* ====================================
-   DOCUMENT PILL
-==================================== */
-
-.message-document-pill {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  height: 34px;
-
-  padding:
-    0 12px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.12
-    );
-
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.12
-    );
-
-  color: white;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  backdrop-filter:
-    blur(12px);
-
-  max-width: 280px;
-}
-
-.message-attachment-image-btn {
-
+.message-content-card {
   position: relative;
-
-  padding: 0;
-
-  border: 0;
-
-  background: rgba(
-    255,
-    255,
-    255,
-    0.08
-  );
-
-  cursor: pointer;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 18px;
-
-  overflow: hidden;
-
-  width: 92px;
-
-  height: 92px;
-
-  border: 1px solid rgba(
-    255,
-    255,
-    255,
-    0.14
-  );
-}
-
-
-.message-attachment-image-btn:hover .message-attachment-thumb {
-
-  transform: scale(1.02);
-}
-
-.message-attachment-image-btn:hover {
-
-  border-color: rgba(
-    99,
-    102,
-    241,
-    0.35
-  );
-
-}
-
-.message-attachment-thumb {
-
-  width: 92px;
-
-  height: 92px;
-
-  object-fit: contain;
-
-  border-radius: 16px;
-
-  display: block;
-
-  background: rgba(
-    0,
-    0,
-    0,
-    0.15
-  );
-
-  border: 1px solid rgba(
-    255,
-    255,
-    255,
-    0.08
-  );
-
-  transition: transform 0.2s ease;
-}
-
-
-.message-attachment-hint {
-
-  position: absolute;
-
-  inset: auto 6px 6px 6px;
-
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 4px;
-
-  padding: 4px 8px;
-
-  border-radius: 999px;
-
-  background: rgba(15, 23, 42, 0.72);
-
-  color: white;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  backdrop-filter: blur(10px);
-}
-
-.message-document-pill span {
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-}
-
-/* ====================================
-   MARKDOWN
-==================================== */
-
-.message-content p {
-
-  margin:
-    0 0 14px;
-}
-
-.message-content ul,
-.message-content ol {
-
-  margin:
-    10px 0;
-
-  padding-left:
-    24px;
-}
-
-.message-content li {
-
-  margin-bottom:
-    6px;
-}
-
-.message-content h1 {
-
-  margin-top: 28px;
-
-  margin-bottom: 16px;
-
-  font-size: 32px;
-
-  font-weight: 800;
-
-  color: white;
-}
-
-.message-content h2 {
-
-  margin-top: 24px;
-
-  margin-bottom: 14px;
-
-  font-size: 24px;
-
-  font-weight: 700;
-
-  color: white;
-}
-
-.message-content h3 {
-
-  margin-top: 20px;
-
-  margin-bottom: 12px;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
-  color: white;
-}
-
-.message-content strong {
-
-  color: white;
-}
-
-.message-content blockquote {
-
-  margin: 16px 0;
-
-  padding: 12px 18px;
-
-  border-left:
-    4px solid #6366f1;
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.08
-    );
-
-  border-radius:
-    0 12px 12px 0;
-}
-
-.message-content table {
-
   width: 100%;
-
-  border-collapse:
-    collapse;
-
-  margin:
-    18px 0;
-
-  overflow: hidden;
-
-  border-radius: 14px;
-}
-
-.message-content table th {
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.18
-    );
-
-  color: white;
-
-  font-weight: 700;
-}
-
-.message-content table th,
-.message-content table td {
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.12
-    );
-
-  padding:
-    12px;
-}
-
-.message-content table tr:nth-child(even) {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.03
-    );
-}
-
-.message-content code {
-
-  padding:
-    2px 6px;
-
-  border-radius:
-    6px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-
-  font-size: 13px;
-}
-
-.message-content pre {
-
-  overflow-x:
-    auto;
-
-  padding:
-    14px;
-
-  border-radius:
-    12px;
-
-  background:
-    rgba(
-      0,
-      0,
-      0,
-      0.25
-    );
-}
-
-.message-content pre code {
-
-  background:
-    transparent;
-
-  padding: 0;
+  padding: 22px 26px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.02);
+  box-sizing: border-box;
+  color: #334155;
+  font-size: 0.94rem;
+  line-height: 1.65;
 }
 
 /* ====================================
-   INLINE CITATION
+   MARKDOWN TYPOGRAPHY
 ==================================== */
 
-.inline-citation {
+.markdown-idea-title {
+  color: #0f172a;
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
 
-  display: inline-flex;
+.section-title-judul {
+  color: #2563eb;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
 
+.section-title-blue {
+  color: #2563eb;
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  display: flex;
   align-items: center;
+  gap: 8px;
+}
 
-  justify-content: center;
+.message-content-card p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #334155;
+  line-height: 1.65;
+}
 
-  margin: 0 3px;
+.message-content-card p:last-child {
+  margin-bottom: 0;
+}
 
-  padding: 2px 8px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  cursor: pointer;
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.18
-    );
-
-  color: #a5b4fc;
-
-  font-size: 12px;
-
+.message-content-card strong {
+  color: #0f172a;
   font-weight: 700;
-
-  transition:
-    all 0.2s ease;
 }
 
-.inline-citation:hover {
+.message-content-card ul,
+.message-content-card ol {
+  margin-top: 6px;
+  margin-bottom: 14px;
+  padding-left: 20px;
+}
 
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.3
-    );
-
-  transform:
-    translateY(-1px);
+.message-content-card li {
+  margin-bottom: 6px;
+  color: #334155;
+  line-height: 1.6;
 }
 
 /* ====================================
-   SPACING
+   INTERACTIVE CITATION BADGE [1], [5]
 ==================================== */
 
-.message + .message {
-
-  margin-top: 32px;
-}
-
-/* ====================================
-   SELECTION
-==================================== */
-
-.message-content ::selection {
-
-  background:
-    rgba(
-      99,
-      102,
-      241,
-      0.35
-    );
-}
-
-/* ====================================
-   MOBILE
-==================================== */
-
-@media (max-width: 768px) {
-
-  .message.user {
-
-    max-width: 90%;
-
-    padding:
-      18px 20px;
-  }
-
-  .message.assistant {
-
-    max-width: 100%;
-
-    padding:
-      24px;
-  }
-
-  .message + .message {
-
-    margin-top: 24px;
-  }
-
-  .message-document-pill {
-
-    max-width: 180px;
-  }
-
-  .message-content table {
-
-    display: block;
-
-    overflow-x: auto;
-  }
-}
-
-/* ====================================
-   MARKDOWN BODY
-==================================== */
-
-.markdown-body {
-
-  line-height: 1.8;
-}
-
-.markdown-body img {
-
-  max-width: 100%;
-
-  border-radius: 12px;
-
-  margin: 12px 0;
-}
-
-.markdown-body hr {
-
-  border: none;
-
-  height: 1px;
-
-  margin: 24px 0;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-}
-
-.markdown-body a {
-
-  color: #a5b4fc;
-
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  vertical-align: baseline;
   text-decoration: none;
 }
 
-.markdown-body a:hover {
-
-  text-decoration: underline;
+.citation-badge:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-1px);
 }
 
-/* ===================================== */
-/* NOVELTY CARD */
-/* ===================================== */
+/* ====================================
+   SUBTLE COPY BUTTON
+==================================== */
 
-.novelty-card {
-
-  margin-top: 20px;
-
-  padding: 18px;
-
-  border-radius: 16px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.04
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-
-  backdrop-filter:
-    blur(12px);
-
-}
-
-.novelty-header {
-
+.assistant-actions-subtle {
   display: flex;
-
-  justify-content:
-    space-between;
-
-  align-items: center;
-
-  margin-bottom: 12px;
-
+  justify-content: flex-end;
+  margin-top: 12px;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
 }
 
-.novelty-header span {
-
-  font-size: 13px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.7
-    );
-
+.message-content-card:hover .assistant-actions-subtle {
+  opacity: 1;
 }
 
-.novelty-header strong {
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  color: white;
-
-}
-
-.novelty-level {
-
+.action-btn-copy-subtle {
   display: inline-flex;
-
   align-items: center;
-
-  justify-content: center;
-
-  padding:
-    6px 12px;
-
-  border-radius: 999px;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  margin-bottom: 12px;
-
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.novelty-level.high {
-
-  background:
-    rgba(
-      34,
-      197,
-      94,
-      0.15
-    );
-
-  color:
-    #4ade80;
-
+.action-btn-copy-subtle:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #e2e8f0;
 }
 
-.novelty-level.medium {
+/* ====================================
+   SIMPLE 3-DOTS THINKING ANIMATION
+==================================== */
 
-  background:
-    rgba(
-      234,
-      179,
-      8,
-      0.15
-    );
-
-  color:
-    #facc15;
-
+.thinking-dots-simple {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 0 0 2px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #64748b;
 }
 
-.novelty-level.low {
-
-  background:
-    rgba(
-      239,
-      68,
-      68,
-      0.15
-    );
-
-  color:
-    #f87171;
-
+.thinking-dots-simple .dot {
+  opacity: 0.2;
+  animation: dot-bounce 1.4s infinite ease-in-out both;
 }
 
-.novelty-reasons {
-
-  margin: 0;
-
-  padding-left: 20px;
-
+.thinking-dots-simple .dot:nth-child(1) {
+  animation-delay: 0s;
 }
 
-.novelty-reasons li {
-
-  margin-bottom: 8px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.82
-    );
-
+.thinking-dots-simple .dot:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-/* ===================================== */
-/* NOVELTY PROGRESS BAR */
-/* ===================================== */
-
-.novelty-progress {
-
-  width: 100%;
-
-  height: 8px;
-
-  border-radius: 999px;
-
-  overflow: hidden;
-
-  margin-bottom: 12px;
-
-  background:
-
-    rgba(
-      255,
-      255,
-      255,
-      0.08
-    );
-
+.thinking-dots-simple .dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-.novelty-progress-fill {
-
-  height: 100%;
-
-  border-radius: 999px;
-
-  transition:
-
-    width 0.4s ease;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #4ade80,
-      #22c55e
-    );
-
+@keyframes dot-bounce {
+  0%, 80%, 100% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    color: #2563eb;
+    transform: translateY(-4px);
+  }
 }

@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "category": "Exact/Keyword",
+    "query": "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA SHA-256 Situmeang",
+    "relevant_titles": [
+      "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Exact/Keyword",
+    "query": "KLASIFIKASI WAJAH MENGGUNAKAN SELF ORGANIZING MAP TAMBUNAN NAOMI",
+    "relevant_titles": [
+      "KLASIFIKASI WAJAH MENGGUNAKAN SELF ORGANIZING MAP"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Exact/Keyword",
+    "query": "PEMBUATAN MODEL EMOTION DETECTION DENGAN PRE-TRAINED MODEL RESNET50 Owen Timothy",
+    "relevant_titles": [
+      "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Exact/Keyword",
+    "query": "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN PENDEKATAN LOGISTIC REGRESSION SIAHAAN",
+    "relevant_titles": [
+      "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN  PENDEKATAN LOGISTIC REGRESSION"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Exact/Keyword",
+    "query": "Pengenalan Aksara Batak Toba dengan Pendekatan Machine Learning Situmorang",
+    "relevant_titles": [
+      "Pengenalan Aksara Batak Toba  dengan Pendekatan Machine Learning"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Exact/Keyword",
+    "query": "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL SIMANGUNSONG RAFELLI",
+    "relevant_titles": [
+      "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Exact/Keyword",
+    "query": "klasifikasi penyakit tanaman jagung cnn resnet",
+    "relevant_titles": [
+      "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50"
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Exact/Keyword",
+    "query": "verifikasi tanda tangan digital qrcode baak del",
+    "relevant_titles": [
+      "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Conceptual/Semantic",
+    "query": "deteksi emosi dan ekspresi Wajah Manusia dari gambar",
+    "relevant_titles": [
+      "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Conceptual/Semantic",
+    "query": "pengenalan dan identifikasi Wajah Manusia dengan jaringan saraf buatan",
+    "relevant_titles": [
+      "KLASIFIKASI WAJAH MENGGUNAKAN SELF ORGANIZING MAP"
+    ]
+  },
+  {
+    "id": 11,
+    "category": "Conceptual/Semantic",
+    "query": "keamanan dokumen elektronik dan verifikasi keaslian surat",
+    "relevant_titles": [
+      "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 12,
+    "category": "Conceptual/Semantic",
+    "query": "sistem informasi visualisasi data penerimaan mahasiswa baru",
+    "relevant_titles": [
+      "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 13,
+    "category": "Conceptual/Semantic",
+    "query": "analisis potensi gagal bayar pinjaman nasabah bank",
+    "relevant_titles": [
+      "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN  PENDEKATAN LOGISTIC REGRESSION"
+    ]
+  },
+  {
+    "id": 14,
+    "category": "Conceptual/Semantic",
+    "query": "pelestarian budaya tulisan daerah dengan pemrosesan citra digital",
+    "relevant_titles": [
+      "Pengenalan Aksara Batak Toba  dengan Pendekatan Machine Learning"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "Conceptual/Semantic",
+    "query": "klasifikasi pola gambar dengan convolutional neural network",
+    "relevant_titles": [
+      "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Conceptual/Semantic",
+    "query": "pengenalan pola karakter tulisan tangan dengan knn",
+    "relevant_titles": [
+      "Pengenalan Aksara Batak Toba  dengan Pendekatan Machine Learning"
+    ]
+  },
+  {
+    "id": 17,
+    "category": "Conceptual/Semantic",
+    "query": "pengembangan software website dengan metode sdlc waterfall",
+    "relevant_titles": [
+      "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Mixed",
+    "query": "aplikasi dashboard pmb del berbasis web",
+    "relevant_titles": [
+      "RANCANG BANGUN DASHBOARD SYSTEM BERBASIS WEB DENGAN MODEL WATERFALL UNTUK PMB (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 19,
+    "category": "Mixed",
+    "query": "deteksi ekspresi emosi dataset kDEF fer-2013",
+    "relevant_titles": [
+      "PEMBUATAN MODEL EMOTION DETECTION DENGAN  MENGGUNAKAN PRE-TRAINED MODEL RESNET50"
+    ]
+  },
+  {
+    "id": 20,
+    "category": "Mixed",
+    "query": "klasifikasi risiko kredit k-fold cross validation",
+    "relevant_titles": [
+      "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN  PENDEKATAN LOGISTIC REGRESSION"
+    ]
+  },
+  {
+    "id": 21,
+    "category": "Mixed",
+    "query": "enkripsi rsa hash sha-256 verifikasi dokumen del",
+    "relevant_titles": [
+      "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  },
+  {
+    "id": 22,
+    "category": "Mixed",
+    "query": "pengenalan aksara batak euclidean distance mahalanobis",
+    "relevant_titles": [
+      "Pengenalan Aksara Batak Toba  dengan Pendekatan Machine Learning"
+    ]
+  },
+  {
+    "id": 23,
+    "category": "Mixed",
+    "query": "klasifikasi wajah stratified kfold cross validation",
+    "relevant_titles": [
+      "KLASIFIKASI WAJAH MENGGUNAKAN SELF ORGANIZING MAP"
+    ]
+  },
+  {
+    "id": 24,
+    "category": "Mixed",
+    "query": "feature selection logistic regression perbankan",
+    "relevant_titles": [
+      "PREDIKSI RISIKO KREDIT DENGAN MENGGUNAKAN  PENDEKATAN LOGISTIC REGRESSION"
+    ]
+  },
+  {
+    "id": 25,
+    "category": "Mixed",
+    "query": "pembangunan aplikasi verifikasi qr code baak",
+    "relevant_titles": [
+      "PEMBANGUNAN APLIKASI VERIFIKASI DOKUMEN MENGGUNAKAN ALGORITMA RSA PROSES ENKRIPSI DEKRIPSI DAN SHA-256 METODE HASH (STUDI KASUS INSTITUT TEKNOLOGI DEL)"
+    ]
+  }
+]

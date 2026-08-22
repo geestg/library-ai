@@ -6,7 +6,6 @@ from app.rag.reranker import (
     rerank_results
 )
 
-
 def search_thesis_dataset(
     query: str,
     top_k: int = 5
@@ -22,11 +21,9 @@ def search_thesis_dataset(
         documents=hybrid_results,
         top_k=30
     )
-
     unique_thesis = {}
 
     for result in reranked_results:
-
         payload = result.get(
             "payload",
             {}
@@ -43,9 +40,7 @@ def search_thesis_dataset(
         )
 
         if thesis_key not in unique_thesis:
-
             unique_thesis[thesis_key] = {
-
                 "score": score,
 
                 "title":
@@ -71,13 +66,9 @@ def search_thesis_dataset(
             }
 
     results = sorted(
-
         unique_thesis.values(),
-
         key=lambda x:
         x["score"],
-
         reverse=True
     )
-
     return results[:top_k]

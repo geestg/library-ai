@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { Paperclip, ArrowUp, FileText, X, Loader2 } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { Paperclip, ArrowUp, FileText, X, Loader2, ShieldCheck, Mic, MicOff, Volume2 } from "lucide-react";
 
 export default function ChatInput({
   input,
@@ -15,6 +15,73 @@ export default function ChatInput({
   removeDocument,
 }) {
   const textareaRef = useRef(null);
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef(null);
+  const baseInputRef = useRef("");
+
+  useEffect(() => {
+    // Inisialisasi Web Speech API (Chrome/Edge/Safari/Opera)
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "id-ID"; // Bahasa Indonesia
+
+      recognition.onresult = (event) => {
+        // Konstruksi total transkripsi ucapan sesi ini dari indeks 0
+        let currentSessionTranscript = "";
+        for (let i = 0; i < event.results.length; i++) {
+          currentSessionTranscript += event.results[i][0].transcript;
+        }
+
+        const base = baseInputRef.current.trim();
+        const updatedText = base
+          ? `${base} ${currentSessionTranscript.trim()}`
+          : currentSessionTranscript.trim();
+
+        setInput(updatedText);
+
+        // Auto adjust textarea height
+        if (textareaRef.current) {
+          textareaRef.current.style.height = "auto";
+          textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error("[SpeechRecognition Error]", event.error);
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+    }
+  }, [setInput]);
+
+  const toggleListening = () => {
+    if (!recognitionRef.current) {
+      alert("Browser Anda belum mendukung input suara langsung. Gunakan Chrome, Edge, atau Safari.");
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current.stop();
+      setIsListening(false);
+    } else {
+      try {
+        // Simpan teks dasar sebelum mendengarkan agar tidak terduplikasi
+        baseInputRef.current = input || "";
+        recognitionRef.current.start();
+        setIsListening(true);
+      } catch (err) {
+        console.error("Failed to start speech recognition:", err);
+      }
+    }
+  };
 
   const formatFileSize = (size) => {
     if (!size && size !== 0) return "";
@@ -102,22 +169,12 @@ export default function ChatInput({
         </div>
       )}
 
-      <div className="smart-actions">
-        <button type="button" onClick={() => setInput("Cari research gap terbaru pada bidang NLP healthcare")}>
-          Research Gap
-        </button>
-        <button type="button" onClick={() => setInput("Bandingkan metode CNN dan Transformer")}>
-          Compare Methods
-        </button>
-        <button type="button" onClick={() => setInput("Generate ide judul skripsi AI terbaru")}>
-          Thesis Ideas
-        </button>
-      </div>
-
+      {/* ============================= */}
+      {/* CAPSULE SEARCH BAR */}
+      {/* ============================= */}
       <div className="floating-input">
-        <label className="modern-attach">
+        <label className="modern-attach" title="Lampirkan Dokumen/Foto">
           <Paperclip size={18} />
-
           <input
             type="file"
             hidden
@@ -130,15 +187,49 @@ export default function ChatInput({
         <textarea
           ref={textareaRef}
           rows={1}
-          placeholder="Ask anything about your research..."
+          placeholder={isListening ? "Listening... Bicara sekarang dalam Bahasa Indonesia" : "Tanyakan apapun tentang buku, riset, atau skripsi..."}
           value={input}
           onChange={handleTextareaChange}
           onKeyDown={handleKeyDown}
         />
 
+        {/* ============================= */}
+        {/* VOICE SPEECH MIC BUTTON */}
+        {/* ============================= */}
+        <button
+          type="button"
+          className={`mic-speech-btn ${isListening ? "listening" : ""}`}
+          onClick={toggleListening}
+          title={isListening ? "Matikan Mikrofon" : "Bicara dengan Suara (STT)"}
+          style={{
+            background: isListening ? "#ef4444" : "transparent",
+            color: isListening ? "#ffffff" : "#64748b",
+            border: "none",
+            borderRadius: "50%",
+            width: "36px",
+            height: "36px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            transition: "all 0.2s ease",
+            marginRight: "6px"
+          }}
+        >
+          {isListening ? <MicOff size={18} className="pulse-icon" /> : <Mic size={18} />}
+        </button>
+
         <button className="send-modern-btn" onClick={sendMessage} disabled={loading} type="button">
           <ArrowUp size={18} />
         </button>
+      </div>
+
+      {/* ============================= */}
+      {/* SHIELD TRUST FOOTER */}
+      {/* ============================= */}
+      <div className="input-trust-footer">
+        <ShieldCheck size={14} className="shield-icon" />
+        <span>DELBot menggunakan sumber akademik resmi perpustakaan & repositori IT Del.</span>
       </div>
     </div>
   );

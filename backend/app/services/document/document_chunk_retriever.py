@@ -8,9 +8,21 @@ from sklearn.metrics.pairwise import (
 
 import numpy as np
 
-model = SentenceTransformer(
-    "BAAI/bge-small-en-v1.5"
-)
+_doc_model = None
+
+def get_doc_model():
+    global _doc_model
+    if _doc_model is not None:
+        return _doc_model
+    try:
+        _doc_model = SentenceTransformer("BAAI/bge-small-en-v1.5", local_files_only=True)
+    except Exception:
+        try:
+            _doc_model = SentenceTransformer("BAAI/bge-small-en-v1.5")
+        except Exception as e:
+            print(f"[DOC RETRIEVER WARNING] Could not load SentenceTransformer: {e}")
+            _doc_model = None
+    return _doc_model
 
 
 def retrieve_relevant_chunks(
@@ -59,30 +71,26 @@ def retrieve_relevant_chunks(
             })
 
     if not chunks:
-
         return []
 
+    doc_model = get_doc_model()
+    if doc_model is None:
+        # Fallback jika model tidak tersedia: kembalikan chunks awal
+        return chunks[:top_k]
+
     texts = [
-
         c["text"]
-
         for c in chunks
     ]
 
-    chunk_vectors = model.encode(
-
+    chunk_vectors = doc_model.encode(
         texts,
-
         normalize_embeddings=True
-
     )
 
-    query_vector = model.encode(
-
+    query_vector = doc_model.encode(
         query,
-
         normalize_embeddings=True
-
     )
 
     scores = cosine_similarity(

@@ -7,14 +7,19 @@ import ThinkingIndicator from "./ThinkingIndicator";
 import ImagePreviewModal from "../ImagePreviewModal";
 
 export default function ChatWindow({
+  userRole = "student",
+  sessionId = "chat_session",
   messages = [],
   setMessages,
   setSources,
   setEvidence,
   activeCitation,
   setActiveCitation,
+  selectedThesis,
+  setSelectedThesis,
   activeDocument,
   setActiveDocument,
+  onMessageSent,
 }) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,6 +33,15 @@ export default function ChatWindow({
     if (!container) return;
     container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (messages && messages.length > 0) {
+      const lastAsst = [...messages].reverse().find((m) => m.role === "assistant");
+      if (lastAsst && (lastAsst.sources?.length > 0 || lastAsst.citations?.length > 0)) {
+        setSources(lastAsst.sources || lastAsst.citations);
+      }
+    }
+  }, [messages, setSources]);
 
   const removeDocument = (documentId) => {
     setActiveDocuments((prev) => prev.filter((doc) => doc.document_id !== documentId));
@@ -71,6 +85,7 @@ export default function ChatWindow({
   const uploadPdfFile = async (file) => {
     const formData = new FormData();
     formData.append("file", file.file);
+    formData.append("session_id", sessionId);
 
     const uploadRes = await fetch(API_BASE_URL + "/upload-pdf", {
       method: "POST",
@@ -94,83 +109,48 @@ export default function ChatWindow({
   const sendMessage = async () => {
     if (!input.trim() && selectedFiles.length === 0) return;
 
-    const filesToSend = [...selectedFiles];
-    const attachments = filesToSend.map((file) => ({
-      id: file.id,
-      name: file.name,
-      type: file.type,
-      previewUrl: file.previewUrl,
-      isImage: file.type.startsWith("image/"),
-    }));
+    const userMessage = input.trim();
+    const currentSelectedFiles = [...selectedFiles];
 
-    const userMessage = {
-      id: `${Date.now()}-user`,
-      role: "user",
-      content: input,
-      attachedDocuments: activeDocuments,
-      attachments,
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-
-    const finalInput = input;
     setInput("");
     setSelectedFiles([]);
-
-    const textarea = document.querySelector(".floating-input textarea");
-    if (textarea) textarea.style.height = "auto";
-
     setLoading(true);
-    setUploadingDocuments([]);
+
+    const userMsgObj = {
+      id: `${Date.now()}-user`,
+      role: "user",
+      content: userMessage,
+      attachments: currentSelectedFiles,
+      attachedDocuments: [...activeDocuments],
+    };
+
+    setMessages((prev) => [...prev, userMsgObj]);
 
     try {
-      const imageFiles = filesToSend.filter((file) => file.type?.startsWith("image/"));
-      const pdfFiles = filesToSend.filter((file) => {
-        const lowerName = (file.name || "").toLowerCase();
-        return file.type === "application/pdf" || lowerName.endsWith(".pdf");
-      });
+      const imageFiles = currentSelectedFiles.filter((f) => f.type.startsWith("image/"));
+      const pdfFiles = currentSelectedFiles.filter((f) => !f.type.startsWith("image/"));
 
-      const uploadedDocuments = [];
       const imagePayloads = [];
-
-      if (pdfFiles.length > 0) {
-        setUploadingDocuments(pdfFiles.map((file) => ({ id: file.id, filename: file.name })));
-
-        for (const file of pdfFiles) {
-          const uploadData = await uploadPdfFile(file);
-          uploadedDocuments.push({
-            document_id: uploadData.document_id,
-            filename: uploadData.filename,
-            file_type: uploadData.file_type,
-            pages: uploadData.pages,
-            chunks: uploadData.chunks,
-          });
-        }
-
-        setActiveDocuments((prev) => {
-          const next = [...prev];
-          const existingIds = new Set(prev.map((doc) => doc.document_id));
-
-          for (const document of uploadedDocuments) {
-            if (!existingIds.has(document.document_id)) {
-              next.push(document);
-            }
-          }
-
-          return next;
-        });
+      for (const img of imageFiles) {
+        const dataUrl = await fileToDataUrl(img);
+        imagePayloads.push({ name: img.name, dataUrl });
       }
 
-      if (imageFiles.length > 0) {
-        setUploadingDocuments(imageFiles.map((file) => ({ id: file.id, filename: file.name })));
-
-        for (const file of imageFiles) {
-          imagePayloads.push({
-            id: file.id,
-            name: file.name,
-            dataUrl: await fileToDataUrl(file),
-          });
+      const uploadedDocuments = [];
+      if (pdfFiles.length > 0) {
+        setUploadingDocuments(pdfFiles.map((f) => f.name));
+        for (const pdf of pdfFiles) {
+          const docData = await uploadPdfFile(pdf);
+          const newDoc = {
+            document_id: docData.document_id,
+            filename: docData.filename,
+            pages: docData.pages,
+            preview: docData.preview,
+          };
+          uploadedDocuments.push(newDoc);
+          setActiveDocuments((prev) => [...prev, newDoc]);
         }
+        setUploadingDocuments([]);
       }
 
       const currentDocuments = [...activeDocuments, ...uploadedDocuments];
@@ -180,10 +160,11 @@ export default function ChatWindow({
 
         const visionRes = await fetch(API_BASE_URL + "/api/vision/chat", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "X-User-Role": userRole },
           body: JSON.stringify({
-            prompt: finalInput,
+            prompt: userMessage,
             image_base64: firstImage.dataUrl,
+            session_id: sessionId,
           }),
         });
 
@@ -200,15 +181,16 @@ export default function ChatWindow({
             ...prev,
             {
               id: `${Date.now()}-assistant`,
-            role: "assistant",
-            content,
-            citations: visionData.citations || [],
-            sources: visionData.sources || [],
+              role: "assistant",
+              content,
+              citations: visionData.citations || [],
+              sources: visionData.sources || [],
             },
           ];
         });
 
         setSources(visionData.sources || visionData.citations || []);
+        onMessageSent?.();
         return;
       }
 
@@ -217,10 +199,11 @@ export default function ChatWindow({
 
         const documentResponse = await fetch(API_BASE_URL + "/document/chat", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "X-User-Role": userRole },
           body: JSON.stringify({
+            session_id: sessionId,
             document_id: targetDocument.document_id,
-            question: finalInput,
+            question: userMessage,
           }),
         });
 
@@ -229,65 +212,78 @@ export default function ChatWindow({
           throw new Error(`Document request failed: ${documentResponse.status} ${t}`);
         }
 
-        const data = await documentResponse.json();
-        const content = data.answer || data.response || data.analysis || "No response returned.";
+        const documentData = await documentResponse.json();
+        const content = documentData.response || documentData.answer || "No response returned.";
 
         setMessages((prev) => {
           return [
             ...prev,
             {
               id: `${Date.now()}-assistant`,
-            role: "assistant",
-            content,
-            citations: data.citations || [],
-            sources: data.sources || [],
+              role: "assistant",
+              content,
+              citations: documentData.citations || [],
+              sources: documentData.sources || [],
             },
           ];
         });
 
-        setSources(data.sources || data.citations || []);
+        setSources(documentData.sources || documentData.citations || []);
+        if (documentData.evidence && setEvidence) {
+          setEvidence(documentData.evidence);
+        }
+        onMessageSent?.();
         return;
       }
 
-      const chatResponse = await fetch(API_BASE_URL + "/chat", {
+      const res = await fetch(API_BASE_URL + "/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: finalInput }),
+        headers: { "Content-Type": "application/json", "X-User-Role": userRole },
+        body: JSON.stringify({
+          message: userMessage,
+          query: userMessage,
+          session_id: sessionId,
+        }),
       });
 
-      if (!chatResponse.ok) throw new Error("Request failed: " + chatResponse.status);
+      if (!res.ok) {
+        const t = await res.text().catch(() => "");
+        throw new Error(`Chat request failed: ${res.status} ${t}`);
+      }
 
-      const data = await chatResponse.json();
-      const content = data.response || data.answer || data.analysis || "No response returned.";
+      const resData = await res.json();
+      const content = resData.response || resData.answer || resData.result || "No response returned.";
 
       setMessages((prev) => {
         return [
           ...prev,
           {
             id: `${Date.now()}-assistant`,
-          role: "assistant",
-          content,
-          citations: data.citations || [],
-          sources: data.sources || [],
+            role: "assistant",
+            content,
+            citations: resData.citations || [],
+            sources: resData.sources || [],
+            data: resData.data || null,
           },
         ];
       });
 
-      setSources(data.sources || data.citations || []);
-    } catch (error) {
-      console.error("Error:", error);
-      setMessages((prev) => {
-        return [
-          ...prev,
-          {
-            id: `${Date.now()}-assistant-error`,
+      setSources(resData.sources || resData.citations || []);
+      if (resData.evidence && setEvidence) {
+        setEvidence(resData.evidence);
+      }
+      onMessageSent?.();
+    } catch (err) {
+      console.error("Failed to send message:", err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `${Date.now()}-error`,
           role: "assistant",
-          content: "Error: " + error.message,
-          },
-        ];
-      });
+          content: `⚠️ Terjadi kendala koneksi server: ${err.message}. Silakan coba lagi.`,
+        },
+      ]);
     } finally {
-      setUploadingDocuments([]);
       setLoading(false);
     }
   };
@@ -299,25 +295,68 @@ export default function ChatWindow({
     }
   };
 
-  return (
-    <div className="chat-modern-shell">
-      {previewImage && <ImagePreviewModal image={previewImage} onClose={() => setPreviewImage(null)} />}
+  const activateMessageSources = (msg) => {
+    let targetSources = msg?.sources?.length > 0 ? msg.sources : msg?.citations;
+    if (!targetSources || targetSources.length === 0) {
+      for (const m of [...messages].reverse()) {
+        if (m.role === "assistant" && (m.sources?.length > 0 || m.citations?.length > 0)) {
+          targetSources = m.sources?.length > 0 ? m.sources : m.citations;
+          break;
+        }
+      }
+    }
+    if (targetSources && targetSources.length > 0) {
+      setSources(targetSources);
+    }
+  };
 
+  const inputComponent = (
+    <ChatInput
+      input={input}
+      setInput={setInput}
+      sendMessage={sendMessage}
+      loading={loading}
+      handleFileSelect={handleFileSelect}
+      handleKeyDown={handleKeyDown}
+      activeDocuments={activeDocuments}
+      selectedFiles={selectedFiles}
+      removeSelectedFile={removeSelectedFile}
+      uploadingDocuments={uploadingDocuments}
+      removeDocument={removeDocument}
+    />
+  );
+
+  return (
+    <div className="modern-chat-container">
+      {/* ============================= */}
+
+
+      {/* ============================= */}
+      {/* MESSAGES LIST AREA */}
+      {/* ============================= */}
       <div className={`modern-messages ${messages.length === 0 ? "empty-chat" : ""}`}>
         {messages.length === 0 ? (
-          <ChatHero setInput={setInput} />
+          <div className="empty-chat-container">
+            <ChatHero />
+            <div className="empty-chat-input-box">
+              {inputComponent}
+            </div>
+          </div>
         ) : (
-          messages.map((msg, idx) => (
+          messages.map((msg) => (
             <MessageBubble
-              key={msg.id || idx}
+              key={msg.id}
               role={msg.role}
               content={msg.content}
               citations={msg.citations}
-              evidence={msg.evidence}
+              sources={msg.sources}
               attachedDocuments={msg.attachedDocuments}
               attachments={msg.attachments}
-              onImageClick={setPreviewImage}
+              data={msg.data}
+              onImageClick={(img) => setPreviewImage(img)}
               setActiveCitation={setActiveCitation}
+              setSelectedThesis={setSelectedThesis}
+              onActivateMessageSources={() => activateMessageSources(msg)}
             />
           ))
         )}
@@ -325,19 +364,21 @@ export default function ChatWindow({
         {loading && <ThinkingIndicator />}
       </div>
 
-      <ChatInput
-        input={input}
-        setInput={setInput}
-        sendMessage={sendMessage}
-        loading={loading}
-        handleFileSelect={handleFileSelect}
-        handleKeyDown={handleKeyDown}
-        activeDocuments={activeDocuments}
-        selectedFiles={selectedFiles}
-        removeSelectedFile={removeSelectedFile}
-        uploadingDocuments={uploadingDocuments}
-        removeDocument={removeDocument}
-      />
+      {/* ============================= */}
+      {/* FLOATING CAPSULE INPUT (AFTER FIRST MESSAGE) */}
+      {/* ============================= */}
+      {messages.length > 0 && inputComponent}
+
+      {/* ============================= */}
+      {/* IMAGE PREVIEW MODAL */}
+      {/* ============================= */}
+      {previewImage && (
+        <ImagePreviewModal
+          imageUrl={previewImage.url}
+          imageName={previewImage.name}
+          onClose={() => setPreviewImage(null)}
+        />
+      )}
     </div>
   );
 }

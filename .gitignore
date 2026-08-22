@@ -1,7 +1,14 @@
 venv/
+.venv/
 __pycache__/
 node_modules/
 .env
 *.pyc
 dist/
 .qdrant/
+qdrant_storage/
+postgres_data/
+minio_data/
+scratch/
+uploads/
+reports/

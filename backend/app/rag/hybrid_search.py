@@ -11,8 +11,9 @@ from app.rag.bm25_engine import (
 )
 
 from app.core.constants import (
-    THESIS_DATASET_COLLECTION
+    USER_DOCUMENT_COLLECTION
 )
+
 
 
 # =====================================
@@ -31,7 +32,7 @@ def vector_search(
     response = client.query_points(
 
         collection_name=
-        THESIS_DATASET_COLLECTION,
+        USER_DOCUMENT_COLLECTION,
 
         query=embedding,
 

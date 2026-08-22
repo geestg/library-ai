@@ -46,6 +46,10 @@ from app.api.routes.routes_vision import (
     router as vision_router
 )
 
+from app.api.routes.routes_speech import (
+    router as speech_router
+)
+
 app = FastAPI(
 
     title="DELBot - AI Academic Knowledge Operating System"
@@ -107,15 +111,22 @@ app.include_router(
     vision_router
 )
 
+app.include_router(
+    speech_router
+)
+
 
 # =========================================
-# UPLOAD STATIC FILES (for image preview)
+# UPLOAD STATIC FILES (for image preview & reports)
 # =========================================
 
 UPLOAD_DIR = "/tmp/uploads"
+REPORTS_DIR = "/tmp/uploads/reports"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+os.makedirs(REPORTS_DIR, exist_ok=True)
 
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
+app.mount("/reports", StaticFiles(directory=REPORTS_DIR), name="reports")
 
 
 # =========================================

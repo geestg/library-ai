@@ -13,7 +13,6 @@ async def debug_collection():
     try:
 
         collections = client.get_collections()
-
         collection_exists = any(
             c.name == COLLECTION_NAME
             for c in collections.collections
@@ -37,11 +36,10 @@ async def debug_collection():
         )
 
         formatted_points = []
-
         for point in sample_points[0]:
 
             payload = point.payload or {}
-
+            
             formatted_points.append({
                 "id": point.id,
                 "source_file": payload.get("source_file"),
