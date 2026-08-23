@@ -1,4 +1,7 @@
+﻿from __future__ import annotations
+
 import socket
+import urllib.parse
 from openai import OpenAI
 
 from delbot_platform.core.config import settings
@@ -13,11 +16,25 @@ class VLLMProvider(BaseLLMProvider):
         actual_base_url = base_url or settings.VLLM_BASE_URL
         actual_api_key = api_key or settings.VLLM_API_KEY or "EMPTY"
 
+        # Resolve host.docker.internal to 127.0.0.1 if running directly on host
+        if "host.docker.internal" in actual_base_url:
+            parsed = urllib.parse.urlparse(actual_base_url)
+            port = parsed.port or 11435
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(0.5)
+            try:
+                s.connect(("host.docker.internal", port))
+                s.close()
+            except Exception:
+                actual_base_url = actual_base_url.replace("host.docker.internal", "127.0.0.1")
+                print(f"[{name}] 'host.docker.internal' unreachable. Switched base_url to '{actual_base_url}'")
+
         print(f"[{name}] Initializing provider -> {actual_base_url}")
 
         self.client = OpenAI(
             api_key=actual_api_key,
-            base_url=actual_base_url
+            base_url=actual_base_url,
+            timeout=20.0,
         )
 
     def generate(
@@ -35,13 +52,18 @@ class VLLMProvider(BaseLLMProvider):
         else:
             content = prompt
 
-        response = self.client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": content}],
-            max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
-            timeout=600.0
-        )
-        return response.choices[0].message.content
+        try:
+            response = self.client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": content}],
+                max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
+                timeout=30.0
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            print(f"[{self.name} ERROR] Failed to connect to model server: {e}")
+            # Graceful fallback: return a helpful message if SSH Tunnel is not active
+            return f"⚠️ [Koneksi Model GPU]: Sedang tidak dapat menghubungi GPU Model Server di port 11435. Pastikan SSH Tunnel aktif dengan perintah: `ssh -L 11435:localhost:11435 user@gpu-server` (Error: {e})"
 
     def stream(
         self,
@@ -58,15 +80,19 @@ class VLLMProvider(BaseLLMProvider):
         else:
             content = prompt
 
-        stream = self.client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": content}],
-            stream=True,
-            max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
-            timeout=600.0
-        )
-        for chunk in stream:
-            if chunk.choices:
-                delta = chunk.choices[0].delta
-                if delta and delta.content:
-                    yield delta.content
+        try:
+            stream = self.client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": content}],
+                stream=True,
+                max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
+                timeout=20.0
+            )
+            for chunk in stream:
+                if chunk.choices:
+                    delta = chunk.choices[0].delta
+                    if delta and delta.content:
+                        yield delta.content
+        except Exception as e:
+            print(f"[{self.name} STREAM ERROR] Failed to connect: {e}")
+            yield f"⚠️ [Koneksi Model GPU]: Tidak dapat terhubung ke GPU Model Server di port 11435. Mohon pastikan SSH Tunnel Anda sudah aktif di terminal (`ssh -L 11435:localhost:11435 ...`).\n\n(Detail error: {e})"
