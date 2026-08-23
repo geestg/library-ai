@@ -1,4 +1,4 @@
-﻿from delbot_platform.research.academic_research_engine import (
+﻿from delbot_platform.research.research_engine import (
     research_analysis
 )
 

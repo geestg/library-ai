@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import Dict, List, Any
-from delbot_platform.research.academic_research_engine import research_analysis
+from delbot_platform.research.research_engine import research_analysis
 
 class ResearchAgent:
     """
