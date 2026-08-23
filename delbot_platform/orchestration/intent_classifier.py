@@ -24,7 +24,7 @@ def classify_intent(query: str) -> str:
     # =====================================
     # 2. FAQ (Word Boundary Matching agar "langchain" tidak match "hai")
     # =====================================
-    FAQ_TRIGGERS = ["halo", "hai", "hello", "siapa kamu", "help", "apa itu delbot", "kamu bisa apa"]
+    FAQ_TRIGGERS = ["halo", "hai", "hi", "hey", "hello", "p", "siapa kamu", "help", "apa itu delbot", "kamu bisa apa", "selamat pagi", "selamat siang", "selamat sore", "selamat malam", "pagi", "siang", "sore", "malam"]
     for faq_word in FAQ_TRIGGERS:
         if re.search(r'\b' + re.escape(faq_word) + r'\b', q):
             return "faq"

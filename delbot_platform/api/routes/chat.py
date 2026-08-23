@@ -677,6 +677,18 @@ def chat_stream(
             print(f"\n[STREAM INTENT] {intent}")
 
             # =====================================
+            # FAQ & GREETINGS PIPELINE (Instant)
+            # =====================================
+            if intent == "faq":
+                from delbot_platform.knowledge.library.faq import answer_faq
+                faq_answer = answer_faq(req.message)
+                if faq_answer:
+                    yield stream_event("metadata", {"provider": "knowledge", "model": "faq_engine", "intent": "faq"})
+                    yield stream_event("token", faq_answer)
+                    yield stream_event("end", {"status": "completed"})
+                    return
+
+            # =====================================
             # LIBRARY PIPELINE (recommendation)
             # =====================================
             if intent == "recommendation":

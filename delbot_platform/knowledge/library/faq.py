@@ -8,6 +8,13 @@ import re
 
 FAQ_LIST = [
     {
+        "keywords": ["halo", "hai", "hi", "hey", "hello", "p", "selamat pagi", "selamat siang", "selamat sore", "selamat malam", "pagi", "siang", "sore", "malam"],
+        "answer": (
+            "Halo! 👋 Saya DELBot, asisten cerdas Perpustakaan dan Riset IT Del. "
+            "Ada yang bisa saya bantu terkait pencarian buku, referensi akademik, atau ide penelitian skripsi Anda hari ini?"
+        ),
+    },
+    {
         "keywords": ["terima kasih", "terimakasih", "makasih", "thank you", "thanks", "ok", "oke", "siap", "nuhun", "suwun"],
         "answer": (
             "Sama-sama! Senang bisa membantu Anda. Jika ada hal lain yang Anda butuhkan di kemudian hari, "
