@@ -1,0 +1,52 @@
+from __future__ import annotations
+
+
+
+class ResearchState:
+
+
+    def __init__(self):
+
+
+        self.state={
+
+            "topic":None,
+
+            "keywords":[],
+
+            "last_query":None,
+
+            "sources":[],
+
+            "summary":None
+
+        }
+
+
+
+    def update(
+        self,
+        key,
+        value
+    ):
+
+        self.state[key]=value
+
+
+
+    def add_source(
+        self,
+        source
+    ):
+
+        self.state["sources"].append(
+            source
+        )
+
+
+
+    def export(
+        self
+    ):
+
+        return self.state

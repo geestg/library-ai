@@ -115,6 +115,14 @@ app.include_router(
     speech_router
 )
 
+try:
+    from delbot_platform.api.routes.workspace import (
+        router as platform_workspace_router,
+    )
+    app.include_router(platform_workspace_router)
+except ImportError:
+    pass
+
 
 # =========================================
 # UPLOAD STATIC FILES (for image preview & reports)
@@ -130,8 +138,16 @@ app.mount("/reports", StaticFiles(directory=REPORTS_DIR), name="reports")
 
 
 # =========================================
-# ROOT ENDPOINT
+# ROOT & HEALTH ENDPOINTS
 # =========================================
+
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy",
+        "service": "DELBot-API",
+    }
+
 
 @app.get("/")
 def root():
@@ -175,6 +191,8 @@ def root():
 
             "Thesis Title Generator",
 
+            "Workspace Sessions",
+
         ],
 
-    }
+    }

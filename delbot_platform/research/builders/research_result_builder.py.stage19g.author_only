@@ -1,0 +1,65 @@
+from __future__ import annotations
+
+from typing import Any
+
+from delbot_platform.knowledge.models.author import Author
+from delbot_platform.research.models.citation import Citation
+from delbot_platform.research.models.research_result import (
+    ResearchResult,
+)
+
+
+class ResearchResultBuilder:
+
+    def build(
+        self,
+        *,
+        answer: str,
+        citations: list[Citation],
+        research_state: dict[str, Any],
+    ) -> ResearchResult:
+
+        authors = self._collect_authors(
+            citations,
+        )
+
+        return ResearchResult(
+            answer=answer,
+            sources=citations,
+            authors=authors,
+            author_ids=[
+                author.author_id
+                for author in authors
+            ],
+            author_names=[
+                author.full_name
+                for author in authors
+            ],
+            research_state=research_state,
+        )
+
+    def _collect_authors(
+        self,
+        citations: list[Citation],
+    ) -> list[Author]:
+
+        authors: list[Author] = []
+
+        seen: set[str] = set()
+
+        for citation in citations:
+
+            for author in citation.authors:
+
+                if author.author_id in seen:
+                    continue
+
+                seen.add(
+                    author.author_id,
+                )
+
+                authors.append(
+                    author,
+                )
+
+        return authors

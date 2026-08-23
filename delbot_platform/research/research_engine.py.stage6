@@ -1,0 +1,95 @@
+from __future__ import annotations
+
+
+from delbot_platform.knowledge.rag.rag_engine import RAGEngine
+
+from delbot_platform.ai.client.llm_client import LLMClient
+
+from delbot_platform.research.prompt_builder import ResearchPromptBuilder
+
+from delbot_platform.research.memory.research_memory import ResearchMemory
+
+
+
+class ResearchEngine:
+
+
+    def __init__(self):
+
+        self.rag = RAGEngine()
+
+        self.llm = LLMClient()
+
+        self.builder = ResearchPromptBuilder()
+
+        self.memory = ResearchMemory()
+
+
+
+    def ask(
+        self,
+        session_id:str,
+        query:str,
+        history:list[dict]|None=None
+    ):
+
+
+        rag_result = self.rag.search(
+            query
+        )
+
+
+        context = rag_result.get(
+            "context",
+            ""
+        )
+
+
+        memory = self.memory.load(
+            session_id
+        )
+
+
+        messages = self.builder.build(
+
+            query=query,
+
+            context=context,
+
+            history=history,
+
+            previous=memory.get(
+                "last_answer",
+                ""
+            )
+
+        )
+
+
+        answer = self.llm.chat(
+            messages
+        )
+
+
+        self.memory.save(
+
+            session_id,
+
+            query,
+
+            answer
+
+        )
+
+
+        return {
+
+            "answer":answer,
+
+            "sources":
+            rag_result.get(
+                "citations",
+                []
+            )
+
+        }

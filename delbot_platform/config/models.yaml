@@ -1,0 +1,159 @@
+chat:
+
+  default: qwen3-32b
+
+  models:
+
+    qwen3-32b:
+
+      backend: vllm
+
+      path: models/chat/qwen3-32b
+
+      port: 8101
+
+      dtype: bfloat16
+
+      max_context: 32768
+
+      tensor_parallel_size: 2
+
+      gpu_memory_utilization: 0.92
+
+
+fast_chat:
+
+  default: qwen3-4b
+
+  models:
+
+    qwen3-4b:
+
+      backend: vllm
+
+      path: models/chat/qwen3-4b
+
+      port: 8102
+
+      dtype: bfloat16
+
+      max_context: 32768
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.80
+
+
+coding:
+
+  default: qwen3-coder
+
+  models:
+
+    qwen3-coder:
+
+      backend: vllm
+
+      path: models/coding/qwen3-coder
+
+      port: 8103
+
+      dtype: bfloat16
+
+      max_context: 32768
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.85
+
+
+vision:
+
+  default: qwen2.5-vl
+
+  models:
+
+    qwen2.5-vl:
+
+      backend: vllm
+
+      path: models/vision/qwen2.5-vl
+
+      port: 8104
+
+      dtype: bfloat16
+
+      max_context: 32768
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.85
+
+
+embedding:
+
+  default: bge-m3
+
+  models:
+
+    bge-m3:
+
+      backend: infinity
+
+      path: models/embedding/bge-m3
+
+      port: 8105
+
+      dtype: float16
+
+      max_context: 8192
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.30
+
+
+reranker:
+
+  default: bge-reranker-v2-m3
+
+  models:
+
+    bge-reranker-v2-m3:
+
+      backend: infinity
+
+      path: models/reranker/bge-reranker-v2-m3
+
+      port: 8106
+
+      dtype: float16
+
+      max_context: 8192
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.30
+
+
+ocr:
+
+  default: paddleocr
+
+  models:
+
+    paddleocr:
+
+      backend: native
+
+      path: models/ocr/paddleocr
+
+      port: 8107
+
+      dtype: float32
+
+      max_context: 0
+
+      tensor_parallel_size: 1
+
+      gpu_memory_utilization: 0.10

@@ -1,0 +1,260 @@
+from __future__ import annotations
+
+import json
+import uuid
+
+from copy import deepcopy
+from datetime import datetime
+from pathlib import Path
+
+from delbot_platform.research.state import ResearchState
+from delbot_platform.workspace.models import ChatMessage
+from delbot_platform.workspace.models import WorkspaceMetadata
+from delbot_platform.workspace.models import WorkspaceSession
+
+
+class SessionManager:
+
+    def __init__(
+        self,
+    ) -> None:
+
+        self.base_path = Path(
+            "runtime/workspace"
+        )
+
+        self.base_path.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        self.sessions: dict[
+            str,
+            WorkspaceSession,
+        ] = {}
+
+        self.load_all()
+
+    def _file(
+        self,
+        session_id: str,
+    ) -> Path:
+
+        return (
+            self.base_path
+            / f"{session_id}.json"
+        )
+
+    def load_all(
+        self,
+    ) -> None:
+
+        self.sessions.clear()
+
+        for file in self.base_path.glob(
+            "*.json"
+        ):
+
+            try:
+
+                data = json.loads(
+                    file.read_text(
+                        encoding="utf-8",
+                    )
+                )
+
+                session = (
+                    WorkspaceSession.from_dict(
+                        data
+                    )
+                )
+
+                self.sessions[
+                    session.session_id
+                ] = session
+
+            except Exception:
+                continue
+
+    def save(
+        self,
+        session: WorkspaceSession,
+    ) -> None:
+
+        session.updated_at = (
+            datetime.utcnow().isoformat()
+        )
+
+        self._file(
+            session.session_id
+        ).write_text(
+            json.dumps(
+                session.export(),
+                indent=4,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+    def create(
+        self,
+        title: str,
+    ) -> dict:
+
+        session_id = str(
+            uuid.uuid4()
+        )
+
+        state = ResearchState()
+
+        state.update_topic(
+            title
+        )
+
+        now = (
+            datetime.utcnow()
+            .isoformat()
+        )
+
+        session = WorkspaceSession(
+            session_id=session_id,
+            title=title,
+            messages=[],
+            metadata=WorkspaceMetadata(),
+            research_state=state,
+            created_at=now,
+            updated_at=now,
+        )
+
+        self.sessions[
+            session_id
+        ] = session
+
+        self.save(
+            session
+        )
+
+        return deepcopy(
+            session.export()
+        )
+
+    def get_object(
+        self,
+        session_id: str,
+    ) -> WorkspaceSession | None:
+
+        return self.sessions.get(
+            session_id
+        )
+
+    def get(
+        self,
+        session_id: str,
+    ) -> dict | None:
+
+        session = self.get_object(
+            session_id
+        )
+
+        if session is None:
+            return None
+
+        return session.export()
+
+    def exists(
+        self,
+        session_id: str,
+    ) -> bool:
+
+        return (
+            session_id
+            in self.sessions
+        )
+
+    def add_message(
+        self,
+        session_id: str,
+        role: str,
+        content: str,
+    ) -> dict | None:
+
+        session = self.get_object(
+            session_id
+        )
+
+        if session is None:
+            return None
+
+        session.messages.append(
+            ChatMessage(
+                role=role,
+                content=content,
+                timestamp=datetime.utcnow().isoformat(),
+            )
+        )
+
+        self.save(
+            session
+        )
+
+        return session.export()
+
+    def update_state(
+        self,
+        session_id: str,
+        key: str,
+        value,
+    ) -> dict | None:
+
+        session = self.get_object(
+            session_id
+        )
+
+        if session is None:
+            return None
+
+        session.research_state.update(
+            key,
+            value,
+        )
+
+        self.save(
+            session
+        )
+
+        return session.export()
+
+    def replace_state(
+        self,
+        session_id: str,
+        state: ResearchState,
+    ) -> dict | None:
+
+        session = self.get_object(
+            session_id
+        )
+
+        if session is None:
+            return None
+
+        session.research_state = state
+
+        self.save(
+            session
+        )
+
+        return session.export()
+
+    def get_state(
+        self,
+        session_id: str,
+    ) -> ResearchState | None:
+
+        session = self.get_object(
+            session_id
+        )
+
+        if session is None:
+            return None
+
+        return session.research_state

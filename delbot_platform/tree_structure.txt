@@ -1,0 +1,1127 @@
+/workspace/delbot/delbot_platform
+|-- __init__.py
+|-- __main__.py
+|-- __pycache__
+|   |-- __init__.cpython-310.pyc
+|   `-- __main__.cpython-310.pyc
+|-- ai
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   `-- __init__.cpython-310.pyc
+|   |-- client
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- embedding_client.cpython-310.pyc
+|   |   |   |-- llm_client.cpython-310.pyc
+|   |   |   `-- reranker_client.cpython-310.pyc
+|   |   |-- embedding_client.py
+|   |   |-- llm_client.py
+|   |   |-- reranker_client.py
+|   |   |-- reranker_client.py.stage10d
+|   |   `-- reranker_client.py.stage10d2
+|   |-- process
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- process_info.cpython-310.pyc
+|   |   |   |-- process_manager.cpython-310.pyc
+|   |   |   |-- process_monitor.cpython-310.pyc
+|   |   |   `-- process_registry.cpython-310.pyc
+|   |   |-- process_info.py
+|   |   |-- process_manager.py
+|   |   |-- process_monitor.py
+|   |   `-- process_registry.py
+|   |-- recovery
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- recovery.cpython-310.pyc
+|   |   `-- recovery.py
+|   |-- registry
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- exceptions.cpython-310.pyc
+|   |   |   |-- loader.cpython-310.pyc
+|   |   |   |-- model_backend.cpython-310.pyc
+|   |   |   |-- model_backend_config.cpython-310.pyc
+|   |   |   |-- model_category.cpython-310.pyc
+|   |   |   |-- model_info.cpython-310.pyc
+|   |   |   |-- model_runtime.cpython-310.pyc
+|   |   |   `-- registry.cpython-310.pyc
+|   |   |-- exceptions.py
+|   |   |-- loader.py
+|   |   |-- model_backend.py
+|   |   |-- model_backend_config.py
+|   |   |-- model_category.py
+|   |   |-- model_info.py
+|   |   |-- model_runtime.py
+|   |   `-- registry.py
+|   `-- runtime
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   |-- base.cpython-310.pyc
+|       |   |-- chat.cpython-310.pyc
+|       |   |-- coding.cpython-310.pyc
+|       |   |-- embedding.cpython-310.pyc
+|       |   |-- fast_chat.cpython-310.pyc
+|       |   |-- infinity.cpython-310.pyc
+|       |   |-- launcher.cpython-310.pyc
+|       |   |-- monitor.cpython-310.pyc
+|       |   |-- ocr.cpython-310.pyc
+|       |   |-- reranker.cpython-310.pyc
+|       |   |-- speech.cpython-310.pyc
+|       |   `-- vision.cpython-310.pyc
+|       |-- base.py
+|       |-- chat.py
+|       |-- coding.py
+|       |-- embedding.py
+|       |-- fast_chat.py
+|       |-- infinity.py
+|       |-- monitor.py
+|       |-- ocr.py
+|       |-- reranker.py
+|       |-- speech.py
+|       `-- vision.py
+|-- api
+|   |-- __init__.py
+|   |-- __main__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- __main__.cpython-310.pyc
+|   |   |-- app.cpython-310.pyc
+|   |   `-- main.cpython-310.pyc
+|   |-- app.py
+|   |-- main.py
+|   |-- research.py
+|   |-- routers
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- document.cpython-310.pyc
+|   |   |   |-- repository.cpython-310.pyc
+|   |   |   `-- research.cpython-310.pyc
+|   |   |-- document.py
+|   |   |-- repository.py
+|   |   `-- research.py
+|   |-- routes
+|   |   |-- __pycache__
+|   |   |   |-- document.cpython-310.pyc
+|   |   |   |-- research.cpython-310.pyc
+|   |   |   `-- workspace.cpython-310.pyc
+|   |   |-- document.py
+|   |   |-- research.py
+|   |   |-- research.py.backup
+|   |   |-- research.py.stage8c
+|   |   |-- workspace.py
+|   |   |-- workspace.py.stage10k
+|   |   |-- workspace.py.stage10k2
+|   |   |-- workspace.py.stage10l
+|   |   |-- workspace.py.stage10m
+|   |   |-- workspace.py.stage10q
+|   |   |-- workspace.py.stage10r
+|   |   |-- workspace.py.stage10s
+|   |   |-- workspace.py.stage11c
+|   |   `-- workspace.py.stage11d
+|   `-- schemas
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   |-- document.cpython-310.pyc
+|       |   `-- research.cpython-310.pyc
+|       |-- document.py
+|       `-- research.py
+|-- boot
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- boot_result.cpython-310.pyc
+|   |   |-- boot_state.cpython-310.pyc
+|   |   |-- service_boot.cpython-310.pyc
+|   |   |-- service_health.cpython-310.pyc
+|   |   `-- service_waiter.cpython-310.pyc
+|   |-- boot_result.py
+|   |-- boot_state.py
+|   |-- service_boot.py
+|   |-- service_health.py
+|   `-- service_waiter.py
+|-- config
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- loader.cpython-310.pyc
+|   |   |-- manager.cpython-310.pyc
+|   |   |-- models.cpython-310.pyc
+|   |   `-- validator.cpython-310.pyc
+|   |-- loader.py
+|   |-- logging.yaml
+|   |-- manager.py
+|   |-- models.py
+|   |-- models.yaml
+|   |-- repository.yaml
+|   |-- services.yaml
+|   |-- settings.yaml
+|   `-- validator.py
+|-- controller
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   `-- service_controller.cpython-310.pyc
+|   |-- service_controller.py
+|   `-- service_controller.py.bak
+|-- core
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- config_manager.cpython-310.pyc
+|   |   |-- environment.cpython-310.pyc
+|   |   |-- logger.cpython-310.pyc
+|   |   |-- path_manager.cpython-310.pyc
+|   |   |-- runtime_manager.cpython-310.pyc
+|   |   `-- service_registry.cpython-310.pyc
+|   |-- config_manager.py
+|   |-- environment.py
+|   |-- lifecycle
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- boot_policy.cpython-310.pyc
+|   |   |   |-- orchestrator.cpython-310.pyc
+|   |   |   |-- service_definition.cpython-310.pyc
+|   |   |   |-- service_dependency.cpython-310.pyc
+|   |   |   |-- service_event.cpython-310.pyc
+|   |   |   |-- service_loader.cpython-310.pyc
+|   |   |   |-- service_registry.cpython-310.pyc
+|   |   |   |-- service_state.cpython-310.pyc
+|   |   |   `-- state_machine.cpython-310.pyc
+|   |   |-- boot_policy.py
+|   |   |-- orchestrator.py
+|   |   |-- orchestrator.py.bak
+|   |   |-- service_definition.py
+|   |   |-- service_dependency.py
+|   |   |-- service_event.py
+|   |   |-- service_loader.py
+|   |   |-- service_registry.py
+|   |   |-- service_state.py
+|   |   `-- state_machine.py
+|   |-- logger.py
+|   |-- path_manager.py
+|   |-- runtime_manager.py
+|   `-- service_registry.py.bak
+|-- document
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- knowledge.cpython-310.pyc
+|   |   `-- pipeline.cpython-310.pyc
+|   |-- chunking
+|   |   |-- __pycache__
+|   |   |   `-- chunker.cpython-310.pyc
+|   |   `-- chunker.py
+|   |-- embedding
+|   |   |-- __pycache__
+|   |   |   `-- client.cpython-310.pyc
+|   |   `-- client.py
+|   |-- index
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- source_index.cpython-310.pyc
+|   |   `-- source_index.py
+|   |-- ingestion
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- qdrant_ingest.cpython-310.pyc
+|   |   `-- qdrant_ingest.py
+|   |-- knowledge.py
+|   |-- metadata
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- metadata_registry.cpython-310.pyc
+|   |   |   `-- pdf_metadata.cpython-310.pyc
+|   |   |-- metadata_loader.py
+|   |   |-- metadata_registry.py
+|   |   `-- pdf_metadata.py
+|   |-- parser
+|   |   |-- __pycache__
+|   |   |   `-- pdf_parser.cpython-310.pyc
+|   |   `-- pdf_parser.py
+|   |-- pipeline
+|   |   |-- __init__.py
+|   |   |-- __init__.py.stage8
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chunker.cpython-310.pyc
+|   |   |   |-- document_pipeline.cpython-310.pyc
+|   |   |   |-- ingest_pdf.cpython-310.pyc
+|   |   |   |-- ocr_loader.cpython-310.pyc
+|   |   |   `-- pdf_loader.cpython-310.pyc
+|   |   |-- chunker.py
+|   |   |-- document_pipeline.py
+|   |   |-- ingest_pdf.backup.py
+|   |   |-- ingest_pdf.py
+|   |   |-- ingest_pdf.py.bak
+|   |   |-- ocr_loader.py
+|   |   `-- pdf_loader.py
+|   |-- pipeline.py.stage8
+|   |-- retrieval
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- hybrid_retriever.cpython-310.pyc
+|   |   |   `-- metadata_retriever.cpython-310.pyc
+|   |   |-- hybrid_retriever.py
+|   |   `-- metadata_retriever.py
+|   `-- storage
+|       |-- __pycache__
+|       |   `-- qdrant.cpython-310.pyc
+|       `-- qdrant.py
+|-- documents
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   `-- __init__.cpython-310.pyc
+|   |-- chunking
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chunk.cpython-310.pyc
+|   |   |   `-- chunk_builder.cpython-310.pyc
+|   |   |-- chunk.py
+|   |   |-- chunk_builder.py
+|   |   `-- policy
+|   |       |-- __init__.py
+|   |       |-- __pycache__
+|   |       |   |-- __init__.cpython-310.pyc
+|   |       |   `-- policy.cpython-310.pyc
+|   |       `-- policy.py
+|   |-- classification
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- academic_heading.cpython-310.pyc
+|   |   |   |-- document_type.cpython-310.pyc
+|   |   |   |-- heading.cpython-310.pyc
+|   |   |   |-- heading_score.cpython-310.pyc
+|   |   |   |-- page_classifier.cpython-310.pyc
+|   |   |   |-- page_region.cpython-310.pyc
+|   |   |   `-- page_type.cpython-310.pyc
+|   |   |-- academic_heading.py
+|   |   |-- document_type.py
+|   |   |-- heading.py
+|   |   |-- heading_score.py
+|   |   |-- page_classifier.py
+|   |   |-- page_region.py
+|   |   `-- page_type.py
+|   |-- docs
+|   |   `-- ADR-0001-document-pipeline.md
+|   |-- embedding
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   `-- vector.cpython-310.pyc
+|   |   |-- base.py
+|   |   |-- factory
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   `-- provider.cpython-310.pyc
+|   |   |   `-- provider.py
+|   |   |-- pipeline
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   `-- pipeline.cpython-310.pyc
+|   |   |   `-- pipeline.py
+|   |   |-- providers
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   |-- gateway.cpython-310.pyc
+|   |   |   |   `-- local.cpython-310.pyc
+|   |   |   |-- gateway.py
+|   |   |   `-- local.py
+|   |   `-- vector.py
+|   |-- extraction
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- block.cpython-310.pyc
+|   |   |   `-- service.cpython-310.pyc
+|   |   |-- block.py
+|   |   `-- service.py
+|   |-- ingestion
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- repository_ingestor.cpython-310.pyc
+|   |   `-- repository_ingestor.py
+|   |-- loader
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- local.cpython-310.pyc
+|   |   |   `-- source.cpython-310.pyc
+|   |   |-- local.py
+|   |   |-- source.py
+|   |   `-- sources
+|   |       |-- __init__.py
+|   |       |-- __pycache__
+|   |       |   |-- __init__.cpython-310.pyc
+|   |       |   `-- local.cpython-310.pyc
+|   |       `-- local.py
+|   |-- metadata
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chunk_metadata.cpython-310.pyc
+|   |   |   `-- document_metadata.cpython-310.pyc
+|   |   |-- builder
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   |-- chunk.cpython-310.pyc
+|   |   |   |   `-- document.cpython-310.pyc
+|   |   |   |-- chunk.py
+|   |   |   `-- document.py
+|   |   |-- chunk_metadata.py
+|   |   `-- document_metadata.py
+|   |-- models
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- block.cpython-310.pyc
+|   |   |   |-- chunk.cpython-310.pyc
+|   |   |   |-- citation.cpython-310.pyc
+|   |   |   |-- document.cpython-310.pyc
+|   |   |   |-- metadata.cpython-310.pyc
+|   |   |   `-- page.cpython-310.pyc
+|   |   |-- block.py
+|   |   |-- chunk.py
+|   |   |-- citation.py
+|   |   |-- document.py
+|   |   |-- metadata.py
+|   |   `-- page.py
+|   |-- parser
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   `-- pdf.cpython-310.pyc
+|   |   |-- backend
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   |-- base.cpython-310.pyc
+|   |   |   |   `-- pymupdf.cpython-310.pyc
+|   |   |   |-- base.py
+|   |   |   `-- pymupdf.py
+|   |   |-- base.py
+|   |   `-- pdf.py
+|   |-- pipeline
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- indexing.cpython-310.pyc
+|   |   |   `-- preprocessing.cpython-310.pyc
+|   |   |-- indexing.py
+|   |   |-- models
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   `-- index_result.cpython-310.pyc
+|   |   |   `-- index_result.py
+|   |   `-- preprocessing.py
+|   |-- registry
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- document.cpython-310.pyc
+|   |   |   |-- factory.cpython-310.pyc
+|   |   |   |-- filesystem.cpython-310.pyc
+|   |   |   |-- manager.cpython-310.pyc
+|   |   |   |-- memory.cpython-310.pyc
+|   |   |   `-- repository.cpython-310.pyc
+|   |   |-- document.py
+|   |   |-- factory.py
+|   |   |-- filesystem.py
+|   |   |-- manager.py
+|   |   |-- memory.py
+|   |   `-- repository.py
+|   |-- services
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- indexing.cpython-310.pyc
+|   |   `-- indexing.py
+|   `-- structure
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   `-- __init__.cpython-310.pyc
+|       `-- section
+|           |-- __init__.py
+|           |-- __pycache__
+|           |   |-- __init__.cpython-310.pyc
+|           |   |-- builder.cpython-310.pyc
+|           |   `-- section.cpython-310.pyc
+|           |-- builder.py
+|           `-- section.py
+|-- gateway
+|   |-- __init__.py
+|   |-- __main__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- __main__.cpython-310.pyc
+|   |   |-- app.cpython-310.pyc
+|   |   |-- client.cpython-310.pyc
+|   |   |-- exceptions.cpython-310.pyc
+|   |   |-- request.cpython-310.pyc
+|   |   |-- response.cpython-310.pyc
+|   |   `-- router.cpython-310.pyc
+|   |-- app.py
+|   |-- client.py
+|   |-- exceptions.py
+|   |-- mapper
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chat.cpython-310.pyc
+|   |   |   `-- embedding.cpython-310.pyc
+|   |   |-- chat.py
+|   |   `-- embedding.py
+|   |-- openai
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chat.cpython-310.pyc
+|   |   |   `-- embedding.cpython-310.pyc
+|   |   |-- chat.py
+|   |   `-- embedding.py
+|   |-- providers
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   |-- factory.cpython-310.pyc
+|   |   |   |-- infinity.cpython-310.pyc
+|   |   |   |-- local.cpython-310.pyc
+|   |   |   `-- vllm.cpython-310.pyc
+|   |   |-- base.py
+|   |   |-- factory.py
+|   |   |-- infinity.py
+|   |   |-- local.py
+|   |   `-- vllm.py
+|   |-- request.py
+|   |-- response.py
+|   |-- router.py
+|   |-- routers
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- chat.cpython-310.pyc
+|   |   |   |-- embedding.cpython-310.pyc
+|   |   |   |-- health.cpython-310.pyc
+|   |   |   |-- models.cpython-310.pyc
+|   |   |   |-- reranker.cpython-310.pyc
+|   |   |   |-- research.cpython-310.pyc
+|   |   |   `-- vision.cpython-310.pyc
+|   |   |-- chat.py
+|   |   |-- embedding.py
+|   |   |-- health.py
+|   |   |-- models.py
+|   |   |-- reranker.py
+|   |   |-- research.py
+|   |   |-- v1
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   |-- chat.cpython-310.pyc
+|   |   |   |   `-- embedding.cpython-310.pyc
+|   |   |   |-- chat.py
+|   |   |   `-- embedding.py
+|   |   `-- vision.py
+|   |-- runtime
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- infinity.cpython-310.pyc
+|   |   |   `-- vllm.cpython-310.pyc
+|   |   |-- infinity.py
+|   |   `-- vllm.py
+|   `-- services
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   `-- gateway.cpython-310.pyc
+|       `-- gateway.py
+|-- knowledge
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   `-- __init__.cpython-310.pyc
+|   |-- citation
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- builder.cpython-310.pyc
+|   |   |   `-- source.cpython-310.pyc
+|   |   |-- builder.py
+|   |   `-- source.py
+|   |-- context
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- builder.cpython-310.pyc
+|   |   `-- builder.py
+|   |-- models
+|   |   |-- __init__.py
+|   |   |-- __init__.py.stage10b
+|   |   |-- __init__.py.stage10c1
+|   |   |-- __init__.py.stage10c2
+|   |   |-- __init__.py.stage10f
+|   |   |-- __init__.py.stage12a
+|   |   |-- __init__.py.stage12b
+|   |   |-- __init__.py.stage13a
+|   |   |-- __init__.py.stage13a2
+|   |   |-- __init__.py.stage14a
+|   |   |-- __init__.py.stage15a
+|   |   |-- __init__.py.stage15a2
+|   |   |-- __init__.py.stage16a
+|   |   |-- __init__.py.stage17a
+|   |   |-- __init__.py.stage17g
+|   |   |-- __init__.py.stage18a
+|   |   |-- __init__.py.stage19a
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- author.cpython-310.pyc
+|   |   |   |-- collection.cpython-310.pyc
+|   |   |   |-- document.cpython-310.pyc
+|   |   |   |-- document.py.cpython-310.pyc
+|   |   |   |-- document_chunk.cpython-310.pyc
+|   |   |   |-- knowledge_domain.cpython-310.pyc
+|   |   |   |-- knowledge_entity.cpython-310.pyc
+|   |   |   |-- knowledge_relation.cpython-310.pyc
+|   |   |   |-- knowledge_source.cpython-310.pyc
+|   |   |   |-- rag_result.cpython-310.pyc
+|   |   |   `-- repository.cpython-310.pyc
+|   |   |-- author.py
+|   |   |-- collection.py
+|   |   |-- collection.py.stage13a2
+|   |   |-- collection.py.stage14a
+|   |   |-- collection.py.stage15b
+|   |   |-- collection.py.stage16c
+|   |   |-- document.py
+|   |   |-- document.py.stage12b
+|   |   |-- document.py.stage13a
+|   |   |-- document.py.stage13a2
+|   |   |-- document.py.stage14a
+|   |   |-- document.py.stage15c
+|   |   |-- document.py.stage15d
+|   |   |-- document.py.stage16d
+|   |   |-- document.py.stage17b
+|   |   |-- document.py.stage18c
+|   |   |-- document.py.stage19b
+|   |   |-- document_chunk.py
+|   |   |-- document_chunk.py.bak
+|   |   |-- document_chunk.py.stage10b
+|   |   |-- document_chunk.py.stage10c1
+|   |   |-- document_chunk.py.stage10c2
+|   |   |-- document_chunk.py.stage10d2
+|   |   |-- document_chunk.py.stage10f
+|   |   |-- document_chunk.py.stage12b
+|   |   |-- document_chunk.py.stage13b
+|   |   |-- document_chunk.py.stage13b2
+|   |   |-- document_chunk.py.stage13b2clear
+|   |   |-- document_chunk.py.stage14b
+|   |   |-- document_chunk.py.stage14b2
+|   |   |-- document_chunk.py.stage15e
+|   |   |-- document_chunk.py.stage15e2
+|   |   |-- document_chunk.py.stage16e
+|   |   |-- document_chunk.py.stage16f
+|   |   |-- document_chunk.py.stage17c
+|   |   |-- document_chunk.py.stage18d
+|   |   |-- document_chunk.py.stage19c
+|   |   |-- document_chunk.py.stage19c.before_author
+|   |   |-- knowledge_domain.py
+|   |   |-- knowledge_domain.py.stage16b
+|   |   |-- knowledge_entity.py
+|   |   |-- knowledge_entity.py.stage18b
+|   |   |-- knowledge_relation.py
+|   |   |-- knowledge_source.py
+|   |   |-- knowledge_source.py.stage15a2
+|   |   |-- knowledge_source.py.stage16a
+|   |   |-- knowledge_source.py.stage16b
+|   |   |-- rag_result.py
+|   |   |-- rag_result.py.stage10g
+|   |   |-- rag_result.py.stage10h
+|   |   |-- rag_result.py.stage13d
+|   |   |-- rag_result.py.stage14e
+|   |   |-- rag_result.py.stage15g
+|   |   |-- rag_result.py.stage17e
+|   |   |-- rag_result.py.stage17e2
+|   |   |-- rag_result.py.stage17g
+|   |   |-- rag_result.py.stage17g_fix
+|   |   |-- repository.py
+|   |   |-- repository.py.stage15a
+|   |   |-- repository.py.stage15a2
+|   |   `-- repository.py.stage16b
+|   |-- rag
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- citation_builder.cpython-310.pyc
+|   |   |   |-- context_builder.cpython-310.pyc
+|   |   |   |-- pipeline.cpython-310.pyc
+|   |   |   |-- rag_engine.cpython-310.pyc
+|   |   |   |-- response.cpython-310.pyc
+|   |   |   `-- vector_retriever.cpython-310.pyc
+|   |   |-- citation_builder.py
+|   |   |-- citation_builder.py.stage10a
+|   |   |-- citation_builder.py.stage10b
+|   |   |-- citation_builder.py.stage10d
+|   |   |-- citation_builder.py.stage10e
+|   |   |-- citation_builder.py.stage12d
+|   |   |-- citation_builder.py.stage12d2
+|   |   |-- citation_builder.py.stage9b
+|   |   |-- citation_builder.py.stage9b2
+|   |   |-- context_builder.py
+|   |   |-- context_builder.py.stage10a
+|   |   |-- context_builder.py.stage10b
+|   |   |-- context_builder.py.stage10d
+|   |   |-- context_builder.py.stage10e
+|   |   |-- context_builder.py.stage12e
+|   |   |-- context_builder.py.stage12e2
+|   |   |-- llm
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   |-- generator.cpython-310.pyc
+|   |   |   |   `-- response.cpython-310.pyc
+|   |   |   |-- generator.py
+|   |   |   `-- response.py
+|   |   |-- models
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   `-- response.cpython-310.pyc
+|   |   |   `-- response.py
+|   |   |-- pipeline.py
+|   |   |-- rag_engine.py
+|   |   |-- rag_engine.py.stage10d
+|   |   |-- rag_engine.py.stage10f
+|   |   |-- rag_engine.py.stage12e
+|   |   |-- rag_engine.py.stage9b
+|   |   |-- research
+|   |   |   |-- __init__.py
+|   |   |   |-- __pycache__
+|   |   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |   `-- pipeline.cpython-310.pyc
+|   |   |   `-- pipeline.py
+|   |   |-- response.py
+|   |   |-- vector_retriever.py
+|   |   |-- vector_retriever.py.stage10a
+|   |   |-- vector_retriever.py.stage10b
+|   |   |-- vector_retriever.py.stage10c1
+|   |   `-- vector_retriever.py.stage10c2
+|   |-- rerank
+|   |   |-- __pycache__
+|   |   |   `-- reranker.cpython-310.pyc
+|   |   `-- reranker.py
+|   |-- reranking
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   |-- gateway.cpython-310.pyc
+|   |   |   |-- local.cpython-310.pyc
+|   |   |   `-- result.cpython-310.pyc
+|   |   |-- base.py
+|   |   |-- gateway.py
+|   |   |-- local.py
+|   |   `-- result.py
+|   |-- retrieval
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   |-- qdrant.cpython-310.pyc
+|   |   |   |-- result.cpython-310.pyc
+|   |   |   `-- retriever.cpython-310.pyc
+|   |   |-- base.py
+|   |   |-- metadata_retriever.py
+|   |   |-- qdrant.py
+|   |   |-- result.py
+|   |   `-- retriever.py
+|   `-- vector
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   `-- qdrant_store.cpython-310.pyc
+|       |-- models
+|       |   |-- __init__.py
+|       |   |-- __pycache__
+|       |   |   |-- __init__.cpython-310.pyc
+|       |   |   `-- record.cpython-310.pyc
+|       |   `-- record.py
+|       |-- qdrant
+|       |   |-- __init__.py
+|       |   |-- __pycache__
+|       |   |   |-- __init__.cpython-310.pyc
+|       |   |   `-- collection.cpython-310.pyc
+|       |   `-- collection.py
+|       |-- qdrant_store.py
+|       `-- repository
+|           |-- __init__.py
+|           |-- __pycache__
+|           |   |-- __init__.cpython-310.pyc
+|           |   |-- base.cpython-310.pyc
+|           |   |-- memory.cpython-310.pyc
+|           |   `-- qdrant.cpython-310.pyc
+|           |-- base.py
+|           |-- memory.py
+|           `-- qdrant.py
+|-- launcher
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- ai_runtime.cpython-310.pyc
+|   |   |-- base.cpython-310.pyc
+|   |   |-- factory.cpython-310.pyc
+|   |   |-- gateway_launcher.cpython-310.pyc
+|   |   |-- infinity.cpython-310.pyc
+|   |   |-- paddleocr.cpython-310.pyc
+|   |   |-- research_api_launcher.cpython-310.pyc
+|   |   |-- spec.cpython-310.pyc
+|   |   |-- vllm.cpython-310.pyc
+|   |   `-- whisper.cpython-310.pyc
+|   |-- ai_runtime.py
+|   |-- base.py
+|   |-- factory.py
+|   |-- factory.py.bak
+|   |-- gateway_launcher.py
+|   |-- infinity.py
+|   |-- paddleocr.py
+|   |-- research_api_launcher.py
+|   |-- spec.py
+|   |-- vllm.py
+|   `-- whisper.py
+|-- orchestrator
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- health.cpython-310.pyc
+|   |   |-- shutdown.cpython-310.pyc
+|   |   |-- startup.cpython-310.pyc
+|   |   `-- status.cpython-310.pyc
+|   |-- health.py
+|   |-- services
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- embedding.cpython-310.pyc
+|   |   |   |-- gateway.cpython-310.pyc
+|   |   |   |-- ocr.cpython-310.pyc
+|   |   |   |-- reranker.cpython-310.pyc
+|   |   |   |-- speech.cpython-310.pyc
+|   |   |   `-- vision.cpython-310.pyc
+|   |   |-- embedding.py
+|   |   |-- gateway.py
+|   |   |-- ocr.py
+|   |   |-- reranker.py
+|   |   |-- speech.py
+|   |   `-- vision.py
+|   |-- shutdown.py
+|   |-- startup.py
+|   |-- startup.py.bak
+|   `-- status.py
+|-- repository
+|   |-- __init__.py
+|   |-- __init__.py.broken_router_export
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   `-- service.cpython-310.pyc
+|   |-- discovery
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   |-- gitlab.cpython-310.pyc
+|   |   |   |-- http.cpython-310.pyc
+|   |   |   `-- service.cpython-310.pyc
+|   |   |-- base.py
+|   |   |-- gitlab.py
+|   |   |-- http.py
+|   |   `-- service.py
+|   |-- download
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- downloader.cpython-310.pyc
+|   |   |   |-- pdf_downloader.cpython-310.pyc
+|   |   |   `-- result.cpython-310.pyc
+|   |   |-- downloader.py
+|   |   |-- pdf_downloader.py
+|   |   `-- result.py
+|   |-- ingestion
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- dataset_loader.cpython-310.pyc
+|   |   `-- dataset_loader.py
+|   |-- integration
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- document_loader.cpython-310.pyc
+|   |   `-- document_loader.py
+|   |-- manifest
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- pdf_manifest.cpython-310.pyc
+|   |   `-- pdf_manifest.py
+|   |-- models
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- repository_item.cpython-310.pyc
+|   |   `-- repository_item.py
+|   |-- providers
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- base.cpython-310.pyc
+|   |   |   `-- dspace.cpython-310.pyc
+|   |   |-- base.py
+|   |   `-- dspace.py
+|   |-- resolver
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- dspace_bitstream.cpython-310.pyc
+|   |   |   |-- dspace_html.cpython-310.pyc
+|   |   |   |-- local_pdf.cpython-310.pyc
+|   |   |   `-- url_normalizer.cpython-310.pyc
+|   |   |-- dspace_bitstream.py
+|   |   |-- dspace_html.py
+|   |   |-- local_pdf.py
+|   |   `-- url_normalizer.py
+|   `-- service.py
+|-- repository_data
+|   |-- metadata
+|   |   `-- pdf_index.json
+|   `-- processed
+|       |-- documents
+|       `-- metadata
+|-- research
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- prompt_builder.cpython-310.pyc
+|   |   `-- research_engine.cpython-310.pyc
+|   |-- context
+|   |   `-- document_context.py
+|   |-- embedding
+|   |   |-- __pycache__
+|   |   |   `-- query.cpython-310.pyc
+|   |   `-- query.py
+|   |-- llm
+|   |   |-- __pycache__
+|   |   |   |-- chat_client.cpython-310.pyc
+|   |   |   `-- client.cpython-310.pyc
+|   |   |-- chat_client.py
+|   |   `-- client.py
+|   |-- memory
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   `-- research_memory.cpython-310.pyc
+|   |   |-- research_memory.py
+|   |   |-- research_memory.py.bak
+|   |   |-- research_memory.py.stage2
+|   |   `-- research_memory.py.step1
+|   |-- models
+|   |   |-- __init__.py
+|   |   |-- __init__.py.stage10j
+|   |   |-- __init__.py.stage10k
+|   |   |-- __init__.py.stage10m
+|   |   |-- __init__.py.stage12c
+|   |   |-- __init__.py.stage14d
+|   |   |-- __init__.py.stage14d2
+|   |   |-- __init__.py.stage15h
+|   |   |-- __init__.py.stage16h
+|   |   |-- __init__.py.stage17f
+|   |   |-- __init__.py.stage17f2
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- citation.cpython-310.pyc
+|   |   |   `-- research_result.cpython-310.pyc
+|   |   |-- citation.py
+|   |   |-- citation.py.stage12c
+|   |   |-- citation.py.stage13c
+|   |   |-- citation.py.stage14c
+|   |   |-- citation.py.stage14c2
+|   |   |-- citation.py.stage15f
+|   |   |-- citation.py.stage16g
+|   |   |-- citation.py.stage17d
+|   |   |-- citation.py.stage17d2
+|   |   |-- citation.py.stage18e
+|   |   |-- citation.py.stage19d
+|   |   |-- citation.py.stage19d.before_author
+|   |   |-- research_result.py
+|   |   |-- research_result.py.stage10k
+|   |   |-- research_result.py.stage10l
+|   |   |-- research_result.py.stage10m
+|   |   |-- research_result.py.stage10p
+|   |   |-- research_result.py.stage10q
+|   |   |-- research_result.py.stage10r
+|   |   |-- research_result.py.stage10s
+|   |   |-- research_result.py.stage10t
+|   |   |-- research_result.py.stage13e
+|   |   |-- research_result.py.stage13e2
+|   |   |-- research_result.py.stage14d
+|   |   |-- research_result.py.stage14d2
+|   |   |-- research_result.py.stage15h
+|   |   |-- research_result.py.stage16h
+|   |   |-- research_result.py.stage17f
+|   |   |-- research_result.py.stage17f2
+|   |   |-- research_result.py.stage19f
+|   |   `-- research_result.py.stage19f.before_author
+|   |-- prompt_builder.py
+|   |-- prompt_builder.py.bak
+|   |-- prompt_builder.py.stage4
+|   |-- prompt_builder.py.step1
+|   |-- rag
+|   |   |-- __pycache__
+|   |   |   `-- context.cpython-310.pyc
+|   |   `-- context.py
+|   |-- research_engine.py
+|   |-- research_engine.py.bak
+|   |-- research_engine.py.stage10g
+|   |-- research_engine.py.stage10h
+|   |-- research_engine.py.stage10j
+|   |-- research_engine.py.stage10k
+|   |-- research_engine.py.stage10k2
+|   |-- research_engine.py.stage10l
+|   |-- research_engine.py.stage10m
+|   |-- research_engine.py.stage10q
+|   |-- research_engine.py.stage10r
+|   |-- research_engine.py.stage10s
+|   |-- research_engine.py.stage11f
+|   |-- research_engine.py.stage11g
+|   |-- research_engine.py.stage11k
+|   |-- research_engine.py.stage6
+|   |-- research_engine.py.stage8b
+|   |-- research_engine.py.stage9c
+|   |-- research_engine.py.stage9c1
+|   |-- research_engine.py.stage9c2
+|   |-- research_engine.py.step1
+|   |-- retrieval
+|   |   |-- __pycache__
+|   |   |   `-- qdrant_retriever.cpython-310.pyc
+|   |   `-- qdrant_retriever.py
+|   |-- services
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   |   |-- __init__.cpython-310.pyc
+|   |   |   |-- answer.cpython-310.pyc
+|   |   |   |-- rag.cpython-310.pyc
+|   |   |   `-- research.cpython-310.pyc
+|   |   |-- answer.py
+|   |   |-- rag.py
+|   |   `-- research.py
+|   `-- state
+|       |-- __init__.py
+|       |-- __init__.py.stage10o
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   `-- research_state.cpython-310.pyc
+|       |-- research_state.py
+|       |-- research_state.py.bak
+|       |-- research_state.py.stage1
+|       |-- research_state.py.stage10i
+|       |-- research_state.py.stage10n
+|       |-- research_state.py.stage10s
+|       |-- research_state.py.stage10t
+|       |-- research_state.py.stage9c
+|       |-- research_state.py.stage9c1
+|       |-- research_state.py.stage9c2
+|       `-- research_state.py.step1
+|-- services.before_delete
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   |-- chat_service.cpython-310.pyc
+|   |   |-- embedding_service.cpython-310.pyc
+|   |   |-- gateway_service.cpython-310.pyc
+|   |   |-- ocr_service.cpython-310.pyc
+|   |   |-- reranker_service.cpython-310.pyc
+|   |   |-- research_api_service.cpython-310.pyc
+|   |   |-- service.cpython-310.pyc
+|   |   |-- service_registry.cpython-310.pyc
+|   |   |-- speech_service.cpython-310.pyc
+|   |   `-- vision_service.cpython-310.pyc
+|   |-- chat_service.py
+|   |-- embedding_service.py
+|   |-- gateway_service.py
+|   |-- ocr_service.py
+|   |-- reranker_service.py
+|   |-- research_api_service.py
+|   |-- service.py
+|   |-- service_registry.py
+|   |-- speech_service.py
+|   `-- vision_service.py
+|-- tree_structure.txt
+|-- vectors
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-310.pyc
+|   |   `-- models.cpython-310.pyc
+|   `-- models.py
+|-- vectorstore
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   `-- __init__.cpython-310.pyc
+|   `-- qdrant
+|       |-- __init__.py
+|       |-- __pycache__
+|       |   |-- __init__.cpython-310.pyc
+|       |   |-- client.cpython-310.pyc
+|       |   |-- repository.cpython-310.pyc
+|       |   `-- singleton.cpython-310.pyc
+|       |-- client.py
+|       |-- repository.py
+|       `-- singleton.py
+`-- workspace
+    |-- __pycache__
+    |   |-- models.cpython-310.pyc
+    |   |-- session_manager.cpython-310.pyc
+    |   `-- storage.cpython-310.pyc
+    |-- models
+    |   |-- __init__.py
+    |   |-- __init__.py.stage11h
+    |   |-- __init__.py.stage11i
+    |   |-- __pycache__
+    |   |   |-- __init__.cpython-310.pyc
+    |   |   |-- chat_message.cpython-310.pyc
+    |   |   |-- workspace_metadata.cpython-310.pyc
+    |   |   `-- workspace_session.cpython-310.pyc
+    |   |-- chat_message.py
+    |   |-- workspace_metadata.py
+    |   |-- workspace_session.py
+    |   |-- workspace_session.py.stage11j
+    |   `-- workspace_session.py.stage11j2
+    |-- models.py
+    |-- session_manager.py
+    |-- session_manager.py.bak
+    |-- session_manager.py.stage10t
+    |-- session_manager.py.stage11b
+    |-- session_manager.py.stage11e
+    |-- session_manager.py.stage11j
+    |-- session_manager.py.stage11j2
+    |-- session_manager.py.stage8b
+    |-- session_manager.py.step1
+    `-- storage.py

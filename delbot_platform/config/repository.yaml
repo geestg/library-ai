@@ -1,0 +1,7 @@
+repositories:
+
+  itdel:
+
+    username: "username_repository"
+
+    password: "password_repository"

@@ -1,0 +1,5 @@
+from delbot_platform.document.pipeline import DocumentPipeline
+
+__all__ = [
+    "DocumentPipeline",
+]

@@ -1,0 +1,55 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from dataclasses import field
+from typing import Any
+
+
+@dataclass(slots=True)
+class Repository:
+
+    repository_id: str = ""
+
+    name: str = ""
+
+    root_path: str = ""
+
+    metadata: dict[str, Any] = field(
+        default_factory=dict,
+    )
+
+    def export(
+        self,
+    ) -> dict[str, Any]:
+
+        return {
+            "repository_id": self.repository_id,
+            "name": self.name,
+            "root_path": self.root_path,
+            "metadata": self.metadata,
+        }
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+    ) -> "Repository":
+
+        return cls(
+            repository_id=data.get(
+                "repository_id",
+                "",
+            ),
+            name=data.get(
+                "name",
+                "",
+            ),
+            root_path=data.get(
+                "root_path",
+                "",
+            ),
+            metadata=data.get(
+                "metadata",
+                {},
+            ),
+        )

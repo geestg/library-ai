@@ -1,0 +1,21 @@
+from __future__ import annotations
+
+from abc import ABC
+from abc import abstractmethod
+from pathlib import Path
+
+from delbot_platform.knowledge.models.document import Document
+
+
+class DocumentParser(ABC):
+
+    @abstractmethod
+    def parse(
+        self,
+        source: Path,
+    ) -> Document:
+        """
+        Parse a document into the DELBot Document model.
+        """
+
+        raise NotImplementedError
