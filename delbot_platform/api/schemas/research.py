@@ -1,43 +1,10 @@
-from __future__ import annotations
+from typing import List, Optional
+from pydantic import BaseModel
 
 
-from pydantic import BaseModel, Field
-
-
-
-class ResearchAnswerRequest(
-    BaseModel
-):
-
-
-    question: str = Field(
-        min_length=1,
-    )
-
-
-
-class CitationResponse(
-    BaseModel
-):
-
-
-    document_id: str
-
-    source: str
-
-    section: str
-
-    page_start: int | None = None
-
-    page_end: int | None = None
-
-
-
-class ResearchAnswerResponse(
-    BaseModel
-):
-
-
-    answer: str
-
-    citations: list[CitationResponse]
+class ResearchRequest(BaseModel):
+    query: str
+    session_id: Optional[str] = "default_session"
+    top_k: int = 10
+    mode: str = "analysis"
+    active_document_ids: Optional[List[str]] = []
