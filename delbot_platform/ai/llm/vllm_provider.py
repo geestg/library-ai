@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import socket
 import urllib.parse
@@ -16,18 +16,12 @@ class VLLMProvider(BaseLLMProvider):
         actual_base_url = base_url or settings.VLLM_BASE_URL
         actual_api_key = api_key or settings.VLLM_API_KEY or "EMPTY"
 
-        # Resolve host.docker.internal to 127.0.0.1 if running directly on host
-        if "host.docker.internal" in actual_base_url:
-            parsed = urllib.parse.urlparse(actual_base_url)
-            port = parsed.port or 11435
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(0.5)
-            try:
-                s.connect(("host.docker.internal", port))
-                s.close()
-            except Exception:
-                actual_base_url = actual_base_url.replace("host.docker.internal", "127.0.0.1")
-                print(f"[{name}] 'host.docker.internal' unreachable. Switched base_url to '{actual_base_url}'")
+        # If running directly on Windows host (not in Docker), use 127.0.0.1
+        # If running inside Docker container, keep host.docker.internal to reach Windows host tunnel
+        import os
+        is_in_docker = os.path.exists("/.dockerenv") or os.environ.get("DOCKER_CONTAINER") == "1"
+        if not is_in_docker and "host.docker.internal" in actual_base_url:
+            actual_base_url = actual_base_url.replace("host.docker.internal", "127.0.0.1")
 
         print(f"[{name}] Initializing provider -> {actual_base_url}")
 
