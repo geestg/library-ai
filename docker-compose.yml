@@ -1,0 +1,116 @@
+﻿version: "3.9"
+
+services:
+
+  # =========================================
+  # POSTGRES DATABASE
+  # =========================================
+  postgres:
+    image: postgres:16
+    container_name: delbot_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-libraryai}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =========================================
+  # QDRANT VECTOR DATABASE
+  # =========================================
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: delbot_qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+
+  # =========================================
+  # MINIO OBJECT STORAGE
+  # =========================================
+  minio:
+    image: minio/minio:latest
+    container_name: delbot_minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./minio_data:/data
+
+  # =========================================
+  # DELBOT UNIFIED BACKEND API
+  # =========================================
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: delbot_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      PYTHONUNBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONPATH: /app
+      QDRANT_HOST: qdrant
+      QDRANT_PORT: 6333
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      MINIO_HOST: minio
+      MINIO_PORT: 9000
+    volumes:
+      - ./delbot_platform:/app/delbot_platform
+      - ./datasets:/app/datasets
+      - ./uploads:/tmp/uploads
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      minio:
+        condition: service_started
+    command: >
+      uvicorn delbot_platform.api.app:app
+      --host 0.0.0.0
+      --port 8000
+      --reload
+
+  # =========================================
+  # FRONTEND (REACT / VITE)
+  # =========================================
+  frontend:
+    build:
+      context: ./frontend
+    container_name: delbot_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: >
+      npm run dev -- --host
