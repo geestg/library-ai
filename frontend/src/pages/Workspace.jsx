@@ -116,8 +116,12 @@ export default function Workspace() {
       setSessionId(targetSessionId);
       const sessionData = await getSession(targetSessionId);
 
-      if (sessionData && sessionData.conversation) {
-        const rawMessages = sessionData.conversation.messages || [];
+      if (sessionData) {
+        const rawMessages =
+          sessionData.history ||
+          sessionData.conversation?.messages ||
+          sessionData.messages ||
+          [];
         const formattedMessages = rawMessages.map((msg, idx) => ({
           id: `${Date.now()}-${idx}`,
           role: msg.role,
@@ -125,6 +129,8 @@ export default function Workspace() {
           citations: msg.citations || [],
           sources: msg.sources || [],
         }));
+
+        setMessages(formattedMessages);
 
         // Extract sources from execution session, session state, or from assistant messages
         const execCtx = sessionData.execution?.serialized_context;

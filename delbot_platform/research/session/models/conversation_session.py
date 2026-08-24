@@ -159,6 +159,21 @@ class ConversationSession:
         self.messages.clear()
 
     # =====================================
+    # EXPORT
+    # =====================================
+
+    def export(self) -> list[dict]:
+        return [
+            {
+                "role": message.role,
+                "content": message.content,
+                "citations": getattr(message, "citations", []) or [],
+                "sources": getattr(message, "sources", []) or [],
+            }
+            for message in self.messages
+        ]
+
+    # =====================================
     # SERIALIZE
     # =====================================
 

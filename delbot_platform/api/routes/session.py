@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -62,32 +62,48 @@ def ask_workspace(session_id: str, body: AskRequest):
 # =========================================
 
 @router.post("/session/create", tags=["Session"])
-def create_academic_session():
-    session = academic_session_mgr.create_session()
-    return {"session_id": session.session_id, "created_at": session.created_at}
+def create_academic_session(body: Optional[CreateSessionRequest] = None):
+    session = academic_session_mgr.create()
+    return {"session_id": session.session_id}
 
 
 @router.get("/session/history", tags=["Session"])
-def get_session_history(session_id: str):
-    session = academic_session_mgr.get_session(session_id)
-    if not session:
-        return {"session_id": session_id, "history": []}
-    return {
-        "session_id": session_id,
-        "history": session.conversation.export_messages(),
-    }
+def get_session_history(session_id: Optional[str] = None):
+    if session_id:
+        session = academic_session_mgr.get(session_id)
+        if not session or not session.conversation:
+            return {"session_id": session_id, "history": []}
+        return {
+            "session_id": session_id,
+            "history": session.conversation.export(),
+        }
+    
+    history_list = []
+    for sid, s in academic_session_mgr._sessions.items():
+        msgs = s.conversation.export() if s.conversation else []
+        title = msgs[0].get("content", "Research Session")[:40] if msgs else "Research Workspace"
+        history_list.append({
+            "session_id": sid,
+            "title": title,
+            "message_count": len(msgs),
+            "messages": msgs
+        })
+    return history_list
 
 
 @router.get("/session/{session_id}", tags=["Session"])
 def get_academic_session(session_id: str):
-    session = academic_session_mgr.get_session(session_id)
+    session = academic_session_mgr.get(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+    msgs = session.conversation.export() if session.conversation else []
     return {
         "session_id": session.session_id,
-        "created_at": session.created_at,
-        "history": session.conversation.export_messages(),
-        "active_documents": list(session.active_documents),
+        "history": msgs,
+        "conversation": {
+            "messages": msgs
+        },
+        "active_documents": list(session.documents.documents.keys()) if session.documents else [],
     }
 
 
