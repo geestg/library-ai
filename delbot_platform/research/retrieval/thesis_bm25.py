@@ -28,11 +28,12 @@ def initialize_thesis_bm25():
         return
     print("[THESIS BM25] Initializing BM25 index for thesis dataset...")
     
+    documents = []
+    payload_store = []
+
+    # 1. Coba ambil dari Qdrant
     try:
         offset = None
-        documents = []
-        payload_store = []
-
         while True:
             response = client.scroll(
                 collection_name=THESIS_DATASET_COLLECTION,
@@ -68,20 +69,66 @@ def initialize_thesis_bm25():
 
             if offset is None:
                 break
+    except Exception as qdrant_err:
+        print(f"[THESIS BM25] Qdrant scroll unavailable ({qdrant_err}). Falling back to local JSON datasets.")
 
-        print(f"[THESIS BM25] Loaded {len(documents)} document chunks for BM25 indexing.")
+    # 2. Fallback jika dokumen kosong (Qdrant offline/kosong)
+    if not documents:
+        import json
+        import os
+        dataset_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../workflows/dataset"))
+        candidates = [
+            os.path.join(dataset_dir, "skripsi_dataset_enriched.json"),
+            os.path.join(dataset_dir, "skripsi_dataset.json"),
+            os.path.join(dataset_dir, "skripsi_dataset_trpl.json"),
+        ]
+        print(f"[THESIS BM25] Qdrant empty. Loading directly from dataset files in: {dataset_dir}")
+        for json_path in candidates:
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if isinstance(data, list):
+                            for item in data:
+                                title = item.get("title", "")
+                                content = item.get("content", {})
+                                abstract = content.get("abstract", "") if isinstance(content, dict) else item.get("abstract", "")
+                                bab1 = content.get("bab1", "") if isinstance(content, dict) else ""
+                                bab3 = content.get("bab3", "") if isinstance(content, dict) else ""
+                                bab5 = content.get("bab5", "") if isinstance(content, dict) else ""
+                                chunk = f"{abstract} {bab1[:500]} {bab3[:500]} {bab5[:500]}".strip()
+                                prodi = item.get("prodi", "")
+                                author = item.get("author", "")
+                                year = item.get("year", "")
+                                url = item.get("url", "")
+                                
+                                text = f"{title}\n{abstract}\n{chunk}\n{prodi}"
+                                if text.strip():
+                                    documents.append(text)
+                                    payload_store.append({
+                                        "title": title,
+                                        "author": author,
+                                        "year": year,
+                                        "prodi": prodi,
+                                        "abstract": abstract,
+                                        "chunk": chunk,
+                                        "url": url,
+                                        "source_bab": "bab1-3-5"
+                                    })
+                except Exception as err:
+                    print(f"[THESIS BM25] JSON fallback error for {json_path}: {err}")
 
-        if documents:
-            tokenized_corpus = [
-                doc.lower().split()
-                for doc in documents
-            ]
-            bm25 = BM25Okapi(tokenized_corpus)
-            print("[THESIS BM25] BM25 indexing complete!")
+    print(f"[THESIS BM25] Loaded {len(documents)} document chunks for BM25 indexing.")
 
-    except Exception as e:
-        print(f"[THESIS BM25 ERROR] Failed to initialize BM25: {e}")
-        bm25 = None
+    if documents:
+        tokenized_corpus = [
+            doc.lower().split()
+            for doc in documents
+        ]
+        bm25 = BM25Okapi(tokenized_corpus)
+        print(f"[THESIS BM25] BM25 indexing complete! Indexed {len(documents)} theses.")
+    else:
+        print("[THESIS BM25 WARNING] No documents found to index.")
 
 
 # =====================================

@@ -38,21 +38,53 @@ def thesis_vector_search(
                 ]
             )
 
-        response = client.query_points(
-            collection_name=THESIS_DATASET_COLLECTION,
-            query=embedding,
-            limit=limit,
-            offset=offset,
-            query_filter=qdrant_filter,
-            with_payload=True
-        )
-        results = []
+        response = None
+        try:
+            response = client.query_points(
+                collection_name=THESIS_DATASET_COLLECTION,
+                query=embedding,
+                limit=limit,
+                offset=offset,
+                query_filter=qdrant_filter,
+                with_payload=True
+            )
+        except Exception as filter_err:
+            print(f"[THESIS_VECTOR_SEARCH] Filtered query failed ({filter_err}). Retrying without filter...")
+            response = client.query_points(
+                collection_name=THESIS_DATASET_COLLECTION,
+                query=embedding,
+                limit=limit,
+                offset=offset,
+                with_payload=True
+            )
 
-        for point in response.points:
-            results.append({
-                "payload": point.payload,
-                "score": float(point.score)
-            })
+        results = []
+        if response and hasattr(response, "points"):
+            for point in response.points:
+                results.append({
+                    "payload": point.payload,
+                    "score": float(point.score)
+                })
+
+        # Jika query filter menghasilkan 0 hasil, fallback cari secara terbuka
+        if not results and qdrant_filter is not None:
+            try:
+                open_resp = client.query_points(
+                    collection_name=THESIS_DATASET_COLLECTION,
+                    query=embedding,
+                    limit=limit,
+                    offset=offset,
+                    with_payload=True
+                )
+                if open_resp and hasattr(open_resp, "points"):
+                    for point in open_resp.points:
+                        results.append({
+                            "payload": point.payload,
+                            "score": float(point.score)
+                        })
+            except Exception as e:
+                print(f"[THESIS_VECTOR_SEARCH] Open fallback query error: {e}")
+
         return results
     except Exception as e:
         print("[THESIS_VECTOR_SEARCH] Vector retrieval failed, falling back to BM25-only retrieval.")
