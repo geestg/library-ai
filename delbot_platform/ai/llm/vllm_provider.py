@@ -28,7 +28,7 @@ class VLLMProvider(BaseLLMProvider):
         self.client = OpenAI(
             api_key=actual_api_key,
             base_url=actual_base_url,
-            timeout=20.0,
+            timeout=120.0,
         )
 
     def generate(
@@ -51,7 +51,7 @@ class VLLMProvider(BaseLLMProvider):
                 model=model,
                 messages=[{"role": "user", "content": content}],
                 max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
-                timeout=30.0
+                timeout=120.0
             )
             return response.choices[0].message.content
         except Exception as e:
