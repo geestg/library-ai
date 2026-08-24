@@ -29,31 +29,46 @@
 }
 
 .message-content h1 {
-  font-size: 28px;
+  font-size: 20px;
+  font-weight: 650;
+  color: #0f172a;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .message-content h2 {
-  font-size: 22px;
+  font-size: 17.5px;
+  font-weight: 650;
+  color: #0f172a;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .message-content h3 {
   font-size: 15.5px;
-  font-weight: 700;
-  color: #1e293b;
-  background: #f8fafc;
-  border-left: 3.5px solid #2563eb;
-  border-radius: 6px;
-  padding: 9px 13px;
-  margin-top: 22px;
-  margin-bottom: 12px;
-  border-top: 1px solid #f1f5f9;
-  border-right: 1px solid #f1f5f9;
-  border-bottom: 1px solid #f1f5f9;
-  line-height: 1.4;
+  font-weight: 650;
+  color: #0f172a;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1.5;
 }
 
 .message-content h4 {
   font-size: 14.5px;
+  font-weight: 600;
+  color: #0f172a;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /* ====================================
@@ -104,16 +119,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: #2563eb;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  padding: 1px 6px;
-  border-radius: 5px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0 4px;
+  border-radius: 4px;
   margin: 0 2px;
   text-decoration: none;
-  vertical-align: middle;
+  vertical-align: baseline;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -122,33 +137,36 @@
   background: #2563eb;
   color: #ffffff;
   border-color: #2563eb;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
 }
 
 /* ====================================
    LISTS & SECTIONS
 ==================================== */
 
-.message-content ul,
+.message-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
 .message-content ol {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 16px;
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-top: 6px;
+  margin-bottom: 14px;
 }
 
 .message-content li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.7;
   color: #334155;
-  padding: 2px 0;
   font-size: 14.5px;
 }
 
 .message-content li strong {
   color: #0f172a;
-  font-weight: 650;
-  margin-right: 4px;
+  font-weight: 600;
 }
 
 /* ====================================
@@ -156,13 +174,13 @@
 ==================================== */
 
 .message-content blockquote {
-  margin: 16px 0;
-  padding: 10px 16px;
-  border-left: 3px solid var(--accent-primary);
-  background: rgba(59, 89, 246, 0.04);
-  border-radius: 0 8px 8px 0;
-  color: var(--text-secondary);
-  font-style: italic;
+  margin: 14px 0;
+  padding: 8px 14px;
+  border-left: 3px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 0 4px 4px 0;
+  color: #475569;
+  font-style: normal;
 }
 
 /* ====================================
@@ -172,18 +190,18 @@
 .message-content code {
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
-  color: #0284c7; /* Clean, subtle sky-blue for difficulty badges */
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 5px;
+  color: #475569;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 4px;
   font-size: 12px;
-  font-family: "JetBrains Mono", Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .message-content hr {
-  margin: 22px 0;
+  margin: 18px 0;
   border: none;
-  border-top: 1px dashed #cbd5e1;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* ====================================
