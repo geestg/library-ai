@@ -33,36 +33,74 @@ def initialize_bm25():
     _bm25_documents = []
     _bm25_payloads = []
 
-    # 1. Coba ambil dari Qdrant
+    # 1. Coba ambil langsung dari PostgreSQL Server (Port 5432)
     try:
-        response = client.scroll(
-            collection_name=LIBRARY_BOOKS_COLLECTION,
-            limit=10000,
-            with_payload=True,
-            with_vectors=False,
+        import psycopg2
+        import os
+        pg_conn = psycopg2.connect(
+            host=os.getenv("POSTGRES_HOST", "127.0.0.1"),
+            database=os.getenv("POSTGRES_DB", "libraryai"),
+            user=os.getenv("POSTGRES_USER", "libraryai"),
+            password=os.getenv("POSTGRES_PASSWORD", "libraryai123"),
+            port=os.getenv("POSTGRES_PORT", "5432")
         )
+        pg_cur = pg_conn.cursor()
+        pg_cur.execute("SELECT id, title, author, publisher, published_year, subject, classification_number, location, isbn FROM books;")
+        rows = pg_cur.fetchall()
+        for r in rows:
+            payload = {
+                "id": r[0],
+                "title": r[1] or "",
+                "author": r[2] or "",
+                "publisher": r[3] or "",
+                "year": str(r[4]) if r[4] else "",
+                "published_at": str(r[4]) if r[4] else "",
+                "subject": r[5] or "",
+                "classification_number": r[6] or "",
+                "location": r[7] or "",
+                "isbn": r[8] or "",
+                "description": r[5] or ""
+            }
+            text = f"{payload['title']} {payload['subject']} {payload['author']} {payload['publisher']}"
+            if text.strip():
+                _bm25_documents.append(text)
+                _bm25_payloads.append(payload)
+        pg_conn.close()
+        print(f"[LIBRARY BM25] Successfully loaded {len(_bm25_documents)} books from PostgreSQL database.")
+    except Exception as pg_err:
+        print(f"[LIBRARY BM25] PostgreSQL query skipped/failed ({pg_err}). Falling back to local database/Qdrant.")
 
-        points = response[0]
-        for point in points:
-            payload = point.payload or {}
-            title = payload.get("title", "")
-            subject = payload.get("subject", payload.get("subjek", ""))
-            author = payload.get("author", payload.get("penulis", ""))
-            description = payload.get("description", payload.get("deskripsi", ""))
-            publisher = payload.get("publisher", payload.get("penerbit", ""))
+    # 2. Coba ambil dari Qdrant jika PostgreSQL kosong
+    if not _bm25_documents:
+        try:
+            response = client.scroll(
+                collection_name=LIBRARY_BOOKS_COLLECTION,
+                limit=10000,
+                with_payload=True,
+                with_vectors=False,
+            )
 
-            text = f"{title} {subject} {author} {description} {publisher}"
+            points = response[0]
+            for point in points:
+                payload = point.payload or {}
+                title = payload.get("title", "")
+                subject = payload.get("subject", payload.get("subjek", ""))
+                author = payload.get("author", payload.get("penulis", ""))
+                description = payload.get("description", payload.get("deskripsi", ""))
+                publisher = payload.get("publisher", payload.get("penerbit", ""))
 
-            if not text.strip():
-                continue
+                text = f"{title} {subject} {author} {description} {publisher}"
 
-            _bm25_documents.append(text)
-            _bm25_payloads.append(payload)
+                if not text.strip():
+                    continue
 
-    except Exception as qdrant_err:
-        print(f"[LIBRARY BM25] Qdrant scroll unavailable ({qdrant_err}). Falling back to local library.db.")
+                _bm25_documents.append(text)
+                _bm25_payloads.append(payload)
 
-    # 2. Fallback ke database lokal SQLite library.db (8.206 buku IT Del)
+        except Exception as qdrant_err:
+            print(f"[LIBRARY BM25] Qdrant scroll unavailable ({qdrant_err}). Falling back to local library.db.")
+
+    # 3. Fallback ke database lokal SQLite library.db jika Qdrant & Postgres kosong
     if not _bm25_documents:
         import sqlite3
         import os
