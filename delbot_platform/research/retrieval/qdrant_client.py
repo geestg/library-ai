@@ -1,29 +1,31 @@
+import os
+import socket
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
-import socket
 from delbot_platform.core.config import settings
 
 
-def _get_working_host(host: str, port: int) -> str:
-    if host == "host.docker.internal":
-        try:
-            s = socket.create_connection(("host.docker.internal", port), timeout=1.5)
-            s.close()
-            return "host.docker.internal"
-        except Exception:
-            print(f"[QDRANT CLIENT] 'host.docker.internal:{port}' unreachable. Falling back to '127.0.0.1'.")
-            return "127.0.0.1"
-    return host
+def _init_qdrant_client():
+    host = settings.QDRANT_HOST.replace("host.docker.internal", "127.0.0.1")
+    port = settings.QDRANT_PORT
+    try:
+        s = socket.create_connection((host, port), timeout=1.0)
+        s.close()
+        print(f"[QDRANT CLIENT] Connected via network to {host}:{port}")
+        return QdrantClient(host=host, port=port, timeout=120)
+    except Exception:
+        pass
+
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../qdrant_storage"))
+    if os.path.exists(base_dir):
+        print(f"[QDRANT CLIENT] Network port {port} offline. Using embedded local storage at: {base_dir}")
+        return QdrantClient(path=base_dir)
+
+    print(f"[QDRANT CLIENT] Defaulting to in-memory fallback client.")
+    return QdrantClient(":memory:")
 
 
-qdrant_host = _get_working_host(settings.QDRANT_HOST, settings.QDRANT_PORT)
-print(f"[QDRANT CLIENT] Connected to {qdrant_host}:{settings.QDRANT_PORT}")
-
-client = QdrantClient(
-    host=qdrant_host,
-    port=settings.QDRANT_PORT,
-    timeout=120,
-)
+client = _init_qdrant_client()
 
 
 def ensure_collection_exists(
