@@ -25,7 +25,7 @@ class Message(BaseModel):
 
 class ChatRequest(BaseModel):
 
-    model:str="qwen3-32b"
+    model:str="/workspace/Qwen3-30B-MoE"
 
     messages:list[Message]
 
@@ -37,7 +37,7 @@ def health():
 
     return {
         "status":"healthy",
-        "model":"qwen3-32b"
+        "model":"/workspace/Qwen3-30B-MoE"
     }
 
 

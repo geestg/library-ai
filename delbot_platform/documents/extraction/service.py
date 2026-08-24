@@ -61,6 +61,8 @@ class DocumentExtractionService:
         if self.ocr is not None:
             return self.ocr
 
+        import sys
+
         ocr_root = str(
             self.OCR_ROOT
         )
@@ -99,6 +101,10 @@ class DocumentExtractionService:
             for item in sys.path
             if item != workspace_tools_str
         ]
+
+        for module_name in list(sys.modules):
+            if module_name == "tools" or module_name.startswith("tools."):
+                del sys.modules[module_name]
 
         from paddleocr import (
             PaddleOCR,

@@ -11,3 +11,4 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     session_id: str
+    citations: list

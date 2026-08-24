@@ -11,7 +11,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
 
-    model: str = "qwen3-32b"
+    model: str = "/workspace/Qwen3-30B-MoE"
 
     messages: List[ChatMessage] | None = None
 

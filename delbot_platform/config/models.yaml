@@ -1,6 +1,6 @@
 chat:
 
-  default: qwen3-32b
+  default: /workspace/Qwen3-30B-MoE
 
   models:
 
@@ -11,6 +11,23 @@ chat:
       path: models/chat/qwen3-32b
 
       port: 8107
+
+      dtype: bfloat16
+
+      max_context: 32768
+
+      tensor_parallel_size: 2
+
+      gpu_memory_utilization: 0.92
+
+
+    "/workspace/Qwen3-30B-MoE":
+
+      backend: vllm
+
+      path: /workspace/Qwen3-30B-MoE
+
+      port: 11435
 
       dtype: bfloat16
 

@@ -1,0 +1,257 @@
+.delbot-sidebar {
+    width: 274px;
+    min-width: 274px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fbfbfc;
+    border-right: 1px solid #e6e8ed;
+}
+
+.delbot-sidebar-brand {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 20px;
+    border-bottom: 1px solid #eceef2;
+}
+
+.delbot-brand-mark {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: #315efb;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.delbot-sidebar-brand > div:last-child {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.delbot-sidebar-brand strong {
+    color: #172033;
+    font-size: 15px;
+}
+
+.delbot-sidebar-brand span {
+    margin-top: 1px;
+    color: #98a2b3;
+    font-size: 11px;
+}
+
+.delbot-sidebar-navigation {
+    display: grid;
+    gap: 4px;
+    padding: 16px 12px;
+}
+
+.delbot-nav-link {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 12px;
+    color: #475467;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 620;
+}
+
+.delbot-nav-link:hover {
+    color: #253045;
+    background: #f2f3f6;
+}
+
+.delbot-nav-link.active {
+    color: #315efb;
+    background: #edf1ff;
+}
+
+.delbot-sidebar-divider {
+    height: 1px;
+    margin: 0 16px 12px;
+    background: #e8eaf0;
+}
+
+.delbot-new-conversation {
+    min-height: 39px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 12px 12px;
+    padding: 0 12px;
+    border: 1px solid #dfe2e8;
+    color: #344054;
+    background: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 650;
+    text-align: left;
+}
+
+.delbot-new-conversation:hover {
+    color: #315efb;
+    border-color: #cbd6ff;
+    background: #f8f9ff;
+}
+
+.delbot-thread-section {
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px 14px;
+}
+
+.delbot-thread-heading {
+    padding: 7px 12px;
+    color: #98a2b3;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.delbot-thread-list {
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d5d9e1 transparent;
+}
+
+.delbot-thread-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 2px 4px;
+    border-radius: 9px;
+}
+
+.delbot-thread-item:hover {
+    background: #f0f2f5;
+}
+
+.delbot-thread-item.active {
+    background: #e9eeff;
+}
+
+.delbot-thread-open {
+    min-width: 0;
+    min-height: 48px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 34px 7px 9px;
+    border: 0;
+    color: #475467;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.delbot-thread-item.active .delbot-thread-open {
+    color: #244bd4;
+}
+
+.delbot-thread-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.delbot-thread-copy strong {
+    overflow: hidden;
+    color: inherit;
+    font-size: 11px;
+    font-weight: 620;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.delbot-thread-copy small {
+    color: #a2a9b5;
+    font-size: 9px;
+}
+
+.delbot-thread-delete {
+    position: absolute;
+    right: 7px;
+    width: 27px;
+    height: 27px;
+    display: none;
+    place-items: center;
+    border: 0;
+    color: #98a2b3;
+    background: transparent;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.delbot-thread-item:hover .delbot-thread-delete,
+.delbot-thread-item:focus-within .delbot-thread-delete {
+    display: grid;
+}
+
+.delbot-thread-delete:hover {
+    color: #d92d20;
+    background: #fff1f0;
+}
+
+.delbot-no-threads {
+    margin: 5px 12px;
+    color: #a2a9b5;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+    .delbot-sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 680px) {
+    .delbot-sidebar {
+        width: 68px;
+        min-width: 68px;
+    }
+
+    .delbot-sidebar-brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .delbot-sidebar-brand > div:last-child,
+    .delbot-nav-link span,
+    .delbot-new-conversation span,
+    .delbot-thread-section {
+        display: none;
+    }
+
+    .delbot-sidebar-navigation {
+        padding: 14px 9px;
+    }
+
+    .delbot-nav-link,
+    .delbot-new-conversation {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .delbot-new-conversation {
+        width: 44px;
+        margin: 0 auto;
+    }
+}

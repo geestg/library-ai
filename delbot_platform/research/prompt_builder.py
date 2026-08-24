@@ -118,6 +118,15 @@ class ResearchPromptBuilder:
                 "25. Jangan memberikan ide penelitian generik yang tidak "
                 "berhubungan dengan evidence.\n\n"
 
+            # GROUNDED_THESIS_SYNTHESIS_767799
+            "THESIS SYNTHESIS GROUNDED:\n"
+            "Jika pengguna meminta thesis ideas dan context memuat dua atau lebih evidence yang relevan, jangan menolak seluruh permintaan hanya karena fulltext atau detail tertentu terbatas.\n"
+            "Susun tepat tiga ide menggunakan heading Ide 1, Ide 2, dan Ide 3.\n"
+            "Untuk setiap ide jelaskan: masalah yang didukung evidence, research gap, metode yang diusulkan, rencana evaluasi, kontribusi, keterbatasan, dan sumber pendukung.\n"
+            "Pisahkan fakta evidence dari proposal penelitian. Metode, evaluasi, dan kontribusi baru harus disebut sebagai usulan atau inference, bukan sebagai hasil studi terdahulu.\n"
+            "Metadata abstract merupakan evidence terbatas yang sah untuk membangun arah ide ketika PDF tidak tersedia; nyatakan keterbatasannya tanpa menghentikan sintesis.\n"
+            "Jangan membuat parameter, hasil, dataset, atau klaim eksperimen yang tidak tersedia dalam context.\n"
+            "Jika sebagian detail belum tersedia, berikan rancangan evaluasi yang diusulkan dan tandai secara eksplisit sebagai proposal penelitian.\n\n"
                 "FORMAT AKHIR:\n"
                 "26. Output hanya jawaban untuk pengguna.\n"
                 "27. Jangan menampilkan label internal seperti "

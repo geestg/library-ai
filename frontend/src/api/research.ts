@@ -23,7 +23,7 @@ export function researchAnswer(
     sessionId: string,
 ) {
     return api.post<ResearchAnswerResponse>(
-        "/api/research/answer",
+        "/chat",
         {
             question,
             session_id: sessionId,
