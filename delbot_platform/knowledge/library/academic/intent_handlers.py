@@ -32,8 +32,15 @@ class AcademicIntentHandlers:
             answer = self.tools.faq_tool(query)
         
         if answer and not is_continuation:
-            # Jika FAQ match ditemukan, kembalikan jawaban langsung agar respons tetap ringkas.
-            sources_list = [{"title": "SOP / Regulasi / FAQ Perpustakaan IT Del", "content": answer.strip()}]
+            # Deteksi sapaan santai murni (tidak perlu memunculkan kartu referensi)
+            GREETING_KEYWORDS = {
+                "hi", "hai", "halo", "hello", "hey", "hei", "pagi", "siang", "sore", "malam",
+                "selamat pagi", "selamat siang", "selamat sore", "selamat malam",
+                "test", "tes", "ping", "assalamualaikum", "assalamu'alaikum", "salam"
+            }
+            is_pure_greeting = query_lower in GREETING_KEYWORDS or bool(re.match(r'^(hi+|hai+|halo+|hello+|hey+|hei+)[!?. ]*$', query_lower))
+
+            sources_list = [] if is_pure_greeting else [{"title": "SOP / Regulasi / FAQ Perpustakaan IT Del", "content": answer.strip()}]
             return {
                 "intent": "faq",
                 "response": answer.strip(),

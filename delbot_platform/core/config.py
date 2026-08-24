@@ -9,15 +9,15 @@ class Settings:
     # =====================================
     # QDRANT VECTOR DATABASE
     # =====================================
-    QDRANT_HOST = os.getenv("QDRANT_HOST", "host.docker.internal")
-    QDRANT_PORT = int(os.getenv("xxxxxxxxxxQDRANT_PORT", "6333"))
+    QDRANT_HOST = os.getenv("QDRANT_HOST", "127.0.0.1")
+    QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
 
     # =====================================
     # OLLAMA EMBEDDING SERVICE (Vector Embedder)
     # =====================================
     OLLAMA_BASE_URL = os.getenv(
         "OLLAMA_BASE_URL",
-        "http://host.docker.internal:11434"
+        "http://127.0.0.1:11434"
     )
 
     # =====================================
@@ -25,7 +25,7 @@ class Settings:
     # =====================================
     LLM_BASE_URL = os.getenv(
         "LLM_BASE_URL",
-        os.getenv("VLLM_BASE_URL", "http://host.docker.internal:11435/v1")
+        os.getenv("VLLM_BASE_URL", "http://127.0.0.1:11435/v1")
     )
     LLM_API_KEY = os.getenv(
         "LLM_API_KEY",
