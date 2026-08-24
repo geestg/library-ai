@@ -144,11 +144,11 @@ class LibraryDatasetTools:
             # 1. DUAL-SYNC SINKRONISASI KE POSTGRESQL (Tabel books)
             try:
                 pg_conn = psycopg2.connect(
-                    host="postgres",
+                    host=os.getenv("POSTGRES_HOST", "127.0.0.1"),
                     database=os.getenv("POSTGRES_DB", "libraryai"),
                     user=os.getenv("POSTGRES_USER", "libraryai"),
                     password=os.getenv("POSTGRES_PASSWORD", "libraryai123"),
-                    port="5432"
+                    port=os.getenv("POSTGRES_PORT", "5432")
                 )
                 pg_cur = pg_conn.cursor()
                 pg_cur.execute("""

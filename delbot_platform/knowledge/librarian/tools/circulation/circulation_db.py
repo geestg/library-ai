@@ -16,11 +16,11 @@ class CirculationDBRepository:
 
     def get_db_connection(self):
         return psycopg2.connect(
-            host="postgres",
+            host=os.getenv("POSTGRES_HOST", "127.0.0.1"),
             database=os.getenv("POSTGRES_DB", "libraryai"),
             user=os.getenv("POSTGRES_USER", "libraryai"),
             password=os.getenv("POSTGRES_PASSWORD", "libraryai123"),
-            port="5432"
+            port=os.getenv("POSTGRES_PORT", "5432")
         )
 
     def _init_db(self):
