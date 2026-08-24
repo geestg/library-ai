@@ -104,29 +104,32 @@ export default function MessageBubble({
     
     let processed = text;
 
-    // 1. Clean and enhance thesis ideas structure
-    processed = processed.replace(/(?:^|\n)(?:#{1,4}\s*)?Ide\s*([1-9])\s*:\s*([^\n]+)/gi, (match, num, title) => {
-      return `\n\n### 💡 Ide ${num}: ${title.trim()}\n\n`;
+    // 1. Clean duplicate dataset phrasing (e.g. 'Dataset & Evaluasi: Data yang disarankan:')
+    processed = processed.replace(/(?:Dataset & Evaluasi|Saran Data|Dataset)[:\s*]+(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?/gi, "Dataset & Evaluasi: ");
+
+    // 2. Clean and format thesis ideas structure cleanly (no emojis)
+    processed = processed.replace(/(?:^|\n)(?:#{1,4}\s*)?(?:💡\s*)?Ide\s*([1-9])\s*:\s*([^\n]+)/gi, (match, num, title) => {
+      return `\n\n### Ide ${num}: ${title.trim()}\n\n`;
     });
 
-    // Convert section labels to clean bullet items with icons
-    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Problem(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
-      return `\n\n* **📌 Problem:** ${content.trim()}`;
+    // Convert section labels to clean minimal bullet items
+    processed = processed.replace(/(?:^|\n)\s*(?:📌\s*)?(?:\*{0,2})Problem(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **Problem:** ${content.trim()}`;
     });
-    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Research Gap(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
-      return `\n\n* **🔍 Research Gap:** ${content.trim()}`;
+    processed = processed.replace(/(?:^|\n)\s*(?:🔍\s*)?(?:\*{0,2})Research Gap(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **Research Gap:** ${content.trim()}`;
     });
-    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
-      return `\n\n* **🚀 Solusi & Kebaruan:** ${content.trim()}`;
+    processed = processed.replace(/(?:^|\n)\s*(?:🚀\s*)?(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **Solusi & Kebaruan:** ${content.trim()}`;
     });
-    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Dataset & Evaluasi(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
-      return `\n\n* **📊 Dataset & Evaluasi:** ${content.trim()}`;
+    processed = processed.replace(/(?:^|\n)\s*(?:📊\s*)?(?:\*{0,2})Dataset & Evaluasi(?:\*{0,2}):?\s*(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **Dataset & Evaluasi:** ${content.trim()}`;
     });
-    processed = processed.replace(/(?:^|\n)\s*(?:💡\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)/gi, (match, diff) => {
-      return `\n\n* 🎯 **Tingkat Kesulitan:** \`${diff.replace(/[`*]/g, "").trim()}\`\n\n---`;
+    processed = processed.replace(/(?:^|\n)\s*(?:💡\s*|🎯\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)/gi, (match, diff) => {
+      return `\n\n* **Tingkat Kesulitan:** \`${diff.replace(/[`*]/g, "").trim()}\`\n\n---`;
     });
 
-    // 2. Convert any existing markdown links like [1](http...) or [ 1 ](http...) to our cite format
+    // 3. Convert citations to safe anchor format
     processed = processed.replace(/\[\s*(\d+)\s*\]\([^)]+\)/g, (match, p1) => {
       return `[${p1}](#cite-${p1})`;
     });
@@ -153,51 +156,13 @@ export default function MessageBubble({
               remarkPlugins={[remarkGfm]}
               components={{
                 h1({ children }) {
-                  return <h1 className="markdown-idea-title">{children}</h1>;
+                  return <h1>{children}</h1>;
                 },
                 h2({ children }) {
-                  return <h2 className="markdown-idea-title">{children}</h2>;
+                  return <h2>{children}</h2>;
                 },
                 h3({ children }) {
-                  const txt = String(children);
-                  if (txt.includes("Judul")) {
-                    return <h3 className="section-title-judul">{children}</h3>;
-                  }
-                  if (
-                    txt.includes("Latar Belakang") ||
-                    txt.includes("Peluang") ||
-                    txt.includes("Problem") ||
-                    txt.includes("Research Gap")
-                  ) {
-                    return (
-                      <h3 className="section-title-blue">
-                        <FileText size={16} color="#2563eb" />
-                        <span>{children}</span>
-                      </h3>
-                    );
-                  }
-                  if (txt.includes("Solusi")) {
-                    return (
-                      <h3 className="section-title-blue">
-                        <BrainCircuit size={16} color="#2563eb" />
-                        <span>{children}</span>
-                      </h3>
-                    );
-                  }
-                  if (txt.includes("Saran Data")) {
-                    return (
-                      <h3 className="section-title-blue">
-                        <FileSpreadsheet size={16} color="#2563eb" />
-                        <span>{children}</span>
-                      </h3>
-                    );
-                  }
-                  return (
-                    <h3 className="section-title-blue">
-                      <FileText size={16} color="#2563eb" />
-                      <span>{children}</span>
-                    </h3>
-                  );
+                  return <h3>{children}</h3>;
                 },
                 a({ href, children }) {
                   if (href && href.startsWith("#cite-")) {
@@ -266,51 +231,13 @@ export default function MessageBubble({
                 remarkPlugins={[remarkGfm]}
                 components={{
                   h1({ children }) {
-                    return <h1 className="markdown-idea-title">{children}</h1>;
+                    return <h1>{children}</h1>;
                   },
                   h2({ children }) {
-                    return <h2 className="markdown-idea-title">{children}</h2>;
+                    return <h2>{children}</h2>;
                   },
                   h3({ children }) {
-                    const txt = String(children);
-                    if (txt.includes("Judul")) {
-                      return <h3 className="section-title-judul">{children}</h3>;
-                    }
-                    if (
-                      txt.includes("Latar Belakang") ||
-                      txt.includes("Peluang") ||
-                      txt.includes("Problem") ||
-                      txt.includes("Research Gap")
-                    ) {
-                      return (
-                        <h3 className="section-title-blue">
-                          <FileText size={16} color="#2563eb" />
-                          <span>{children}</span>
-                        </h3>
-                      );
-                    }
-                    if (txt.includes("Solusi")) {
-                      return (
-                        <h3 className="section-title-blue">
-                          <BrainCircuit size={16} color="#2563eb" />
-                          <span>{children}</span>
-                        </h3>
-                      );
-                    }
-                    if (txt.includes("Saran Data")) {
-                      return (
-                        <h3 className="section-title-blue">
-                          <FileSpreadsheet size={16} color="#2563eb" />
-                          <span>{children}</span>
-                        </h3>
-                      );
-                    }
-                    return (
-                      <h3 className="section-title-blue">
-                        <FileText size={16} color="#2563eb" />
-                        <span>{children}</span>
-                      </h3>
-                    );
+                    return <h3>{children}</h3>;
                   },
                   a({ href, children }) {
                     if (href && href.startsWith("#cite-")) {
