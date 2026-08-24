@@ -190,8 +190,8 @@ Berdasarkan kelompok penelitian terkait di repositori IT Del ([Amelia, 2022] [2]
 **Solusi & Kebaruan**
 Mengembangkan lapisan keamanan smart contract terdesentralisasi (Hyperledger Fabric) yang mencatat log izin akses secara immutable, memperluas model DRM statis [2, 5] menuju verifikasi desentralisasi.
 
-**Dataset & Evaluasi**
-Data yang disarankan: Log akses DSpace (jika diizinkan) / Benchmark Publik: OULAD. Metrik: Transaction Latency, Tampering Detection Rate, Access Control Accuracy.
+**Saran Dataset dan Evaluasi**
+Log akses DSpace (jika diizinkan) / Benchmark Publik: OULAD. Metrik: Transaction Latency, Tampering Detection Rate, Access Control Accuracy.
 
 `Kesulitan: Medium`
 
@@ -208,8 +208,8 @@ Penelitian [Saragih, 2022] [4] telah menerapkan metode feature extraction leksik
 **Solusi & Kebaruan**
 Mengembangkan model Aspect-Based Sentiment Analysis (ABSA) berbasis Fine-Tuned IndoBERT yang mampu mengidentifikasi sentimen spesifik per aspek (fasilitas, pelayanan, kebersihan) secara simultan, mengembangkan ekstraksi fitur leksikal [4] menuju representasi semantik kontekstual modern.
 
-**Dataset & Evaluasi**
-Data yang disarankan: Dataset ulasan objek wisata Danau Toba (primer) / Benchmark Publik: IndoNLU Aspect Sentiment Dataset. Metrik: Accuracy, Macro F1-Score, Aspect Extraction Precision.
+**Saran Dataset dan Evaluasi**
+Dataset ulasan objek wisata Danau Toba (primer) / Benchmark Publik: IndoNLU Aspect Sentiment Dataset. Metrik: Accuracy, Macro F1-Score, Aspect Extraction Precision.
 
 `Kesulitan: Medium-Advanced`
 

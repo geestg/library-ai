@@ -105,7 +105,7 @@ export default function MessageBubble({
     let processed = text;
 
     // 1. Clean duplicate dataset phrasing (e.g. 'Dataset & Evaluasi: Data yang disarankan:')
-    processed = processed.replace(/(?:Dataset & Evaluasi|Saran Data|Dataset)[:\s*]+(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?/gi, "Dataset & Evaluasi: ");
+    processed = processed.replace(/(?:Saran Dataset dan Evaluasi|Saran Dataset & Evaluasi|Dataset & Evaluasi|Saran Data|Dataset)[:\s*]+(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?/gi, "Saran Dataset dan Evaluasi: ");
 
     // 2. Clean and format thesis ideas structure cleanly (no emojis)
     processed = processed.replace(/(?:^|\n)(?:#{1,4}\s*)?(?:💡\s*)?Ide\s*([1-9])\s*:\s*([^\n]+)/gi, (match, num, title) => {
@@ -122,8 +122,8 @@ export default function MessageBubble({
     processed = processed.replace(/(?:^|\n)\s*(?:🚀\s*)?(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
       return `\n\n* **Solusi & Kebaruan:** ${content.trim()}`;
     });
-    processed = processed.replace(/(?:^|\n)\s*(?:📊\s*)?(?:\*{0,2})Dataset & Evaluasi(?:\*{0,2}):?\s*(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?(\S[^\n\r]*)/gi, (match, content) => {
-      return `\n\n* **Dataset & Evaluasi:** ${content.trim()}`;
+    processed = processed.replace(/(?:^|\n)\s*(?:📊\s*)?(?:\*{0,2})(?:Saran Dataset dan Evaluasi|Saran Dataset & Evaluasi|Dataset & Evaluasi)(?:\*{0,2}):?\s*(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **Saran Dataset dan Evaluasi:** ${content.trim()}`;
     });
     processed = processed.replace(/(?:^|\n)\s*(?:💡\s*|🎯\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)/gi, (match, diff) => {
       return `\n\n* **Tingkat Kesulitan:** \`${diff.replace(/[`*]/g, "").trim()}\`\n\n---`;
