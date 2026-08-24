@@ -30,6 +30,10 @@ def normalize_result(payload: dict, score: float) -> dict:
 def initialize_bm25():
     global _bm25_index, _bm25_documents, _bm25_payloads
 
+    _bm25_documents = []
+    _bm25_payloads = []
+
+    # 1. Coba ambil dari Qdrant
     try:
         response = client.scroll(
             collection_name=LIBRARY_BOOKS_COLLECTION,
@@ -39,9 +43,6 @@ def initialize_bm25():
         )
 
         points = response[0]
-        _bm25_documents = []
-        _bm25_payloads = []
-
         for point in points:
             payload = point.payload or {}
             title = payload.get("title", "")
@@ -58,17 +59,50 @@ def initialize_bm25():
             _bm25_documents.append(text)
             _bm25_payloads.append(payload)
 
-        if _bm25_documents:
-            tokenized = [doc.lower().split() for doc in _bm25_documents]
-            _bm25_index = BM25Okapi(tokenized)
-            print(f"[LIBRARY BM25] Initialized with {len(_bm25_documents)} books")
-        else:
-            _bm25_index = None
-            print("[LIBRARY BM25] No books found in collection")
+    except Exception as qdrant_err:
+        print(f"[LIBRARY BM25] Qdrant scroll unavailable ({qdrant_err}). Falling back to local library.db.")
 
-    except Exception as e:
-        print(f"[LIBRARY BM25 ERROR] {e}")
+    # 2. Fallback ke database lokal SQLite library.db (8.206 buku IT Del)
+    if not _bm25_documents:
+        import sqlite3
+        import os
+        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset/library.db"))
+        if os.path.exists(db_path):
+            try:
+                conn = sqlite3.connect(db_path)
+                cur = conn.cursor()
+                cur.execute("SELECT id, title, author, publisher, published_year, subject, classification_number, location, isbn FROM books;")
+                rows = cur.fetchall()
+                for r in rows:
+                    payload = {
+                        "id": r[0],
+                        "title": r[1] or "",
+                        "author": r[2] or "",
+                        "publisher": r[3] or "",
+                        "year": str(r[4]) if r[4] else "",
+                        "published_at": str(r[4]) if r[4] else "",
+                        "subject": r[5] or "",
+                        "classification_number": r[6] or "",
+                        "location": r[7] or "",
+                        "isbn": r[8] or "",
+                        "description": r[5] or ""
+                    }
+                    text = f"{payload['title']} {payload['subject']} {payload['author']} {payload['publisher']}"
+                    if text.strip():
+                        _bm25_documents.append(text)
+                        _bm25_payloads.append(payload)
+                conn.close()
+                print(f"[LIBRARY BM25] Loaded {len(_bm25_documents)} catalog books from local library.db.")
+            except Exception as db_err:
+                print(f"[LIBRARY BM25] SQLite fallback error: {db_err}")
+
+    if _bm25_documents:
+        tokenized = [doc.lower().split() for doc in _bm25_documents]
+        _bm25_index = BM25Okapi(tokenized)
+        print(f"[LIBRARY BM25] Initialized with {len(_bm25_documents)} books")
+    else:
         _bm25_index = None
+        print("[LIBRARY BM25] No books found in collection or local database")
 
 
 def bm25_search(query: str, limit: int = 50) -> List[dict]:
