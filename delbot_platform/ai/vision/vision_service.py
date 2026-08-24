@@ -84,6 +84,34 @@ def _general_rag_search(query: str, limit: int = 5) -> List[Dict]:
     return unique_results[:limit]
 
 
+import base64
+import io
+from PIL import Image
+
+
+def _extract_text_via_ocr(image_base64: Optional[str] = None, image_url: Optional[str] = None) -> str:
+    try:
+        import pytesseract
+        image = None
+        if image_base64:
+            clean_b64 = image_base64
+            if "," in clean_b64:
+                clean_b64 = clean_b64.split(",", 1)[1]
+            img_bytes = base64.b64decode(clean_b64)
+            image = Image.open(io.BytesIO(img_bytes))
+        elif image_url and not image_url.startswith("http"):
+            image = Image.open(image_url)
+        
+        if image:
+            if image.mode not in ("L", "RGB"):
+                image = image.convert("RGB")
+            text = pytesseract.image_to_string(image)
+            return text.strip()
+    except Exception as e:
+        print(f"[OCR EXTRACTION] {e}")
+    return ""
+
+
 def vision_chat(
     *,
     prompt: str,
@@ -115,13 +143,31 @@ def vision_chat(
         if rag_results:
             rag_context = build_citation_context(rag_results)
 
-    multimodal_prompt = _build_multimodal_prompt(prompt, rag_context)
+    # 1. Extract text from image via OCR (allows pure-text LLMs like Qwen3-30B-MoE to understand image content)
+    ocr_text = _extract_text_via_ocr(image_base64=image_base64, image_url=image_url)
+
+    if ocr_text:
+        print(f"[VISION SERVICE] OCR extracted {len(ocr_text)} chars from image. Routing to LLM as multimodal prompt.")
+        multimodal_prompt = f"""Anda adalah DELBot, asisten cerdas Perpustakaan dan Riset IT Del.
+Pengguna telah mengunggah gambar/tangkapan layar dengan isi teks yang berhasil dibaca sebagai berikut:
+========================================
+{ocr_text}
+========================================
+
+Pertanyaan / Instruksi Pengguna:
+{prompt}
+
+Tolong jawab dan analisis pertanyaan pengguna secara lengkap, jelas, dan ramah berdasarkan isi gambar di atas."""
+        image_to_send = None
+    else:
+        multimodal_prompt = _build_multimodal_prompt(prompt, rag_context)
+        image_to_send = image_ref
 
     response = gateway.generate_response(
         prompt=multimodal_prompt,
         model=model,
         provider=provider,
-        image_ref=image_ref,
+        image_ref=image_to_send,
         max_tokens=max_tokens,
     )
 
@@ -130,6 +176,7 @@ def vision_chat(
         "provider": provider,
         "model": model,
         "response": response,
+        "ocr_detected": bool(ocr_text),
         "rag_enabled": enable_rag,
         "rag_sources_count": len(rag_results),
         "rag_sources": rag_results[:3] if rag_results else [],
