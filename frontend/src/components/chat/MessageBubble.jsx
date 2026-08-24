@@ -102,8 +102,32 @@ export default function MessageBubble({
   const processContentWithCitations = (text) => {
     if (!text) return "";
     
-    // First, convert any existing markdown links like [1](http...) or [ 1 ](http...) to our cite format using safe anchor link #cite-
-    let processed = text.replace(/\[\s*(\d+)\s*\]\([^)]+\)/g, (match, p1) => {
+    let processed = text;
+
+    // 1. Clean and enhance thesis ideas structure
+    processed = processed.replace(/(?:^|\n)(?:#{1,4}\s*)?Ide\s*([1-9])\s*:\s*([^\n]+)/gi, (match, num, title) => {
+      return `\n\n### 💡 Ide ${num}: ${title.trim()}\n\n`;
+    });
+
+    // Convert section labels to clean bullet items with icons
+    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Problem(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **📌 Problem:** ${content.trim()}`;
+    });
+    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Research Gap(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **🔍 Research Gap:** ${content.trim()}`;
+    });
+    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **🚀 Solusi & Kebaruan:** ${content.trim()}`;
+    });
+    processed = processed.replace(/(?:^|\n)\s*(?:\*{0,2})Dataset & Evaluasi(?:\*{0,2}):?\s*(\S[^\n\r]*)/gi, (match, content) => {
+      return `\n\n* **📊 Dataset & Evaluasi:** ${content.trim()}`;
+    });
+    processed = processed.replace(/(?:^|\n)\s*(?:💡\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)/gi, (match, diff) => {
+      return `\n\n* 🎯 **Tingkat Kesulitan:** \`${diff.replace(/[`*]/g, "").trim()}\`\n\n---`;
+    });
+
+    // 2. Convert any existing markdown links like [1](http...) or [ 1 ](http...) to our cite format
+    processed = processed.replace(/\[\s*(\d+)\s*\]\([^)]+\)/g, (match, p1) => {
       return `[${p1}](#cite-${p1})`;
     });
     

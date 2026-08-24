@@ -63,23 +63,17 @@ def sanitize_and_enhance_ideas(ideas: str) -> str:
     ideas = re.sub(r"(?mi)^\s*###?\s*Judul\s+Ide\s+Baru[^\n]*\n", "", ideas)
     ideas = re.sub(r"(?mi)^###\s*\[\s*(.*?)\s*\]\s*$", r"### \1", ideas)
 
-    # Clean and separate section headers with double newlines and bolding
-    section_headers = [
-        "Problem",
-        "Research Gap",
-        "Solusi & Kebaruan",
-        "Dataset & Evaluasi",
-    ]
-    for h in section_headers:
-        # Match 'ProblemSistem' or '**Problem**Sistem' or 'Problem: Sistem' or '### Problem'
-        pattern = r"(?mi)^\s*(?:#{1,3}\s*)?(?:\*{0,2})" + re.escape(h) + r"(?:\*{0,2}):?\s*(\S[^\n\r]*)"
-        ideas = re.sub(pattern, r"\n\n**" + h + r"**\n\1", ideas)
+    # Clean and separate section headers with bullet points and icons
+    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:\*{0,2})Problem(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **📌 Problem:** \1", ideas)
+    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:\*{0,2})Research Gap(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **🔍 Research Gap:** \1", ideas)
+    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **🚀 Solusi & Kebaruan:** \1", ideas)
+    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:\*{0,2})Dataset & Evaluasi(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **📊 Dataset & Evaluasi:** \1", ideas)
 
-    # Format Idea Headers cleanly (e.g. '## Ide 1: [Judul]')
-    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?Ide\s*([1-9])\s*:\s*", r"\n\n## Ide \1: ", ideas)
+    # Format Idea Headers cleanly (e.g. '### 💡 Ide 1: [Judul]')
+    ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?Ide\s*([1-9])\s*:\s*", r"\n\n### 💡 Ide \1: ", ideas)
 
     # Ensure difficulty badge has proper formatting
-    ideas = re.sub(r"(?mi)^\s*(?:💡\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)", r"\n\n`Kesulitan: \1`\n\n---", ideas)
+    ideas = re.sub(r"(?mi)^\s*(?:💡\s*)?(?:Tingkat\s*)?Kesulitan\s*:\s*([^\n\r]+)", r"\n\n* 🎯 **Tingkat Kesulitan:** `\1`\n\n---", ideas)
 
     # 2. Strip leftover Rating and Alasan Menarik sections if LLM outputted them
     ideas = re.sub(r"(?mi)^\s*###?\s*(?:📊\s*)?(?:Evaluasi|Rating|Novelty\s*Score|Alasan\s*Menarik)[^\n]*\n.*?(?=\n\s*#{1,3}\s*Ide|\n\s*---\s*|\n\s*💡|\Z)", "", ideas, flags=re.DOTALL)

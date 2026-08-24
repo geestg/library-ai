@@ -37,11 +37,26 @@
 }
 
 .message-content h3 {
-  font-size: 18px;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #0f172a;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.8));
+  border-left: 4px solid #2563eb;
+  border-right: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-top: 24px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .message-content h4 {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* ====================================
@@ -49,8 +64,9 @@
 ==================================== */
 
 .message-content p {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   color: var(--text-primary);
+  line-height: 1.75;
 }
 
 /* ====================================
@@ -58,8 +74,8 @@
 ==================================== */
 
 .message-content strong {
-  color: var(--text-primary);
-  font-weight: 700;
+  color: #0f172a;
+  font-weight: 600;
 }
 
 /* ====================================
@@ -72,7 +88,7 @@
 }
 
 /* ====================================
-   LINKS
+   LINKS & CITATIONS
 ==================================== */
 
 .message-content a {
@@ -87,19 +103,61 @@
   border-color: var(--accent-secondary);
 }
 
+.message-content a[href^="#cite-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 1px 6px;
+  border-radius: 5px;
+  margin: 0 2px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.message-content a[href^="#cite-"]:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
 /* ====================================
-   LISTS
+   LISTS & SECTIONS
 ==================================== */
 
 .message-content ul,
 .message-content ol {
-  padding-left: 24px;
+  list-style-type: none;
+  padding-left: 0;
   margin-bottom: 18px;
 }
 
 .message-content li {
-  margin-bottom: 8px;
-  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: #334155;
+  padding: 4px 6px;
+  font-size: 14.5px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.message-content li:hover {
+  background: rgba(241, 245, 249, 0.5);
+}
+
+.message-content li strong {
+  color: #0f172a;
+  font-weight: 650;
+  margin-right: 4px;
 }
 
 /* ====================================
@@ -107,27 +165,35 @@
 ==================================== */
 
 .message-content blockquote {
-  margin: 20px 0;
-  padding: 14px 20px;
+  margin: 18px 0;
+  padding: 12px 18px;
   border-left: 4px solid var(--accent-primary);
   background: rgba(59, 89, 246, 0.04);
-  border-radius: 0 12px 12px 0;
+  border-radius: 0 10px 10px 0;
   color: var(--text-secondary);
   font-style: italic;
 }
 
 /* ====================================
-   INLINE CODE
+   INLINE CODE & BADGES
 ==================================== */
 
 .message-content code {
-  background: #f1f3f5;
-  border: 1px solid var(--border-subtle);
-  color: #c026d3; /* Dark pink for inline code highlights */
-  padding: 2px 6px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0369a1; /* Vibrant blue-slate for badges */
+  font-weight: 600;
+  padding: 2px 8px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-family: "JetBrains Mono", Menlo, monospace;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.message-content hr {
+  margin: 22px 0;
+  border: none;
+  border-top: 1px dashed #cbd5e1;
 }
 
 /* ====================================
