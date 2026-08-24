@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from delbot_platform.research.models.research_models import EvidenceMatrix
+from delbot_platform.research.gap.bab5_extractor import extract_bab5_gaps
 from delbot_platform.research.gap.gap_analyzers import (
     detect_dominant_topics, detect_emerging_topics, detect_rare_topics,
     detect_method_gap, detect_dataset_gap, detect_temporal_gap,

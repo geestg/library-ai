@@ -169,7 +169,7 @@ def run_analysis(context: ResearchContext) -> ResearchContext:
     gaps_dict = detect_research_gaps(matrix_data)
     # Suntikkan Bab 5 Kalimat Saran Qdrant ke Gap
     try:
-        from delbot_platform.research.gap.gap_detector import extract_bab5_gaps
+        from delbot_platform.research.gap.bab5_extractor import extract_bab5_gaps
         bab5_list = extract_bab5_gaps(context.theses)
         gaps_dict["bab5_gaps"] = bab5_list
     except Exception as e:
