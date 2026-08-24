@@ -59,6 +59,65 @@
 }
 
 /* ====================================
+   ATTACHMENTS (THUMBNAIL CONSTRAINTS)
+==================================== */
+
+.message-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.message-image-preview {
+  display: inline-block;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 260px;
+  max-height: 180px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease;
+}
+
+.message-image-preview:hover {
+  transform: scale(1.02);
+}
+
+.message-image {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.attachment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.attachment-name {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ====================================
    ASSISTANT MESSAGE (CLEAN WHITE CARD)
 ==================================== */
 
