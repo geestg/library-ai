@@ -18,8 +18,12 @@ def _init_qdrant_client():
 
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../qdrant_storage"))
     if os.path.exists(base_dir):
-        print(f"[QDRANT CLIENT] Network port {port} offline. Using embedded local storage at: {base_dir}")
-        return QdrantClient(path=base_dir)
+        try:
+            print(f"[QDRANT CLIENT] Network port {port} offline. Using embedded local storage at: {base_dir}")
+            return QdrantClient(path=base_dir)
+        except Exception as lock_err:
+            print(f"[QDRANT CLIENT WARNING] Local storage lock issue ({lock_err}). Using in-memory fallback.")
+            return QdrantClient(":memory:")
 
     print(f"[QDRANT CLIENT] Defaulting to in-memory fallback client.")
     return QdrantClient(":memory:")

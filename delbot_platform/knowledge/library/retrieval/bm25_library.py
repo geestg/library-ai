@@ -42,7 +42,8 @@ def initialize_bm25():
             database=os.getenv("POSTGRES_DB", "libraryai"),
             user=os.getenv("POSTGRES_USER", "libraryai"),
             password=os.getenv("POSTGRES_PASSWORD", "libraryai123"),
-            port=os.getenv("POSTGRES_PORT", "5432")
+            port=os.getenv("POSTGRES_PORT", "5432"),
+            connect_timeout=1
         )
         pg_cur = pg_conn.cursor()
         pg_cur.execute("SELECT id, title, author, publisher, published_year, subject, classification_number, location, isbn FROM books;")
@@ -165,3 +166,8 @@ def bm25_search(query: str, limit: int = 50) -> List[dict]:
             normalize_result(_bm25_payloads[idx], float(score))
         )
     return results
+
+
+def get_bm25_count() -> int:
+    global _bm25_documents
+    return len(_bm25_documents)
