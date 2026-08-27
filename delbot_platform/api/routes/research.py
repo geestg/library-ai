@@ -21,11 +21,11 @@ class TitleGenRequest(BaseModel):
     category: str = "general"
     preferred_method: str = ""
 
-@router.post("/api/research/ask", response_model=ResearchResult, tags=["Research"])
+@router.post("/api/research/ask", tags=["Research"])
 def ask_research(
     session_id: str,
     request: ResearchAskRequest,
-) -> ResearchResult:
+):
     try:
         engine = ResearchEngine(session_manager=_session_mgr)
         return engine.ask(session_id=session_id, query=request.query, history=request.history)

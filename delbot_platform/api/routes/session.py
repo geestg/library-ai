@@ -47,7 +47,7 @@ def get_workspace_session(session_id: str):
     return session.export()
 
 
-@router.post("/api/workspace/{session_id}/ask", response_model=ResearchResult, tags=["Workspace"])
+@router.post("/api/workspace/{session_id}/ask", tags=["Workspace"])
 def ask_workspace(session_id: str, body: AskRequest):
     try:
         return research_engine.ask(session_id=session_id, query=body.query)
