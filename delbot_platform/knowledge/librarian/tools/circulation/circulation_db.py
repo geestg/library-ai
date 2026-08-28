@@ -60,8 +60,14 @@ class CirculationDBRepository:
                 """)
                 conn.commit()
                 
-                file_path = "/app/app/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx"
-                if os.path.exists(file_path):
+                file_candidates = [
+                    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
+                    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
+                    "/app/app/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx",
+                    "delbot_platform/workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx"
+                ]
+                file_path = next((f for f in file_candidates if os.path.exists(f)), None)
+                if file_path and os.path.exists(file_path):
                     print(f"[DB INIT] Membaca data dari {file_path}...")
                     df_excel = pd.read_excel(file_path)
                     
@@ -120,14 +126,43 @@ class CirculationDBRepository:
 
     def get_loans_df(self) -> pd.DataFrame:
         """
-        Mengambil 3.620 data peminjaman buku murni dari database PostgreSQL.
+        Mengambil 3.620 data peminjaman buku murni dari database PostgreSQL (atau fallback ke Excel).
         """
-        conn = self.get_db_connection()
         try:
+            conn = self.get_db_connection()
             query = "SELECT id AS \"ID Peminjaman\", id_transaksi AS \"ID Transaksi\", nama_peminjam AS \"Nama Peminjam\", judul_buku AS \"Judul Buku\", tanggal_pinjam AS \"Tanggal Pinjam\", batas_pengembalian AS \"Batas Pengembalian\", status AS \"Status\", denda AS \"Denda (Rupiah)\" FROM sirkulasi ORDER BY id ASC;"
             df = pd.read_sql_query(query, conn)
-            df["Tanggal Pinjam"] = df["Tanggal Pinjam"].apply(lambda x: str(x))
-            df["Batas Pengembalian"] = df["Batas Pengembalian"].apply(lambda x: str(x))
-            return df
-        finally:
             conn.close()
+            if not df.empty:
+                df["Tanggal Pinjam"] = df["Tanggal Pinjam"].apply(lambda x: str(x))
+                df["Batas Pengembalian"] = df["Batas Pengembalian"].apply(lambda x: str(x))
+                return df
+        except Exception as e:
+            print(f"[CIRCULATION DB] Postgres connection failed ({e}), using direct Excel dataset fallback.")
+
+        # Fallback langsung membaca dataset sirkulasi riil (3.620 transaksi)
+        file_candidates = [
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
+            "/app/app/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx",
+            "delbot_platform/workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx"
+        ]
+        excel_path = next((f for f in file_candidates if os.path.exists(f)), None)
+        if excel_path:
+            df_excel = pd.read_excel(excel_path)
+            df_excel["ID Peminjaman"] = [f"TX_{i:05d}" for i in range(len(df_excel))]
+            df_excel.rename(columns={
+                "ID_Transaksi": "ID Transaksi",
+                "Nama": "Nama Peminjam",
+                "Judul": "Judul Buku",
+                "Tgl_Transaksi": "Tanggal Pinjam",
+                "Rencana_Kembali": "Batas Pengembalian",
+                "Kondisi_Pinjam": "Status"
+            }, inplace=True)
+            if "Denda (Rupiah)" not in df_excel.columns:
+                df_excel["Denda (Rupiah)"] = 0
+            df_excel["Tanggal Pinjam"] = df_excel["Tanggal Pinjam"].apply(lambda x: str(x)[:10] if pd.notna(x) else "-")
+            df_excel["Batas Pengembalian"] = df_excel["Batas Pengembalian"].apply(lambda x: str(x)[:10] if pd.notna(x) else "-")
+            return df_excel
+
+        return pd.DataFrame()

@@ -27,12 +27,18 @@ class CirculationManagerTool:
         
         if member_query:
             # Cari profil di log pengunjung untuk mencocokkan NIM & Prodi riil
-            visitor_file = "/app/app/dataset/log_pengunjung_Genap_2026.xlsx"
+            visitor_candidates = [
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset/log_pengunjung_Genap_2026.xlsx")),
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset/log_pengunjung_Genap_2026.xlsx")),
+                "/app/app/dataset/log_pengunjung_Genap_2026.xlsx",
+                "delbot_platform/workflows/dataset/log_pengunjung_Genap_2026.xlsx"
+            ]
+            visitor_file = next((f for f in visitor_candidates if os.path.exists(f)), None)
             real_name = member_query
             real_nim = "N/A"
             real_prodi = "N/A"
             
-            if os.path.exists(visitor_file):
+            if visitor_file and os.path.exists(visitor_file):
                 try:
                     df_vis = pd.read_excel(visitor_file)
                     df_vis.columns = [str(c).strip() for c in df_vis.columns]
