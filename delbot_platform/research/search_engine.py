@@ -88,16 +88,10 @@ def run_search(context: ResearchContext) -> ResearchContext:
         _session = session_manager.get_or_create(context.session_id)
         existing_theses = getattr(_session, "all_theses", [])
         
-        # Check both context.query and the last user message in conversation session
-        last_user_msg = ""
-        if _session.conversation.messages:
-            user_msgs = [m.content for m in _session.conversation.messages if m.role == "user"]
-            if user_msgs:
-                last_user_msg = user_msgs[-1]
-
-        is_followup = is_contextual_followup(context.query) or (last_user_msg and is_contextual_followup(last_user_msg))
+        # Check if the CURRENT query itself is a contextual follow-up (e.g. "ada ide lain?", "dari research gap tersebut")
+        is_followup = is_contextual_followup(context.query)
         if existing_theses and is_followup:
-            print(f"[SEARCH ENGINE] Contextual follow-up query detected. Reusing {len(existing_theses)} theses from active session.")
+            print(f"[SEARCH ENGINE] Contextual follow-up query detected ('{context.query}'). Reusing {len(existing_theses)} theses from active session.")
             context.theses = existing_theses
             context.citations = build_citations(existing_theses)
             return context

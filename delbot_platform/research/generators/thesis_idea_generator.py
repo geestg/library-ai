@@ -209,9 +209,9 @@ def generate_thesis_ideas(context: ResearchContext) -> ResearchContext:
         per_cluster_evidence_str = "\n\n".join(theses_details)
 
     # 2. Deteksi relevansi data & prodi eksternal
-    sliced_theses = context.theses[new_start_idx - 1:] if context.theses else []
+    sliced_theses = context.theses[new_start_idx - 1:] if (context.theses and new_start_idx <= len(context.theses)) else (context.theses or [])
     new_theses = sliced_theses if sliced_theses else (context.theses or [])
-    has_theses = len(new_theses) > 0
+    has_theses = len(context.theses or []) > 0
     low_relevance = not has_theses
 
     non_del_prodi_name = None
