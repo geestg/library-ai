@@ -105,8 +105,9 @@ def sanitize_and_enhance_ideas(ideas: str) -> str:
     ideas = re.sub(r"\balgoritma C4\.5\b", "algoritma LightGBM", ideas, flags=re.IGNORECASE)
     ideas = re.sub(r"\bkecerdasan emosional\b", "indikator sentimen keterlibatan", ideas, flags=re.IGNORECASE)
 
-    # Auto-correct common dataset hallucinations
-    ideas = re.sub(r"ChestX-?ray14?\s*\([^)]*mammogram[^)]*\)", "CBIS-DDSM (Mammogram Dataset)", ideas, flags=re.IGNORECASE)
+    # If the output contains authentic IT Del citations, remove any contradictory boilerplate disclaimer
+    if re.search(r"\[[A-Za-z]+,\s*\d{4}\]", ideas) or "repositori IT Del" in ideas:
+        ideas = re.sub(r"(?mi)^\s*\*{0,2}Catatan Repositori:\*{0,2}[^\n]*\n+", "", ideas)
 
     # Normalize double horizontal rules and triple newlines
     ideas = re.sub(r"(?:\n\s*---\s*){2,}", "\n\n---", ideas)
