@@ -334,8 +334,9 @@ def run_search(context: ResearchContext) -> ResearchContext:
         # Hard Prodi Filtering: Jika prodi_names_db dispesifikasikan, WAJIB BERASAL DARI PRODI TERSEBUT
         if prodi_names_db:
             matches_prodi = any(db_p.lower() in item_prodi for db_p in prodi_names_db)
-            if not matches_prodi:
-                continue
+            if matches_prodi and is_allowed_item(item):
+                filtered_results.append(item)
+            continue
 
         if _is_topically_aligned(item) and is_allowed_item(item):
             filtered_results.append(item)
