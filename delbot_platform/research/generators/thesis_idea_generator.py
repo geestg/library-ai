@@ -203,7 +203,7 @@ def generate_thesis_ideas(context: ResearchContext) -> ResearchContext:
                 f"[{idx}]{category_tag} Judul: {t.get('title')}\n"
                 f"    Penulis: {t.get('author') or 'Unknown'} | Tahun: {t.get('year') or '-'}\n"
                 f"{justification_line}"
-                f"    Abstrak: {t.get('abstract') or t.get('chunk') or ''}"
+                f"    Abstrak: {(t.get('abstract') or t.get('chunk') or '')[:300]}..."
             )
         per_cluster_evidence_str = "\n\n".join(theses_details)
 

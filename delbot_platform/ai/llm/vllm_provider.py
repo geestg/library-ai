@@ -31,6 +31,14 @@ class VLLMProvider(BaseLLMProvider):
             timeout=120.0,
         )
 
+    def _trim_prompt_to_budget(self, prompt: str, max_chars: int = 32000) -> str:
+        if not prompt or len(prompt) <= max_chars:
+            return prompt
+        half = max_chars // 2
+        head = prompt[:half]
+        tail = prompt[-half:]
+        return head + "\n\n... [Konteks Bukti Riset Dipadatkan Otomatis Agar Sesuai Jendela Konteks GPU] ...\n\n" + tail
+
     def generate(
         self,
         model: str,
@@ -38,6 +46,7 @@ class VLLMProvider(BaseLLMProvider):
         image_ref: str = None,
         max_tokens: int = None
     ):
+        prompt = self._trim_prompt_to_budget(prompt)
         if image_ref:
             content = [
                 {"type": "text", "text": prompt},
@@ -66,6 +75,7 @@ class VLLMProvider(BaseLLMProvider):
         image_ref: str = None,
         max_tokens: int = None
     ):
+        prompt = self._trim_prompt_to_budget(prompt)
         if image_ref:
             content = [
                 {"type": "text", "text": prompt},
