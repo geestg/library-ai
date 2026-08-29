@@ -250,7 +250,19 @@ def answer_faq(query: str) -> str | None:
     Cocokkan query secara cerdas dengan FAQ list menggunakan logika token overlap.
     """
     query_clean = query.lower().strip()
+
+    # Bypass FAQ jika kueri menanyakan spesifik anggota (misal: 'apakah tiffani...') atau analitik sirkulasi (misal: 'paling sering dipinjam')
+    dynamic_triggers = [
+        "paling sering", "paling banyak", "terbanyak", "terpopuler", "sering dipinjam",
+        "banyak dipinjam", "paling populer", "buku terpopuler", "populer",
+        "pernah", "apakah", "siapa", "siapa yang", "siapa saja", "daftar peminjam",
+        "riwayat", "statistik", "analisis", "tren"
+    ]
+    if any(trig in query_clean for trig in dynamic_triggers):
+        return None
+
     query_tokens = _get_tokens(query_clean)
+
 
     best_match = None
     best_score = 0.0

@@ -88,14 +88,22 @@ def route_intent(query: str, faq_checker: Optional[Callable[[str], Optional[str]
             return "faq"
 
     # 2. Aturan Khusus Regulasi Peminjaman / Denda / SOP (Pasti FAQ)
-    borrow_rules_triggers = [
-        "lama masa peminjaman", "masa pinjam", "lama pinjam", "batas waktu pinjam",
-        "denda", "biaya denda", "denda keterlambatan", "denda per hari",
-        "syarat meminjam", "syarat pinjam", "cara pinjam", "prosedur pinjam",
-        "maksimal buku yang bisa dipinjam", "jumlah maksimal buku yang bisa dipinjam", "berapa buku yang bisa dipinjam"
+    dynamic_triggers = [
+        "paling sering", "paling banyak", "terbanyak", "terpopuler", "sering dipinjam",
+        "banyak dipinjam", "paling populer", "buku terpopuler", "populer",
+        "pernah", "apakah", "siapa", "siapa yang", "siapa saja", "daftar peminjam",
+        "riwayat", "statistik", "analisis", "tren"
     ]
-    if any(br in normalized_query for br in borrow_rules_triggers):
-        return "faq"
+    if not any(trig in normalized_query for trig in dynamic_triggers):
+        borrow_rules_triggers = [
+            "lama masa peminjaman", "masa pinjam", "lama pinjam", "batas waktu pinjam",
+            "denda", "biaya denda", "denda keterlambatan", "denda per hari",
+            "syarat meminjam", "syarat pinjam", "cara pinjam", "prosedur pinjam",
+            "maksimal buku yang bisa dipinjam", "jumlah maksimal buku yang bisa dipinjam", "berapa buku yang bisa dipinjam"
+        ]
+        if any(br in normalized_query for br in borrow_rules_triggers):
+            return "faq"
+
 
     # 3. PRIORITAS UTAMA: Lokasi Rak Fisik Buku
     if contains_keyword(normalized_query, STATUS_KEYWORDS) or any(w in normalized_query for w in ["lokasi rak", "di rak", "letak buku", "posisi buku", "rak lantai"]):

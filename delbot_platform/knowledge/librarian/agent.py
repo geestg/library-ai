@@ -177,10 +177,15 @@ class LibraryLibrarianAgent:
                             month_val = m_list[m_idx - 1]
                         
                 tool_output = self.tools.analyze_visitor_log(filename, month=month_val)
-            elif any(kw in query_clean for kw in ["dashboard", "insight", "analisis", "tren", "populer"]):
+            elif any(kw in query_clean for kw in ["dashboard", "insight", "analisis", "tren", "populer", "sering", "paling sering", "paling banyak"]):
                 tool_output = self.tools.query_insights()
-            elif any(kw in query_clean for kw in ["pinjam", "sirkulasi", "denda", "siapa yang pinjam"]):
-                tool_output = self.tools.query_circulation()
+            elif any(kw in query_clean for kw in ["pinjam", "sirkulasi", "denda", "siapa yang pinjam", "terlambat", "telat", "pernah"]):
+                search_name = query_clean
+                for stopword in ["apakah", "pernah", "terlambat", "telat", "kembalikan", "buku", "pinjam", "denda", "sirkulasi", "tolong", "tampilkan", "cek", "ada", "yang"]:
+                    search_name = re.sub(rf'\b{re.escape(stopword)}\b', '', search_name)
+                search_name = search_name.strip()
+                tool_output = self.tools.query_circulation(member_query=search_name if search_name else None)
+
             elif any(kw in query_clean for kw in ["laporan", "excel", "pdf", "ekspor", "print"]):
                 tool_output = self.tools.generate_report()
             elif any(kw in query_clean for kw in ["daftar file", "lihat file", "list file", "folder data", "file yang ada"]):
