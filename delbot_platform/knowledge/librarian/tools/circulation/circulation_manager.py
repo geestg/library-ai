@@ -164,8 +164,8 @@ class CirculationManagerTool:
         persen_telat = (late_loans / total_aktif * 100) if total_aktif > 0 else 0
 
         insight_report = (
-            "### 📊 Dashboard Insight & Analisis Perpustakaan IT Del\n\n"
-            "*Laporan ini merangkum seluruh aktivitas transaksi sirkulasi dan kepatuhan pengembalian buku, memberikan wawasan untuk perbaikan operasional.*\n\n"
+            "### 📊 Dashboard Insight & Analisis Sirkulasi Perpustakaan IT Del (Periode Terkini 2026)\n\n"
+            "*Laporan ini merangkum seluruh aktivitas transaksi sirkulasi dan kepatuhan pengembalian buku di perpustakaan IT Del, memberikan wawasan untuk perbaikan operasional.*\n\n"
             "#### 📈 Ringkasan Aktivitas Sirkulasi\n"
             "| Metrik | Jumlah | Keterangan |\n"
             "| :--- | :--- | :--- |\n"
