@@ -25,32 +25,35 @@ def _pg_connect():
 
 
 def _load_visitors_from_db(month_num: str | None = None) -> pd.DataFrame:
-    """Query tabel visitors dari PostgreSQL, opsional filter per bulan."""
+    """
+    Query tabel kunjungan (3NF) JOIN anggota dari PostgreSQL.
+    Filter opsional per bulan (format: '01'..'12').
+    """
     with _pg_connect() as conn:
         if month_num:
             sql = """
-                SELECT member_id       AS "Nomor Anggota",
-                       name            AS "Nama",
-                       study_program   AS "Prodi",
-                       visit_timestamp AS "Tanggal Kunjungan",
-                       status,
-                       category_role
-                FROM public.visitors
-                WHERE EXTRACT(MONTH FROM visit_timestamp) = %(m)s
-                  AND visit_timestamp IS NOT NULL
-                ORDER BY visit_timestamp
+                SELECT a.ni               AS "Nomor Anggota",
+                       a.nama             AS "Nama",
+                       a.jabatan_jurusan  AS "Prodi",
+                       k.visit_timestamp  AS "Tanggal Kunjungan",
+                       k.slot_waktu       AS "Slot Waktu"
+                FROM public.kunjungan k
+                JOIN public.anggota   a ON k.ni = a.ni
+                WHERE EXTRACT(MONTH FROM k.visit_timestamp) = %(m)s
+                  AND k.visit_timestamp IS NOT NULL
+                ORDER BY k.visit_timestamp
             """
             df = pd.read_sql(sql, conn, params={"m": int(month_num)})
         else:
             sql = """
-                SELECT member_id       AS "Nomor Anggota",
-                       name            AS "Nama",
-                       study_program   AS "Prodi",
-                       visit_timestamp AS "Tanggal Kunjungan",
-                       status,
-                       category_role
-                FROM public.visitors
-                ORDER BY visit_timestamp
+                SELECT a.ni               AS "Nomor Anggota",
+                       a.nama             AS "Nama",
+                       a.jabatan_jurusan  AS "Prodi",
+                       k.visit_timestamp  AS "Tanggal Kunjungan",
+                       k.slot_waktu       AS "Slot Waktu"
+                FROM public.kunjungan k
+                JOIN public.anggota   a ON k.ni = a.ni
+                ORDER BY k.visit_timestamp
             """
             df = pd.read_sql(sql, conn)
     return df
