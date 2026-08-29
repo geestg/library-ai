@@ -4,11 +4,58 @@ import os
 import re
 import uuid
 import json
+import glob
 import pandas as pd
 
 UPLOAD_DIR = "/tmp/uploads"
 REPORTS_DIR = "/tmp/uploads/reports"
 DATASETS_DIR = "/app/app/dataset"
+
+def _find_dataset_file(filename: str) -> str | None:
+    """
+    Mencari file dataset secara dinamis di berbagai lokasi yang mungkin,
+    baik di server Docker maupun lokal. Mengembalikan path absolute jika ditemukan.
+    """
+    # Path berbasis __file__ (relative dari visitor_analytics.py)
+    _here = os.path.dirname(os.path.abspath(__file__))
+    candidate_dirs = [
+        os.path.join(_here, "../../../../workflows/dataset"),      # /delbot_platform/workflows/dataset
+        os.path.join(_here, "../../../../../workflows/dataset"),   # satu level lebih atas
+        os.path.join(_here, "../../../../dataset"),                # fallback dataset di delbot_platform
+        "/workspace/library-ai/delbot_platform/workflows/dataset",# path absolut server GPU
+        "/workspace/library-ai/delbot_platform/dataset",
+        "/app/app/dataset",
+        "/app/dataset",
+        DATASETS_DIR,
+        UPLOAD_DIR,
+    ]
+    
+    # Cek exact match dulu
+    for d in candidate_dirs:
+        p = os.path.join(os.path.abspath(d), filename)
+        if os.path.exists(p):
+            return p
+    
+    # Glob fallback: cari di seluruh workspace
+    patterns = [
+        f"/workspace/**/{filename}",
+        f"/app/**/{filename}",
+    ]
+    for pat in patterns:
+        found = glob.glob(pat, recursive=True)
+        if found:
+            return found[0]
+    
+    # Cari berdasarkan keyword jika nama file tidak exact match
+    keyword = "pengunjung"
+    for d in candidate_dirs:
+        d_abs = os.path.abspath(d)
+        if os.path.exists(d_abs):
+            for f in os.listdir(d_abs):
+                if keyword in f.lower() and f.endswith((".xlsx", ".csv", ".xls")):
+                    return os.path.join(d_abs, f)
+    
+    return None
 
 
 class VisitorAnalyticsTool:
@@ -23,34 +70,16 @@ class VisitorAnalyticsTool:
         menghitung statistik prodi, jam sibuk, dan daftar pengunjung teraktif.
         Dapat difilter berdasarkan bulan.
         """
-        dataset_base = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset"))
-        paths_to_check = [
-            os.path.join(dataset_base, filename),
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset", filename)),
-            os.path.join(DATASETS_DIR, filename),
-            os.path.join(UPLOAD_DIR, filename),
-            os.path.join("/app/app/dataset", filename)
-        ]
-        
-        file_path = None
-        for p in paths_to_check:
-            if os.path.exists(p):
-                file_path = p
-                break
-                
+        file_path = _find_dataset_file(filename)
         if not file_path:
-            all_files = []
-            for folder in [dataset_base, DATASETS_DIR, UPLOAD_DIR, "/app/app/dataset"]:
-                if os.path.exists(folder):
-                    all_files += [os.path.join(folder, f) for f in os.listdir(folder) if "pengunjung" in f.lower() or "visitor" in f.lower()]
-            if all_files:
-                file_path = all_files[0]
-                filename = os.path.basename(file_path)
-            else:
-                return (
-                    f"Berkas log pengunjung `{filename}` tidak ditemukan.\n"
-                    "Silakan unggah berkas log pengunjung perpustakaan Anda terlebih dahulu."
-                )
+            file_path = _find_dataset_file("log_pengunjung_Genap_2026.xlsx")
+        if not file_path:
+            return (
+                f"[TOOL_ERROR] Berkas log pengunjung `{filename}` tidak ditemukan di seluruh direktori server. "
+                "Pastikan file log_pengunjung_Genap_2026.xlsx ada di folder delbot_platform/workflows/dataset/."
+            )
+        filename = os.path.basename(file_path)
+
 
         try:
             print(f"[ADMIN ANALYTICS] Menganalisis berkas log pengunjung: {file_path}")
