@@ -223,8 +223,11 @@ class CirculationManagerTool:
             cur = conn.cursor()
             
             cur.execute("""
-                SELECT id, nama_peminjam, judul_buku, status, denda, tanggal_pinjam, batas_pengembalian 
-                FROM sirkulasi WHERE id = %s;
+                SELECT s.id, a.nama, b.judul, s.status, s.denda, s.tanggal_pinjam, s.batas_pengembalian 
+                FROM public.sirkulasi s
+                JOIN public.anggota a ON s.ni = a.ni
+                JOIN public.buku b ON s.id_master = b.id_master
+                WHERE s.id = %s;
             """, (loan_id,))
             row = cur.fetchone()
             if not row:

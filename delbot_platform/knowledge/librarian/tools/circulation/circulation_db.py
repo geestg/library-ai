@@ -24,113 +24,42 @@ class CirculationDBRepository:
         )
 
     def _init_db(self):
+        """
+        Database initialization is now fully managed by scripts/migrate_to_3nf.py.
+        This function just verifies if the schema is ready.
+        """
         try:
             conn = self.get_db_connection()
             cur = conn.cursor()
-            
-            table_exists = False
-            reseed_needed = False
-            try:
-                cur.execute("SELECT COUNT(*) FROM sirkulasi;")
-                row_count = cur.fetchone()[0]
-                table_exists = True
-                
-                cur.execute("SELECT denda FROM sirkulasi WHERE id = 'TX_00006';")
-                val_row = cur.fetchone()
-                if val_row and val_row[0] == 86000:
-                    reseed_needed = True
-            except Exception:
-                row_count = 0
-                conn.rollback()
-            
-            if not table_exists or row_count < 100 or reseed_needed:
-                print("[DB INIT] Membuat ulang tabel sirkulasi dengan skema baru dari Excel...")
-                cur.execute("DROP TABLE IF EXISTS sirkulasi;")
-                cur.execute("""
-                    CREATE TABLE sirkulasi (
-                        id VARCHAR(30) PRIMARY KEY,
-                        id_transaksi INT,
-                        nama_peminjam VARCHAR(150),
-                        judul_buku TEXT,
-                        tanggal_pinjam DATE,
-                        batas_pengembalian DATE,
-                        status VARCHAR(100),
-                        denda INT
-                    );
-                """)
-                conn.commit()
-                
-                file_candidates = [
-                    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
-                    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx")),
-                    "/app/app/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx",
-                    "delbot_platform/workflows/dataset/Sirkulasi_Buku_Jan-Jul_2026.xlsx"
-                ]
-                file_path = next((f for f in file_candidates if os.path.exists(f)), None)
-                if file_path and os.path.exists(file_path):
-                    print(f"[DB INIT] Membaca data dari {file_path}...")
-                    df_excel = pd.read_excel(file_path)
-                    
-                    import datetime
-                    today = datetime.date(2026, 7, 13)
-                    
-                    insert_data = []
-                    for idx, row in df_excel.iterrows():
-                        id_transaksi = int(row.get("ID_Transaksi", 0))
-                        nama = str(row.get("Nama", "Unknown")).strip()
-                        judul = str(row.get("Judul", "Unknown")).strip()
-                        
-                        tgl_tx = row.get("Tgl_Transaksi")
-                        tgl_pinjam_val = pd.to_datetime(tgl_tx).date() if pd.notna(tgl_tx) else today
-                        
-                        rencana = row.get("Rencana_Kembali")
-                        rencana_dt = pd.to_datetime(rencana).date() if pd.notna(rencana) else today
-                        
-                        status = str(row.get("Kondisi_Pinjam", "Masih Dipinjam")).strip()
-                        tgl_kembali = row.get("Tgl_Kembali")
-                        
-                        denda_val = 0
-                        if pd.notna(tgl_kembali):
-                            kembali_dt = pd.to_datetime(tgl_kembali).date()
-                            if kembali_dt > rencana_dt:
-                                denda_val = (kembali_dt - rencana_dt).days * 2000
-                        else:
-                            if status == "Masih Dipinjam":
-                                if today > rencana_dt:
-                                    denda_val = (today - rencana_dt).days * 2000
-                                    
-                        unique_id = f"TX_{idx:05d}"
-                        
-                        insert_data.append((
-                            unique_id,
-                            id_transaksi,
-                            nama,
-                            judul,
-                            tgl_pinjam_val,
-                            rencana_dt,
-                            status,
-                            denda_val
-                        ))
-                    
-                    print(f"[DB INIT] Menyisipkan {len(insert_data)} baris data sirkulasi ke PostgreSQL...")
-                    cur.executemany("""
-                        INSERT INTO sirkulasi (id, id_transaksi, nama_peminjam, judul_buku, tanggal_pinjam, batas_pengembalian, status, denda)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-                    """, insert_data)
-                    conn.commit()
-                    print("[DB INIT] Seeding data sirkulasi berhasil!")
+            cur.execute("SELECT COUNT(*) FROM public.anggota;")
+            count = cur.fetchone()[0]
+            print(f"[DB INIT] Database 3NF aktif dengan {count} anggota terdaftar.")
             cur.close()
             conn.close()
         except Exception as e:
-            print(f"[DB INIT ERROR] {e}")
+            print(f"[DB INIT WARNING] Database 3NF belum dimigrasi atau tidak terhubung: {e}. Silakan jalankan 'python scripts/migrate_to_3nf.py'.")
 
     def get_loans_df(self) -> pd.DataFrame:
         """
-        Mengambil 3.620 data peminjaman buku murni dari database PostgreSQL (atau fallback ke Excel).
+        Mengambil data peminjaman buku murni dari database PostgreSQL 3NF dengan JOIN.
         """
         try:
             conn = self.get_db_connection()
-            query = "SELECT id AS \"ID Peminjaman\", id_transaksi AS \"ID Transaksi\", nama_peminjam AS \"Nama Peminjam\", judul_buku AS \"Judul Buku\", tanggal_pinjam AS \"Tanggal Pinjam\", batas_pengembalian AS \"Batas Pengembalian\", status AS \"Status\", denda AS \"Denda (Rupiah)\" FROM sirkulasi ORDER BY id ASC;"
+            query = """
+                SELECT 
+                    s.id AS "ID Peminjaman",
+                    s.id_transaksi AS "ID Transaksi",
+                    a.nama AS "Nama Peminjam",
+                    b.judul AS "Judul Buku",
+                    s.tanggal_pinjam AS "Tanggal Pinjam",
+                    s.batas_pengembalian AS "Batas Pengembalian",
+                    s.status AS "Status",
+                    s.denda AS "Denda (Rupiah)"
+                FROM public.sirkulasi s
+                JOIN public.anggota a ON s.ni = a.ni
+                JOIN public.buku b ON s.id_master = b.id_master
+                ORDER BY s.id ASC;
+            """
             df = pd.read_sql_query(query, conn)
             conn.close()
             if not df.empty:
