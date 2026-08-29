@@ -23,7 +23,10 @@ class VisitorAnalyticsTool:
         menghitung statistik prodi, jam sibuk, dan daftar pengunjung teraktif.
         Dapat difilter berdasarkan bulan.
         """
+        dataset_base = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../workflows/dataset"))
         paths_to_check = [
+            os.path.join(dataset_base, filename),
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../workflows/dataset", filename)),
             os.path.join(DATASETS_DIR, filename),
             os.path.join(UPLOAD_DIR, filename),
             os.path.join("/app/app/dataset", filename)
@@ -37,7 +40,7 @@ class VisitorAnalyticsTool:
                 
         if not file_path:
             all_files = []
-            for folder in [DATASETS_DIR, UPLOAD_DIR, "/app/app/dataset"]:
+            for folder in [dataset_base, DATASETS_DIR, UPLOAD_DIR, "/app/app/dataset"]:
                 if os.path.exists(folder):
                     all_files += [os.path.join(folder, f) for f in os.listdir(folder) if "pengunjung" in f.lower() or "visitor" in f.lower()]
             if all_files:
