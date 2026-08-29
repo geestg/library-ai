@@ -144,20 +144,37 @@ class LibraryLibrarianAgent:
                     search_query = search_query.replace(stopword, "")
                 search_query = search_query.strip()
                 tool_output = self.tools.search_visitor(search_query)
-            elif any(kw in query_clean for kw in ["pengunjung", "visitor", "kunjungan"]):
+            elif any(kw in query_clean for kw in ["pengunjung", "pengjung", "visitor", "kunjungan", "penjung", "pengunju"]):
                 file_match = re.search(r'\b[\w\.-]+\.(csv|xlsx|xls)\b', query_clean)
                 filename = file_match.group(0) if file_match else "log_pengunjung_Genap_2026.xlsx"
                 
-                # Cari bulan sederhana di fallback
+                # Cari bulan sederhana di fallback (termasuk angka bulan 1..12 dan kata nama bulan)
                 month_val = None
-                for m_kw in ["januari", "februari", "maret", "april", "mei", "juni", "juli", "agustus", "september", "oktober", "november", "desember"]:
+                months_map = [
+                    ("januari", "januari"), ("jan", "januari"), ("bulan 1", "januari"), ("bulan 01", "januari"),
+                    ("februari", "februari"), ("feb", "februari"), ("bulan 2", "februari"), ("bulan 02", "februari"),
+                    ("maret", "maret"), ("mar", "maret"), ("bulan 3", "maret"), ("bulan 03", "maret"),
+                    ("april", "april"), ("apr", "april"), ("bulan 4", "april"), ("bulan 04", "april"),
+                    ("mei", "mei"), ("bulan 5", "mei"), ("bulan 05", "mei"),
+                    ("juni", "juni"), ("jun", "juni"), ("bulan 6", "juni"), ("bulan 06", "juni"),
+                    ("juli", "juli"), ("jul", "juli"), ("bulan 7", "juli"), ("bulan 07", "juli"),
+                    ("agustus", "agustus"), ("agu", "agustus"), ("bulan 8", "agustus"), ("bulan 08", "agustus"),
+                    ("september", "september"), ("sep", "september"), ("bulan 9", "september"), ("bulan 09", "september"),
+                    ("oktober", "oktober"), ("okt", "oktober"), ("bulan 10", "oktober"),
+                    ("november", "november"), ("nov", "november"), ("bulan 11", "november"),
+                    ("desember", "desember"), ("des", "desember"), ("bulan 12", "desember")
+                ]
+                for m_kw, m_mapped in months_map:
                     if m_kw in query_clean:
-                        month_val = m_kw
+                        month_val = m_mapped
                         break
                 if not month_val:
                     m_num = re.search(r'\bbulan\s*(\d+)\b', query_clean)
                     if m_num:
-                        month_val = m_num.group(1)
+                        m_idx = int(m_num.group(1))
+                        m_list = ["januari", "februari", "maret", "april", "mei", "juni", "juli", "agustus", "september", "oktober", "november", "desember"]
+                        if 1 <= m_idx <= 12:
+                            month_val = m_list[m_idx - 1]
                         
                 tool_output = self.tools.analyze_visitor_log(filename, month=month_val)
             elif any(kw in query_clean for kw in ["dashboard", "insight", "analisis", "tren", "populer"]):
