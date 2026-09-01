@@ -275,8 +275,9 @@ def generate_thesis_ideas(context: ResearchContext) -> ResearchContext:
         )
 
     # Guard explicit: pastikan LLM tahu ini harus menjadi ide skripsi, bukan rekomendasi buku
-    prompt += "\n\nPERINGATAN: Jawaban harus berupa 5 ide skripsi atau penelitian, bukan rekomendasi buku atau layanan perpustakaan."
     if is_contextual_followup(context.query) or followup_count > 0:
+        prompt += f"\n\n⚠️ PENTING: Ini adalah kueri follow-up lanjutan untuk ide tambahan. Hasilkan 5 ide skripsi baru yang berbeda dari sebelumnya, namun tetap 100% KONSISTEN membahas topik riset asli: '{context.query}'."
+
     ideas = gateway.generate_response(prompt=prompt)
     if not ideas or not str(ideas).strip():
         print("[THESIS IDEA GENERATOR] LLM returned empty response, using structured fallback generator")
