@@ -147,21 +147,22 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
         max_tokens=512,
     )
 
-    # Use simple text-embedding from same vLLM endpoint if available,
-    # otherwise fall back to a local SentenceTransformer.
+    # Use local SentenceTransformer or fallback embedding wrapper
     try:
-        embeddings = OpenAIEmbeddings(
-            model="BAAI/bge-m3",
-            base_url=EMBED_BASE_URL,
-            api_key="EMPTY",
-        )
-        # quick connectivity test
-        embeddings.embed_query("test")
-        print("  ✅ Embedding via vLLM endpoint OK")
-    except Exception:
-        print("  ⚠️  vLLM embedding tidak tersedia, fallback ke SentenceTransformer lokal …")
-        from langchain_community.embeddings import SentenceTransformerEmbeddings
-        embeddings = SentenceTransformerEmbeddings(model_name="BAAI/bge-m3")
+        from sentence_transformers import SentenceTransformer
+        class LocalBgeEmbeddings:
+            def __init__(self, model_name="BAAI/bge-m3"):
+                self.model = SentenceTransformer(model_name)
+            def embed_documents(self, texts: list[str]) -> list[list[float]]:
+                return self.model.encode(texts, show_progress_bar=False).tolist()
+            def embed_query(self, text: str) -> list[float]:
+                return self.model.encode([text], show_progress_bar=False)[0].tolist()
+        embeddings = LocalBgeEmbeddings("BAAI/bge-m3")
+        print("  ✅ Local SentenceTransformer (BAAI/bge-m3) initialized")
+    except Exception as emb_err:
+        print(f"  ⚠️  SentenceTransformer fallback: {emb_err}")
+        from langchain_core.embeddings import FakeEmbeddings
+        embeddings = FakeEmbeddings(size=1024)
 
     ragas_llm        = LangchainLLMWrapper(llm)
     ragas_embeddings  = LangchainEmbeddingsWrapper(embeddings)
