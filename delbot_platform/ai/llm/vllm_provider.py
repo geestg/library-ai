@@ -66,7 +66,7 @@ class VLLMProvider(BaseLLMProvider):
         except Exception as e:
             print(f"[{self.name} ERROR] Failed to connect to model server: {e}")
             # Graceful fallback: return a helpful message if SSH Tunnel is not active
-            return f"⚠️ [Koneksi Model GPU]: Sedang tidak dapat menghubungi GPU Model Server di port 11435. Pastikan SSH Tunnel aktif dengan perintah: `ssh -L 11435:localhost:11435 user@gpu-server` (Error: {e})"
+            return f"⚠️ [Koneksi Model GPU]: Sedang tidak dapat menghubungi GPU Model Server di {self.base_url}. (Error: {e})"
 
     def stream(
         self,
@@ -99,4 +99,4 @@ class VLLMProvider(BaseLLMProvider):
                         yield delta.content
         except Exception as e:
             print(f"[{self.name} STREAM ERROR] Failed to connect: {e}")
-            yield f"⚠️ [Koneksi Model GPU]: Tidak dapat terhubung ke GPU Model Server di port 11435. Mohon pastikan SSH Tunnel Anda sudah aktif di terminal (`ssh -L 11435:localhost:11435 ...`).\n\n(Detail error: {e})"
+            yield f"⚠️ [Koneksi Model GPU]: Tidak dapat terhubung ke GPU Model Server di {self.base_url}. (Detail error: {e})"

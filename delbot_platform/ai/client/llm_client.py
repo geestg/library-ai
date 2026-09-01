@@ -1,17 +1,21 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import requests
+from delbot_platform.core.config import settings
 
 
 class LLMClient:
 
     def __init__(
         self,
-        url="http://127.0.0.1:11435/v1/chat/completions",
-        model="/workspace/Qwen3-30B-MoE"
+        url: str = None,
+        model: str = None
     ):
-        self.url = url
-        self.model = model
+        base_url = settings.LLM_BASE_URL.rstrip('/')
+        if not base_url.endswith('/chat/completions'):
+            base_url = f"{base_url}/chat/completions"
+        self.url = url or base_url
+        self.model = model or settings.LLM_MODEL
 
     def chat(
         self,
@@ -40,6 +44,7 @@ class LLMClient:
             return data["choices"][0]["message"]["content"]
 
         except requests.exceptions.ConnectionError:
-            return "⚠️ [Koneksi GPU]: Tidak dapat terhubung ke model di port 11435. Pastikan SSH Tunnel aktif (`ssh -L 11435:localhost:11435 ...`)."
+            return f"⚠️ [Koneksi GPU]: Tidak dapat terhubung ke model di {self.url}. Pastikan SSH Tunnel aktif."
         except Exception as e:
             return f"⚠️ [LLM Request Error]: {e}"
+
