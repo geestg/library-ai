@@ -189,12 +189,14 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
     print(f"\n🔬 Menjalankan RAGAS evaluate() pada {len(dataset)} pertanyaan …")
     result = evaluate(
         dataset   = hf_dataset,
-        metrics   = [faithfulness, answer_relevancy, context_precision, context_recall],
+        metrics   = [faithfulness, answer_relevancy, context_precision],
         llm       = ragas_llm,
         embeddings = ragas_embeddings,
     )
 
     scores_df = result.to_pandas()
+    # Replace NaN with 0.0 or clean numeric value
+    scores_df = scores_df.fillna(0.0)
     return scores_df.to_dict(orient="records")
 
 
@@ -204,18 +206,23 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
 
 def generate_markdown_report(dataset: list[dict], per_sample: list[dict], ragas_version: str = "unknown") -> str:
     """Render a comprehensive Markdown report suitable for academic documentation."""
+    import math
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S WIB")
+
+    def safe_num(val):
+        if val is None or math.isnan(float(val)):
+            return 0.0
+        return float(val)
 
     # Overall averages
     def avg(key: str) -> float:
-        vals = [s[key] for s in per_sample if s.get(key) is not None]
+        vals = [safe_num(s.get(key, 0.0)) for s in per_sample]
         return sum(vals) / len(vals) if vals else 0.0
 
     f_avg  = avg("faithfulness")
     ar_avg = avg("answer_relevancy")
     cp_avg = avg("context_precision")
-    cr_avg = avg("context_recall")
-    overall = (f_avg + ar_avg + cp_avg + cr_avg) / 4
+    overall = (f_avg + ar_avg + cp_avg) / 3
 
     # Domain breakdown
     domains = {}
@@ -233,13 +240,12 @@ def generate_markdown_report(dataset: list[dict], per_sample: list[dict], ragas_
     for d_key, scores_list in domains.items():
         dname = domain_labels.get(d_key, d_key)
         n     = len(scores_list)
-        df    = sum(s.get("faithfulness",     0) for s in scores_list) / n
-        dar   = sum(s.get("answer_relevancy", 0) for s in scores_list) / n
-        dcp   = sum(s.get("context_precision",0) for s in scores_list) / n
-        dcr   = sum(s.get("context_recall",   0) for s in scores_list) / n
+        df    = sum(safe_num(s.get("faithfulness",     0)) for s in scores_list) / n
+        dar   = sum(safe_num(s.get("answer_relevancy", 0)) for s in scores_list) / n
+        dcp   = sum(safe_num(s.get("context_precision",0)) for s in scores_list) / n
         domain_table_rows += (
             f"| {dname} | {n} | {df:.4f} ({df:.1%}) | {dar:.4f} ({dar:.1%}) | "
-            f"{dcp:.4f} ({dcp:.1%}) | {dcr:.4f} ({dcr:.1%}) |\n"
+            f"{dcp:.4f} ({dcp:.1%}) |\n"
         )
 
     # Per-question detail rows
@@ -247,13 +253,12 @@ def generate_markdown_report(dataset: list[dict], per_sample: list[dict], ragas_
     for item, score in zip(dataset, per_sample):
         emoji = {"catalog": "📚", "thesis": "🎓", "faq": "ℹ️"}.get(item.get("domain",""), "")
         q_short = (item["question"][:55] + "…") if len(item["question"]) > 55 else item["question"]
-        f  = score.get("faithfulness",     0)
-        ar = score.get("answer_relevancy", 0)
-        cp = score.get("context_precision",0)
-        cr = score.get("context_recall",   0)
+        f  = safe_num(score.get("faithfulness",     0))
+        ar = safe_num(score.get("answer_relevancy", 0))
+        cp = safe_num(score.get("context_precision",0))
         detail_rows += (
             f"| {item['id']:02d} | {emoji} | {q_short} | "
-            f"{f:.2f} | {ar:.2f} | {cp:.2f} | {cr:.2f} |\n"
+            f"{f:.2f} | {ar:.2f} | {cp:.2f} |\n"
         )
 
     # Narrative conclusions

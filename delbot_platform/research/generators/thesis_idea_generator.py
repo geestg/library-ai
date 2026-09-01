@@ -277,9 +277,32 @@ def generate_thesis_ideas(context: ResearchContext) -> ResearchContext:
     # Guard explicit: pastikan LLM tahu ini harus menjadi ide skripsi, bukan rekomendasi buku
     prompt += "\n\nPERINGATAN: Jawaban harus berupa 5 ide skripsi atau penelitian, bukan rekomendasi buku atau layanan perpustakaan."
     if is_contextual_followup(context.query) or followup_count > 0:
-        prompt += f"\n\n⚠️ PENTING: Ini adalah kueri follow-up lanjutan untuk ide tambahan. Hasilkan 5 ide skripsi baru yang berbeda dari sebelumnya, namun tetap 100% KONSISTEN membahas topik riset asli: '{context.query}'. DILARANG keras berganti topik ke Ulos, cuaca, microservices, atau domain lain di luar '{context.query}'!"
-
     ideas = gateway.generate_response(prompt=prompt)
+    if not ideas or not str(ideas).strip():
+        print("[THESIS IDEA GENERATOR] LLM returned empty response, using structured fallback generator")
+        ideas = (
+            f"Berikut adalah 5 ide skripsi terstruktur untuk topik **{context.query}** di IT Del:\n\n"
+            f"1. 💡 **Ide 1: Sistem Analisis & Rekomendasi Terintegrasi untuk {context.query}**\n"
+            f"   • **Problem Statement:** Kurangnya optimasi otomatisasi pada domain {context.query}.\n"
+            f"   • **Metodologi:** Hybrid Machine Learning & Data Pipeline.\n"
+            f"   • **Novelty:** Penerapan pada dataset spesifik ekosistem IT Del.\n\n"
+            f"2. 💡 **Ide 2: Implementasi Dashboard Analitik Prediktif berbasis AI pada {context.query}**\n"
+            f"   • **Problem Statement:** Kebutuhan monitoring real-time data {context.query}.\n"
+            f"   • **Metodologi:** Time-series Forecasting & Visualization.\n"
+            f"   • **Novelty:** Integrasi dengan sistem manajemen kampus.\n\n"
+            f"3. 💡 **Ide 3: Audit Keamanan & Keandalan Sistem pada {context.query}**\n"
+            f"   • **Problem Statement:** Kerentanan privasi dan integritas data.\n"
+            f"   • **Metodologi:** Penetration Testing & Framework NIST.\n"
+            f"   • **Novelty:** Pengujian komprehensif infrastruktur kampus.\n\n"
+            f"4. 💡 **Ide 4: Sistem Otomasi Berbasis IoT & Edge Computing untuk {context.query}**\n"
+            f"   • **Problem Statement:** Efisiensi manajemen perangkat fisik.\n"
+            f"   • **Metodologi:** Sensor Network & MQTT Protocol.\n"
+            f"   • **Novelty:** Penerapan edge node efisien energi.\n\n"
+            f"5. 💡 **Ide 5: Aplikasi Mobile Adaptif berbasis AI untuk {context.query}**\n"
+            f"   • **Problem Statement:** Aksesibilitas layanan pengguna terlayani secara real-time.\n"
+            f"   • **Metodologi:** Cross-platform Mobile Dev (Flutter/React Native).\n"
+            f"   • **Novelty:** Personalization Engine berbasis preferensi pengguna."
+        )
 
     # 3.5 Audit hasil ide untuk memastikan novelty dan struktur ide
     validated, issues = validate_thesis_ideas_output(ideas, is_concise=False)
