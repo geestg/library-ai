@@ -63,14 +63,14 @@ def sanitize_and_enhance_ideas(ideas: str) -> str:
     ideas = re.sub(r"(?mi)^\s*###?\s*Judul\s+Ide\s+Baru[^\n]*\n", "", ideas)
     ideas = re.sub(r"(?mi)^###\s*\[\s*(.*?)\s*\]\s*$", r"### \1", ideas)
 
-    # Clean duplicate dataset phrasing (e.g. 'Dataset & Evaluasi: Data yang disarankan:')
-    ideas = re.sub(r"(?mi)(?:Saran Dataset dan Evaluasi|Saran Dataset & Evaluasi|Dataset & Evaluasi|Saran Data|Dataset)[:\s*]+(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?", "Saran Dataset dan Evaluasi: ", ideas)
-
     # Clean and separate section headers with clean standard bullets (no cluttered emojis)
     ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:📌\s*)?(?:\*{0,2})Problem(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **Problem:** \1", ideas)
     ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:🔍\s*)?(?:\*{0,2})Research Gap(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **Research Gap:** \1", ideas)
     ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:🚀\s*)?(?:\*{0,2})Solusi & Kebaruan(?:\*{0,2}):?\s*(\S[^\n\r]*)", r"\n\n* **Solusi & Kebaruan:** \1", ideas)
     ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:📊\s*)?(?:\*{0,2})(?:Saran Dataset dan Evaluasi|Saran Dataset & Evaluasi|Dataset & Evaluasi)(?:\*{0,2}):?\s*(?:Data(?:set)?\s+yang\s+disarankan:?\s*)?(\S[^\n\r]*)", r"\n\n* **Saran Dataset dan Evaluasi:** \1", ideas)
+
+    # Clean double header artifact if any
+    ideas = re.sub(r"\*\*Saran Dataset dan Evaluasi:\*\*\s*(?:\*\*)?Saran Dataset dan Evaluasi:?\s*(?:\*\*)?", "**Saran Dataset dan Evaluasi:** ", ideas, flags=re.IGNORECASE)
 
     # Format Idea Headers cleanly without emoji
     ideas = re.sub(r"(?mi)^\s*(?:#{1,3}\s*)?(?:💡\s*)?Ide\s*([1-9])\s*:\s*", r"\n\n### Ide \1: ", ideas)
@@ -277,7 +277,6 @@ def generate_thesis_ideas(context: ResearchContext) -> ResearchContext:
     # Guard explicit: pastikan LLM tahu ini harus menjadi ide skripsi, bukan rekomendasi buku
     if is_contextual_followup(context.query) or followup_count > 0:
         prompt += f"\n\n⚠️ PENTING: Ini adalah kueri follow-up lanjutan untuk ide tambahan. Hasilkan 5 ide skripsi baru yang berbeda dari sebelumnya, namun tetap 100% KONSISTEN membahas topik riset asli: '{context.query}'."
-
     ideas = gateway.generate_response(prompt=prompt)
     if not ideas or not str(ideas).strip():
         print("[THESIS IDEA GENERATOR] LLM returned empty response, using structured fallback generator")

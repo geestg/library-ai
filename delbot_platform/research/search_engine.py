@@ -21,13 +21,24 @@ def build_thesis_object(item: dict):
     thesis.update(extract_thesis_evidence(thesis))
     return thesis
 
+def clean_author_name(author: str) -> str:
+    if not author:
+        return "Unknown"
+    author = author.strip()
+    if "," in author:
+        parts = [p.strip() for p in author.split(",")]
+        if len(parts) == 2:
+            return f"{parts[1].title()} {parts[0].title()}"
+    return author.title()
+
 def build_citations(theses: list):
     citations = []
     for idx, thesis in enumerate(theses, start=1):
+        raw_author = thesis.get("author") or ""
         citations.append({
             "source_id": idx,
             "title": thesis.get("title"),
-            "author": thesis.get("author"),
+            "author": clean_author_name(raw_author),
             "year": thesis.get("year"),
             "prodi": thesis.get("prodi"),
             "url": thesis.get("url"),
@@ -61,23 +72,25 @@ import re
 
 def is_contextual_followup(query: str) -> bool:
     q = query.lower().strip()
+    
+    # Explicit prodi or fresh query requests are NOT follow-ups!
+    prodi_keywords = [
+        "informatika", "sistem informasi", "teknik elektro", "bioproses", 
+        "manajemen informatika", "mekatronika", "trpl", "rekayasa perangkat lunak",
+        "teknik komputer", "prodi", "jurusan", "cari ide", "rekomendasi ide"
+    ]
+    if any(pk in q for pk in prodi_keywords):
+        return False
+
     patterns = [
         r"\bdari\s+(research|gap|hasil|penelitian|riset|tersebut|di\s+atas|itu|situ)\b",
         r"\bberdasarkan\s+(research|gap|hasil|penelitian|riset|tersebut|di\s+atas|itu|situ)\b",
-        r"\bapa\s+(ada\s+)?ide\s*nya\b",
-        r"\bapa\s+(ada\s+)?idenya\b",
-        r"\bide\s*nya\s*apa\b",
-        r"\bidenya\s*apa\b",
-        r"\bada\s+(?:rekomendasi\s+)?ide\b",
-        r"\bada\s+ide\s+skripsi\b",
+        r"\bada\s+saran\s+lain\b",
         r"\bada\s+ide\s+lain\b",
-        r"\bide\s+skripsi\b",
         r"\bide\s+lain\b",
         r"\bbagaimana\s+detailnya\b",
         r"\bapa\s+novelty\s*nya\b",
-        r"\bbuatkan\s+ide\b",
-        r"\bada\s+ide\b",
-        r"\bide\s+apa\b",
+        r"\blanjutkan\b",
     ]
     return any(re.search(pat, q) for pat in patterns)
 
@@ -88,13 +101,15 @@ def run_search(context: ResearchContext) -> ResearchContext:
         _session = session_manager.get_or_create(context.session_id)
         existing_theses = getattr(_session, "all_theses", [])
         
-        # Check if the CURRENT query itself is a contextual follow-up (e.g. "ada ide lain?", "dari research gap tersebut")
         is_followup = is_contextual_followup(context.query)
         if existing_theses and is_followup:
             print(f"[SEARCH ENGINE] Contextual follow-up query detected ('{context.query}'). Reusing {len(existing_theses)} theses from active session.")
             context.theses = existing_theses
             context.citations = build_citations(existing_theses)
             return context
+        else:
+            # Reset followup count for fresh new query
+            _session.followup_count = 0
     except Exception as e:
         print(f"[SEARCH ENGINE] Session thesis check error: {e}")
 
