@@ -132,5 +132,26 @@ def route_intent(query: str, faq_checker: Optional[Callable[[str], Optional[str]
     if any(w in normalized_query for w in generic_book_triggers):
         return "recommendation"
 
+    # 7b. Deteksi follow-up rekomendasi: "ada saran lain?", "ada yang lain?", dll
+    followup_more_patterns = [
+        r"ada\s+(?:saran|yang|opsi|pilihan|rekomendasi|buku|koleksi)?\s*(?:lain|lagi|lainnya)",
+        r"saran\s+(?:yang\s+)?lain",
+        r"opsi\s+(?:yang\s+)?lain",
+        r"pilihan\s+(?:yang\s+)?lain",
+        r"rekomendasi\s+(?:yang\s+)?lain",
+        r"buku\s+(?:yang\s+)?lain",
+        r"masih\s+ada",
+        r"ada\s+lagi",
+        r"selain\s+ini",
+        r"hanya\s+ini",
+        r"tampilkan\s+lagi",
+        r"tampilkan\s+lainnya",
+        r"yang\s+lain(?:nya)?",
+        r"more\s+books",
+        r"any\s+other",
+    ]
+    if any(re.search(pat, normalized_query) for pat in followup_more_patterns):
+        return "recommendation"
+
     # 8. Default untuk pertanyaan umum natural language: rute ke "faq"
     return "faq"
