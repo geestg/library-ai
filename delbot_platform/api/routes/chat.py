@@ -144,14 +144,14 @@ def chat(req: ChatRequest, x_user_role: str = Header(default="student")):
 
         def _has_research_kw(text: str) -> bool:
             t_clean = text.lower()
-            # Explicit multi-word research terms & follow-up prompts
             multi_words = [
                 "ide skripsi", "judul skripsi", "topik skripsi", "ide penelitian", 
                 "judul penelitian", "topik penelitian", "tugas akhir", "research gap", 
                 "novelty", "ada ide lain", "ide lain", "ide lainnya", "topik lain", 
                 "judul lain", "opsi lain", "contoh lain", "prodi lain", "berikan lagi", 
                 "tambah lagi", "ide lain?", "ada lagi", "draf", "bab 1", "bab 3",
-                "ide skripsi prodi", "judul skripsi prodi", "tugas akhir prodi"
+                "ide skripsi prodi", "judul skripsi prodi", "tugas akhir prodi",
+                "ada saran lain", "saran lain", "saran lainnya", "rekomendasi lain", "ada opsi lain"
             ]
             if any(mw in t_clean for mw in multi_words):
                 return True
