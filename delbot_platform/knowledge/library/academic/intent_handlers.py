@@ -217,7 +217,12 @@ class AcademicIntentHandlers:
                 formatted_history += f"{role}: {msg['content']}\n"
 
         normalized = query.lower().strip()
-        generic_keywords = {"buku", "carikan", "cari", "rekomendasi", "rekomendasikan", "mau", "ingin", "baca", "bacaan", "referensi", "dong", "tolong", "apa", "saja", "yang", "bagus", "menarik", "hanya", "itu", "kok", "dikit", "sedikit"}
+        generic_keywords = {
+            "buku", "carikan", "cari", "rekomendasi", "rekomendasikan", "mau", "ingin",
+            "baca", "bacaan", "referensi", "dong", "tolong", "apa", "saja", "yang",
+            "bagus", "menarik", "hanya", "itu", "kok", "dikit", "sedikit", "saran",
+            "sarankan", "opsi", "pilihan", "ada", "lain", "lainnya", "lagi"
+        }
         
         words = re.findall(r'\b\w+\b', normalized)
         followup_guide_keywords = [
@@ -249,7 +254,7 @@ class AcademicIntentHandlers:
 
         meaningful_words = [w for w in words if w not in generic_keywords]
         
-        if len(meaningful_words) == 0 and not any(metadata_filter.values()):
+        if len(meaningful_words) == 0 and not any(metadata_filter.values()) and not any(kw in normalized for kw in ["lain", "lagi", "saran", "opsi", "pilihan"]):
             if history:
                 prompt_chat = (
                     "System: Anda adalah DELBot, asisten AI Perpustakaan IT Del yang cerdas.\n"
@@ -273,6 +278,10 @@ class AcademicIntentHandlers:
 
         more_books_patterns = [
             r"ada\s+(?:yang\s+)?lain",
+            r"ada\s+saran",
+            r"saran\s+(?:yang\s+)?lain",
+            r"opsi\s+(?:yang\s+)?lain",
+            r"pilihan\s+(?:yang\s+)?lain",
             r"buku\s+(?:yang\s+)?lain",
             r"rekomendasi\s+(?:yang\s+)?lain",
             r"koleksi\s+(?:yang\s+)?lain",
@@ -290,6 +299,7 @@ class AcademicIntentHandlers:
             r"any\s+other",
             r"lainnya",
         ]
+
         q_lower = query.lower()
         is_asking_more = any(re.search(pat, q_lower) for pat in more_books_patterns)
         
