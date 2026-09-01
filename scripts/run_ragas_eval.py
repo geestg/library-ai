@@ -158,18 +158,18 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
         max_tokens=512,
     )
 
-    # Use local SentenceTransformer or fallback embedding wrapper
+    # Use local SentenceTransformer on CPU to avoid CUDA VRAM collision with vLLM
     try:
         from sentence_transformers import SentenceTransformer
         class LocalBgeEmbeddings:
             def __init__(self, model_name="BAAI/bge-m3"):
-                self.model = SentenceTransformer(model_name)
+                self.model = SentenceTransformer(model_name, device="cpu")
             def embed_documents(self, texts: list[str]) -> list[list[float]]:
                 return self.model.encode(texts, show_progress_bar=False).tolist()
             def embed_query(self, text: str) -> list[float]:
                 return self.model.encode([text], show_progress_bar=False)[0].tolist()
         embeddings = LocalBgeEmbeddings("BAAI/bge-m3")
-        print("  ✅ Local SentenceTransformer (BAAI/bge-m3) initialized")
+        print("  ✅ Local SentenceTransformer (BAAI/bge-m3 di CPU) initialized")
     except Exception as emb_err:
         print(f"  ⚠️  SentenceTransformer fallback: {emb_err}")
         from langchain_core.embeddings import FakeEmbeddings
