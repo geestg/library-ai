@@ -148,14 +148,38 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
         print("Jalankan: pip install ragas langchain-openai datasets")
         sys.exit(1)
 
-    # --- Setup LLM judge (local vLLM) ---
+    # --- Auto-detect & Setup LLM judge (local vLLM) ---
     print("\n⚖️  Menginisialisasi LLM judge …")
+    
+    import urllib.request
+    active_url = LLM_BASE_URL
+    active_model = LLM_MODEL
+    
+    for port in [11436, 11435, 8000]:
+        test_url = f"http://127.0.0.1:{port}/v1"
+        try:
+            req = urllib.request.Request(f"{test_url}/models", headers={"User-Agent": "RAGAS-Check"})
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                if resp.status == 200:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    models = data.get("data", [])
+                    active_model = models[0]["id"] if models else LLM_MODEL
+                    active_url = test_url
+                    print(f"  ✅ Terdeteksi LLM Endpoint Aktif di Port {port}: '{active_model}'")
+                    break
+        except Exception:
+            continue
+    else:
+        print(f"  ⚠️  Perhatian: Tidak terhubung ke vLLM di port 11436/11435. Mencoba {active_url} …")
+
     llm = ChatOpenAI(
-        model=LLM_MODEL,
-        base_url=LLM_BASE_URL,
+        model=active_model,
+        base_url=active_url,
         api_key="EMPTY",
         temperature=0,
         max_tokens=512,
+        timeout=60,
+        max_retries=2,
     )
 
     # Use local SentenceTransformer on CPU to avoid CUDA VRAM collision with vLLM
