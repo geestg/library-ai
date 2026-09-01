@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 # ==============================================================================
 # DELBOT ALL-IN-ONE MASTER LAUNCHER (MODELS + BACKEND + FRONTEND)
 # ==============================================================================
@@ -12,29 +12,23 @@ if [ -d "/workspace/vllm_env" ]; then
     source /workspace/vllm_env/bin/activate
 fi
 
-# 2. Nyalakan Model SLM (Qwen3-4B di Port 11436) jika belum jalan
+# 2. Nyalakan Model LLM (Llama 3.3 70B di Port 11436) jika belum jalan
 if curl -s http://127.0.0.1:11436/v1/models > /dev/null 2>&1; then
-    echo "✅ [1/4] Model SLM (Port 11436) SUDAH AKTIF."
+    echo "✅ [1/4] Model Llama 3.3 70B (Port 11436) SUDAH AKTIF."
 else
-    echo "⚡ [1/4] Menyalakan Model SLM (Port 11436: Qwen3-4B)..."
+    echo "⚡ [1/4] Menyalakan Model Llama 3.3 70B (Port 11436)..."
     nohup python3 -m vllm.entrypoints.openai.api_server \
-        --model /workspace/Qwen3-4B \
+        --model meta-llama/Llama-3.3-70B-Instruct \
         --host 0.0.0.0 \
         --port 11436 \
-        --gpu-memory-utilization 0.15 > /workspace/slm_11436.log 2>&1 &
+        --gpu-memory-utilization 0.70 > /workspace/slm_11436.log 2>&1 &
 fi
 
-# 3. Nyalakan Model LLM MoE (Qwen3-30B di Port 11435) jika belum jalan
+# 3. Nyalakan Model LLM MoE Sekunder di Port 11435 jika ada
 if curl -s http://127.0.0.1:11435/v1/models > /dev/null 2>&1; then
-    echo "✅ [2/4] Model MoE LLM (Port 11435) SUDAH AKTIF."
+    echo "✅ [2/4] Model MoE Sekunder (Port 11435) SUDAH AKTIF."
 else
-    echo "🧠 [2/4] Menyalakan Model MoE LLM (Port 11435: Qwen3-30B-MoE)..."
-    nohup python3 -m vllm.entrypoints.openai.api_server \
-        --model /workspace/Qwen3-30B-MoE \
-        --host 0.0.0.0 \
-        --port 11435 \
-        --gpu-memory-utilization 0.40 \
-        --max-model-len 32768 > /workspace/llm_11435.log 2>&1 &
+    echo "ℹ️ [2/4] Port 11435 (MoE Sekunder) tidak aktif. DELBot fokus menggunakan Llama 3.3 70B di Port 11436."
 fi
 
 # 4. Nyalakan Master Backend (Port 8000)
@@ -55,8 +49,8 @@ sleep 3
 
 echo "=========================================================="
 echo "🎉 SELURUH SISTEM SELESAI DINYALAKAN OTOMATIS!"
-echo "• Model SLM (Sapaan) : Port 11436"
-echo "• Model MoE (Skripsi): Port 11435"
-echo "• Master Backend API : Port 8000"
-echo "• Frontend Web (UI)  : Port 5173"
+echo "• Primary LLM (Llama 3.3 70B): Port 11436"
+echo "• Master Backend API          : Port 8000"
+echo "• Frontend Web (UI)           : Port 5173"
 echo "=========================================================="
+
