@@ -187,10 +187,10 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
     })
 
     from ragas.run_config import RunConfig
-    print(f"\n🔬 Menjalankan RAGAS evaluate() pada {len(dataset)} pertanyaan (max_workers=2) …")
+    print(f"\n🔬 Menjalankan RAGAS evaluate() Iterasi 2 (Reference-Free RAG Triad, max_workers=2) …")
     result = evaluate(
         dataset   = hf_dataset,
-        metrics   = [faithfulness, answer_relevancy, context_precision, context_recall],
+        metrics   = [faithfulness, answer_relevancy, context_precision],
         llm       = ragas_llm,
         embeddings = ragas_embeddings,
         run_config = RunConfig(max_workers=2, timeout=120),
