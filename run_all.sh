@@ -57,7 +57,7 @@ else
         --model meta-llama/Llama-3.3-70B-Instruct \
         --host 0.0.0.0 \
         --port 11436 \
-        --gpu-memory-utilization 0.85 > /workspace/slm_11436.log 2>&1 &
+        --gpu-memory-utilization 0.70 > /workspace/slm_11436.log 2>&1 &
 fi
 
 # 3. Info port 11435 (Qwen - tidak aktif)
