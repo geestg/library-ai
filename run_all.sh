@@ -48,23 +48,24 @@ else
 fi
 
 
-# 2. Nyalakan Model LLM (Llama 3.3 70B di Port 11436) jika belum jalan
-if curl -s http://127.0.0.1:11436/v1/models > /dev/null 2>&1; then
-    echo "✅ [1/4] Model Llama 3.3 70B (Port 11436) SUDAH AKTIF."
+# 2. Nyalakan Model LLM (Qwen3-4B di Port 11435) jika belum jalan
+if curl -s http://127.0.0.1:11435/v1/models > /dev/null 2>&1; then
+    echo "✅ [1/4] Model Qwen3-4B (Port 11435) SUDAH AKTIF."
 else
-    echo "⚡ [1/4] Menyalakan Model Llama 3.3 70B (Port 11436)..."
+    echo "⚡ [1/4] Menyalakan Model Qwen3-4B (Port 11435)..."
     nohup python3 -m vllm.entrypoints.openai.api_server \
-        --model meta-llama/Llama-3.3-70B-Instruct \
+        --model /workspace/Qwen3-4B \
+        --served-model-name Qwen/Qwen3-4B \
         --host 0.0.0.0 \
-        --port 11436 \
-        --gpu-memory-utilization 0.70 > /workspace/slm_11436.log 2>&1 &
+        --port 11435 \
+        --gpu-memory-utilization 0.40 > /workspace/slm_11435.log 2>&1 &
 fi
 
-# 3. Info port 11435 (Qwen - tidak aktif)
-if curl -s http://127.0.0.1:11435/v1/models > /dev/null 2>&1; then
-    echo "✅ [2/4] Model Qwen3-30B-MoE (Port 11435) SUDAH AKTIF."
+# 3. Info port 11436 (Llama - tidak aktif)
+if curl -s http://127.0.0.1:11436/v1/models > /dev/null 2>&1; then
+    echo "✅ [2/4] Model Llama 3.3 70B (Port 11436) SUDAH AKTIF."
 else
-    echo "ℹ️ [2/4] Port 11435 (Qwen3-30B-MoE) tidak aktif. DELBot fokus menggunakan Llama 3.3 70B di Port 11436."
+    echo "ℹ️ [2/4] Port 11436 (Llama 3.3 70B) tidak aktif. DELBot fokus menggunakan Qwen3-4B di Port 11435."
 fi
 
 # 4. Nyalakan Master Backend (Port 8000)
@@ -85,7 +86,7 @@ sleep 3
 
 echo "=========================================================="
 echo "🎉 SELURUH SISTEM SELESAI DINYALAKAN OTOMATIS!"
-echo "• Primary LLM (Llama 3.3 70B)  : Port 11436"
+echo "• Primary LLM (Qwen3-4B)        : Port 11435"
 echo "• Qdrant Web UI Dashboard       : Port 6333 (http://localhost:6333/dashboard)"
 echo "• Master Backend API            : Port 8000"
 echo "• Frontend Web (UI)             : Port 5173"
