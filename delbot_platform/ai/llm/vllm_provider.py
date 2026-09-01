@@ -63,7 +63,11 @@ class VLLMProvider(BaseLLMProvider):
                 max_tokens=max_tokens or self.DEFAULT_MAX_TOKENS,
                 timeout=120.0
             )
-            return response.choices[0].message.content
+            res_text = response.choices[0].message.content or ""
+            # Strip internal reasoning <think>...</think> tags if model is Qwen reasoning
+            import re
+            cleaned_text = re.sub(r'<think>.*?</think>', '', res_text, flags=re.DOTALL).strip()
+            return cleaned_text or res_text
         except Exception as e:
             print(f"[{self.name} ERROR] Failed to connect to model server: {e}")
             # Graceful fallback: return a helpful message if SSH Tunnel is not active
