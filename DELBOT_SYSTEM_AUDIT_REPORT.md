@@ -115,3 +115,55 @@ Untuk pelaksanaan pengujian langsung oleh pengguna:
 
 ### 🏆 KESIMPULAN AUDIT AKHIR
 Sistem **DELBot IT Del AI Platform** telah dinyatakan **LULUS AUDIT KELAYAKAN TEKNIS (98.5%)** dengan data yang 100% otentik, infrastruktur yang stabil, dan siap untuk dilakukan pengujian fungsional penuh! 🌟🎓✨
+
+---
+
+## 🔬 5. EVALUASI KUANTITATIF PIPELINE RAG (RAGAS)
+
+Evaluasi dilakukan menggunakan framework **RAGAS (Retrieval Augmented Generation Assessment)** pada **30 pertanyaan uji** yang mencakup 3 domain utama DELBot.
+
+> ⚠️ *Jalankan `python3 scripts/run_ragas_eval.py` di server untuk mengisi tabel skor aktual di bawah ini. Hasil akan otomatis tersimpan di `datasets/ragas_report.md`.*
+
+### 5.1 Metrik Evaluasi
+
+| Metrik | Definisi | Target |
+|--------|----------|--------|
+| **Faithfulness** | Persentase klaim jawaban yang dapat diverifikasi dari konteks yang di-retrieve | ≥ 0.80 |
+| **Answer Relevance** | Seberapa relevan jawaban terhadap pertanyaan pengguna | ≥ 0.80 |
+| **Context Precision** | Seberapa presisi dokumen yang di-retrieve (rasio dokumen relevan) | ≥ 0.75 |
+| **Context Recall** | Seberapa lengkap ground truth tercakup dalam retrieved contexts | ≥ 0.75 |
+
+### 5.2 Dataset Evaluasi
+
+| Atribut | Detail |
+|---------|--------|
+| **Total test case** | 30 pasang Q&A |
+| **Domain Katalog Buku** | 10 pertanyaan rekomendasi & pencarian buku |
+| **Domain Skripsi & Riset** | 10 pertanyaan ide penelitian & referensi TA |
+| **Domain FAQ Perpustakaan** | 10 pertanyaan SOP, jam, denda, prosedur |
+| **Ground truth** | Disusun berdasarkan data resmi Perpustakaan IT Del |
+| **File dataset** | `datasets/ragas_eval_dataset.json` |
+
+### 5.3 Pipeline Evaluasi
+
+```
+Pertanyaan → DELBot /api/chat → (Answer + Retrieved Contexts)
+         → RAGAS evaluate() [LLM Judge: Llama 3.3 70B]
+         → Faithfulness | Answer Relevance | Context Precision | Context Recall
+         → datasets/ragas_report.md
+```
+
+### 5.4 Cara Menjalankan Evaluasi
+
+```bash
+# Di server SSH (/workspace/library-ai)
+pip install ragas langchain-openai aiohttp datasets
+
+python3 scripts/run_ragas_eval.py
+
+# Hasil tersimpan di:
+# datasets/ragas_results.json  — skor mentah per pertanyaan
+# datasets/ragas_report.md     — laporan lengkap siap dikutip
+```
+
+---
