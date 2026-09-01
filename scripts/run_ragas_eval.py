@@ -28,6 +28,17 @@ import sys
 import os
 from datetime import datetime
 from pathlib import Path
+from unittest.mock import MagicMock
+
+# Neutralize optional community modules that cause import errors in ragas/langchain_community
+for _mod in [
+    "langchain_community.chat_models.vertexai",
+    "langchain_community.embeddings.vertexai",
+    "langchain_community.llms.vertexai",
+    "google.cloud.aiplatform",
+]:
+    sys.modules.setdefault(_mod, MagicMock())
+
 
 # ------------------------------------
 # Paths
