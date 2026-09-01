@@ -172,14 +172,36 @@ def run_ragas(dataset: list[dict], answers: list[str], contexts: list[list[str]]
     else:
         print(f"  ⚠️  Perhatian: Tidak terhubung ke vLLM di port 11436/11435. Mencoba {active_url} …")
 
-    llm = ChatOpenAI(
+    import re
+    from langchain_core.messages import AIMessage
+
+    class CleanChatOpenAI(ChatOpenAI):
+        def _generate(self, messages, stop=None, run_manager=None, **kwargs):
+            result = super()._generate(messages, stop=stop, run_manager=run_manager, **kwargs)
+            for gen in result.generations:
+                if hasattr(gen, "message") and isinstance(gen.message, AIMessage):
+                    text = gen.message.content or ""
+                    cleaned = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+                    gen.message.content = cleaned or text
+            return result
+
+        async def _agenerate(self, messages, stop=None, run_manager=None, **kwargs):
+            result = await super()._agenerate(messages, stop=stop, run_manager=run_manager, **kwargs)
+            for gen in result.generations:
+                if hasattr(gen, "message") and isinstance(gen.message, AIMessage):
+                    text = gen.message.content or ""
+                    cleaned = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+                    gen.message.content = cleaned or text
+            return result
+
+    llm = CleanChatOpenAI(
         model=active_model,
         base_url=active_url,
         api_key="EMPTY",
         temperature=0,
-        max_tokens=512,
-        timeout=60,
-        max_retries=2,
+        max_tokens=1024,
+        timeout=120,
+        max_retries=3,
     )
 
     # Use local SentenceTransformer on CPU to avoid CUDA VRAM collision with vLLM
