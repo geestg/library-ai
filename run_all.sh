@@ -13,10 +13,12 @@ if [ -d "/workspace/vllm_env" ]; then
 fi
 
 # 1b. Nyalakan Standalone Qdrant Server (Port 6333 + Web UI Dashboard)
-if curl -s http://127.0.0.1:6333/dashboard > /dev/null 2>&1 || curl -s http://127.0.0.1:6333/collections > /dev/null 2>&1; then
+if curl -s http://127.0.0.1:6333/collections > /dev/null 2>&1; then
     echo "✅ [QDRANT] Standalone Qdrant Server & Web UI (Port 6333) SUDAH AKTIF."
 else
     echo "⚡ [QDRANT] Menyalakan Standalone Qdrant Server & Web UI Dashboard (Port 6333)..."
+
+    # Download biner Qdrant jika belum ada
     if [ ! -f "/workspace/qdrant" ]; then
         echo "📦 Mengunduh biner Qdrant Standalone..."
         curl -L -s -o /workspace/qdrant.tar.gz https://github.com/qdrant/qdrant/releases/download/v1.7.4/qdrant-x86_64-unknown-linux-gnu.tar.gz
@@ -24,11 +26,25 @@ else
         rm -f /workspace/qdrant.tar.gz
         chmod +x /workspace/qdrant
     fi
-    # Perbaiki direktori storage jika ada sisa embedded qdrant yang tidak lengkap
-    mkdir -p /workspace/library-ai/qdrant_storage/collections/library_books/0/segments
-    mkdir -p /workspace/library-ai/qdrant_storage/collections/user_documents/0/segments
-    QDRANT__STORAGE__STORAGE_PATH="/workspace/library-ai/qdrant_storage" nohup /workspace/qdrant > /workspace/qdrant_server.log 2>&1 &
-    sleep 2
+
+    # Download Qdrant Web UI static files jika belum ada (dibutuhkan untuk /dashboard)
+    if [ ! -d "/workspace/static" ] || [ -z "$(ls -A /workspace/static 2>/dev/null)" ]; then
+        echo "🌐 Mengunduh Qdrant Web UI Dashboard (file statis)..."
+        mkdir -p /workspace/static
+        curl -L -s -o /tmp/qdrant-web-ui.tar.gz \
+            https://github.com/qdrant/qdrant-web-ui/releases/download/v0.1.33/dist-qdrant-web-ui.tar.gz
+        tar -xzf /tmp/qdrant-web-ui.tar.gz -C /workspace/static/ --strip-components=1
+        rm -f /tmp/qdrant-web-ui.tar.gz
+        echo "✅ Web UI Dashboard berhasil diunduh."
+    fi
+
+    # Jalankan dari /workspace/ agar binary menemukan folder ./static
+    mkdir -p /workspace/library-ai/qdrant_storage
+    cd /workspace
+    QDRANT__STORAGE__STORAGE_PATH="/workspace/library-ai/qdrant_storage" \
+        nohup ./qdrant > /workspace/qdrant_server.log 2>&1 &
+    sleep 3
+    cd - > /dev/null
 fi
 
 
