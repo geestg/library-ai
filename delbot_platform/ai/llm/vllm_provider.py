@@ -24,6 +24,7 @@ class VLLMProvider(BaseLLMProvider):
             actual_base_url = actual_base_url.replace("host.docker.internal", "127.0.0.1")
 
         print(f"[{name}] Initializing provider -> {actual_base_url}")
+        self.base_url = actual_base_url
 
         self.client = OpenAI(
             api_key=actual_api_key,
