@@ -24,9 +24,13 @@ else
         rm -f /workspace/qdrant.tar.gz
         chmod +x /workspace/qdrant
     fi
+    # Perbaiki direktori storage jika ada sisa embedded qdrant yang tidak lengkap
+    mkdir -p /workspace/library-ai/qdrant_storage/collections/library_books/0/segments
+    mkdir -p /workspace/library-ai/qdrant_storage/collections/user_documents/0/segments
     QDRANT__STORAGE__STORAGE_PATH="/workspace/library-ai/qdrant_storage" nohup /workspace/qdrant > /workspace/qdrant_server.log 2>&1 &
     sleep 2
 fi
+
 
 # 2. Nyalakan Model LLM (Llama 3.3 70B di Port 11436) jika belum jalan
 
