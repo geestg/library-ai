@@ -398,7 +398,7 @@ def main():
     if not DATASET_PATH.exists():
         print(f"❌ Dataset tidak ditemukan: {DATASET_PATH}")
         sys.exit(1)
-    with open(DATASET_PATH, "r", encoding="utf-8") as f:
+    with open(DATASET_PATH, "r", encoding="utf-8-sig") as f:
         dataset = json.load(f)
     print(f"✅ Dataset dimuat: {len(dataset)} pertanyaan dari {DATASET_PATH.name}")
 
