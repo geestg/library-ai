@@ -15,10 +15,17 @@ class QdrantStorage:
 
 
     def __init__(self):
+        import os
+        from delbot_platform.core.config import settings
+        host = os.environ.get("QDRANT_HOST", settings.QDRANT_HOST)
+        port = int(os.environ.get("QDRANT_PORT", settings.QDRANT_PORT))
+        is_in_docker = os.path.exists("/.dockerenv") or os.environ.get("DOCKER_CONTAINER") == "1"
+        if not is_in_docker and "host.docker.internal" in host:
+            host = "127.0.0.1"
 
         self.client = QdrantClient(
-            host="127.0.0.1",
-            port=6333,
+            host=host,
+            port=port,
         )
 
 
