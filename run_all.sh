@@ -12,7 +12,24 @@ if [ -d "/workspace/vllm_env" ]; then
     source /workspace/vllm_env/bin/activate
 fi
 
+# 1b. Nyalakan Standalone Qdrant Server (Port 6333 + Web UI Dashboard)
+if curl -s http://127.0.0.1:6333/dashboard > /dev/null 2>&1 || curl -s http://127.0.0.1:6333/collections > /dev/null 2>&1; then
+    echo "✅ [QDRANT] Standalone Qdrant Server & Web UI (Port 6333) SUDAH AKTIF."
+else
+    echo "⚡ [QDRANT] Menyalakan Standalone Qdrant Server & Web UI Dashboard (Port 6333)..."
+    if [ ! -f "/workspace/qdrant" ]; then
+        echo "📦 Mengunduh biner Qdrant Standalone..."
+        curl -L -s -o /workspace/qdrant.tar.gz https://github.com/qdrant/qdrant/releases/download/v1.7.4/qdrant-x86_64-unknown-linux-gnu.tar.gz
+        tar -xzf /workspace/qdrant.tar.gz -C /workspace/
+        rm -f /workspace/qdrant.tar.gz
+        chmod +x /workspace/qdrant
+    fi
+    QDRANT__STORAGE__STORAGE_PATH="/workspace/library-ai/qdrant_storage" nohup /workspace/qdrant > /workspace/qdrant_server.log 2>&1 &
+    sleep 2
+fi
+
 # 2. Nyalakan Model LLM (Llama 3.3 70B di Port 11436) jika belum jalan
+
 if curl -s http://127.0.0.1:11436/v1/models > /dev/null 2>&1; then
     echo "✅ [1/4] Model Llama 3.3 70B (Port 11436) SUDAH AKTIF."
 else
@@ -50,7 +67,9 @@ sleep 3
 echo "=========================================================="
 echo "🎉 SELURUH SISTEM SELESAI DINYALAKAN OTOMATIS!"
 echo "• Primary LLM (Llama 3.3 70B): Port 11436"
+echo "• Qdrant Web UI Dashboard     : Port 6333 (http://localhost:6333/dashboard)"
 echo "• Master Backend API          : Port 8000"
 echo "• Frontend Web (UI)           : Port 5173"
 echo "=========================================================="
+
 
