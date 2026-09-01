@@ -48,17 +48,18 @@ else
 fi
 
 
-# 2. Nyalakan Model LLM (Qwen3-4B di Port 11435) jika belum jalan
+# 2. Nyalakan Model LLM (Qwen3-30B-MoE di Port 11435) jika belum jalan
 if curl -s http://127.0.0.1:11435/v1/models > /dev/null 2>&1; then
-    echo "✅ [1/4] Model Qwen3-4B (Port 11435) SUDAH AKTIF."
+    echo "✅ [1/4] Model Qwen3-30B-MoE (Port 11435) SUDAH AKTIF."
 else
-    echo "⚡ [1/4] Menyalakan Model Qwen3-4B (Port 11435)..."
+    echo "⚡ [1/4] Menyalakan Model Qwen3-30B-MoE (Port 11435)..."
     nohup python3 -m vllm.entrypoints.openai.api_server \
-        --model /workspace/Qwen3-4B \
-        --served-model-name Qwen/Qwen3-4B \
+        --model /workspace/Qwen3-30B-MoE \
+        --served-model-name Qwen/Qwen3-30B-A3B \
+        --trust-remote-code \
         --host 0.0.0.0 \
         --port 11435 \
-        --gpu-memory-utilization 0.40 > /workspace/slm_11435.log 2>&1 &
+        --gpu-memory-utilization 0.50 > /workspace/slm_11435.log 2>&1 &
 fi
 
 # 3. Info port 11436 (Llama - tidak aktif)
